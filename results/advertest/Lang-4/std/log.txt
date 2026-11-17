@@ -1,0 +1,2 @@
+Cannot open log file /Users/bitu/Documents/DTU/Mtech Research project/results/advertest/Lang-4/std/tmp/run_coverage.pl_56578_1794908115/run_coverage.pl.log: No such file or directory at /Users/bitu/mtech-tools/defects4j-advertest/framework/core/Log.pm line 69.
+Cannot open log file /Users/bitu/Documents/DTU/Mtech Research project/results/advertest/Lang-4/std/tmp/run_mutation.pl_56587_1794908116/run_mutation.pl.log: No such file or directory at /Users/bitu/mtech-tools/defects4j-advertest/framework/core/Log.pm line 69.

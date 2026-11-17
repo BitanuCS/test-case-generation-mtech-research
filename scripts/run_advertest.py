@@ -38,6 +38,7 @@ from our_framework.pipeline import RESULTS_DIR  # noqa: E402
 ADV = TOOLS_DIR / "advertest"
 ADV_D4J = TOOLS_DIR / "defects4j-advertest"
 ADV_BIN = ADV_D4J / "framework" / "bin"
+ADV_UTIL = ADV_D4J / "framework" / "util"     # fix_test_suite.pl lives here
 PY = ADV / ".venv" / "bin" / "python"
 OUT = RESULTS_DIR / "advertest"
 
@@ -66,49 +67,101 @@ def checkout(project, bid, log):
 
 
 def evaluate(project, bid, fixed_wd, out, log):
-    """Same protocol as for EvoSuite: drop tests failing on fixed, then run on buggy."""
+    """Pack AdverTest's tests (kept as out/advertest_tests.tar.bz2), then score them."""
     gentest = fixed_wd / "gentest"
     if not gentest.exists() or not list(gentest.rglob("*.java")):
         return {"detected": False, "error": "AdverTest produced no test file"}
-    suite = out / "suite"
-    shutil.rmtree(suite, ignore_errors=True)
-    suite.mkdir(parents=True)
-    arch = suite / f"{project}-{bid}f-advertest.1.tar.bz2"
-    with tarfile.open(arch, "w:bz2") as tar:              # package folders at the root (Defects4J format)
+    with tarfile.open(out / "advertest_tests.tar.bz2", "w:bz2") as tar:   # package folders at the root
         for p in gentest.iterdir():
             tar.add(p, arcname=p.name)
-    shutil.copy(arch, out / "advertest_tests.tar.bz2")      # keep the raw tests
-    sh([str(ADV_BIN / "fix_test_suite.pl"), "-p", project, "-d", str(suite), "-v", f"{bid}f"], log)
+    return score(project, bid, out, log)
+
+
+def repack(src, dst, tmp):
+    """Put every test file in the folder its `package` line names (AdverTest uses
+    `package gentest.org...`), so Defects4J can find the compiled classes."""
+    import re
+    shutil.rmtree(tmp, ignore_errors=True)
+    tmp.mkdir(parents=True)
+    with tarfile.open(src) as tar:
+        tar.extractall(tmp / "raw", filter="data")
+    with tarfile.open(dst, "w:bz2") as out:
+        for f in (tmp / "raw").rglob("*.java"):
+            if f.name.startswith("._"):
+                continue
+            m = re.search(r"^\s*package\s+([\w.]+)\s*;", f.read_text(errors="replace"), re.M)
+            rel = (m.group(1).replace(".", "/") + "/" if m else "") + f.name
+            out.add(f, arcname=rel)
+    shutil.rmtree(tmp, ignore_errors=True)
+
+
+def score(project, bid, out, log):
+    """Same protocol as for EvoSuite: drop tests failing on fixed, then run on buggy.
+    Works in TOOLS_DIR: the Defects4J scripts break on paths with spaces (our project folder has some)."""
+    work = TOOLS_DIR / "advertest_out" / f"{project}-{bid}"
+    shutil.rmtree(work, ignore_errors=True)
+    suite = work / "suite"
+    suite.mkdir(parents=True)
+    arch = suite / f"{project}-{bid}f-advertest.1.tar.bz2"
+    repack(out / "advertest_tests.tar.bz2", arch, work / "unpack")
+    sh([str(ADV_UTIL / "fix_test_suite.pl"), "-p", project, "-d", str(suite), "-v", f"{bid}f"], log)
     res = {"detected": False}
     if not arch.exists():
         res["error"] = "no test survived on the fixed version"
         return res
-    det_dir = out / "detect"
-    shutil.rmtree(det_dir, ignore_errors=True)
+    det_dir = work / "detect"
     sh([str(ADV_BIN / "run_bug_detection.pl"), "-p", project, "-d", str(suite), "-o", str(det_dir)], log)
     det = det_dir / "bug_detection"
-    if det.exists():
-        rows = list(csv.DictReader(det.open()))
-        res["detection_rows"] = rows
-        res["detected"] = any((r.get("num_trigger") or "0").isdigit() and int(r["num_trigger"]) > 0
-                              for r in rows)
-    res["standard_metrics"] = standard_metrics.measure_archive(project, suite, out / "std", bin_dir=ADV_BIN)
-    shutil.rmtree(out / "std" / "tmp", ignore_errors=True)
+    if not det.exists():
+        res["error"] = "bug detection did not run (see log.txt)"
+        return res
+    rows = list(csv.DictReader(det.open()))
+    res["detection_rows"] = rows
+    res["detected"] = any((r.get("num_trigger") or "0").isdigit() and int(r["num_trigger"]) > 0 for r in rows)
+    res["standard_metrics"] = standard_metrics.measure_archive(project, suite, work / "std", bin_dir=ADV_BIN)
+    shutil.rmtree(work, ignore_errors=True)
     return res
+
+
+def rescore(bugs):
+    """Score again from the saved tests (no AI calls). Used after fixing the scoring step."""
+    for bug in bugs:
+        out = OUT / bug
+        rep_f, arch = out / "report.json", out / "advertest_tests.tar.bz2"
+        if not (rep_f.exists() and arch.exists()):
+            continue
+        project, bid = bug.rsplit("-", 1)
+        rep = json.loads(rep_f.read_text())
+        for k in ("detected", "error", "detection_rows", "standard_metrics"):
+            rep.pop(k, None)
+        rep.update(score(project, bid, out, out / "log.txt"))
+        rep["classes"] = [{"status": "ok" if "error" not in rep else "error", "detected": rep["detected"]}]
+        rep_f.write_text(json.dumps(rep, indent=2))
+        print(f"--> {bug}: {'DETECTED' if rep['detected'] else 'missed'}"
+              f"{'  (' + rep['error'] + ')' if 'error' in rep else ''}", flush=True)
 
 
 def one(bug):
     project, bid = bug.rsplit("-", 1)
     out = OUT / bug
-    shutil.rmtree(out, ignore_errors=True)
-    out.mkdir(parents=True)
-    log = out / "log.txt"
-    t = time.time()
-    fixed_wd = checkout(project, bid, log)
-    shutil.rmtree(fixed_wd / "gentest", ignore_errors=True)
     stats_file = out / "advertest_stats.json"
-    code = sh([str(PY), "-u", "run_one.py", project, bid, str(stats_file)], log, timeout=4 * 3600)
-    stats = json.loads(stats_file.read_text()) if stats_file.exists() else {}
+    fixed_wd = ADV / "defects4j_fixed" / project / f"{project}_{bid}_fixed"
+    t = time.time()
+    old = json.loads(stats_file.read_text()) if stats_file.exists() else {}
+    if (old.get("calls") and old.get("result") not in (None, "error") and not old.get("quota_exhausted")
+            and (fixed_wd / "gentest").exists()):
+        # AdverTest already finished this bug (only our scoring step failed): score it again, no AI calls
+        print("   AdverTest part already done; scoring only", flush=True)
+        log = out / "log.txt"
+        stats, code = old, 0
+    else:
+        shutil.rmtree(out, ignore_errors=True)
+        out.mkdir(parents=True)
+        log = out / "log.txt"
+        fixed_wd = checkout(project, bid, log)
+        shutil.rmtree(fixed_wd / "gentest", ignore_errors=True)
+        code = sh([str(PY), "-u", "run_one.py", project, bid, str(stats_file)], log, timeout=4 * 3600)
+        stats = json.loads(stats_file.read_text()) if stats_file.exists() else {}
     if code == 3 or stats.get("quota_exhausted"):
         shutil.rmtree(out, ignore_errors=True)            # incomplete: redo this bug next time
         return "quota"
@@ -127,7 +180,6 @@ def one(bug):
     report["seconds"] = round(time.time() - t, 1)
     report["classes"] = [{"status": "ok" if "error" not in report else "error", "detected": report["detected"]}]
     (out / "report.json").write_text(json.dumps(report, indent=2))
-    shutil.rmtree(out / "suite", ignore_errors=True)
     for d in ("defects4j_fixed", "defects4j_bug"):         # free disk space
         shutil.rmtree(ADV / d / project / f"{project}_{bid}_{'fixed' if d.endswith('fixed') else 'bug'}",
                       ignore_errors=True)
@@ -138,8 +190,12 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("bug_file")
     ap.add_argument("--max-bugs", type=int, default=None)
+    ap.add_argument("--rescore", action="store_true", help="score saved tests again, no AI calls")
     args = ap.parse_args()
     bugs = Path(args.bug_file).read_text().split()
+    if args.rescore:
+        rescore(bugs)
+        sys.exit(0)
     todo = [b for b in bugs if not (OUT / b / "report.json").exists()]
     print(f"{len(bugs)} bugs, {len(todo)} to go  [advertest]", flush=True)
     for i, b in enumerate(todo):

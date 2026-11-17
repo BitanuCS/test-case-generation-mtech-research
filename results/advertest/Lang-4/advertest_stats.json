@@ -1,0 +1,11 @@
+{
+  "bug": "Lang-4",
+  "model": "gemini-3.5-flash-lite",
+  "calls": 26,
+  "tokens_in": 35359,
+  "tokens_out": 12979,
+  "errors": 0,
+  "result": 0,
+  "quota_exhausted": false,
+  "seconds": 1502.7
+}

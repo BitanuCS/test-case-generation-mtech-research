@@ -1,0 +1,11 @@
+{
+  "bug": "Lang-9",
+  "model": "gemini-3.5-flash-lite",
+  "calls": 96,
+  "tokens_in": 200657,
+  "tokens_out": 56930,
+  "errors": 12,
+  "result": 1,
+  "quota_exhausted": false,
+  "seconds": 3155.1
+}

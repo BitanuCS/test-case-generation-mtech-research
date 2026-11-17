@@ -163,6 +163,17 @@ It also writes summary.md and per_bug.csv.
 - **Coverage is not detection:** ours missed 6 bugs at 100% buggy-method coverage (Cli-7, Jsoup-18, Lang-4, Math-2, Math-12, Time-5); EvoSuite missed 9.
 - **Observation:** the last 12 bugs (Jsoup, Closure, Jackson) were much harder (4/12). Closure-169 used 50 AI calls and still missed. Jsoup-18 finished in 41 s with 3 calls: check why the mutant step was so short.
 
+**AdverTest run started 17 Nov 14:36 IST** (`results/advertest_run.log`).
+- Lang-4: 26 AI calls and about 25 minutes (mostly mutant runs). Missed; AdverTest's own verdict also says missed. Class line coverage 100%, Major 71%.
+- **Scoring bugs found and fixed (our driver, not AdverTest):**
+  1. `fix_test_suite.pl` is in `framework/util`, not `bin`.
+  2. The Defects4J scripts break on paths with spaces, so scoring now runs in `mtech-tools/advertest_out/`.
+  3. AdverTest uses `package gentest.org...`, so the tests are repacked by their package line.
+- **To do after the run:** `python3 scripts/run_advertest.py bugs/dev40.txt --rescore`. Bugs finished by the process started at 15:05 still used the old scoring; re-scoring uses the saved tests and makes no AI calls.
+- **17 Nov, 17:40 IST:** Lang-9 detected (96 calls, 53 min). Lang-13 had used 172+ calls: Gemini's ``` code fences cause a compile-fix loop (196 "illegal character '`'" errors). The user chose to let it run until today's quota is used up, then add a fence-stripping step to our Gemini wrapper (AdverTest logic unchanged; a declared adaptation) and re-run every AdverTest bug so all are treated the same. Today's free quota is clearly above 220 calls (about 430 used so far).
+- **17 Nov, 20:00 IST:** stopped by the user's choice. Lang-19 had used 29 calls; its partial result was deleted. Done today (before the fence fix): Lang-4 missed (26 calls), Lang-9 detected (96), Lang-13 missed (172). **Next (18 Nov, after 13:30 IST):** add fence stripping to `run_one.py`'s CountingGemini, delete `results/advertest/*`, re-run `scripts/run_advertest.py bugs/dev40.txt`. Keep today's three bugs' call counts as the "before the fix" numbers.
+- **Why so many calls:** AdverTest repairs one test method per call, does 5 improve rounds with up to 3 retries each, and Gemini's ``` code fences cause extra compile errors.
+
 ## 6c. GitHub
 
 Public repository: https://github.com/BitanuCS/test-case-generation-mtech-research (first push on 17 Nov 2026). Not uploaded: `.env` (API keys), `cache/`, `Research/` PDFs, `old_results_backup.zip` and logs (see `.gitignore`). To update it: `git add -A && git commit -m "..." && git push`.

@@ -1,0 +1,46 @@
+{
+  "bug": "Lang-4",
+  "setting": "advertest",
+  "model": "gemini-3.5-flash-lite",
+  "advertest_verdict": 0,
+  "llm_calls": {
+    "fresh": 26,
+    "cached": 0,
+    "tokens_in": 35359,
+    "tokens_out": 12979
+  },
+  "seconds": 7.4,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ],
+  "detected": false,
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "4f",
+      "test_suite_source": "advertest",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 25,
+      "lines_covered": 25,
+      "branches_total": 14,
+      "branches_covered": 11,
+      "line": 1.0,
+      "branch": 0.786
+    },
+    "major_mutation": {
+      "generated": 41,
+      "covered": 41,
+      "killed": 29,
+      "score": 0.707
+    }
+  }
+}
