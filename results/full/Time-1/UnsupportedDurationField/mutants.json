@@ -1,0 +1,82 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 227,
+    "status": "killed",
+    "killed_by": [
+      "compareToWithAnotherUnsupportedFieldOfDifferentType",
+      "compareToWithAnotherUnsupportedFieldOfSameType",
+      "compareToWithNull",
+      "compareToWithSupportedDurationField"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "return 1;",
+    "description": "Wrong return value: return 1 instead of 0, breaking the Comparable contract for equal elements.",
+    "line": 227,
+    "status": "killed",
+    "killed_by": [
+      "compareToWithAnotherUnsupportedFieldOfDifferentType",
+      "compareToWithAnotherUnsupportedFieldOfSameType",
+      "compareToWithNull",
+      "compareToWithSupportedDurationField"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return -1;",
+    "description": "Wrong return value: return -1 instead of 0.",
+    "line": 227,
+    "status": "killed",
+    "killed_by": [
+      "compareToWithAnotherUnsupportedFieldOfDifferentType",
+      "compareToWithAnotherUnsupportedFieldOfSameType",
+      "compareToWithNull",
+      "compareToWithSupportedDurationField"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "public int compareTo(DurationField durationField) {\n          return durationField.compareTo(this);\n      }",
+    "description": "Throw NullPointerException when argument is null instead of handling it gracefully.",
+    "line": 226,
+    "status": "killed",
+    "killed_by": [
+      "compareToWithAnotherUnsupportedFieldOfDifferentType",
+      "compareToWithAnotherUnsupportedFieldOfSameType",
+      "compareToWithNull",
+      "compareToWithSupportedDurationField"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "return durationField == null ? 1 : Integer.compare(this.hashCode(), durationField.hashCode());",
+    "description": "Incorrect comparison logic using hashCode difference instead of returning zero.",
+    "line": 227,
+    "status": "killed",
+    "killed_by": [
+      "compareToWithAnotherUnsupportedFieldOfDifferentType",
+      "compareToWithNull",
+      "compareToWithSupportedDurationField"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "public int compareTo(DurationField durationField) {\n          if (durationField == null) { return -1; }\n          return 0;\n      }",
+    "description": "Incorrect comparison by checking if the argument is null and returning -1.",
+    "line": 226,
+    "status": "killed",
+    "killed_by": [
+      "compareToWithNull"
+    ]
+  }
+]

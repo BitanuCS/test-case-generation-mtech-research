@@ -1,0 +1,214 @@
+{
+  "bug": "Lang-19",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 32,
+      "lines_covered": 32,
+      "branches_total": 38,
+      "branches_covered": 31,
+      "line": 1.0,
+      "branch": 0.816
+    },
+    "major_mutation": {
+      "generated": 162,
+      "covered": 162,
+      "killed": 127,
+      "score": 0.784
+    }
+  },
+  "seconds": 115.6,
+  "llm_calls": {
+    "fresh": 6,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 6
+    },
+    "tokens_in": 13707,
+    "tokens_out": 5000
+  },
+  "classes": [
+    {
+      "bug": "Lang-19",
+      "class": "org.apache.commons.lang3.text.translate.NumericEntityUnescaper",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 11,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 12,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 17,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 20,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "translate"
+      ],
+      "generated_tests": 12,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 12,
+        "oracles": 24,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 12,
+        "compiles": true,
+        "compile_ok_tests": 12,
+        "passed": 11,
+        "assertion_failures": 1,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 0.917,
+        "oracle_correctness": 0.958
+      },
+      "valid_tests_before_challenge": 12,
+      "mutation": [
+        {
+          "all": {
+            "total": 30,
+            "valid": 29,
+            "killed": 24,
+            "score": 0.828
+          },
+          "rule": {
+            "total": 25,
+            "valid": 24,
+            "killed": 20,
+            "score": 0.833
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.816
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 29,
+            "killed": 26,
+            "score": 0.897
+          },
+          "rule": {
+            "total": 25,
+            "valid": 24,
+            "killed": 22,
+            "score": 0.917
+          },
+          "tests": 17,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.816
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 29,
+            "killed": 26,
+            "score": 0.897
+          },
+          "rule": {
+            "total": 25,
+            "valid": 24,
+            "killed": 22,
+            "score": 0.917
+          },
+          "tests": 20,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.816
+          }
+        }
+      ],
+      "final_tests": 20,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.973,
+          "branch": 0.816,
+          "line": 1.0,
+          "complexity": 0.714,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 0.816
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 41,
+          "killed": 34,
+          "score": 0.829
+        },
+        "focal": {
+          "generated": 41,
+          "killed": 34,
+          "score": 0.829
+        }
+      },
+      "final_oracles": 40,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "testTranslateDecimalEntityWithoutSemicolon",
+        "testTranslateExactBoundaryLengthThree",
+        "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+        "testTranslateHexEntityWithoutSemicolon",
+        "testTranslateIncompleteEntityJustAmpersandHash",
+        "testTranslateIncompleteHexEntityOnlyX"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "testTranslateExactBoundaryLengthThree": "java.lang.StringIndexOutOfBoundsException: String index out of range: 3\n    at org.apache.commons.lang3.text.translate.NumericEntityUnescaper_CandorTest.testTranslateExactBoundaryLengthThree(NumericEntityUnescaper_CandorTest.java:120)",
+        "testTranslateHexEntityWithoutSemicolon": "java.lang.StringIndexOutOfBoundsException: String index out of range: 5\n    at org.apache.commons.lang3.text.translate.NumericEntityUnescaper_CandorTest.testTranslateHexEntityWithoutSemicolon(NumericEntityUnescaper_CandorTest.java:96)",
+        "testTranslateIncompleteHexEntityOnlyX": "java.lang.StringIndexOutOfBoundsException: String index out of range: 3\n    at org.apache.commons.lang3.text.translate.NumericEntityUnescaper_CandorTest.testTranslateIncompleteHexEntityOnlyX(NumericEntityUnescaper_CandorTest.java:72)",
+        "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4": "java.lang.StringIndexOutOfBoundsException: String index out of range: 5\n    at org.apache.commons.lang3.text.translate.NumericEntityUnescaper_CandorTest.testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4(NumericEntityUnescaper_CandorTest.java:155)",
+        "testTranslateDecimalEntityWithoutSemicolon": "java.lang.StringIndexOutOfBoundsException: String index out of range: 4\n    at org.apache.commons.lang3.text.translate.NumericEntityUnescaper_CandorTest.testTranslateDecimalEntityWithoutSemicolon(NumericEntityUnescaper_CandorTest.java:39)",
+        "testTranslateIncompleteEntityJustAmpersandHash": "java.lang.StringIndexOutOfBoundsException: String index out of range: 2\n    at org.apache.commons.lang3.text.translate.NumericEntityUnescaper_CandorTest.testTranslateIncompleteEntityJustAmpersandHash(NumericEntityUnescaper_CandorTest.java:64)"
+      },
+      "status": "ok"
+    }
+  ]
+}

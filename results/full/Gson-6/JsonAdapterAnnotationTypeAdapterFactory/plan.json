@@ -1,0 +1,62 @@
+[
+  {
+    "method": "getTypeAdapter",
+    "name": "typeAdapterValueReturnsNullSafeAdapter",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for String, JsonAdapter annotation whose value is a concrete TypeAdapter class",
+    "expected": "Returns a null-safe TypeAdapter instance because the annotation value implements TypeAdapter and nullSafe() is invoked on it."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "typeAdapterFactoryValueReturnsNullSafeAdapter",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for String, JsonAdapter annotation whose value is a concrete TypeAdapterFactory class",
+    "expected": "Returns a null-safe TypeAdapter instance created via TypeAdapterFactory.create(gson, fieldType) followed by nullSafe()."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "invalidAnnotationValueThrowsIllegalArgumentException",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for String, JsonAdapter annotation whose value is a class neither implementing TypeAdapter nor TypeAdapterFactory",
+    "expected": "Throws IllegalArgumentException because the class specified in @JsonAdapter does not match either expected interface."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "typeAdapterReturningNullConstructsNullSafeNull",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for String, JsonAdapter annotation whose value is a TypeAdapter class whose constructor/instantiation results in a null adapter",
+    "expected": "Returns null because if typeAdapter is null, the nullSafe() method is bypassed and null is returned."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "typeAdapterFactoryReturningNullAdapterThrowsOrReturnsNull",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for String, JsonAdapter annotation whose value is a TypeAdapterFactory whose create method returns null",
+    "expected": "Returns null because if the factory produces a null adapter, nullSafe() is skipped."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "typeAdapterSubclassValueHandlesPolymorphism",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for Object, JsonAdapter annotation pointing to a custom subclass of TypeAdapter",
+    "expected": "Successfully constructs and returns the null-safe custom TypeAdapter matching the assignable check for TypeAdapter.class."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "typeAdapterFactorySubclassValueHandlesPolymorphism",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for Object, JsonAdapter annotation pointing to a custom subclass of TypeAdapterFactory",
+    "expected": "Successfully constructs the factory, calls create with gson and targetType, and returns the resulting null-safe TypeAdapter."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "primitiveFieldTypeWithTypeAdapterAnnotation",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for int, JsonAdapter annotation pointing to a TypeAdapter",
+    "expected": "Returns a null-safe TypeAdapter properly instantiated for the primitive TypeToken."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "genericFieldTypeWithTypeAdapterFactoryAnnotation",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for List<String>, JsonAdapter annotation pointing to a TypeAdapterFactory",
+    "expected": "Passes the generic TypeToken correctly to the TypeAdapterFactory.create method and returns the null-safe adapter."
+  },
+  {
+    "method": "getTypeAdapter",
+    "name": "abstractTypeAdapterClassThrowsInstantiationException",
+    "input": "ConstructorConstructor instance, Gson instance, TypeToken for String, JsonAdapter annotation pointing to an abstract class implementing TypeAdapter",
+    "expected": "Throws an exception (such as RuntimeException or InstantiationException via ConstructorConstructor) because abstract classes cannot be directly instantiated."
+  }
+]

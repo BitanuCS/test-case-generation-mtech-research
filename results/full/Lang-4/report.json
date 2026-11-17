@@ -1,0 +1,212 @@
+{
+  "bug": "Lang-4",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 25,
+      "lines_covered": 25,
+      "branches_total": 14,
+      "branches_covered": 14,
+      "line": 1.0,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 41,
+      "covered": 41,
+      "killed": 34,
+      "score": 0.829
+    }
+  },
+  "seconds": 121.8,
+  "llm_calls": {
+    "fresh": 6,
+    "cached": 2,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 6
+    },
+    "tokens_in": 16221,
+    "tokens_out": 11054
+  },
+  "classes": [
+    {
+      "bug": "Lang-4",
+      "class": "org.apache.commons.lang3.text.translate.LookupTranslator",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 9,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 9,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 9,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 13,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 18,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "translateIndexBeyondInputLength",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "LookupTranslator",
+        "translate"
+      ],
+      "generated_tests": 10,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 10,
+        "oracles": 19,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 10,
+        "compiles": true,
+        "compile_ok_tests": 10,
+        "passed": 9,
+        "assertion_failures": 1,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 0.9,
+        "oracle_correctness": 0.947
+      },
+      "valid_tests_before_challenge": 9,
+      "mutation": [
+        {
+          "all": {
+            "total": 23,
+            "valid": 23,
+            "killed": 16,
+            "score": 0.696
+          },
+          "rule": {
+            "total": 18,
+            "valid": 18,
+            "killed": 13,
+            "score": 0.722
+          },
+          "tests": 9,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.929
+          }
+        },
+        {
+          "all": {
+            "total": 23,
+            "valid": 23,
+            "killed": 16,
+            "score": 0.696
+          },
+          "rule": {
+            "total": 18,
+            "valid": 18,
+            "killed": 13,
+            "score": 0.722
+          },
+          "tests": 13,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 23,
+            "valid": 23,
+            "killed": 16,
+            "score": 0.696
+          },
+          "rule": {
+            "total": 18,
+            "valid": 18,
+            "killed": 13,
+            "score": 0.722
+          },
+          "tests": 18,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        }
+      ],
+      "final_tests": 18,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 1.0,
+          "branch": 1.0,
+          "line": 1.0,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 15,
+          "killed": 11,
+          "score": 0.733
+        },
+        "focal": {
+          "generated": 15,
+          "killed": 11,
+          "score": 0.733
+        }
+      },
+      "final_oracles": 34,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    }
+  ]
+}

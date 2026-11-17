@@ -1,0 +1,67 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 67,
+    "status": "killed",
+    "killed_by": [
+      "nullSafeHandlingAndExceptionMessageTest"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (typeAdapter != null) {\n        \n      }",
+    "description": "Omit calling nullSafe() on the constructed type adapter, leading to a failure to wrap adapters for null handling when expected.",
+    "line": 67,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": ".create(fieldType, gson);",
+    "description": "Swap the arguments passed to the TypeAdapterFactory.create() method, passing fieldType and gson instead of gson and fieldType.",
+    "line": 62,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (typeAdapter == null) {",
+    "description": "Invert the null check on typeAdapter, attempting to call nullSafe() only when it is null (which would cause a NullPointerException).",
+    "line": 67,
+    "status": "killed",
+    "killed_by": [
+      "nullSafeHandlingAndExceptionMessageTest"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "} else if (TypeAdapter.class.isAssignableFrom(value)) {",
+    "description": "Change the type adapter factory branch check to check if it's assignable from TypeAdapter.class instead of TypeAdapterFactory.class, causing factory logic errors.",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "genericFieldTypeWithTypeAdapterFactoryAnnotation",
+      "nullSafeHandlingAndExceptionMessageTest",
+      "typeAdapterFactorySubclassValueHandlesPolymorphism",
+      "typeAdapterFactoryValueReturnsNullSafeAdapter"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "throw new IllegalArgumentException(\n            \"Invalid @JsonAdapter value.\");",
+    "description": "Modify the fallback exception message string slightly, which breaks strict string matching if any test asserts on the exact exception message.",
+    "line": 64,
+    "status": "killed",
+    "killed_by": [
+      "nullSafeHandlingAndExceptionMessageTest"
+    ]
+  }
+]

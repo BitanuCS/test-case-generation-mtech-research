@@ -1,0 +1,74 @@
+[
+  {
+    "method": "equals",
+    "name": "testEqualsSelf",
+    "input": "emf vs itself (same instance)",
+    "expected": "Returns true because obj == this branch executes immediately."
+  },
+  {
+    "method": "equals",
+    "name": "testEqualsNull",
+    "input": "emf vs null",
+    "expected": "Returns false because obj == null check fails."
+  },
+  {
+    "method": "equals",
+    "name": "testEqualsDifferentClass",
+    "input": "emf vs an instance of MessageFormat or a subclass like OtherExtendedMessageFormat",
+    "expected": "Returns false because getClass() != obj.getClass() via ObjectUtils.notEqual."
+  },
+  {
+    "method": "equals",
+    "name": "testEqualsIdentical",
+    "input": "Two different ExtendedMessageFormat instances with the same pattern and same registry",
+    "expected": "Returns true because super.equals, class check, toPattern, and registry all match."
+  },
+  {
+    "method": "equals",
+    "name": "testEqualsDifferentPattern",
+    "input": "Two ExtendedMessageFormat instances with different patterns but same registry",
+    "expected": "Returns false because toPattern fields are not equal."
+  },
+  {
+    "method": "equals",
+    "name": "testEqualsDifferentRegistry",
+    "input": "Two ExtendedMessageFormat instances with same pattern but different registries (e.g., one null, one populated)",
+    "expected": "Returns false because registry fields are not equal."
+  },
+  {
+    "method": "equals",
+    "name": "testEqualsSuperEqualsDiff",
+    "input": "Two ExtendedMessageFormat instances where super.equals returns false (e.g., different locales or base message configurations)",
+    "expected": "Returns false because !super.equals(obj) check fails early."
+  },
+  {
+    "method": "hashCode",
+    "name": "hashCodeConsistency",
+    "input": "Calling hashCode() multiple times on the same ExtendedMessageFormat instance",
+    "expected": "Returns the exact same integer hash code value consistently."
+  },
+  {
+    "method": "hashCode",
+    "name": "hashCodeEqualityCondition",
+    "input": "Two equal ExtendedMessageFormat instances (tested via equals() == true)",
+    "expected": "Both instances return identical hash code values satisfying the equals/hashCode contract."
+  },
+  {
+    "method": "hashCode",
+    "name": "hashCodeWithNullRegistryAndPattern",
+    "input": "ExtendedMessageFormat with null pattern / default state and null registry",
+    "expected": "Computes hash code successfully using ObjectUtils.hashCode for null fields combined with HASH_SEED."
+  },
+  {
+    "method": "equals",
+    "name": "testEqualsNullPatterns",
+    "input": "Two ExtendedMessageFormat instances where toPattern is null for both",
+    "expected": "Returns true because both patterns are null (ObjectUtils.notEqual handles null correctly)."
+  },
+  {
+    "method": "equals",
+    "name": "testEqualsNullRegistries",
+    "input": "Two ExtendedMessageFormat instances where registry is null for both",
+    "expected": "Returns true because both registries are null."
+  }
+]

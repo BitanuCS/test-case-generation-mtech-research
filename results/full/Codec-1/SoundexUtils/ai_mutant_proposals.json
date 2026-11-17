@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Wrong optimization branch: returns the original string directly when count == len, but skips calling toUpperCase(Locale.ENGLISH), which means a string with pure lowercase letters (e.g., 'abcdef') would incorrectly be returned as lowercase ('abcdef') instead of uppercase ('ABCDEF'). Wait, the current test suite actually tests 'abcdef' -> 'ABCDEF'. Let's find one that survives.",
+    "original": "if (count == len) {\n              return str.toUpperCase(java.util.Locale.ENGLISH);\n          }",
+    "mutated": "if (count == len) {\n              return str;\n          }"
+  },
+  {
+    "description": "Off-by-one error in loop condition: using <= len instead of < len, which causes a StringIndexOutOfBoundsException for any non-empty string.",
+    "original": "for (int i = 0; i < len; i++) {",
+    "mutated": "for (int i = 0; i <= len; i++) {"
+  },
+  {
+    "description": "Wrong condition checking for null or empty string: checks length < 0 instead of == 0, failing to handle empty strings correctly (throws exception or misbehaves).",
+    "original": "if (str == null || str.length() == 0) {",
+    "mutated": "if (str == null || str.length() < 0) {"
+  },
+  {
+    "description": "Incorrect offset passed to the String constructor when creating the cleaned string, using 1 instead of 0 as the starting index, dropping the first valid character.",
+    "original": "return new String(chars, 0, count).toUpperCase(java.util.Locale.ENGLISH);",
+    "mutated": "return new String(chars, 1, count).toUpperCase(java.util.Locale.ENGLISH);"
+  },
+  {
+    "description": "Mutating the filtering condition to accept non-letters instead of letters (using logical negation on Character.isLetter), which would include numbers and symbols in the cleaned string.",
+    "original": "if (Character.isLetter(str.charAt(i))) {",
+    "mutated": "if (!Character.isLetter(str.charAt(i))) {"
+  }
+]

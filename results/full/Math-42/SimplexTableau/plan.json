@@ -1,0 +1,62 @@
+[
+  {
+    "method": "getSolution",
+    "name": "restrictedToNonNegativeWithBasicVariables",
+    "input": "restrictToNonNegative = true, columnLabels contains \"x0\", \"x1\", basic rows map correctly with valid RHS values",
+    "expected": "Returns RealPointValuePair with coefficients corresponding to the RHS of their respective basic rows, and the correct objective function value."
+  },
+  {
+    "method": "getSolution",
+    "name": "unrestrictedVariablesAccountingForNegativeVar",
+    "input": "restrictToNonNegative = false, \"x-\" column has a basic row with a non-zero RHS value representing the negative shift",
+    "expected": "Returns RealPointValuePair where coefficients are adjusted by subtracting the most negative value from the RHS of the basic row."
+  },
+  {
+    "method": "getSolution",
+    "name": "missingDecisionVariableColumnInLabels",
+    "input": "columnLabels does not contain \"x0\" for one of the decision variables",
+    "expected": "Sets the coefficient for that decision variable to 0 and proceeds without throwing an exception."
+  },
+  {
+    "method": "getSolution",
+    "name": "basicRowIsObjectiveFunctionRow",
+    "input": "getBasicRow returns row index 0 (the objective function row) for a decision variable column",
+    "expected": "Sets the coefficient for that decision variable to 0 as per the condition handling unconstrained variables part of the objective function."
+  },
+  {
+    "method": "getSolution",
+    "name": "duplicateBasicRowsEncountered",
+    "input": "Multiple decision variables map to the same basicRow index in basicRows set",
+    "expected": "Chooses the first variable taking the value and sets subsequent variables sharing the same basic row to 0 (or adjusted by negativeVar)."
+  },
+  {
+    "method": "getSolution",
+    "name": "nonBasicVariableHasNullRow",
+    "input": "getBasicRow returns null for a decision variable column",
+    "expected": "Treats the basic row as null, assigning 0 (minus negativeVar adjustment if unrestricted) for that coefficient."
+  },
+  {
+    "method": "getSolution",
+    "name": "negativeVarColumnNotPresent",
+    "input": "columnLabels does not contain \"x-\" (negativeVarColumn index <= 0)",
+    "expected": "negativeVarBasicRow is null and mostNegative defaults to 0, avoiding negative variable adjustment."
+  },
+  {
+    "method": "getSolution",
+    "name": "zeroDecisionVariablesDimension",
+    "input": "LinearObjectiveFunction has 0 coefficients (originalNumDecisionVariables = 0)",
+    "expected": "Returns RealPointValuePair with an empty coefficients array and objective function value at origin."
+  },
+  {
+    "method": "getSolution",
+    "name": "negativeVarBasicRowIsNullButColumnExists",
+    "input": "columnLabels contains \"x-\" but getBasicRow for \"x-\" returns null",
+    "expected": "mostNegative defaults to 0 since negativeVarBasicRow is null."
+  },
+  {
+    "method": "getSolution",
+    "name": "objectiveFunctionValueCalculationCheck",
+    "input": "Standard tableau configuration with valid coefficients and RHS values",
+    "expected": "Verifies that f.getValue(coefficients) is correctly evaluated and passed into the returned RealPointValuePair."
+  }
+]

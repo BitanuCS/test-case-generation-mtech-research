@@ -1,0 +1,77 @@
+{
+  "bug": "Chart-13",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.jfree.chart.block.BorderArrangement",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 26,
+      "final_oracles": 33,
+      "focal_methods": [
+        "arrangeFF"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.989,
+          "branch": 0.958,
+          "line": 0.987,
+          "complexity": 0.929,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 127,
+          "killed": 75,
+          "score": 0.591
+        },
+        "focal": {
+          "generated": 24,
+          "killed": 11,
+          "score": 0.458
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Chart",
+      "version_id": "13f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 229,
+      "lines_covered": 227,
+      "branches_total": 120,
+      "branches_covered": 115,
+      "line": 0.991,
+      "branch": 0.958
+    },
+    "major_mutation": {
+      "generated": 664,
+      "covered": 664,
+      "killed": 281,
+      "score": 0.423
+    }
+  },
+  "seconds": 413.0,
+  "extras_measured": true
+}

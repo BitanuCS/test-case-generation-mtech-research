@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change input array position incrementing to a decrementing operation, causing an ArrayIndexOutOfBoundsException or wrong data read.",
+    "original": "byte b = in[inPos++];",
+    "mutated": "byte b = in[inPos--];"
+  },
+  {
+    "description": "Change the loop condition from i < inAvail to i <= inAvail, causing an off-by-one error and reading past the intended input bounds.",
+    "original": "for (int i = 0; i < inAvail; i++) {",
+    "mutated": "for (int i = 0; i <= inAvail; i++) {"
+  },
+  {
+    "description": "Change the modulus increment operator from pre-increment (++modulus) to post-increment (modulus++), which alters the modulus cycle tracking state.",
+    "original": "modulus = (++modulus) % 4;",
+    "mutated": "modulus = (modulus++) % 4;"
+  },
+  {
+    "description": "Change the shift operator in the modulus 2 EOF padding case from right shift 16 to right shift 8, resulting in corrupted output data for 2-byte leftover blocks.",
+    "original": "case 2 :\n                      x = x << 6;\n                      buffer[pos++] = (byte) ((x >> 16) & MASK_8BITS);\n                      break;",
+    "mutated": "case 2 :\n                      x = x << 6;\n                      buffer[pos++] = (byte) ((x >> 8) & MASK_8BITS);\n                      break;"
+  },
+  {
+    "description": "Change the bitwise AND mask from MASK_8BITS to 0 in the modulus 3 EOF decoding block, zeroing out the second decoded byte.",
+    "original": "buffer[pos++] = (byte) ((x >> 8) & MASK_8BITS);",
+    "mutated": "buffer[pos++] = (byte) ((x >> 8) & 0);"
+  }
+]

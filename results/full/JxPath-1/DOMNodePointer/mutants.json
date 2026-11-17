@@ -1,0 +1,278 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 88,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestLocalNameMatchNamespaceMismatch",
+      "nodeNameTestLocalNameMismatch",
+      "nodeNameTestNonElementNodeReturnsFalse",
+      "nodeNameTestWildcardWithPrefixReturnsFalse",
+      "nodeTypeTestNodeNodeTypeInvalidType",
+      "nodeTypeTestUnknownCompilerType",
+      "nullTestReturnsTrue",
+      "processingInstructionTestNonPiNodeReturnsFalse",
+      "processingInstructionTestTargetMismatch",
+      "unknownTestImplementationReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 89,
+    "status": "killed",
+    "killed_by": [
+      "nullTestReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 92,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestLocalNameAndNamespaceMatch",
+      "nodeNameTestWildcardNoPrefixReturnsTrue",
+      "nodeNameTestWildcardWithNamespaceMatching"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 93,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestNonElementNodeReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 101,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestLocalNameMatchNamespaceMismatch",
+      "nodeNameTestLocalNameMismatch",
+      "nodeNameTestWildcardWithPrefixReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 101,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestWildcardWithPrefixReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 102,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestWildcardNoPrefixReturnsTrue",
+      "nodeNameTestWildcardWithNamespaceMatching"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 105,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestLocalNameAndNamespaceMatch"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 116,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestNodeNodeTypeElement",
+      "nodeTypeTestNodeNodeTypeInvalidType"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 116,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestNodeNodeTypeDocument",
+      "nodeTypeTestNodeNodeTypeElement"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 117,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestNodeNodeTypeDocument",
+      "nodeTypeTestNodeNodeTypeInvalidType"
+    ]
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 119,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestTextNodeCdata"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 119,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestTextNodeCdata",
+      "nodeTypeTestTextNodeText"
+    ]
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 120,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestTextNodeText"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 122,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestCommentNode"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 124,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestPiNode"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 126,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestUnknownCompilerType"
+    ]
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 129,
+    "status": "killed",
+    "killed_by": [
+      "processingInstructionTestMatchingTarget",
+      "processingInstructionTestNonPiNodeReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 135,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestLocalNameMismatch",
+      "processingInstructionTestNonPiNodeReturnsFalse",
+      "unknownTestImplementationReturnsFalse"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (wildcard && testPrefix != null) {\n                  return true;\n              }",
+    "description": "Swapping the conditional operators for wildcard and testPrefix check in NodeNameTest, causing it to check for non-null prefix instead of null prefix.",
+    "line": 101,
+    "status": "killed",
+    "killed_by": [
+      "nodeNameTestWildcardWithPrefixReturnsFalse"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return nodeType == Node.CDATA_SECTION_NODE\n                          && nodeType == Node.TEXT_NODE;",
+    "description": "Changing the NODE_TYPE_TEXT check for text nodes from || (OR) to && (AND), which is impossible for a single node type to satisfy simultaneously.",
+    "line": 119,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestTextNodeCdata",
+      "nodeTypeTestTextNodeText"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "case Compiler.NODE_TYPE_PI :\n                      return nodeType == Node.COMMENT_NODE;",
+    "description": "Accidentally checking NODE_TYPE_COMMENT instead of NODE_TYPE_PROCESSING_INSTRUCTION for the PI compiler type case.",
+    "line": 123,
+    "status": "killed",
+    "killed_by": [
+      "nodeTypeTestPiNode"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "return !testPI.equals(nodePI);",
+    "description": "Negating the equality check for Processing Instruction targets, meaning matching targets would return false and mismatches would return true.",
+    "line": 132,
+    "status": "killed",
+    "killed_by": [
+      "processingInstructionTestMatchingTarget",
+      "processingInstructionTestTargetMismatch"
+    ]
+  }
+]

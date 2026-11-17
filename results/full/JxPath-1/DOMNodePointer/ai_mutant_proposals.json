@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapping the conditional operators for wildcard and testPrefix check in NodeNameTest, causing it to check for non-null prefix instead of null prefix.",
+    "original": "if (wildcard && testPrefix == null) {\n                  return true;\n              }",
+    "mutated": "if (wildcard && testPrefix != null) {\n                  return true;\n              }"
+  },
+  {
+    "description": "Changing the NODE_TYPE_TEXT check for text nodes from || (OR) to && (AND), which is impossible for a single node type to satisfy simultaneously.",
+    "original": "return nodeType == Node.CDATA_SECTION_NODE\n                          || nodeType == Node.TEXT_NODE;",
+    "mutated": "return nodeType == Node.CDATA_SECTION_NODE\n                          && nodeType == Node.TEXT_NODE;"
+  },
+  {
+    "description": "Accidentally checking NODE_TYPE_COMMENT instead of NODE_TYPE_PROCESSING_INSTRUCTION for the PI compiler type case.",
+    "original": "case Compiler.NODE_TYPE_PI :\n                      return nodeType == Node.PROCESSING_INSTRUCTION_NODE;",
+    "mutated": "case Compiler.NODE_TYPE_PI :\n                      return nodeType == Node.COMMENT_NODE;"
+  },
+  {
+    "description": "Mutating the default return statement of the node type switch block from false to true.",
+    "original": "return false;",
+    "mutated": "return true;"
+  },
+  {
+    "description": "Negating the equality check for Processing Instruction targets, meaning matching targets would return false and mismatches would return true.",
+    "original": "return testPI.equals(nodePI);",
+    "mutated": "return !testPI.equals(nodePI);"
+  }
+]

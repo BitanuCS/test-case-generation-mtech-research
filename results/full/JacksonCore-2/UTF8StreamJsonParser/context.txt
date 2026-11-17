@@ -1,0 +1,556 @@
+// ===== Class under test: com.fasterxml.jackson.core.json.UTF8StreamJsonParser =====
+package com.fasterxml.jackson.core.json;
+import java.io.*;
+import java.util.Arrays;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.core.base.ParserBase;
+import com.fasterxml.jackson.core.io.CharTypes;
+import com.fasterxml.jackson.core.io.IOContext;
+import com.fasterxml.jackson.core.sym.*;
+import com.fasterxml.jackson.core.util.*;
+
+/**
+ * This is a concrete implementation of {@link JsonParser}, which is
+ * based on a {@link java.io.InputStream} as the input source.
+ */
+public final class UTF8StreamJsonParser extends ParserBase {
+
+  // --- fields ---
+  final static byte BYTE_LF = (byte) '\n';
+  private final static int[] _icUTF8 = CharTypes.getInputCodeUtf8();
+  protected final static int[] _icLatin1 = CharTypes.getInputCodeLatin1();
+  private final static int[] _icWS = CharTypes.getInputCodeWS();
+  protected ObjectCodec _objectCodec;
+  final protected BytesToNameCanonicalizer _symbols;
+  protected int[] _quadBuffer = new int[16];
+  protected boolean _tokenIncomplete = false;
+  private int _quad1;
+  protected InputStream _inputStream;
+  protected byte[] _inputBuffer;
+  protected boolean _bufferRecyclable;
+
+  // --- constructors and other methods (signatures only) ---
+  public UTF8StreamJsonParser(IOContext ctxt, int features, InputStream in, ObjectCodec codec, BytesToNameCanonicalizer sym, byte[] inputBuffer, int start, int end, boolean bufferRecyclable);
+  @Override public ObjectCodec getCodec();
+  @Override public void setCodec(ObjectCodec c);
+  @Override public int releaseBuffered(OutputStream out) throws IOException;
+  @Override public Object getInputSource();
+  protected boolean _loadToHaveAtLeast(int minAvailable) throws IOException;
+  @Override protected void _closeInput() throws IOException;
+  @Override protected void _releaseBuffers() throws IOException;
+  @Override public String getText() throws IOException, JsonParseException;
+  @Override public String getValueAsString() throws IOException, JsonParseException;
+  @Override public String getValueAsString(String defValue) throws IOException, JsonParseException;
+  protected String _getText2(JsonToken t);
+  @Override public char[] getTextCharacters() throws IOException, JsonParseException;
+  @Override public int getTextLength() throws IOException, JsonParseException;
+  @Override public int getTextOffset() throws IOException, JsonParseException;
+  @Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException, JsonParseException;
+  @Override public int readBinaryValue(Base64Variant b64variant, OutputStream out) throws IOException, JsonParseException;
+  protected int _readBinary(Base64Variant b64variant, OutputStream out, byte[] buffer) throws IOException, JsonParseException;
+  @Override public JsonToken nextToken() throws IOException, JsonParseException;
+  @Override public void close() throws IOException;
+  @Override public boolean nextFieldName(SerializableString str) throws IOException, JsonParseException;
+  @Override public String nextTextValue() throws IOException, JsonParseException;
+  @Override public int nextIntValue(int defaultValue) throws IOException, JsonParseException;
+  @Override public long nextLongValue(long defaultValue) throws IOException, JsonParseException;
+  @Override public Boolean nextBooleanValue() throws IOException, JsonParseException;
+  protected Name _parseFieldName(int i) throws IOException, JsonParseException;
+  protected Name parseMediumName(int q2, final int[] codes) throws IOException, JsonParseException;
+  protected Name parseLongName(int q) throws IOException, JsonParseException;
+  protected Name slowParseName() throws IOException, JsonParseException;
+  protected Name parseEscapedName(int[] quads, int qlen, int currQuad, int ch, int currQuadBytes) throws IOException, JsonParseException;
+  protected Name _handleOddName(int ch) throws IOException, JsonParseException;
+  protected Name _parseAposName() throws IOException, JsonParseException;
+  @Override protected void _finishString() throws IOException;
+  protected void _skipString() throws IOException;
+  protected JsonToken _handleUnexpectedValue(int c) throws IOException;
+  protected JsonToken _handleApos() throws IOException;
+  protected void _matchToken(String matchStr, int i) throws IOException;
+  protected void _reportInvalidToken(String matchedPart) throws IOException;
+  protected void _reportInvalidToken(String matchedPart, String msg) throws IOException;
+  @Override protected char _decodeEscaped() throws IOException;
+  protected int _decodeCharForError(int firstByte) throws IOException;
+  protected void _reportInvalidInitial(int mask) throws JsonParseException;
+  protected void _reportInvalidOther(int mask) throws JsonParseException;
+  protected void _reportInvalidOther(int mask, int ptr) throws JsonParseException;
+  public static int[] growArrayBy(int[] arr, int more);
+  @SuppressWarnings("resource") protected byte[] _decodeBase64(Base64Variant b64variant) throws IOException;
+
+  // --- helper methods called by the method(s) under test ---
+  /**
+       * Method called when we have seen one zero, and want to ensure
+       * it is not followed by another
+       */
+  private int _verifyNoLeadingZeroes()
+          throws IOException, JsonParseException
+      {
+          // Ok to have plain "0"
+          if (_inputPtr >= _inputEnd && !loadMore()) {
+              return INT_0;
+          }
+          int ch = _inputBuffer[_inputPtr] & 0xFF;
+          // if not followed by a number (probably '.'); return zero as is, to be included
+          if (ch < INT_0 || ch > INT_9) {
+              return INT_0;
+          }
+          // [JACKSON-358]: we may want to allow them, after all...
+          if (!isEnabled(Feature.ALLOW_NUMERIC_LEADING_ZEROS)) {
+              reportInvalidNumber("Leading zeroes not allowed");
+          }
+          // if so, just need to skip either all zeroes (if followed by number); or all but one (if non-number)
+          ++_inputPtr; // Leading zero to be skipped
+          if (ch == INT_0) {
+              while (_inputPtr < _inputEnd || loadMore()) {
+                  ch = _inputBuffer[_inputPtr] & 0xFF;
+                  if (ch < INT_0 || ch > INT_9) { // followed by non-number; retain one zero
+                      return INT_0;
+                  }
+                  ++_inputPtr; // skip previous zeroes
+                  if (ch != INT_0) { // followed by other number; return 
+                      break;
+                  }
+              }
+          }
+          return ch;
+      }
+  /**
+       * Method called if expected numeric value (due to leading sign) does not
+       * look like a number
+       */
+  protected JsonToken _handleInvalidNumberStart(int ch, boolean neg)
+          throws IOException
+      {
+          while (ch == 'I') {
+              if (_inputPtr >= _inputEnd) {
+                  if (!loadMore()) {
+                      _reportInvalidEOFInValue();
+                  }
+              }
+              ch = _inputBuffer[_inputPtr++];
+              String match;
+              if (ch == 'N') {
+                  match = neg ? "-INF" :"+INF";
+              } else if (ch == 'n') {
+                  match = neg ? "-Infinity" :"+Infinity";
+              } else {
+                  break;
+              }
+              _matchToken(match, 3);
+              if (isEnabled(Feature.ALLOW_NON_NUMERIC_NUMBERS)) {
+                  return resetAsNaN(match, neg ? Double.NEGATIVE_INFINITY : Double.POSITIVE_INFINITY);
+              }
+              _reportError("Non-standard token '"+match+"': enable JsonParser.Feature.ALLOW_NON_NUMERIC_NUMBERS to allow");
+          }
+          reportUnexpectedNumberChar(ch, "expected digit (0-9) to follow minus sign, for valid numeric value");
+          return null;
+      }
+  @Override
+      protected boolean loadMore()
+          throws IOException
+      {
+          _currInputProcessed += _inputEnd;
+          _currInputRowStart -= _inputEnd;
+        
+          if (_inputStream != null) {
+              int count = _inputStream.read(_inputBuffer, 0, _inputBuffer.length);
+              if (count > 0) {
+                  _inputPtr = 0;
+                  _inputEnd = count;
+                  return true;
+              }
+              // End of input
+              _closeInput();
+              // Should never return 0, so let's fail
+              if (count == 0) {
+                  throw new IOException("InputStream.read() returned 0 characters when trying to read "+_inputBuffer.length+" bytes");
+              }
+          }
+          return false;
+      }
+  /**
+       * We actually need to check the character value here
+       * (to see if we have \n following \r).
+       */
+  protected void _skipCR() throws IOException
+      {
+          if (_inputPtr < _inputEnd || loadMore()) {
+              if (_inputBuffer[_inputPtr] == BYTE_LF) {
+                  ++_inputPtr;
+              }
+          }
+          ++_currInputRow;
+          _currInputRowStart = _inputPtr;
+      }
+  protected void _reportInvalidChar(int c)
+          throws JsonParseException
+      {
+          // Either invalid WS or illegal UTF-8 start char
+          if (c < INT_SPACE) {
+              _throwInvalidSpace(c);
+          }
+          _reportInvalidInitial(c);
+      }
+  private boolean _skipYAMLComment() throws IOException
+      {
+          if (!isEnabled(Feature.ALLOW_YAML_COMMENTS)) {
+              return false;
+          }
+          _skipLine();
+          return true;
+      }
+  private void _skipComment() throws IOException
+      {
+          if (!isEnabled(Feature.ALLOW_COMMENTS)) {
+              _reportUnexpectedChar('/', "maybe a (non-standard) comment? (not recognized as one since Feature 'ALLOW_COMMENTS' not enabled for parser)");
+          }
+          // First: check which comment (if either) it is:
+          if (_inputPtr >= _inputEnd && !loadMore()) {
+              _reportInvalidEOF(" in a comment");
+          }
+          int c = _inputBuffer[_inputPtr++] & 0xFF;
+          if (c == '/') {
+              _skipLine();
+          } else if (c == '*') {
+              _skipCComment();
+          } else {
+              _reportUnexpectedChar(c, "was expecting either '*' or '/' for a comment");
+          }
+      }
+  private void _skipUtf8_4(int c) throws IOException
+      {
+          if (_inputPtr >= _inputEnd) {
+              loadMoreGuaranteed();
+          }
+          int d = (int) _inputBuffer[_inputPtr++];
+          if ((d & 0xC0) != 0x080) {
+              _reportInvalidOther(d & 0xFF, _inputPtr);
+          }
+          if (_inputPtr >= _inputEnd) {
+              loadMoreGuaranteed();
+          }
+          d = (int) _inputBuffer[_inputPtr++];
+          if ((d & 0xC0) != 0x080) {
+              _reportInvalidOther(d & 0xFF, _inputPtr);
+          }
+          if (_inputPtr >= _inputEnd) {
+              loadMoreGuaranteed();
+          }
+          d = (int) _inputBuffer[_inputPtr++];
+          if ((d & 0xC0) != 0x080) {
+              _reportInvalidOther(d & 0xFF, _inputPtr);
+          }
+      }
+  private void _skipUtf8_3(int c) throws IOException
+      {
+          if (_inputPtr >= _inputEnd) {
+              loadMoreGuaranteed();
+          }
+          //c &= 0x0F;
+          c = (int) _inputBuffer[_inputPtr++];
+          if ((c & 0xC0) != 0x080) {
+              _reportInvalidOther(c & 0xFF, _inputPtr);
+          }
+          if (_inputPtr >= _inputEnd) {
+              loadMoreGuaranteed();
+          }
+          c = (int) _inputBuffer[_inputPtr++];
+          if ((c & 0xC0) != 0x080) {
+              _reportInvalidOther(c & 0xFF, _inputPtr);
+          }
+      }
+  private void _skipUtf8_2(int c) throws IOException
+      {
+          if (_inputPtr >= _inputEnd) {
+              loadMoreGuaranteed();
+          }
+          c = (int) _inputBuffer[_inputPtr++];
+          if ((c & 0xC0) != 0x080) {
+              _reportInvalidOther(c & 0xFF, _inputPtr);
+          }
+      }
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+       * Initial parsing method for number values. It needs to be able
+       * to parse enough input to be able to determine whether the
+       * value is to be considered a simple integer value, or a more
+       * generic decimal value: latter of which needs to be expressed
+       * as a floating point number. The basic rule is that if the number
+       * has no fractional or exponential part, it is an integer; otherwise
+       * a floating point number.
+       *<p>
+       * Because much of input has to be processed in any case, no partial
+       * parsing is done: all input text will be stored for further
+       * processing. However, actual numeric value conversion will be
+       * deferred, since it is usually the most complicated and costliest
+       * part of processing.
+       */
+  protected JsonToken _parseNumber(int c)
+          throws IOException, JsonParseException
+      {
+          char[] outBuf = _textBuffer.emptyAndGetCurrentSegment();
+          int outPtr = 0;
+          boolean negative = (c == INT_MINUS);
+
+          // Need to prepend sign?
+          if (negative) {
+              outBuf[outPtr++] = '-';
+              // Must have something after sign too
+              if (_inputPtr >= _inputEnd) {
+                  loadMoreGuaranteed();
+              }
+              c = (int) _inputBuffer[_inputPtr++] & 0xFF;
+              // Note: must be followed by a digit
+              if (c < INT_0 || c > INT_9) {
+                  return _handleInvalidNumberStart(c, true);
+              }
+          }
+
+          // One special case: if first char is 0, must not be followed by a digit
+          if (c == INT_0) {
+              c = _verifyNoLeadingZeroes();
+          }
+        
+          // Ok: we can first just add digit we saw first:
+          outBuf[outPtr++] = (char) c;
+          int intLen = 1;
+
+          // And then figure out how far we can read without further checks:
+          int end = _inputPtr + outBuf.length;
+          if (end > _inputEnd) {
+              end = _inputEnd;
+          }
+
+          // With this, we have a nice and tight loop:
+          while (true) {
+              if (_inputPtr >= end) {
+                  // Long enough to be split across boundary, so:
+                  return _parserNumber2(outBuf, outPtr, negative, intLen);
+              }
+              c = (int) _inputBuffer[_inputPtr++] & 0xFF;
+              if (c < INT_0 || c > INT_9) {
+                  break;
+              }
+              ++intLen;
+              if (outPtr >= outBuf.length) {
+                  outBuf = _textBuffer.finishCurrentSegment();
+                  outPtr = 0;
+              }
+              outBuf[outPtr++] = (char) c;
+          }
+          if (c == '.' || c == 'e' || c == 'E') {
+              return _parseFloat(outBuf, outPtr, c, negative, intLen);
+          }
+        
+          --_inputPtr; // to push back trailing char (comma etc)
+          _textBuffer.setCurrentLength(outPtr);
+          // As per #105, need separating space between root values; check here
+          if (_parsingContext.inRoot()) {
+              _verifyRootSpace(c);
+          }
+
+          // And there we have it!
+          return resetInt(negative, intLen);
+      }
+  /**
+       * Method called to handle parsing when input is split across buffer boundary
+       * (or output is longer than segment used to store it)
+       */
+  private JsonToken _parserNumber2(char[] outBuf, int outPtr, boolean negative,
+              int intPartLength)
+          throws IOException, JsonParseException
+      {
+          // Ok, parse the rest
+          while (true) {
+              if (_inputPtr >= _inputEnd && !loadMore()) {
+                  _textBuffer.setCurrentLength(outPtr);
+                  return resetInt(negative, intPartLength);
+              }
+              int c = (int) _inputBuffer[_inputPtr++] & 0xFF;
+              if (c > INT_9 || c < INT_0) {
+                  if (c == '.' || c == 'e' || c == 'E') {
+                      return _parseFloat(outBuf, outPtr, c, negative, intPartLength);
+                  }
+                  break;
+              }
+              if (outPtr >= outBuf.length) {
+                  outBuf = _textBuffer.finishCurrentSegment();
+                  outPtr = 0;
+              }
+              outBuf[outPtr++] = (char) c;
+              ++intPartLength;
+          }
+          --_inputPtr; // to push back trailing char (comma etc)
+          _textBuffer.setCurrentLength(outPtr);
+          // As per #105, need separating space between root values; check here
+          if (_parsingContext.inRoot()) {
+              _verifyRootSpace(_inputBuffer[_inputPtr++] & 0xFF);
+          }
+
+          // And there we have it!
+          return resetInt(negative, intPartLength);
+        
+      }
+  private JsonToken _parseFloat(char[] outBuf, int outPtr, int c,
+              boolean negative, int integerPartLength)
+          throws IOException, JsonParseException
+      {
+          int fractLen = 0;
+          boolean eof = false;
+
+          // And then see if we get other parts
+          if (c == '.') { // yes, fraction
+              outBuf[outPtr++] = (char) c;
+
+              fract_loop:
+              while (true) {
+                  if (_inputPtr >= _inputEnd && !loadMore()) {
+                      eof = true;
+                      break fract_loop;
+                  }
+                  c = (int) _inputBuffer[_inputPtr++] & 0xFF;
+                  if (c < INT_0 || c > INT_9) {
+                      break fract_loop;
+                  }
+                  ++fractLen;
+                  if (outPtr >= outBuf.length) {
+                      outBuf = _textBuffer.finishCurrentSegment();
+                      outPtr = 0;
+                  }
+                  outBuf[outPtr++] = (char) c;
+              }
+              // must be followed by sequence of ints, one minimum
+              if (fractLen == 0) {
+                  reportUnexpectedNumberChar(c, "Decimal point not followed by a digit");
+              }
+          }
+
+          int expLen = 0;
+          if (c == 'e' || c == 'E') { // exponent?
+              if (outPtr >= outBuf.length) {
+                  outBuf = _textBuffer.finishCurrentSegment();
+                  outPtr = 0;
+              }
+              outBuf[outPtr++] = (char) c;
+              // Not optional, can require that we get one more char
+              if (_inputPtr >= _inputEnd) {
+                  loadMoreGuaranteed();
+              }
+              c = (int) _inputBuffer[_inputPtr++] & 0xFF;
+              // Sign indicator?
+              if (c == '-' || c == '+') {
+                  if (outPtr >= outBuf.length) {
+                      outBuf = _textBuffer.finishCurrentSegment();
+                      outPtr = 0;
+                  }
+                  outBuf[outPtr++] = (char) c;
+                  // Likewise, non optional:
+                  if (_inputPtr >= _inputEnd) {
+                      loadMoreGuaranteed();
+                  }
+                  c = (int) _inputBuffer[_inputPtr++] & 0xFF;
+              }
+
+              exp_loop:
+              while (c <= INT_9 && c >= INT_0) {
+                  ++expLen;
+                  if (outPtr >= outBuf.length) {
+                      outBuf = _textBuffer.finishCurrentSegment();
+                      outPtr = 0;
+                  }
+                  outBuf[outPtr++] = (char) c;
+                  if (_inputPtr >= _inputEnd && !loadMore()) {
+                      eof = true;
+                      break exp_loop;
+                  }
+                  c = (int) _inputBuffer[_inputPtr++] & 0xFF;
+              }
+              // must be followed by sequence of ints, one minimum
+              if (expLen == 0) {
+                  reportUnexpectedNumberChar(c, "Exponent indicator not followed by a digit");
+              }
+          }
+
+          // Ok; unless we hit end-of-input, need to push last char read back
+          if (!eof) {
+              --_inputPtr;
+              // As per #105, need separating space between root values; check here
+              if (_parsingContext.inRoot()) {
+                  _verifyRootSpace(c);
+              }
+          }
+          _textBuffer.setCurrentLength(outPtr);
+
+          // And there we have it!
+          return resetFloat(negative, integerPartLength, fractLen, expLen);
+      }
+  /**
+       * Method called to ensure that a root-value is followed by a space
+       * token.
+       *<p>
+       * NOTE: caller MUST ensure there is at least one character available;
+       * and that input pointer is AT given char (not past)
+       */
+  private final void _verifyRootSpace(int ch) throws IOException
+      {
+          // caller had pushed it back, before calling; reset
+          ++_inputPtr;
+          // TODO? Handle UTF-8 char decoding for error reporting
+          switch (ch) {
+          case ' ':
+          case '\t':
+              return;
+          case '\r':
+              _skipCR();
+              return;
+          case '\n':
+              ++_currInputRow;
+              _currInputRowStart = _inputPtr;
+              return;
+          }
+          _reportMissingRootWS(ch);
+      }
+  private int _skipWSOrEnd() throws IOException
+      {
+          final int[] codes = _icWS;
+          while ((_inputPtr < _inputEnd) || loadMore()) {
+              final int i = _inputBuffer[_inputPtr++] & 0xFF;
+              switch (codes[i]) {
+              case 0: // done!
+                  return i;
+              case 1: // skip
+                  continue;
+              case 2: // 2-byte UTF
+                  _skipUtf8_2(i);
+                  break;
+              case 3: // 3-byte UTF
+                  _skipUtf8_3(i);
+                  break;
+              case 4: // 4-byte UTF
+                  _skipUtf8_4(i);
+                  break;
+              case INT_LF:
+                  ++_currInputRow;
+                  _currInputRowStart = _inputPtr;
+                  break;
+              case INT_CR:
+                  _skipCR();
+                  break;
+              case '/':
+                  _skipComment();
+                  break;
+              case '#':
+                  if (!_skipYAMLComment()) {
+                      return i;
+                  }
+                  break;
+              default: // e.g. -1
+                  _reportInvalidChar(i);
+              }
+          }
+          // We ran out of input...
+          _handleEOF();
+          return -1;
+      }
+}

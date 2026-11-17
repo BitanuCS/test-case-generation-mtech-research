@@ -1,0 +1,164 @@
+# Project Journal: what we did, what went wrong, what to try next
+
+This file keeps track of **everything**. If our results turn out weak, this is where we look for **why** and **what to try next**.
+Update it after every run.
+
+---
+
+## 1. Summary so far (16 Nov 2026)
+
+- **Built:** a multi-agent framework that writes JUnit tests for Defects4J bugs. It has 8 agents: Context, Planner, Tester, Fixer, 3-AI panel, Curator, Mutant agent, Killer. Everything runs on free AI models.
+- **Fresh start, 16 Nov:** old results were zipped (`old_results_backup.zip`), the junk was cleaned up, and the 40-bug development set was made.
+- **Current result:** 16 of 28 finished bugs detected (**57%**). On the first 9 bugs both tools finished, EvoSuite detected 3/9 and we detected 5/9.
+- **Target to beat:** AdverTest's published **66.6%** and HITS's **61.4%**.
+
+---
+
+## 1b. Fairness rules (must follow)
+
+- **The AI never sees the buggy code, the fix, or the developers' bug-revealing tests** in standard mode. It sees only the fixed code. The buggy vs. fixed comparison is used only to choose *which method* to test, as AdverTest and HITS do; say this in the thesis.
+- **The 40 bugs in bugs/dev40.txt are the DEVELOPMENT set.** We studied their bugs, fixes and developer tests to find weaknesses, so they **can't** be used for the final claims.
+- **Improvements must be general rules** (e.g. "always try extreme values"), never rules written for one specific bug.
+- **Final results come from unseen bugs:** the 198-bug main set minus the 40 development bugs (158 bugs). EvoSuite, AdverTest and single-shot run on the same unseen bugs.
+
+## 2. Timeline
+
+| Date | What happened |
+|---|---|
+| early Nov | Plan written (plan.md, phases.md). Defects4J v3, Java 11, JaCoCo, PIT, EvoSuite installed. |
+| ~10 Nov | First pilot on 50 bugs (Chart, Lang, Math): ours 31/50, single-shot 24/50, EvoSuite 20/50. These runs mixed several Gemini models. |
+| ~10–15 Nov | Tried more free models: Mistral (no free API), Kaggle (needs phone verification), Groq (works, small limits). Settled on one main model, **gemini-3.5-flash-lite**, for fairness. |
+| 15–16 Nov | Big study started (198 bugs and all settings). We found broken EvoSuite and PIT results and stopped it. |
+| 16 Nov | Fixed 6 problems (section 3), did a fresh start, and started the 40-bug run. The quota ran out after 29 bugs. |
+
+---
+
+## 3. Problems found and fixed
+
+| # | Problem | Cause | Fix | File |
+|---|---|---|---|---|
+| 1 | EvoSuite failed on every bug in ~9 s and **overwrote good results** | Helper processes left behind after a crash blocked EvoSuite's connection | Clear leftover processes; a crash means "retry later"; never overwrite a good result | scripts/run_evosuite.py |
+| 2 | EvoSuite failed again at night | Its two processes talk over the Wi-Fi address, which breaks when Wi-Fi sleeps | Force them to talk inside the Mac (127.0.0.1) | scripts/run_evosuite.py |
+| 3 | PIT failed on all Cli bugs and some Closure bugs | The projects' old JUnit (3.8, or an old 4.x) came before JUnit 4.12 on the classpath | Put JUnit 4.12 first and drop JUnit 3 | our_framework/pit.py |
+| 4 | Cli-7 skipped ("no method") | The fix changed only a **field** | Test the methods that use the changed field | our_framework/context.py |
+| 5 | Math-12 skipped | The fix changed only the **class header** (`implements Serializable`) | Test the public methods, plus a note about what the header promises | our_framework/context.py |
+| 6 | Closure-169 crashed | The fix **adds a whole new class**, which doesn't exist in the buggy version | Skip that class with a clear reason | our_framework/context.py |
+| 7 | Tests never reached the buggy method (Cli-38: 0% coverage) | The AI was told about surviving mutants, but **not which lines no test runs** | **Coverage feedback:** each challenge round shows the uncovered lines. Cli-38 is now detected. | our_framework/pipeline.py, coverage.py |
+| 8 | Major mutation looked "missing" for tiny classes | A 3-line class has nothing to mutate | Recorded as "0 mutants" | our_framework/standard_metrics.py |
+| 8b | Buggy-method coverage was blank for constructors (Chart-12) | JaCoCo gives a constructor's first line as a field-initializer line, outside the constructor | Count focal coverage line by line inside the method range. Older reports with constructors can be re-measured from the saved tests. | our_framework/coverage.py |
+| 10 | All tests of Chart-13 thrown away | The clean-up gave up when compile errors sat in a helper class, not directly in a test method | Remove wrong `@Override` labels automatically; when an error sits inside a test, delete the enclosing test, not the innermost method | our_framework/pipeline.py |
+| 9 | Earlier: running EvoSuite at the same time as our framework crashed it (8 GB RAM) | Not enough memory | Run them one after the other, never together | scripts |
+
+---
+
+## 4. What is still missing (to do)
+
+### Runs
+- [ ] Finish the last 12 bugs of the 40-bug set. Queued for 17 Nov 13:35 IST, after the quota reset (`scripts/run_framework_at_reset.sh`). **Note: Gemini's daily quota resets at midnight Pacific = 13:30 IST, not at our midnight.**
+- [x] EvoSuite on the 40 bugs: done on 17 Nov, 13/40 detected, no crashes.
+- [ ] **Single-shot AI** baseline on the 40.
+- [ ] **Ablations** on the 40: no-context, no-planner, no-fix, no-mutation.
+- [ ] **Realistic mode** on the 40, with and without the panel.
+- [x] **AdverTest set up** (17 Nov):
+  - its code is in `/Users/bitu/mtech-tools/advertest` and runs unchanged, except that it uses gemini-3.5-flash-lite instead of DeepSeek;
+  - it has its own patched copy of Defects4J (`defects4j-advertest`), so ours is untouched;
+  - it has a `timeout` replacement for macOS, and its own Python environment (`.venv`, old langchain).
+  - Driver: `scripts/run_advertest.py`. It records AdverTest's own verdict **and** our standard verdict: Defects4J `fix_test_suite.pl`, then `run_bug_detection.pl`, the same as for EvoSuite, plus the same coverage and Major metrics.
+  - ⚠️ AdverTest's own rule counts "tests don't compile on the buggy version" as **detected**, and it hides AI errors as "missed". That's why we also apply our own rule.
+- [ ] **AdverTest** on the same 40 bugs. **Not started.** The setup is tested up to real AI calls (Lang-9: 4 calls OK, then stopped on request; partial result deleted). Start with `python3 scripts/run_advertest.py bugs/dev40.txt`, or `scripts/run_next.sh` to run our remaining bugs first, then AdverTest.
+- [ ] Repeated runs (3×) for stability and statistics.
+- [ ] Then scale up to the 198-bug main set.
+
+### Measurements, after the runs (no AI needed)
+- [ ] **EvoSuite extras** from its saved tests (`results/evosuite/<bug>/evosuite_tests.tar.bz2`): PIT score, buggy-method coverage (JaCoCo), number of tests and assertions. Run this after EvoSuite finishes, never at the same time (memory).
+- [ ] Statistical tests (Wilcoxon, A12).
+- [ ] Test smells (tsDetect) and readability.
+- [ ] Similarity to the developers' tests (memorisation check).
+- [ ] A hand check of some surviving mutants (are they really equivalent?).
+
+### Optional
+- [ ] Randoop baseline (built into Defects4J).
+- [ ] Our framework on CANDOR's dataset (HumanEvalJava).
+- [ ] Newer bugs the AI hasn't seen (GrowingBugs), as a contamination check.
+
+---
+
+## 5. If results are not good enough: ideas to improve
+
+Ranked by **expected gain per effort**. Each idea comes with how we would test it.
+
+| # | Idea | Why it might help | Source | How to test |
+|---|---|---|---|---|
+| 1 | **Missed-bug analysis first** | Find **why** each bug was missed before changing anything | — | For each missed bug, record: was the buggy method reached? was the buggy line run? did the assertion check the right thing? did the tests compile on the buggy version? |
+| 2 | **Panel discussion instead of majority vote** | CANDOR showed that discussion beats voting for oracle correctness | CANDOR | Realistic mode, panel vote vs. discussion |
+| 3 | **Mutants based on real bug patterns** | Fake bugs that look like real ones (off-by-one, missing null check, wrong boundary) train the tests better | Synthetic Bug Feedback (2607.11573) | full vs. full + pattern mutants |
+| 4 | **Specification-first prompting in realistic mode** | Stops the AI from copying the bug | Misguidance paper (2607.22883) | Realistic mode: code shown vs. AI-written spec shown |
+| 5 | **More challenge rounds, or more mutants on missed bugs** | Some bugs need one more push | AdverTest | mutation_rounds 2 → 4 on the missed bugs only |
+| 6 | **Several attempts (sampling)** | Different tries find different bugs | pass@k idea | Run 3 times and count "detected in any run" |
+| 7 | **Better context for deep code** | Bugs inside long call chains need more information | CAT, TestAgent | Add caller and callee snippets to the context sheet |
+| 8 | **Combine with EvoSuite (hybrid)** | They catch different bugs (pilot: together 70%) | Hybrid SBST+LLM papers | Union of both suites |
+| 9 | **Boundary and exception focus in the Planner** | Many Defects4J bugs are edge cases | Defects4J bug studies | Force at least N edge and exception scenarios |
+| 10 | **Stronger model only for hard bugs** | flash-lite is small; a stronger free model may help on the misses | — | Re-run missed bugs with a stronger model and report it **separately** (fairness) |
+
+---
+
+## 6. Observations (things we noticed)
+
+- **EvoSuite covers more code (91% vs. 70% lines) but catches fewer bugs.** Coverage alone doesn't find bugs; good assertions do.
+- **Coverage feedback works:** Cli-38 went from missed (0% coverage) to detected.
+- **The free quota is the real speed limit** (about 29 bugs per day), not the Mac.
+- **Realistic mode is much harder:** the AI copies the bug, and all 3 AIs can agree on a wrong answer (Lang-1).
+- **Missed with 100% coverage: "hidden-condition" bugs** (checked 17 Nov). The tests ran the buggy code but never used the special input that makes the bug appear.
+  - **Lang-4:** the bug only shows when the input is a `StringBuilder` or `StringBuffer`, not a `String`. Our 18 tests used only Strings, with 100% line and branch coverage.
+  - **Codec-1:** the bug only shows under a Turkish `Locale` (`toLowerCase()` without a locale). None of our 69 tests changed the Locale.
+  - **Math-2:** integer overflow only with very large numbers (the developers' test uses 42 million × 50). Our biggest input was 10000.
+  - **Codec-5:** the NullPointerException only happens when `decode` is used **through `Base64InputStream`**, which empties the buffer first. Our 18 tests called `decode()` directly.
+  - **JxPath-3:** complex setup. The bug needs a badly implemented `AbstractFactory` plugged in with `setFactory()`. Our tests never set a factory, so only 64% of the buggy method's lines were reached.
+  - **Chart-12:** weak check (oracle). The constructor doesn't register the plot as a dataset listener. Our 23 tests checked `getDataset()` (the same in both versions) but never `hasListener`. A missing side effect, not a wrong return value.
+  - **Time-5:** special input type. The bug needs a `PeriodType` without years, e.g. `PeriodType.months()`. Our 13 tests used only `standard()`, `yearMonthDayTime()` and `time()`, with 100% coverage.
+  - **Chart-13:** our tool's fault. All 11 tests were thrown away because 2 wrong `@Override` labels in a helper class never compiled, and the clean-up only looked at the innermost method. Fixed (problem 10 in section 3): 10 of 11 tests are now kept. They still don't catch the bug; the 11th test described exactly the bug's situation but had a wrong expected value.
+  - **Fix ideas:**
+    - (e) The context should show how other code and tests create helper objects (factories, mocks, custom subclasses), and the Tester may write small fake helper classes.
+    - (f) The Tester must also check side effects: listeners or events registered, state of other objects, exceptions.
+    - (c) The Planner must always include extreme values: Integer.MAX_VALUE, numbers whose product overflows, empty input, very long input.
+    - (d) The context should also show **who calls the method**, e.g. Base64InputStream (CAT's call-chain idea), so the tests cover real usage paths.
+    - (a) The Planner must plan for other input types (CharSequence: String, StringBuilder, StringBuffer) and for environment settings (Locale, TimeZone, charset).
+    - (b) Add fake-bug rules such as "remove `Locale.ENGLISH`", "remove `.toString()`" and "swap equals/==" (bug-pattern mutants, idea 3 in section 5).
+- **Some bugs can't be detected by design.** If the fix adds a whole new class, tests for it can't compile on the buggy code.
+
+---
+
+## 6b. Comparisons (graphs)
+
+**Rule:** every comparison and every graph is made by `comparison/comparison.py`, and each run writes a **new folder** `comparison/result/<a>_vs_<b>_<N>bugs_<date>/`. A new set of frameworks, bug count or date gives a new folder.
+
+`python3 comparison/comparison.py <framework> <framework> ... [--bugs bugs/dev40.txt]` (names = results folders: full, evosuite, advertest, single-shot, no-context, ...). It makes 11 graphs:
+1. bugs detected;
+2. key measures;
+3. overlap;
+4. per project;
+5. per bug;
+6. time and cost;
+7. the AI's first answer;
+8. the **fix loop** (every saved AI answer replayed on the fixed version, cached in `results/<fw>/attempt_quality.csv`, no AI);
+9. **mutant challenge rounds** (AdverTest Fig. 2 style);
+10. **coverage vs detection**;
+11. **per-bug paired scores** (two frameworks only).
+
+It also writes summary.md and per_bug.csv.
+
+**17 Nov, our framework vs EvoSuite, 28 bugs** (`our-framework_vs_evosuite_28bugs_2026-11-17`):
+- **Detected:** ours 16/28 (57%), EvoSuite 12/28 (43%).
+- **Fix loop:** passing tests go from 63% (1st answer) to 82%, then 90%, then 96% after 3 fixes. Compiles: 78% → 100%.
+- **Mutant challenge:** rule-mutant score goes from 65% at the start to 81% after round 1 and 82% after round 2. Buggy-method coverage goes from 88% to 94% to 96%.
+- **Per bug, Major mutation:** ours higher on 19 of 22 bugs, EvoSuite higher on 2.
+- **Coverage is not detection:** ours missed 4 bugs at 100% buggy-method coverage; EvoSuite missed 8.
+
+## 7. How to resume
+
+```bash
+scripts/run_dev40.sh                                  # our framework + EvoSuite on the 40 bugs (skips finished)
+python3 scripts/run_evosuite.py bugs/dev40.txt        # EvoSuite only
+python3 scripts/summarize.py bugs/dev40.txt           # tables
+tail -20 results/dev40.log                            # progress
+```

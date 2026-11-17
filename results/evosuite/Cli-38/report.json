@@ -1,0 +1,77 @@
+{
+  "bug": "Cli-38",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.cli.DefaultParser",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 23,
+      "final_oracles": 21,
+      "focal_methods": [
+        "isShortOption"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.73,
+          "branch": 0.683,
+          "line": 0.751,
+          "complexity": 0.689,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 0.917
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 154,
+          "killed": 84,
+          "score": 0.545
+        },
+        "focal": {
+          "generated": 10,
+          "killed": 6,
+          "score": 0.6
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Cli",
+      "version_id": "38f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 193,
+      "lines_covered": 152,
+      "branches_total": 164,
+      "branches_covered": 115,
+      "line": 0.788,
+      "branch": 0.701
+    },
+    "major_mutation": {
+      "generated": 385,
+      "covered": 385,
+      "killed": 229,
+      "score": 0.595
+    }
+  },
+  "seconds": 127.5,
+  "extras_measured": true
+}

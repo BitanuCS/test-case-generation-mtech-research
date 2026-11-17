@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change the negativeVarColumn boundary check from > 0 to >= 0, causing incorrect basic row retrieval when the negative variable column is at index 0.",
+    "original": "Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;",
+    "mutated": "Integer negativeVarBasicRow = negativeVarColumn >= 0 ? getBasicRow(negativeVarColumn) : null;"
+  },
+  {
+    "description": "Change loop condition from i < coefficients.length to i <= coefficients.length, causing an ArrayIndexOutOfBoundsException.",
+    "original": "for (int i = 0; i < coefficients.length; i++) {",
+    "mutated": "for (int i = 0; i <= coefficients.length; i++) {"
+  },
+  {
+    "description": "Change colIndex check from < 0 to <= 0, causing decision variables at column index 0 to be treated as missing.",
+    "original": "if (colIndex < 0) {",
+    "mutated": "if (colIndex <= 0) {"
+  },
+  {
+    "description": "Change basicRow == 0 check to basicRow < 0, breaking the special handling for objective function row check.",
+    "original": "if (basicRow != null && basicRow == 0) {",
+    "mutated": "if (basicRow != null && basicRow < 0) {"
+  },
+  {
+    "description": "Swap the subtraction operands for unconstrained variables when basicRows already contains the basicRow, subtracting mostNegative from 0 instead of subtracting it properly.",
+    "original": "coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);",
+    "mutated": "coefficients[i] = (restrictToNonNegative ? 0 : mostNegative) - 0;"
+  }
+]

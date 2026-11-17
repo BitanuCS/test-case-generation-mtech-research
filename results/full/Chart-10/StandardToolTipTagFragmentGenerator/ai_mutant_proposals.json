@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Accidentally omit the alt attribute completely, returning only the title.",
+    "original": "          return \" title=\\\"\" + ImageMapUtilities.htmlEscape(toolTipText) \n              + \"\\\" alt=\\\"\"\";",
+    "mutated": "          return \" title=\\\"\" + ImageMapUtilities.htmlEscape(toolTipText) \n              + \"\\\"\";"
+  },
+  {
+    "description": "Swap the order of the title and alt attributes, producing invalid or unexpected HTML tag attributes.",
+    "original": "          return \" title=\\\"\" + ImageMapUtilities.htmlEscape(toolTipText) \n              + \"\\\" alt=\\\"\"\";",
+    "mutated": "          return \" alt=\\\"\\\" title=\\\"\" + ImageMapUtilities.htmlEscape(toolTipText) \n              + \"\\\"\";"
+  },
+  {
+    "description": "Hardcode an empty string inside the title attribute instead of using the passed toolTipText parameter.",
+    "original": "          return \" title=\\\"\" + ImageMapUtilities.htmlEscape(toolTipText) \n              + \"\\\" alt=\\\"\"\";",
+    "mutated": "          return \" title=\\\"\\\" alt=\\\"\"\";"
+  },
+  {
+    "description": "Forget to call htmlEscape on the toolTipText, leaving special characters unescaped in the HTML output.",
+    "original": "          return \" title=\\\"\" + ImageMapUtilities.htmlEscape(toolTipText) \n              + \"\\\" alt=\\\"\"\";",
+    "mutated": "          return \" title=\\\"\" + toolTipText \n              + \"\\\" alt=\\\"\"\";"
+  },
+  {
+    "description": "Use an incorrect attribute name 'titles' instead of 'title'.",
+    "original": "          return \" title=\\\"\" + ImageMapUtilities.htmlEscape(toolTipText) \n              + \"\\\" alt=\\\"\"\";",
+    "mutated": "          return \" titles=\\\"\" + ImageMapUtilities.htmlEscape(toolTipText) \n              + \"\\\" alt=\\\"\"\";"
+  }
+]

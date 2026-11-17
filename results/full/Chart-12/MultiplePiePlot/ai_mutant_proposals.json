@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Wrong table order initialized by default: setting dataExtractOrder to BY_ROW instead of BY_COLUMN.",
+    "original": "this.dataExtractOrder = TableOrder.BY_COLUMN;",
+    "mutated": "this.dataExtractOrder = TableOrder.BY_ROW;"
+  },
+  {
+    "description": "Missing removal of the legend on the pie chart, leaving the default legend enabled.",
+    "original": "this.pieChart.removeLegend();",
+    "mutated": "// this.pieChart.removeLegend();"
+  },
+  {
+    "description": "Wrong background paint initialized for the pie chart (using Color.white instead of null).",
+    "original": "this.pieChart.setBackgroundPaint(null);",
+    "mutated": "this.pieChart.setBackgroundPaint(Color.white);"
+  },
+  {
+    "description": "Wrong title position for the series title, setting it to TOP instead of BOTTOM.",
+    "original": "seriesTitle.setPosition(RectangleEdge.BOTTOM);",
+    "mutated": "seriesTitle.setPosition(RectangleEdge.TOP);"
+  },
+  {
+    "description": "Wrong default aggregated items key, using 'Others' instead of 'Other'.",
+    "original": "this.aggregatedItemsKey = \"Other\";",
+    "mutated": "this.aggregatedItemsKey = \"Others\";"
+  }
+]

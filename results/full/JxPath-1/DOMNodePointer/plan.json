@@ -1,0 +1,116 @@
+[
+  {
+    "method": "testNode",
+    "name": "nullTestReturnsTrue",
+    "input": "node = Element (any), test = null",
+    "expected": "Returns true because a null test matches any node without filtering."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeNameTestNonElementNodeReturnsFalse",
+    "input": "node = Text node, test = NodeNameTest (matching name)",
+    "expected": "Returns false because NodeNameTest requires node type to be Node.ELEMENT_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeNameTestWildcardNoPrefixReturnsTrue",
+    "input": "node = Element, test = NodeNameTest with wildcard=true and testPrefix=null",
+    "expected": "Returns true because a wildcard test with no prefix matches any element node."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeNameTestWildcardWithNamespaceMatching",
+    "input": "node = Element with specific namespace URI, test = NodeNameTest with wildcard=true and namespaceURI matching nodeNS",
+    "expected": "Returns true because wildcard matches the local name and equalStrings validates namespace URI."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeNameTestLocalNameAndNamespaceMatch",
+    "input": "node = Element (local name 'foo', namespace 'http://ns'), test = NodeNameTest for 'foo' with namespace 'http://ns'",
+    "expected": "Returns true because both local name and namespace URI match successfully."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeNameTestLocalNameMatchNamespaceMismatch",
+    "input": "node = Element (local name 'foo', namespace 'http://ns1'), test = NodeNameTest for 'foo' with namespace 'http://ns2'",
+    "expected": "Returns false because namespace URIs do not match according to equalStrings."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeNameTestLocalNameMismatch",
+    "input": "node = Element (local name 'bar'), test = NodeNameTest for 'foo'",
+    "expected": "Returns false because local names do not match."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeTypeTestNodeNodeTypeElement",
+    "input": "node = Element node, test = NodeTypeTest with type Compiler.NODE_TYPE_NODE",
+    "expected": "Returns true because NODE_TYPE_NODE matches ELEMENT_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeTypeTestNodeNodeTypeDocument",
+    "input": "node = Document node, test = NodeTypeTest with type Compiler.NODE_TYPE_NODE",
+    "expected": "Returns true because NODE_TYPE_NODE matches DOCUMENT_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeTypeTestNodeNodeTypeInvalidType",
+    "input": "node = Comment node, test = NodeTypeTest with type Compiler.NODE_TYPE_NODE",
+    "expected": "Returns false because COMMENT_NODE is not matched by NODE_TYPE_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeTypeTestTextNodeText",
+    "input": "node = Text node, test = NodeTypeTest with type Compiler.NODE_TYPE_TEXT",
+    "expected": "Returns true because NODE_TYPE_TEXT matches TEXT_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeTypeTestTextNodeCdata",
+    "input": "node = CDATASection node, test = NodeTypeTest with type Compiler.NODE_TYPE_TEXT",
+    "expected": "Returns true because NODE_TYPE_TEXT matches CDATA_SECTION_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeTypeTestCommentNode",
+    "input": "node = Comment node, test = NodeTypeTest with type Compiler.NODE_TYPE_COMMENT",
+    "expected": "Returns true because NODE_TYPE_COMMENT matches COMMENT_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeTypeTestPiNode",
+    "input": "node = ProcessingInstruction node, test = NodeTypeTest with type Compiler.NODE_TYPE_PI",
+    "expected": "Returns true because NODE_TYPE_PI matches PROCESSING_INSTRUCTION_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "nodeTypeTestUnknownCompilerType",
+    "input": "node = Element node, test = NodeTypeTest with an unrecognized node type int",
+    "expected": "Returns false because the switch statement does not match any known case and falls through to return false."
+  },
+  {
+    "method": "testNode",
+    "name": "processingInstructionTestMatchingTarget",
+    "input": "node = ProcessingInstruction with target 'target1', test = ProcessingInstructionTest with target 'target1'",
+    "expected": "Returns true because instruction targets match exactly."
+  },
+  {
+    "method": "testNode",
+    "name": "processingInstructionTestNonPiNodeReturnsFalse",
+    "input": "node = Element node, test = ProcessingInstructionTest",
+    "expected": "Returns false because node type is not PROCESSING_INSTRUCTION_NODE."
+  },
+  {
+    "method": "testNode",
+    "name": "processingInstructionTestTargetMismatch",
+    "input": "node = ProcessingInstruction with target 'target1', test = ProcessingInstructionTest with target 'target2'",
+    "expected": "Returns false because targets do not match."
+  },
+  {
+    "method": "testNode",
+    "name": "unknownTestImplementationReturnsFalse",
+    "input": "node = Element node, test = custom/unknown subclass of NodeTest",
+    "expected": "Returns false because none of the supported NodeTest subclasses match."
+  }
+]

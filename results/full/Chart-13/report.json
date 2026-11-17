@@ -1,0 +1,77 @@
+{
+  "bug": "Chart-13",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": null,
+  "seconds": 52.6,
+  "llm_calls": {
+    "fresh": 5,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 5
+    },
+    "tokens_in": 20619,
+    "tokens_out": 14342
+  },
+  "classes": [
+    {
+      "bug": "Chart-13",
+      "class": "org.jfree.chart.block.BorderArrangement",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 30
+        },
+        {
+          "round": 2,
+          "compile_errors": 8
+        },
+        {
+          "round": 3,
+          "compile_errors": 3
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "arrangeFF"
+      ],
+      "generated_tests": 11,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 11,
+        "oracles": 50,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 11,
+        "compiles": false,
+        "compile_ok_tests": 0,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.0,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "status": "no_valid_tests"
+    }
+  ]
+}

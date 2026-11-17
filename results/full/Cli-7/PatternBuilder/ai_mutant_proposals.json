@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change the size condition in create() from == 1 to == 0, causing incorrect single option handling.",
+    "original": "if (options.size() == 1) {",
+    "mutated": "if (options.size() == 0) {"
+  },
+  {
+    "description": "Omit the reset() call inside create(), leaving internal state dirty after option creation.",
+    "original": "reset();",
+    "mutated": "// reset();"
+  },
+  {
+    "description": "Change the minimum argument requirement from 1 to 0 when required is true.",
+    "original": "abuilder.withMinimum(1);",
+    "mutated": "abuilder.withMinimum(0);"
+  },
+  {
+    "description": "Invert the character check for star type from != '*' to == '*', breaking maximum argument limit logic.",
+    "original": "if (type != '*') {",
+    "mutated": "if (type == '*') {"
+  },
+  {
+    "description": "Pass a hardcoded boolean literal false instead of the required parameter when building the option.",
+    "original": "obuilder.withRequired(required);",
+    "mutated": "obuilder.withRequired(false);"
+  }
+]

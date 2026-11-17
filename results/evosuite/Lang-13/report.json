@@ -1,0 +1,88 @@
+{
+  "bug": "Lang-13",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.lang3.SerializationUtils",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 9,
+      "final_oracles": 8,
+      "focal_methods": [
+        "ClassLoaderAwareObjectInputStream",
+        "resolveClass"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.809,
+          "branch": 0.929,
+          "line": 0.804,
+          "complexity": 0.923,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.571,
+          "branch": 0.0
+        },
+        "focal_missed_lines": [
+          275,
+          277,
+          278,
+          280,
+          281,
+          282,
+          283,
+          284,
+          286
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 16,
+          "killed": 10,
+          "score": 0.625
+        },
+        "focal": {
+          "generated": 0,
+          "killed": 0,
+          "score": null
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "13f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 79,
+      "lines_covered": 58,
+      "branches_total": 16,
+      "branches_covered": 13,
+      "line": 0.734,
+      "branch": 0.812
+    },
+    "major_mutation": {
+      "generated": 30,
+      "covered": 30,
+      "killed": 13,
+      "score": 0.433
+    }
+  },
+  "seconds": 114.8,
+  "extras_measured": true
+}

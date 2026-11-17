@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change the skip check boundary from > 0 to >= 0, causing an infinite loop or wrong condition when numToSkip is 0.",
+    "original": "              while (numToSkip > 0) {",
+    "mutated": "              while (numToSkip >= 0) {"
+  },
+  {
+    "description": "Reset entryOffset to -1 instead of 0 after parsing a header, causing calculation errors on the next entry's offset.",
+    "original": "          entryOffset = 0;",
+    "mutated": "          entryOffset = -1;"
+  },
+  {
+    "description": "Change the GNULongNameEntry trailing null terminator check from > 0 to > 1, failing to strip single-character null-terminated strings.",
+    "original": "              if (longName.length() > 0\n                  && longName.charAt(longName.length() - 1) == 0) {",
+    "mutated": "              if (longName.length() > 1\n                  && longName.charAt(longName.length() - 1) == 0) {"
+  },
+  {
+    "description": "Accidentally assign entrySize to 0 instead of currEntry.getSize() at the end of the method.",
+    "original": "          entrySize = currEntry.getSize();",
+    "mutated": "          entrySize = 0;"
+  },
+  {
+    "description": "Negate the isPaxHeader check so that Pax headers are skipped or incorrectly processed.",
+    "original": "          if (currEntry.isPaxHeader()){ // Process Pax headers",
+    "mutated": "          if (!currEntry.isPaxHeader()){ // Process Pax headers"
+  }
+]

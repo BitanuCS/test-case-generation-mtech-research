@@ -1,0 +1,74 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 277,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 280,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 283,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "return Class.forName(name, true, classLoader);",
+    "description": "Change initialize resolveClass initialize boolean flag from false to true in Class.forName",
+    "line": 277,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return Class.forName(name, true, Thread.currentThread().getContextClassLoader());",
+    "description": "Change fallback Thread.forName initialization boolean flag from false to true",
+    "line": 280,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (cls == null)",
+    "description": "Negate the null check for primitive type lookup, causing it to return null when found and throw exception",
+    "line": 283,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "throw ex;",
+    "description": "Swap the thrown exception in the catch block from cnfe to ex",
+    "line": 286,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "primitiveTypes.put(\"boolean\", byte.class);",
+    "description": "Change initialization boolean class mapping to point to byte.class instead of boolean.class",
+    "line": 260,
+    "status": "survived",
+    "killed_by": []
+  }
+]

@@ -1,0 +1,184 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "clazz.isAssignableFrom(requestedType)",
+    "description": "negation removed: '!' deleted",
+    "line": 830,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadReturnsNullSafelyWithoutTypeCheckWhenResultIsNull",
+      "adapterReadReturnsValidInstanceMatchingRequestedType",
+      "adapterReadSucceedsWhenResultIsExactSubclassInstance",
+      "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType",
+      "adapterWriteDelegatesToTypeAdapterCorrectly",
+      "createReturnsAdapterWhenTypeExactMatch",
+      "createReturnsAdapterWhenTypeIsAssignable",
+      "createReturnsNullWhenTypeNotAssignable",
+      "createWithInterfaceHierarchyMatch"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 840,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadReturnsNullSafelyWithoutTypeCheckWhenResultIsNull",
+      "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 840,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadReturnsNullSafelyWithoutTypeCheckWhenResultIsNull",
+      "adapterReadReturnsValidInstanceMatchingRequestedType",
+      "adapterReadSucceedsWhenResultIsExactSubclassInstance"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "requestedType.isInstance(result)",
+    "description": "negation removed: '!' deleted",
+    "line": 840,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadReturnsValidInstanceMatchingRequestedType",
+      "adapterReadSucceedsWhenResultIsExactSubclassInstance",
+      "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 841,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 841,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 841,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 849,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 849,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 849,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 849,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (!requestedType.isAssignableFrom(clazz)) {",
+    "description": "Swapped the arguments in isAssignableFrom, checking if requestedType is assignable from clazz instead of clazz being assignable from requestedType, breaking the hierarchy check direction.",
+    "line": 830,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadReturnsNullSafelyWithoutTypeCheckWhenResultIsNull",
+      "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType",
+      "createReturnsAdapterWhenTypeIsAssignable"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (result == null && !requestedType.isInstance(result)) {",
+    "description": "Changed the null-check operator on result in read() from '!=' to '==', causing a NullPointerException when result is null instead of safely returning null.",
+    "line": 840,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadReturnsNullSafelyWithoutTypeCheckWhenResultIsNull",
+      "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (result != null || !requestedType.isInstance(result)) {",
+    "description": "Replaced the logical AND operator (&&) with logical OR (||) in the type verification check during read(), so it fails incorrectly or skips validation.",
+    "line": 840,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadReturnsNullSafelyWithoutTypeCheckWhenResultIsNull",
+      "adapterReadReturnsValidInstanceMatchingRequestedType",
+      "adapterReadSucceedsWhenResultIsExactSubclassInstance"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (result != null && requestedType.isInstance(result)) {",
+    "description": "Negated the isInstance check condition in read() by removing the exclamation mark, meaning it throws an exception when the type *is* correct and passes when it's wrong.",
+    "line": 840,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadReturnsValidInstanceMatchingRequestedType",
+      "adapterReadSucceedsWhenResultIsExactSubclassInstance",
+      "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (result != null && !clazz.isInstance(result)) {",
+    "description": "Replaced requestedType with clazz in the runtime type verification inside read(), checking against the base class instead of the specific requested subtype.",
+    "line": 840,
+    "status": "killed",
+    "killed_by": [
+      "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType"
+    ]
+  }
+]

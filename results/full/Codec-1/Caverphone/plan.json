@@ -1,0 +1,92 @@
+[
+  {
+    "method": "caverphone",
+    "name": "testNullInput",
+    "input": "null",
+    "expected": "Returns '1111111111' because the input is null, matching the guard clause checking for null or empty strings."
+  },
+  {
+    "method": "caverphone",
+    "name": "testEmptyStringInput",
+    "input": "\"\"",
+    "expected": "Returns '1111111111' because the input length is zero, matching the guard clause checking for null or empty strings."
+  },
+  {
+    "method": "caverphone",
+    "name": "testBasicWordEncoding",
+    "input": "\"Lee\"",
+    "expected": "Returns a 10-character caverphone string padded with trailing ones, after converting to lowercase, removing non-a-z, stripping final 'e', and applying phonetic transformations."
+  },
+  {
+    "method": "caverphone",
+    "name": "testStartOptionCough",
+    "input": "\"cough\"",
+    "expected": "Transforms '^cough' to 'cou2f' at the start of the string per step 3 of the Caverphone 2.0 rules."
+  },
+  {
+    "method": "caverphone",
+    "name": "testStartOptionRough",
+    "input": "\"rough\"",
+    "expected": "Transforms '^rough' to 'rou2f' at the start of the string per step 3 of the Caverphone 2.0 rules."
+  },
+  {
+    "method": "caverphone",
+    "name": "testStartOptionTough",
+    "input": "\"tough\"",
+    "expected": "Transforms '^tough' to 'tou2f' at the start of the string per step 3 of the Caverphone 2.0 rules."
+  },
+  {
+    "method": "caverphone",
+    "name": "testStartOptionEnough",
+    "input": "\"enough\"",
+    "expected": "Transforms '^enough' to 'enou2f' at the start of the string per step 3 of Caverphone 2.0."
+  },
+  {
+    "method": "caverphone",
+    "name": "testStartOptionTrough",
+    "input": "\"trough\"",
+    "expected": "Transforms '^trough' to 'trou2f' at the start of the string per step 3 of Caverphone 2.0."
+  },
+  {
+    "method": "caverphone",
+    "name": "testStartOptionGn",
+    "input": "\"gnat\"",
+    "expected": "Transforms '^gn' to '2n' at the start of the string per step 3 of the Caverphone rules."
+  },
+  {
+    "method": "caverphone",
+    "name": "testStartOptionMb",
+    "input": "\"mbira\"",
+    "expected": "Transforms '^mb' to 'm2' at the start of the string per step 3 of the Caverphone rules."
+  },
+  {
+    "method": "caverphone",
+    "name": "testNonAlphabetCharactersRemoval",
+    "input": "\"A-B_C.123!\"",
+    "expected": "Removes any characters not matching [a-z] (after converting to lowercase) before performing phonetic replacements."
+  },
+  {
+    "method": "caverphone",
+    "name": "testFinalEStripping",
+    "input": "\"name\"",
+    "expected": "Removes the final 'e' in step 2.5 (Caverphone 2.0 only) before subsequent phonetic substitutions."
+  },
+  {
+    "method": "caverphone",
+    "name": "testVowelReplacementsAtStart",
+    "input": "\"apple\"",
+    "expected": "Replaces initial vowels with 'A' and subsequent vowels with '3' according to step 4."
+  },
+  {
+    "method": "caverphone",
+    "name": "testConsonantClusterReplacements",
+    "input": "\"succeeded\"",
+    "expected": "Applies multiple replacement rules for consonant groups like 'tch', 'c', 'd', etc., and collapses duplicates (s+, t+, etc.)."
+  },
+  {
+    "method": "caverphone",
+    "name": "testCleanupAndPadding",
+    "input": "\"Smith\"",
+    "expected": "Removes intermediate numbers ('2' and '3'), handles trailing '3' to 'A' conversion, and pads with ten '1's to ensure a 10-character code."
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "bug": "JacksonCore-8",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "com.fasterxml.jackson.core.util.TextBuffer",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 57,
+      "final_oracles": 89,
+      "focal_methods": [
+        "getTextBuffer"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.96,
+          "branch": 0.979,
+          "line": 0.978,
+          "complexity": 0.962,
+          "method": 0.971,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 204,
+          "killed": 136,
+          "score": 0.667
+        },
+        "focal": {
+          "generated": 11,
+          "killed": 9,
+          "score": 0.818
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "JacksonCore",
+      "version_id": "8f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "1"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 271,
+      "lines_covered": 271,
+      "branches_total": 140,
+      "branches_covered": 139,
+      "line": 1.0,
+      "branch": 0.993
+    },
+    "major_mutation": {
+      "generated": 497,
+      "covered": 497,
+      "killed": 252,
+      "score": 0.507
+    }
+  },
+  "seconds": 176.5,
+  "extras_measured": true
+}

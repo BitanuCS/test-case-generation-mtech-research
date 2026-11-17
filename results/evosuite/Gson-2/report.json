@@ -1,0 +1,78 @@
+{
+  "bug": "Gson-2",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "com.google.gson.internal.bind.TypeAdapters",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 55,
+      "final_oracles": 56,
+      "focal_methods": [
+        "newTypeHierarchyFactory"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.973,
+          "line": 0.967,
+          "complexity": 0.857,
+          "method": 0.857,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.923,
+          "branch": 0.667
+        },
+        "focal_missed_lines": [
+          844
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 5,
+          "killed": 5,
+          "score": 1.0
+        },
+        "focal": {
+          "generated": 1,
+          "killed": 1,
+          "score": 1.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Gson",
+      "version_id": "2f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "2"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 454,
+      "lines_covered": 288,
+      "branches_total": 192,
+      "branches_covered": 102,
+      "line": 0.634,
+      "branch": 0.531
+    },
+    "major_mutation": {
+      "generated": 266,
+      "covered": 266,
+      "killed": 200,
+      "score": 0.752
+    }
+  },
+  "seconds": 146.9,
+  "extras_measured": true
+}

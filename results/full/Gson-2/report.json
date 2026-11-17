@@ -1,0 +1,157 @@
+{
+  "bug": "Gson-2",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 454,
+      "lines_covered": 109,
+      "branches_total": 192,
+      "branches_covered": 8,
+      "line": 0.24,
+      "branch": 0.042
+    },
+    "major_mutation": {
+      "generated": 266,
+      "covered": 266,
+      "killed": 264,
+      "score": 0.992
+    }
+  },
+  "seconds": 57.9,
+  "llm_calls": {
+    "fresh": 5,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 5
+    },
+    "tokens_in": 28571,
+    "tokens_out": 5473
+  },
+  "classes": [
+    {
+      "bug": "Gson-2",
+      "class": "com.google.gson.internal.bind.TypeAdapters",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "passed": 5,
+          "failed": 5,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 10,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "newTypeHierarchyFactory"
+      ],
+      "generated_tests": 10,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 10,
+        "oracles": 12,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 10,
+        "compiles": false,
+        "compile_ok_tests": 9,
+        "passed": 4,
+        "assertion_failures": 0,
+        "error_failures": 5,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.9,
+        "execution_rate": 0.4,
+        "pass_rate": 0.4,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 10,
+      "mutation": [
+        {
+          "all": {
+            "total": 16,
+            "valid": 9,
+            "killed": 9,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 11,
+            "valid": 4,
+            "killed": 4,
+            "score": 1.0
+          },
+          "tests": 10,
+          "coverage": {
+            "line": 1.0,
+            "branch": null
+          }
+        }
+      ],
+      "final_tests": 10,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.946,
+          "line": 0.951,
+          "complexity": 0.714,
+          "method": 0.714,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 5,
+          "killed": 1,
+          "score": 0.2
+        },
+        "focal": {
+          "generated": 1,
+          "killed": 1,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 12,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType": "java.lang.AssertionError: Expected exception: com.google.gson.JsonSyntaxException"
+      },
+      "status": "ok"
+    }
+  ]
+}

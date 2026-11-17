@@ -1,0 +1,256 @@
+// ===== Class under test: org.apache.commons.compress.archivers.tar.TarArchiveInputStream =====
+package org.apache.commons.compress.archivers.tar;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.utils.ArchiveUtils;
+
+/**
+ * The TarInputStream reads a UNIX tar archive as an InputStream.
+ * methods are provided to position at each successive entry in
+ * the archive, and the read each entry as a normal input stream
+ * using read().
+ * @NotThreadSafe
+ */
+public class TarArchiveInputStream extends ArchiveInputStream {
+
+  // --- fields ---
+  private static final int SMALL_BUFFER_SIZE = 256;
+  private static final int BUFFER_SIZE = 8 * 1024;
+  private boolean hasHitEOF;
+  private long entrySize;
+  private long entryOffset;
+  private byte[] readBuf;
+  protected final TarBuffer buffer;
+  private TarArchiveEntry currEntry;
+
+  // --- constructors and other methods (signatures only) ---
+  public TarArchiveInputStream(InputStream is);
+  public TarArchiveInputStream(InputStream is, int blockSize);
+  public TarArchiveInputStream(InputStream is, int blockSize, int recordSize);
+  @Override public void close() throws IOException;
+  public int getRecordSize();
+  @Override public int available() throws IOException;
+  @Override public synchronized void reset();
+  Map<String, String> parsePaxHeaders(Reader br) throws IOException;
+  @Override public int read(byte[] buf, int offset, int numToRead) throws IOException;
+  @Override public boolean canReadEntryData(ArchiveEntry ae);
+  protected final TarArchiveEntry getCurrentEntry();
+  protected final void setCurrentEntry(TarArchiveEntry e);
+  protected final boolean isAtEOF();
+  protected final void setAtEOF(boolean b);
+  public static boolean matches(byte[] signature, int length);
+
+  // --- helper methods called by the method(s) under test ---
+  /**
+       * Adds the sparse chunks from the current entry to the sparse chunks,
+       * including any additional sparse entries following the current entry.
+       * 
+       * @throws IOException on error 
+       * 
+       * @todo Sparse files get not yet really processed. 
+       */
+  private void readGNUSparse() throws IOException {
+          /* we do not really process sparse files yet
+          sparses = new ArrayList();
+          sparses.addAll(currEntry.getSparses());
+          */
+          if (currEntry.isExtended()) {
+              TarArchiveSparseEntry entry;
+              do {
+                  byte[] headerBuf = getRecord();
+                  if (hasHitEOF) {
+                      currEntry = null;
+                      break;
+                  }
+                  entry = new TarArchiveSparseEntry(headerBuf);
+                  /* we do not really process sparse files yet
+                  sparses.addAll(entry.getSparses());
+                  */
+              } while (entry.isExtended());
+          }
+      }
+  private void paxHeaders() throws IOException{
+          Reader br = new InputStreamReader(this, "UTF-8") {
+                  @Override
+                  public void close() {
+                      // make sure GC doesn't close "this" before we are done
+                  }
+              };
+          Map<String, String> headers = null;
+          try {
+              headers = parsePaxHeaders(br);
+          } finally {
+              // NO-OP but makes FindBugs happy
+              br.close();
+          }
+
+          getNextEntry(); // Get the actual file entry
+          applyPaxHeadersToCurrentEntry(headers);
+      }
+  @Override
+      public ArchiveEntry getNextEntry() throws IOException {
+          return getNextTarEntry();
+      }
+  /**
+       * Get the next record in this tar archive. This will skip
+       * over any remaining data in the current entry, if there
+       * is one, and place the input stream at the header of the
+       * next entry.
+       * If there are no more entries in the archive, null will
+       * be returned to indicate that the end of the archive has
+       * been reached.
+       *
+       * @return The next header in the archive, or null.
+       * @throws IOException on error
+       */
+  private byte[] getRecord() throws IOException {
+          if (hasHitEOF) {
+              return null;
+          }
+
+          byte[] headerBuf = buffer.readRecord();
+
+          if (headerBuf == null) {
+              hasHitEOF = true;
+          } else if (buffer.isEOFRecord(headerBuf)) {
+              hasHitEOF = true;
+          }
+
+          return hasHitEOF ? null : headerBuf;
+      }
+  /**
+       * Skip bytes in the input buffer. This skips bytes in the
+       * current entry's data, not the entire archive, and will
+       * stop at the end of the current entry's data if the number
+       * to skip extends beyond that point.
+       *
+       * @param numToSkip The number of bytes to skip.
+       * @return the number actually skipped
+       * @throws IOException on error
+       */
+  @Override
+      public long skip(long numToSkip) throws IOException {
+          // REVIEW
+          // This is horribly inefficient, but it ensures that we
+          // properly skip over bytes via the TarBuffer...
+          //
+          byte[] skipBuf = new byte[BUFFER_SIZE];
+          long skip = numToSkip;
+          while (skip > 0) {
+              int realSkip = (int) (skip > skipBuf.length ? skipBuf.length : skip);
+              int numRead = read(skipBuf, 0, realSkip);
+              if (numRead == -1) {
+                  break;
+              }
+              skip -= numRead;
+          }
+          return (numToSkip - skip);
+      }
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+       * Get the next entry in this tar archive. This will skip
+       * over any remaining data in the current entry, if there
+       * is one, and place the input stream at the header of the
+       * next entry, and read the header and instantiate a new
+       * TarEntry from the header bytes and return that entry.
+       * If there are no more entries in the archive, null will
+       * be returned to indicate that the end of the archive has
+       * been reached.
+       *
+       * @return The next TarEntry in the archive, or null.
+       * @throws IOException on error
+       */
+  public TarArchiveEntry getNextTarEntry() throws IOException {
+          if (hasHitEOF) {
+              return null;
+          }
+
+          if (currEntry != null) {
+              long numToSkip = entrySize - entryOffset;
+
+              while (numToSkip > 0) {
+                  long skipped = skip(numToSkip);
+                  if (skipped <= 0) {
+                      throw new RuntimeException("failed to skip current tar entry");
+                  }
+                  numToSkip -= skipped;
+              }
+
+              readBuf = null;
+          }
+
+          byte[] headerBuf = getRecord();
+
+          if (hasHitEOF) {
+              currEntry = null;
+              return null;
+          }
+
+          try {
+              currEntry = new TarArchiveEntry(headerBuf);
+          } catch (IllegalArgumentException e) {
+              IOException ioe = new IOException("Error detected parsing the header");
+              ioe.initCause(e);
+              throw ioe;
+          }
+          entryOffset = 0;
+          entrySize = currEntry.getSize();
+
+          if (currEntry.isGNULongNameEntry()) {
+              // read in the name
+              StringBuffer longName = new StringBuffer();
+              byte[] buf = new byte[SMALL_BUFFER_SIZE];
+              int length = 0;
+              while ((length = read(buf)) >= 0) {
+                  longName.append(new String(buf, 0, length));
+              }
+              getNextEntry();
+              if (currEntry == null) {
+                  // Bugzilla: 40334
+                  // Malformed tar file - long entry name not followed by entry
+                  return null;
+              }
+              // remove trailing null terminator
+              if (longName.length() > 0
+                  && longName.charAt(longName.length() - 1) == 0) {
+                  longName.deleteCharAt(longName.length() - 1);
+              }
+              currEntry.setName(longName.toString());
+          }
+
+          if (currEntry.isPaxHeader()){ // Process Pax headers
+              paxHeaders();
+          }
+
+          if (currEntry.isGNUSparse()){ // Process sparse files
+              readGNUSparse();
+          }
+
+          // If the size of the next element in the archive has changed
+          // due to a new size being reported in the posix header
+          // information, we update entrySize here so that it contains
+          // the correct value.
+          entrySize = currEntry.getSize();
+          return currEntry;
+      }
+}
+
+// ===== Existing test class TarArchiveInputStreamTest (test methods removed; style/setup reference only) =====
+package org.apache.commons.compress.archivers.tar;
+
+import java.io.StringReader;
+import java.util.Map;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class TarArchiveInputStreamTest {
+
+}

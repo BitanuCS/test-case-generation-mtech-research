@@ -1,0 +1,169 @@
+{
+  "bug": "Chart-12",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 190,
+      "lines_covered": 53,
+      "branches_total": 84,
+      "branches_covered": 11,
+      "line": 0.279,
+      "branch": 0.131
+    },
+    "major_mutation": {
+      "generated": 238,
+      "covered": 238,
+      "killed": 225,
+      "score": 0.945
+    }
+  },
+  "seconds": 98.1,
+  "llm_calls": {
+    "fresh": 4,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 4
+    },
+    "tokens_in": 8614,
+    "tokens_out": 2965
+  },
+  "classes": [
+    {
+      "bug": "Chart-12",
+      "class": "org.jfree.chart.plot.MultiplePiePlot",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 17,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 20,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "MultiplePiePlot"
+      ],
+      "generated_tests": 17,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 17,
+        "oracles": 26,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 17,
+        "compiles": true,
+        "compile_ok_tests": 17,
+        "passed": 17,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 1.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 17,
+      "mutation": [
+        {
+          "all": {
+            "total": 6,
+            "valid": 6,
+            "killed": 3,
+            "score": 0.5
+          },
+          "rule": {
+            "total": 1,
+            "valid": 1,
+            "killed": 0,
+            "score": 0.0
+          },
+          "tests": 17,
+          "coverage": {
+            "line": null,
+            "branch": null
+          }
+        },
+        {
+          "all": {
+            "total": 6,
+            "valid": 6,
+            "killed": 6,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 1,
+            "valid": 1,
+            "killed": 1,
+            "score": 1.0
+          },
+          "tests": 20,
+          "coverage": {
+            "line": null,
+            "branch": null
+          }
+        }
+      ],
+      "final_tests": 20,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.217,
+          "branch": 0.131,
+          "line": 0.279,
+          "complexity": 0.27,
+          "method": 0.714,
+          "class": 1.0
+        },
+        "focal": {
+          "line": null,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 117,
+          "killed": 22,
+          "score": 0.188
+        },
+        "focal": {
+          "generated": 5,
+          "killed": 5,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 29,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    }
+  ]
+}

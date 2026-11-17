@@ -1,0 +1,98 @@
+[
+  {
+    "method": "_parseNumber",
+    "name": "parseSimpleIntegerInBuffer",
+    "input": "Input buffer contains '12345' entirely within bounds, parsing starts with '1'.",
+    "expected": "Returns JsonToken representing an integer, shared in text buffer with intLen=5, fractLen=0, expLen=0."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseDecimalNumberInBuffer",
+    "input": "Input buffer contains '12.34' entirely within bounds, parsing starts with '1'.",
+    "expected": "Returns JsonToken representing a float/decimal, shared in text buffer with intLen=1, fractLen=2, expLen=0."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseExponentialNumberInBuffer",
+    "input": "Input buffer contains '1e+10' entirely within bounds, parsing starts with '1'.",
+    "expected": "Returns JsonToken representing an exponential number, shared in text buffer with appropriate length counters."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseNumberBufferSplitTriggersParseNumber2",
+    "input": "Input buffer ends prematurely during number parsing, forcing break of dummy_loop.",
+    "expected": "Falls back to calling _parseNumber2(boolean negative) to handle the buffer boundary split."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseInvalidNumberStartTriggersHandler",
+    "input": "Negative sign followed by non-digit like 'a' (e.g., '-a').",
+    "expected": "Resets input pointer and delegates to _handleInvalidNumberStart(ch, true)."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "decimalPointNotFollowedByDigitThrowsException",
+    "input": "Input sequence '12.' followed by non-digit or end of buffer.",
+    "expected": "Reports unexpected number char exception stating 'Decimal point not followed by a digit'."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "exponentIndicatorNotFollowedByDigitThrowsException",
+    "input": "Input sequence '1e' or '1e+' followed by non-digit.",
+    "expected": "Reports unexpected number char exception stating 'Exponent indicator not followed by a digit'."
+  },
+  {
+    "method": "_parseNumber2",
+    "name": "parseNumber2BasicIntegerWithSegmentCopy",
+    "input": "Split buffer number requiring segment allocation via textBuffer.emptyAndGetCurrentSegment().",
+    "expected": "Correctly accumulates characters into outBuf, resets textBuffer length, and returns integer JsonToken."
+  },
+  {
+    "method": "_parseNumber2",
+    "name": "parseNumber2LeadingZeroVerification",
+    "input": "Number starting with '0' across buffer split (e.g., '05').",
+    "expected": "Calls _verifyNoLeadingZeroes() to check leading zero rules and ALLOW_NUMERIC_LEADING_ZEROS feature."
+  },
+  {
+    "method": "_parseNumber2",
+    "name": "parseNumber2MissingIntegerPartThrowsException",
+    "input": "Negative sign immediately followed by non-digit across buffer boundary.",
+    "expected": "Throws invalid number exception reporting 'Missing integer part'."
+  },
+  {
+    "method": "_parseNumber2",
+    "name": "parseNumber2DecimalFractionAndExponentSplit",
+    "input": "Number with decimal point and exponent split across multiple input buffers during _parseNumber2.",
+    "expected": "Successfully parses fractional and exponential parts, handles segment resizing, and returns float JsonToken."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceWithSpaceCharacter",
+    "input": "Root value followed by ' ' (space) character at current input pointer.",
+    "expected": "Advances input pointer past the space character successfully without errors."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceWithTabulator",
+    "input": "Root value followed by '\\t' (tab) character at current input pointer.",
+    "expected": "Advances input pointer past the tab character successfully without errors."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceWithCarriageReturn",
+    "input": "Root value followed by '\\r' (carriage return).",
+    "expected": "Calls _skipCR() to handle newline sequences and increments row count."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceWithLineFeed",
+    "input": "Root value followed by '\\n' (line feed).",
+    "expected": "Increments line row count, updates row start pointer, and advances past the newline."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceInvalidCharacterThrowsException",
+    "input": "Root value followed by an invalid separator character like '1' or 'a'.",
+    "expected": "Calls _reportMissingRootWS(ch) and throws a JsonParseException for missing root whitespace."
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Wrong logical operator: uses OR instead of AND for the newline check, causing standalone newlines or any character after a carriage return to misbehave.",
+    "original": "if (current == '\\r' || (current == '\\n' && lastChar != '\\r')) {",
+    "mutated": "if (current == '\\r' || (current == '\\n' || lastChar != '\\r')) {"
+  },
+  {
+    "description": "Wrong comparison character: checks against '\\r' instead of '\\n' in the second condition.",
+    "original": "if (current == '\\r' || (current == '\\n' && lastChar != '\\r')) {",
+    "mutated": "if (current == '\\r' || (current == '\\n' && lastChar != '\\n')) {"
+  },
+  {
+    "description": "Wrong variable used for tracking the previous character: updates lastChar with current before the conditional check instead of after.",
+    "original": "          if (current == '\\r' || (current == '\\n' && lastChar != '\\r')) {\n              lineCounter++;\n          }\n          lastChar = current;",
+    "mutated": "          lastChar = current;\n          if (current == '\\r' || (current == '\\n' && lastChar != '\\r')) {\n              lineCounter++;\n          }"
+  },
+  {
+    "description": "Swapped return value: returns 'current' instead of 'lastChar' at the end of the method.",
+    "original": "          lastChar = current;\n          return lastChar;",
+    "mutated": "          lastChar = current;\n          return current;"
+  },
+  {
+    "description": "Missing assignment to lastChar: forgets to record the current character into lastChar, breaking subsequent newline tracking after carriage returns.",
+    "original": "          lastChar = current;\n          return lastChar;",
+    "mutated": "          return lastChar;"
+  }
+]

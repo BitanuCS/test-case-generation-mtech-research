@@ -1,0 +1,82 @@
+{
+  "bug": "Math-12",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.math3.random.BitsStreamGenerator",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 9,
+      "final_oracles": 11,
+      "focal_methods": [
+        "BitsStreamGenerator",
+        "setSeed",
+        "setSeed",
+        "setSeed",
+        "next",
+        "nextBoolean"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 1.0,
+          "branch": 1.0,
+          "line": 1.0,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 53,
+          "killed": 45,
+          "score": 0.849
+        },
+        "focal": {
+          "generated": 2,
+          "killed": 2,
+          "score": 1.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Math",
+      "version_id": "12f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 48,
+      "lines_covered": 48,
+      "branches_total": 14,
+      "branches_covered": 14,
+      "line": 1.0,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 204,
+      "covered": 204,
+      "killed": 149,
+      "score": 0.73
+    }
+  },
+  "seconds": 114.3,
+  "extras_measured": true
+}

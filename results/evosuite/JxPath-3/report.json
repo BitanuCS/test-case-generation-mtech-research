@@ -1,0 +1,86 @@
+{
+  "bug": "JxPath-3",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 28,
+      "final_oracles": 37,
+      "focal_methods": [
+        "createPath",
+        "createPath",
+        "createBadFactoryException"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.825,
+          "branch": 0.971,
+          "line": 0.831,
+          "complexity": 0.929,
+          "method": 0.92,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.727,
+          "branch": 1.0
+        },
+        "focal_missed_lines": [
+          108,
+          131,
+          138,
+          139,
+          140,
+          150
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 42,
+          "killed": 33,
+          "score": 0.786
+        },
+        "focal": {
+          "generated": 14,
+          "killed": 9,
+          "score": 0.643
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "JxPath",
+      "version_id": "3f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "2"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 83,
+      "lines_covered": 75,
+      "branches_total": 34,
+      "branches_covered": 33,
+      "line": 0.904,
+      "branch": 0.971
+    },
+    "major_mutation": {
+      "generated": 91,
+      "covered": 91,
+      "killed": 52,
+      "score": 0.571
+    }
+  },
+  "seconds": 139.2,
+  "extras_measured": true
+}

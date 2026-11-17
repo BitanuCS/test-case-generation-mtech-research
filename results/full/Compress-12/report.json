@@ -1,0 +1,240 @@
+{
+  "bug": "Compress-12",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 200,
+      "lines_covered": 115,
+      "branches_total": 110,
+      "branches_covered": 47,
+      "line": 0.575,
+      "branch": 0.427
+    },
+    "major_mutation": {
+      "generated": 318,
+      "covered": 318,
+      "killed": 224,
+      "score": 0.704
+    }
+  },
+  "seconds": 245.5,
+  "llm_calls": {
+    "fresh": 12,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 12
+    },
+    "tokens_in": 58328,
+    "tokens_out": 31112
+  },
+  "classes": [
+    {
+      "bug": "Compress-12",
+      "class": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 2
+        },
+        {
+          "round": 2,
+          "passed": 3,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 5,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 5,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 5,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 15,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 15,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 15,
+          "failed": 2,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "testZeroLengthLongNameReadLoopForR9R10R11Mutants",
+          "fails"
+        ],
+        [
+          "testSkipFailureThrowsRuntimeExceptionForR6R7Mutants",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "getNextTarEntry"
+      ],
+      "generated_tests": 3,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 3,
+        "oracles": 3,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 3,
+        "compiles": false,
+        "compile_ok_tests": 1,
+        "passed": 1,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.333,
+        "execution_rate": 0.333,
+        "pass_rate": 0.333,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 3,
+      "mutation": [
+        {
+          "all": {
+            "total": 29,
+            "valid": 29,
+            "killed": 0,
+            "score": 0.0
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 0,
+            "score": 0.0
+          },
+          "tests": 3,
+          "coverage": {
+            "line": 0.238,
+            "branch": 0.167
+          }
+        },
+        {
+          "all": {
+            "total": 29,
+            "valid": 29,
+            "killed": 19,
+            "score": 0.655
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 15,
+            "score": 0.6
+          },
+          "tests": 6,
+          "coverage": {
+            "line": 0.905,
+            "branch": 0.75
+          }
+        },
+        {
+          "all": {
+            "total": 29,
+            "valid": 29,
+            "killed": 21,
+            "score": 0.724
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 17,
+            "score": 0.68
+          },
+          "tests": 15,
+          "coverage": {
+            "line": 0.952,
+            "branch": 0.833
+          }
+        }
+      ],
+      "final_tests": 15,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.538,
+          "branch": 0.427,
+          "line": 0.569,
+          "complexity": 0.377,
+          "method": 0.591,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.952,
+          "branch": 0.833
+        },
+        "focal_missed_lines": [
+          174,
+          183
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 137,
+          "killed": 44,
+          "score": 0.321
+        },
+        "focal": {
+          "generated": 24,
+          "killed": 18,
+          "score": 0.75
+        }
+      },
+      "final_oracles": 27,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "throwsIOExceptionOnInvalidHeaderBytes",
+        "throwsIOExceptionOnInvalidHeaderBytes2"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "throwsIOExceptionOnInvalidHeaderBytes": "java.lang.Exception: Unexpected exception, expected<java.io.IOException> but was<java.lang.IllegalArgumentException>",
+        "throwsIOExceptionOnInvalidHeaderBytes2": "java.lang.Exception: Unexpected exception, expected<java.io.IOException> but was<java.lang.IllegalArgumentException>"
+      },
+      "status": "ok"
+    }
+  ]
+}

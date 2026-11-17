@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Omit calling nullSafe() on the constructed type adapter, leading to a failure to wrap adapters for null handling when expected.",
+    "original": "      if (typeAdapter != null) {\n        typeAdapter = typeAdapter.nullSafe();\n      }",
+    "mutated": "      if (typeAdapter != null) {\n        \n      }"
+  },
+  {
+    "description": "Swap the arguments passed to the TypeAdapterFactory.create() method, passing fieldType and gson instead of gson and fieldType.",
+    "original": "            .create(gson, fieldType);",
+    "mutated": "            .create(fieldType, gson);"
+  },
+  {
+    "description": "Invert the null check on typeAdapter, attempting to call nullSafe() only when it is null (which would cause a NullPointerException).",
+    "original": "      if (typeAdapter != null) {",
+    "mutated": "      if (typeAdapter == null) {"
+  },
+  {
+    "description": "Change the type adapter factory branch check to check if it's assignable from TypeAdapter.class instead of TypeAdapterFactory.class, causing factory logic errors.",
+    "original": "      } else if (TypeAdapterFactory.class.isAssignableFrom(value)) {",
+    "mutated": "      } else if (TypeAdapter.class.isAssignableFrom(value)) {"
+  },
+  {
+    "description": "Modify the fallback exception message string slightly, which breaks strict string matching if any test asserts on the exact exception message.",
+    "original": "        throw new IllegalArgumentException(\n            \"@JsonAdapter value must be TypeAdapter or TypeAdapterFactory reference.\");",
+    "mutated": "        throw new IllegalArgumentException(\n            \"Invalid @JsonAdapter value.\");"
+  }
+]

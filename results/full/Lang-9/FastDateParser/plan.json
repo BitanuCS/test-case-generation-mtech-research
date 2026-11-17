@@ -1,0 +1,74 @@
+[
+  {
+    "method": "init",
+    "name": "initThrowsIllegalArgumentExceptionOnEmptyPattern",
+    "input": "pattern = \"\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Throws IllegalArgumentException because patternMatcher.lookingAt() fails on an empty string since the formatPattern regex requires at least one matching token."
+  },
+  {
+    "method": "init",
+    "name": "initThrowsIllegalArgumentExceptionOnInvalidPatternToken",
+    "input": "pattern = \"yyyy-MM-dd XXX\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Throws IllegalArgumentException because 'XXX' does not fully match the formatPattern and patternMatcher.regionStart() != patternMatcher.regionEnd(), causing the unparsed tail check to fail."
+  },
+  {
+    "method": "init",
+    "name": "initSuccessfullyInitializesStandardPattern",
+    "input": "pattern = \"yyyy-MM-dd\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Successfully initializes strategies, parsePattern, and thisYear without throwing any exceptions for a valid standard date pattern."
+  },
+  {
+    "method": "init",
+    "name": "initInitializesComplexPatternWithMultipleStrategies",
+    "input": "pattern = \"yyyy-MM-dd'T'HH:mm:ss.SSS Z\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Successfully compiles regex, populates strategy collector, and handles literal text segments like 'T'."
+  },
+  {
+    "method": "init",
+    "name": "initHandlesSingleCharacterPatternToken",
+    "input": "pattern = \"y\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Successfully initializes with a single strategy element in collector and sets up corresponding parsePattern."
+  },
+  {
+    "method": "init",
+    "name": "initHandlesRepeatedCharactersStrategyToken",
+    "input": "pattern = \"yyyy\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Successfully handles repeated characters matching formatPattern (e.g., 'yyyy' grouped together into one field/strategy)."
+  },
+  {
+    "method": "init",
+    "name": "initHandlesLiteralStringWithQuotes",
+    "input": "pattern = \"yyyy-MM-dd 'at' HH:mm:ss\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Successfully parses quoted literal string segments via the formatPattern regex matching quoted clauses ('[^']++(...)++')."
+  },
+  {
+    "method": "init",
+    "name": "initSetsUpThisYearAccordingToTimeZoneAndLocale",
+    "input": "pattern = \"yyyy\", timeZone = TimeZone.getTimeZone(\"GMT+2\"), locale = Locale.GERMANY",
+    "expected": "Successfully computes thisYear using Calendar.getInstance(timeZone, locale)."
+  },
+  {
+    "method": "init",
+    "name": "initInitializesNameValuesConcurrentMap",
+    "input": "pattern = \"MMM EEE\", timeZone = TimeZone.getDefault(), locale = Locale.US",
+    "expected": "Initializes nameValues as an empty ConcurrentHashMap ready to cache localized display names."
+  },
+  {
+    "method": "init",
+    "name": "initThrowsIllegalArgumentExceptionWhenPatternStartsLocallyInvalid",
+    "input": "pattern = \"@yyyy\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Throws IllegalArgumentException because patternMatcher.lookingAt() fails immediately on the leading invalid character '@'."
+  },
+  {
+    "method": "init",
+    "name": "initHandlesAllSupportedCalendarFieldsCombined",
+    "input": "pattern = \"G y M d H m s S E a Z\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Successfully sequences multiple distinct strategy types and builds a combined regular expression."
+  },
+  {
+    "method": "init",
+    "name": "initHandlesEscapedSingleQuoteLiteral",
+    "input": "pattern = \"yyyy''MM''dd\", timeZone = TimeZone.getDefault(), locale = Locale.getDefault()",
+    "expected": "Successfully parses doubled single quotes ('') as a literal string pattern token."
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Off-by-one error in the loop starting index, skipping the first option character after the hyphen.",
+    "original": "for (int i = 1; i < token.length(); i++)",
+    "mutated": "for (int i = 2; i < token.length(); i++)"
+  },
+  {
+    "description": "Wrong comparison operator in argument check, preventing remaining characters from being added as a separate token if the length matches (i + 1).",
+    "original": "if (currentOption.hasArg() && (token.length() != (i + 1)))",
+    "mutated": "if (currentOption.hasArg() && (token.length() == (i + 1)))"
+  },
+  {
+    "description": "Swapping the true and false branch actions when an unknown option is encountered and stopAtNonOption is set.",
+    "original": "else if (stopAtNonOption)\n              {\n                  process(token.substring(i));\n                  break;\n              }",
+    "mutated": "else if (stopAtNonOption)\n              {\n                  tokens.add(token);\n                  break;\n              }"
+  },
+  {
+    "description": "Wrong variable added to the tokens list when an unknown option is encountered and stopAtNonOption is false, adding the whole token instead of just the single character.",
+    "original": "else\n              {\n                  tokens.add(token);\n                  break;\n              }",
+    "mutated": "else\n              {\n                  tokens.add(ch);\n                  break;\n              }"
+  },
+  {
+    "description": "Missing assignment of currentOption when a valid option is matched, leaving currentOption stale or unupdated.",
+    "original": "tokens.add(\"-\" + ch);\n                  currentOption = options.getOption(ch);",
+    "mutated": "tokens.add(\"-\" + ch);"
+  }
+]

@@ -1,0 +1,331 @@
+{
+  "bug": "JxPath-1",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 773,
+      "lines_covered": 93,
+      "branches_total": 562,
+      "branches_covered": 88,
+      "line": 0.12,
+      "branch": 0.157
+    },
+    "major_mutation": {
+      "generated": 832,
+      "covered": 832,
+      "killed": 773,
+      "score": 0.929
+    }
+  },
+  "seconds": 147.0,
+  "llm_calls": {
+    "fresh": 10,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 10
+    },
+    "tokens_in": 32214,
+    "tokens_out": 11421
+  },
+  "classes": [
+    {
+      "bug": "JxPath-1",
+      "class": "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 19,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 20,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "testNode"
+      ],
+      "generated_tests": 19,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 19,
+        "oracles": 19,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 19,
+        "compiles": true,
+        "compile_ok_tests": 19,
+        "passed": 19,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 1.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 19,
+      "mutation": [
+        {
+          "all": {
+            "total": 23,
+            "valid": 23,
+            "killed": 21,
+            "score": 0.913
+          },
+          "rule": {
+            "total": 19,
+            "valid": 19,
+            "killed": 18,
+            "score": 0.947
+          },
+          "tests": 19,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.865
+          }
+        },
+        {
+          "all": {
+            "total": 23,
+            "valid": 23,
+            "killed": 23,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 19,
+            "valid": 19,
+            "killed": 19,
+            "score": 1.0
+          },
+          "tests": 20,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.919
+          }
+        }
+      ],
+      "final_tests": 20,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.116,
+          "branch": 0.173,
+          "line": 0.132,
+          "complexity": 0.133,
+          "method": 0.093,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 0.919
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 231,
+          "killed": 39,
+          "score": 0.169
+        },
+        "focal": {
+          "generated": 29,
+          "killed": 26,
+          "score": 0.897
+        }
+      },
+      "final_oracles": 20,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "nodeTypeTestNodeNodeTypeDocument"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "nodeTypeTestNodeNodeTypeDocument": "java.lang.AssertionError: null\n    at org.apache.commons.jxpath.ri.model.dom.DOMNodePointer_CandorTest.nodeTypeTestNodeNodeTypeDocument(DOMNodePointer_CandorTest.java:121)"
+      },
+      "status": "ok"
+    },
+    {
+      "bug": "JxPath-1",
+      "class": "org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 16,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 18,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 20,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 21,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "testNode"
+      ],
+      "generated_tests": 18,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 18,
+        "oracles": 18,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 18,
+        "compiles": true,
+        "compile_ok_tests": 18,
+        "passed": 16,
+        "assertion_failures": 2,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 0.889,
+        "oracle_correctness": 0.889
+      },
+      "valid_tests_before_challenge": 18,
+      "mutation": [
+        {
+          "all": {
+            "total": 17,
+            "valid": 17,
+            "killed": 13,
+            "score": 0.765
+          },
+          "rule": {
+            "total": 12,
+            "valid": 12,
+            "killed": 10,
+            "score": 0.833
+          },
+          "tests": 18,
+          "coverage": {
+            "line": 0.968,
+            "branch": 0.879
+          }
+        },
+        {
+          "all": {
+            "total": 17,
+            "valid": 17,
+            "killed": 16,
+            "score": 0.941
+          },
+          "rule": {
+            "total": 12,
+            "valid": 12,
+            "killed": 12,
+            "score": 1.0
+          },
+          "tests": 20,
+          "coverage": {
+            "line": 0.968,
+            "branch": 0.879
+          }
+        },
+        {
+          "all": {
+            "total": 17,
+            "valid": 17,
+            "killed": 16,
+            "score": 0.941
+          },
+          "rule": {
+            "total": 12,
+            "valid": 12,
+            "killed": 12,
+            "score": 1.0
+          },
+          "tests": 21,
+          "coverage": {
+            "line": 0.968,
+            "branch": 0.879
+          }
+        }
+      ],
+      "final_tests": 21,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.094,
+          "branch": 0.141,
+          "line": 0.109,
+          "complexity": 0.112,
+          "method": 0.098,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.968,
+          "branch": 0.879
+        },
+        "focal_missed_lines": [
+          372
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 251,
+          "killed": 38,
+          "score": 0.151
+        },
+        "focal": {
+          "generated": 29,
+          "killed": 25,
+          "score": 0.862
+        }
+      },
+      "final_oracles": 21,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "testNodeTypeTestNodeWithDocument"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "testNodeTypeTestNodeWithDocument": "java.lang.AssertionError: null\n    at org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer_CandorTest.testNodeTypeTestNodeWithDocument(JDOMNodePointer_CandorTest.java:82)"
+      },
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,407 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 398,
+    "status": "killed",
+    "killed_by": [
+      "basicRowIsObjectiveFunctionRow",
+      "basicRowIsObjectiveFunctionRow2",
+      "duplicateBasicRowsEncountered",
+      "duplicateBasicRowsEncountered2",
+      "missingDecisionVariableColumnInLabels",
+      "missingDecisionVariableColumnInLabels2",
+      "negativeVarColumnNotPresent",
+      "negativeVarColumnNotPresent2",
+      "nonBasicVariableHasNullRow",
+      "nonBasicVariableHasNullRow2",
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2",
+      "restrictedToNonNegativeWithBasicVariables",
+      "restrictedToNonNegativeWithBasicVariables2",
+      "testKillMutantA2_ColIndexLessThanZero",
+      "zeroDecisionVariablesDimension",
+      "zeroDecisionVariablesDimension2"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 398,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 398,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 399,
+    "status": "killed",
+    "killed_by": [
+      "basicRowIsObjectiveFunctionRow",
+      "basicRowIsObjectiveFunctionRow2",
+      "duplicateBasicRowsEncountered",
+      "duplicateBasicRowsEncountered2",
+      "missingDecisionVariableColumnInLabels",
+      "missingDecisionVariableColumnInLabels2",
+      "negativeVarBasicRowIsNullButColumnExists",
+      "negativeVarBasicRowIsNullButColumnExists2",
+      "negativeVarColumnNotPresent",
+      "negativeVarColumnNotPresent2",
+      "nonBasicVariableHasNullRow",
+      "nonBasicVariableHasNullRow2",
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2",
+      "restrictedToNonNegativeWithBasicVariables",
+      "restrictedToNonNegativeWithBasicVariables2",
+      "testKillMutantA2_ColIndexLessThanZero",
+      "testKillMutantR2_NegativeVarColumnThreshold",
+      "testNegativeVarColumnAtZeroIndexAndDecisionVariableAtZeroIndex",
+      "unrestrictedVariablesAccountingForNegativeVar",
+      "unrestrictedVariablesAccountingForNegativeVar2",
+      "zeroDecisionVariablesDimension",
+      "zeroDecisionVariablesDimension2"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 399,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 403,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 403,
+    "status": "killed",
+    "killed_by": [
+      "zeroDecisionVariablesDimension",
+      "zeroDecisionVariablesDimension2"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 403,
+    "status": "killed",
+    "killed_by": [
+      "basicRowIsObjectiveFunctionRow",
+      "basicRowIsObjectiveFunctionRow2",
+      "duplicateBasicRowsEncountered",
+      "duplicateBasicRowsEncountered2",
+      "missingDecisionVariableColumnInLabels",
+      "missingDecisionVariableColumnInLabels2",
+      "negativeVarBasicRowIsNullButColumnExists",
+      "negativeVarBasicRowIsNullButColumnExists2",
+      "negativeVarColumnNotPresent",
+      "negativeVarColumnNotPresent2",
+      "nonBasicVariableHasNullRow",
+      "nonBasicVariableHasNullRow2",
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2",
+      "restrictedToNonNegativeWithBasicVariables",
+      "restrictedToNonNegativeWithBasicVariables2",
+      "testKillMutantA2_ColIndexLessThanZero",
+      "testKillMutantR2_NegativeVarColumnThreshold",
+      "testNegativeVarColumnAtZeroIndexAndDecisionVariableAtZeroIndex",
+      "unrestrictedVariablesAccountingForNegativeVar",
+      "unrestrictedVariablesAccountingForNegativeVar2",
+      "zeroDecisionVariablesDimension",
+      "zeroDecisionVariablesDimension2"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 404,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 405,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 405,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 405,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 406,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 410,
+    "status": "killed",
+    "killed_by": [
+      "missingDecisionVariableColumnInLabels",
+      "missingDecisionVariableColumnInLabels2",
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2",
+      "restrictedToNonNegativeWithBasicVariables",
+      "restrictedToNonNegativeWithBasicVariables2",
+      "testKillMutantA2_ColIndexLessThanZero",
+      "testNegativeVarColumnAtZeroIndexAndDecisionVariableAtZeroIndex"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 410,
+    "status": "killed",
+    "killed_by": [
+      "missingDecisionVariableColumnInLabels",
+      "missingDecisionVariableColumnInLabels2",
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2",
+      "restrictedToNonNegativeWithBasicVariables",
+      "restrictedToNonNegativeWithBasicVariables2",
+      "testKillMutantA2_ColIndexLessThanZero",
+      "testNegativeVarColumnAtZeroIndexAndDecisionVariableAtZeroIndex"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 410,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 410,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 414,
+    "status": "killed",
+    "killed_by": [
+      "nonBasicVariableHasNullRow",
+      "nonBasicVariableHasNullRow2"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 418,
+    "status": "killed",
+    "killed_by": [
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2"
+    ]
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 418,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 418,
+    "status": "killed",
+    "killed_by": [
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2"
+    ]
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 422,
+    "status": "killed",
+    "killed_by": [
+      "missingDecisionVariableColumnInLabels",
+      "missingDecisionVariableColumnInLabels2",
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2",
+      "restrictedToNonNegativeWithBasicVariables",
+      "restrictedToNonNegativeWithBasicVariables2",
+      "testKillMutantA2_ColIndexLessThanZero",
+      "testNegativeVarColumnAtZeroIndexAndDecisionVariableAtZeroIndex"
+    ]
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 422,
+    "status": "killed",
+    "killed_by": [
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2"
+    ]
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 422,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 423,
+    "status": "killed",
+    "killed_by": [
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "Integer negativeVarBasicRow = negativeVarColumn >= 0 ? getBasicRow(negativeVarColumn) : null;",
+    "description": "Change the negativeVarColumn boundary check from > 0 to >= 0, causing incorrect basic row retrieval when the negative variable column is at index 0.",
+    "line": 398,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "for (int i = 0; i <= coefficients.length; i++) {",
+    "description": "Change loop condition from i < coefficients.length to i <= coefficients.length, causing an ArrayIndexOutOfBoundsException.",
+    "line": 403,
+    "status": "killed",
+    "killed_by": [
+      "basicRowIsObjectiveFunctionRow",
+      "basicRowIsObjectiveFunctionRow2",
+      "duplicateBasicRowsEncountered",
+      "duplicateBasicRowsEncountered2",
+      "missingDecisionVariableColumnInLabels",
+      "missingDecisionVariableColumnInLabels2",
+      "negativeVarBasicRowIsNullButColumnExists",
+      "negativeVarBasicRowIsNullButColumnExists2",
+      "negativeVarColumnNotPresent",
+      "negativeVarColumnNotPresent2",
+      "nonBasicVariableHasNullRow",
+      "nonBasicVariableHasNullRow2",
+      "objectiveFunctionValueCalculationCheck",
+      "objectiveFunctionValueCalculationCheck2",
+      "restrictedToNonNegativeWithBasicVariables",
+      "restrictedToNonNegativeWithBasicVariables2",
+      "testKillMutantA2_ColIndexLessThanZero",
+      "testKillMutantR2_NegativeVarColumnThreshold",
+      "testNegativeVarColumnAtZeroIndexAndDecisionVariableAtZeroIndex",
+      "unrestrictedVariablesAccountingForNegativeVar",
+      "unrestrictedVariablesAccountingForNegativeVar2",
+      "zeroDecisionVariablesDimension",
+      "zeroDecisionVariablesDimension2"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (colIndex <= 0) {",
+    "description": "Change colIndex check from < 0 to <= 0, causing decision variables at column index 0 to be treated as missing.",
+    "line": 405,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (basicRow != null && basicRow < 0) {",
+    "description": "Change basicRow == 0 check to basicRow < 0, breaking the special handling for objective function row check.",
+    "line": 410,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "coefficients[i] = (restrictToNonNegative ? 0 : mostNegative) - 0;",
+    "description": "Swap the subtraction operands for unconstrained variables when basicRows already contains the basicRow, subtracting mostNegative from 0 instead of subtracting it properly.",
+    "line": 418,
+    "status": "survived",
+    "killed_by": []
+  }
+]

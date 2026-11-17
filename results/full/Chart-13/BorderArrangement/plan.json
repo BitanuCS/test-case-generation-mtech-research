@@ -1,0 +1,68 @@
+[
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithAllBlocksPresent",
+    "input": "BlockContainer with top, bottom, left, right, and center blocks; Graphics2D = null (or mock); RectangleConstraint with fixed width 500.0 and fixed height 400.0",
+    "expected": "Returns Size2D with width 500.0 and height 400.0, and correctly calculates layout sizes and sets bounds on all five blocks."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithOnlyCenterBlock",
+    "input": "BlockContainer with only centerBlock; Graphics2D = null; RectangleConstraint with fixed width 300.0 and fixed height 200.0",
+    "expected": "Returns Size2D(300.0, 200.0), arranges center block with constraint(300.0, 200.0), and sets its bounds at origin (0.0, 0.0, 300.0, 200.0)."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithEmptyContainer",
+    "input": "BlockContainer with no blocks added; Graphics2D = null; RectangleConstraint with fixed width 100.0 and fixed height 100.0",
+    "expected": "Returns Size2D(100.0, 100.0) without throwing any NullPointerException, bypassing all block arrangement and bounds-setting steps."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithTopAndBottomBlocksOnly",
+    "input": "BlockContainer with topBlock and bottomBlock; Graphics2D = null; RectangleConstraint with fixed width 400.0 and fixed height 300.0",
+    "expected": "Returns Size2D(400.0, 300.0), subtracts top and bottom heights to compute intermediate height for center area (which remains empty), and sets respective bounds."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithLeftAndRightBlocksOnly",
+    "input": "BlockContainer with leftBlock and rightBlock; Graphics2D = null; RectangleConstraint with fixed width 600.0 and fixed height 400.0",
+    "expected": "Returns Size2D(600.0, 400.0), lets left and right blocks consume width from the total constraint width, and sets bounds accordingly."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithZeroConstraintDimensions",
+    "input": "BlockContainer with all blocks present; Graphics2D = null; RectangleConstraint with fixed width 0.0 and fixed height 0.0",
+    "expected": "Returns Size2D(0.0, 0.0), handles zero heights/widths gracefully, passing zero ranges down to nested block constraints."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithRightBlockWidthExceedingRemainingWidth",
+    "input": "BlockContainer with leftBlock (width 400.0) and rightBlock (wants width 300.0); RectangleConstraint fixed width 500.0, fixed height 300.0",
+    "expected": "Right block constraint uses Math.max(constraint.getWidth() - w[2], 0.0) which evaluates to 100.0, ensuring the range upper bound is not negative."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithTopBlockConsumingFullHeight",
+    "input": "BlockContainer with topBlock returning height equal to constraint height (300.0); RectangleConstraint fixed width 400.0, fixed height 300.0",
+    "expected": "Bottom block range height becomes 300.0 - 300.0 = 0.0, and remaining center height (h[2]) becomes 0.0 without calculation errors."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFWithNullConstraintThrowsException",
+    "input": "BlockContainer with centerBlock; Graphics2D = null; RectangleConstraint = null",
+    "expected": "Throws NullPointerException because constraint.getWidth() and constraint.getHeight() are invoked unconditionally at the start."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFVerifyCenterBlockBoundsPositioning",
+    "input": "BlockContainer with topBlock (height 50.0) and leftBlock (width 100.0) and centerBlock; RectangleConstraint fixed width 400.0, fixed height 300.0",
+    "expected": "Center block bounds are positioned at x = w[2] (100.0), y = h[0] (50.0), with width w[4] and height h[4]."
+  },
+  {
+    "method": "arrangeFF",
+    "name": "arrangeFFVerifyRightBlockBoundsPositioning",
+    "input": "BlockContainer with leftBlock (width 100.0), rightBlock (width 80.0), topBlock (height 50.0); RectangleConstraint fixed width 500.0, fixed height 300.0",
+    "expected": "Right block bounds are positioned at x = w[2] + w[4] (which correctly evaluates based on computed remaining width), y = h[0] (50.0)."
+  }
+]

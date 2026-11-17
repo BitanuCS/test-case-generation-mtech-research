@@ -1,0 +1,80 @@
+[
+  {
+    "method": "read",
+    "name": "readWhenStreamIsClosed",
+    "input": "Call close() first, then read(buffer, 0, 10)",
+    "expected": "Throws IOException with message 'The stream is closed' because closed check triggers first."
+  },
+  {
+    "method": "read",
+    "name": "readWhenCurrentEntryIsNull",
+    "input": "Do not call getNextZipEntry(), call read(buffer, 0, 10)",
+    "expected": "Returns -1 because current == null indicates no active entry."
+  },
+  {
+    "method": "read",
+    "name": "readWithInvalidStartIndexNegative",
+    "input": "Active entry present, start = -1, length = 10",
+    "expected": "Throws ArrayIndexOutOfBoundsException because start < 0 fails boundary checks."
+  },
+  {
+    "method": "read",
+    "name": "readWithInvalidLengthNegative",
+    "input": "Active entry present, start = 0, length = -1",
+    "expected": "Throws ArrayIndexOutOfBoundsException because length < 0 fails boundary checks."
+  },
+  {
+    "method": "read",
+    "name": "readWithBufferOverflowBounds",
+    "input": "Active entry present, buffer length = 10, start = 5, length = 10",
+    "expected": "Throws ArrayIndexOutOfBoundsException because buffer.length - start < length."
+  },
+  {
+    "method": "read",
+    "name": "readStoredMethodCompletelyRead",
+    "input": "STORED entry where readBytesOfEntry >= csize",
+    "expected": "Returns -1 because all bytes of the stored entry have already been read."
+  },
+  {
+    "method": "read",
+    "name": "readStoredMethodNormalRead",
+    "input": "STORED entry with valid uncompressed data in buffer",
+    "expected": "Copies bytes via System.arraycopy, updates CRC32, increments readBytesOfEntry and offsetInBuffer, and returns bytes read."
+  },
+  {
+    "method": "read",
+    "name": "readStoredMethodEOFReached",
+    "input": "STORED entry where underlying stream returns -1 on read",
+    "expected": "Returns -1 indicating end of stream/entry data."
+  },
+  {
+    "method": "read",
+    "name": "readDeflateMethodNeedsInputAndFills",
+    "input": "DEFLATE entry where inf.needsInput() is true and fill() reads data",
+    "expected": "Successfully feeds input to Inflater, inflates bytes into output buffer, updates CRC32, and returns number of bytes read."
+  },
+  {
+    "method": "read",
+    "name": "readDeflateMethodFinished",
+    "input": "DEFLATE entry where inf.finished() is true and inflate returns 0",
+    "expected": "Returns -1 indicating the end of the compressed entry data."
+  },
+  {
+    "method": "read",
+    "name": "readDeflateMethodTruncatedZip",
+    "input": "DEFLATE entry where inflate returns 0, inf.finished() is false, and lengthOfLastRead is -1",
+    "expected": "Throws IOException with message 'Truncated ZIP file'."
+  },
+  {
+    "method": "read",
+    "name": "readDeflateMethodDataFormatException",
+    "input": "DEFLATE entry where inf.inflate throws DataFormatException",
+    "expected": "Catches DataFormatException and throws ZipException wrapping the message."
+  },
+  {
+    "method": "read",
+    "name": "readStoredMethodTruncatedEntrySizeLimit",
+    "input": "STORED entry where remaining csize (csize - readBytesOfEntry) is less than requested toRead",
+    "expected": "Clips toRead to remaining entry size and returns that number of bytes."
+  }
+]

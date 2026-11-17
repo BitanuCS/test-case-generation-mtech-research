@@ -1,0 +1,104 @@
+[
+  {
+    "method": "MultiplePiePlot",
+    "name": "constructorWithNullDataset",
+    "input": "dataset = null",
+    "expected": "Successfully initializes MultiplePiePlot with a null dataset, default table order BY_COLUMN, limit 0.0, and a sub-pie chart with a bottom title."
+  },
+  {
+    "method": "MultiplePiePlot",
+    "name": "constructorWithValidDataset",
+    "input": "dataset = DefaultCategoryDataset with sample rows and columns",
+    "expected": "Successfully initializes MultiplePiePlot, registers dataset listener, sets group, and fires dataset change event."
+  },
+  {
+    "method": "getDataset",
+    "name": "getDatasetReturnsAssignedDataset",
+    "input": "MultiplePiePlot initialized with a non-null CategoryDataset",
+    "expected": "Returns the exact CategoryDataset instance that was passed to the constructor/setDataset."
+  },
+  {
+    "method": "getDataset",
+    "name": "getDatasetReturnsNullWhenUnassigned",
+    "input": "MultiplePiePlot initialized with null dataset",
+    "expected": "Returns null as no dataset is present."
+  },
+  {
+    "method": "getPieChart",
+    "name": "getPieChartReturnsNonNullJFreeChart",
+    "input": "Newly constructed MultiplePiePlot instance",
+    "expected": "Returns a non-null JFreeChart instance configured with a PiePlot, no legend, and a default bottom title."
+  },
+  {
+    "method": "setPieChart",
+    "name": "setPieChartUpdatesChartInstance",
+    "input": "New JFreeChart instance with a PiePlot",
+    "expected": "Successfully replaces the internal pie chart and updates successfully via getter."
+  },
+  {
+    "method": "getDataExtractOrder",
+    "name": "getDataExtractOrderDefaultValue",
+    "input": "Newly constructed MultiplePiePlot instance",
+    "expected": "Returns TableOrder.BY_COLUMN by default as specified in the constructor."
+  },
+  {
+    "method": "setDataExtractOrder",
+    "name": "setDataExtractOrderUpdatesOrder",
+    "input": "TableOrder.BY_ROW",
+    "expected": "Successfully updates data extract order to BY_ROW."
+  },
+  {
+    "method": "getLimit",
+    "name": "getLimitDefaultValue",
+    "input": "Newly constructed MultiplePiePlot instance",
+    "expected": "Returns 0.0 by default."
+  },
+  {
+    "method": "setLimit",
+    "name": "setLimitUpdatesDoubleValue",
+    "input": "limit = 0.05",
+    "expected": "Successfully updates the limit property to 0.05."
+  },
+  {
+    "method": "getAggregatedItemsKey",
+    "name": "getAggregatedItemsKeyDefaultValue",
+    "input": "Newly constructed MultiplePiePlot instance",
+    "expected": "Returns 'Other' as the default aggregated items key."
+  },
+  {
+    "method": "setAggregatedItemsKey",
+    "name": "setAggregatedItemsKeyUpdatesKey",
+    "input": "aggregatedItemsKey = 'Rest'",
+    "expected": "Successfully updates the aggregated items key to 'Rest'."
+  },
+  {
+    "method": "getAggregatedItemsPaint",
+    "name": "getAggregatedItemsPaintDefaultValue",
+    "input": "Newly constructed MultiplePiePlot instance",
+    "expected": "Returns Color.lightGray as the default aggregated items paint."
+  },
+  {
+    "method": "setAggregatedItemsPaint",
+    "name": "setAggregatedItemsPaintUpdatesPaint",
+    "input": "aggregatedItemsPaint = Color.DARK_GRAY",
+    "expected": "Successfully updates the aggregated items paint to Color.DARK_GRAY."
+  },
+  {
+    "method": "getPlotType",
+    "name": "getPlotTypeReturnsExpectedString",
+    "input": "Newly constructed MultiplePiePlot instance",
+    "expected": "Returns a non-null string representing the plot type identifier."
+  },
+  {
+    "method": "equals",
+    "name": "equalsWithSameInstance",
+    "input": "MultiplePiePlot compared to itself",
+    "expected": "Returns true because an object is equal to itself."
+  },
+  {
+    "method": "equals",
+    "name": "equalsWithNullObject",
+    "input": "MultiplePiePlot compared to null",
+    "expected": "Returns false because an object cannot be equal to null."
+  }
+]

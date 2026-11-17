@@ -1,0 +1,77 @@
+{
+  "bug": "Chart-12",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.jfree.chart.plot.MultiplePiePlot",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 26,
+      "final_oracles": 40,
+      "focal_methods": [
+        "MultiplePiePlot"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.968,
+          "branch": 0.964,
+          "line": 0.958,
+          "complexity": 0.921,
+          "method": 0.905,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 117,
+          "killed": 114,
+          "score": 0.974
+        },
+        "focal": {
+          "generated": 5,
+          "killed": 5,
+          "score": 1.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Chart",
+      "version_id": "12f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 190,
+      "lines_covered": 182,
+      "branches_total": 84,
+      "branches_covered": 81,
+      "line": 0.958,
+      "branch": 0.964
+    },
+    "major_mutation": {
+      "generated": 238,
+      "covered": 238,
+      "killed": 95,
+      "score": 0.399
+    }
+  },
+  "seconds": 581.1,
+  "extras_measured": true
+}

@@ -1,0 +1,125 @@
+// ===== Class under test: org.apache.commons.math3.random.BitsStreamGenerator =====
+package org.apache.commons.math3.random;
+import java.io.Serializable;
+import org.apache.commons.math3.exception.NotStrictlyPositiveException;
+import org.apache.commons.math3.util.FastMath;
+
+/** Base class for random number generators that generates bits streams.
+ *
+ * @version $Id$
+ * @since 2.0
+ */
+public abstract class BitsStreamGenerator implements RandomGenerator, Serializable {
+
+  // --- fields ---
+  private static final long serialVersionUID = 20130104L;
+  private double nextGaussian;
+
+  // --- constructors and other methods (signatures only) ---
+  public void nextBytes(byte[] bytes);
+  public double nextDouble();
+  public float nextFloat();
+  public double nextGaussian();
+  public int nextInt();
+  public int nextInt(int n) throws IllegalArgumentException;
+  public long nextLong();
+  public void clear();
+
+  // NOTE: also test what the class declaration above promises (every interface it implements or class it extends, e.g. Serializable objects must survive serialization).
+  // --- METHOD(S) UNDER TEST ---
+  /**
+       * Creates a new random number generator.
+       */
+  public BitsStreamGenerator() {
+          nextGaussian = Double.NaN;
+      }
+  /** {@inheritDoc} */
+  public abstract void setSeed(int seed);
+  /** {@inheritDoc} */
+  public abstract void setSeed(int[] seed);
+  /** {@inheritDoc} */
+  public abstract void setSeed(long seed);
+  /** Generate next pseudorandom number.
+       * <p>This method is the core generation algorithm. It is used by all the
+       * public generation methods for the various primitive types {@link
+       * #nextBoolean()}, {@link #nextBytes(byte[])}, {@link #nextDouble()},
+       * {@link #nextFloat()}, {@link #nextGaussian()}, {@link #nextInt()},
+       * {@link #next(int)} and {@link #nextLong()}.</p>
+       * @param bits number of random bits to produce
+       * @return random bits generated
+       */
+  protected abstract int next(int bits);
+  /** {@inheritDoc} */
+  public boolean nextBoolean() {
+          return next(1) != 0;
+      }
+}
+
+// ===== Existing test class BitsStreamGeneratorTest (test methods removed; style/setup reference only) =====
+package org.apache.commons.math3.random;
+
+import java.util.Random;
+
+/**
+ * Test cases for the BitStreamGenerator class
+ *
+ * @version $Id$
+ */
+
+public class BitsStreamGeneratorTest extends RandomGeneratorAbstractTest {
+
+    public BitsStreamGeneratorTest() {
+        super();
+    }
+
+    @Override
+    protected RandomGenerator makeGenerator() {
+        RandomGenerator generator = new TestBitStreamGenerator();
+        generator.setSeed(1000);
+        return generator;
+    }
+
+    /**
+     * Test BitStreamGenerator using a Random as bit source.
+     */
+    static class TestBitStreamGenerator extends BitsStreamGenerator {
+
+        private BitRandom ran = new BitRandom();
+
+        @Override
+        public void setSeed(int seed) {
+           ran.setSeed(seed);
+           clear();
+        }
+
+        @Override
+        public void setSeed(int[] seed) {
+            ran.setSeed(seed[0]);
+        }
+
+        @Override
+        public void setSeed(long seed) {
+            ran.setSeed((int) seed);
+
+        }
+
+        @Override
+        protected int next(int bits) {
+            return ran.nextBits(bits);
+        }
+    }
+
+    /**
+     * Extend Random to expose next(bits)
+     */
+    @SuppressWarnings("serial")
+    static class BitRandom extends Random {
+        public BitRandom() {
+            super();
+        }
+        public int nextBits(int bits) {
+            return next(bits);
+        }
+    }
+
+}

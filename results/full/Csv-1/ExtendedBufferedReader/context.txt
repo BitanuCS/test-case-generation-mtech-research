@@ -1,0 +1,58 @@
+// ===== Class under test: org.apache.commons.csv.ExtendedBufferedReader =====
+package org.apache.commons.csv;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+
+/**
+ * ExtendedBufferedReader
+ *
+ * A special reader decorator which supports more
+ * sophisticated access to the underlying reader object.
+ *
+ * In particular the reader supports a look-ahead option,
+ * which allows you to see the next char returned by
+ * next().
+ */
+class ExtendedBufferedReader extends BufferedReader {
+
+  // --- fields ---
+  static final int END_OF_STREAM = -1;
+  static final int UNDEFINED = -2;
+  private int lastChar = UNDEFINED;
+  private int lineCounter = 0;
+
+  // --- constructors and other methods (signatures only) ---
+  ExtendedBufferedReader(Reader r);
+  int readAgain();
+  @Override public String readLine() throws IOException;
+  int lookAhead() throws IOException;
+  int getLineNumber();
+
+  // --- METHOD(S) UNDER TEST ---
+  @Override
+      public int read() throws IOException {
+          int current = super.read();
+          if (current == '\r' || (current == '\n' && lastChar != '\r')) {
+              lineCounter++;
+          }
+          lastChar = current;
+          return lastChar;
+      }
+}
+
+// ===== Existing test class ExtendedBufferedReaderTest (test methods removed; style/setup reference only) =====
+package org.apache.commons.csv;
+
+import java.io.StringReader;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class ExtendedBufferedReaderTest {
+
+    private ExtendedBufferedReader getBufferedReader(String s) {
+        return new ExtendedBufferedReader(new StringReader(s));
+    }
+}

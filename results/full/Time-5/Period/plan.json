@@ -1,0 +1,62 @@
+[
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardWithNullTypeUsesStandard",
+    "input": "Period with 90 minutes, null PeriodType",
+    "expected": "Returns a Period normalized to 1 hour 30 minutes using standard PeriodType because null means standard type as per Javadoc."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardOverflowsSecondsToMinutes",
+    "input": "Period with 90 seconds, PeriodType.standard()",
+    "expected": "Returns a Period with 1 minute 30 seconds, converting excess seconds into minutes."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+    "input": "Period with 1 year 15 months, PeriodType.standard()",
+    "expected": "Returns a Period with 2 years 3 months, because 15 months overflows into 1 year and 3 months, combining with the existing 1 year."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardMonthAndDaysDoNotOverflow",
+    "input": "Period with 1 month 40 days, PeriodType.standard()",
+    "expected": "Returns a Period with 1 month 40 days, because days will not overflow into the months field as specified in Javadoc."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardMissingYearsAndMonthsThrowsException",
+    "input": "Period with 12 months 0 days, PeriodType.yearMonthDayTime() with years/months unsupported? Let's assume a type missing years/months while period has non-zero years/months",
+    "expected": "Throws UnsupportedOperationException because the period contains non-zero years or months but the specified period type does not support them."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardWithZeroValues",
+    "input": "Period.ZERO, PeriodType.standard()",
+    "expected": "Returns a zero Period with all fields set to zero."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardNegativeMillisAndSeconds",
+    "input": "Period with -90 seconds (-90000 millis), PeriodType.standard()",
+    "expected": "Returns a Period with negative values normalized correctly (-1 minute -30 seconds)."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardWeeksToDaysConversion",
+    "input": "Period with 2 weeks, PeriodType.standard()",
+    "expected": "Returns a Period with 14 days, converting weeks to days via standard 7-day week assumption."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardArithmeticExceptionOnOverflow",
+    "input": "Period with Integer.MAX_VALUE hours, PeriodType.standard()",
+    "expected": "Throws ArithmeticException if any field or resulting duration is too large to be represented as an int/long safely."
+  },
+  {
+    "method": "normalizedStandard",
+    "name": "normalizedStandardWithCustomPeriodTypeOmittingWeeks",
+    "input": "Period with 10 days, PeriodType.yearMonthDayTime() (omits weeks)",
+    "expected": "Returns a Period where weeks are omitted and correctly represented in days or standard fields according to the provided PeriodType."
+  }
+]

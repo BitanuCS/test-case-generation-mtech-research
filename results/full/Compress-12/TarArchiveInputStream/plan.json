@@ -1,0 +1,68 @@
+[
+  {
+    "method": "getNextTarEntry",
+    "name": "alreadyAtEOFReturnsNull",
+    "input": "TarArchiveInputStream initialized with an empty stream or after reaching EOF (hasHitEOF = true)",
+    "expected": "Returns null immediately because hasHitEOF is true, as specified in the Javadoc."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "readsFirstStandardEntrySuccessfully",
+    "input": "A tar archive containing a single standard valid file entry",
+    "expected": "Returns the TarArchiveEntry corresponding to the first header, sets entryOffset to 0 and entrySize correctly."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "skipsUnreadDataOfCurrentEntryBeforeMovingToNext",
+    "input": "A tar archive with two entries where the first entry has not been fully read (entryOffset < entrySize)",
+    "expected": "Automatically skips over remaining bytes of the current entry using skip(), then successfully returns the second entry."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "throwsRuntimeExceptionWhenSkipFails",
+    "input": "Current entry has unread bytes, but skip() returns 0 or negative due to unexpected end of stream",
+    "expected": "Throws a RuntimeException with message 'failed to skip current tar entry' because unread data cannot be bypassed."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "throwsIOExceptionOnInvalidHeaderBytes",
+    "input": "A tar archive containing malformed header bytes that cause TarArchiveEntry constructor to throw IllegalArgumentException",
+    "expected": "Catches IllegalArgumentException and throws an IOException wrapping it with message 'Error detected parsing the header'."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "handlesGNULongNameEntryFollowedByRegularEntry",
+    "input": "A tar archive starting with a GNU long name entry header, followed by the actual data name payload and the real file entry",
+    "expected": "Reads the long name payload, trims any trailing null terminator, applies it to the next entry via recursion (getNextEntry()), and returns the correctly named entry."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "handlesGNULongNameEntryFollowedByEOF",
+    "input": "A tar archive containing a GNU long name entry header, but no subsequent entry follows (hits EOF during name read)",
+    "expected": "Returns null after recursively calling getNextEntry() and finding currEntry to be null (Bugzilla 40334 fix)."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "processesPaxHeaderEntry",
+    "input": "A tar archive containing a POSIX/PAX extended header entry followed by the target file entry",
+    "expected": "Parses the PAX headers using parsePaxHeaders/paxHeaders(), applies them to the subsequent entry, and returns the updated entry."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "processesGNUSparseEntryWithoutExtension",
+    "input": "A tar archive containing a GNU sparse entry header where isExtended() is false",
+    "expected": "Recognizes it as a sparse entry via isGNULongNameEntry/isGNUSparse, invokes readGNUSparse(), and returns the entry with updated entrySize."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "processesGNUSparseEntryWithExtendedHeader",
+    "input": "A tar archive containing a GNU sparse entry where isExtended() is true, followed by additional sparse header records",
+    "expected": "Loops through getRecord() to read all extended sparse records until isExtended() is false, then returns the target entry."
+  },
+  {
+    "method": "getNextTarEntry",
+    "name": "returnsNullWhenEndOftarArchiveReachedDuringRecordRead",
+    "input": "A tar archive where all entries have been read and the next record read returns null or EOF record",
+    "expected": "Sets hasHitEOF to true and returns null, indicating the end of the archive."
+  }
+]

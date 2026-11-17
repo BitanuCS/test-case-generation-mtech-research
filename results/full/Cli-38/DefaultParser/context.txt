@@ -1,0 +1,70 @@
+// ===== Class under test: org.apache.commons.cli.DefaultParser =====
+package org.apache.commons.cli;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Properties;
+
+/**
+ * Default parser.
+ * 
+ * @version $Id$
+ * @since 1.3
+ */
+public class DefaultParser implements CommandLineParser {
+
+  // --- fields ---
+  protected CommandLine cmd;
+  protected Options options;
+  protected boolean stopAtNonOption;
+  protected String currentToken;
+  protected Option currentOption;
+  protected boolean skipParsing;
+  protected List expectedOpts;
+
+  // --- constructors and other methods (signatures only) ---
+  public CommandLine parse(Options options, String[] arguments) throws ParseException;
+  public CommandLine parse(Options options, String[] arguments, Properties properties) throws ParseException;
+  public CommandLine parse(Options options, String[] arguments, boolean stopAtNonOption) throws ParseException;
+  public CommandLine parse(Options options, String[] arguments, Properties properties, boolean stopAtNonOption) throws ParseException;
+  protected void handleConcatenatedOptions(String token) throws ParseException;
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+       * Tells if the token looks like a short option.
+       * 
+       * @param token
+       */
+  private boolean isShortOption(String token)
+      {
+          // short options (-S, -SV, -S=V, -SV1=V2, -S1S2)
+          if (!token.startsWith("-") || token.length() == 1)
+          {
+              return false;
+          }
+
+          // remove leading "-" and "=value"
+          int pos = token.indexOf("=");
+          String optName = pos == -1 ? token.substring(1) : token.substring(1, pos);
+          if (options.hasShortOption(optName))
+          {
+              return true;
+          }
+          // check for several concatenated short options
+          return optName.length() > 0 && options.hasShortOption(String.valueOf(optName.charAt(0)));
+      }
+}
+
+// ===== Existing test class DefaultParserTest (test methods removed; style/setup reference only) =====
+package org.apache.commons.cli;
+
+import org.junit.Before;
+
+public class DefaultParserTest extends ParserTestCase {
+
+    @Before
+    public void setUp() {
+        super.setUp();
+        parser = new DefaultParser();
+    }
+}

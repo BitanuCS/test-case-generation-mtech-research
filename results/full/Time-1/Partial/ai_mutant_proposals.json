@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change array length inequality check to inequality on values array only or similar, but here let's change values.length != types.length to values.length == types.length",
+    "original": "if (values.length != types.length) {",
+    "mutated": "if (values.length == types.length) {"
+  },
+  {
+    "description": "Change the loop condition starting index from 0 to 1, skipping the first type null check",
+    "original": "for (int i = 0; i < types.length; i++) {\n              if (types[i] == null) {",
+    "mutated": "for (int i = 1; i < types.length; i++) {\n              if (types[i] == null) {"
+  },
+  {
+    "description": "Swap the comparison operator from < 0 to > 0 when checking unit field ordering",
+    "original": "int compare = lastUnitField.compareTo(loopUnitField);\n                  if (compare < 0) {",
+    "mutated": "int compare = lastUnitField.compareTo(loopUnitField);\n                  if (compare > 0) {"
+  },
+  {
+    "description": "Change the cloned types array to the original types reference",
+    "original": "iTypes = (DateTimeFieldType[]) types.clone();",
+    "mutated": "iTypes = types;"
+  },
+  {
+    "description": "Change the cloned values array to the original values reference",
+    "original": "iValues = (int[]) values.clone();",
+    "mutated": "iValues = values;"
+  }
+]

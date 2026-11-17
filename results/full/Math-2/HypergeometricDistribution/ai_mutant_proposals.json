@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Divide by the sample size instead of the population size",
+    "original": "return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());",
+    "mutated": "return getSampleSize() * (getNumberOfSuccesses() / (double) getSampleSize());"
+  },
+  {
+    "description": "Multiply by population size instead of sample size",
+    "original": "return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());",
+    "mutated": "return getPopulationSize() * (getNumberOfSuccesses() / (double) getPopulationSize());"
+  },
+  {
+    "description": "Use sample size as numerator instead of number of successes",
+    "original": "return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());",
+    "mutated": "return getSampleSize() * (getSampleSize() / (double) getPopulationSize());"
+  },
+  {
+    "description": "Add an off-by-one error to the sample size factor",
+    "original": "return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());",
+    "mutated": "return (getSampleSize() + 1) * (getNumberOfSuccesses() / (double) getPopulationSize());"
+  },
+  {
+    "description": "Cast population size to int instead of double, causing integer division before multiplication",
+    "original": "return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());",
+    "mutated": "return getSampleSize() * (getNumberOfSuccesses() / getPopulationSize());"
+  }
+]

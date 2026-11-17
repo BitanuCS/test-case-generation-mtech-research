@@ -1,0 +1,190 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 301,
+    "status": "killed",
+    "killed_by": [
+      "afterResetWithCopy",
+      "afterResetWithEmpty",
+      "appendedCharactersMultipleSegments",
+      "appendedCharactersSingleSegment",
+      "emptyBufferFreshInstance",
+      "multipleSegmentsOrRequiresConsolidation",
+      "resultArrayAlreadyCached",
+      "resultArrayPrioritizedOverCurrentSegment",
+      "resultStringCached",
+      "sharedBufferOverriddenByResetWithString",
+      "sharedInputBufferActive",
+      "singleUnsegmentedCurrentSegment",
+      "testResultStringCachingSideEffect",
+      "testSingleSegmentVariableCheckAndNegation"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 301,
+    "status": "killed",
+    "killed_by": [
+      "emptyBufferFreshInstance",
+      "sharedInputBufferActive"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 301,
+    "status": "killed",
+    "killed_by": [
+      "emptyBufferFreshInstance",
+      "sharedInputBufferActive"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 302,
+    "status": "killed",
+    "killed_by": [
+      "afterResetWithCopy",
+      "afterResetWithEmpty",
+      "appendedCharactersMultipleSegments",
+      "appendedCharactersSingleSegment",
+      "multipleSegmentsOrRequiresConsolidation",
+      "resultArrayAlreadyCached",
+      "resultArrayPrioritizedOverCurrentSegment",
+      "resultStringCached",
+      "sharedBufferOverriddenByResetWithString",
+      "singleUnsegmentedCurrentSegment",
+      "testResultStringCachingSideEffect",
+      "testSingleSegmentVariableCheckAndNegation"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 303,
+    "status": "killed",
+    "killed_by": [
+      "afterResetWithCopy",
+      "afterResetWithEmpty",
+      "appendedCharactersMultipleSegments",
+      "appendedCharactersSingleSegment",
+      "multipleSegmentsOrRequiresConsolidation",
+      "singleUnsegmentedCurrentSegment",
+      "testSingleSegmentVariableCheckAndNegation"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "_hasSegments",
+    "description": "negation removed: '!' deleted",
+    "line": 307,
+    "status": "killed",
+    "killed_by": [
+      "testSingleSegmentVariableCheckAndNegation"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 307,
+    "status": "killed",
+    "killed_by": [
+      "afterResetWithEmpty"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 307,
+    "status": "killed",
+    "killed_by": [
+      "afterResetWithEmpty",
+      "testSingleSegmentVariableCheckAndNegation"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (_inputStart > 0) return _inputBuffer;",
+    "description": "Off-by-one error on the shared input buffer boundary check: using > 0 instead of >= 0, causing a shared buffer with _inputStart == 0 to be ignored.",
+    "line": 301,
+    "status": "killed",
+    "killed_by": [
+      "emptyBufferFreshInstance",
+      "sharedInputBufferActive"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (_resultArray == null)  return _resultArray;",
+    "description": "Swapped comparison operator: checking if _resultArray is null instead of not-null.",
+    "line": 302,
+    "status": "killed",
+    "killed_by": [
+      "afterResetWithCopy",
+      "afterResetWithEmpty",
+      "appendedCharactersMultipleSegments",
+      "appendedCharactersSingleSegment",
+      "multipleSegmentsOrRequiresConsolidation",
+      "resultArrayAlreadyCached",
+      "resultArrayPrioritizedOverCurrentSegment",
+      "resultStringCached",
+      "sharedBufferOverriddenByResetWithString",
+      "singleUnsegmentedCurrentSegment",
+      "testResultStringCachingSideEffect",
+      "testSingleSegmentVariableCheckAndNegation"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (_resultString != null) {\n              return _resultString.toCharArray();\n          }",
+    "description": "Missing assignment side-effect when returning the converted result string as a char array, failing to cache it in _resultArray.",
+    "line": 303,
+    "status": "killed",
+    "killed_by": [
+      "testResultStringCachingSideEffect"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (!_hasSegments || _currentSegment != null)  return _currentSegment;",
+    "description": "Wrong logical operator on the single-segment check: using logical OR instead of logical AND, returning the current segment incorrectly even when segments have been split/allocated.",
+    "line": 307,
+    "status": "killed",
+    "killed_by": [
+      "afterResetWithEmpty"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (!_hasSegments && _inputBuffer != null)  return _currentSegment;",
+    "description": "Wrong variable name used in the single segment check: checking _inputBuffer instead of _currentSegment.",
+    "line": 307,
+    "status": "killed",
+    "killed_by": [
+      "testSingleSegmentVariableCheckAndNegation"
+    ]
+  }
+]

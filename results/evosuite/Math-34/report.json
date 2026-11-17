@@ -1,0 +1,77 @@
+{
+  "bug": "Math-34",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.math3.genetics.ListPopulation",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 17,
+      "final_oracles": 17,
+      "focal_methods": [
+        "iterator"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 1.0,
+          "branch": 1.0,
+          "line": 1.0,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 27,
+          "killed": 16,
+          "score": 0.593
+        },
+        "focal": {
+          "generated": 1,
+          "killed": 1,
+          "score": 1.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Math",
+      "version_id": "34f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 50,
+      "lines_covered": 50,
+      "branches_total": 22,
+      "branches_covered": 22,
+      "line": 1.0,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 52,
+      "covered": 52,
+      "killed": 27,
+      "score": 0.519
+    }
+  },
+  "seconds": 111.1,
+  "extras_measured": true
+}

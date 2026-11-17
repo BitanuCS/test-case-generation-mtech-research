@@ -1,0 +1,132 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 268,
+    "status": "killed",
+    "killed_by": [
+      "testAsymmetricPopulation",
+      "testFractionalResult",
+      "testLargePopulationAndSample",
+      "testPrimePopulationSize",
+      "testSampleSizeEqualsPopulationSize",
+      "testSmallSampleSize",
+      "testStandardParameters",
+      "testSymmetricDistribution",
+      "testZeroSuccesses"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "*",
+    "description": "arithmetic: '/' -> '*'",
+    "line": 268,
+    "status": "killed",
+    "killed_by": [
+      "testAsymmetricPopulation",
+      "testFractionalResult",
+      "testLargePopulationAndSample",
+      "testMaxPossibleSuccesses",
+      "testPrimePopulationSize",
+      "testSampleSizeEqualsPopulationSize",
+      "testSmallSampleSize",
+      "testStandardParameters",
+      "testSymmetricDistribution"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "return getSampleSize() * (getNumberOfSuccesses() / (double) getSampleSize());",
+    "description": "Divide by the sample size instead of the population size",
+    "line": 268,
+    "status": "killed",
+    "killed_by": [
+      "testAsymmetricPopulation",
+      "testFractionalResult",
+      "testLargePopulationAndSample",
+      "testMaxPossibleSuccesses",
+      "testPrimePopulationSize",
+      "testSmallSampleSize",
+      "testStandardParameters",
+      "testSymmetricDistribution"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return getPopulationSize() * (getNumberOfSuccesses() / (double) getPopulationSize());",
+    "description": "Multiply by population size instead of sample size",
+    "line": 268,
+    "status": "killed",
+    "killed_by": [
+      "testAsymmetricPopulation",
+      "testFractionalResult",
+      "testLargePopulationAndSample",
+      "testMaxPossibleSuccesses",
+      "testPrimePopulationSize",
+      "testSmallSampleSize",
+      "testStandardParameters",
+      "testSymmetricDistribution"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "return getSampleSize() * (getSampleSize() / (double) getPopulationSize());",
+    "description": "Use sample size as numerator instead of number of successes",
+    "line": 268,
+    "status": "killed",
+    "killed_by": [
+      "testAsymmetricPopulation",
+      "testFractionalResult",
+      "testLargePopulationAndSample",
+      "testMaxPossibleSuccesses",
+      "testPrimePopulationSize",
+      "testSampleSizeEqualsPopulationSize",
+      "testSmallSampleSize",
+      "testZeroSuccesses"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "return (getSampleSize() + 1) * (getNumberOfSuccesses() / (double) getPopulationSize());",
+    "description": "Add an off-by-one error to the sample size factor",
+    "line": 268,
+    "status": "killed",
+    "killed_by": [
+      "testAsymmetricPopulation",
+      "testFractionalResult",
+      "testLargePopulationAndSample",
+      "testMaxPossibleSuccesses",
+      "testPopulationSizeEqualsOne",
+      "testPrimePopulationSize",
+      "testSampleSizeEqualsPopulationSize",
+      "testSmallSampleSize",
+      "testStandardParameters",
+      "testSymmetricDistribution"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "return getSampleSize() * (getNumberOfSuccesses() / getPopulationSize());",
+    "description": "Cast population size to int instead of double, causing integer division before multiplication",
+    "line": 268,
+    "status": "killed",
+    "killed_by": [
+      "testAsymmetricPopulation",
+      "testFractionalResult",
+      "testLargePopulationAndSample",
+      "testPrimePopulationSize",
+      "testSampleSizeEqualsPopulationSize",
+      "testSmallSampleSize",
+      "testStandardParameters",
+      "testSymmetricDistribution"
+    ]
+  }
+]

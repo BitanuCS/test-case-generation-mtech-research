@@ -1,0 +1,74 @@
+[
+  {
+    "method": "translate",
+    "name": "translateDecimalEntityWithSemicolon",
+    "input": "input=\"&#65;\", index=0, Writer=StringWriter",
+    "expected": "Returns length consumed (5), writes 'A' (codepoint 65) to writer because it is a valid decimal numeric entity."
+  },
+  {
+    "method": "translate",
+    "name": "translateHexEntityLowercaseWithSemicolon",
+    "input": "input=\"&#x41;\", index=0, Writer=StringWriter",
+    "expected": "Returns length consumed (6), writes 'A' (codepoint 65) to writer because it is a valid lowercase hex numeric entity."
+  },
+  {
+    "method": "translate",
+    "name": "translateHexEntityUppercaseWithSemicolon",
+    "input": "input=\"&#X41;\", index=0, Writer=StringWriter",
+    "expected": "Returns length consumed (6), writes 'A' (codepoint 65) to writer because it is a valid uppercase hex numeric entity."
+  },
+  {
+    "method": "translate",
+    "name": "translateDecimalEntityWithoutSemicolon",
+    "input": "input=\"&#65\", index=0, Writer=StringWriter",
+    "expected": "Returns length consumed (4), writes 'A' to writer because the semi-colon is optional according to Javadoc."
+  },
+  {
+    "method": "translate",
+    "name": "translateSupplementaryCodepoint",
+    "input": "input=\"&#x1D306;\", index=0, Writer=StringWriter",
+    "expected": "Returns length consumed (9), writes surrogate pair characters corresponding to codepoint 0x1D306 (entityValue > 0xFFFF)."
+  },
+  {
+    "method": "translate",
+    "name": "translateNonEntityNoAmpersand",
+    "input": "input=\"AB&#65;\", index=2, Writer=StringWriter",
+    "expected": "Returns 0 because index 2 starts with 'A', not '&'."
+  },
+  {
+    "method": "translate",
+    "name": "translateIncompleteEntityJustAmpersandHash",
+    "input": "input=\"&#\", index=0, Writer=StringWriter",
+    "expected": "Returns 0 because index < seqEnd - 2 condition fails (input length is 2)."
+  },
+  {
+    "method": "translate",
+    "name": "translateIncompleteHexEntityOnlyX",
+    "input": "input=\"&#x\", index=0, Writer=StringWriter",
+    "expected": "Returns 0 because start == seqEnd after encountering 'x' without digits."
+  },
+  {
+    "method": "translate",
+    "name": "translateInvalidCharactersInEntity",
+    "input": "input=\"&#Z;\", index=0, Writer=StringWriter",
+    "expected": "Returns 0 because NumberFormatException is caught when parsing 'Z' as a digit/hex digit."
+  },
+  {
+    "method": "translate",
+    "name": "translateWithOffsetIndex",
+    "input": "input=\"abc&#65;def\", index=3, Writer=StringWriter",
+    "expected": "Returns 5, translates the entity starting at index 3 and writes 'A' to the writer."
+  },
+  {
+    "method": "translate",
+    "name": "translateHexEntityWithoutSemicolon",
+    "input": "input=\"&#x41\", index=0, Writer=StringWriter",
+    "expected": "Returns length consumed (5), writes 'A' to writer because semi-colon is optional for hex entities too."
+  },
+  {
+    "method": "translate",
+    "name": "translateBoundaryIndexTooCloseToEnd",
+    "input": "input=\"&a\", index=0, Writer=StringWriter",
+    "expected": "Returns 0 because index < seqEnd - 2 is false and second char is not '#' anyway."
+  }
+]

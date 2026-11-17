@@ -1,0 +1,374 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 48,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 49,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR0_LongestInitializedToOneWithEmptyLookup",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateNullLookupTable",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 51,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 51,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA0AndR10_ExactLengthBoundary",
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateEmptyInputString",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateNoMatchReturnsZero",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 52,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateOverlappingKeysPrefersLongest"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 53,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 53,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 56,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 56,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 71,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2_ShortestInitializedToZero",
+      "translateEmptyInputString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 71,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 71,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2_ShortestInitializedToZero",
+      "translateEmptyInputString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 72,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 75,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR0_LongestInitialization",
+      "testMutantR0_LongestInitializedToOneWithEmptyLookup",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateEmptyInputString",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateNullLookupTable",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 75,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateExactMatchBoundary",
+      "translateMappingToEmptyString",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 76,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateNoMatchReturnsZero",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 78,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateNoMatchReturnsZero",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 83,
+    "status": "killed",
+    "killed_by": [
+      "testMutantR0_LongestInitialization",
+      "testMutantR0_LongestInitializedToOneWithEmptyLookup",
+      "translateEmptyInputString",
+      "translateNoMatchReturnsZero",
+      "translateNullLookupTable"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (index + longest + 1 > input.length()) {",
+    "description": "Off-by-one error in max calculation: add 1 to index + longest, causing potential IndexOutOfBoundsException or incorrect substring bounds.",
+    "line": 71,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "for (int i = max; i >= shortest; i++) {",
+    "description": "Change the greedy loop decrement operator (i--) to increment (i++), turning it into an infinite loop or skipping the greedy descend.",
+    "line": 75,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2_ShortestInitializedToZero",
+      "translateNoMatchReturnsZero",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "int _shortest = 0;",
+    "description": "Initialize _shortest to 0 instead of Integer.MAX_VALUE, which causes wrong shortest length calculation when keys are added.",
+    "line": 47,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "int _longest = Integer.MAX_VALUE;",
+    "description": "Initialize _longest to Integer.MAX_VALUE instead of 0, which breaks longest length tracking.",
+    "line": 48,
+    "status": "killed",
+    "killed_by": [
+      "translatePartialMatchWithinString"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "this.lookupMap.put(seq[1].toString(), seq[1]);",
+    "description": "Use seq[1] for both the key and the value in the lookup map during constructor parsing.",
+    "line": 51,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA2AndR6_ShortestLengthInitializationAndComparison",
+      "testMutantA2_ShortestInitializedToZero",
+      "testMutantR6_ShortestLessOrEqual",
+      "testMutantR7_LongestGreaterOrEqual",
+      "testMutantR7_LongestGreaterOrEqual2",
+      "testMutantsA0AndR10_ExactBoundaryIndexPlusLongest",
+      "translateExactMatchBoundary",
+      "translateGreedyMatch",
+      "translateMappingToEmptyString",
+      "translateOverlappingKeysPrefersLongest",
+      "translatePartialMatchWithinString",
+      "translateShorterMatchWhenLongestExceedsInputLength"
+    ]
+  }
+]

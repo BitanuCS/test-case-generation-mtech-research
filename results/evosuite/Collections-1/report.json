@@ -1,0 +1,80 @@
+{
+  "bug": "Collections-1",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.collections.map.Flat3Map",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 116,
+      "final_oracles": 150,
+      "focal_methods": [
+        "setValue",
+        "setValue"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.959,
+          "branch": 0.882,
+          "line": 0.952,
+          "complexity": 0.819,
+          "method": 0.957,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.5,
+          "branch": 0.417
+        },
+        "focal_missed_lines": [
+          653,
+          654,
+          805,
+          806,
+          808,
+          809,
+          811,
+          812,
+          814,
+          817
+        ]
+      },
+      "pit": {
+        "error": "Testing(DefaultCoverageGenerator.java:127)\n\tat org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:109)\n\tat org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:53)\n\tat org.pitest.mutationtest.tooling.MutationCoverage.runAnalysis(MutationCoverage.java:150)\n\tat org.pitest.mutationtest.tooling.MutationCoverage.runReport(MutationCoverage.java:137)\n\tat org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:137)\n\tat org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:64)\n\tat org.pitest.mutationtest.commandline.MutationCoverageReport.runReport(MutationCoverageReport.java:98)\n\tat org.pitest.mutationtest.commandline.MutationCoverageReport.main(MutationCoverageReport.java:45)\n"
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Collections",
+      "version_id": "1f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Broken",
+      "num_trigger": "-"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": null,
+      "lines_covered": null,
+      "branches_total": null,
+      "branches_covered": null,
+      "line": null,
+      "branch": null
+    },
+    "major_mutation": {
+      "generated": null,
+      "covered": null,
+      "killed": null,
+      "score": null
+    }
+  },
+  "seconds": 123.6,
+  "extras_measured": true
+}

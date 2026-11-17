@@ -1,0 +1,62 @@
+[
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapWhenNull",
+    "input": "CSVParser created with CSVFormat without headers (e.g., CSVFormat.DEFAULT)",
+    "expected": "Returns null because headerMap is null (per Javadoc and ternary operator implementation)."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapWhenPresent",
+    "input": "CSVParser created with a CSVFormat defining headers (e.g., CSVFormat.DEFAULT.withHeader(\"Col1\", \"Col2\"))",
+    "expected": "Returns a non-null Map containing column names as keys and 0-based Integer indices as values, iterating in column order (LinkedHashMap)."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapReturnsCopy",
+    "input": "Calling parser.getHeaderMap() twice or modifying the returned map",
+    "expected": "Returns a new LinkedHashMap copy on each call so that modifying the returned map does not affect the parser's internal headerMap state."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapColumnOrder",
+    "input": "CSVParser parsed with headers \"Z\", \"A\", \"M\"",
+    "expected": "Returns a Map whose keySet or entrySet iteration order matches the exact insertion/column order (\"Z\", then \"A\", then \"M\")."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapIndicesValues",
+    "input": "CSVParser parsed with headers \"first\", \"second\", \"third\"",
+    "expected": "Returns map entries where \"first\" maps to 0, \"second\" maps to 1, and \"third\" maps to 2."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapWithAutomaticHeaderDetection",
+    "input": "CSVParser parsed using CSVFormat.DEFAULT.withHeader() with input \"ColA,ColB\\nval1,val2\"",
+    "expected": "Returns a map containing \"ColA\" -> 0 and \"ColB\" -> 1 after parsing headers from the first record."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapSingleHeader",
+    "input": "CSVParser created with a CSVFormat having exactly one header name \"SingleCol\"",
+    "expected": "Returns a LinkedHashMap of size 1 containing \"SingleCol\" -> 0."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapEmptyHeaderArray",
+    "input": "CSVParser created with CSVFormat.DEFAULT.withHeader(new String[0])",
+    "expected": "Returns an empty LinkedHashMap (non-null, size 0)."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapAfterRecordsParsed",
+    "input": "CSVParser with headers where several records have already been traversed via nextRecord() or iterator()",
+    "expected": "Returns the same valid header map copy regardless of the parser's current record traversal progress."
+  },
+  {
+    "method": "getHeaderMap",
+    "name": "testGetHeaderMapAfterParserClosed",
+    "input": "CSVParser with headers whose close() method has been invoked",
+    "expected": "Still successfully returns the header map copy, as closing the parser does not clear or invalidate the headerMap field."
+  }
+]

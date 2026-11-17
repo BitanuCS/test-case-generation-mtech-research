@@ -1,0 +1,92 @@
+[
+  {
+    "method": "create",
+    "name": "createSingleOption",
+    "input": "PatternBuilder with exactly one option added (via withPattern or internal state)",
+    "expected": "Returns that single Option instance directly without wrapping in a Group, and clears options via reset()."
+  },
+  {
+    "method": "create",
+    "name": "createMultipleOptions",
+    "input": "PatternBuilder with multiple options added",
+    "expected": "Returns a Group Option containing all added options (built using gbuilder), and clears options via reset()."
+  },
+  {
+    "method": "create",
+    "name": "createResetsStateAfterCreation",
+    "input": "PatternBuilder with options added, calling create()",
+    "expected": "After creation, internal options set is empty, verified by subsequent create() returning empty group or throwing/behaving accordingly."
+  },
+  {
+    "method": "reset",
+    "name": "resetClearsOptions",
+    "input": "PatternBuilder with non-empty options set",
+    "expected": "options set size becomes 0, and returns the PatternBuilder instance itself for method chaining."
+  },
+  {
+    "method": "reset",
+    "name": "resetOnEmptyBuilder",
+    "input": "PatternBuilder with empty options set",
+    "expected": "Does nothing harmful, keeps options empty, and returns the PatternBuilder instance."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithoutArgument",
+    "input": "type = ' ', required = false, opt = 'a'",
+    "expected": "Creates an option with short name 'a', not required, no argument, and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithRequiredArgument",
+    "input": "type = '%', required = true, opt = 'b'",
+    "expected": "Creates an option with short name 'b', required = true, with a NumberValidator argument having minimum 1 and maximum 1, and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithStarTypeArgument",
+    "input": "type = '*', required = false, opt = 'c'",
+    "expected": "Creates an option with short name 'c', with a FileValidator argument having minimum 0 (default) and no maximum limit (since type == '*'), and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithClassValidatorTypeAt",
+    "input": "type = '@', required = false, opt = 'd'",
+    "expected": "Creates an option with short name 'd', with a ClassValidator instance set to instance=true, max 1, and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithClassValidatorTypePlus",
+    "input": "type = '+', required = false, opt = 'e'",
+    "expected": "Creates an option with short name 'e', with a ClassValidator instance set to instance=false (default), max 1, and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithDateValidator",
+    "input": "type = '#', required = false, opt = 'f'",
+    "expected": "Creates an option with short name 'f', with a DateValidator instance, max 1, and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithFileValidatorExisting",
+    "input": "type = '<', required = false, opt = 'g'",
+    "expected": "Creates an option with short name 'g', with a FileValidator configured for existing=true and file=true, max 1, and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithFileValidatorGreaterThan",
+    "input": "type = '>', required = false, opt = 'h'",
+    "expected": "Creates an option with short name 'h', with a default FileValidator instance, max 1, and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithUrlValidator",
+    "input": "type = '/', required = false, opt = 'i'",
+    "expected": "Creates an option with short name 'i', with a UrlValidator instance, max 1, and adds it to options."
+  },
+  {
+    "method": "createOption",
+    "name": "createOptionWithUnknownTypeCharacter",
+    "input": "type = '?', required = false, opt = 'j'",
+    "expected": "Creates an option with short name 'j', with null validator for argument (or default argument behavior), max 1, and adds it to options."
+  }
+]

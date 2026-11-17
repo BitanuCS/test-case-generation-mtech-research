@@ -1,0 +1,152 @@
+{
+  "bug": "Codec-1",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.codec.language.SoundexUtils",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 6,
+      "final_oracles": 5,
+      "focal_methods": [
+        "clean"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 1.0,
+          "branch": 1.0,
+          "line": 1.0,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 18,
+          "killed": 17,
+          "score": 0.944
+        },
+        "focal": {
+          "generated": 10,
+          "killed": 9,
+          "score": 0.9
+        }
+      }
+    },
+    {
+      "class": "org.apache.commons.codec.language.Caverphone",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 4,
+      "final_oracles": 4,
+      "focal_methods": [
+        "caverphone"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 1.0,
+          "branch": 1.0,
+          "line": 1.0,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 9,
+          "killed": 8,
+          "score": 0.889
+        },
+        "focal": {
+          "generated": 4,
+          "killed": 4,
+          "score": 1.0
+        }
+      }
+    },
+    {
+      "class": "org.apache.commons.codec.language.Metaphone",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 41,
+      "final_oracles": 65,
+      "focal_methods": [
+        "metaphone"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.965,
+          "branch": 0.906,
+          "line": 0.946,
+          "complexity": 0.851,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.935,
+          "branch": 0.913
+        },
+        "focal_missed_lines": [
+          164,
+          165,
+          211,
+          214,
+          258,
+          278,
+          279,
+          283,
+          287
+        ]
+      },
+      "pit": {
+        "error": "Testing(DefaultCoverageGenerator.java:127)\n\tat org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:109)\n\tat org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:53)\n\tat org.pitest.mutationtest.tooling.MutationCoverage.runAnalysis(MutationCoverage.java:150)\n\tat org.pitest.mutationtest.tooling.MutationCoverage.runReport(MutationCoverage.java:137)\n\tat org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:137)\n\tat org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:64)\n\tat org.pitest.mutationtest.commandline.MutationCoverageReport.runReport(MutationCoverageReport.java:98)\n\tat org.pitest.mutationtest.commandline.MutationCoverageReport.main(MutationCoverageReport.java:45)\n"
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Codec",
+      "version_id": "1f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Broken",
+      "num_trigger": "-"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": null,
+      "lines_covered": null,
+      "branches_total": null,
+      "branches_covered": null,
+      "line": null,
+      "branch": null
+    },
+    "major_mutation": {
+      "generated": null,
+      "covered": null,
+      "killed": null,
+      "score": null
+    }
+  },
+  "seconds": 54.4,
+  "extras_measured": true
+}

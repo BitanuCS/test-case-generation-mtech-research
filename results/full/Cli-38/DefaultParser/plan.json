@@ -1,0 +1,74 @@
+[
+  {
+    "method": "isShortOption",
+    "name": "returnsTrueForSingleValidShortOption",
+    "input": "token = \"-a\", options contains short option \"a\"",
+    "expected": "Returns true because it starts with '-', has length > 1, and options.hasShortOption(\"a\") is true."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsFalseWhenTokenDoesNotStartWithHyphen",
+    "input": "token = \"a\", options contains short option \"a\"",
+    "expected": "Returns false because the token does not start with '-'."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsFalseWhenTokenIsSingleHyphen",
+    "input": "token = \"-\", options contains short option \"-\"",
+    "expected": "Returns false because token.length() == 1."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsTrueForShortOptionWithValueSeparator",
+    "input": "token = \"-a=value\", options contains short option \"a\"",
+    "expected": "Returns true because optName extracted before '=' is \"a\" and options.hasShortOption(\"a\") is true."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsTrueForConcatenatedShortOptions",
+    "input": "token = \"-abc\", options contains short option \"a\"",
+    "expected": "Returns true because the first character of optName (\"abc\") is \"a\", which is a valid short option."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsFalseForUnknownShortOption",
+    "input": "token = \"-x\", options does not contain short option \"x\"",
+    "expected": "Returns false because neither the full optName nor its first character corresponds to a registered short option."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsFalseForLongOptionStartingWithDoubleHyphen",
+    "input": "token = \"--long\", options does not contain short option \"-long\"",
+    "expected": "Returns false because optName becomes \"-long\", which is not a short option and its first char '-' is also not a valid short option."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsFalseWhenOptNameIsEmptyAfterHyphenStripping",
+    "input": "token = \"-=",
+    "expected": "Returns false because optName extraction results in empty string, leading to false on hasShortOption checks."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsTrueWhenFirstCharOfConcatenatedOptIsRegistered",
+    "input": "token = \"-xyz\", options contains short option \"x\", but not \"xyz\"",
+    "expected": "Returns true because optName length > 0 and options.hasShortOption(String.valueOf(optName.charAt(0))) evaluates to true."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsFalseWhenFirstCharOfConcatenatedOptIsNotRegistered",
+    "input": "token = \"-xyz\", options contains neither \"xyz\" nor \"x\"",
+    "expected": "Returns false because both full optName check and first-character check fail against the options registry."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsTrueForShortOptionWithValueAndEqualsSignInValue",
+    "input": "token = \"-a=foo=bar\", options contains short option \"a\"",
+    "expected": "Returns true because indexOf(\"=\") correctly isolates the first '=' to extract optName as \"a\"."
+  },
+  {
+    "method": "isShortOption",
+    "name": "returnsFalseForNullToken",
+    "input": "token = null",
+    "expected": "Throws NullPointerException because token.startsWith(\"-\") is invoked on a null reference."
+  }
+]

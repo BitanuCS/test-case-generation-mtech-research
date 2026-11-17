@@ -1,0 +1,80 @@
+[
+  {
+    "method": "resolveClass",
+    "name": "resolveClassUsingCustomClassLoader",
+    "input": "Serialized stream of a standard class and a custom ClassLoader passed to ClassLoaderAwareObjectInputStream constructor",
+    "expected": "Returns the Class object loaded successfully using the provided custom ClassLoader."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassFallbackToThreadContextClassLoader",
+    "input": "Serialized stream of a class not found in the custom ClassLoader but present in the current Thread's context ClassLoader",
+    "expected": "Falls back to Thread.currentThread().getContextClassLoader() and returns the successfully loaded Class object."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveByte",
+    "input": "ObjectStreamClass representing the primitive type 'byte'",
+    "expected": "Returns byte.class retrieved from the primitiveTypes map after both Class.forName attempts fail with ClassNotFoundException."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveShort",
+    "input": "ObjectStreamClass representing the primitive type 'short'",
+    "expected": "Returns short.class retrieved from the primitiveTypes map."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveInt",
+    "input": "ObjectStreamClass representing the primitive type 'int'",
+    "expected": "Returns int.class retrieved from the primitiveTypes map."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveLong",
+    "input": "ObjectStreamClass representing the primitive type 'long'",
+    "expected": "Returns long.class retrieved from the primitiveTypes map."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveFloat",
+    "input": "ObjectStreamClass representing the primitive type 'float'",
+    "expected": "Returns float.class retrieved from the primitiveTypes map."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveDouble",
+    "input": "ObjectStreamClass representing the primitive type 'double'",
+    "expected": "Returns double.class retrieved from the primitiveTypes map."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveBoolean",
+    "input": "ObjectStreamClass representing the primitive type 'boolean'",
+    "expected": "Returns boolean.class retrieved from the primitiveTypes map."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveChar",
+    "input": "ObjectStreamClass representing the primitive type 'char'",
+    "expected": "Returns char.class retrieved from the primitiveTypes map."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassPrimitiveVoid",
+    "input": "ObjectStreamClass representing the primitive type 'void'",
+    "expected": "Returns void.class retrieved from the primitiveTypes map."
+  },
+  {
+    "method": "resolveClass",
+    "name": "resolveClassThrowsClassNotFoundException",
+    "input": "ObjectStreamClass with a fully qualified class name that does not exist in the custom ClassLoader, Thread context ClassLoader, or primitiveTypes map",
+    "expected": "Throws ClassNotFoundException because the class cannot be resolved by any mechanism."
+  },
+  {
+    "method": "ClassLoaderAwareObjectInputStream",
+    "name": "constructorInitializesProperly",
+    "input": "Valid InputStream and a ClassLoader instance",
+    "expected": "Successfully initializes the ObjectInputStream and populates the internal primitiveTypes map with all 9 primitive/void types."
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Incorrect conditional check for hex prefix: checking 'x' or 'x' instead of 'x' or 'X', causing uppercase 'X' hex entities to be treated as decimal entities and fail parsing.",
+    "original": "if(firstChar == 'x' || firstChar == 'X') {",
+    "mutated": "if(firstChar == 'x' || firstChar == 'x') {"
+  },
+  {
+    "description": "Off-by-one error in the return value calculation for hex entities, subtracting or adding the wrong offset for the 'x' character length.",
+    "original": "return 2 + (end - start) + (isHex ? 1 : 0) + (semiNext ? 1 : 0);",
+    "mutated": "return 2 + (end - start) + (isHex ? 2 : 0) + (semiNext ? 1 : 0);"
+  },
+  {
+    "description": "Missing semicolon check integration: `semiNext` is calculated but a typo uses `false` or ignores it in the return statement.",
+    "original": "return 2 + (end - start) + (isHex ? 1 : 0) + (semiNext ? 1 : 0);",
+    "mutated": "return 2 + (end - start) + (isHex ? 1 : 0) + 0;"
+  },
+  {
+    "description": "Wrong boundary check condition: using '<=' instead of '<' when ensuring there is more than just an x after the &#.",
+    "original": "if(start == seqEnd) {",
+    "mutated": "if(start <= seqEnd) {"
+  },
+  {
+    "description": "Wrong range boundary check for lowercase letters in the hex parsing while loop, omitting 'f' (using 'e' instead).",
+    "original": "                                      (input.charAt(end) >= 'a' && input.charAt(end) <= 'f') ||",
+    "mutated": "                                      (input.charAt(end) >= 'a' && input.charAt(end) <= 'e') ||"
+  }
+]

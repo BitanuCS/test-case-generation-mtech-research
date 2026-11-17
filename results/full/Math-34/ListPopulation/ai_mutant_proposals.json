@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Return null instead of an iterator, which causes a NullPointerException when any test tries to iterate.",
+    "original": "return getChromosomes().iterator();",
+    "mutated": "return null;"
+  },
+  {
+    "description": "Return an empty iterator instead of the population's chromosome iterator, causing tests with populated lists to fail.",
+    "original": "return getChromosomes().iterator();",
+    "mutated": "return new ArrayList<Chromosome>().iterator();"
+  },
+  {
+    "description": "Call iterator() on a new empty ArrayList instead of getChromosomes(), making the iterator always empty.",
+    "original": "return getChromosomes().iterator();",
+    "mutated": "return new ArrayList<Chromosome>(getChromosomes()).iterator();"
+  },
+  {
+    "description": "Accidentally call toString().iterator() or another method if the API allowed, but using an empty list's iterator via casting or wrapper works. Let's use Collections.emptyIterator().",
+    "original": "return getChromosomes().iterator();",
+    "mutated": "return java.util.Collections.emptyIterator();"
+  },
+  {
+    "description": "Call getChromosomes().listIterator() instead of iterator() (though listIterator returns a ListIterator which extends Iterator, let's mutate it to subList or something that changes behavior, or wrap it improperly). Let's return a reversed or restricted view if possible, or pass a sublist.",
+    "original": "return getChromosomes().iterator();",
+    "mutated": "return getChromosomes().subList(0, 0).iterator();"
+  }
+]

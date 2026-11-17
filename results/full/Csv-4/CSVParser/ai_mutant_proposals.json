@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Return an empty map instead of null when headerMap is null",
+    "original": "return this.headerMap == null ? null : new LinkedHashMap<String, Integer>(this.headerMap);",
+    "mutated": "return this.headerMap == null ? new LinkedHashMap<String, Integer>() : new LinkedHashMap<String, Integer>(this.headerMap);"
+  },
+  {
+    "description": "Return null instead of a copy when headerMap is not null",
+    "original": "return this.headerMap == null ? null : new LinkedHashMap<String, Integer>(this.headerMap);",
+    "mutated": "return this.headerMap == null ? null : null;"
+  },
+  {
+    "description": "Invert the null check condition, returning a copy when null and null when present",
+    "original": "return this.headerMap == null ? null : new LinkedHashMap<String, Integer>(this.headerMap);",
+    "mutated": "return this.headerMap != null ? null : new LinkedHashMap<String, Integer>(this.headerMap);"
+  },
+  {
+    "description": "Use a standard HashMap instead of a LinkedHashMap, losing column order preservation",
+    "original": "return this.headerMap == null ? null : new LinkedHashMap<String, Integer>(this.headerMap);",
+    "mutated": "return this.headerMap == null ? null : new java.util.HashMap<String, Integer>(this.headerMap);"
+  },
+  {
+    "description": "Return the original headerMap directly instead of defensive copying",
+    "original": "return this.headerMap == null ? null : new LinkedHashMap<String, Integer>(this.headerMap);",
+    "mutated": "return this.headerMap == null ? null : this.headerMap;"
+  }
+]

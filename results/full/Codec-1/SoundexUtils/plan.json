@@ -1,0 +1,74 @@
+[
+  {
+    "method": "clean",
+    "name": "cleanNullString",
+    "input": "null",
+    "expected": "Returns null because the input string is null, as explicitly checked by `str == null`."
+  },
+  {
+    "method": "clean",
+    "name": "cleanEmptyString",
+    "input": "\"\"",
+    "expected": "Returns an empty string because `str.length() == 0` evaluates to true."
+  },
+  {
+    "method": "clean",
+    "name": "cleanLowercaseLettersOnly",
+    "input": "\"abcdef\"",
+    "expected": "Returns \"ABCDEF\" because all characters are letters and converted to uppercase using ENGLISH locale."
+  },
+  {
+    "method": "clean",
+    "name": "cleanUppercaseLettersOnly",
+    "input": "\"ABCDEF\"",
+    "expected": "Returns \"ABCDEF\" because all characters are already uppercase letters and `count == len` triggers the optimized upper-casing path."
+  },
+  {
+    "method": "clean",
+    "name": "cleanMixedCaseWithNonLetters",
+    "input": "\"AbC123XyZ!@#\"",
+    "expected": "Returns \"ABCXYZ\" because digits and symbols are filtered out via `Character.isLetter`, and letters are converted to uppercase."
+  },
+  {
+    "method": "clean",
+    "name": "cleanOnlyNonLetters",
+    "input": "\"12345!@#$\u00ae\"",
+    "expected": "Returns \"\" (empty string) because no characters satisfy `Character.isLetter`, resulting in `count = 0`."
+  },
+  {
+    "method": "clean",
+    "name": "cleanSingleLowercaseLetter",
+    "input": "\"z\"",
+    "expected": "Returns \"Z\" because it is a single valid letter converted to uppercase."
+  },
+  {
+    "method": "clean",
+    "name": "cleanSingleNonLetter",
+    "input": "\"9\"",
+    "expected": "Returns \"\" because the single character is not a letter."
+  },
+  {
+    "method": "clean",
+    "name": "cleanWhitespaceAndTabs",
+    "input": "\"   \\t\\n \"",
+    "expected": "Returns \"\" because whitespace characters are not considered letters by `Character.isLetter`."
+  },
+  {
+    "method": "clean",
+    "name": "cleanUnicodeLetters",
+    "input": "\"\u00e9\u00e0\u00e7\"",
+    "expected": "Returns properly uppercased accented characters since `Character.isLetter` recognizes Unicode letters and `toUpperCase` handles them."
+  },
+  {
+    "method": "clean",
+    "name": "cleanMixedLettersAndSpaces",
+    "input": "\"Hello World\"",
+    "expected": "Returns \"HELLOWORLD\" because the space character is filtered out and the remaining letters are uppercased."
+  },
+  {
+    "method": "clean",
+    "name": "cleanLeadingAndTrailingNonLetters",
+    "input": "\"--Smith++\"",
+    "expected": "Returns \"SMITH\" because hyphens and plus signs are stripped out."
+  }
+]

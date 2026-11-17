@@ -1,0 +1,158 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 76,
+    "status": "killed",
+    "killed_by": [
+      "createMultipleOptions",
+      "createOptionWithClassValidatorTypeAt",
+      "createOptionWithClassValidatorTypePlus",
+      "createOptionWithDateValidator",
+      "createOptionWithFileValidatorExisting",
+      "createOptionWithFileValidatorGreaterThan",
+      "createOptionWithNonStarTypeBasic",
+      "createOptionWithNumberValidatorBasic",
+      "createOptionWithRequiredArgument",
+      "createOptionWithRequiredArgumentBasic",
+      "createOptionWithStarTypeArgument",
+      "createOptionWithStarTypeBasic",
+      "createOptionWithUrlValidator",
+      "createOptionWithoutArgument",
+      "createResetsStateAfterCreation",
+      "createSingleOption",
+      "resetClearsOptions",
+      "testRequiredParameterPassedCorrectlyMutant"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 76,
+    "status": "killed",
+    "killed_by": [
+      "createMultipleOptions",
+      "createOptionWithClassValidatorTypeAt",
+      "createOptionWithClassValidatorTypePlus",
+      "createOptionWithDateValidator",
+      "createOptionWithFileValidatorExisting",
+      "createOptionWithFileValidatorGreaterThan",
+      "createOptionWithNonStarTypeBasic",
+      "createOptionWithNumberValidatorBasic",
+      "createOptionWithRequiredArgument",
+      "createOptionWithRequiredArgumentBasic",
+      "createOptionWithStarTypeArgument",
+      "createOptionWithStarTypeBasic",
+      "createOptionWithUrlValidator",
+      "createOptionWithoutArgument",
+      "createSingleOption",
+      "testRequiredParameterPassedCorrectlyMutant"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 105,
+    "status": "killed",
+    "killed_by": [
+      "createMultipleOptions",
+      "createOptionWithoutArgument",
+      "createResetsStateAfterCreation",
+      "createSingleOption",
+      "resetClearsOptions",
+      "testRequiredParameterPassedCorrectlyMutant"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 109,
+    "status": "killed",
+    "killed_by": [
+      "createOptionWithRequiredArgument",
+      "createOptionWithRequiredArgumentBasic"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 111,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 112,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "abuilder.withMinimum(0);",
+    "description": "Change the minimum argument requirement from 1 to 0 when required is true.",
+    "line": 109,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (type == '*') {",
+    "description": "Invert the character check for star type from != '*' to == '*', breaking maximum argument limit logic.",
+    "line": 111,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "obuilder.withRequired(false);",
+    "description": "Pass a hardcoded boolean literal false instead of the required parameter when building the option.",
+    "line": 123,
+    "status": "killed",
+    "killed_by": [
+      "testRequiredParameterPassedCorrectlyMutant"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (options.size() == 0) {",
+    "description": "Change the size condition in create() from == 1 to == 0, causing incorrect single option handling.",
+    "line": 76,
+    "status": "killed",
+    "killed_by": [
+      "createOptionWithClassValidatorTypeAt",
+      "createOptionWithClassValidatorTypePlus",
+      "createOptionWithDateValidator",
+      "createOptionWithFileValidatorExisting",
+      "createOptionWithFileValidatorGreaterThan",
+      "createOptionWithNonStarTypeBasic",
+      "createOptionWithNumberValidatorBasic",
+      "createOptionWithRequiredArgument",
+      "createOptionWithRequiredArgumentBasic",
+      "createOptionWithStarTypeArgument",
+      "createOptionWithStarTypeBasic",
+      "createOptionWithUrlValidator",
+      "createOptionWithoutArgument",
+      "createResetsStateAfterCreation",
+      "createSingleOption",
+      "resetClearsOptions",
+      "testRequiredParameterPassedCorrectlyMutant"
+    ]
+  }
+]

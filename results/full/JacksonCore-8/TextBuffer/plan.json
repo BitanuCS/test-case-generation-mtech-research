@@ -1,0 +1,74 @@
+[
+  {
+    "method": "getTextBuffer",
+    "name": "sharedInputBufferActive",
+    "input": "Initialized with resetWithShared(buf, start, len) where _inputStart >= 0",
+    "expected": "Returns _inputBuffer directly because the text is currently backed by a shared input buffer."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "resultArrayAlreadyCached",
+    "input": "_resultArray is already populated (non-null), _inputStart < 0",
+    "expected": "Returns the pre-cached _resultArray without recalculating."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "resultStringCached",
+    "input": "_resultString is non-null, _resultArray is null, _inputStart < 0",
+    "expected": "Converts _resultString to char array, caches it in _resultArray, and returns it."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "singleUnsegmentedCurrentSegment",
+    "input": "_hasSegments is false, _currentSegment is not null, _resultString and _resultArray are null, _inputStart < 0",
+    "expected": "Returns _currentSegment directly since data fits in a single unsegmented buffer."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "multipleSegmentsOrRequiresConsolidation",
+    "input": "_hasSegments is true with multiple segments added, _resultArray is null",
+    "expected": "Delegates to contentsAsArray() to aggregate segments into a single linear char array and returns it."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "emptyBufferFreshInstance",
+    "input": "Newly created TextBuffer instance using constructor",
+    "expected": "Returns a linear char array (via contentsAsArray) or NO_CHARS depending on internal state when empty."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "afterResetWithEmpty",
+    "input": "TextBuffer reset using resetWithEmpty()",
+    "expected": "Returns the appropriate empty or single segment buffer state reflecting an empty text buffer."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "afterResetWithCopy",
+    "input": "TextBuffer initialized via resetWithCopy(buf, start, len)",
+    "expected": "Returns the copied segment or array containing the copied characters."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "appendedCharactersSingleSegment",
+    "input": "Characters appended via append(char) fitting within the initial current segment without triggering segments",
+    "expected": "Returns _currentSegment directly because _hasSegments is false and _currentSegment is present."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "appendedCharactersMultipleSegments",
+    "input": "Characters appended exceeding segment capacity, setting _hasSegments to true",
+    "expected": "Falls through single-segment check and returns consolidated array via contentsAsArray()."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "sharedBufferOverriddenByResetWithString",
+    "input": "Initially shared buffer, then reset with resetWithString(\"test\")",
+    "expected": "Clears shared state (_inputStart = -1) and correctly returns char array generated from the result string."
+  },
+  {
+    "method": "getTextBuffer",
+    "name": "resultArrayPrioritizedOverCurrentSegment",
+    "input": "Both _resultArray and _currentSegment are non-null (e.g., after contentsAsArray() was called)",
+    "expected": "Returns _resultArray because the check for _resultArray precedes the single segment check."
+  }
+]

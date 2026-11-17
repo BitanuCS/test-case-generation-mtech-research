@@ -1,0 +1,68 @@
+[
+  {
+    "method": "Partial",
+    "name": "constructorNullTypesThrowsException",
+    "input": "types = null, values = [2023], chronology = null",
+    "expected": "Throws IllegalArgumentException because the types array must not be null."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorNullValuesThrowsException",
+    "input": "types = [DateTimeFieldType.year()], values = null, chronology = null",
+    "expected": "Throws IllegalArgumentException because the values array must not be null."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorMismatchedLengthThrowsException",
+    "input": "types = [DateTimeFieldType.year()], values = [2023, 6], chronology = null",
+    "expected": "Throws IllegalArgumentException because the values array must be the same length as the types array."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorNullTypeInArrayThrowsException",
+    "input": "types = [null], values = [2023], chronology = null",
+    "expected": "Throws IllegalArgumentException because the types array must not contain null at any index."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorWrongOrderThrowsException",
+    "input": "types = [DateTimeFieldType.monthOfYear(), DateTimeFieldType.year()], values = [6, 2023], chronology = null",
+    "expected": "Throws IllegalArgumentException because types must be in order from largest to smallest duration."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorDuplicateTypeThrowsException",
+    "input": "types = [DateTimeFieldType.year(), DateTimeFieldType.year()], values = [2023, 2023], chronology = null",
+    "expected": "Throws IllegalArgumentException because types array must not contain duplicate fields."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorEmptyArraysSuccess",
+    "input": "types = [], values = [], chronology = null",
+    "expected": "Successfully constructs an empty Partial with UTC ISO chronology."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorValidSingleFieldSuccess",
+    "input": "types = [DateTimeFieldType.year()], values = [2023], chronology = null",
+    "expected": "Successfully constructs a Partial with a single valid field and value using default ISO UTC chronology."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorValidMultipleFieldsSuccess",
+    "input": "types = [DateTimeFieldType.year(), DateTimeFieldType.monthOfYear(), DateTimeFieldType.dayOfMonth()], values = [2023, 6, 15], chronology = null",
+    "expected": "Successfully constructs a Partial with year, monthOfYear, and dayOfMonth in correct descending order."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorExplicitChronologySuccess",
+    "input": "types = [DateTimeFieldType.year()], values = [2023], chronology = ISOChronology.getInstanceUTC()",
+    "expected": "Successfully constructs a Partial using the provided explicit chronology."
+  },
+  {
+    "method": "Partial",
+    "name": "constructorInvalidFieldValueThrowsException",
+    "input": "types = [DateTimeFieldType.monthOfYear()], values = [13], chronology = null",
+    "expected": "Throws an exception during chronology validation because month value 13 is out of range (1-12)."
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Off-by-one error on the shared input buffer boundary check: using > 0 instead of >= 0, causing a shared buffer with _inputStart == 0 to be ignored.",
+    "original": "if (_inputStart >= 0) return _inputBuffer;",
+    "mutated": "if (_inputStart > 0) return _inputBuffer;"
+  },
+  {
+    "description": "Swapped comparison operator: checking if _resultArray is null instead of not-null.",
+    "original": "if (_resultArray != null)  return _resultArray;",
+    "mutated": "if (_resultArray == null)  return _resultArray;"
+  },
+  {
+    "description": "Missing assignment side-effect when returning the converted result string as a char array, failing to cache it in _resultArray.",
+    "original": "if (_resultString != null) {\n              return (_resultArray = _resultString.toCharArray());\n          }",
+    "mutated": "if (_resultString != null) {\n              return _resultString.toCharArray();\n          }"
+  },
+  {
+    "description": "Wrong logical operator on the single-segment check: using logical OR instead of logical AND, returning the current segment incorrectly even when segments have been split/allocated.",
+    "original": "if (!_hasSegments && _currentSegment != null)  return _currentSegment;",
+    "mutated": "if (!_hasSegments || _currentSegment != null)  return _currentSegment;"
+  },
+  {
+    "description": "Wrong variable name used in the single segment check: checking _inputBuffer instead of _currentSegment.",
+    "original": "if (!_hasSegments && _currentSegment != null)  return _currentSegment;",
+    "mutated": "if (!_hasSegments && _inputBuffer != null)  return _currentSegment;"
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "method": "getNumericalMean()",
+    "name": "testStandardParameters",
+    "input": "populationSize = 10, numberOfSuccesses = 5, sampleSize = 5",
+    "expected": "Returns 2.5 because n * m / N = 5 * 5 / 10 = 2.5."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testPopulationSizeEqualsOne",
+    "input": "populationSize = 1, numberOfSuccesses = 1, sampleSize = 1",
+    "expected": "Returns 1.0 because 1 * 1 / 1 = 1.0."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testZeroSuccesses",
+    "input": "populationSize = 100, numberOfSuccesses = 0, sampleSize = 10",
+    "expected": "Returns 0.0 because sampleSize * (0 / 100) = 0.0."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testSampleSizeEqualsPopulationSize",
+    "input": "populationSize = 20, numberOfSuccesses = 8, sampleSize = 20",
+    "expected": "Returns 8.0 because 20 * 8 / 20 = 8.0 (sampling the entire population means mean equals numberOfSuccesses)."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testLargePopulationAndSample",
+    "input": "populationSize = 10000, numberOfSuccesses = 2500, sampleSize = 100",
+    "expected": "Returns 25.0 because 100 * 2500 / 10000 = 25.0."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testFractionalResult",
+    "input": "populationSize = 3, numberOfSuccesses = 1, sampleSize = 2",
+    "expected": "Returns 0.6666666666666666 because 2 * (1 / 3) = 2/3."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testMaxPossibleSuccesses",
+    "input": "populationSize = 50, numberOfSuccesses = 50, sampleSize = 25",
+    "expected": "Returns 25.0 because 25 * 50 / 50 = 25.0."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testSmallSampleSize",
+    "input": "populationSize = 100, numberOfSuccesses = 50, sampleSize = 1",
+    "expected": "Returns 0.5 because 1 * (50 / 100) = 0.5."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testSymmetricDistribution",
+    "input": "populationSize = 100, numberOfSuccesses = 50, sampleSize = 50",
+    "expected": "Returns 25.0 because 50 * 50 / 100 = 25.0."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testAsymmetricPopulation",
+    "input": "populationSize = 1000, numberOfSuccesses = 100, sampleSize = 500",
+    "expected": "Returns 50.0 because 500 * (100 / 1000) = 50.0."
+  },
+  {
+    "method": "getNumericalMean()",
+    "name": "testPrimePopulationSize",
+    "input": "populationSize = 17, numberOfSuccesses = 6, sampleSize = 5",
+    "expected": "Returns 5 * (6 / 17) \u2248 1.7647058823529411 because formula applies directly using double division."
+  }
+]

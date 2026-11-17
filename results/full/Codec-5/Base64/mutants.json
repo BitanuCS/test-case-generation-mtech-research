@@ -1,0 +1,417 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 554,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeInAvailZeroDoesNotSetEof"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 555,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeAlreadyEofReturnsImmediately",
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 557,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 557,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeAlreadyEofReturnsImmediately",
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeBufferResizeTrigger",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeEofBufferResizeAndArithmeticMutants",
+      "testDecodeEofFlagSetImmediately",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodeMultipleBlocksWithPadding",
+      "testDecodePadSetsEofTrue",
+      "testDecodePaddingCharacterEncountered",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary",
+      "testDecodeZeroInAvail"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 558,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeBufferResizeTrigger",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeEofBufferResizeAndArithmeticMutants",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodeMultipleBlocksWithPadding",
+      "testDecodePadSetsEofTrue",
+      "testDecodePaddingCharacterEncountered",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 558,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 558,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 564,
+    "status": "killed",
+    "killed_by": [
+      "testDecodePadSetsEofTrue"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 567,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 567,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodePadSetsEofTrue",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 567,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 567,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeByteZeroBoundaryAndInvalidBytes"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 569,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeResultZeroIsAccepted"
+    ]
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "5",
+    "description": "constant: 4 -> 5",
+    "line": 570,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 571,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeModulusTwoShift16Mutant"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 572,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodePadSetsEofTrue",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "9",
+    "description": "constant: 8 -> 9",
+    "line": 574,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 585,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeAlreadyEofReturnsImmediately",
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeEofFlagSetImmediately",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodePadSetsEofTrue"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 586,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "7",
+    "description": "constant: 6 -> 7",
+    "line": 590,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeModulusTwoShift16Mutant"
+    ]
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "3",
+    "description": "constant: 2 -> 3",
+    "line": 592,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "7",
+    "description": "constant: 6 -> 7",
+    "line": 593,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeModulusTwoShift16Mutant"
+    ]
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "17",
+    "description": "constant: 16 -> 17",
+    "line": 594,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeModulusTwoShift16Mutant"
+    ]
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "4",
+    "description": "constant: 3 -> 4",
+    "line": 596,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeModulusThreeEofPadding"
+    ]
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "17",
+    "description": "constant: 16 -> 17",
+    "line": 597,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "byte b = in[inPos--];",
+    "description": "Change input array position incrementing to a decrementing operation, causing an ArrayIndexOutOfBoundsException or wrong data read.",
+    "line": 561,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeBufferResizeTrigger",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeEofBufferResizeAndArithmeticMutants",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodeMultipleBlocksWithPadding",
+      "testDecodePadSetsEofTrue",
+      "testDecodePaddingCharacterEncountered",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "for (int i = 0; i <= inAvail; i++) {",
+    "description": "Change the loop condition from i < inAvail to i <= inAvail, causing an off-by-one error and reading past the intended input bounds.",
+    "line": 557,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeBufferResizeTrigger",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeEofBufferResizeAndArithmeticMutants",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary",
+      "testDecodeZeroInAvail"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "modulus = (modulus++) % 4;",
+    "description": "Change the modulus increment operator from pre-increment (++modulus) to post-increment (modulus++), which alters the modulus cycle tracking state.",
+    "line": 570,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeBufferResizeAndArithmeticEdgeCases",
+      "testDecodeByteZeroBoundaryAndInvalidBytes",
+      "testDecodeIgnoredNonBase64Characters",
+      "testDecodeInAvailZeroDoesNotSetEof",
+      "testDecodeModulusThreeEofPadding",
+      "testDecodeModulusTwoEofPadding",
+      "testDecodeModulusTwoShift16Mutant",
+      "testDecodePadSetsEofTrue",
+      "testDecodeResultZeroIsAccepted",
+      "testDecodeStandardFourByteBlock",
+      "testDecodeZeroByteBoundary"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "case 2 :\n                      x = x << 6;\n                      buffer[pos++] = (byte) ((x >> 8) & MASK_8BITS);\n                      break;",
+    "description": "Change the shift operator in the modulus 2 EOF padding case from right shift 16 to right shift 8, resulting in corrupted output data for 2-byte leftover blocks.",
+    "line": 592,
+    "status": "killed",
+    "killed_by": [
+      "testDecodeModulusTwoShift16Mutant"
+    ]
+  }
+]

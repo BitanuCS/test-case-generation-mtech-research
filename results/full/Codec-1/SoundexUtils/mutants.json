@@ -1,0 +1,241 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 41,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanLowercaseLettersOnly",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanNullString",
+      "cleanOnlyNonLetters",
+      "cleanSingleLowercaseLetter",
+      "cleanSingleNonLetter",
+      "cleanUnicodeLetters",
+      "cleanWhitespaceAndTabs"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 41,
+    "status": "killed",
+    "killed_by": [
+      "cleanNullString"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 41,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanLowercaseLettersOnly",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanOnlyNonLetters",
+      "cleanSingleLowercaseLetter",
+      "cleanSingleNonLetter",
+      "cleanUnicodeLetters",
+      "cleanWhitespaceAndTabs"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 41,
+    "status": "killed",
+    "killed_by": [
+      "cleanSingleLowercaseLetter",
+      "cleanSingleNonLetter"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 46,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanLowercaseLettersOnly",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanOnlyNonLetters",
+      "cleanSingleLowercaseLetter",
+      "cleanSingleNonLetter",
+      "cleanUnicodeLetters",
+      "cleanUppercaseLettersOnly",
+      "cleanWhitespaceAndTabs"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 47,
+    "status": "killed",
+    "killed_by": [
+      "cleanLowercaseLettersOnly",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanSingleLowercaseLetter",
+      "cleanUnicodeLetters",
+      "cleanUppercaseLettersOnly"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 47,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanLowercaseLettersOnly",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanSingleLowercaseLetter",
+      "cleanUnicodeLetters",
+      "cleanUppercaseLettersOnly"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 47,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanLowercaseLettersOnly",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanOnlyNonLetters",
+      "cleanSingleLowercaseLetter",
+      "cleanSingleNonLetter",
+      "cleanUnicodeLetters",
+      "cleanUppercaseLettersOnly",
+      "cleanWhitespaceAndTabs"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 52,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanOnlyNonLetters",
+      "cleanSingleNonLetter",
+      "cleanWhitespaceAndTabs"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 55,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (count == len) {\n              return str;\n          }",
+    "description": "Wrong optimization branch: returns the original string directly when count == len, but skips calling toUpperCase(Locale.ENGLISH), which means a string with pure lowercase letters (e.g., 'abcdef') would incorrectly be returned as lowercase ('abcdef') instead of uppercase ('ABCDEF'). Wait, the current test suite actually tests 'abcdef' -> 'ABCDEF'. Let's find one that survives.",
+    "line": 52,
+    "status": "killed",
+    "killed_by": [
+      "cleanLowercaseLettersOnly",
+      "cleanSingleLowercaseLetter",
+      "cleanUnicodeLetters"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "for (int i = 0; i <= len; i++) {",
+    "description": "Off-by-one error in loop condition: using <= len instead of < len, which causes a StringIndexOutOfBoundsException for any non-empty string.",
+    "line": 47,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanLowercaseLettersOnly",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanOnlyNonLetters",
+      "cleanSingleLowercaseLetter",
+      "cleanSingleNonLetter",
+      "cleanUnicodeLetters",
+      "cleanUppercaseLettersOnly",
+      "cleanWhitespaceAndTabs"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (str == null || str.length() < 0) {",
+    "description": "Wrong condition checking for null or empty string: checks length < 0 instead of == 0, failing to handle empty strings correctly (throws exception or misbehaves).",
+    "line": 41,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "return new String(chars, 1, count).toUpperCase(java.util.Locale.ENGLISH);",
+    "description": "Incorrect offset passed to the String constructor when creating the cleaned string, using 1 instead of 0 as the starting index, dropping the first valid character.",
+    "line": 55,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (!Character.isLetter(str.charAt(i))) {",
+    "description": "Mutating the filtering condition to accept non-letters instead of letters (using logical negation on Character.isLetter), which would include numbers and symbols in the cleaned string.",
+    "line": 48,
+    "status": "killed",
+    "killed_by": [
+      "cleanLeadingAndTrailingNonLetters",
+      "cleanLowercaseLettersOnly",
+      "cleanMixedCaseWithNonLetters",
+      "cleanMixedLettersAndSpaces",
+      "cleanOnlyNonLetters",
+      "cleanSingleLowercaseLetter",
+      "cleanSingleNonLetter",
+      "cleanUnicodeLetters",
+      "cleanUppercaseLettersOnly",
+      "cleanWhitespaceAndTabs"
+    ]
+  }
+]

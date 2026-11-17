@@ -1,0 +1,310 @@
+// ===== Class under test: org.apache.commons.lang3.text.ExtendedMessageFormat =====
+package org.apache.commons.lang3.text;
+import java.text.Format;
+import java.text.MessageFormat;
+import java.text.ParsePosition;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.Validate;
+
+/**
+ * Extends <code>java.text.MessageFormat</code> to allow pluggable/additional formatting
+ * options for embedded format elements.  Client code should specify a registry
+ * of <code>FormatFactory</code> instances associated with <code>String</code>
+ * format names.  This registry will be consulted when the format elements are 
+ * parsed from the message pattern.  In this way custom patterns can be specified,
+ * and the formats supported by <code>java.text.MessageFormat</code> can be overridden
+ * at the format and/or format style level (see MessageFormat).  A "format element"
+ * embedded in the message pattern is specified (<b>()?</b> signifies optionality):<br />
+ * <code>{</code><i>argument-number</i><b>(</b><code>,</code><i>format-name</i><b>(</b><code>,</code><i>format-style</i><b>)?)?</b><code>}</code>
+ *
+ * <p>
+ * <i>format-name</i> and <i>format-style</i> values are trimmed of surrounding whitespace
+ * in the manner of <code>java.text.MessageFormat</code>.  If <i>format-name</i> denotes
+ * <code>FormatFactory formatFactoryInstance</code> in <code>registry</code>, a <code>Format</code>
+ * matching <i>format-name</i> and <i>format-style</i> is requested from
+ * <code>formatFactoryInstance</code>.  If this is successful, the <code>Format</code>
+ * found is used for this format element.
+ * </p>
+ *
+ * <p><b>NOTICE:</b> The various subformat mutator methods are considered unnecessary; they exist on the parent
+ * class to allow the type of customization which it is the job of this class to provide in
+ * a configurable fashion.  These methods have thus been disabled and will throw
+ * <code>UnsupportedOperationException</code> if called.
+ * </p>
+ * 
+ * <p>Limitations inherited from <code>java.text.MessageFormat</code>:
+ * <ul>
+ * <li>When using "choice" subformats, support for nested formatting instructions is limited
+ *     to that provided by the base class.</li>
+ * <li>Thread-safety of <code>Format</code>s, including <code>MessageFormat</code> and thus
+ *     <code>ExtendedMessageFormat</code>, is not guaranteed.</li>
+ * </ul>
+ * </p>
+ * 
+ * @author Apache Software Foundation
+ * @author Matt Benson
+ * @since 2.4
+ * @version $Id$
+ */
+public class ExtendedMessageFormat extends MessageFormat {
+
+  // --- fields ---
+  private static final long serialVersionUID = -2362048321261811743L;
+  private static final int HASH_SEED = 31;
+  private static final String DUMMY_PATTERN = "";
+  private static final String ESCAPED_QUOTE = "''";
+  private static final char START_FMT = ',';
+  private static final char END_FE = '}';
+  private static final char START_FE = '{';
+  private static final char QUOTE = '\'';
+  private String toPattern;
+  private final Map<String, ? extends FormatFactory> registry;
+
+  // --- constructors and other methods (signatures only) ---
+  public ExtendedMessageFormat(String pattern);
+  public ExtendedMessageFormat(String pattern, Locale locale);
+  public ExtendedMessageFormat(String pattern, Map<String, ? extends FormatFactory> registry);
+  public ExtendedMessageFormat(String pattern, Locale locale, Map<String, ? extends FormatFactory> registry);
+  @Override public String toPattern();
+  @Override public final void applyPattern(String pattern);
+  @Override public void setFormat(int formatElementIndex, Format newFormat);
+  @Override public void setFormatByArgumentIndex(int argumentIndex, Format newFormat);
+  @Override public void setFormats(Format[] newFormats);
+  @Override public void setFormatsByArgumentIndex(Format[] newFormats);
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+       * Check if this extended message format is equal to another object.
+       *
+       * @param obj the object to compare to
+       * @return true if this object equals the other, otherwise false
+       */
+  @Override
+      public boolean equals(Object obj) {
+          if (obj == this) {
+              return true;
+          }
+          if (obj == null) {
+              return false;
+          }
+          if (!super.equals(obj)) {
+              return false;
+          }
+          if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+            return false;
+          }
+          ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+          if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+              return false;
+          }
+          if (ObjectUtils.notEqual(registry, rhs.registry)) {
+              return false;
+          }
+          return true;
+      }
+  /**
+       * Return the hashcode.
+       *
+       * @return the hashcode
+       */
+  @Override
+      public int hashCode() {
+          int result = super.hashCode();
+          result = HASH_SEED * result + ObjectUtils.hashCode(registry);
+          result = HASH_SEED * result + ObjectUtils.hashCode(toPattern);
+          return result;
+      }
+}
+
+// ===== Existing test class ExtendedMessageFormatTest (test methods removed; style/setup reference only) =====
+package org.apache.commons.lang3.text;
+
+import java.text.ChoiceFormat;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.Format;
+import java.text.MessageFormat;
+import java.text.NumberFormat;
+import java.text.ParsePosition;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
+
+import junit.framework.TestCase;
+
+import org.apache.commons.lang3.SystemUtils;
+
+/**
+ * Test case for {@link ExtendedMessageFormat}.
+ *
+ * @since 2.4
+ * @version $Id$
+ */
+public class ExtendedMessageFormatTest extends TestCase {
+
+    private final Map<String, FormatFactory> registry = new HashMap<String, FormatFactory>();
+
+    /**
+     * Create a new test case.
+     *
+     * @param name The name of the test
+     */
+    public ExtendedMessageFormatTest(String name) {
+        super(name);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        registry.put("lower", new LowerCaseFormatFactory());
+        registry.put("upper", new UpperCaseFormatFactory());
+    }
+
+    /**
+     * Test a built in format for the specified Locales, plus <code>null</code> Locale.
+     * @param pattern MessageFormat pattern
+     * @param args MessageFormat arguments
+     * @param locales to test
+     */
+    private void checkBuiltInFormat(String pattern, Object[] args, Locale[] locales) {
+        checkBuiltInFormat(pattern, null, args, locales);
+    }
+
+    /**
+     * Test a built in format for the specified Locales, plus <code>null</code> Locale.
+     * @param pattern MessageFormat pattern
+     * @param registry FormatFactory registry to use
+     * @param args MessageFormat arguments
+     * @param locales to test
+     */
+    private void checkBuiltInFormat(String pattern, Map<String, ?> registry, Object[] args, Locale[] locales) {
+        checkBuiltInFormat(pattern, registry, args, (Locale) null);
+        for (int i = 0; i < locales.length; i++) {
+            checkBuiltInFormat(pattern, registry, args, locales[i]);
+        }
+    }
+
+    /**
+     * Create an ExtendedMessageFormat for the specified pattern and locale and check the
+     * formated output matches the expected result for the parameters.
+     * @param pattern string
+     * @param registry map
+     * @param args Object[]
+     * @param locale Locale
+     */
+    private void checkBuiltInFormat(String pattern, Map<String, ?> registry, Object[] args, Locale locale) {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("Pattern=[");
+        buffer.append(pattern);
+        buffer.append("], locale=[");
+        buffer.append(locale);
+        buffer.append("]");
+        MessageFormat mf = createMessageFormat(pattern, locale);
+
+        ExtendedMessageFormat emf = null;
+        if (locale == null) {
+            emf = new ExtendedMessageFormat(pattern);
+        } else {
+            emf = new ExtendedMessageFormat(pattern, locale);
+        }
+        assertEquals("format "    + buffer.toString(), mf.format(args), emf.format(args));
+        assertPatternsEqual("toPattern " + buffer.toString(), mf.toPattern(),  emf.toPattern());
+    }
+
+    private void assertPatternsEqual(String message, String expected, String actual) {
+        if (SystemUtils.isJavaVersionAtLeast(1.4f)) {
+            assertEquals(message, expected, actual);
+        }
+    }
+
+    /**
+     * Replace MessageFormat(String, Locale) constructor (not available until JDK 1.4).
+     * @param pattern string
+     * @param locale Locale
+     * @return MessageFormat
+     */
+    private MessageFormat createMessageFormat(String pattern, Locale locale) {
+        MessageFormat result = new MessageFormat(pattern);
+        if (locale != null) {
+            result.setLocale(locale);
+            result.applyPattern(pattern);
+        }
+        return result;
+    }
+
+    /**
+     * {@link Format} implementation which converts to lower case.
+     */
+    private static class LowerCaseFormat extends Format {
+        @Override
+        public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
+            return toAppendTo.append(((String)obj).toLowerCase());
+        }
+        @Override
+        public Object parseObject(String source, ParsePosition pos) {throw new UnsupportedOperationException();}
+    }
+
+    /**
+     * {@link Format} implementation which converts to upper case.
+     */
+    private static class UpperCaseFormat extends Format {
+        @Override
+        public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
+            return toAppendTo.append(((String)obj).toUpperCase());
+        }
+        @Override
+        public Object parseObject(String source, ParsePosition pos) {throw new UnsupportedOperationException();}
+    }
+
+    /**
+     * {@link FormatFactory} implementation for lower case format.
+     */
+    private static class LowerCaseFormatFactory implements FormatFactory {
+        private static final Format LOWER_INSTANCE = new LowerCaseFormat();
+        public Format getFormat(String name, String arguments, Locale locale) {
+            return LOWER_INSTANCE;
+        }
+    }
+    /**
+     * {@link FormatFactory} implementation for upper case format.
+     */
+    private static class UpperCaseFormatFactory implements FormatFactory {
+        private static final Format UPPER_INSTANCE = new UpperCaseFormat();
+        public Format getFormat(String name, String arguments, Locale locale) {
+            return UPPER_INSTANCE;
+        }
+    }
+    /**
+     * {@link FormatFactory} implementation to override date format "short" to "default".
+     */
+    private static class OverrideShortDateFormatFactory implements FormatFactory {
+        public Format getFormat(String name, String arguments, Locale locale) {
+            return !"short".equals(arguments) ? null
+                    : locale == null ? DateFormat
+                            .getDateInstance(DateFormat.DEFAULT) : DateFormat
+                            .getDateInstance(DateFormat.DEFAULT, locale);
+        }
+    }
+
+    /**
+     * Alternative ExtendedMessageFormat impl.
+     */
+    private static class OtherExtendedMessageFormat extends ExtendedMessageFormat {
+        public OtherExtendedMessageFormat(String pattern, Locale locale,
+                Map<String, ? extends FormatFactory> registry) {
+            super(pattern, locale, registry);
+        }
+
+    }
+
+}

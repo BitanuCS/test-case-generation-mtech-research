@@ -1,0 +1,303 @@
+{
+  "bug": "Closure-169",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "com.google.javascript.rhino.jstype.RecordType",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 14,
+      "final_oracles": 21,
+      "focal_methods": [
+        "checkRecordEquivalenceHelper",
+        "getGreatestSubtypeHelper",
+        "isSubtype"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.919,
+          "branch": 0.812,
+          "line": 0.921,
+          "complexity": 0.814,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.864,
+          "branch": 0.738
+        },
+        "focal_missed_lines": [
+          166,
+          201,
+          202,
+          203,
+          204,
+          205,
+          207,
+          277
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 48,
+          "killed": 42,
+          "score": 0.875
+        },
+        "focal": {
+          "generated": 26,
+          "killed": 20,
+          "score": 0.769
+        }
+      }
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.EquivalenceMethod",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 1,
+      "final_oracles": 0,
+      "focal_methods": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.0,
+          "line": 0.0,
+          "complexity": 0.0,
+          "method": 0.0,
+          "class": 0.0
+        },
+        "focal": {
+          "line": null,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 0,
+          "killed": 0,
+          "score": null
+        },
+        "focal": {
+          "generated": 0,
+          "killed": 0,
+          "score": null
+        }
+      }
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.ArrowType",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 35,
+      "final_oracles": 51,
+      "focal_methods": [
+        "hasEqualParameters",
+        "checkArrowEquivalenceHelper"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.992,
+          "branch": 0.909,
+          "line": 1.0,
+          "complexity": 0.873,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 80,
+          "killed": 79,
+          "score": 0.988
+        },
+        "focal": {
+          "generated": 14,
+          "killed": 14,
+          "score": 1.0
+        }
+      }
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.FunctionType",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 81,
+      "final_oracles": 114,
+      "focal_methods": [
+        "tryMergeFunctionPiecewise",
+        "checkFunctionEquivalenceHelper",
+        "hasEqualCallType"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.818,
+          "branch": 0.745,
+          "line": 0.833,
+          "complexity": 0.713,
+          "method": 0.972,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.455,
+          "branch": 0.5
+        },
+        "focal_missed_lines": [
+          793,
+          800,
+          801,
+          802,
+          804,
+          805,
+          806,
+          808,
+          809,
+          810,
+          811,
+          812,
+          814,
+          815,
+          816,
+          820,
+          823,
+          899
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 318,
+          "killed": 271,
+          "score": 0.852
+        },
+        "focal": {
+          "generated": 26,
+          "killed": 16,
+          "score": 0.615
+        }
+      }
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.UnionType",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 62,
+      "final_oracles": 62,
+      "focal_methods": [
+        "checkUnionEquivalenceHelper",
+        "hasAlternate"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.979,
+          "branch": 0.951,
+          "line": 0.966,
+          "complexity": 0.931,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 125,
+          "killed": 121,
+          "score": 0.968
+        },
+        "focal": {
+          "generated": 9,
+          "killed": 9,
+          "score": 1.0
+        }
+      }
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.JSType",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 81,
+      "final_oracles": 283,
+      "focal_methods": [
+        "isEquivalentTo",
+        "isInvariant",
+        "differsFrom",
+        "checkEquivalenceHelper"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.81,
+          "branch": 0.729,
+          "line": 0.835,
+          "complexity": 0.712,
+          "method": 0.89,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.88,
+          "branch": 0.823
+        },
+        "focal_missed_lines": [
+          541,
+          556,
+          557,
+          566,
+          567,
+          574
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 306,
+          "killed": 259,
+          "score": 0.846
+        },
+        "focal": {
+          "generated": 55,
+          "killed": 50,
+          "score": 0.909
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Closure",
+      "version_id": "169f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Broken",
+      "num_trigger": "-"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 1291,
+      "lines_covered": 871,
+      "branches_total": 1000,
+      "branches_covered": 634,
+      "line": 0.675,
+      "branch": 0.634
+    },
+    "major_mutation": {
+      "generated": 1242,
+      "covered": 1242,
+      "killed": 763,
+      "score": 0.614
+    }
+  },
+  "seconds": 1494.8,
+  "extras_measured": true
+}

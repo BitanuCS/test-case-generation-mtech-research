@@ -1,0 +1,62 @@
+[
+  {
+    "method": "translate",
+    "name": "translateGreedyMatch",
+    "input": "Lookup table with [\"cat\", \"dog\"] and [\"caterpillar\", \"bug\"]. Input \"caterpillar\" at index 0.",
+    "expected": "Should match the longest sequence \"caterpillar\" and write \"bug\", returning length 11 because of the greedy algorithm descending from longest to shortest."
+  },
+  {
+    "method": "translate",
+    "name": "translateShorterMatchWhenLongestExceedsInputLength",
+    "input": "Lookup table with [\"cat\", \"dog\"] and [\"caterpillar\", \"bug\"]. Input \"cats\" at index 0 (length 4, while longest is 11).",
+    "expected": "Should adjust max to input length (4) and successfully match \"cat\", writing \"dog\" and returning 3."
+  },
+  {
+    "method": "translate",
+    "name": "translateNoMatchReturnsZero",
+    "input": "Lookup table with [\"cat\", \"dog\"]. Input \"bird\" at index 0.",
+    "expected": "Should find no matching substring from longest down to shortest, write nothing, and return 0."
+  },
+  {
+    "method": "translate",
+    "name": "translatePartialMatchWithinString",
+    "input": "Lookup table with [\"cat\", \"dog\"]. Input \"the cat sat\" starting at index 4.",
+    "expected": "Should match \"cat\" starting at index 4, write \"dog\", and return 3."
+  },
+  {
+    "method": "translate",
+    "name": "translateNullLookupTable",
+    "input": "LookupTranslator initialized with null. Input \"test\" at index 0.",
+    "expected": "Should handle null lookup gracefully (shortest = MAX_VALUE, longest = 0), loop bounds check causes immediate return of 0 without exception."
+  },
+  {
+    "method": "translate",
+    "name": "translateIndexBeyondInputLength",
+    "input": "Lookup table with [\"cat\", \"dog\"]. Input \"cat\" at index 5 (which is > input.length()).",
+    "expected": "Should throw IndexOutOfBoundsException or StringIndexOutOfBoundsException when subSequence is called with out-of-bounds indices."
+  },
+  {
+    "method": "translate",
+    "name": "translateEmptyInputString",
+    "input": "Lookup table with [\"cat\", \"dog\"]. Input \"\" at index 0.",
+    "expected": "Should set max to 0, skip the descending loop because max < shortest, and return 0."
+  },
+  {
+    "method": "translate",
+    "name": "translateMappingToEmptyString",
+    "input": "Lookup table with [\"bad\", \"\"]. Input \"badword\" at index 0.",
+    "expected": "Should match \"bad\", write an empty string to the Writer, and return 3."
+  },
+  {
+    "method": "translate",
+    "name": "translateOverlappingKeysPrefersLongest",
+    "input": "Lookup table with [\"a\", \"1\"] and [\"ab\", \"2\"]. Input \"abc\" at index 0.",
+    "expected": "Should prioritize the longer key \"ab\" over \"a\" due to greedy descending order, write \"2\", and return 2."
+  },
+  {
+    "method": "translate",
+    "name": "translateExactMatchBoundary",
+    "input": "Lookup table with [\"exact\", \"match\"]. Input \"exact\" at index 0.",
+    "expected": "Should match the entire input string, write \"match\", and return 5."
+  }
+]

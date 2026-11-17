@@ -1,0 +1,92 @@
+[
+  {
+    "method": "metaphone",
+    "name": "testNullInput",
+    "input": "null",
+    "expected": "Returns empty string \"\" because null check returns early."
+  },
+  {
+    "method": "metaphone",
+    "name": "testEmptyInput",
+    "input": "\"\"",
+    "expected": "Returns empty string \"\" because empty length check returns early."
+  },
+  {
+    "method": "metaphone",
+    "name": "testSingleCharacterInput",
+    "input": "\"a\"",
+    "expected": "Returns \"A\" converted to uppercase because single character length check bypasses full logic."
+  },
+  {
+    "method": "metaphone",
+    "name": "testInitialKN",
+    "input": "\"knight\"",
+    "expected": "Returns \"NT\" (or limited by maxCodeLen) because initial K followed by N drops the K."
+  },
+  {
+    "method": "metaphone",
+    "name": "testInitialAE",
+    "input": "\"aegis\"",
+    "expected": "Handles initial AE by dropping A and processing from E onwards."
+  },
+  {
+    "method": "metaphone",
+    "name": "testInitialWR",
+    "input": "\"write\"",
+    "expected": "Returns \"RT\" (or similar) because initial WR drops the W and starts with R."
+  },
+  {
+    "method": "metaphone",
+    "name": "testInitialWH",
+    "input": "\"white\"",
+    "expected": "Treats initial WH as W (converting WH -> W)."
+  },
+  {
+    "method": "metaphone",
+    "name": "testInitialX",
+    "input": "\"xylophone\"",
+    "expected": "Treats initial X as S by modifying first character."
+  },
+  {
+    "method": "metaphone",
+    "name": "testDuplicateCharactersExceptC",
+    "input": "\"balloon\"",
+    "expected": "Removes duplicate letters adjacent to each other except C (e.g., LL -> L)."
+  },
+  {
+    "method": "metaphone",
+    "name": "testCHRules",
+    "input": "\"child\"",
+    "expected": "Handles CH cases correctly, yielding 'X' when followed by a vowel or 'K' when consonant."
+  },
+  {
+    "method": "metaphone",
+    "name": "testDGERules",
+    "input": "\"ledger\"",
+    "expected": "Detects DGE, DGI, DGY and encodes as 'J'."
+  },
+  {
+    "method": "metaphone",
+    "name": "testSilentGH",
+    "input": "\"high\"",
+    "expected": "Discards GH when terminal or before a consonant."
+  },
+  {
+    "method": "metaphone",
+    "name": "testTHRule",
+    "input": "\"the\"",
+    "expected": "Substitutes numeral '0' for 'TH'."
+  },
+  {
+    "method": "metaphone",
+    "name": "testXExpansion",
+    "input": "\"box\"",
+    "expected": "Expands 'X' into 'KS'."
+  },
+  {
+    "method": "metaphone",
+    "name": "testMaxCodeLengthConstraint",
+    "input": "\"encyclopedia\"",
+    "expected": "Truncates the resulting metaphone code to maxCodeLen (default 4)."
+  }
+]

@@ -1,0 +1,459 @@
+{
+  "bug": "JacksonCore-2",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 2491,
+      "lines_covered": 327,
+      "branches_total": 1714,
+      "branches_covered": 211,
+      "line": 0.131,
+      "branch": 0.123
+    },
+    "major_mutation": {
+      "generated": 5247,
+      "covered": 5247,
+      "killed": 4782,
+      "score": 0.911
+    }
+  },
+  "seconds": 289.9,
+  "llm_calls": {
+    "fresh": 18,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 18
+    },
+    "tokens_in": 138729,
+    "tokens_out": 33221
+  },
+  "classes": [
+    {
+      "bug": "JacksonCore-2",
+      "class": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 9
+        },
+        {
+          "round": 2,
+          "passed": 4,
+          "failed": 7,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "compile_errors": 11
+        },
+        {
+          "round": 1,
+          "passed": 15,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 19,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "_parseNumber",
+        "_parseNumber2",
+        "_verifyRootSpace"
+      ],
+      "generated_tests": 16,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 16,
+        "oracles": 21,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 16,
+        "compiles": false,
+        "compile_ok_tests": 7,
+        "passed": 3,
+        "assertion_failures": 0,
+        "error_failures": 4,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.438,
+        "execution_rate": 0.188,
+        "pass_rate": 0.188,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 10,
+      "mutation": [
+        {
+          "all": {
+            "total": 31,
+            "valid": 29,
+            "killed": 13,
+            "score": 0.448
+          },
+          "rule": {
+            "total": 25,
+            "valid": 23,
+            "killed": 11,
+            "score": 0.478
+          },
+          "tests": 10,
+          "coverage": {
+            "line": 0.691,
+            "branch": 0.625
+          }
+        },
+        {
+          "all": {
+            "total": 31,
+            "valid": 29,
+            "killed": 18,
+            "score": 0.621
+          },
+          "rule": {
+            "total": 25,
+            "valid": 23,
+            "killed": 14,
+            "score": 0.609
+          },
+          "tests": 15,
+          "coverage": {
+            "line": 0.787,
+            "branch": 0.7
+          }
+        },
+        {
+          "all": {
+            "total": 31,
+            "valid": 29,
+            "killed": 19,
+            "score": 0.655
+          },
+          "rule": {
+            "total": 25,
+            "valid": 23,
+            "killed": 15,
+            "score": 0.652
+          },
+          "tests": 19,
+          "coverage": {
+            "line": 0.824,
+            "branch": 0.725
+          }
+        }
+      ],
+      "final_tests": 19,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.186,
+          "branch": 0.168,
+          "line": 0.189,
+          "complexity": 0.107,
+          "method": 0.259,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.824,
+          "branch": 0.725
+        },
+        "focal_missed_lines": [
+          862,
+          868,
+          919,
+          926,
+          932,
+          945,
+          978,
+          1008,
+          1028,
+          1029,
+          1035,
+          1042,
+          1043,
+          1052,
+          1053,
+          1065,
+          1066,
+          1077,
+          1085,
+          1180,
+          1181,
+          1182,
+          1184,
+          1185
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 806,
+          "killed": 112,
+          "score": 0.139
+        },
+        "focal": {
+          "generated": 136,
+          "killed": 86,
+          "score": 0.632
+        }
+      },
+      "final_oracles": 33,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "testIntegerZeroComparisonMutant"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "testIntegerZeroComparisonMutant": "java.lang.AssertionError: Expected exception: com.fasterxml.jackson.core.JsonParseException"
+      },
+      "status": "ok"
+    },
+    {
+      "bug": "JacksonCore-2",
+      "class": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 4
+        },
+        {
+          "round": 2,
+          "compile_errors": 30
+        },
+        {
+          "round": 3,
+          "passed": 17,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 18,
+          "failed": 4,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 18,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 19,
+          "failed": 4,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 22,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 23,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "_parseNumber",
+        "_parserNumber2",
+        "_parseFloat",
+        "_verifyRootSpace",
+        "_skipWSOrEnd"
+      ],
+      "generated_tests": 17,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 17,
+        "oracles": 33,
+        "output_format": "unclosed_block",
+        "syntax_ok": false,
+        "syntax_ok_tests": 17,
+        "compiles": false,
+        "compile_ok_tests": 0,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.0,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 17,
+      "mutation": [
+        {
+          "all": {
+            "total": 32,
+            "valid": 31,
+            "killed": 4,
+            "score": 0.129
+          },
+          "rule": {
+            "total": 25,
+            "valid": 24,
+            "killed": 4,
+            "score": 0.167
+          },
+          "tests": 17,
+          "coverage": {
+            "line": 0.626,
+            "branch": 0.64
+          }
+        },
+        {
+          "all": {
+            "total": 32,
+            "valid": 31,
+            "killed": 6,
+            "score": 0.194
+          },
+          "rule": {
+            "total": 25,
+            "valid": 24,
+            "killed": 6,
+            "score": 0.25
+          },
+          "tests": 18,
+          "coverage": {
+            "line": 0.626,
+            "branch": 0.64
+          }
+        },
+        {
+          "all": {
+            "total": 32,
+            "valid": 31,
+            "killed": 8,
+            "score": 0.258
+          },
+          "rule": {
+            "total": 25,
+            "valid": 24,
+            "killed": 7,
+            "score": 0.292
+          },
+          "tests": 23,
+          "coverage": {
+            "line": 0.676,
+            "branch": 0.675
+          }
+        }
+      ],
+      "final_tests": 23,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.088,
+          "branch": 0.09,
+          "line": 0.085,
+          "complexity": 0.07,
+          "method": 0.146,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.676,
+          "branch": 0.675
+        },
+        "focal_missed_lines": [
+          1196,
+          1201,
+          1207,
+          1232,
+          1233,
+          1245,
+          1249,
+          1269,
+          1274,
+          1275,
+          1280,
+          1281,
+          1283,
+          1284,
+          1288,
+          1343,
+          1344,
+          1352,
+          1353,
+          1359,
+          1366,
+          1367,
+          1372,
+          1378,
+          1379,
+          1384,
+          1393,
+          1394,
+          1398,
+          1399,
+          1405,
+          1447,
+          1448,
+          2573,
+          2577,
+          2578,
+          2580,
+          2581,
+          2583,
+          2584,
+          2593,
+          2594,
+          2596,
+          2597,
+          2601
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 1459,
+          "killed": 46,
+          "score": 0.032
+        },
+        "focal": {
+          "generated": 145,
+          "killed": 43,
+          "score": 0.297
+        }
+      },
+      "final_oracles": 42,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "testKillMutantsA2AndA5PushBackAndRootSpace"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "testKillMutantsA2AndA5PushBackAndRootSpace": "java.lang.AssertionError: Expected root space error or invalid char for comma\n    at com.fasterxml.jackson.core.json.UTF8StreamJsonParser_CandorTest.testKillMutantsA2AndA5PushBackAndRootSpace(UTF8StreamJsonParser_CandorTest.java:372)"
+      },
+      "status": "ok"
+    }
+  ]
+}

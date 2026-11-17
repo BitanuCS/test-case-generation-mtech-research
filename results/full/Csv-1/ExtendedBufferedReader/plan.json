@@ -1,0 +1,62 @@
+[
+  {
+    "method": "read",
+    "name": "readSingleNormalCharacter",
+    "input": "StringReader(\"a\")",
+    "expected": "Returns 'a' (97), updates lastChar to 'a', and lineCounter remains 0 because it is not a newline character."
+  },
+  {
+    "method": "read",
+    "name": "readCarriageReturnIncrementsLineCounter",
+    "input": "StringReader(\"\\r\")",
+    "expected": "Returns '\\r' (13), increments lineCounter from 0 to 1, and updates lastChar to '\\r'."
+  },
+  {
+    "method": "read",
+    "name": "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter",
+    "input": "StringReader(\"\\r\\n\")",
+    "expected": "First read() returns '\\r' and increments lineCounter to 1 (lastChar='\\r'). Second read() returns '\\n' but does NOT increment lineCounter because lastChar is '\\r'."
+  },
+  {
+    "method": "read",
+    "name": "readStandaloneNewlineIncrementsLineCounter",
+    "input": "StringReader(\"\\n\")",
+    "expected": "Returns '\\n' (10), increments lineCounter from 0 to 1 because lastChar (UNDEFINED / -2) is not '\\r'."
+  },
+  {
+    "method": "read",
+    "name": "readEndOfStreamReturnsMinusOne",
+    "input": "StringReader(\"\")",
+    "expected": "Returns END_OF_STREAM (-1), updates lastChar to -1, and lineCounter remains 0."
+  },
+  {
+    "method": "read",
+    "name": "readMultipleLinesWithMixedNewlines",
+    "input": "StringReader(\"a\\nb\\rc\\r\\nd\")",
+    "expected": "Sequence of reads correctly tracks lineCounter: 'a'->0, '\\n'->1, 'b'->1, '\\r'->2, 'c'->2, '\\r'->3, '\\n'->3 (ignored due to preceding \\r), 'd'->3."
+  },
+  {
+    "method": "read",
+    "name": "readConsecutiveCarriageReturns",
+    "input": "StringReader(\"\\r\\r\")",
+    "expected": "First '\\r' increments lineCounter to 1 (lastChar=\\r). Second '\\r' increments lineCounter to 2 (lastChar=\\r)."
+  },
+  {
+    "method": "read",
+    "name": "readConsecutiveNewlinesWithoutCarriageReturn",
+    "input": "StringReader(\"\\n\\n\")",
+    "expected": "First '\\n' increments lineCounter to 1 (lastChar=\\n). Second '\\n' increments lineCounter to 2 because lastChar is '\\n' (not '\\r')."
+  },
+  {
+    "method": "read",
+    "name": "readAfterEndOfStreamMaintainsLastChar",
+    "input": "StringReader(\"a\")",
+    "expected": "Reading 'a' returns 'a', reading again returns -1 (END_OF_STREAM) and sets lastChar to -1."
+  },
+  {
+    "method": "read",
+    "name": "readAfterCarriageReturnFollowedByNormalChar",
+    "input": "StringReader(\"\\rx\")",
+    "expected": "First read '\\r' increments lineCounter to 1 (lastChar='\\r'). Second read 'x' does not increment lineCounter, but updates lastChar to 'x'."
+  }
+]

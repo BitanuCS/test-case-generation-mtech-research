@@ -1,0 +1,148 @@
+// ===== Class under test: org.apache.commons.lang3.SerializationUtils =====
+package org.apache.commons.lang3;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectStreamClass;
+import java.io.OutputStream;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * <p>Assists with the serialization process and performs additional functionality based
+ * on serialization.</p>
+ * <p>
+ * <ul>
+ * <li>Deep clone using serialization
+ * <li>Serialize managing finally and IOException
+ * <li>Deserialize managing finally and IOException
+ * </ul>
+ *
+ * <p>This class throws exceptions for invalid {@code null} inputs.
+ * Each method documents its behaviour in more detail.</p>
+ *
+ * <p>#ThreadSafe#</p>
+ * @since 1.0
+ * @version $Id$
+ */
+public class SerializationUtils {
+
+  // --- fields ---
+
+  // --- constructors and other methods (signatures only) ---
+  public SerializationUtils();
+  public static <T extends Serializable> T clone(T object);
+  public static void serialize(Serializable obj, OutputStream outputStream);
+  public static byte[] serialize(Serializable obj);
+  public static Object deserialize(InputStream inputStream);
+  public static Object deserialize(byte[] objectData);
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+           * Constructor.
+           * @param in The <code>InputStream</code>.
+           * @param classLoader classloader to use
+           * @throws IOException if an I/O error occurs while reading stream header.
+           * @see java.io.ObjectInputStream
+           */
+  public ClassLoaderAwareObjectInputStream(InputStream in, ClassLoader classLoader) throws IOException {
+              super(in);
+              this.classLoader = classLoader;
+
+              primitiveTypes.put("byte", byte.class);
+              primitiveTypes.put("short", short.class);
+              primitiveTypes.put("int", int.class);
+              primitiveTypes.put("long", long.class);
+              primitiveTypes.put("float", float.class);
+              primitiveTypes.put("double", double.class);
+              primitiveTypes.put("boolean", boolean.class);
+              primitiveTypes.put("char", char.class);
+              primitiveTypes.put("void", void.class);
+          }
+  /**
+           * Overriden version that uses the parametrized <code>ClassLoader</code> or the <code>ClassLoader</code>
+           * of the current <code>Thread</code> to resolve the class.
+           * @param desc An instance of class <code>ObjectStreamClass</code>.
+           * @return A <code>Class</code> object corresponding to <code>desc</code>.
+           * @throws IOException Any of the usual Input/Output exceptions.
+           * @throws ClassNotFoundException If class of a serialized object cannot be found.
+           */
+  @Override
+          protected Class<?> resolveClass(ObjectStreamClass desc) throws IOException, ClassNotFoundException {
+              String name = desc.getName();
+              try {
+                  return Class.forName(name, false, classLoader);
+              } catch (ClassNotFoundException ex) {
+                  try {
+                      return Class.forName(name, false, Thread.currentThread().getContextClassLoader());
+                  } catch (ClassNotFoundException cnfe) {
+                      Class<?> cls = primitiveTypes.get(name);
+                      if (cls != null)
+                          return cls;
+                      else
+                          throw cnfe;
+                  }
+              }
+          }
+}
+
+// ===== Existing test class SerializationUtilsTest (test methods removed; style/setup reference only) =====
+package org.apache.commons.lang3;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.io.Serializable;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+import java.util.HashMap;
+
+import junit.framework.TestCase;
+
+/**
+ * Unit tests {@link org.apache.commons.lang3.SerializationUtils}.
+ *
+ * @version $Id$
+ */
+public class SerializationUtilsTest extends TestCase {
+
+  static final String CLASS_NOT_FOUND_MESSAGE = "ClassNotFoundSerialization.readObject fake exception";
+    protected static final String SERIALIZE_IO_EXCEPTION_MESSAGE = "Anonymous OutputStream I/O exception";
+
+    private String iString;
+    private Integer iInteger;
+    private HashMap<Object, Object> iMap;
+
+    public SerializationUtilsTest(String name) {
+        super(name);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+
+        iString = "foo";
+        iInteger = Integer.valueOf(7);
+        iMap = new HashMap<Object, Object>();
+        iMap.put("FOO", iString);
+        iMap.put("BAR", iInteger);
+    }
+
+}
+
+@SuppressWarnings("serial")
+class ClassNotFoundSerialization implements Serializable
+{
+
+    private void readObject(ObjectInputStream in) throws ClassNotFoundException    {
+        throw new ClassNotFoundException(SerializationUtilsTest.CLASS_NOT_FOUND_MESSAGE);
+    }
+}

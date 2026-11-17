@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change logical AND to logical OR in the wildcard and null prefix check, causing it to return true prematurely or incorrectly when prefix is not null.",
+    "original": "if (wildcard && testPrefix == null) {\n              return true;\n          }",
+    "mutated": "if (wildcard || testPrefix == null) {\n              return true;\n          }"
+  },
+  {
+    "description": "Change the NODE_TYPE_TEXT check from logical OR to logical AND, making it impossible for both Text and CDATA conditions to be satisfied simultaneously.",
+    "original": "case Compiler.NODE_TYPE_TEXT :\n                      return (node instanceof Text) || (node instanceof CDATA);",
+    "mutated": "case Compiler.NODE_TYPE_TEXT :\n                      return (node instanceof Text) && (node instanceof CDATA);"
+  },
+  {
+    "description": "Swap equalStrings arguments for namespace check, which would fail if order-dependent or cause unexpected behavior when comparing namespace URIs.",
+    "original": "return equalStrings(namespaceURI, nodeNS);",
+    "mutated": "return equalStrings(nodeNS, namespaceURI);"
+  },
+  {
+    "description": "Change the wildcard check inside the node name matching block to false, disabling wildcard functionality when a prefix or non-null prefix is present.",
+    "original": "if (wildcard\n                  || testName.getName()\n                          .equals(JDOMNodePointer.getLocalName(node))) {",
+    "mutated": "if (false\n                  || testName.getName()\n                          .equals(JDOMNodePointer.getLocalName(node))) {"
+  },
+  {
+    "description": "Negate the ProcessingInstruction target equality check, causing matching targets to return false and mismatched targets to return true.",
+    "original": "return testPI.equals(nodePI);",
+    "mutated": "return !testPI.equals(nodePI);"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "bug": "Cli-7",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ],
+  "error": "EvoSuite produced no test suite",
+  "standard_metrics": null,
+  "seconds": 3.2
+}

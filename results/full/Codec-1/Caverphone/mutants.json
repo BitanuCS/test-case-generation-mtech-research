@@ -1,0 +1,187 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 54,
+    "status": "killed",
+    "killed_by": [
+      "testNullInput",
+      "testPaddingMutantA3",
+      "testRoughMutantDetection",
+      "testRoughVsRou3fMutant",
+      "testSingleCharacterInputForRelationalAndConstantMutants"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 54,
+    "status": "killed",
+    "killed_by": [
+      "testNullInput"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 54,
+    "status": "killed",
+    "killed_by": [
+      "testPaddingMutantA3",
+      "testRoughMutantDetection",
+      "testRoughVsRou3fMutant",
+      "testSingleCharacterInputForRelationalAndConstantMutants"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 54,
+    "status": "killed",
+    "killed_by": [
+      "testPaddingMutantA3",
+      "testSingleCharacterInputForRelationalAndConstantMutants"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 136,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 136,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 139,
+    "status": "killed",
+    "killed_by": [
+      "testBasicWordEncoding",
+      "testCleanupAndPadding",
+      "testConsonantClusterReplacements",
+      "testPaddingMutantA3",
+      "testRoughMutantDetection",
+      "testRoughVsRou3fMutant",
+      "testSingleCharacterInputForRelationalAndConstantMutants",
+      "testStartOptionCough",
+      "testStartOptionEnough",
+      "testStartOptionGn",
+      "testStartOptionMb",
+      "testStartOptionRough",
+      "testStartOptionTough",
+      "testStartOptionTrough",
+      "testVowelReplacementsAtStart"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "11",
+    "description": "constant: 10 -> 11",
+    "line": 139,
+    "status": "killed",
+    "killed_by": [
+      "testBasicWordEncoding",
+      "testCleanupAndPadding",
+      "testConsonantClusterReplacements",
+      "testPaddingMutantA3",
+      "testRoughMutantDetection",
+      "testRoughVsRou3fMutant",
+      "testSingleCharacterInputForRelationalAndConstantMutants",
+      "testStartOptionCough",
+      "testStartOptionEnough",
+      "testStartOptionGn",
+      "testStartOptionMb",
+      "testStartOptionRough",
+      "testStartOptionTough",
+      "testStartOptionTrough",
+      "testVowelReplacementsAtStart"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "txt = txt.replaceAll(\"s$\", \"\");             // 2.0 only",
+    "description": "Wrong regex string for final e removal, stripping 's' instead of 'e'.",
+    "line": 65,
+    "status": "killed",
+    "killed_by": [
+      "testFinalEStripping"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "txt = txt.replaceAll(\"^rough\", \"rou3f\");",
+    "description": "Wrong substitution string for 'rough', replacing with 'rou3f' instead of 'rou2f'.",
+    "line": 69,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "txt = txt.replaceAll(\"v\", \"v\");",
+    "description": "Wrong replacement character for 'v', replacing with 'v' instead of 'f'.",
+    "line": 85,
+    "status": "killed",
+    "killed_by": [
+      "testVReplacementMutant"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "txt = txt + \"111111\" + \"11111\";       // 1.0 only has 6 1s",
+    "description": "Wrong padding logic, appending 5 ones instead of 4 in the second padding group.",
+    "line": 136,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "return txt.substring(0, 9);           // 1.0 truncates to 6",
+    "description": "Wrong substring length limit, taking 9 characters instead of 10 for the final code.",
+    "line": 139,
+    "status": "killed",
+    "killed_by": [
+      "testBasicWordEncoding",
+      "testCleanupAndPadding",
+      "testConsonantClusterReplacements",
+      "testPaddingMutantA3",
+      "testRoughMutantDetection",
+      "testRoughVsRou3fMutant",
+      "testSingleCharacterInputForRelationalAndConstantMutants",
+      "testStartOptionCough",
+      "testStartOptionEnough",
+      "testStartOptionGn",
+      "testStartOptionMb",
+      "testStartOptionRough",
+      "testStartOptionTough",
+      "testStartOptionTrough",
+      "testVowelReplacementsAtStart"
+    ]
+  }
+]

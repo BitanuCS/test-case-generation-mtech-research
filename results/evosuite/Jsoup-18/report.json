@@ -1,0 +1,82 @@
+{
+  "bug": "Jsoup-18",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.jsoup.parser.CharacterReader",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 42,
+      "final_oracles": 60,
+      "focal_methods": [
+        "CharacterReader",
+        "consumeToEnd"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.147,
+          "branch": 0.098,
+          "line": 0.173,
+          "complexity": 0.088,
+          "method": 0.148,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.667,
+          "branch": null
+        },
+        "focal_missed_lines": [
+          100,
+          101,
+          102
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 105,
+          "killed": 70,
+          "score": 0.667
+        },
+        "focal": {
+          "generated": 2,
+          "killed": 0,
+          "score": 0.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Jsoup",
+      "version_id": "18f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 98,
+      "lines_covered": 98,
+      "branches_total": 82,
+      "branches_covered": 82,
+      "line": 1.0,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 180,
+      "covered": 180,
+      "killed": 135,
+      "score": 0.75
+    }
+  },
+  "seconds": 54.7,
+  "extras_measured": true
+}

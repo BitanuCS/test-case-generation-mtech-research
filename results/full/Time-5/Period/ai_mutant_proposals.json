@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapped years and months multiplier in totalMonths calculation",
+    "original": "long totalMonths = years * 12L + months;",
+    "mutated": "long totalMonths = years + months * 12L;"
+  },
+  {
+    "description": "Wrong divisor when calculating normalizedYears (used 13 instead of 12)",
+    "original": "int normalizedYears = FieldUtils.safeToInt(totalMonths / 12);",
+    "mutated": "int normalizedYears = FieldUtils.safeToInt(totalMonths / 13);"
+  },
+  {
+    "description": "Wrong multiplier when subtracting normalizedYears from totalMonths (used 13 instead of 12)",
+    "original": "totalMonths = totalMonths - (normalizedYears * 12);",
+    "mutated": "totalMonths = totalMonths - (normalizedYears * 13);"
+  },
+  {
+    "description": "Used subtraction instead of subtraction by normalizedMonths in totalMonths update (subtracted 0 or wrong logic)",
+    "original": "totalMonths = totalMonths - normalizedMonths;",
+    "mutated": "totalMonths = totalMonths - 0;"
+  },
+  {
+    "description": "Changed condition for years or months check to require both non-zero instead of either",
+    "original": "if (years != 0 || months != 0) {",
+    "mutated": "if (years != 0 && months != 0) {"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "createReturnsNullWhenTypeNotAssignable",
+    "input": "clazz = Number.class, typeAdapter = NUMBER, typeToken = TypeToken.get(String.class)",
+    "expected": "Returns null because String is not assignable from Number (i.e., !clazz.isAssignableFrom(requestedType))."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "createReturnsAdapterWhenTypeIsAssignable",
+    "input": "clazz = Number.class, typeAdapter = NUMBER, typeToken = TypeToken.get(Integer.class)",
+    "expected": "Returns a non-null TypeAdapter because Integer is assignable from Number."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "createReturnsAdapterWhenTypeExactMatch",
+    "input": "clazz = Number.class, typeAdapter = NUMBER, typeToken = TypeToken.get(Number.class)",
+    "expected": "Returns a non-null TypeAdapter because Number is assignable from Number."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "adapterReadReturnsValidInstanceMatchingRequestedType",
+    "input": "clazz = Number.class, typeAdapter = NUMBER, reading valid JSON number '42' into Integer.class type token adapter",
+    "expected": "Reads successfully and returns a LazilyParsedNumber (or whatever typeAdapter.read returns) without throwing since it's compatible or assignable."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "adapterReadThrowsJsonSyntaxExceptionWhenResultNotInstanceOfRequestedType",
+    "input": "clazz = Number.class, custom typeAdapter returning a Double when Integer.class is requested via TypeToken",
+    "expected": "Throws JsonSyntaxException because result != null and !requestedType.isInstance(result)."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "adapterReadReturnsNullSafelyWithoutTypeCheckWhenResultIsNull",
+    "input": "clazz = Number.class, typeAdapter returning null on read (e.g. JSON null), requestedType = Integer.class",
+    "expected": "Returns null without throwing JsonSyntaxException because result is null (skipped check)."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "adapterWriteDelegatesToTypeAdapterCorrectly",
+    "input": "clazz = Number.class, typeAdapter = NUMBER, writing integer value 100",
+    "expected": "Delegates successfully to typeAdapter.write without errors."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "toStringReturnsExpectedFormat",
+    "input": "clazz = InetAddress.class, typeAdapter = INET_ADDRESS",
+    "expected": "Returns string matching 'Factory[typeHierarchy=java.net.InetAddress,adapter=...]'."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "createWithInterfaceHierarchyMatch",
+    "input": "clazz = Appendable.class, typeAdapter = STRING_BUILDER (subclass/implementor), typeToken = TypeToken.get(StringBuilder.class)",
+    "expected": "Returns non-null TypeAdapter because StringBuilder implements Appendable (clazz.isAssignableFrom(requestedType) is true)."
+  },
+  {
+    "method": "newTypeHierarchyFactory",
+    "name": "adapterReadSucceedsWhenResultIsExactSubclassInstance",
+    "input": "clazz = Number.class, typeAdapter returning LazilyParsedNumber, requestedType = Number.class",
+    "expected": "Returns the LazilyParsedNumber successfully because LazilyParsedNumber is an instance of Number."
+  }
+]

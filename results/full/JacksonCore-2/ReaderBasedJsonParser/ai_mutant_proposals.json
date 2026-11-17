@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Off-by-one error in startPtr calculation within _parseNumber, causing the sign to be excluded or misaligned when falling back to _parseNumber2.",
+    "original": "int startPtr = ptr-1; // to include sign/digit already read",
+    "mutated": "int startPtr = ptr; // to include sign/digit already read"
+  },
+  {
+    "description": "Wrong comparison operator in _parseNumber for exponent digit checking, using <= instead of < for the upper limit check, or vice versa.",
+    "original": "while (ch <= INT_9 && ch >= INT_0) {",
+    "mutated": "while (ch < INT_9 && ch >= INT_0) {"
+  },
+  {
+    "description": "Missing check for negative sign in exponent parsing inside _parseNumber2, leading to invalid exponent parsing.",
+    "original": "if (c == '-' || c == '+') {",
+    "mutated": "if (c == '-') {"
+  },
+  {
+    "description": "Wrong increment/decrement on input pointer when verifying root space, stepping back twice or not enough.",
+    "original": "++_inputPtr;",
+    "mutated": "--_inputPtr;"
+  },
+  {
+    "description": "Wrong condition checking fractLen in _parseNumber2, requiring fractLen > 0 when validating the fraction length.",
+    "original": "if (fractLen == 0) {",
+    "mutated": "if (fractLen < 0) {"
+  }
+]

@@ -1,0 +1,222 @@
+{
+  "bug": "Lang-13",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": {
+    "error": " {\n    [javac]                           ^\n    [javac] 7 warnings\n     [copy] Copying 1 file to /Users/bitu/mtech-tools/work/_std/Lang-13/out/tmp/run_mutation.pl_39248_1794825905/13f/target/classes\n\ncompile.gen.tests:\n     [echo] classes.dir: target/classes\n     [echo] build.home: target\n    [mkdir] Created dir: /Users/bitu/mtech-tools/work/_std/Lang-13/out/tmp/run_mutation.pl_39248_1794825905/13f/.classes_testgen\n    [javac] /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds\n    [javac] Compiling 1 source file to /Users/bitu/mtech-tools/work/_std/Lang-13/out/tmp/run_mutation.pl_39248_1794825905/13f/.classes_testgen\n    [javac] /Users/bitu/mtech-tools/work/_std/Lang-13/out/tmp/run_mutation.pl_39248_1794825905/candor/org/apache/commons/lang3/SerializationUtils_CandorTest.java:290: error: cannot find symbol\n    [javac]                 oos2.writeObject(new ClassNotFoundSerialization());\n    [javac]                                      ^\n    [javac]   symbol:   class ClassNotFoundSerialization\n    [javac]   location: class SerializationUtils_CandorTest\n    [javac] 1 error\n\nBUILD FAILED\n/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nTests do not compile! at /Users/bitu/mtech-tools/defects4j/framework/bin/run_mutation.pl line 326.\n"
+  },
+  "seconds": 136.3,
+  "llm_calls": {
+    "fresh": 13,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 13
+    },
+    "tokens_in": 53416,
+    "tokens_out": 29143
+  },
+  "classes": [
+    {
+      "bug": "Lang-13",
+      "class": "org.apache.commons.lang3.SerializationUtils",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 25
+        },
+        {
+          "round": 2,
+          "passed": 4,
+          "failed": 9,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 12,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 13,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 13,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 14,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 15,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 16,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 16,
+          "failed": 1,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "ClassLoaderAwareObjectInputStream",
+        "resolveClass"
+      ],
+      "generated_tests": 13,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 13,
+        "oracles": 16,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 13,
+        "compiles": false,
+        "compile_ok_tests": 1,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.077,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 12,
+      "mutation": [
+        {
+          "all": {
+            "total": 8,
+            "valid": 8,
+            "killed": 0,
+            "score": 0.0
+          },
+          "rule": {
+            "total": 3,
+            "valid": 3,
+            "killed": 0,
+            "score": 0.0
+          },
+          "tests": 12,
+          "coverage": {
+            "line": null,
+            "branch": null
+          }
+        },
+        {
+          "all": {
+            "total": 8,
+            "valid": 8,
+            "killed": 0,
+            "score": 0.0
+          },
+          "rule": {
+            "total": 3,
+            "valid": 3,
+            "killed": 0,
+            "score": 0.0
+          },
+          "tests": 14,
+          "coverage": {
+            "line": null,
+            "branch": null
+          }
+        },
+        {
+          "all": {
+            "total": 8,
+            "valid": 8,
+            "killed": 0,
+            "score": 0.0
+          },
+          "rule": {
+            "total": 3,
+            "valid": 3,
+            "killed": 0,
+            "score": 0.0
+          },
+          "tests": 17,
+          "coverage": {
+            "line": null,
+            "branch": null
+          }
+        }
+      ],
+      "final_tests": 17,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.0,
+          "branch": 0.0,
+          "line": 0.0,
+          "complexity": 0.0,
+          "method": 0.0,
+          "class": 0.0
+        },
+        "focal": {
+          "line": null,
+          "branch": null
+        },
+        "focal_missed_lines": [
+          281,
+          282,
+          283,
+          284,
+          286
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 16,
+          "killed": 0,
+          "score": 0.0
+        },
+        "focal": {
+          "generated": 0,
+          "killed": 0,
+          "score": null
+        }
+      },
+      "final_oracles": 34,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    }
+  ]
+}

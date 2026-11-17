@@ -1,0 +1,77 @@
+{
+  "bug": "Cli-17",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.cli.PosixParser",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 12,
+      "final_oracles": 9,
+      "focal_methods": [
+        "burstToken"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.966,
+          "branch": 0.929,
+          "line": 0.971,
+          "complexity": 0.931,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 34,
+          "killed": 25,
+          "score": 0.735
+        },
+        "focal": {
+          "generated": 9,
+          "killed": 5,
+          "score": 0.556
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Cli",
+      "version_id": "17f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Broken",
+      "num_trigger": "-"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": null,
+      "lines_covered": null,
+      "branches_total": null,
+      "branches_covered": null,
+      "line": null,
+      "branch": null
+    },
+    "major_mutation": {
+      "generated": 104,
+      "covered": 104,
+      "killed": 50,
+      "score": 0.481
+    }
+  },
+  "seconds": 102.7,
+  "extras_measured": true
+}

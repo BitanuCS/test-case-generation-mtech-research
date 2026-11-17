@@ -1,0 +1,121 @@
+{
+  "bug": "Closure-45",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "com.google.javascript.jscomp.RemoveUnusedVars",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 5,
+      "final_oracles": 5,
+      "focal_methods": [
+        "interpretAssigns",
+        "Assign"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.0,
+          "branch": 0.0,
+          "line": 0.0,
+          "complexity": 0.0,
+          "method": 0.0,
+          "class": 0.0
+        },
+        "focal": {
+          "line": 0.0,
+          "branch": 0.0
+        },
+        "focal_missed_lines": [
+          705,
+          707,
+          712,
+          713,
+          714,
+          715,
+          716,
+          718,
+          719,
+          721,
+          722,
+          723,
+          724,
+          725,
+          726,
+          729,
+          732,
+          733,
+          734,
+          735,
+          736,
+          737,
+          738,
+          740,
+          741,
+          743,
+          745,
+          746,
+          747,
+          748,
+          752,
+          753,
+          902,
+          903,
+          904,
+          905,
+          906,
+          908,
+          909,
+          911,
+          912,
+          913
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 125,
+          "killed": 26,
+          "score": 0.208
+        },
+        "focal": {
+          "generated": 18,
+          "killed": 3,
+          "score": 0.167
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Closure",
+      "version_id": "45f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 387,
+      "lines_covered": 92,
+      "branches_total": 283,
+      "branches_covered": 36,
+      "line": 0.238,
+      "branch": 0.127
+    },
+    "major_mutation": {
+      "generated": 437,
+      "covered": 437,
+      "killed": 398,
+      "score": 0.911
+    }
+  },
+  "seconds": 229.8,
+  "extras_measured": true
+}

@@ -1,0 +1,331 @@
+<title>CANDOR-D4J Progress</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one readable column (~760px) of report sections; wide tables scroll inside their own box. */
+:root {
+  --bg: #f7f8fa; --surface: #ffffff; --fg: #1b2230; --muted: #5b6577; --line: #dde2ea;
+  --accent: #2f5bd3; --accent-soft: #e7edfb;
+  --good: #1f7a4d; --good-soft: #e3f3ea; --bad: #b4372f; --bad-soft: #f8e5e3; --warn: #8a6100; --warn-soft: #fbf0d6;
+  --s-ours: #2a78d6; --s-evo: #eb6834; --s-both: #1baf7a; --s-none: #c9ced8; --grid: #e6e9ef;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11151c; --surface: #181d26; --fg: #e6eaf1; --muted: #9aa4b5; --line: #2a3240;
+  --accent: #7f9ff0; --accent-soft: #1f2a44;
+  --good: #5cc28f; --good-soft: #15301f; --bad: #ee8077; --bad-soft: #3a1d1b; --warn: #e2b452; --warn-soft: #362a10;
+  --s-ours: #3987e5; --s-evo: #d95926; --s-both: #199e70; --s-none: #3a4250; --grid: #262d39;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #11151c; --surface: #181d26; --fg: #e6eaf1; --muted: #9aa4b5; --line: #2a3240;
+  --accent: #7f9ff0; --accent-soft: #1f2a44;
+  --good: #5cc28f; --good-soft: #15301f; --bad: #ee8077; --bad-soft: #3a1d1b; --warn: #e2b452; --warn-soft: #362a10;
+  --s-ours: #3987e5; --s-evo: #d95926; --s-both: #199e70; --s-none: #3a4250; --grid: #262d39;
+  color-scheme: dark }
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px 10px; margin-bottom: 14px; position: relative; }
+.chart h3 { margin: 0 0 2px; }
+.chart .sub { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart svg text { fill: var(--muted); font-family: var(--font-body); font-size: 12px; }
+.chart svg text.val { fill: var(--fg); font-weight: 600; font-variant-numeric: tabular-nums; }
+.chart svg text.cat { fill: var(--fg); }
+.chart svg .gridl { stroke: var(--grid); stroke-width: 1; }
+.chart svg .hit { fill: transparent; cursor: default; }
+.chart svg .hit:hover + .mk, .chart svg .mk:hover { opacity: .85; }
+.keys { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.key { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.tip { position: absolute; pointer-events: none; background: var(--fg); color: var(--bg); font-size: 12px; padding: 6px 8px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -110%); }
+.charts2 { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
+.charts2 > .chart { margin-bottom: 0; min-width: 0; }
+@media (max-width: 640px) { .charts2 { grid-template-columns: 1fr; } }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 780px; margin: 0 auto; padding-block: 40px 64px; display: flex; flex-direction: column; gap: 40px; }
+header { display: flex; flex-direction: column; gap: 8px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 30px; line-height: 1.2; margin: 0; text-wrap: balance; }
+h2 { font-size: 20px; margin: 0 0 12px; text-wrap: balance; }
+h3 { font-size: 15px; margin: 16px 0 6px; }
+p { margin: 0 0 10px; max-width: 68ch; }
+.lead { color: var(--muted); font-size: 16px; }
+section { display: flex; flex-direction: column; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 4px 0 8px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; }
+.tile .num { font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tile .lbl { font-size: 13px; color: var(--muted); }
+.tile.ours .num { color: var(--accent); }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+td.n { text-align: right; white-space: nowrap; }
+td.win { font-weight: 700; color: var(--accent); }
+.note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+code, .mono { font-family: var(--font-mono); font-size: 13px; }
+/* pipeline */
+.flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; }
+.step { flex: 1 1 130px; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.step b { display: block; font-size: 14px; }
+.step .src { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+.step.new { border-color: var(--accent); background: var(--accent-soft); }
+/* per-bug grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+.bug { display: flex; justify-content: space-between; gap: 8px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; font-family: var(--font-mono); font-size: 12px; }
+.pills { display: flex; gap: 4px; }
+.pill { font-size: 11px; padding: 1px 6px; border-radius: 10px; font-family: var(--font-body); font-weight: 600; }
+.pill.y { background: var(--good-soft); color: var(--good); }
+.pill.n { background: var(--bad-soft); color: var(--bad); }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+ul { margin: 0; padding-left: 20px; } li { margin-bottom: 4px; max-width: 68ch; }
+.callout { background: var(--warn-soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; font-size: 14px; }
+.callout b { color: var(--warn); }
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">M.Tech research · progress report · 17 Nov 2026</div>
+  <h1>CANDOR-D4J: multi-agent LLM test generation on real Defects4J bugs</h1>
+  <p class="lead">Can a CANDOR-style multi-agent test generator, which works well on single-method benchmarks (HumanEvalJava, LeetCodeJava), detect real bugs in real projects? First results on a 40-bug development set, against EvoSuite.</p>
+</header>
+
+<section>
+  <h2>Headline (28 of 40 development bugs finished)</h2>
+  <div class="tiles">
+    <div class="tile ours"><span class="num">16 / 28</span><span class="lbl">bugs detected by our framework (57%)</span></div>
+    <div class="tile"><span class="num">12 / 28</span><span class="lbl">bugs detected by EvoSuite (43%)</span></div>
+    <div class="tile"><span class="num">19 / 28</span><span class="lbl">detected by at least one (68%): the tools are complementary</span></div>
+    <div class="tile"><span class="num">8.4</span><span class="lbl">LLM calls per bug, free-tier model only</span></div>
+  </div>
+  <p class="note">"Detected" uses the standard Defects4J protocol: a generated test passes on the fixed version and fails on the buggy version. The same Defects4J scripts judge both tools. For reference, published numbers on other Defects4J subsets are AdverTest 66.6%, HITS 61.4% and EvoSuite 40.8% (from the AdverTest paper). These use different bugs and models, so they are not directly comparable.</p>
+</section>
+
+<section>
+  <h2>Our framework vs EvoSuite, in charts</h2>
+  <div class="keys"><span class="key"><span class="sw" style="background:var(--s-ours)"></span>Our framework</span><span class="key"><span class="sw" style="background:var(--s-evo)"></span>EvoSuite</span><span>Same 28 bugs, same Defects4J scripts. Hover a bar for details.</span></div>
+
+  <div class="chart" id="c-metrics">
+    <h3>Key measures (%)</h3>
+    <p class="sub">We catch more bugs and kill more mutants; EvoSuite covers more of the whole class.</p>
+  </div>
+
+  <div class="chart" id="c-overlap">
+    <h3>Which bugs each tool caught (28 bugs)</h3>
+    <p class="sub">The tools are complementary: 7 bugs only we catch, 3 only EvoSuite catches.</p>
+  </div>
+
+  <div class="charts2">
+    <div class="chart" id="c-project">
+      <h3>Bugs caught per project</h3>
+      <p class="sub">Count caught out of the bugs finished in each project.</p>
+    </div>
+    <div class="chart" id="c-time">
+      <h3>Seconds per bug</h3>
+      <p class="sub">Generation plus checks, average.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Approach</h2>
+  <p>The approach combines CANDOR's oracle consensus, AdverTest's adversarial mutant loop, and a new project-context stage that CANDOR lacks (its subjects have no dependencies). Tests are generated on the <b>fixed</b> version. The LLM never sees the buggy code, the fix, or the developer's bug-revealing test.</p>
+  <div class="flow">
+    <div class="step new"><b>Context</b>class slice, constructors, helpers, test setup<div class="src">new · static</div></div>
+    <div class="step"><b>Planner</b>test scenarios<div class="src">CANDOR</div></div>
+    <div class="step"><b>Tester</b>JUnit tests<div class="src">CANDOR</div></div>
+    <div class="step new"><b>Fix loop</b>compiler + runtime feedback, flaky removal<div class="src">new</div></div>
+    <div class="step"><b>Oracle panel</b>3 LLMs vote (realistic mode)<div class="src">CANDOR</div></div>
+    <div class="step"><b>Mutant challenge</b>rule + LLM mutants, coverage feedback<div class="src">AdverTest</div></div>
+  </div>
+  <p class="note">Model: <span class="mono">gemini-3.5-flash-lite</span> for every generation role (one model, for fairness). Panel: flash-lite + Groq gpt-oss-120b + Qwen3.8-27b. Total LLM cost: zero (free tiers).</p>
+</section>
+
+<section>
+  <h2>Effectiveness and test quality (28 bugs)</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Ours</th><th>EvoSuite</th><th>Tool</th></tr></thead>
+    <tbody>
+      <tr><td>Bugs detected (FDR)</td><td class="n win">57%</td><td class="n">43%</td><td>Defects4J run_bug_detection</td></tr>
+      <tr><td>Major mutation score (modified class)</td><td class="n win">82%</td><td class="n">59%</td><td>Defects4J run_mutation</td></tr>
+      <tr><td>Line coverage, whole modified class</td><td class="n">45%</td><td class="n win">79%</td><td>Defects4J run_coverage</td></tr>
+      <tr><td>Branch coverage, whole modified class</td><td class="n">36%</td><td class="n win">74%</td><td>Defects4J run_coverage</td></tr>
+      <tr><td>Line / branch coverage, buggy method(s)</td><td class="n">96% / 89%</td><td class="n">being measured</td><td>JaCoCo</td></tr>
+      <tr><td>PIT mutation score, class / buggy method</td><td class="n">34% / 86%</td><td class="n">being measured</td><td>PIT 1.16.1</td></tr>
+      <tr><td>Seconds per bug (generation + checks)</td><td class="n win">122</td><td class="n">240</td><td>wall clock</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Our class-level coverage is lower by design: we target the buggy method(s), while EvoSuite targets the whole class. Within the buggy method we reach 96% line coverage, and our tests kill more Major mutants.</p>
+
+  <h3>First attempt of the LLM (before any repair)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Syntax OK</th><th>Compiles</th><th>Runs w/o error</th><th>Passes</th><th>Oracle correctness</th><th>Valid tests / bug</th><th>Assertions / test</th><th>Tokens / bug</th></tr></thead>
+    <tbody><tr><td class="n">100%</td><td class="n">77%</td><td class="n">68%</td><td class="n">61%</td><td class="n">96%</td><td class="n">19.3</td><td class="n">1.9</td><td class="n">42k</td></tr></tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Per bug</h2>
+  <div class="legend"><span><span class="pill y">✓</span> detected</span><span><span class="pill n">✗</span> missed</span><span>first pill = ours, second = EvoSuite</span></div>
+  <div class="grid" id="grid"></div>
+  <p class="note">Only ours: Math-34, Cli-17, Cli-38, Csv-1, Gson-6, Chart-10, Compress-12. Only EvoSuite: Math-42, JxPath-3, Time-5.</p>
+</section>
+
+<section>
+  <h2>Why bugs were missed</h2>
+  <p>In most of the missed bugs our tests <b>did</b> reach the buggy method (often at 100% coverage), but never produced the specific input, environment or check that exposes the fault.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Cause</th><th>Bugs</th><th>Planned remedy (general, not bug-specific)</th></tr></thead>
+    <tbody>
+      <tr><td>Special input type or environment</td><td class="mono">Lang-4, Codec-1, Time-5</td><td>Planner enumerates other implementations of parameter types (e.g. CharSequence) and settings (Locale, TimeZone)</td></tr>
+      <tr><td>Extreme values</td><td class="mono">Math-2</td><td>Mandatory boundary and overflow scenarios</td></tr>
+      <tr><td>Fault reachable only through a caller class</td><td class="mono">Codec-5</td><td>Add callers to the context (call-chain, as in CAT)</td></tr>
+      <tr><td>Complex setup (custom factory)</td><td class="mono">JxPath-3</td><td>Show how other code builds helper objects; allow test doubles</td></tr>
+      <tr><td>Weak oracle (missing side effect)</td><td class="mono">Chart-12</td><td>Tester checks side effects: listeners, state, exceptions</td></tr>
+      <tr><td>Tool problem: all tests discarded</td><td class="mono">Chart-13</td><td>Fixed: smarter clean-up keeps 10 of 11 tests</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section>
+  <h2>Engineering issues found and fixed</h2>
+  <ul>
+    <li>EvoSuite crashed when run in parallel, and when Wi-Fi changed (RMI). It now runs sequentially on loopback, and crashes are retried instead of being recorded.</li>
+    <li>PIT failed on projects that ship JUnit 3 (Cli, Closure). JUnit 4.12 now goes first on the classpath.</li>
+    <li>Focal-method detection now handles field-only fixes, class-header-only fixes and classes added by the fix.</li>
+    <li>Coverage feedback added to the mutant loop. Cli-38 went from missed (0% method coverage) to detected.</li>
+    <li>Coverage of constructor focal methods was mis-measured; it is now computed per line.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Validity</h2>
+  <div class="callout"><b>Development set.</b> The 40 bugs (all 17 Defects4J projects) were used to find weaknesses, including reading their fixes. Final claims will be reported on the remaining <b>158 unseen bugs</b> of the 198-bug main set, with all tools on the same bugs.</div>
+  <ul style="margin-top:12px">
+    <li>Like AdverTest and HITS, the method under test is chosen from the Defects4J patch. The LLM sees only the fixed code.</li>
+    <li>A free, small model (flash-lite) is used throughout; published systems use DeepSeek-V3 or GPT-4o.</li>
+    <li>Data contamination: Defects4J is public. A newer-bug check (GrowingBugs) is planned.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Next steps</h2>
+  <ul>
+    <li>Finish the last 12 development bugs (Closure, Jackson, Jsoup, Mockito); queued for today.</li>
+    <li>AdverTest baseline on the same bugs with the same model: set up and tested, ready to run.</li>
+    <li>Single-shot LLM baseline and ablations (no context, no planner, no fix loop, no mutation).</li>
+    <li>Realistic mode (tests written on the buggy version), with and without the oracle panel.</li>
+    <li>Implement the general remedies above, then evaluate everything on the 158 unseen bugs, with Wilcoxon and A12 statistics.</li>
+  </ul>
+</section>
+</div>
+
+<script>
+const rows = [
+ ["Lang-4",0,0],["Lang-9",1,1],["Lang-13",0,0],["Lang-19",1,1],["Lang-23",1,1],["Math-2",0,0],["Math-34",1,0],["Math-42",0,1],
+ ["Cli-7",0,0],["Cli-17",1,0],["Cli-38",1,0],["Codec-1",0,0],["Codec-5",0,0],["Csv-1",1,0],["Csv-4",1,1],["Gson-2",1,1],
+ ["Gson-6",1,0],["JxPath-1",1,1],["JxPath-3",0,1],["Chart-10",1,0],["Chart-12",0,0],["Chart-13",0,0],["Time-1",1,1],["Time-5",0,1],
+ ["Compress-5",0,0],["Compress-12",1,0],["JacksonCore-2",1,1],["JacksonCore-8",1,1]];
+const g = document.getElementById("grid");
+const pill = v => `<span class="pill ${v ? "y" : "n"}">${v ? "✓" : "✗"}</span>`;
+g.innerHTML = rows.map(([b,o,e]) => `<div class="bug"><span>${b}</span><span class="pills">${pill(o)}${pill(e)}</span></div>`).join("");
+
+/* ---------- charts (inline SVG, one shared tooltip per chart) ---------- */
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent, text) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (text != null) e.textContent = text;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function tipFor(box) {
+  const t = document.createElement("div"); t.className = "tip"; t.hidden = true; box.appendChild(t);
+  return {
+    show(evt, html) { const r = box.getBoundingClientRect(); t.innerHTML = html; t.hidden = false;
+      t.style.left = (evt.clientX - r.left) + "px"; t.style.top = (evt.clientY - r.top) + "px"; },
+    hide() { t.hidden = true; }
+  };
+}
+/* bar path: 4px rounded data-end (right), square at the baseline (left) */
+function hbar(x, y, w, h, r = 4) {
+  if (w <= 0) return "";
+  r = Math.min(r, w, h / 2);
+  return `M${x},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h - r}Q${x + w},${y + h} ${x + w - r},${y + h}H${x}Z`;
+}
+function bind(hit, tip, html) {
+  hit.addEventListener("mousemove", e => tip.show(e, html));
+  hit.addEventListener("mouseleave", () => tip.hide());
+}
+const SER = [{ key: "ours", name: "Our framework", color: "var(--s-ours)" }, { key: "evo", name: "EvoSuite", color: "var(--s-evo)" }];
+
+/* grouped horizontal bars; rows: [label, ours, evo, fmt] */
+function grouped(id, rows, max, ticks, fmt, labelW = 190, W = 720) {
+  const box = document.getElementById(id), tip = tipFor(box);
+  const bh = 12, gap = 2, rowH = bh * 2 + gap + 16, top = 6, plotW = W - labelW - 60;
+  const H = top + rows.length * rowH + 22;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": box.querySelector("h3").textContent }, box);
+  const sx = v => labelW + (v / max) * plotW;
+  ticks.forEach(t => { el("line", { x1: sx(t), x2: sx(t), y1: top - 2, y2: H - 18, class: "gridl" }, svg);
+    el("text", { x: sx(t), y: H - 4, "text-anchor": "middle" }, svg, fmt(t)); });
+  rows.forEach((r, i) => {
+    const y0 = top + i * rowH + 4;
+    el("text", { x: labelW - 10, y: y0 + bh + 4, "text-anchor": "end", class: "cat" }, svg, r[0]);
+    SER.forEach((s, j) => {
+      const v = r[1 + j], y = y0 + j * (bh + gap), w = sx(v) - labelW;
+      el("path", { d: hbar(labelW, y, w, bh), fill: s.color, class: "mk" }, svg);
+      el("text", { x: sx(v) + 6, y: y + bh - 2, class: "val" }, svg, (r[3] || fmt)(v));
+      const hit = el("rect", { x: labelW, y: y - 1, width: Math.max(w + 40, 30), height: bh + 2, class: "hit" }, svg);
+      bind(hit, tip, `<b>${r[0]}</b><br>${s.name}: ${(r[3] || fmt)(v)}`);
+    });
+  });
+}
+
+/* 1. key measures */
+grouped("c-metrics", [
+  ["Bugs detected", 57, 43],
+  ["Major mutation score", 82, 59],
+  ["Line coverage, whole class", 45, 79],
+  ["Branch coverage, whole class", 36, 74],
+], 100, [0, 25, 50, 75, 100], v => v + "%");
+
+/* 2. overlap: one stacked bar, 2px surface gaps, labels inside/below */
+(function () {
+  const box = document.getElementById("c-overlap"), tip = tipFor(box);
+  const parts = [
+    { n: 7, name: "Only ours", color: "var(--s-ours)", bugs: "Math-34, Cli-17, Cli-38, Csv-1, Gson-6, Chart-10, Compress-12" },
+    { n: 9, name: "Both", color: "var(--s-both)", bugs: "Lang-9, Lang-19, Lang-23, Csv-4, Gson-2, JxPath-1, Time-1, JacksonCore-2, JacksonCore-8" },
+    { n: 3, name: "Only EvoSuite", color: "var(--s-evo)", bugs: "Math-42, JxPath-3, Time-5" },
+    { n: 9, name: "Neither", color: "var(--s-none)", bugs: "Lang-4, Lang-13, Math-2, Cli-7, Codec-1, Codec-5, Chart-12, Chart-13, Compress-5" },
+  ];
+  const W = 720, H = 30, x0 = 0, bw = W, bh = 26, total = 28;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Which bugs each tool caught" }, box);
+  let x = x0;
+  parts.forEach((p, i) => {
+    const w = p.n / total * bw - (i < parts.length - 1 ? 2 : 0);
+    const r = 4, first = i === 0, last = i === parts.length - 1;
+    const d = `M${x + (first ? r : 0)},0H${x + w - (last ? r : 0)}${last ? `Q${x + w},0 ${x + w},${r}V${bh - r}Q${x + w},${bh} ${x + w - r},${bh}` : `V${bh}`}H${x + (first ? r : 0)}${first ? `Q${x},${bh} ${x},${bh - r}V${r}Q${x},0 ${x + r},0` : "V0"}Z`;
+    el("path", { d, fill: p.color, class: "mk" }, svg);
+    const hit = el("rect", { x, y: 0, width: w, height: bh, class: "hit" }, svg);
+    bind(hit, tip, `<b>${p.name}: ${p.n}</b><br>${p.bugs}`);
+    x += w + 2;
+  });
+  const keys = document.createElement("div");
+  keys.className = "keys"; keys.style.marginTop = "8px";
+  keys.innerHTML = parts.map(p => `<span class="key"><span class="sw" style="background:${p.color}"></span><b style="color:var(--fg)">${p.n}</b> ${p.name}</span>`).join("")
+    + `<span>· caught by at least one tool: <b style="color:var(--fg)">19 of 28 (68%)</b></span>`;
+  box.appendChild(keys);
+})();
+
+/* 3. per project (count caught / finished) */
+(function () {
+  const proj = {};
+  rows.forEach(([b, o, e]) => { const p = b.replace(/-\d+$/, ""); proj[p] = proj[p] || [0, 0, 0]; proj[p][0] += o; proj[p][1] += e; proj[p][2]++; });
+  const data = Object.entries(proj).map(([p, [o, e, n]]) => [p + ` (${n})`, o, e, v => String(v)]);
+  grouped("c-project", data, 5, [0, 1, 2, 3, 4, 5], v => String(v), 130, 470);
+})();
+
+/* 4. time per bug */
+grouped("c-time", [["Average", 122, 240]], 250, [0, 100, 200], v => String(v), 64, 230);
+</script>

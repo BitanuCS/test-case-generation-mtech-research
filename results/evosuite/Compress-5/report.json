@@ -1,0 +1,116 @@
+{
+  "bug": "Compress-5",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.compress.archivers.zip.ZipArchiveInputStream",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 9,
+      "final_oracles": 9,
+      "focal_methods": [
+        "read"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.323,
+          "branch": 0.271,
+          "line": 0.329,
+          "complexity": 0.3,
+          "method": 0.833,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.095,
+          "branch": 0.111
+        },
+        "focal_missed_lines": [
+          200,
+          202,
+          203,
+          204,
+          205,
+          207,
+          208,
+          209,
+          210,
+          212,
+          213,
+          215,
+          216,
+          217,
+          218,
+          219,
+          221,
+          222,
+          223,
+          224,
+          225,
+          227,
+          228,
+          229,
+          230,
+          233,
+          235,
+          236,
+          237,
+          238,
+          239,
+          240,
+          241,
+          242,
+          243,
+          246,
+          247,
+          249
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 128,
+          "killed": 22,
+          "score": 0.172
+        },
+        "focal": {
+          "generated": 46,
+          "killed": 3,
+          "score": 0.065
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Compress",
+      "version_id": "5f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 164,
+      "lines_covered": 55,
+      "branches_total": 96,
+      "branches_covered": 26,
+      "line": 0.335,
+      "branch": 0.271
+    },
+    "major_mutation": {
+      "generated": 304,
+      "covered": 304,
+      "killed": 253,
+      "score": 0.832
+    }
+  },
+  "seconds": 109.2,
+  "extras_measured": true
+}

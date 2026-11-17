@@ -1,0 +1,115 @@
+// ===== Class under test: org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer =====
+package org.apache.commons.jxpath.ri.model.beans;
+import org.apache.commons.jxpath.AbstractFactory;
+import org.apache.commons.jxpath.JXPathAbstractFactoryException;
+import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.JXPathInvalidAccessException;
+import org.apache.commons.jxpath.ri.QName;
+import org.apache.commons.jxpath.ri.model.NodePointer;
+
+/**
+ * @author Dmitri Plotnikov
+ * @version $Revision$ $Date$
+ */
+public class NullPropertyPointer extends PropertyPointer {
+
+  // --- fields ---
+  private String propertyName = "*";
+  private boolean byNameAttribute = false;
+
+  // --- constructors and other methods (signatures only) ---
+  public NullPropertyPointer(NodePointer parent);
+  public void setPropertyIndex(int index);
+  public int getLength();
+  public Object getBaseValue();
+  public Object getImmediateNode();
+  public boolean isLeaf();
+  public NodePointer getValuePointer();
+  protected boolean isActualProperty();
+  public boolean isActual();
+  public boolean isContainer();
+  public void setValue(Object value);
+  public NodePointer createChild( JXPathContext context, QName name, int index);
+  public NodePointer createChild( JXPathContext context, QName name, int index, Object value);
+  public String getPropertyName();
+  public void setPropertyName(String propertyName);
+  public void setNameAttributeValue(String attributeValue);
+  public boolean isCollection();
+  public int getPropertyCount();
+  public String[] getPropertyNames();
+
+  // --- helper methods called by the method(s) under test ---
+  public QName getName() {
+          return new QName(propertyName);
+      }
+  public String asPath() {
+          if (!byNameAttribute) {
+              return super.asPath();
+          }
+          else {
+              StringBuffer buffer = new StringBuffer();
+              buffer.append(getImmediateParentPointer().asPath());
+              buffer.append("[@name='");
+              buffer.append(escape(getPropertyName()));
+              buffer.append("']");
+              if (index != WHOLE_COLLECTION) {
+                  buffer.append('[').append(index + 1).append(']');
+              }
+              return buffer.toString();
+          }
+      }
+
+  // --- METHOD(S) UNDER TEST ---
+  public NodePointer createPath(JXPathContext context) {
+          NodePointer newParent = parent.createPath(context);
+          if (isAttribute()) {
+              return newParent.createAttribute(context, getName());
+          }
+          else {
+              if (parent instanceof NullPointer && parent.equals(newParent)) {
+                  throw createBadFactoryException(context.getFactory());
+              }
+              // Consider these two use cases:
+              // 1. The parent pointer of NullPropertyPointer is 
+              //    a PropertyOwnerPointer other than NullPointer. When we call 
+              //    createPath on it, it most likely returns itself. We then
+              //    take a PropertyPointer from it and get the PropertyPointer
+              //    to expand the collection for the corresponding property.
+              //
+              // 2. The parent pointer of NullPropertyPointer is a NullPointer.
+              //    When we call createPath, it may return a PropertyOwnerPointer
+              //    or it may return anything else, like a DOMNodePointer.
+              //    In the former case we need to do exactly what we did in use 
+              //    case 1.  In the latter case, we simply request that the 
+              //    non-property pointer expand the collection by itself.
+              if (newParent instanceof PropertyOwnerPointer) {
+                  PropertyOwnerPointer pop = (PropertyOwnerPointer) newParent;
+                  newParent = pop.getPropertyPointer();
+              }
+              return newParent.createChild(context, getName(), getIndex());
+          }
+      }
+  public NodePointer createPath(JXPathContext context, Object value) {
+          NodePointer newParent = parent.createPath(context);
+          if (isAttribute()) {
+              NodePointer pointer = newParent.createAttribute(context, getName());
+              pointer.setValue(value);
+              return pointer;
+          }
+          else {
+              if (parent instanceof NullPointer && parent.equals(newParent)) {
+                  throw createBadFactoryException(context.getFactory());
+              }
+              if (newParent instanceof PropertyOwnerPointer) {
+                  PropertyOwnerPointer pop = (PropertyOwnerPointer) newParent;
+                  newParent = pop.getPropertyPointer();
+              }
+              return newParent.createChild(context, getName(), index, value);
+          }
+      }
+  private JXPathAbstractFactoryException createBadFactoryException(AbstractFactory factory) {
+          return new JXPathAbstractFactoryException("Factory " + factory
+                  + " reported success creating object for path: " + asPath()
+                  + " but object was null.  Terminating to avoid stack recursion.");
+      }
+}

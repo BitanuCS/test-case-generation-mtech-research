@@ -1,0 +1,74 @@
+[
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithValidOptionWithoutArg",
+    "input": "token=\"-a\", stopAtNonOption=false (where options has 'a')",
+    "expected": "tokens list contains \"-a\" and currentOption becomes the option 'a'"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithValidOptionHavingArgAndRemainingChars",
+    "input": "token=\"-bval\", stopAtNonOption=false (where options has 'b' with an argument)",
+    "expected": "tokens list contains \"-b\" and \"val\", and loop terminates"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithValidOptionHavingArgNoRemainingChars",
+    "input": "token=\"-b\", stopAtNonOption=false (where options has 'b' with an argument)",
+    "expected": "tokens list contains \"-b\" and currentOption becomes 'b', remaining characters length equals (i + 1) so no argument token is added immediately"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithMultipleValidNonArgOptions",
+    "input": "token=\"-ac\", stopAtNonOption=false (where options has 'a' and 'c' both without args)",
+    "expected": "tokens list contains \"-a\" and \"-c\", iterating through both characters"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithUnknownOptionAndStopAtNonOptionTrue",
+    "input": "token=\"-x\", stopAtNonOption=true (where options does not have 'x')",
+    "expected": "calls process(\"x\"), which sets eatTheRest=true and adds \"--\" and \"x\" to tokens list"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithUnknownOptionAndStopAtNonOptionFalse",
+    "input": "token=\"-x\", stopAtNonOption=false (where options does not have 'x')",
+    "expected": "adds the entire token \"-x\" to the tokens list and breaks"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithMixedValidAndUnknownOptionStopTrue",
+    "input": "token=\"-ax\", stopAtNonOption=true ('a' exists, 'x' does not)",
+    "expected": "adds \"-a\", then hits 'x' with stopAtNonOption=true, calls process(\"x\") adding \"--\" and \"x\""
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithMixedValidAndUnknownOptionStopFalse",
+    "input": "token=\"-ax\", stopAtNonOption=false ('a' exists, 'x' does not)",
+    "expected": "adds \"-a\", then hits 'x' with stopAtNonOption=false, adds the entire token \"-ax\" to tokens and breaks"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithValidOptionWithArgFollowedByAnotherChar",
+    "input": "token=\"-bc\", stopAtNonOption=false ('b' has arg, 'c' is next char)",
+    "expected": "adds \"-b\", then adds \"c\" as the argument for 'b' because remaining characters exist, and breaks"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithOnlyHyphenBoundary",
+    "input": "token=\"-\", stopAtNonOption=false",
+    "expected": "loop condition i < token.length() (1 < 1) is false, so tokens list remains unchanged"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithUnknownOptionContainingMultipleCharsStopTrue",
+    "input": "token=\"-xyz\", stopAtNonOption=true (none exist)",
+    "expected": "hits 'x' (unknown), stopAtNonOption is true, calls process(\"xyz\") adding \"--\" and \"xyz\" to tokens"
+  },
+  {
+    "method": "burstToken",
+    "name": "burstTokenWithUnknownOptionContainingMultipleCharsStopFalse",
+    "input": "token=\"-xyz\", stopAtNonOption=false (none exist)",
+    "expected": "hits 'x' (unknown), stopAtNonOption is false, adds the entire token \"-xyz\" to tokens and breaks"
+  }
+]

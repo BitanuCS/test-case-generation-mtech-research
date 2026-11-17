@@ -1,0 +1,116 @@
+{
+  "bug": "JxPath-1",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.jxpath.ri.model.dom.DOMNodePointer",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 85,
+      "final_oracles": 87,
+      "focal_methods": [
+        "testNode"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.809,
+          "branch": 0.768,
+          "line": 0.823,
+          "complexity": 0.746,
+          "method": 0.977,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 0.946
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 231,
+          "killed": 190,
+          "score": 0.823
+        },
+        "focal": {
+          "generated": 29,
+          "killed": 29,
+          "score": 1.0
+        }
+      }
+    },
+    {
+      "class": "org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 79,
+      "final_oracles": 81,
+      "focal_methods": [
+        "testNode"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.735,
+          "branch": 0.67,
+          "line": 0.744,
+          "complexity": 0.649,
+          "method": 0.976,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.968,
+          "branch": 0.818
+        },
+        "focal_missed_lines": [
+          362
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 251,
+          "killed": 173,
+          "score": 0.689
+        },
+        "focal": {
+          "generated": 29,
+          "killed": 24,
+          "score": 0.828
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "JxPath",
+      "version_id": "1f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "2"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 773,
+      "lines_covered": 615,
+      "branches_total": 562,
+      "branches_covered": 404,
+      "line": 0.796,
+      "branch": 0.719
+    },
+    "major_mutation": {
+      "generated": 832,
+      "covered": 832,
+      "killed": 596,
+      "score": 0.716
+    }
+  },
+  "seconds": 656.4,
+  "extras_measured": true
+}

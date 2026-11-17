@@ -1,0 +1,346 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 195,
+    "status": "killed",
+    "killed_by": [
+      "readDeflateMethodDataFormatException",
+      "readDeflateMethodFinished",
+      "readDeflateMethodNeedsInputAndFills",
+      "readDeflateMethodTruncatedZip",
+      "readStoredMethodCompletelyRead",
+      "readStoredMethodEOFReached",
+      "readStoredMethodNormalRead",
+      "readStoredMethodTruncatedEntrySizeLimit",
+      "readWhenCurrentEntryIsNull"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '<=' -> '>'",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "testReadDeflateMethodDataFormatExceptionZipException",
+      "testReadDeflateMethodNeedsInputAndInflate",
+      "testReadDeflateMethodTruncatedZipException",
+      "testReadStartEqualsBufferLengthEdgeCase",
+      "testReadStoredMethodExactBoundaryReadBytesOfEntryEqualsCSize",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '<=' -> '<'",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "testReadStartEqualsBufferLengthEdgeCase"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 200,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "testReadDeflateMethodDataFormatExceptionZipException",
+      "testReadDeflateMethodNeedsInputAndInflate",
+      "testReadDeflateMethodTruncatedZipException",
+      "testReadStartEqualsBufferLengthEdgeCase",
+      "testReadStoredMethodExactBoundaryReadBytesOfEntryEqualsCSize",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "testReadStartEqualsBufferLengthEdgeCase"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 200,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "testReadDeflateMethodDataFormatExceptionZipException",
+      "testReadDeflateMethodNeedsInputAndInflate",
+      "testReadDeflateMethodTruncatedZipException",
+      "testReadStoredMethodExactBoundaryReadBytesOfEntryEqualsCSize",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "testReadDeflateMethodDataFormatExceptionZipException",
+      "testReadDeflateMethodNeedsInputAndInflate",
+      "testReadDeflateMethodTruncatedZipException",
+      "testReadStartEqualsBufferLengthEdgeCase",
+      "testReadStoredMethodExactBoundaryReadBytesOfEntryEqualsCSize",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 200,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 202,
+    "status": "killed",
+    "killed_by": [
+      "testReadDeflateMethodDataFormatExceptionZipException",
+      "testReadDeflateMethodNeedsInputAndInflate",
+      "testReadStoredMethodExactBoundaryReadBytesOfEntryEqualsCSize",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 204,
+    "status": "killed",
+    "killed_by": [
+      "testReadStartEqualsBufferLengthEdgeCase",
+      "testReadStoredMethodExactBoundaryReadBytesOfEntryEqualsCSize",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 204,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 207,
+    "status": "killed",
+    "killed_by": [
+      "testReadStoredMethodExactBoundaryReadBytesOfEntryEqualsCSize",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 208,
+    "status": "killed",
+    "killed_by": [
+      "testReadStoredMethodExactBoundaryReadBytesOfEntryEqualsCSize",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 209,
+    "status": "killed",
+    "killed_by": [
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 210,
+    "status": "killed",
+    "killed_by": [
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF"
+    ]
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 215,
+    "status": "killed",
+    "killed_by": [
+      "testReadStartEqualsBufferLengthEdgeCase",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 216,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 218,
+    "status": "killed",
+    "killed_by": [
+      "testReadStartEqualsBufferLengthEdgeCase",
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 218,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 229,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 239,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 239,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 242,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "int toRead = length < lengthOfLastRead\n                      ? lengthOfLastRead - offsetInBuffer\n                      : length;",
+    "description": "Change the conditional operator in the STORED calculation of `toRead` from greater-than (>) to less-than (<), incorrectly calculating the number of bytes to read.",
+    "line": 215,
+    "status": "killed",
+    "killed_by": [
+      "testReadStartEqualsBufferLengthEdgeCase",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "offsetInBuffer -= toRead;",
+    "description": "Change the array offset update for `offsetInBuffer` from addition (+) to subtraction (-) during STORED reading.",
+    "line": 222,
+    "status": "killed",
+    "killed_by": [
+      "testReadStoredMethodOffsetInBufferEqualsLengthOfLastReadAndEOF",
+      "testStoredToReadCalculationAndOffsetUpdate"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (start < buffer.length && length >= 0 && start >= 0",
+    "description": "Change the bounds-checking comparison for buffer length/start from `<=` to `<` in the parameter validation guard.",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "testReadStartEqualsBufferLengthEdgeCase"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (readBytesOfEntry > csize) {",
+    "description": "Change the conditional check on `readBytesOfEntry >= csize` for STORED entries to use strictly-greater (`>`) instead of greater-than-or-equal (`>=`).",
+    "line": 204,
+    "status": "survived",
+    "killed_by": []
+  }
+]

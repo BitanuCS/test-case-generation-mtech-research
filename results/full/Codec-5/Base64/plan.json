@@ -1,0 +1,74 @@
+[
+  {
+    "method": "decode",
+    "name": "decodeEofFlagSetImmediately",
+    "input": "in = { 'S', 'G', 'V', 'y' }, inPos = 0, inAvail = -1 (called when eof is true already or triggers EOF)",
+    "expected": "eof becomes true immediately without processing any bytes, leaving buffer unpopulated or empty."
+  },
+  {
+    "method": "decode",
+    "name": "decodePaddingCharacterEncountered",
+    "input": "in = { 'S', 'G', '=' }, inPos = 0, inAvail = 3",
+    "expected": "Encounters PAD ('='), sets eof = true, breaks loop early, and processes any remaining bits based on modulus."
+  },
+  {
+    "method": "decode",
+    "name": "decodeBufferResizeTrigger",
+    "input": "in = long valid Base64 byte array exceeding initial buffer size (8192) or forcing buffer == null",
+    "expected": "Calls resizeBuffer() to instantiate or double the buffer size successfully when remaining space is less than decodeSize."
+  },
+  {
+    "method": "decode",
+    "name": "decodeIgnoredNonBase64Characters",
+    "input": "in = { 'S', ' ', 'G', '\n', 'V', '\r', 'y' }, inPos = 0, inAvail = 7",
+    "expected": "Silently ignores non-base64 characters (spaces, newlines, carriage returns) since result from DECODE_TABLE is < 0."
+  },
+  {
+    "method": "decode",
+    "name": "decodeModulusTwoEofPadding",
+    "input": "in = { 'S', 'G' }, inPos = 0, inAvail = 2, followed by EOF call (inAvail = -1)",
+    "expected": "When eof is reached with modulus == 2, shifts x and appends 1 decoded byte into the buffer."
+  },
+  {
+    "method": "decode",
+    "name": "decodeModulusThreeEofPadding",
+    "input": "in = { 'S', 'G', 'V' }, inPos = 0, inAvail = 3, followed by EOF call (inAvail = -1)",
+    "expected": "When eof is reached with modulus == 3, shifts x and appends 2 decoded bytes into the buffer."
+  },
+  {
+    "method": "decode",
+    "name": "decodeStandardFourByteBlock",
+    "input": "in = { 'S', 'G', 'V', 'y' }, inPos = 0, inAvail = 4",
+    "expected": "Processes all 4 bytes, completes a full modulus 0 cycle, and appends 3 decoded bytes to the buffer."
+  },
+  {
+    "method": "decode",
+    "name": "decodeOutOfBoundsByteInTable",
+    "input": "in = { (byte) 150 }, inPos = 0, inAvail = 1",
+    "expected": "Byte value is outside DECODE_TABLE length bounds (b >= DECODE_TABLE.length), safely ignored without ArrayIndexOutOfBoundsException."
+  },
+  {
+    "method": "decode",
+    "name": "decodeNegativeByteValues",
+    "input": "in = { (byte) -5 }, inPos = 0, inAvail = 1",
+    "expected": "Byte value is negative (b < 0), safely ignored by the conditional check before table lookup."
+  },
+  {
+    "method": "decode",
+    "name": "decodeTableEntryNegativeResult",
+    "input": "in = { (byte) 0x09 }, inPos = 0, inAvail = 1 (where DECODE_TABLE has -1 for tab)",
+    "expected": "DECODE_TABLE entry is -1 (result < 0), so it is ignored and does not update modulus or x."
+  },
+  {
+    "method": "decode",
+    "name": "decodeZeroInAvail",
+    "input": "in = { 'S', 'G', 'V', 'y' }, inPos = 0, inAvail = 0",
+    "expected": "Loop does not execute, buffer and state remain unchanged."
+  },
+  {
+    "method": "decode",
+    "name": "decodeMultipleBlocksWithPadding",
+    "input": "in = { 'S', 'G', 'V', 'y', 'S', 'g', '=', '=' }, inPos = 0, inAvail = 8",
+    "expected": "Successfully decodes first full block, encounters '=' triggering eof, breaks, and processes final padding bytes."
+  }
+]

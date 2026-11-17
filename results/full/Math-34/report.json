@@ -1,0 +1,158 @@
+{
+  "bug": "Math-34",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 50,
+      "lines_covered": 23,
+      "branches_total": 22,
+      "branches_covered": 7,
+      "line": 0.46,
+      "branch": 0.318
+    },
+    "major_mutation": {
+      "generated": 52,
+      "covered": 52,
+      "killed": 34,
+      "score": 0.654
+    }
+  },
+  "seconds": 98.3,
+  "llm_calls": {
+    "fresh": 6,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 6
+    },
+    "tokens_in": 11962,
+    "tokens_out": 7487
+  },
+  "classes": [
+    {
+      "bug": "Math-34",
+      "class": "org.apache.commons.math3.genetics.ListPopulation",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "passed": 8,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 9,
+          "failed": 1,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "iterator"
+      ],
+      "generated_tests": 10,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 10,
+        "oracles": 43,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 10,
+        "compiles": false,
+        "compile_ok_tests": 0,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.0,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 10,
+      "mutation": [
+        {
+          "all": {
+            "total": 5,
+            "valid": 5,
+            "killed": 5,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 0,
+            "valid": 0,
+            "killed": 0,
+            "score": null
+          },
+          "tests": 10,
+          "coverage": {
+            "line": 1.0,
+            "branch": null
+          }
+        }
+      ],
+      "final_tests": 10,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.379,
+          "branch": 0.318,
+          "line": 0.46,
+          "complexity": 0.292,
+          "method": 0.538,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 27,
+          "killed": 10,
+          "score": 0.37
+        },
+        "focal": {
+          "generated": 1,
+          "killed": 1,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 40,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "iteratorRemoveUnsupported"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "iteratorRemoveUnsupported": "java.lang.AssertionError: Expected exception: java.lang.UnsupportedOperationException"
+      },
+      "status": "ok"
+    }
+  ]
+}

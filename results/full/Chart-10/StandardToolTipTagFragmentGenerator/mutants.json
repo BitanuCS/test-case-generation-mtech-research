@@ -1,0 +1,20 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 65,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 65,
+    "status": "stillborn",
+    "killed_by": []
+  }
+]

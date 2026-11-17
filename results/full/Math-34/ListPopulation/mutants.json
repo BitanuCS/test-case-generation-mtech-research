@@ -1,0 +1,90 @@
+[
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "return null;",
+    "description": "Return null instead of an iterator, which causes a NullPointerException when any test tries to iterate.",
+    "line": 209,
+    "status": "killed",
+    "killed_by": [
+      "iteratorAfterAddChromosomesCollection",
+      "iteratorAfterAddingChromosome",
+      "iteratorHasNextConsistency",
+      "iteratorIterationCompleteness",
+      "iteratorMultipleIndependentIterators",
+      "iteratorOnConstructorWithList",
+      "iteratorOnEmptyPopulation",
+      "iteratorOnPopulatedPopulation",
+      "iteratorReflectsCurrentState",
+      "iteratorRemoveUnsupported"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return new ArrayList<Chromosome>().iterator();",
+    "description": "Return an empty iterator instead of the population's chromosome iterator, causing tests with populated lists to fail.",
+    "line": 209,
+    "status": "killed",
+    "killed_by": [
+      "iteratorAfterAddChromosomesCollection",
+      "iteratorAfterAddingChromosome",
+      "iteratorHasNextConsistency",
+      "iteratorIterationCompleteness",
+      "iteratorMultipleIndependentIterators",
+      "iteratorOnConstructorWithList",
+      "iteratorOnPopulatedPopulation",
+      "iteratorReflectsCurrentState",
+      "iteratorRemoveUnsupported"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "return new ArrayList<Chromosome>(getChromosomes()).iterator();",
+    "description": "Call iterator() on a new empty ArrayList instead of getChromosomes(), making the iterator always empty.",
+    "line": 209,
+    "status": "killed",
+    "killed_by": [
+      "iteratorRemoveUnsupported"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "return java.util.Collections.emptyIterator();",
+    "description": "Accidentally call toString().iterator() or another method if the API allowed, but using an empty list's iterator via casting or wrapper works. Let's use Collections.emptyIterator().",
+    "line": 209,
+    "status": "killed",
+    "killed_by": [
+      "iteratorAfterAddChromosomesCollection",
+      "iteratorAfterAddingChromosome",
+      "iteratorHasNextConsistency",
+      "iteratorIterationCompleteness",
+      "iteratorMultipleIndependentIterators",
+      "iteratorOnConstructorWithList",
+      "iteratorOnPopulatedPopulation",
+      "iteratorReflectsCurrentState",
+      "iteratorRemoveUnsupported"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "return getChromosomes().subList(0, 0).iterator();",
+    "description": "Call getChromosomes().listIterator() instead of iterator() (though listIterator returns a ListIterator which extends Iterator, let's mutate it to subList or something that changes behavior, or wrap it improperly). Let's return a reversed or restricted view if possible, or pass a sublist.",
+    "line": 209,
+    "status": "killed",
+    "killed_by": [
+      "iteratorAfterAddChromosomesCollection",
+      "iteratorAfterAddingChromosome",
+      "iteratorHasNextConsistency",
+      "iteratorIterationCompleteness",
+      "iteratorMultipleIndependentIterators",
+      "iteratorOnConstructorWithList",
+      "iteratorOnPopulatedPopulation",
+      "iteratorReflectsCurrentState",
+      "iteratorRemoveUnsupported"
+    ]
+  }
+]

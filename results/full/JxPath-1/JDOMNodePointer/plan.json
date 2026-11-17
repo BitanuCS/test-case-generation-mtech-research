@@ -1,0 +1,110 @@
+[
+  {
+    "method": "testNode",
+    "name": "testNullNodeTest",
+    "input": "pointer = any, node = any, test = null",
+    "expected": "Returns true because if test is null, any node matches unconditionally."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeNameTestWithNonElementNode",
+    "input": "pointer = any, node = Text object, test = NodeNameTest",
+    "expected": "Returns false because NodeNameTest requires the node to be an instance of Element."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeNameTestWildcardNoPrefix",
+    "input": "pointer = any, node = Element object, test = NodeNameTest with wildcard=true and prefix=null",
+    "expected": "Returns true because wildcard without a prefix matches any element."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeNameTestMatchingLocalNameAndNamespace",
+    "input": "pointer = any, node = Element with local name 'foo' and matching namespace, test = NodeNameTest for 'foo'",
+    "expected": "Returns true because both local name and namespace URI match."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeNameTestMatchingLocalNameButMismatchedNamespace",
+    "input": "pointer = any, node = Element with local name 'foo' and namespace NS1, test = NodeNameTest for 'foo' with namespace NS2",
+    "expected": "Returns false because namespace URIs do not match via equalStrings."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeNameTestWildcardWithNamespaceCheck",
+    "input": "pointer = any, node = Element with namespace NS1, test = NodeNameTest with wildcard=true and namespace NS1",
+    "expected": "Returns true because wildcard matches local name and namespace URI matches nodeNS."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeTypeTestNodeWithElement",
+    "input": "pointer = any, node = Element object, test = NodeTypeTest with NODE_TYPE_NODE",
+    "expected": "Returns true because NODE_TYPE_NODE matches Element instances."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeTypeTestNodeWithDocument",
+    "input": "pointer = any, node = Document object, test = NodeTypeTest with NODE_TYPE_NODE",
+    "expected": "Returns true because NODE_TYPE_NODE matches Document instances."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeTypeTestNodeWithText",
+    "input": "pointer = any, node = Text object, test = NodeTypeTest with NODE_TYPE_NODE",
+    "expected": "Returns false because NODE_TYPE_NODE does not match Text instances."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeTypeTestTextWithTextNode",
+    "input": "pointer = any, node = Text object, test = NodeTypeTest with NODE_TYPE_TEXT",
+    "expected": "Returns true because NODE_TYPE_TEXT matches Text instances."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeTypeTestTextWithCDATA",
+    "input": "pointer = any, node = CDATA object, test = NodeTypeTest with NODE_TYPE_TEXT",
+    "expected": "Returns true because NODE_TYPE_TEXT matches CDATA instances."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeTypeTestCommentWithCommentNode",
+    "input": "pointer = any, node = Comment object, test = NodeTypeTest with NODE_TYPE_COMMENT",
+    "expected": "Returns true because NODE_TYPE_COMMENT matches Comment instances."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeTypeTestPIWithProcessingInstructionNode",
+    "input": "pointer = any, node = ProcessingInstruction object, test = NodeTypeTest with NODE_TYPE_PI",
+    "expected": "Returns true because NODE_TYPE_PI matches ProcessingInstruction instances."
+  },
+  {
+    "method": "testNode",
+    "name": "testNodeTypeTestInvalidType",
+    "input": "pointer = any, node = Element object, test = NodeTypeTest with an unknown/unsupported node type int",
+    "expected": "Returns false because switch-case falls through and default return is false."
+  },
+  {
+    "method": "testNode",
+    "name": "testProcessingInstructionTestMatchingTarget",
+    "input": "pointer = any, node = ProcessingInstruction with target 'target1', test = ProcessingInstructionTest with target 'target1'",
+    "expected": "Returns true because testPI matches nodePI."
+  },
+  {
+    "method": "testNode",
+    "name": "testProcessingInstructionTestMismatchedTarget",
+    "input": "pointer = any, node = ProcessingInstruction with target 'target1', test = ProcessingInstructionTest with target 'target2'",
+    "expected": "Returns false because testPI does not equal nodePI."
+  },
+  {
+    "method": "testNode",
+    "name": "testProcessingInstructionTestWithNonPINode",
+    "input": "pointer = any, node = Element object, test = ProcessingInstructionTest",
+    "expected": "Returns false because node is not an instance of ProcessingInstruction."
+  },
+  {
+    "method": "testNode",
+    "name": "testUnsupportedNodeTestClass",
+    "input": "pointer = any, node = any, test = custom or unknown subclass of NodeTest",
+    "expected": "Returns false because the test instance does not match any known NodeTest implementation handled in if-else chain."
+  }
+]

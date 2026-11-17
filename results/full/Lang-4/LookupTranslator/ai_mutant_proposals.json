@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Initialize _shortest to 0 instead of Integer.MAX_VALUE, which causes wrong shortest length calculation when keys are added.",
+    "original": "int _shortest = Integer.MAX_VALUE;",
+    "mutated": "int _shortest = 0;"
+  },
+  {
+    "description": "Initialize _longest to Integer.MAX_VALUE instead of 0, which breaks longest length tracking.",
+    "original": "int _longest = 0;",
+    "mutated": "int _longest = Integer.MAX_VALUE;"
+  },
+  {
+    "description": "Off-by-one error in max calculation: add 1 to index + longest, causing potential IndexOutOfBoundsException or incorrect substring bounds.",
+    "original": "if (index + longest > input.length()) {",
+    "mutated": "if (index + longest + 1 > input.length()) {"
+  },
+  {
+    "description": "Change the greedy loop decrement operator (i--) to increment (i++), turning it into an infinite loop or skipping the greedy descend.",
+    "original": "for (int i = max; i >= shortest; i--) {",
+    "mutated": "for (int i = max; i >= shortest; i++) {"
+  },
+  {
+    "description": "Use seq[1] for both the key and the value in the lookup map during constructor parsing.",
+    "original": "this.lookupMap.put(seq[0].toString(), seq[1]);",
+    "mutated": "this.lookupMap.put(seq[1].toString(), seq[1]);"
+  }
+]

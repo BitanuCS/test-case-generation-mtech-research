@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapped order of field checks in equals: checking registry before toPattern, which can cause subtle logical ordering issues if not tested specifically, though currently both are checked. Let's look at hashCode order instead: hashCode multiplies registry first then toPattern.",
+    "original": "          if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {\n              return false;\n          }\n          if (ObjectUtils.notEqual(registry, rhs.registry)) {\n              return false;\n          }",
+    "mutated": "          if (ObjectUtils.notEqual(registry, rhs.registry)) {\n              return false;\n          }\n          if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {\n              return false;\n          }"
+  },
+  {
+    "description": "In hashCode, swapped the order in which registry and toPattern are combined with HASH_SEED, which doesn't violate general contract but breaks field symmetry if expected.",
+    "original": "          result = HASH_SEED * result + ObjectUtils.hashCode(registry);\n          result = HASH_SEED * result + ObjectUtils.hashCode(toPattern);",
+    "mutated": "          result = HASH_SEED * result + ObjectUtils.hashCode(toPattern);\n          result = HASH_SEED * result + ObjectUtils.hashCode(registry);"
+  },
+  {
+    "description": "Accidentally using `super.hashCode()` twice instead of including `registry` hash in `hashCode()`.",
+    "original": "          result = HASH_SEED * result + ObjectUtils.hashCode(registry);",
+    "mutated": "          result = HASH_SEED * result + ObjectUtils.hashCode(super.hashCode());"
+  },
+  {
+    "description": "Missing the `ObjectUtils.notEqual(getClass(), obj.getClass())` check, relying only on `super.equals(obj)`. Since all current tests use exact types or subclasses that are handled correctly, a subclass with the same pattern/registry might incorrectly return true.",
+    "original": "          if (ObjectUtils.notEqual(getClass(), obj.getClass())) {\n            return false;\n          }",
+    "mutated": "          /* omitted class check */"
+  },
+  {
+    "description": "In hashCode, replacing HASH_SEED multiplier with 1, which reduces hash dispersion but passes standard hashcode consistency and equality tests.",
+    "original": "          result = HASH_SEED * result + ObjectUtils.hashCode(registry);",
+    "mutated": "          result = 1 * result + ObjectUtils.hashCode(registry);"
+  }
+]

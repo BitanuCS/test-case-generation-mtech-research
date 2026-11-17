@@ -1,0 +1,206 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 348,
+    "status": "killed",
+    "killed_by": [
+      "testNodeNameTestEqualStringsArgumentOrderSwap",
+      "testNodeNameTestMatchingLocalNameButMismatchedNamespace",
+      "testNodeNameTestWildcardWithPrefix",
+      "testNodeNameTestWithNonElementNode",
+      "testNodeTypeTestInvalidType",
+      "testNodeTypeTestNodeWithText",
+      "testNullNodeTest",
+      "testProcessingInstructionTestMismatchedTarget",
+      "testProcessingInstructionTestWithNonPINode",
+      "testUnsupportedNodeTestClass"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 349,
+    "status": "killed",
+    "killed_by": [
+      "testNullNodeTest"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "(node instanceof Element)",
+    "description": "negation removed: '!' deleted",
+    "line": 352,
+    "status": "killed",
+    "killed_by": [
+      "testEqualStringsArgumentOrderSensitivityWithTrimmingAndNulls",
+      "testNodeNameTestMatchingLocalNameAndNamespace",
+      "testNodeNameTestWildcardNoPrefix",
+      "testNodeNameTestWildcardWithNamespaceCheck"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 353,
+    "status": "killed",
+    "killed_by": [
+      "testNodeNameTestWithNonElementNode"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 361,
+    "status": "killed",
+    "killed_by": [
+      "testNodeNameTestEqualStringsArgumentOrderSwap",
+      "testNodeNameTestWildcardWithPrefix"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 361,
+    "status": "killed",
+    "killed_by": [
+      "testNodeNameTestWildcardWithPrefix"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 362,
+    "status": "killed",
+    "killed_by": [
+      "testNodeNameTestWildcardNoPrefix"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 365,
+    "status": "killed",
+    "killed_by": [
+      "testEqualStringsArgumentOrderSensitivityWithTrimmingAndNulls",
+      "testNodeNameTestMatchingLocalNameAndNamespace",
+      "testNodeNameTestWildcardWithNamespaceCheck"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 376,
+    "status": "killed",
+    "killed_by": [
+      "testNodeTypeTestNodeWithDocument",
+      "testNodeTypeTestNodeWithElement"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 378,
+    "status": "killed",
+    "killed_by": [
+      "testNodeTypeTestTextWithTextNode"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 384,
+    "status": "killed",
+    "killed_by": [
+      "testNodeTypeTestInvalidType"
+    ]
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 394,
+    "status": "killed",
+    "killed_by": [
+      "testProcessingInstructionTestWithNonPINode",
+      "testUnsupportedNodeTestClass"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (wildcard || testPrefix == null) {\n              return true;\n          }",
+    "description": "Change logical AND to logical OR in the wildcard and null prefix check, causing it to return true prematurely or incorrectly when prefix is not null.",
+    "line": 361,
+    "status": "killed",
+    "killed_by": [
+      "testNodeNameTestEqualStringsArgumentOrderSwap",
+      "testNodeNameTestWildcardWithPrefix"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "case Compiler.NODE_TYPE_TEXT :\n                      return (node instanceof Text) && (node instanceof CDATA);",
+    "description": "Change the NODE_TYPE_TEXT check from logical OR to logical AND, making it impossible for both Text and CDATA conditions to be satisfied simultaneously.",
+    "line": 377,
+    "status": "killed",
+    "killed_by": [
+      "testNodeTypeTestTextWithTextNode"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "return equalStrings(nodeNS, namespaceURI);",
+    "description": "Swap equalStrings arguments for namespace check, which would fail if order-dependent or cause unexpected behavior when comparing namespace URIs.",
+    "line": 369,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (false\n                  || testName.getName()\n                          .equals(JDOMNodePointer.getLocalName(node))) {",
+    "description": "Change the wildcard check inside the node name matching block to false, disabling wildcard functionality when a prefix or non-null prefix is present.",
+    "line": 365,
+    "status": "killed",
+    "killed_by": [
+      "testNodeNameTestWildcardWithNamespaceCheck"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "return !testPI.equals(nodePI);",
+    "description": "Negate the ProcessingInstruction target equality check, causing matching targets to return false and mismatched targets to return true.",
+    "line": 390,
+    "status": "killed",
+    "killed_by": [
+      "testProcessingInstructionTestMatchingTarget",
+      "testProcessingInstructionTestMismatchedTarget"
+    ]
+  }
+]

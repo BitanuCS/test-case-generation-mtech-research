@@ -1,0 +1,149 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "readAfterCarriageReturnFollowedByNormalChar",
+      "readCarriageReturnIncrementsLineCounter",
+      "readConsecutiveCarriageReturns",
+      "readEndOfStreamReturnsMinusOne",
+      "readMultipleLinesWithMixedNewlines",
+      "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter",
+      "readSingleNormalCharacter"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "readAfterCarriageReturnFollowedByNormalChar",
+      "readCarriageReturnIncrementsLineCounter",
+      "readConsecutiveCarriageReturns",
+      "readConsecutiveNewlinesWithoutCarriageReturn",
+      "readMultipleLinesWithMixedNewlines",
+      "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter",
+      "readStandaloneNewlineIncrementsLineCounter"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "readConsecutiveNewlinesWithoutCarriageReturn",
+      "readEndOfStreamReturnsMinusOne",
+      "readMultipleLinesWithMixedNewlines",
+      "readSingleNormalCharacter",
+      "readStandaloneNewlineIncrementsLineCounter"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "readEndOfStreamReturnsMinusOne",
+      "readMultipleLinesWithMixedNewlines",
+      "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter",
+      "readSingleNormalCharacter"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "readConsecutiveNewlinesWithoutCarriageReturn",
+      "readMultipleLinesWithMixedNewlines",
+      "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter",
+      "readStandaloneNewlineIncrementsLineCounter"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (current == '\\r' || (current == '\\n' || lastChar != '\\r')) {",
+    "description": "Wrong logical operator: uses OR instead of AND for the newline check, causing standalone newlines or any character after a carriage return to misbehave.",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "readEndOfStreamReturnsMinusOne",
+      "readMultipleLinesWithMixedNewlines",
+      "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter",
+      "readSingleNormalCharacter"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (current == '\\r' || (current == '\\n' && lastChar != '\\n')) {",
+    "description": "Wrong comparison character: checks against '\\r' instead of '\\n' in the second condition.",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "readConsecutiveNewlinesWithoutCarriageReturn",
+      "readMultipleLinesWithMixedNewlines",
+      "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "lastChar = current;\n          if (current == '\\r' || (current == '\\n' && lastChar != '\\r')) {\n              lineCounter++;\n          }",
+    "description": "Wrong variable used for tracking the previous character: updates lastChar with current before the conditional check instead of after.",
+    "line": 58,
+    "status": "killed",
+    "killed_by": [
+      "readMultipleLinesWithMixedNewlines",
+      "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "lastChar = current;\n          return current;",
+    "description": "Swapped return value: returns 'current' instead of 'lastChar' at the end of the method.",
+    "line": 61,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "return lastChar;",
+    "description": "Missing assignment to lastChar: forgets to record the current character into lastChar, breaking subsequent newline tracking after carriage returns.",
+    "line": 61,
+    "status": "killed",
+    "killed_by": [
+      "readAfterCarriageReturnFollowedByNormalChar",
+      "readAfterEndOfStreamMaintainsLastChar",
+      "readCarriageReturnIncrementsLineCounter",
+      "readConsecutiveCarriageReturns",
+      "readConsecutiveNewlinesWithoutCarriageReturn",
+      "readEndOfStreamReturnsMinusOne",
+      "readMultipleLinesWithMixedNewlines",
+      "readNewlineAfterCarriageReturnDoesNotIncrementLineCounter",
+      "readSingleNormalCharacter",
+      "readStandaloneNewlineIncrementsLineCounter",
+      "testReadAgainReflectsLastCharAfterReading",
+      "testReadReturnsLastCharField"
+    ]
+  }
+]

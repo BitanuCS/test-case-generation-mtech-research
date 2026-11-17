@@ -1,0 +1,239 @@
+// ===== Class under test: org.apache.commons.codec.binary.Base64 =====
+package org.apache.commons.codec.binary;
+import java.math.BigInteger;
+import org.apache.commons.codec.BinaryDecoder;
+import org.apache.commons.codec.BinaryEncoder;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.EncoderException;
+
+/**
+ * Provides Base64 encoding and decoding as defined by RFC 2045.
+ * 
+ * <p>
+ * This class implements section <cite>6.8. Base64 Content-Transfer-Encoding</cite> from RFC 2045 <cite>Multipurpose
+ * Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</cite> by Freed and Borenstein.
+ * </p>
+ * <p>
+ * The class can be parameterized in the following manner with various constructors:
+ * <ul>
+ * <li>URL-safe mode: Default off.</li>
+ * <li>Line length: Default 76. Line length that aren't multiples of 4 will still essentially end up being multiples of
+ * 4 in the encoded data.
+ * <li>Line separator: Default is CRLF ("\r\n")</li>
+ * </ul>
+ * </p>
+ * <p>
+ * Since this class operates directly on byte streams, and not character streams, it is hard-coded to only encode/decode
+ * character encodings which are compatible with the lower 127 ASCII chart (ISO-8859-1, Windows-1252, UTF-8, etc).
+ * </p>
+ * 
+ * @see <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>
+ * @author Apache Software Foundation
+ * @since 1.0
+ * @version $Id$
+ */
+public class Base64 implements BinaryEncoder, BinaryDecoder {
+
+  // --- fields ---
+  private static final int DEFAULT_BUFFER_RESIZE_FACTOR = 2;
+  private static final int DEFAULT_BUFFER_SIZE = 8192;
+  public static final int MIME_CHUNK_SIZE = 76;
+  public static final int PEM_CHUNK_SIZE = 64;
+  static final byte[] CHUNK_SEPARATOR = {'\r', '\n'};
+  private static final byte[] STANDARD_ENCODE_TABLE = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/' };
+  private static final byte[] URL_SAFE_ENCODE_TABLE = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_' };
+  private static final byte PAD = '=';
+  private static final byte[] DECODE_TABLE = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51 };
+  private static final int MASK_6BITS = 0x3f;
+  private static final int MASK_8BITS = 0xff;
+  private final byte[] encodeTable;
+  private final int lineLength;
+  private final byte[] lineSeparator;
+  private final int decodeSize;
+  private final int encodeSize;
+  private byte[] buffer;
+  private int pos;
+  private int readPos;
+  private int currentLinePos;
+  private int modulus;
+  private boolean eof;
+  private int x;
+
+  // --- constructors and other methods (signatures only) ---
+  public Base64();
+  public Base64(boolean urlSafe);
+  public Base64(int lineLength);
+  public Base64(int lineLength, byte[] lineSeparator);
+  public Base64(int lineLength, byte[] lineSeparator, boolean urlSafe);
+  public boolean isUrlSafe();
+  boolean hasData();
+  int avail();
+  int readResults(byte[] b, int bPos, int bAvail);
+  void setInitialBuffer(byte[] out, int outPos, int outAvail);
+  void encode(byte[] in, int inPos, int inAvail);
+  public static boolean isBase64(byte octet);
+  public static boolean isArrayByteBase64(byte[] arrayOctet);
+  public static byte[] encodeBase64(byte[] binaryData);
+  public static String encodeBase64String(byte[] binaryData);
+  public static byte[] encodeBase64URLSafe(byte[] binaryData);
+  public static String encodeBase64URLSafeString(byte[] binaryData);
+  public static byte[] encodeBase64Chunked(byte[] binaryData);
+  public static byte[] encodeBase64(byte[] binaryData, boolean isChunked);
+  public static byte[] encodeBase64(byte[] binaryData, boolean isChunked, boolean urlSafe);
+  public static byte[] encodeBase64(byte[] binaryData, boolean isChunked, boolean urlSafe, int maxResultSize);
+  public static byte[] decodeBase64(String base64String);
+  public static byte[] decodeBase64(byte[] base64Data);
+  static byte[] discardWhitespace(byte[] data);
+  public Object encode(Object pObject) throws EncoderException;
+  public String encodeToString(byte[] pArray);
+  public byte[] encode(byte[] pArray);
+  public static BigInteger decodeInteger(byte[] pArray);
+  public static byte[] encodeInteger(BigInteger bigInt);
+  static byte[] toIntegerBytes(BigInteger bigInt);
+
+  // --- helper methods called by the method(s) under test ---
+  /** Doubles our buffer. */
+  private void resizeBuffer() {
+          if (buffer == null) {
+              buffer = new byte[DEFAULT_BUFFER_SIZE];
+              pos = 0;
+              readPos = 0;
+          } else {
+              byte[] b = new byte[buffer.length * DEFAULT_BUFFER_RESIZE_FACTOR];
+              System.arraycopy(buffer, 0, b, 0, buffer.length);
+              buffer = b;
+          }
+      }
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+       * <p>
+       * Decodes all of the provided data, starting at inPos, for inAvail bytes. Should be called at least twice: once
+       * with the data to decode, and once with inAvail set to "-1" to alert decoder that EOF has been reached. The "-1"
+       * call is not necessary when decoding, but it doesn't hurt, either.
+       * </p>
+       * <p>
+       * Ignores all non-base64 characters. This is how chunked (e.g. 76 character) data is handled, since CR and LF are
+       * silently ignored, but has implications for other bytes, too. This method subscribes to the garbage-in,
+       * garbage-out philosophy: it will not check the provided data for validity.
+       * </p>
+       * <p>
+       * Thanks to "commons" project in ws.apache.org for the bitwise operations, and general approach.
+       * http://svn.apache.org/repos/asf/webservices/commons/trunk/modules/util/
+       * </p>
+       * 
+       * @param in
+       *            byte[] array of ascii data to base64 decode.
+       * @param inPos
+       *            Position to start reading data from.
+       * @param inAvail
+       *            Amount of bytes available from input for encoding.
+       */
+  void decode(byte[] in, int inPos, int inAvail) {
+          if (eof) {
+              return;
+          }
+          if (inAvail < 0) {
+              eof = true;
+          }
+          for (int i = 0; i < inAvail; i++) {
+              if (buffer == null || buffer.length - pos < decodeSize) {
+                  resizeBuffer();
+              }
+              byte b = in[inPos++];
+              if (b == PAD) {
+                  // We're done.
+                  eof = true;
+                  break;
+              } else {
+                  if (b >= 0 && b < DECODE_TABLE.length) {
+                      int result = DECODE_TABLE[b];
+                      if (result >= 0) {
+                          modulus = (++modulus) % 4;
+                          x = (x << 6) + result;
+                          if (modulus == 0) {
+                              buffer[pos++] = (byte) ((x >> 16) & MASK_8BITS);
+                              buffer[pos++] = (byte) ((x >> 8) & MASK_8BITS);
+                              buffer[pos++] = (byte) (x & MASK_8BITS);
+                          }
+                      }
+                  }
+              }
+          }
+
+          // Two forms of EOF as far as base64 decoder is concerned: actual
+          // EOF (-1) and first time '=' character is encountered in stream.
+          // This approach makes the '=' padding characters completely optional.
+          if (eof && modulus != 0) {
+              if (buffer == null || buffer.length - pos < decodeSize) {
+                  resizeBuffer();
+              }
+            
+              x = x << 6;
+              switch (modulus) {
+                  case 2 :
+                      x = x << 6;
+                      buffer[pos++] = (byte) ((x >> 16) & MASK_8BITS);
+                      break;
+                  case 3 :
+                      buffer[pos++] = (byte) ((x >> 16) & MASK_8BITS);
+                      buffer[pos++] = (byte) ((x >> 8) & MASK_8BITS);
+                      break;
+              }
+          }
+      }
+}
+
+// ===== Existing test class Base64Test (test methods removed; style/setup reference only) =====
+package org.apache.commons.codec.binary;
+
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.Random;
+
+import junit.framework.TestCase;
+
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.EncoderException;
+
+/**
+ * Test cases for Base64 class.
+ *
+ * @see <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>
+ * @author Apache Software Foundation
+ * @version $Id$
+ */
+public class Base64Test extends TestCase {
+
+    private Random _random = new Random();
+
+    /**
+     * Construct a new instance of this test case.
+     *
+     * @param name
+     *            Name of the test case
+     */
+    public Base64Test(String name) {
+        super(name);
+    }
+
+    /**
+     * @return Returns the _random.
+     */
+    public Random getRandom() {
+        return this._random;
+    }
+
+    private String toString(byte[] data) {
+        StringBuffer buf = new StringBuffer();
+        for (int i = 0; i < data.length; i++) {
+            buf.append(data[i]);
+            if (i != data.length - 1) {
+                buf.append(",");
+            }
+        }
+        return buf.toString();
+    }
+
+}

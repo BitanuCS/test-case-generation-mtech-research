@@ -1,0 +1,331 @@
+{
+  "bug": "Time-1",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 305,
+      "lines_covered": 69,
+      "branches_total": 122,
+      "branches_covered": 36,
+      "line": 0.226,
+      "branch": 0.295
+    },
+    "major_mutation": {
+      "generated": 407,
+      "covered": 407,
+      "killed": 351,
+      "score": 0.862
+    }
+  },
+  "seconds": 181.3,
+  "llm_calls": {
+    "fresh": 15,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 15
+    },
+    "tokens_in": 41430,
+    "tokens_out": 16223
+  },
+  "classes": [
+    {
+      "bug": "Time-1",
+      "class": "org.joda.time.field.UnsupportedDurationField",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "compile_errors": 1
+        },
+        {
+          "round": 3,
+          "compile_errors": 1
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "compareTo"
+      ],
+      "generated_tests": 4,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 4,
+        "oracles": 4,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 4,
+        "compiles": false,
+        "compile_ok_tests": 3,
+        "passed": 3,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.75,
+        "execution_rate": 0.75,
+        "pass_rate": 0.75,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 4,
+      "mutation": [
+        {
+          "all": {
+            "total": 6,
+            "valid": 6,
+            "killed": 6,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 1,
+            "valid": 1,
+            "killed": 1,
+            "score": 1.0
+          },
+          "tests": 4,
+          "coverage": {
+            "line": 1.0,
+            "branch": null
+          }
+        }
+      ],
+      "final_tests": 4,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.264,
+          "branch": 0.333,
+          "line": 0.317,
+          "complexity": 0.194,
+          "method": 0.16,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 20,
+          "killed": 2,
+          "score": 0.1
+        },
+        "focal": {
+          "generated": 0,
+          "killed": 0,
+          "score": null
+        }
+      },
+      "final_oracles": 4,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "compareToWithNull",
+        "compareToWithSupportedDurationField"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "compareToWithNull": "java.lang.NullPointerException: null\n    at org.joda.time.field.UnsupportedDurationField_CandorTest.compareToWithNull(UnsupportedDurationField_CandorTest.java:43)",
+        "compareToWithSupportedDurationField": "java.lang.AssertionError: expected:<0> but was:<1>\n    at org.joda.time.field.UnsupportedDurationField_CandorTest.compareToWithSupportedDurationField(UnsupportedDurationField_CandorTest.java:36)"
+      },
+      "status": "ok"
+    },
+    {
+      "bug": "Time-1",
+      "class": "org.joda.time.Partial",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 11,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "compile_errors": 3
+        },
+        {
+          "round": 2,
+          "passed": 18,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 18,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 20,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 18,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 19,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "Partial"
+      ],
+      "generated_tests": 11,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 11,
+        "oracles": 24,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 11,
+        "compiles": true,
+        "compile_ok_tests": 11,
+        "passed": 11,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 1.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 11,
+      "mutation": [
+        {
+          "all": {
+            "total": 30,
+            "valid": 17,
+            "killed": 8,
+            "score": 0.471
+          },
+          "rule": {
+            "total": 25,
+            "valid": 12,
+            "killed": 5,
+            "score": 0.417
+          },
+          "tests": 11,
+          "coverage": {
+            "line": 0.692,
+            "branch": 0.667
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 17,
+            "killed": 13,
+            "score": 0.765
+          },
+          "rule": {
+            "total": 25,
+            "valid": 12,
+            "killed": 8,
+            "score": 0.667
+          },
+          "tests": 18,
+          "coverage": {
+            "line": 0.923,
+            "branch": 0.861
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 17,
+            "killed": 14,
+            "score": 0.824
+          },
+          "rule": {
+            "total": 25,
+            "valid": 12,
+            "killed": 9,
+            "score": 0.75
+          },
+          "tests": 19,
+          "coverage": {
+            "line": 0.962,
+            "branch": 0.889
+          }
+        }
+      ],
+      "final_tests": 19,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.279,
+          "branch": 0.291,
+          "line": 0.229,
+          "complexity": 0.227,
+          "method": 0.182,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.962,
+          "branch": 0.889
+        },
+        "focal_missed_lines": [
+          238,
+          239
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 144,
+          "killed": 32,
+          "score": 0.222
+        },
+        "focal": {
+          "generated": 33,
+          "killed": 28,
+          "score": 0.848
+        }
+      },
+      "final_oracles": 32,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "testUnsupportedFieldOrderThrowsException"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "testUnsupportedFieldOrderThrowsException": "java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException"
+      },
+      "status": "ok"
+    }
+  ]
+}

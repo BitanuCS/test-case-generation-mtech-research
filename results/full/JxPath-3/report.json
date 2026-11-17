@@ -1,0 +1,244 @@
+{
+  "bug": "JxPath-3",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 83,
+      "lines_covered": 25,
+      "branches_total": 34,
+      "branches_covered": 8,
+      "line": 0.301,
+      "branch": 0.235
+    },
+    "major_mutation": {
+      "generated": 91,
+      "covered": 91,
+      "killed": 80,
+      "score": 0.879
+    }
+  },
+  "seconds": 120.6,
+  "llm_calls": {
+    "fresh": 12,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 12
+    },
+    "tokens_in": 48550,
+    "tokens_out": 25357
+  },
+  "classes": [
+    {
+      "bug": "JxPath-3",
+      "class": "org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 16
+        },
+        {
+          "round": 2,
+          "passed": 4,
+          "failed": 6,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 8,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "compile_errors": 2
+        },
+        {
+          "round": 2,
+          "passed": 8,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "compile_errors": 2
+        },
+        {
+          "round": 1,
+          "compile_errors": 13
+        },
+        {
+          "round": 2,
+          "passed": 8,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "propertyOwnerPointerParentExpansionWithValue",
+          "fails"
+        ],
+        [
+          "propertyOwnerPointerParentExpansion",
+          "fails"
+        ],
+        [
+          "propertyOwnerPointerParentExpansionWithValueTest",
+          "fails"
+        ],
+        [
+          "propertyOwnerPointerParentExpansionTest",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "createPath",
+        "createPath",
+        "createBadFactoryException"
+      ],
+      "generated_tests": 10,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 10,
+        "oracles": 19,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 10,
+        "compiles": false,
+        "compile_ok_tests": 2,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 2,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.2,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 8,
+      "mutation": [
+        {
+          "all": {
+            "total": 12,
+            "valid": 8,
+            "killed": 4,
+            "score": 0.5
+          },
+          "rule": {
+            "total": 6,
+            "valid": 2,
+            "killed": 2,
+            "score": 1.0
+          },
+          "tests": 8,
+          "coverage": {
+            "line": 0.636,
+            "branch": 0.5
+          }
+        },
+        {
+          "all": {
+            "total": 12,
+            "valid": 8,
+            "killed": 4,
+            "score": 0.5
+          },
+          "rule": {
+            "total": 6,
+            "valid": 2,
+            "killed": 2,
+            "score": 1.0
+          },
+          "tests": 8,
+          "coverage": {
+            "line": 0.636,
+            "branch": 0.5
+          }
+        },
+        {
+          "all": {
+            "total": 12,
+            "valid": 8,
+            "killed": 4,
+            "score": 0.5
+          },
+          "rule": {
+            "total": 6,
+            "valid": 2,
+            "killed": 2,
+            "score": 1.0
+          },
+          "tests": 8,
+          "coverage": {
+            "line": 0.636,
+            "branch": 0.5
+          }
+        }
+      ],
+      "final_tests": 8,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.248,
+          "branch": 0.235,
+          "line": 0.301,
+          "complexity": 0.214,
+          "method": 0.28,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.636,
+          "branch": 0.5
+        },
+        "focal_missed_lines": [
+          112,
+          128,
+          129,
+          144,
+          147,
+          148,
+          234,
+          235
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 42,
+          "killed": 11,
+          "score": 0.262
+        },
+        "focal": {
+          "generated": 14,
+          "killed": 11,
+          "score": 0.786
+        }
+      },
+      "final_oracles": 16,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    }
+  ]
+}

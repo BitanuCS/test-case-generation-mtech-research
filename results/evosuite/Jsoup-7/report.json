@@ -1,0 +1,106 @@
+{
+  "bug": "Jsoup-7",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.jsoup.nodes.Document",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 15,
+      "final_oracles": 20,
+      "focal_methods": [
+        "normalise",
+        "normaliseStructure"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.117,
+          "branch": 0.0,
+          "line": 0.137,
+          "complexity": 0.094,
+          "method": 0.2,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.0,
+          "branch": 0.0
+        },
+        "focal_missed_lines": [
+          100,
+          101,
+          102,
+          103,
+          104,
+          105,
+          106,
+          110,
+          111,
+          112,
+          114,
+          115,
+          117,
+          141,
+          142,
+          143,
+          144,
+          145,
+          146,
+          147,
+          148,
+          149,
+          152,
+          153,
+          156,
+          157,
+          159
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 37,
+          "killed": 21,
+          "score": 0.568
+        },
+        "focal": {
+          "generated": 15,
+          "killed": 5,
+          "score": 0.333
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Jsoup",
+      "version_id": "7f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 96,
+      "lines_covered": 95,
+      "branches_total": 36,
+      "branches_covered": 36,
+      "line": 0.99,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 71,
+      "covered": 71,
+      "killed": 33,
+      "score": 0.465
+    }
+  },
+  "seconds": 52.3,
+  "extras_measured": true
+}

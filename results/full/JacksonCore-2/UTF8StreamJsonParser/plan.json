@@ -1,0 +1,104 @@
+[
+  {
+    "method": "_parseNumber",
+    "name": "parseSimplePositiveInteger",
+    "input": "Input buffer containing '123' at current pointer, in non-root context",
+    "expected": "Returns JsonToken.VALUE_NUMBER_INT because the number has no fractional or exponential part."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseNegativeIntegerWithRootSpaceVerification",
+    "input": "Input buffer containing '-456 ' in root parsing context (_parsingContext.inRoot() == true)",
+    "expected": "Returns JsonToken.VALUE_NUMBER_INT after successfully verifying the required root spacing via _verifyRootSpace."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseNumberDelegatesToParserNumber2OnBufferBoundary",
+    "input": "Input buffer where integer reading hits _inputEnd requiring continuation in _parserNumber2",
+    "expected": "Delegates to _parserNumber2 to correctly parse the remaining digits across buffer boundaries or segment limits."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseNumberDelegatesToParseFloatOnDecimal",
+    "input": "Input buffer containing '123.45'",
+    "expected": "Encounters '.' and delegates to _parseFloat to parse fractional parts."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseNumberDelegatesToParseFloatOnExponent",
+    "input": "Input buffer containing '123e10'",
+    "expected": "Encounters 'e' or 'E' and delegates to _parseFloat to parse exponent parts."
+  },
+  {
+    "method": "_parseNumber",
+    "name": "parseInvalidNumberStartAfterMinus",
+    "input": "Input buffer containing '-' followed by non-digit char (e.g., '-a')",
+    "expected": "Calls _handleInvalidNumberStart because a minus sign must be followed by a digit."
+  },
+  {
+    "method": "_parserNumber2",
+    "name": "parserNumber2ReachesEOFSuccessfully",
+    "input": "Input buffer runs out of content while parsing digits in _parserNumber2 without further tokens",
+    "expected": "Finishes reading and returns resetInt(negative, intPartLength) when no more input can be loaded."
+  },
+  {
+    "method": "_parserNumber2",
+    "name": "parserNumber2EncountersDecimalOrExponent",
+    "input": "Input buffer encountered '.' or 'e' inside _parserNumber2",
+    "expected": "Switches execution to _parseFloat with the collected buffer segments and lengths."
+  },
+  {
+    "method": "_parseFloat",
+    "name": "parseFloatValidDecimalAndExponent",
+    "input": "Input buffer containing '123.45e+2'",
+    "expected": "Parses fraction length and exponent length successfully and returns resetFloat."
+  },
+  {
+    "method": "_parseFloat",
+    "name": "parseFloatMissingDigitAfterDecimal",
+    "input": "Input buffer containing '123.' followed by non-digit or EOF",
+    "expected": "Throws exception via reportUnexpectedNumberChar because decimal point is not followed by a digit."
+  },
+  {
+    "method": "_parseFloat",
+    "name": "parseFloatMissingDigitAfterExponent",
+    "input": "Input buffer containing '123e' followed by non-digit or EOF",
+    "expected": "Throws exception via reportUnexpectedNumberChar because exponent indicator is not followed by a digit."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceWithSpaceOrTab",
+    "input": "Root space character ' ' or '\\t'",
+    "expected": "Advances _inputPtr past the space character successfully without throwing."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceWithCarriageReturn",
+    "input": "Root space character '\\r'",
+    "expected": "Invokes _skipCR() to handle line endings correctly and advances row counts."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceWithLineFeed",
+    "input": "Root space character '\\n'",
+    "expected": "Increments row count (_currInputRow) and updates row start pointer (_currInputRowStart)."
+  },
+  {
+    "method": "_verifyRootSpace",
+    "name": "verifyRootSpaceInvalidCharacterThrowsException",
+    "input": "Root space character is an alphanumeric or invalid separator (e.g. 'a')",
+    "expected": "Throws exception via _reportMissingRootWS(ch) because root values must be separated by whitespace."
+  },
+  {
+    "method": "_skipWSOrEnd",
+    "name": "skipWSOrEndSkipsWhitespaceAndComments",
+    "input": "Input buffer containing spaces, tabs, newlines, and comments '/' or '#'",
+    "expected": "Successfully skips all whitespace and comments according to enabled features, returning the next non-whitespace token byte or -1 on EOF."
+  },
+  {
+    "method": "_skipWSOrEnd",
+    "name": "skipWSOrEndReportsInvalidChar",
+    "input": "Input buffer containing illegal control or invalid UTF-8 start characters during whitespace skipping",
+    "expected": "Calls _reportInvalidChar(i) due to default case mapping in the whitespace/syntax lookup table."
+  }
+]

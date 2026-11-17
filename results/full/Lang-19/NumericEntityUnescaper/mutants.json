@@ -1,0 +1,535 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 40,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateIncompleteEntityJustAmpersandHash"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "3",
+    "description": "constant: 2 -> 3",
+    "line": 40,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateExactBoundaryLengthThree"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 40,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateIncompleteEntityJustAmpersandHash"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 40,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateIncompleteHexEntityOnlyX",
+      "testTranslateInvalidCharactersInEntity",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 40,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 41,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateIncompleteHexEntityOnlyX",
+      "testTranslateInvalidCharactersInEntity",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 45,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 47,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateSupplementaryCodepoint"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 57,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 57,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityWithoutSemicolon"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 57,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '<=' -> '<'",
+    "line": 57,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateExactBoundaryLengthThree"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 57,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 57,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateSupplementaryCodepoint"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 59,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 59,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '<=' -> '<'",
+    "line": 59,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 72,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 73,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateInvalidCharactersInEntity"
+    ]
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 76,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 78,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateSupplementaryCodepoint"
+    ]
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 84,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "3",
+    "description": "constant: 2 -> 3",
+    "line": 86,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateDecimalEntityWithoutSemicolon",
+      "testTranslateExactBoundaryLengthThree",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 86,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateSupplementaryCodepoint"
+    ]
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 88,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateBoundaryIndexTooCloseToEnd",
+      "testTranslateIncompleteEntityJustAmpersandHash"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if(firstChar == 'x' || firstChar == 'x') {",
+    "description": "Incorrect conditional check for hex prefix: checking 'x' or 'x' instead of 'x' or 'X', causing uppercase 'X' hex entities to be treated as decimal entities and fail parsing.",
+    "line": 45,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateHexEntityUppercaseWithSemicolon"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return 2 + (end - start) + (isHex ? 2 : 0) + (semiNext ? 1 : 0);",
+    "description": "Off-by-one error in the return value calculation for hex entities, subtracting or adding the wrong offset for the 'x' character length.",
+    "line": 86,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateSupplementaryCodepoint"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "return 2 + (end - start) + (isHex ? 1 : 0) + 0;",
+    "description": "Missing semicolon check integration: `semiNext` is calculated but a typo uses `false` or ignores it in the return statement.",
+    "line": 86,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateDecimalEntityDigitNine",
+      "testTranslateDecimalEntityWithSemicolon",
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateNonEntityNoAmpersand",
+      "testTranslateSupplementaryCodepoint",
+      "testTranslateWithOffsetIndex"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if(start <= seqEnd) {",
+    "description": "Wrong boundary check condition: using '<=' instead of '<' when ensuring there is more than just an x after the &#.",
+    "line": 50,
+    "status": "killed",
+    "killed_by": [
+      "testTranslateHexEntityLowercaseF",
+      "testTranslateHexEntityLowercaseFWithoutSemicolonKillsA4",
+      "testTranslateHexEntityLowercaseWithSemicolon",
+      "testTranslateHexEntityUppercaseA",
+      "testTranslateHexEntityUppercaseAGreaterThanKillsR15",
+      "testTranslateHexEntityUppercaseF",
+      "testTranslateHexEntityUppercaseFLessThanKillsR16",
+      "testTranslateHexEntityUppercaseWithSemicolon",
+      "testTranslateHexEntityWithoutSemicolon",
+      "testTranslateSupplementaryCodepoint"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "(input.charAt(end) >= 'a' && input.charAt(end) <= 'e') ||",
+    "description": "Wrong range boundary check for lowercase letters in the hex parsing while loop, omitting 'f' (using 'e' instead).",
+    "line": 58,
+    "status": "survived",
+    "killed_by": []
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapped comparison operators in negative sign digit validation check, accepting non-digits as valid number starts after a minus sign.",
+    "original": "if (c < INT_0 || c > INT_9) {",
+    "mutated": "if (c > INT_0 || c < INT_9) {"
+  },
+  {
+    "description": "Changed decrement to increment on input pointer when pushing back trailing character in _parseNumber, pointing to the wrong buffer index.",
+    "original": "--_inputPtr; // to push back trailing char (comma etc)",
+    "mutated": "++_inputPtr; // to push back trailing char (comma etc)"
+  },
+  {
+    "description": "Off-by-one error in segment boundary check within the fast number parsing loop, causing potential buffer overflow or missed buffer boundary checks.",
+    "original": "if (outPtr >= outBuf.length) {",
+    "mutated": "if (outPtr > outBuf.length) {"
+  },
+  {
+    "description": "Changed addition to subtraction when incrementing integer part length in _parserNumber2, corrupting the tracked length of the integer.",
+    "original": "++intPartLength;",
+    "mutated": "--intPartLength;"
+  },
+  {
+    "description": "Mutated exponent loop condition to check against INT_0 instead of INT_9 on the upper bound, causing exponents to fail or skip valid digits.",
+    "original": "while (c <= INT_9 && c >= INT_0) {",
+    "mutated": "while (c <= INT_0 && c >= INT_0) {"
+  }
+]

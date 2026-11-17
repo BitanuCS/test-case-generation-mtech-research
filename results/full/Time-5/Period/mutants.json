@@ -1,0 +1,355 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 1619,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardNegativeMillisAndSeconds",
+      "normalizedStandardOverflowsSecondsToMinutes"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 1620,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardWithNullTypeUsesStandard"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 1621,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardWithNullTypeUsesStandard"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 1622,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardWithCustomPeriodTypeOmittingWeeks"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 1623,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardWeeksToDaysConversion",
+      "normalizedStandardWithCustomPeriodTypeOmittingWeeks"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 1627,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 1627,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 1627,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMissingYearsAndMonthsThrowsException",
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 1627,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMissingYearsAndMonthsThrowsException",
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardWithExactYearsNoMonths"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 1627,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMissingYearsAndMonthsThrowsException",
+      "normalizedStandardMonthAndDaysDoNotOverflow"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 1628,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "13L",
+    "description": "constant: 12L -> 13L",
+    "line": 1628,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 1628,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths"
+    ]
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "*",
+    "description": "arithmetic: '/' -> '*'",
+    "line": 1630,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "13",
+    "description": "constant: 12 -> 13",
+    "line": 1630,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 1632,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 1632,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "13",
+    "description": "constant: 12 -> 13",
+    "line": 1632,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 1637,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths"
+    ]
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 1639,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMissingYearsAndMonthsThrowsException",
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 1639,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMissingYearsAndMonthsThrowsException",
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 1640,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "long totalMonths = years + months * 12L;",
+    "description": "Swapped years and months multiplier in totalMonths calculation",
+    "line": 1628,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "int normalizedYears = FieldUtils.safeToInt(totalMonths / 13);",
+    "description": "Wrong divisor when calculating normalizedYears (used 13 instead of 12)",
+    "line": 1630,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "totalMonths = totalMonths - (normalizedYears * 13);",
+    "description": "Wrong multiplier when subtracting normalizedYears from totalMonths (used 13 instead of 12)",
+    "line": 1632,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "totalMonths = totalMonths - 0;",
+    "description": "Used subtraction instead of subtraction by normalizedMonths in totalMonths update (subtracted 0 or wrong logic)",
+    "line": 1637,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardOverflowsMonthsFromYearsAndMonths",
+      "normalizedStandardWithExactYearsNoMonths"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (years != 0 && months != 0) {",
+    "description": "Changed condition for years or months check to require both non-zero instead of either",
+    "line": 1627,
+    "status": "killed",
+    "killed_by": [
+      "normalizedStandardMissingYearsAndMonthsThrowsException",
+      "normalizedStandardMonthAndDaysDoNotOverflow",
+      "normalizedStandardWithExactYearsNoMonths",
+      "normalizedStandardWithYearsEqualsOneAndMonthsZero",
+      "normalizedStandardWithZeroYearsAndNonZeroMonths"
+    ]
+  }
+]

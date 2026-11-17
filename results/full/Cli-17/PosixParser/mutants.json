@@ -1,0 +1,217 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 284,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithMixedValidAndUnknownOptionStopFalse",
+      "testBurstTokenWithMixedValidAndUnknownOptionStopTrue",
+      "testBurstTokenWithMultipleValidNonArgOptions",
+      "testBurstTokenWithUnknownOptionAndStopAtNonOptionFalse",
+      "testBurstTokenWithUnknownOptionAndStopAtNonOptionTrue",
+      "testBurstTokenWithUnknownOptionContainingMultipleCharsStopTrue",
+      "testBurstTokenWithValidOptionHavingArgAndRemainingChars",
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar",
+      "testBurstTokenWithValidOptionWithoutArg"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 284,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithMultipleValidNonArgOptions",
+      "testBurstTokenWithOnlyHyphenBoundary",
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars",
+      "testBurstTokenWithValidOptionWithoutArg"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 284,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithMixedValidAndUnknownOptionStopFalse",
+      "testBurstTokenWithMixedValidAndUnknownOptionStopTrue",
+      "testBurstTokenWithMultipleValidNonArgOptions",
+      "testBurstTokenWithOnlyHyphenBoundary",
+      "testBurstTokenWithUnknownOptionAndStopAtNonOptionFalse",
+      "testBurstTokenWithUnknownOptionAndStopAtNonOptionTrue",
+      "testBurstTokenWithUnknownOptionContainingMultipleCharsStopFalse",
+      "testBurstTokenWithUnknownOptionContainingMultipleCharsStopTrue",
+      "testBurstTokenWithValidOptionHavingArgAndRemainingChars",
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar",
+      "testBurstTokenWithValidOptionWithoutArg"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 290,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 293,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithMixedValidAndUnknownOptionStopFalse",
+      "testBurstTokenWithMixedValidAndUnknownOptionStopTrue",
+      "testBurstTokenWithMultipleValidNonArgOptions",
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 293,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithValidOptionHavingArgAndRemainingChars",
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 293,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 293,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 295,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithValidOptionHavingArgAndRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 295,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithValidOptionHavingArgAndRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "for (int i = 2; i < token.length(); i++)",
+    "description": "Off-by-one error in the loop starting index, skipping the first option character after the hyphen.",
+    "line": 284,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithMixedValidAndUnknownOptionStopFalse",
+      "testBurstTokenWithMixedValidAndUnknownOptionStopTrue",
+      "testBurstTokenWithMultipleValidNonArgOptions",
+      "testBurstTokenWithUnknownOptionAndStopAtNonOptionFalse",
+      "testBurstTokenWithUnknownOptionAndStopAtNonOptionTrue",
+      "testBurstTokenWithUnknownOptionContainingMultipleCharsStopTrue",
+      "testBurstTokenWithValidOptionHavingArgAndRemainingChars",
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar",
+      "testBurstTokenWithValidOptionWithoutArg"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (currentOption.hasArg() && (token.length() == (i + 1)))",
+    "description": "Wrong comparison operator in argument check, preventing remaining characters from being added as a separate token if the length matches (i + 1).",
+    "line": 293,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithValidOptionHavingArgAndRemainingChars",
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "else if (stopAtNonOption)\n              {\n                  tokens.add(token);\n                  break;\n              }",
+    "description": "Swapping the true and false branch actions when an unknown option is encountered and stopAtNonOption is set.",
+    "line": 300,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithMixedValidAndUnknownOptionStopTrue",
+      "testBurstTokenWithUnknownOptionAndStopAtNonOptionTrue",
+      "testBurstTokenWithUnknownOptionContainingMultipleCharsStopTrue"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "else\n              {\n                  tokens.add(ch);\n                  break;\n              }",
+    "description": "Wrong variable added to the tokens list when an unknown option is encountered and stopAtNonOption is false, adding the whole token instead of just the single character.",
+    "line": 305,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithMixedValidAndUnknownOptionStopFalse",
+      "testBurstTokenWithUnknownOptionAndStopAtNonOptionFalse",
+      "testBurstTokenWithUnknownOptionContainingMultipleCharsStopFalse"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "tokens.add(\"-\" + ch);",
+    "description": "Missing assignment of currentOption when a valid option is matched, leaving currentOption stale or unupdated.",
+    "line": 290,
+    "status": "killed",
+    "killed_by": [
+      "testBurstTokenWithMixedValidAndUnknownOptionStopFalse",
+      "testBurstTokenWithMixedValidAndUnknownOptionStopTrue",
+      "testBurstTokenWithMultipleValidNonArgOptions",
+      "testBurstTokenWithValidOptionHavingArgAndRemainingChars",
+      "testBurstTokenWithValidOptionHavingArgNoRemainingChars",
+      "testBurstTokenWithValidOptionWithArgFollowedByAnotherChar",
+      "testBurstTokenWithValidOptionWithoutArg"
+    ]
+  }
+]

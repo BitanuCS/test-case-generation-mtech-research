@@ -1,0 +1,16 @@
+# secrets and local caches (never upload)
+.env
+cache/
+__pycache__/
+*.pyc
+.DS_Store
+
+# not part of the repository
+Research/
+old_results_backup.zip
+evosuite-report/
+mmlc.log
+*.log
+
+# empty temp files created by some projects' tests
+.tmp_file_needed_by_mock_of_FileHandler*

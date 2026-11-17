@@ -1,0 +1,110 @@
+{
+  "bug": "Compress-12",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 17,
+      "final_oracles": 17,
+      "focal_methods": [
+        "getNextTarEntry"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.292,
+          "branch": 0.236,
+          "line": 0.34,
+          "complexity": 0.338,
+          "method": 0.864,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.238,
+          "branch": 0.25
+        },
+        "focal_missed_lines": [
+          181,
+          182,
+          183,
+          185,
+          186,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          208,
+          210,
+          211,
+          212,
+          213,
+          214,
+          216,
+          217,
+          220,
+          223,
+          224,
+          225,
+          227,
+          230,
+          231,
+          234,
+          235,
+          242,
+          243
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 137,
+          "killed": 47,
+          "score": 0.343
+        },
+        "focal": {
+          "generated": 24,
+          "killed": 6,
+          "score": 0.25
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Compress",
+      "version_id": "12f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 200,
+      "lines_covered": 68,
+      "branches_total": 110,
+      "branches_covered": 27,
+      "line": 0.34,
+      "branch": 0.245
+    },
+    "major_mutation": {
+      "generated": 318,
+      "covered": 318,
+      "killed": 238,
+      "score": 0.748
+    }
+  },
+  "seconds": 116.7,
+  "extras_measured": true
+}

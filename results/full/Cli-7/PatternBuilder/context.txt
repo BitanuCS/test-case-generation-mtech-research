@@ -1,0 +1,116 @@
+// ===== Class under test: org.apache.commons.cli2.builder.PatternBuilder =====
+package org.apache.commons.cli2.builder;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import org.apache.commons.cli2.Argument;
+import org.apache.commons.cli2.Option;
+import org.apache.commons.cli2.validation.ClassValidator;
+import org.apache.commons.cli2.validation.DateValidator;
+import org.apache.commons.cli2.validation.FileValidator;
+import org.apache.commons.cli2.validation.NumberValidator;
+import org.apache.commons.cli2.validation.UrlValidator;
+import org.apache.commons.cli2.validation.Validator;
+
+
+public class PatternBuilder {
+
+  // --- fields ---
+  private final GroupBuilder gbuilder;
+  private final DefaultOptionBuilder obuilder;
+  private final ArgumentBuilder abuilder;
+  private final Set options = new LinkedHashSet();
+
+  // --- constructors and other methods (signatures only) ---
+  public PatternBuilder();
+  public PatternBuilder( final GroupBuilder gbuilder, final DefaultOptionBuilder obuilder, final ArgumentBuilder abuilder);
+  public void withPattern(final String pattern);
+
+  // --- helper methods called by the method(s) under test ---
+  private static Validator validator(final char c) {
+          switch (c) {
+              case '@' :
+                  final ClassValidator classv = new ClassValidator();
+                  classv.setInstance(true);
+                  return classv;
+              case '+' :
+                  final ClassValidator instancev = new ClassValidator();
+                  return instancev;
+                  //case ':':// no validator needed for a string
+              case '%' :
+                  return NumberValidator.getNumberInstance();
+              case '#' :
+                  return DateValidator.getDateInstance();
+              case '<' :
+                  final FileValidator existingv = new FileValidator();
+                  existingv.setExisting(true);
+                  existingv.setFile(true);
+                  return existingv;
+              case '>' :
+              case '*' :
+                  return new FileValidator();
+              case '/' :
+                  return new UrlValidator();
+              default :
+                  return null;
+          }
+      }
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+       * Creates a new Option instance.
+       * @return a new Option instance
+       */
+  public Option create() {
+          final Option option;
+
+          if (options.size() == 1) {
+              option = (Option)options.iterator().next();
+          }
+          else {
+              gbuilder.reset();
+              for (final Iterator i = options.iterator(); i.hasNext();) {
+                  gbuilder.withOption((Option)i.next());
+              }
+              option = gbuilder.create();
+          }
+
+          reset();
+
+          return option;
+      }
+  /**
+       * Resets this builder
+       */
+  public PatternBuilder reset() {
+          options.clear();
+          return this;
+      }
+  private void createOption(
+          final char type,
+          final boolean required,
+          final char opt) {
+          final Argument argument;
+          if (type != ' ') {
+              abuilder.reset();
+              abuilder.withValidator(validator(type));
+              if (required) {
+                  abuilder.withMinimum(1);
+              }
+              if (type != '*') {
+                  abuilder.withMaximum(1);
+              }
+              argument = abuilder.create();
+          }
+          else {
+              argument = null;
+          }
+
+          obuilder.reset();
+          obuilder.withArgument(argument);
+          obuilder.withShortName(String.valueOf(opt));
+          obuilder.withRequired(required);
+
+          options.add(obuilder.create());
+      }
+}

@@ -1,0 +1,330 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 207,
+    "status": "killed",
+    "killed_by": [
+      "constructorNullTypeInArrayThrowsException"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 209,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 213,
+    "status": "killed",
+    "killed_by": [
+      "constructorDuplicateTypeThrowsException",
+      "constructorValidMultipleFieldsSuccess",
+      "constructorWrongOrderThrowsException",
+      "testCoverageRangeDurationCompareLessThanZero",
+      "testCoverageRangeDurationTypeNullOpposite",
+      "testDuplicateUnsupportedFieldThrowsException",
+      "testRangeDurationTypeCompareEqualsZeroThrowsException",
+      "testRangeDurationTypeNullOrderThrowsException",
+      "testUnsupportedFieldOrderThrowsException"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 213,
+    "status": "killed",
+    "killed_by": [
+      "constructorExplicitChronologySuccess",
+      "constructorInvalidFieldValueThrowsException",
+      "constructorValidMultipleFieldsSuccess",
+      "constructorValidSingleFieldSuccess",
+      "testMutantA3_TypesCloned",
+      "testMutantA4_ValuesCloned"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 219,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 219,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 222,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 223,
+    "status": "killed",
+    "killed_by": [
+      "testDuplicateUnsupportedFieldThrowsException"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 222,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 222,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 228,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 230,
+    "status": "killed",
+    "killed_by": [
+      "constructorDuplicateTypeThrowsException",
+      "testCoverageRangeDurationCompareLessThanZero",
+      "testCoverageRangeDurationTypeNullOpposite",
+      "testRangeDurationTypeCompareEqualsZeroThrowsException"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 230,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 231,
+    "status": "killed",
+    "killed_by": [
+      "constructorDuplicateTypeThrowsException",
+      "testCoverageRangeDurationCompareLessThanZero",
+      "testCoverageRangeDurationTypeNullOpposite",
+      "testRangeDurationTypeCompareEqualsZeroThrowsException"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 231,
+    "status": "killed",
+    "killed_by": [
+      "testCoverageRangeDurationCompareLessThanZero",
+      "testCoverageRangeDurationTypeNullOpposite",
+      "testRangeDurationTypeCompareEqualsZeroThrowsException"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 233,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 237,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 238,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 243,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 245,
+    "status": "killed",
+    "killed_by": [
+      "testCoverageRangeDurationTypeNullOpposite"
+    ]
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 244,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 244,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 249,
+    "status": "killed",
+    "killed_by": [
+      "testCoverageRangeDurationCompareLessThanZero",
+      "testRangeDurationTypeCompareEqualsZeroThrowsException"
+    ]
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 248,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 248,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (values.length == types.length) {",
+    "description": "Change array length inequality check to inequality on values array only or similar, but here let's change values.length != types.length to values.length == types.length",
+    "line": 199,
+    "status": "killed",
+    "killed_by": [
+      "constructorEmptyArraysSuccess",
+      "constructorExplicitChronologySuccess",
+      "constructorMismatchedLengthThrowsException",
+      "constructorValidMultipleFieldsSuccess",
+      "constructorValidSingleFieldSuccess",
+      "testMutantA3_TypesCloned",
+      "testMutantA4_ValuesCloned"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "for (int i = 1; i < types.length; i++) {\n              if (types[i] == null) {",
+    "description": "Change the loop condition starting index from 0 to 1, skipping the first type null check",
+    "line": 207,
+    "status": "killed",
+    "killed_by": [
+      "constructorNullTypeInArrayThrowsException"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "int compare = lastUnitField.compareTo(loopUnitField);\n                  if (compare > 0) {",
+    "description": "Swap the comparison operator from < 0 to > 0 when checking unit field ordering",
+    "line": 226,
+    "status": "killed",
+    "killed_by": [
+      "constructorValidMultipleFieldsSuccess",
+      "constructorWrongOrderThrowsException",
+      "testRangeDurationTypeNullOrderThrowsException"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "iTypes = types;",
+    "description": "Change the cloned types array to the original types reference",
+    "line": 257,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA3_TypesCloned"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "iValues = values;",
+    "description": "Change the cloned values array to the original values reference",
+    "line": 259,
+    "status": "killed",
+    "killed_by": [
+      "testMutantA4_ValuesCloned"
+    ]
+  }
+]

@@ -1,0 +1,541 @@
+{
+  "bug": "Codec-1",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 256,
+      "lines_covered": 231,
+      "branches_total": 184,
+      "branches_covered": 149,
+      "line": 0.902,
+      "branch": 0.81
+    },
+    "major_mutation": {
+      "generated": 585,
+      "covered": 585,
+      "killed": 413,
+      "score": 0.706
+    }
+  },
+  "seconds": 247.9,
+  "llm_calls": {
+    "fresh": 23,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 23
+    },
+    "tokens_in": 94118,
+    "tokens_out": 30938
+  },
+  "classes": [
+    {
+      "bug": "Codec-1",
+      "class": "org.apache.commons.codec.language.Caverphone",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 15,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 18,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 19,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 21,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "caverphone"
+      ],
+      "generated_tests": 15,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 15,
+        "oracles": 27,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 15,
+        "compiles": true,
+        "compile_ok_tests": 15,
+        "passed": 15,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 1.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 15,
+      "mutation": [
+        {
+          "all": {
+            "total": 13,
+            "valid": 11,
+            "killed": 6,
+            "score": 0.545
+          },
+          "rule": {
+            "total": 8,
+            "valid": 6,
+            "killed": 4,
+            "score": 0.667
+          },
+          "tests": 15,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 13,
+            "valid": 11,
+            "killed": 9,
+            "score": 0.818
+          },
+          "rule": {
+            "total": 8,
+            "valid": 6,
+            "killed": 6,
+            "score": 1.0
+          },
+          "tests": 19,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 13,
+            "valid": 11,
+            "killed": 9,
+            "score": 0.818
+          },
+          "rule": {
+            "total": 8,
+            "valid": 6,
+            "killed": 6,
+            "score": 1.0
+          },
+          "tests": 21,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        }
+      ],
+      "final_tests": 21,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.926,
+          "branch": 0.667,
+          "line": 0.928,
+          "complexity": 0.5,
+          "method": 0.4,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 9,
+          "killed": 4,
+          "score": 0.444
+        },
+        "focal": {
+          "generated": 4,
+          "killed": 4,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 34,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    },
+    {
+      "bug": "Codec-1",
+      "class": "org.apache.commons.codec.language.Metaphone",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 15,
+          "failed": 4,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 19,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 26,
+          "failed": 9,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 32,
+          "failed": 3,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 33,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 44,
+          "failed": 5,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 47,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 48,
+          "failed": 1,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "testSciSceScyDiscard",
+          "fails"
+        ],
+        [
+          "testMutantsR10_R11_ChConsonantOrVowel",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "metaphone"
+      ],
+      "generated_tests": 19,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 19,
+        "oracles": 20,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 19,
+        "compiles": true,
+        "compile_ok_tests": 19,
+        "passed": 15,
+        "assertion_failures": 4,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 0.789,
+        "oracle_correctness": 0.8
+      },
+      "valid_tests_before_challenge": 19,
+      "mutation": [
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 18,
+            "score": 0.6
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 16,
+            "score": 0.64
+          },
+          "tests": 19,
+          "coverage": {
+            "line": 0.746,
+            "branch": 0.638
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 22,
+            "score": 0.733
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 18,
+            "score": 0.72
+          },
+          "tests": 34,
+          "coverage": {
+            "line": 0.899,
+            "branch": 0.775
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 24,
+            "score": 0.8
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 20,
+            "score": 0.8
+          },
+          "tests": 48,
+          "coverage": {
+            "line": 0.935,
+            "branch": 0.848
+          }
+        }
+      ],
+      "final_tests": 48,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.961,
+          "branch": 0.844,
+          "line": 0.94,
+          "complexity": 0.752,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.935,
+          "branch": 0.848
+        },
+        "focal_missed_lines": [
+          110,
+          112,
+          211,
+          214,
+          264,
+          265,
+          278,
+          279,
+          309
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 130,
+          "killed": 115,
+          "score": 0.885
+        },
+        "focal": {
+          "generated": 92,
+          "killed": 81,
+          "score": 0.88
+        }
+      },
+      "final_oracles": 60,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    },
+    {
+      "bug": "Codec-1",
+      "class": "org.apache.commons.codec.language.SoundexUtils",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 12,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 14,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 15,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "clean"
+      ],
+      "generated_tests": 12,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 12,
+        "oracles": 12,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 12,
+        "compiles": true,
+        "compile_ok_tests": 12,
+        "passed": 12,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 1.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 12,
+      "mutation": [
+        {
+          "all": {
+            "total": 15,
+            "valid": 15,
+            "killed": 14,
+            "score": 0.933
+          },
+          "rule": {
+            "total": 10,
+            "valid": 10,
+            "killed": 10,
+            "score": 1.0
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 15,
+            "valid": 15,
+            "killed": 14,
+            "score": 0.933
+          },
+          "rule": {
+            "total": 10,
+            "valid": 10,
+            "killed": 10,
+            "score": 1.0
+          },
+          "tests": 14,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 15,
+            "valid": 15,
+            "killed": 14,
+            "score": 0.933
+          },
+          "rule": {
+            "total": 10,
+            "valid": 10,
+            "killed": 10,
+            "score": 1.0
+          },
+          "tests": 15,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        }
+      ],
+      "final_tests": 15,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.543,
+          "branch": 0.556,
+          "line": 0.524,
+          "complexity": 0.462,
+          "method": 0.25,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 18,
+          "killed": 10,
+          "score": 0.556
+        },
+        "focal": {
+          "generated": 10,
+          "killed": 10,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 14,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    }
+  ]
+}

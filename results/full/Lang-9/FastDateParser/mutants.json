@@ -1,0 +1,166 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "patternMatcher.lookingAt()",
+    "description": "negation removed: '!' deleted",
+    "line": 124,
+    "status": "killed",
+    "killed_by": [
+      "initHandlesAllSupportedCalendarFieldsCombined",
+      "initHandlesEscapedSingleQuoteLiteral",
+      "initHandlesLiteralStringWithQuotes",
+      "initHandlesRepeatedCharactersStrategyToken",
+      "initHandlesSingleCharacterPatternToken",
+      "initInitializesComplexPatternWithMultipleStrategies",
+      "initInitializesNameValuesConcurrentMap",
+      "initSetsUpThisYearAccordingToTimeZoneAndLocale",
+      "initSuccessfullyInitializesStandardPattern",
+      "initThrowsIllegalArgumentExceptionOnEmptyPattern",
+      "testInitCatchesMismatchedFormatFieldAssignmentInLoop",
+      "testInitTimeZoneRespectsPassedTimeZoneDifference",
+      "testInitTimeZoneRespectsPassedTimeZoneForThisYear",
+      "testMultipleFieldsFormatFieldAdvancementMutantA2"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "patternMatcher.lookingAt()",
+    "description": "negation removed: '!' deleted",
+    "line": 132,
+    "status": "killed",
+    "killed_by": [
+      "initHandlesAllSupportedCalendarFieldsCombined",
+      "initHandlesEscapedSingleQuoteLiteral",
+      "initHandlesLiteralStringWithQuotes",
+      "initHandlesRepeatedCharactersStrategyToken",
+      "initHandlesSingleCharacterPatternToken",
+      "initInitializesComplexPatternWithMultipleStrategies",
+      "initInitializesNameValuesConcurrentMap",
+      "initSetsUpThisYearAccordingToTimeZoneAndLocale",
+      "initSuccessfullyInitializesStandardPattern",
+      "testInitCatchesMismatchedFormatFieldAssignmentInLoop",
+      "testInitTimeZoneRespectsPassedTimeZoneDifference",
+      "testInitTimeZoneRespectsPassedTimeZoneForThisYear",
+      "testMultipleFieldsFormatFieldAdvancementMutantA2"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 144,
+    "status": "killed",
+    "killed_by": [
+      "initHandlesAllSupportedCalendarFieldsCombined",
+      "initHandlesEscapedSingleQuoteLiteral",
+      "initHandlesLiteralStringWithQuotes",
+      "initHandlesRepeatedCharactersStrategyToken",
+      "initHandlesSingleCharacterPatternToken",
+      "initInitializesComplexPatternWithMultipleStrategies",
+      "initInitializesNameValuesConcurrentMap",
+      "initSetsUpThisYearAccordingToTimeZoneAndLocale",
+      "initSuccessfullyInitializesStandardPattern",
+      "initThrowsIllegalArgumentExceptionOnInvalidPatternToken",
+      "testInitCatchesMismatchedFormatFieldAssignmentInLoop",
+      "testInitTimeZoneRespectsPassedTimeZoneDifference",
+      "testInitTimeZoneRespectsPassedTimeZoneForThisYear",
+      "testMultipleFieldsFormatFieldAdvancementMutantA2"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 145,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 145,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 145,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "patternMatcher.region(patternMatcher.end(), patternMatcher.regionStart());",
+    "description": "Change the region update logic to use regionStart() instead of regionEnd() for the second argument, breaking parsing of patterns with multiple fields.",
+    "line": 131,
+    "status": "killed",
+    "killed_by": [
+      "initHandlesAllSupportedCalendarFieldsCombined",
+      "initHandlesEscapedSingleQuoteLiteral",
+      "initHandlesLiteralStringWithQuotes",
+      "initHandlesRepeatedCharactersStrategyToken",
+      "initHandlesSingleCharacterPatternToken",
+      "initInitializesComplexPatternWithMultipleStrategies",
+      "initInitializesNameValuesConcurrentMap",
+      "initSetsUpThisYearAccordingToTimeZoneAndLocale",
+      "initSuccessfullyInitializesStandardPattern",
+      "initThrowsIllegalArgumentExceptionOnInvalidPatternToken",
+      "testInitCatchesMismatchedFormatFieldAssignmentInLoop",
+      "testInitTimeZoneRespectsPassedTimeZoneDifference",
+      "testInitTimeZoneRespectsPassedTimeZoneForThisYear",
+      "testMultipleFieldsFormatFieldAdvancementMutantA2"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (patternMatcher.regionStart() == patternMatcher.regionEnd()) {",
+    "description": "Replace inequality check with equality check in the leftover pattern validation, suppressing exceptions when trailing invalid characters remain.",
+    "line": 144,
+    "status": "killed",
+    "killed_by": [
+      "initHandlesAllSupportedCalendarFieldsCombined",
+      "initHandlesEscapedSingleQuoteLiteral",
+      "initHandlesLiteralStringWithQuotes",
+      "initHandlesRepeatedCharactersStrategyToken",
+      "initHandlesSingleCharacterPatternToken",
+      "initInitializesComplexPatternWithMultipleStrategies",
+      "initInitializesNameValuesConcurrentMap",
+      "initSetsUpThisYearAccordingToTimeZoneAndLocale",
+      "initSuccessfullyInitializesStandardPattern",
+      "initThrowsIllegalArgumentExceptionOnInvalidPatternToken",
+      "testInitCatchesMismatchedFormatFieldAssignmentInLoop",
+      "testInitTimeZoneRespectsPassedTimeZoneDifference",
+      "testInitTimeZoneRespectsPassedTimeZoneForThisYear",
+      "testMultipleFieldsFormatFieldAdvancementMutantA2"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "nextFormatField= currentFormatField;",
+    "description": "Swapped currentFormatField and nextFormatField assignments, assigning the wrong field name to the current iteration.",
+    "line": 141,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "thisYear= Calendar.getInstance(TimeZone.getDefault(), locale).get(Calendar.YEAR);",
+    "description": "Initialize timeZone parameter incorrectly by using default instead of the passed timezone when initializing thisYear.",
+    "line": 116,
+    "status": "survived",
+    "killed_by": []
+  }
+]

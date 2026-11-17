@@ -1,0 +1,70 @@
+{
+  "bug": "Chart-10",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 1,
+      "final_oracles": 1,
+      "focal_methods": [
+        "generateToolTipFragment"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 1.0,
+          "line": 1.0,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 1,
+          "killed": 1,
+          "score": 1.0
+        },
+        "focal": {
+          "generated": 1,
+          "killed": 1,
+          "score": 1.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Chart",
+      "version_id": "10f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 3,
+      "lines_covered": 3,
+      "branches_total": 0,
+      "branches_covered": 0,
+      "line": 1.0,
+      "branch": null
+    }
+  },
+  "seconds": 70.1,
+  "extras_measured": true
+}

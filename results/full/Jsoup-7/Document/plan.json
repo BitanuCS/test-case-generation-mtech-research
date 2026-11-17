@@ -1,0 +1,68 @@
+[
+  {
+    "method": "normalise",
+    "name": "normaliseWithMissingHtmlHeadBody",
+    "input": "Document created with baseUri 'http://example.com' containing raw text and no html/head/body structure",
+    "expected": "Should ensure <html>, <head>, and <body> elements exist and move stray root text nodes into the body element."
+  },
+  {
+    "method": "normalise",
+    "name": "normaliseWithBlankTextNodesInRoot",
+    "input": "Document containing whitespace-only text nodes at the root level",
+    "expected": "Should ignore blank text nodes and not move them into the body element, per normaliseTextNodes condition (!tn.isBlank())."
+  },
+  {
+    "method": "normalise",
+    "name": "normaliseWithMultipleHeadElements",
+    "input": "Document structure containing multiple <head> elements under <html>",
+    "expected": "normaliseStructure should merge duplicate <head> child nodes into the first <head> and remove the duplicate elements."
+  },
+  {
+    "method": "normalise",
+    "name": "normaliseWithMultipleBodyElements",
+    "input": "Document structure containing multiple <body> elements",
+    "expected": "normaliseStructure should merge duplicate <body> child nodes into the first <body> and remove the duplicate elements."
+  },
+  {
+    "method": "normalise",
+    "name": "normaliseWithHeadNotParentedByHtml",
+    "input": "Document where the <head> element is parented by an element other than <html>",
+    "expected": "normaliseStructure should re-parent the master <head> element under the <html> element."
+  },
+  {
+    "method": "normalise",
+    "name": "normaliseWithBodyNotParentedByHtml",
+    "input": "Document where the <body> element is parented by an element other than <html>",
+    "expected": "normaliseStructure should re-parent the master <body> element under the <html> element."
+  },
+  {
+    "method": "normalise",
+    "name": "normaliseTextNodesInHead",
+    "input": "Document with non-blank text nodes directly inside the <head> element",
+    "expected": "Should extract text nodes from <head> and prepend them into the <body> element in correct order."
+  },
+  {
+    "method": "normalise",
+    "name": "normaliseTextNodesInHtml",
+    "input": "Document with non-blank text nodes directly inside the <html> element",
+    "expected": "Should extract text nodes from <html> and prepend them into the <body> element."
+  },
+  {
+    "method": "normalise",
+    "name": "normaliseAlreadyNormalisedDocument",
+    "input": "Document created via Document.createShell('http://example.com')",
+    "expected": "Should return the document unchanged as structural elements (html, head, body) are already correctly placed and empty of stray text."
+  },
+  {
+    "method": "normaliseStructure",
+    "name": "normaliseStructureWithSingleElement",
+    "input": "A single matching tag element already correctly parented by htmlEl",
+    "expected": "Should leave the element untouched since there are no duplicates and parent is correct."
+  },
+  {
+    "method": "normaliseStructure",
+    "name": "normaliseStructureWithDuplicateElementsAndOrphanParent",
+    "input": "Multiple elements matching the tag with one parented elsewhere and children present",
+    "expected": "Should collect all child nodes from duplicates, remove duplicates, append children to master, and append master to htmlEl."
+  }
+]

@@ -1,0 +1,203 @@
+// ===== Class under test: org.apache.commons.math.optimization.linear.SimplexTableau =====
+package org.apache.commons.math.optimization.linear;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import org.apache.commons.math.linear.Array2DRowRealMatrix;
+import org.apache.commons.math.linear.MatrixUtils;
+import org.apache.commons.math.linear.RealMatrix;
+import org.apache.commons.math.linear.RealVector;
+import org.apache.commons.math.optimization.GoalType;
+import org.apache.commons.math.optimization.RealPointValuePair;
+import org.apache.commons.math.util.Precision;
+
+/**
+ * A tableau for use in the Simplex method.
+ *
+ * <p>
+ * Example:
+ * <pre>
+ *   W |  Z |  x1 |  x2 |  x- | s1 |  s2 |  a1 |  RHS
+ * ---------------------------------------------------
+ *  -1    0    0     0     0     0     0     1     0   &lt;= phase 1 objective
+ *   0    1   -15   -10    0     0     0     0     0   &lt;= phase 2 objective
+ *   0    0    1     0     0     1     0     0     2   &lt;= constraint 1
+ *   0    0    0     1     0     0     1     0     3   &lt;= constraint 2
+ *   0    0    1     1     0     0     0     1     4   &lt;= constraint 3
+ * </pre>
+ * W: Phase 1 objective function</br>
+ * Z: Phase 2 objective function</br>
+ * x1 &amp; x2: Decision variables</br>
+ * x-: Extra decision variable to allow for negative values</br>
+ * s1 &amp; s2: Slack/Surplus variables</br>
+ * a1: Artificial variable</br>
+ * RHS: Right hand side</br>
+ * </p>
+ * @version $Id$
+ * @since 2.0
+ */
+class SimplexTableau implements Serializable {
+
+  // --- fields ---
+  private static final String NEGATIVE_VAR_COLUMN_LABEL = "x-";
+  private static final int DEFAULT_ULPS = 10;
+  private static final long serialVersionUID = -1369660067587938365L;
+  private final LinearObjectiveFunction f;
+  private final List<LinearConstraint> constraints;
+  private final boolean restrictToNonNegative;
+  private final List<String> columnLabels = new ArrayList<String>();
+  private transient RealMatrix tableau;
+  private final int numDecisionVariables;
+  private final int numSlackVariables;
+  private int numArtificialVariables;
+  private final double epsilon;
+  private final int maxUlps;
+
+  // --- constructors and other methods (signatures only) ---
+  SimplexTableau(final LinearObjectiveFunction f, final Collection<LinearConstraint> constraints, final GoalType goalType, final boolean restrictToNonNegative, final double epsilon);
+  SimplexTableau(final LinearObjectiveFunction f, final Collection<LinearConstraint> constraints, final GoalType goalType, final boolean restrictToNonNegative, final double epsilon, final int maxUlps);
+  protected void initializeColumnLabels();
+  protected RealMatrix createTableau(final boolean maximize);
+  public List<LinearConstraint> normalizeConstraints(Collection<LinearConstraint> originalConstraints);
+  protected final int getNumObjectiveFunctions();
+  protected static double getInvertedCoefficientSum(final RealVector coefficients);
+  protected void dropPhase1Objective();
+  boolean isOptimal();
+  protected void divideRow(final int dividendRow, final double divisor);
+  protected void subtractRow(final int minuendRow, final int subtrahendRow, final double multiple);
+  protected final int getWidth();
+  protected final int getHeight();
+  protected final void setEntry(final int row, final int column, final double value);
+  protected final int getSlackVariableOffset();
+  protected final int getArtificialVariableOffset();
+  protected final int getNumDecisionVariables();
+  protected final int getNumSlackVariables();
+  protected final int getNumArtificialVariables();
+  protected final double[][] getData();
+  @Override public boolean equals(Object other);
+  @Override public int hashCode();
+
+  // --- helper methods called by the method(s) under test ---
+  /** Get an entry of the tableau.
+       * @param row row index
+       * @param column column index
+       * @return entry at (row, column)
+       */
+  protected final double getEntry(final int row, final int column) {
+          return tableau.getEntry(row, column);
+      }
+  /**
+       * Get the offset of the right hand side.
+       * @return offset of the right hand side
+       */
+  protected final int getRhsOffset() {
+          return getWidth() - 1;
+      }
+  /**
+       * Checks whether the given column is basic.
+       * @param col index of the column to check
+       * @return the row that the variable is basic in.  null if the column is not basic
+       */
+  protected Integer getBasicRow(final int col) {
+          Integer row = null;
+          for (int i = 0; i < getHeight(); i++) {
+              final double entry = getEntry(i, col);
+              if (Precision.equals(entry, 1d, maxUlps) && (row == null)) {
+                  row = i;
+              } else if (!Precision.equals(entry, 0d, maxUlps)) {
+                  return null;
+              }
+          }
+          return row;
+      }
+  /**
+       * Get the original number of decision variables.
+       * @return original number of decision variables
+       * @see #getNumDecisionVariables()
+       */
+  protected final int getOriginalNumDecisionVariables() {
+          return f.getCoefficients().getDimension();
+      }
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+       * Get the current solution.
+       *
+       * @return current solution
+       */
+  protected RealPointValuePair getSolution() {
+        int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+        Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+        double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+        Set<Integer> basicRows = new HashSet<Integer>();
+        double[] coefficients = new double[getOriginalNumDecisionVariables()];
+        for (int i = 0; i < coefficients.length; i++) {
+            int colIndex = columnLabels.indexOf("x" + i);
+            if (colIndex < 0) {
+              coefficients[i] = 0;
+              continue;
+            }
+            Integer basicRow = getBasicRow(colIndex);
+            if (basicRow != null && basicRow == 0) {
+                // if the basic row is found to be the objective function row
+                // set the coefficient to 0 -> this case handles unconstrained 
+                // variables that are still part of the objective function
+                coefficients[i] = 0;
+            } else if (basicRows.contains(basicRow)) {
+                // if multiple variables can take a given value
+                // then we choose the first and set the rest equal to 0
+                coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+            } else {
+                basicRows.add(basicRow);
+                coefficients[i] =
+                    (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                    (restrictToNonNegative ? 0 : mostNegative);
+            }
+        }
+        return new RealPointValuePair(coefficients, f.getValue(coefficients));
+      }
+}
+
+// ===== Existing test class SimplexTableauTest (test methods removed; style/setup reference only) =====
+package org.apache.commons.math.optimization.linear;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.apache.commons.math.TestUtils;
+import org.apache.commons.math.optimization.GoalType;
+import org.junit.Assert;
+import org.junit.Test;
+
+public class SimplexTableauTest {
+
+    private LinearObjectiveFunction createFunction() {
+        return new LinearObjectiveFunction(new double[] {15, 10}, 0);
+    }
+
+    private Collection<LinearConstraint> createConstraints() {
+        Collection<LinearConstraint> constraints = new ArrayList<LinearConstraint>();
+        constraints.add(new LinearConstraint(new double[] {1, 0}, Relationship.LEQ, 2));
+        constraints.add(new LinearConstraint(new double[] {0, 1}, Relationship.LEQ, 3));
+        constraints.add(new LinearConstraint(new double[] {1, 1}, Relationship.EQ, 4));
+        return constraints;
+    }
+
+    private void assertMatrixEquals(double[][] expected, double[][] result) {
+        Assert.assertEquals("Wrong number of rows.", expected.length, result.length);
+        for (int i = 0; i < expected.length; i++) {
+            Assert.assertEquals("Wrong number of columns.", expected[i].length, result[i].length);
+            for (int j = 0; j < expected[i].length; j++) {
+                Assert.assertEquals("Wrong value at position [" + i + "," + j + "]", expected[i][j], result[i][j], 1.0e-15);
+            }
+        }
+    }
+
+}

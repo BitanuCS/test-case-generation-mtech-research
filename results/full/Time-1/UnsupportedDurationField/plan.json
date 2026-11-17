@@ -1,0 +1,26 @@
+[
+  {
+    "method": "compareTo",
+    "name": "compareToWithAnotherUnsupportedFieldOfSameType",
+    "input": "UnsupportedDurationField.getInstance(DurationFieldType.days())",
+    "expected": "Returns 0 because Javadoc states compareTo always returns zero, indicating sort order is not relevant."
+  },
+  {
+    "method": "compareTo",
+    "name": "compareToWithAnotherUnsupportedFieldOfDifferentType",
+    "input": "UnsupportedDurationField.getInstance(DurationFieldType.hours())",
+    "expected": "Returns 0 because all unsupported duration fields are considered equal/unordered by always returning zero."
+  },
+  {
+    "method": "compareTo",
+    "name": "compareToWithSupportedDurationField",
+    "input": "Days.days().getField() (a supported DurationField instance)",
+    "expected": "Returns 0 because the implementation ignores the parameter and unconditionally returns zero."
+  },
+  {
+    "method": "compareTo",
+    "name": "compareToWithNull",
+    "input": "null",
+    "expected": "Throws NullPointerException or returns 0 depending on whether DurationField contract permits null, but based on code 'return 0;', if no null check exists it returns 0 (or throws NPE if called; however since the code just has 'return 0;' without checking, it returns 0)."
+  }
+]

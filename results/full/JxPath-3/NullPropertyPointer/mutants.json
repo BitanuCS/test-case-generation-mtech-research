@@ -1,0 +1,120 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 111,
+    "status": "killed",
+    "killed_by": [
+      "nonPropertyOwnerPointerParentExpansion"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 143,
+    "status": "killed",
+    "killed_by": [
+      "nonPropertyOwnerPointerParentExpansionWithValue"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 234,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 234,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 234,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 234,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (!isAttribute()) {",
+    "description": "Change the isAttribute() check to its negation in the first createPath method, causing attribute paths to fall through to normal child creation.",
+    "line": 137,
+    "status": "killed",
+    "killed_by": [
+      "attributePathCreationWithValue",
+      "nonPropertyOwnerPointerParentExpansionWithValue"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (newParent instanceof NullPointer) {",
+    "description": "Change the type check from PropertyOwnerPointer to NullPointer in the first createPath method, bypassing property pointer extraction for valid owners.",
+    "line": 146,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "return newParent.createChild(context, getName(), getIndex(), value);",
+    "description": "Pass index instead of 0/unspecified in the attribute block or use wrong argument (swapping name and index or context/value) in createChild call for createPath with value.",
+    "line": 150,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "NodePointer pointer = newParent.createAttribute(context, null);",
+    "description": "Replace getName() with getIndex() when creating the attribute in the second createPath method.",
+    "line": 138,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (!isAttribute()) {",
+    "description": "Change the isAttribute() check to its negation in the first createPath method, causing attribute paths to fall through to normal child creation.",
+    "line": 107,
+    "status": "killed",
+    "killed_by": [
+      "attributePathCreation",
+      "nonPropertyOwnerPointerParentExpansion"
+    ]
+  },
+  {
+    "mid": "A5",
+    "kind": "ai",
+    "replacement": "if (newParent instanceof NullPointer) {",
+    "description": "Change the type check from PropertyOwnerPointer to NullPointer in the first createPath method, bypassing property pointer extraction for valid owners.",
+    "line": 127,
+    "status": "survived",
+    "killed_by": []
+  }
+]

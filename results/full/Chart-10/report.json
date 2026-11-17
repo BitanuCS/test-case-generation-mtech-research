@@ -1,0 +1,161 @@
+{
+  "bug": "Chart-10",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 3,
+      "lines_covered": 3,
+      "branches_total": 0,
+      "branches_covered": 0,
+      "line": 1.0,
+      "branch": null
+    },
+    "major_mutation": {
+      "generated": 0,
+      "covered": 0,
+      "killed": 0,
+      "score": null
+    }
+  },
+  "seconds": 76.3,
+  "llm_calls": {
+    "fresh": 4,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 4
+    },
+    "tokens_in": 4670,
+    "tokens_out": 3442
+  },
+  "classes": [
+    {
+      "bug": "Chart-10",
+      "class": "org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 11,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 12,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "generateToolTipFragment"
+      ],
+      "generated_tests": 12,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 12,
+        "oracles": 12,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 12,
+        "compiles": true,
+        "compile_ok_tests": 12,
+        "passed": 11,
+        "assertion_failures": 0,
+        "error_failures": 1,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 0.917,
+        "pass_rate": 0.917,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 12,
+      "mutation": [
+        {
+          "all": {
+            "total": 2,
+            "valid": 0,
+            "killed": 0,
+            "score": null
+          },
+          "rule": {
+            "total": 2,
+            "valid": 0,
+            "killed": 0,
+            "score": null
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 1.0,
+            "branch": null
+          }
+        }
+      ],
+      "final_tests": 12,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 1.0,
+          "line": 1.0,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 1,
+          "killed": 1,
+          "score": 1.0
+        },
+        "focal": {
+          "generated": 1,
+          "killed": 1,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 12,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "nullToolTipText",
+        "specialCharactersHtmlEscape",
+        "toolTipTextWithHtmlTags",
+        "toolTipTextWithSingleQuotes",
+        "toolTipTextWithUnicode"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "nullToolTipText": "java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException",
+        "toolTipTextWithUnicode": "org.junit.ComparisonFailure: expected:< title=\"\u00dcbung &[amp;] Pr\u00fcfung\" alt=\"\"> but was:< title=\"\u00dcbung &[] Pr\u00fcfung\" alt=\"\">\n    at org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator_CandorTest.toolTipTextWithUnicode(StandardToolTipTagFragmentGenerator_CandorTest.java:49)",
+        "specialCharactersHtmlEscape": "org.junit.ComparisonFailure: expected:< title=\"A &[amp; B &lt; C &gt; D &quot;E&quot;]\" alt=\"\"> but was:< title=\"A &[ B < C > D \"E\"]\" alt=\"\">\n    at org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator_CandorTest.specialCharactersHtmlEscape(StandardToolTipTagFragmentGenerator_CandorTest.java:27)",
+        "toolTipTextWithSingleQuotes": "org.junit.ComparisonFailure: expected:< title=\"It[&#39;]s a test\" alt=\"\"> but was:< title=\"It[']s a test\" alt=\"\">\n    at org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator_CandorTest.toolTipTextWithSingleQuotes(StandardToolTipTagFragmentGenerator_CandorTest.java:41)",
+        "toolTipTextWithHtmlTags": "org.junit.ComparisonFailure: expected:< title=\"[&lt;b&gt;Bold&lt;/b&gt;]\" alt=\"\"> but was:< title=\"[<b>Bold</b>]\" alt=\"\">\n    at org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator_CandorTest.toolTipTextWithHtmlTags(StandardToolTipTagFragmentGenerator_CandorTest.java:93)"
+      },
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,354 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 177,
+    "status": "killed",
+    "killed_by": [
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry2",
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 178,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2",
+      "testGNULongNameNotFollowedByEntryReturnsNullForLine174And220",
+      "testPaxHeaderEntryProcessing",
+      "testPaxHeaderEntryProcessing2"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 180,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2",
+      "testGNULongNameNotFollowedByEntryReturnsNullForLine174And220",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry2",
+      "testPaxHeaderEntryProcessing",
+      "testPaxHeaderEntryProcessing2",
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 180,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2",
+      "testGNULongNameNotFollowedByEntryReturnsNullForLine174And220",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry2",
+      "testPaxHeaderEntryProcessing",
+      "testPaxHeaderEntryProcessing2",
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 180,
+    "status": "killed",
+    "killed_by": [
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '<=' -> '>'",
+    "line": 182,
+    "status": "killed",
+    "killed_by": [
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry2",
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '<=' -> '<'",
+    "line": 182,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 182,
+    "status": "killed",
+    "killed_by": [
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 205,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2",
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 212,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 213,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 213,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 213,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 214,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 217,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2",
+      "testGNULongNameNotFollowedByEntryReturnsNullForLine174And220"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 223,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 223,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 223,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 223,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 224,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 224,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 224,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 224,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 225,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 225,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "while (numToSkip >= 0) {",
+    "description": "Change the skip check boundary from > 0 to >= 0, causing an infinite loop or wrong condition when numToSkip is 0.",
+    "line": 180,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2",
+      "testGNULongNameNotFollowedByEntryReturnsNullForLine174And220",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry2",
+      "testPaxHeaderEntryProcessing",
+      "testPaxHeaderEntryProcessing2",
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "entryOffset = -1;",
+    "description": "Reset entryOffset to -1 instead of 0 after parsing a header, causing calculation errors on the next entry's offset.",
+    "line": 205,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (longName.length() > 1\n                  && longName.charAt(longName.length() - 1) == 0) {",
+    "description": "Change the GNULongNameEntry trailing null terminator check from > 0 to > 1, failing to strip single-character null-terminated strings.",
+    "line": 223,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (!currEntry.isPaxHeader()){ // Process Pax headers",
+    "description": "Negate the isPaxHeader check so that Pax headers are skipped or incorrectly processed.",
+    "line": 230,
+    "status": "killed",
+    "killed_by": [
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName",
+      "testGNULongNameEntryWithSingleCharacterNullTerminatedName2",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry",
+      "testMultipleEntriesSkipsUnreadBytesOfPreviousEntry2",
+      "testPaxHeaderEntryProcessing",
+      "testPaxHeaderEntryProcessing2",
+      "testSkipOfSingleByteEntryForR4R6R7Mutants"
+    ]
+  }
+]

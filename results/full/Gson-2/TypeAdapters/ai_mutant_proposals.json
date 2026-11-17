@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapped the arguments in isAssignableFrom, checking if requestedType is assignable from clazz instead of clazz being assignable from requestedType, breaking the hierarchy check direction.",
+    "original": "if (!clazz.isAssignableFrom(requestedType)) {",
+    "mutated": "if (!requestedType.isAssignableFrom(clazz)) {"
+  },
+  {
+    "description": "Changed the null-check operator on result in read() from '!=' to '==', causing a NullPointerException when result is null instead of safely returning null.",
+    "original": "if (result != null && !requestedType.isInstance(result)) {",
+    "mutated": "if (result == null && !requestedType.isInstance(result)) {"
+  },
+  {
+    "description": "Replaced the logical AND operator (&&) with logical OR (||) in the type verification check during read(), so it fails incorrectly or skips validation.",
+    "original": "if (result != null && !requestedType.isInstance(result)) {",
+    "mutated": "if (result != null || !requestedType.isInstance(result)) {"
+  },
+  {
+    "description": "Negated the isInstance check condition in read() by removing the exclamation mark, meaning it throws an exception when the type *is* correct and passes when it's wrong.",
+    "original": "if (result != null && !requestedType.isInstance(result)) {",
+    "mutated": "if (result != null && requestedType.isInstance(result)) {"
+  },
+  {
+    "description": "Replaced requestedType with clazz in the runtime type verification inside read(), checking against the base class instead of the specific requested subtype.",
+    "original": "if (result != null && !requestedType.isInstance(result)) {",
+    "mutated": "if (result != null && !clazz.isInstance(result)) {"
+  }
+]

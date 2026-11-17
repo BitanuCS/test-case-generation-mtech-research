@@ -1,0 +1,90 @@
+{
+  "bug": "JacksonDatabind-8",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "com.fasterxml.jackson.databind.deser.impl.CreatorCollector",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 28,
+      "final_oracles": 28,
+      "focal_methods": [
+        "verifyNonDup"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.75,
+          "branch": 0.562,
+          "line": 0.759,
+          "complexity": 0.636,
+          "method": 0.913,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.4,
+          "branch": 0.167
+        },
+        "focal_missed_lines": [
+          285,
+          287,
+          288,
+          291,
+          294,
+          298,
+          300,
+          301,
+          303,
+          304,
+          308,
+          310
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 69,
+          "killed": 14,
+          "score": 0.203
+        },
+        "focal": {
+          "generated": 12,
+          "killed": 1,
+          "score": 0.083
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "JacksonDatabind",
+      "version_id": "8f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 123,
+      "lines_covered": 99,
+      "branches_total": 72,
+      "branches_covered": 44,
+      "line": 0.805,
+      "branch": 0.611
+    },
+    "major_mutation": {
+      "generated": 135,
+      "covered": 135,
+      "killed": 56,
+      "score": 0.415
+    }
+  },
+  "seconds": 269.3,
+  "extras_measured": true
+}

@@ -1,0 +1,77 @@
+{
+  "bug": "Lang-9",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.lang3.time.FastDateParser",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 41,
+      "final_oracles": 40,
+      "focal_methods": [
+        "init"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.932,
+          "branch": 0.907,
+          "line": 0.924,
+          "complexity": 0.871,
+          "method": 0.92,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 107,
+          "killed": 100,
+          "score": 0.935
+        },
+        "focal": {
+          "generated": 5,
+          "killed": 5,
+          "score": 1.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "9f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "19"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 275,
+      "lines_covered": 229,
+      "branches_total": 125,
+      "branches_covered": 101,
+      "line": 0.833,
+      "branch": 0.808
+    },
+    "major_mutation": {
+      "generated": 306,
+      "covered": 306,
+      "killed": 196,
+      "score": 0.641
+    }
+  },
+  "seconds": 148.4,
+  "extras_measured": true
+}

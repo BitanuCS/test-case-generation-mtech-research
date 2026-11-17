@@ -1,0 +1,197 @@
+// ===== Class under test: org.apache.commons.jxpath.ri.model.dom.DOMNodePointer =====
+package org.apache.commons.jxpath.ri.model.dom;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import org.apache.commons.jxpath.AbstractFactory;
+import org.apache.commons.jxpath.JXPathAbstractFactoryException;
+import org.apache.commons.jxpath.JXPathContext;
+import org.apache.commons.jxpath.JXPathException;
+import org.apache.commons.jxpath.Pointer;
+import org.apache.commons.jxpath.ri.Compiler;
+import org.apache.commons.jxpath.ri.QName;
+import org.apache.commons.jxpath.ri.compiler.NodeNameTest;
+import org.apache.commons.jxpath.ri.compiler.NodeTest;
+import org.apache.commons.jxpath.ri.compiler.NodeTypeTest;
+import org.apache.commons.jxpath.ri.compiler.ProcessingInstructionTest;
+import org.apache.commons.jxpath.ri.model.NodeIterator;
+import org.apache.commons.jxpath.ri.model.NodePointer;
+import org.apache.commons.jxpath.ri.model.beans.NullPointer;
+import org.apache.commons.jxpath.util.TypeUtils;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Comment;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.ProcessingInstruction;
+
+/**
+ * A Pointer that points to a DOM node.
+ *
+ * @author Dmitri Plotnikov
+ * @version $Revision$ $Date$
+ */
+public class DOMNodePointer extends NodePointer {
+
+  // --- fields ---
+  private static final long serialVersionUID = -8751046933894857319L;
+  private Node node;
+  private Map namespaces;
+  private String defaultNamespace;
+  private String id;
+  public static final String XML_NAMESPACE_URI = "http://www.w3.org/XML/1998/namespace";
+  public static final String XMLNS_NAMESPACE_URI = "http://www.w3.org/2000/xmlns/";
+
+  // --- constructors and other methods (signatures only) ---
+  public DOMNodePointer(Node node, Locale locale);
+  public DOMNodePointer(Node node, Locale locale, String id);
+  public DOMNodePointer(NodePointer parent, Node node);
+  public QName getName();
+  public NodeIterator childIterator( NodeTest test, boolean reverse, NodePointer startWith);
+  public NodeIterator attributeIterator(QName name);
+  public NodePointer namespacePointer(String prefix);
+  public NodeIterator namespaceIterator();
+  public String getNamespaceURI(String prefix);
+  public String getDefaultNamespaceURI();
+  public Object getBaseValue();
+  public Object getImmediateNode();
+  public boolean isActual();
+  public boolean isCollection();
+  public int getLength();
+  public boolean isLeaf();
+  public boolean isLanguage(String lang);
+  protected String getLanguage();
+  public void setValue(Object value);
+  public NodePointer createChild( JXPathContext context, QName name, int index);
+  public NodePointer createChild(JXPathContext context, QName name, int index, Object value);
+  public NodePointer createAttribute(JXPathContext context, QName name);
+  public void remove();
+  public String asPath();
+  public int hashCode();
+  public boolean equals(Object object);
+  public static String getPrefix(Node node);
+  public Object getValue();
+  public Pointer getPointerByID(JXPathContext context, String id);
+  public int compareChildNodePointers( NodePointer pointer1, NodePointer pointer2);
+
+  // --- helper methods called by the method(s) under test ---
+  private static boolean equalStrings(String s1, String s2) {
+          if (s1 == null) {
+              return s2 == null || s2.trim().length() == 0;
+          }
+        
+          if (s2 == null) {
+              return s1 == null || s1.trim().length() == 0;
+          }
+
+          if (s1 != null && !s1.trim().equals(s2.trim())) {
+              return false;
+          }
+
+          return true;
+      }
+  public String getNamespaceURI() {
+          return getNamespaceURI(node);
+      }
+  public static String getNamespaceURI(Node node) {
+          if (node instanceof Document) {
+              node = ((Document) node).getDocumentElement();
+          }
+
+          Element element = (Element) node;
+
+          String uri = element.getNamespaceURI();
+          if (uri != null) {
+              return uri;
+          }
+
+          String qname;
+          String prefix = getPrefix(node);
+          if (prefix == null) {
+              qname = "xmlns";
+          }
+          else {
+              qname = "xmlns:" + prefix;
+          }
+
+          Node aNode = node;
+          while (aNode != null) {
+              if (aNode.getNodeType() == Node.ELEMENT_NODE) {
+                  Attr attr = ((Element) aNode).getAttributeNode(qname);
+                  if (attr != null) {
+                      return attr.getValue();
+                  }
+              }
+              aNode = aNode.getParentNode();
+          }
+          return null;
+      }
+  public static String getLocalName(Node node) {
+          String localName = node.getLocalName();
+          if (localName != null) {
+              return localName;
+          }
+
+          String name = node.getNodeName();
+          int index = name.lastIndexOf(':');
+          if (index == -1) {
+              return name;
+          }
+
+          return name.substring(index + 1);
+      }
+
+  // --- METHOD(S) UNDER TEST ---
+  public static boolean testNode(Node node, NodeTest test) {
+          if (test == null) {
+              return true;
+          }
+          else if (test instanceof NodeNameTest) {
+              if (node.getNodeType() != Node.ELEMENT_NODE) {
+                  return false;
+              }
+
+              NodeNameTest nodeNameTest = (NodeNameTest) test;
+              QName testName = nodeNameTest.getNodeName();
+              String namespaceURI = nodeNameTest.getNamespaceURI();
+              boolean wildcard = nodeNameTest.isWildcard();
+              String testPrefix = testName.getPrefix();
+              if (wildcard && testPrefix == null) {
+                  return true;
+              }
+
+              if (wildcard
+                  || testName.getName()
+                          .equals(DOMNodePointer.getLocalName(node))) {
+                  String nodeNS = DOMNodePointer.getNamespaceURI(node);
+                  return equalStrings(namespaceURI, nodeNS);
+              }
+          }
+          else if (test instanceof NodeTypeTest) {
+              int nodeType = node.getNodeType();
+              switch (((NodeTypeTest) test).getNodeType()) {
+                  case Compiler.NODE_TYPE_NODE :
+                      return nodeType == Node.ELEMENT_NODE
+                              || nodeType == Node.DOCUMENT_NODE;
+                  case Compiler.NODE_TYPE_TEXT :
+                      return nodeType == Node.CDATA_SECTION_NODE
+                          || nodeType == Node.TEXT_NODE;
+                  case Compiler.NODE_TYPE_COMMENT :
+                      return nodeType == Node.COMMENT_NODE;
+                  case Compiler.NODE_TYPE_PI :
+                      return nodeType == Node.PROCESSING_INSTRUCTION_NODE;
+              }
+              return false;
+          }
+          else if (test instanceof ProcessingInstructionTest) {
+              if (node.getNodeType() == Node.PROCESSING_INSTRUCTION_NODE) {
+                  String testPI = ((ProcessingInstructionTest) test).getTarget();
+                  String nodePI = ((ProcessingInstruction) node).getTarget();
+                  return testPI.equals(nodePI);
+              }
+          }
+          return false;
+      }
+}

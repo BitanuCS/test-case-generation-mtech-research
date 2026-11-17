@@ -1,0 +1,70 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "13",
+    "description": "constant: 12 -> 13",
+    "line": 152,
+    "status": "killed",
+    "killed_by": [
+      "testSeriesTitleFontPointSizeIs12"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "this.dataExtractOrder = TableOrder.BY_ROW;",
+    "description": "Wrong table order initialized by default: setting dataExtractOrder to BY_ROW instead of BY_COLUMN.",
+    "line": 149,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithNullDataset",
+      "constructorWithValidDataset",
+      "getDataExtractOrderDefaultValue"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "// this.pieChart.removeLegend();",
+    "description": "Missing removal of the legend on the pie chart, leaving the default legend enabled.",
+    "line": 148,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithNullDataset"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "this.pieChart.setBackgroundPaint(Color.white);",
+    "description": "Wrong background paint initialized for the pie chart (using Color.white instead of null).",
+    "line": 150,
+    "status": "killed",
+    "killed_by": [
+      "testPieChartBackgroundPaintIsInitializedToNull"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "seriesTitle.setPosition(RectangleEdge.TOP);",
+    "description": "Wrong title position for the series title, setting it to TOP instead of BOTTOM.",
+    "line": 153,
+    "status": "killed",
+    "killed_by": [
+      "testSeriesTitlePositionIsBottom"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "this.aggregatedItemsKey = \"Others\";",
+    "description": "Wrong default aggregated items key, using 'Others' instead of 'Other'.",
+    "line": 155,
+    "status": "killed",
+    "killed_by": [
+      "getAggregatedItemsKeyDefaultValue"
+    ]
+  }
+]

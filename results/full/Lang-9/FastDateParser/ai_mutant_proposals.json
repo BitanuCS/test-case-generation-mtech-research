@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change the region update logic to use regionStart() instead of regionEnd() for the second argument, breaking parsing of patterns with multiple fields.",
+    "original": "patternMatcher.region(patternMatcher.end(), patternMatcher.regionEnd());",
+    "mutated": "patternMatcher.region(patternMatcher.end(), patternMatcher.regionStart());"
+  },
+  {
+    "description": "Replace inequality check with equality check in the leftover pattern validation, suppressing exceptions when trailing invalid characters remain.",
+    "original": "if (patternMatcher.regionStart() != patternMatcher.regionEnd()) {",
+    "mutated": "if (patternMatcher.regionStart() == patternMatcher.regionEnd()) {"
+  },
+  {
+    "description": "Swapped currentFormatField and nextFormatField assignments, assigning the wrong field name to the current iteration.",
+    "original": "currentFormatField= nextFormatField;",
+    "mutated": "nextFormatField= currentFormatField;"
+  },
+  {
+    "description": "Omit the final strategy addition after the loop exits, missing the last strategy for patterns that complete the loop normally.",
+    "original": "if(currentStrategy.addRegex(this, regex)) {\n              collector.add(currentStrategy);\n          }",
+    "mutated": "// removed final strategy addition"
+  },
+  {
+    "description": "Initialize timeZone parameter incorrectly by using default instead of the passed timezone when initializing thisYear.",
+    "original": "thisYear= Calendar.getInstance(timeZone, locale).get(Calendar.YEAR);",
+    "mutated": "thisYear= Calendar.getInstance(TimeZone.getDefault(), locale).get(Calendar.YEAR);"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change initialization boolean class mapping to point to byte.class instead of boolean.class",
+    "original": "primitiveTypes.put(\"boolean\", boolean.class);",
+    "mutated": "primitiveTypes.put(\"boolean\", byte.class);"
+  },
+  {
+    "description": "Change initialize resolveClass initialize boolean flag from false to true in Class.forName",
+    "original": "return Class.forName(name, false, classLoader);",
+    "mutated": "return Class.forName(name, true, classLoader);"
+  },
+  {
+    "description": "Change fallback Thread.forName initialization boolean flag from false to true",
+    "original": "return Class.forName(name, false, Thread.currentThread().getContextClassLoader());",
+    "mutated": "return Class.forName(name, true, Thread.currentThread().getContextClassLoader());"
+  },
+  {
+    "description": "Negate the null check for primitive type lookup, causing it to return null when found and throw exception",
+    "original": "if (cls != null)",
+    "mutated": "if (cls == null)"
+  },
+  {
+    "description": "Swap the thrown exception in the catch block from cnfe to ex",
+    "original": "throw cnfe;",
+    "mutated": "throw ex;"
+  }
+]

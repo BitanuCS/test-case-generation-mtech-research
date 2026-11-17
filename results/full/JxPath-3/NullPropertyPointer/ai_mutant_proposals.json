@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change the isAttribute() check to its negation in the first createPath method, causing attribute paths to fall through to normal child creation.",
+    "original": "if (isAttribute()) {",
+    "mutated": "if (!isAttribute()) {"
+  },
+  {
+    "description": "Negate the NullPointer equality check, meaning the bad factory exception is only thrown when parent and newParent are different.",
+    "original": "if (parent instanceof NullPointer && parent.equals(newPropertyPointerElseReplacement) || parent instanceof NullPointer && parent.equals(newParent)) {",
+    "mutated": "if (parent instanceof NullPointer && !parent.equals(newParent)) {"
+  },
+  {
+    "description": "Change the type check from PropertyOwnerPointer to NullPointer in the first createPath method, bypassing property pointer extraction for valid owners.",
+    "original": "if (newParent instanceof PropertyOwnerPointer) {",
+    "mutated": "if (newParent instanceof NullPointer) {"
+  },
+  {
+    "description": "Pass index instead of 0/unspecified in the attribute block or use wrong argument (swapping name and index or context/value) in createChild call for createPath with value.",
+    "original": "return newParent.createChild(context, getName(), index, value);",
+    "mutated": "return newParent.createChild(context, getName(), getIndex(), value);"
+  },
+  {
+    "description": "Replace getName() with getIndex() when creating the attribute in the second createPath method.",
+    "original": "NodePointer pointer = newParent.createAttribute(context, getName());",
+    "mutated": "NodePointer pointer = newParent.createAttribute(context, null);"
+  }
+]

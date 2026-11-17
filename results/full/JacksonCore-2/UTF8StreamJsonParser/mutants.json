@@ -1,0 +1,310 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 1188,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 1200,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 1200,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 1216,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 1227,
+    "status": "killed",
+    "killed_by": [
+      "testKillMutantA3SegmentBoundarySegmentFinish",
+      "testSegmentBoundaryOutPtrKillMutantA3"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "loadMore()",
+    "description": "negation removed: '!' deleted",
+    "line": 1262,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 1267,
+    "status": "killed",
+    "killed_by": [
+      "testKillMutantA3SegmentBoundarySegmentFinish",
+      "testSegmentBoundaryOutPtrKillMutantA3"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 1267,
+    "status": "killed",
+    "killed_by": [
+      "parserNumber2EncountersDecimalOrExponent"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 1268,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 1334,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 1347,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 1347,
+    "status": "killed",
+    "killed_by": [
+      "parseFloatMissingDigitAfterDecimal",
+      "testKillMutantA0AndFractionLoop"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 1358,
+    "status": "killed",
+    "killed_by": [
+      "parseFloatMissingDigitAfterDecimal"
+    ]
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 1364,
+    "status": "killed",
+    "killed_by": [
+      "testKillMutantA1AndExponentLoop"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 1365,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 1377,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 1394,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 1397,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 1397,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "loadMore()",
+    "description": "negation removed: '!' deleted",
+    "line": 1397,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 1398,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 1404,
+    "status": "killed",
+    "killed_by": [
+      "parseFloatMissingDigitAfterExponent",
+      "testKillMutantA1AndExponentLoop"
+    ]
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 2574,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "5",
+    "description": "constant: 4 -> 5",
+    "line": 2582,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "_skipYAMLComment()",
+    "description": "negation removed: '!' deleted",
+    "line": 2596,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (c > INT_0 || c < INT_9) {",
+    "description": "Swapped comparison operators in negative sign digit validation check, accepting non-digits as valid number starts after a minus sign.",
+    "line": 1347,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "while (c <= INT_0 && c >= INT_0) {",
+    "description": "Mutated exponent loop condition to check against INT_0 instead of INT_9 on the upper bound, causing exponents to fail or skip valid digits.",
+    "line": 1390,
+    "status": "killed",
+    "killed_by": [
+      "testKillMutantA1AndExponentLoop"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "++_inputPtr; // to push back trailing char (comma etc)",
+    "description": "Changed decrement to increment on input pointer when pushing back trailing character in _parseNumber, pointing to the wrong buffer index.",
+    "line": 1280,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (outPtr > outBuf.length) {",
+    "description": "Off-by-one error in segment boundary check within the fast number parsing loop, causing potential buffer overflow or missed buffer boundary checks.",
+    "line": 1273,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "--intPartLength;",
+    "description": "Changed addition to subtraction when incrementing integer part length in _parserNumber2, corrupting the tracked length of the integer.",
+    "line": 1278,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A5",
+    "kind": "ai",
+    "replacement": "++_inputPtr; // to push back trailing char (comma etc)",
+    "description": "Changed decrement to increment on input pointer when pushing back trailing character in _parseNumber, pointing to the wrong buffer index.",
+    "line": 1241,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A6",
+    "kind": "ai",
+    "replacement": "if (outPtr > outBuf.length) {",
+    "description": "Off-by-one error in segment boundary check within the fast number parsing loop, causing potential buffer overflow or missed buffer boundary checks.",
+    "line": 1231,
+    "status": "survived",
+    "killed_by": []
+  }
+]

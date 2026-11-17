@@ -1,0 +1,117 @@
+{
+  "bug": "Time-1",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.joda.time.Partial",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 56,
+      "final_oracles": 62,
+      "focal_methods": [
+        "Partial"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.967,
+          "branch": 0.973,
+          "line": 0.979,
+          "complexity": 0.966,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.962,
+          "branch": 0.972
+        },
+        "focal_missed_lines": [
+          244,
+          245
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 144,
+          "killed": 119,
+          "score": 0.826
+        },
+        "focal": {
+          "generated": 33,
+          "killed": 27,
+          "score": 0.818
+        }
+      }
+    },
+    {
+      "class": "org.joda.time.field.UnsupportedDurationField",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 23,
+      "final_oracles": 24,
+      "focal_methods": [
+        "compareTo"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.838,
+          "branch": 0.667,
+          "line": 0.878,
+          "complexity": 0.871,
+          "method": 0.92,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": null
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 20,
+          "killed": 14,
+          "score": 0.7
+        },
+        "focal": {
+          "generated": 0,
+          "killed": 0,
+          "score": null
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Time",
+      "version_id": "1f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "1"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 305,
+      "lines_covered": 300,
+      "branches_total": 122,
+      "branches_covered": 118,
+      "line": 0.984,
+      "branch": 0.967
+    },
+    "major_mutation": {
+      "generated": 407,
+      "covered": 407,
+      "killed": 284,
+      "score": 0.698
+    }
+  },
+  "seconds": 374.3,
+  "extras_measured": true
+}

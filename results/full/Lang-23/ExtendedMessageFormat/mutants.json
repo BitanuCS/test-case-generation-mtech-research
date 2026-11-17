@@ -1,0 +1,237 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 266,
+    "status": "killed",
+    "killed_by": [
+      "testEqualsClassCheckFailureLines276And280",
+      "testEqualsDifferentClass",
+      "testEqualsDifferentClass2",
+      "testEqualsDifferentPattern",
+      "testEqualsDifferentPattern2",
+      "testEqualsDifferentRegistry",
+      "testEqualsDifferentRegistry2",
+      "testEqualsNull",
+      "testEqualsNull2",
+      "testEqualsRegistryFieldCheckOrder",
+      "testEqualsRegistryVsPatternShortCircuitOrder",
+      "testEqualsSubclassDifferentClassCheck",
+      "testEqualsSuperEqualsDiff",
+      "testEqualsSuperEqualsDiff2"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 267,
+    "status": "killed",
+    "killed_by": [
+      "testEqualsSelf",
+      "testEqualsSelf2"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 269,
+    "status": "killed",
+    "killed_by": [
+      "testEqualsIdentical",
+      "testEqualsIdentical2",
+      "testEqualsNullPatterns",
+      "testEqualsNullPatterns2",
+      "testEqualsNullRegistries",
+      "testEqualsNullRegistries2",
+      "testHashCodeEqualityCondition",
+      "testHashCodeEqualityCondition2"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 270,
+    "status": "killed",
+    "killed_by": [
+      "testEqualsNull",
+      "testEqualsNull2"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "super.equals(obj)",
+    "description": "negation removed: '!' deleted",
+    "line": 272,
+    "status": "killed",
+    "killed_by": [
+      "testEqualsIdentical",
+      "testEqualsIdentical2",
+      "testEqualsNullPatterns",
+      "testEqualsNullPatterns2",
+      "testEqualsNullRegistries",
+      "testEqualsNullRegistries2",
+      "testEqualsSuperEqualsDiff",
+      "testEqualsSuperEqualsDiff2",
+      "testHashCodeEqualityCondition",
+      "testHashCodeEqualityCondition2"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 273,
+    "status": "killed",
+    "killed_by": [
+      "testEqualsClassCheckFailureLines276And280",
+      "testEqualsDifferentClass",
+      "testEqualsDifferentClass2",
+      "testEqualsDifferentPattern",
+      "testEqualsDifferentPattern2",
+      "testEqualsRegistryFieldCheckOrder",
+      "testEqualsRegistryVsPatternShortCircuitOrder",
+      "testEqualsSubclassDifferentClassCheck",
+      "testEqualsSuperEqualsDiff",
+      "testEqualsSuperEqualsDiff2"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 276,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 280,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 283,
+    "status": "killed",
+    "killed_by": [
+      "testEqualsDifferentRegistry",
+      "testEqualsDifferentRegistry2"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 285,
+    "status": "killed",
+    "killed_by": [
+      "testEqualsIdentical",
+      "testEqualsIdentical2",
+      "testEqualsNullPatterns",
+      "testEqualsNullPatterns2",
+      "testEqualsNullRegistries",
+      "testEqualsNullRegistries2",
+      "testHashCodeEqualityCondition",
+      "testHashCodeEqualityCondition2"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 296,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 296,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "/",
+    "description": "arithmetic: '*' -> '/'",
+    "line": 297,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 297,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "result = HASH_SEED * result + ObjectUtils.hashCode(toPattern);\n          result = HASH_SEED * result + ObjectUtils.hashCode(registry);",
+    "description": "In hashCode, swapped the order in which registry and toPattern are combined with HASH_SEED, which doesn't violate general contract but breaks field symmetry if expected.",
+    "line": 296,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "result = HASH_SEED * result + ObjectUtils.hashCode(super.hashCode());",
+    "description": "Accidentally using `super.hashCode()` twice instead of including `registry` hash in `hashCode()`.",
+    "line": 296,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "result = 1 * result + ObjectUtils.hashCode(registry);",
+    "description": "In hashCode, replacing HASH_SEED multiplier with 1, which reduces hash dispersion but passes standard hashcode consistency and equality tests.",
+    "line": 296,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (ObjectUtils.notEqual(registry, rhs.registry)) {\n              return false;\n          }\n          if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {\n              return false;\n          }",
+    "description": "Swapped order of field checks in equals: checking registry before toPattern, which can cause subtle logical ordering issues if not tested specifically, though currently both are checked. Let's look at hashCode order instead: hashCode multiplies registry first then toPattern.",
+    "line": 279,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "/* omitted class check */",
+    "description": "Missing the `ObjectUtils.notEqual(getClass(), obj.getClass())` check, relying only on `super.equals(obj)`. Since all current tests use exact types or subclasses that are handled correctly, a subclass with the same pattern/registry might incorrectly return true.",
+    "line": 275,
+    "status": "survived",
+    "killed_by": []
+  }
+]

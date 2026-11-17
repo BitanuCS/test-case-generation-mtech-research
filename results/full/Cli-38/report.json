@@ -1,0 +1,208 @@
+{
+  "bug": "Cli-38",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 193,
+      "lines_covered": 8,
+      "branches_total": 164,
+      "branches_covered": 12,
+      "line": 0.041,
+      "branch": 0.073
+    },
+    "major_mutation": {
+      "generated": 385,
+      "covered": 385,
+      "killed": 373,
+      "score": 0.969
+    }
+  },
+  "seconds": 92.8,
+  "llm_calls": {
+    "fresh": 7,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 7
+    },
+    "tokens_in": 14693,
+    "tokens_out": 10723
+  },
+  "classes": [
+    {
+      "bug": "Cli-38",
+      "class": "org.apache.commons.cli.DefaultParser",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 12,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "passed": 14,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "passed": 17,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "isShortOption"
+      ],
+      "generated_tests": 12,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 12,
+        "oracles": 13,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 12,
+        "compiles": true,
+        "compile_ok_tests": 12,
+        "passed": 12,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 1.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 12,
+      "mutation": [
+        {
+          "all": {
+            "total": 20,
+            "valid": 20,
+            "killed": 17,
+            "score": 0.85
+          },
+          "rule": {
+            "total": 15,
+            "valid": 15,
+            "killed": 13,
+            "score": 0.867
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 20,
+            "valid": 20,
+            "killed": 17,
+            "score": 0.85
+          },
+          "rule": {
+            "total": 15,
+            "valid": 15,
+            "killed": 13,
+            "score": 0.867
+          },
+          "tests": 14,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 20,
+            "valid": 20,
+            "killed": 17,
+            "score": 0.85
+          },
+          "rule": {
+            "total": 15,
+            "valid": 15,
+            "killed": 13,
+            "score": 0.867
+          },
+          "tests": 17,
+          "coverage": {
+            "line": 1.0,
+            "branch": 1.0
+          }
+        }
+      ],
+      "final_tests": 17,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.057,
+          "branch": 0.073,
+          "line": 0.041,
+          "complexity": 0.075,
+          "method": 0.083,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 154,
+          "killed": 10,
+          "score": 0.065
+        },
+        "focal": {
+          "generated": 10,
+          "killed": 10,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 18,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "testReturnsTrueForConcatenatedShortOptions",
+        "testReturnsTrueWhenFirstCharOfConcatenatedOptIsRegistered"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "testReturnsTrueForConcatenatedShortOptions": "junit.framework.AssertionFailedError: expected:<true> but was:<false>\n    at org.apache.commons.cli.DefaultParser_CandorTest.testReturnsTrueForConcatenatedShortOptions(DefaultParser_CandorTest.java:56)",
+        "testReturnsTrueWhenFirstCharOfConcatenatedOptIsRegistered": "junit.framework.AssertionFailedError: expected:<true> but was:<false>\n    at org.apache.commons.cli.DefaultParser_CandorTest.testReturnsTrueWhenFirstCharOfConcatenatedOptIsRegistered(DefaultParser_CandorTest.java:88)"
+      },
+      "status": "ok"
+    }
+  ]
+}

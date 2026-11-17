@@ -1,0 +1,81 @@
+{
+  "bug": "Lang-4",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.lang3.text.translate.LookupTranslator",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 4,
+      "final_oracles": 3,
+      "focal_methods": [
+        "LookupTranslator",
+        "translate"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.945,
+          "branch": 1.0,
+          "line": 0.92,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.92,
+          "branch": 1.0
+        },
+        "focal_missed_lines": [
+          79,
+          80
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 15,
+          "killed": 10,
+          "score": 0.667
+        },
+        "focal": {
+          "generated": 15,
+          "killed": 10,
+          "score": 0.667
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "4f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 25,
+      "lines_covered": 24,
+      "branches_total": 14,
+      "branches_covered": 14,
+      "line": 0.96,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 41,
+      "covered": 41,
+      "killed": 28,
+      "score": 0.683
+    }
+  },
+  "seconds": 61.6,
+  "extras_measured": true
+}

@@ -1,0 +1,154 @@
+{
+  "bug": "JacksonXml-1",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 2,
+      "final_oracles": 2,
+      "focal_methods": [
+        "nextToken"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.024,
+          "branch": 0.0,
+          "line": 0.028,
+          "complexity": 0.008,
+          "method": 0.021,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.0,
+          "branch": 0.0
+        },
+        "focal_missed_lines": [
+          447,
+          448,
+          449,
+          450,
+          451,
+          452,
+          454,
+          455,
+          457,
+          458,
+          461,
+          462,
+          463,
+          465,
+          466,
+          470,
+          472,
+          476,
+          478,
+          480,
+          481,
+          482,
+          484,
+          487,
+          488,
+          489,
+          491,
+          492,
+          496,
+          497,
+          500,
+          503,
+          507,
+          510,
+          511,
+          512,
+          515,
+          516,
+          517,
+          519,
+          521,
+          522,
+          523,
+          524,
+          528,
+          529,
+          530,
+          531,
+          532,
+          533,
+          535,
+          536,
+          538,
+          539,
+          541,
+          542,
+          543,
+          549,
+          550,
+          551,
+          555,
+          556,
+          557,
+          560,
+          563,
+          564,
+          565,
+          566,
+          567,
+          568,
+          572,
+          573,
+          574,
+          576,
+          580,
+          581
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 154,
+          "killed": 0,
+          "score": 0.0
+        },
+        "focal": {
+          "generated": 37,
+          "killed": 0,
+          "score": 0.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "JacksonXml",
+      "version_id": "1f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 297,
+      "lines_covered": 13,
+      "branches_total": 149,
+      "branches_covered": 1,
+      "line": 0.044,
+      "branch": 0.007
+    },
+    "major_mutation": {
+      "generated": 340,
+      "covered": 340,
+      "killed": 332,
+      "score": 0.976
+    }
+  },
+  "seconds": 106.3,
+  "extras_measured": true
+}

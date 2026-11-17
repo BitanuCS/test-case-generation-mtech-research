@@ -1,0 +1,454 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 83,
+    "status": "killed",
+    "killed_by": [
+      "testCHRules",
+      "testChVowel",
+      "testCiaRule",
+      "testCoverLine110_112_InitialWElse",
+      "testCoverLine161_CDiscardSciSceScy",
+      "testCoverLine183_ChVowelAppendX",
+      "testCoverLine211_214_SilentGAndHardG",
+      "testCoverLine264_265_KAfterC",
+      "testCoverLine278_279_ShSioSia",
+      "testCoverLine283_TchSilent",
+      "testCoverLine293_VToF",
+      "testCoverLine304_ZToS",
+      "testCoverLine309_MaxCodeLenTruncation",
+      "testDGERules",
+      "testDgeIncrementMutation",
+      "testDoubleGAndHardG",
+      "testDuplicateCharactersExceptC",
+      "testEncodeObjectValidString",
+      "testInitialAE",
+      "testInitialG",
+      "testInitialK",
+      "testInitialKN",
+      "testInitialWDefault",
+      "testInitialWH",
+      "testInitialWR",
+      "testInitialWhLength",
+      "testInitialWrThreeLetterWord",
+      "testInitialX",
+      "testKCases",
+      "testMaxCodeLengthConstraint",
+      "testMutantA1_DgeIncrement",
+      "testMutantR18_SilentGHVowelIndex",
+      "testMutantR5_InitialWElseBranch",
+      "testMutantR9_SchLogicalAndToOr",
+      "testNullInput",
+      "testSchRule",
+      "testSchToK",
+      "testSilentBEndingInMb",
+      "testSilentG",
+      "testSilentGH",
+      "testSingleCharacterInput",
+      "testSioSiaShAppendX",
+      "testTHRule",
+      "testXExpansion"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 83,
+    "status": "killed",
+    "killed_by": [
+      "testEmptyInput",
+      "testNullInput"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 87,
+    "status": "killed",
+    "killed_by": [
+      "testDoubleGAndHardG",
+      "testInitialWDefault",
+      "testSingleCharacterInput",
+      "testSioSiaShAppendX"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 101,
+    "status": "killed",
+    "killed_by": [
+      "testInitialKN",
+      "testSilentG"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 108,
+    "status": "killed",
+    "killed_by": [
+      "testInitialAE"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 114,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 119,
+    "status": "killed",
+    "killed_by": [
+      "testInitialWH",
+      "testInitialWhLength",
+      "testIsMetaphoneEqual"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 119,
+    "status": "killed",
+    "killed_by": [
+      "testInitialWhLength"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 136,
+    "status": "killed",
+    "killed_by": [
+      "testCHRules",
+      "testChVowel",
+      "testCiaRule",
+      "testCoverLine110_112_InitialWElse",
+      "testCoverLine161_CDiscardSciSceScy",
+      "testCoverLine183_ChVowelAppendX",
+      "testCoverLine211_214_SilentGAndHardG",
+      "testCoverLine264_265_KAfterC",
+      "testCoverLine278_279_ShSioSia",
+      "testCoverLine283_TchSilent",
+      "testCoverLine293_VToF",
+      "testCoverLine304_ZToS",
+      "testDGERules",
+      "testDgeIncrementMutation",
+      "testDoubleGAndHardG",
+      "testDuplicateCharactersExceptC",
+      "testEncodeObjectValidString",
+      "testInitialAE",
+      "testInitialG",
+      "testInitialK",
+      "testInitialKN",
+      "testInitialWDefault",
+      "testInitialWH",
+      "testInitialWR",
+      "testInitialWhLength",
+      "testInitialWrThreeLetterWord",
+      "testIsMetaphoneEqual",
+      "testKCases",
+      "testMutantA1_DgeIncrement",
+      "testMutantR18_SilentGHVowelIndex",
+      "testMutantR5_InitialWElseBranch",
+      "testMutantR9_SchLogicalAndToOr",
+      "testSchRule",
+      "testSchToK",
+      "testSilentBEndingInMb",
+      "testSilentG",
+      "testSilentGH",
+      "testSioSiaShAppendX",
+      "testTHRule",
+      "testXExpansion"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 172,
+    "status": "killed",
+    "killed_by": [
+      "testCoverLine283_TchSilent"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 179,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 178,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 190,
+    "status": "killed",
+    "killed_by": [
+      "testCHRules",
+      "testSilentBEndingInMb",
+      "testSilentG"
+    ]
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "3",
+    "description": "constant: 2 -> 3",
+    "line": 192,
+    "status": "killed",
+    "killed_by": [
+      "testDGERules",
+      "testDgeIncrementMutation",
+      "testMutantA1_DgeIncrement"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 192,
+    "status": "killed",
+    "killed_by": [
+      "testDGERules",
+      "testDgeIncrementMutation",
+      "testMutantA1_DgeIncrement"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 199,
+    "status": "killed",
+    "killed_by": [
+      "testSilentGH"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 203,
+    "status": "killed",
+    "killed_by": [
+      "testInitialKN"
+    ]
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "isVowel(local,n+2)",
+    "description": "negation removed: '!' deleted",
+    "line": 205,
+    "status": "killed",
+    "killed_by": [
+      "testInitialKN",
+      "testMutantR18_SilentGHVowelIndex"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "-",
+    "description": "arithmetic: '+' -> '-'",
+    "line": 205,
+    "status": "killed",
+    "killed_by": [
+      "testMutantR18_SilentGHVowelIndex"
+    ]
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 219,
+    "status": "killed",
+    "killed_by": [
+      "testCoverLine211_214_SilentGAndHardG",
+      "testInitialAE"
+    ]
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 247,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 267,
+    "status": "killed",
+    "killed_by": [
+      "testCoverLine278_279_ShSioSia",
+      "testSioSiaShAppendX"
+    ]
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "isLastChar(wdsz,n)",
+    "description": "negation removed: '!' deleted",
+    "line": 295,
+    "status": "killed",
+    "killed_by": [
+      "testCoverLine110_112_InitialWElse",
+      "testInitialWDefault",
+      "testInitialWH",
+      "testInitialWhLength",
+      "testInitialWrThreeLetterWord",
+      "testMutantR5_InitialWElseBranch"
+    ]
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 295,
+    "status": "killed",
+    "killed_by": [
+      "testInitialWrThreeLetterWord",
+      "testInitialX",
+      "testMaxCodeLengthConstraint"
+    ]
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '>' -> '>='",
+    "line": 308,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "while ((code.length() < this.getMaxCodeLen()) && \n          \t   (n < wdsz - 1) ) { // max code size of 4 works well",
+    "description": "Change the max code length default or loop condition boundary to restrict code collection prematurely (off-by-one on loop condition).",
+    "line": 136,
+    "status": "killed",
+    "killed_by": [
+      "testCHRules",
+      "testChVowel",
+      "testCoverLine110_112_InitialWElse",
+      "testCoverLine183_ChVowelAppendX",
+      "testCoverLine211_214_SilentGAndHardG",
+      "testCoverLine278_279_ShSioSia",
+      "testCoverLine293_VToF",
+      "testCoverLine304_ZToS",
+      "testDGERules",
+      "testDgeIncrementMutation",
+      "testDuplicateCharactersExceptC",
+      "testEncodeObjectValidString",
+      "testInitialAE",
+      "testInitialK",
+      "testInitialKN",
+      "testInitialWhLength",
+      "testKCases",
+      "testMutantA1_DgeIncrement",
+      "testMutantR18_SilentGHVowelIndex",
+      "testMutantR5_InitialWElseBranch",
+      "testMutantR9_SchLogicalAndToOr",
+      "testSchRule",
+      "testSilentG",
+      "testSioSiaShAppendX",
+      "testXExpansion"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (!isLastChar(wdsz, n + 1) && \n                          isNextChar(local, n, 'G') && \n                          (FRONTV.indexOf(local.charAt(n + 2)) >= 0)) { // DGE DGI DGY -> J \n                          code.append('J'); n += 1 ;",
+    "description": "Mutate the 'D' case logic where it appends 'J' and increments n by 2, changing the offset increment to 1.",
+    "line": 190,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if ( isPreviousChar(local, n, 'S') && \n                           !isLastChar(wdsz, n) && \n                           (FRONTV.indexOf(local.charAt(n + 1)) < 0) ) { \n                          break;\n                      }",
+    "description": "In the 'C' case for SCI/SCE/SCY, invert the front vowel condition check by replacing index >= 0 with < 0.",
+    "line": 158,
+    "status": "killed",
+    "killed_by": [
+      "testCoverLine161_CDiscardSciSceScy",
+      "testSchRule",
+      "testSchToK"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (inwd[1] == 'H') {\n                  local.append(inwd, 1, inwd.length);\n                  local.setCharAt(0, 'W'); // WH -> W",
+    "description": "In the 'W' initial exception handler, swap the append length argument from length - 1 to length.",
+    "line": 118,
+    "status": "killed",
+    "killed_by": [
+      "testInitialWH",
+      "testInitialWhLength",
+      "testIsMetaphoneEqual"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (regionMatch(local,n,\"SH\") || \n  \t\t\t    regionMatch(local,n,\"SIO\") || \n  \t\t\t    regionMatch(local,n,\"SIA\")) {\n                          code.append('S');",
+    "description": "In the 'S' case, change the code appended for 'SH', 'SIO', or 'SIA' from 'X' to 'S'.",
+    "line": 267,
+    "status": "killed",
+    "killed_by": [
+      "testCoverLine278_279_ShSioSia",
+      "testSioSiaShAppendX"
+    ]
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "bug": "Csv-1",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.csv.ExtendedBufferedReader",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 7,
+      "final_oracles": 7,
+      "focal_methods": [
+        "read"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.771,
+          "branch": 0.538,
+          "line": 0.892,
+          "complexity": 0.55,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.8,
+          "branch": 0.333
+        },
+        "focal_missed_lines": [
+          59
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 34,
+          "killed": 26,
+          "score": 0.765
+        },
+        "focal": {
+          "generated": 5,
+          "killed": 3,
+          "score": 0.6
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Csv",
+      "version_id": "1f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 37,
+      "lines_covered": 33,
+      "branches_total": 26,
+      "branches_covered": 14,
+      "line": 0.892,
+      "branch": 0.538
+    },
+    "major_mutation": {
+      "generated": 97,
+      "covered": 97,
+      "killed": 39,
+      "score": 0.402
+    }
+  },
+  "seconds": 98.6,
+  "extras_measured": true
+}

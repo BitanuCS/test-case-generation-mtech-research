@@ -1,0 +1,77 @@
+{
+  "bug": "Math-42",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.apache.commons.math.optimization.linear.SimplexTableau",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 25,
+      "final_oracles": 22,
+      "focal_methods": [
+        "getSolution"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.964,
+          "branch": 0.992,
+          "line": 0.941,
+          "complexity": 0.947,
+          "method": 0.875,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 173,
+          "killed": 95,
+          "score": 0.549
+        },
+        "focal": {
+          "generated": 16,
+          "killed": 11,
+          "score": 0.688
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Math",
+      "version_id": "42f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "1"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 185,
+      "lines_covered": 176,
+      "branches_total": 124,
+      "branches_covered": 123,
+      "line": 0.951,
+      "branch": 0.992
+    },
+    "major_mutation": {
+      "generated": 512,
+      "covered": 512,
+      "killed": 257,
+      "score": 0.502
+    }
+  },
+  "seconds": 298.8,
+  "extras_measured": true
+}

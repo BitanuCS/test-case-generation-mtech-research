@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Off-by-one error when stripping the leading hyphen for the option name, substring starting at index 2 instead of 1.",
+    "original": "String optName = pos == -1 ? token.substring(1) : token.substring(1, pos);",
+    "mutated": "String optName = pos == -1 ? token.substring(2) : token.substring(1, pos);"
+  },
+  {
+    "description": "Wrong operator check for the equality comparison with -1 when looking for the value separator '='.",
+    "original": "int pos = token.indexOf(\"=\");",
+    "mutated": "int pos = token.lastIndexOf(\"=\");"
+  },
+  {
+    "description": "Wrong boundary condition: checking if token length is <= 1 instead of == 1, causing tokens of length 1 to not be properly caught (though length 1 throws StringIndexOutOfBoundsException if it passes, or fails early if handled differently; wait, let's use a cleaner boundary change: token.length() == 2).",
+    "original": "if (!token.startsWith(\"-\") || token.length() == 1)",
+    "mutated": "if (!token.startsWith(\"-\") || token.length() == 2)"
+  },
+  {
+    "description": "Wrong variable used when checking the concatenated short options fallback, checking index 1 instead of index 0.",
+    "original": "return optName.length() > 0 && options.hasShortOption(String.valueOf(optName.charAt(0)));",
+    "mutated": "return optName.length() > 0 && options.hasShortOption(String.valueOf(optName.charAt(1)));"
+  },
+  {
+    "description": "Missing length check condition in the fallback return statement for concatenated short options, omitting optName.length() > 0.",
+    "original": "return optName.length() > 0 && options.hasShortOption(String.valueOf(optName.charAt(0)));",
+    "mutated": "return options.hasShortOption(String.valueOf(optName.charAt(0)));"
+  }
+]

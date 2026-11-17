@@ -1,0 +1,204 @@
+{
+  "bug": "Lang-9",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 275,
+      "lines_covered": 214,
+      "branches_total": 125,
+      "branches_covered": 81,
+      "line": 0.778,
+      "branch": 0.648
+    },
+    "major_mutation": {
+      "generated": 306,
+      "covered": 306,
+      "killed": 213,
+      "score": 0.696
+    }
+  },
+  "seconds": 100.9,
+  "llm_calls": {
+    "fresh": 6,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 6
+    },
+    "tokens_in": 21638,
+    "tokens_out": 5070
+  },
+  "classes": [
+    {
+      "bug": "Lang-9",
+      "class": "org.apache.commons.lang3.time.FastDateParser",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 11,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 11,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 13,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 15,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "init"
+      ],
+      "generated_tests": 12,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 12,
+        "oracles": 12,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 12,
+        "compiles": true,
+        "compile_ok_tests": 12,
+        "passed": 11,
+        "assertion_failures": 1,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 0.917,
+        "oracle_correctness": 0.917
+      },
+      "valid_tests_before_challenge": 11,
+      "mutation": [
+        {
+          "all": {
+            "total": 10,
+            "valid": 7,
+            "killed": 5,
+            "score": 0.714
+          },
+          "rule": {
+            "total": 6,
+            "valid": 3,
+            "killed": 3,
+            "score": 1.0
+          },
+          "tests": 11,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.9
+          }
+        },
+        {
+          "all": {
+            "total": 10,
+            "valid": 7,
+            "killed": 5,
+            "score": 0.714
+          },
+          "rule": {
+            "total": 6,
+            "valid": 3,
+            "killed": 3,
+            "score": 1.0
+          },
+          "tests": 13,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.9
+          }
+        },
+        {
+          "all": {
+            "total": 10,
+            "valid": 7,
+            "killed": 5,
+            "score": 0.714
+          },
+          "rule": {
+            "total": 6,
+            "valid": 3,
+            "killed": 3,
+            "score": 1.0
+          },
+          "tests": 15,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.9
+          }
+        }
+      ],
+      "final_tests": 15,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.779,
+          "branch": 0.691,
+          "line": 0.815,
+          "complexity": 0.6,
+          "method": 0.64,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 0.9
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 107,
+          "killed": 57,
+          "score": 0.533
+        },
+        "focal": {
+          "generated": 5,
+          "killed": 5,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 26,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "initThrowsIllegalArgumentExceptionOnInvalidPatternToken"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "initThrowsIllegalArgumentExceptionOnInvalidPatternToken": "java.lang.AssertionError: Expected exception: java.lang.IllegalArgumentException"
+      },
+      "status": "ok"
+    }
+  ]
+}

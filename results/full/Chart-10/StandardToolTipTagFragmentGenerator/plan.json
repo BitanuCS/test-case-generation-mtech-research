@@ -1,0 +1,74 @@
+[
+  {
+    "method": "generateToolTipFragment",
+    "name": "standardToolTipText",
+    "input": "toolTipText = \"Sales: $1000\"",
+    "expected": "Returns \" title=\"Sales: $1000\" alt=\"\"\" formatted correctly with title and empty alt attributes as implemented in the code."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "emptyToolTipText",
+    "input": "toolTipText = \"\"",
+    "expected": "Returns \" title=\"\" alt=\"\"\" when given an empty string, validating boundary handling for zero-length strings."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "specialCharactersHtmlEscape",
+    "input": "toolTipText = \"A & B < C > D \\\"E\\\"\"",
+    "expected": "Returns properly HTML-escaped characters inside the title attribute, relying on ImageMapUtilities.htmlEscape behavior."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "nullToolTipText",
+    "input": "toolTipText = null",
+    "expected": "Depends on ImageMapUtilities.htmlEscape implementation; typically throws NullPointerException or handles null gracefully by returning \" title=\"null\" alt=\"\"\"."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "toolTipTextWithSingleQuotes",
+    "input": "toolTipText = \"It's a test\"",
+    "expected": "Returns \" title=\"It's a test\" alt=\"\"\" with single quotes correctly included or escaped."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "toolTipTextWithUnicode",
+    "input": "toolTipText = \"\u00dcbung & Pr\u00fcfung\"",
+    "expected": "Returns \" title=\"[escaped unicode]\" alt=\"\"\" supporting internationalization characters."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "toolTipTextWithNewlines",
+    "input": "toolTipText = \"Line 1\\nLine 2\"",
+    "expected": "Returns title attribute containing newline characters or their HTML escaped equivalents."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "toolTipTextWithTabs",
+    "input": "toolTipText = \"Column1\\tColumn2\"",
+    "expected": "Returns title attribute containing tab characters or their HTML escaped equivalents."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "veryLongToolTipText",
+    "input": "toolTipText = a string of 10,000 'a' characters",
+    "expected": "Returns title attribute containing all 10,000 characters followed by \" alt=\"\"\", testing length limits."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "toolTipTextWithOnlySpaces",
+    "input": "toolTipText = \"   \"",
+    "expected": "Returns \" title=\"   \" alt=\"\"\" preserving whitespace padding correctly."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "toolTipTextWithHtmlTags",
+    "input": "toolTipText = \"<b>Bold</b>\"",
+    "expected": "Returns escaped HTML tags inside the title attribute (e.g. &lt;b&gt;Bold&lt;/b&gt;) depending on htmlEscape implementation."
+  },
+  {
+    "method": "generateToolTipFragment",
+    "name": "toolTipTextWithPercentSigns",
+    "input": "toolTipText = \"100% complete\"",
+    "expected": "Returns \" title=\"100% complete\" alt=\"\"\" without unintended decoding issues."
+  }
+]

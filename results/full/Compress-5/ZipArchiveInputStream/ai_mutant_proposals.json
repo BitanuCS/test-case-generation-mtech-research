@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change the conditional operator in the STORED calculation of `toRead` from greater-than (>) to less-than (<), incorrectly calculating the number of bytes to read.",
+    "original": "                  int toRead = length > lengthOfLastRead\n                      ? lengthOfLastRead - offsetInBuffer\n                      : length;",
+    "mutated": "                  int toRead = length < lengthOfLastRead\n                      ? lengthOfLastRead - offsetInBuffer\n                      : length;"
+  },
+  {
+    "description": "Change the array offset update for `offsetInBuffer` from addition (+) to subtraction (-) during STORED reading.",
+    "original": "                  offsetInBuffer += toRead;",
+    "mutated": "                  offsetInBuffer -= toRead;"
+  },
+  {
+    "description": "Change the bounds-checking comparison for buffer length/start from `<=` to `<` in the parameter validation guard.",
+    "original": "          if (start <= buffer.length && length >= 0 && start >= 0",
+    "mutated": "          if (start < buffer.length && length >= 0 && start >= 0"
+  },
+  {
+    "description": "Change the conditional check on `readBytesOfEntry >= csize` for STORED entries to use strictly-greater (`>`) instead of greater-than-or-equal (`>=`).",
+    "original": "                  if (readBytesOfEntry >= csize) {",
+    "mutated": "                  if (readBytesOfEntry > csize) {"
+  },
+  {
+    "description": "Change the assignment operator in `bytesReadFromStream += lengthOfLastRead` to subtraction assignment (`-=`), corrupting the tracking of bytes read from the stream.",
+    "original": "                      bytesReadFromStream += lengthOfLastRead;",
+    "mutated": "                      bytesReadFromStream -= lengthOfLastRead;"
+  }
+]

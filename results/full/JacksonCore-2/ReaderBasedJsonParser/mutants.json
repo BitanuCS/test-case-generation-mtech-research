@@ -1,0 +1,387 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 853,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseExponentialNumberInBuffer",
+      "parseNumberBufferSplitBasicInteger",
+      "parseNumberBufferSplitTriggersParseNumber2",
+      "parseNumberDecimalFractionAndExponentSplit",
+      "parseSimpleIntegerInBuffer",
+      "testExponentBoundaryConditions",
+      "testExponentNineDigitEdgeCase",
+      "testIntegerZeroComparisonInParseNumber"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "+",
+    "description": "arithmetic: '-' -> '+'",
+    "line": 855,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseExponentialNumberInBuffer",
+      "parseNumberBufferSplitBasicInteger",
+      "parseNumberBufferSplitTriggersParseNumber2",
+      "parseNumberDecimalFractionAndExponentSplit",
+      "parseSimpleIntegerInBuffer",
+      "testExponentBoundaryConditions",
+      "testExponentNineDigitEdgeCase",
+      "testRootSpaceValidationAfterNumber",
+      "testRootSpaceWithCarriageReturn"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 891,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 892,
+    "status": "killed",
+    "killed_by": [
+      "parseNumberBufferSplitTriggersParseNumber2"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 896,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '>' -> '<='",
+    "line": 896,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseExponentialNumberInBuffer",
+      "parseNumberBufferSplitBasicInteger",
+      "parseNumberDecimalFractionAndExponentSplit",
+      "parseSimpleIntegerInBuffer",
+      "testBufferSplitWithSegmentFinish",
+      "testExponentBoundaryConditions",
+      "testExponentNineDigitEdgeCase",
+      "testRootSpaceValidationAfterNumber",
+      "testRootSpaceWithCarriageReturn"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 905,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseExponentialNumberInBuffer",
+      "parseNumberDecimalFractionAndExponentSplit",
+      "testExponentBoundaryConditions",
+      "testRootSpaceWithCarriageReturn"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 918,
+    "status": "killed",
+    "killed_by": [
+      "testDecimalPointNotFollowedByDigitInParseNumber"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 925,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 930,
+    "status": "killed",
+    "killed_by": [
+      "parseExponentialNumberInBuffer",
+      "testExponentBoundaryConditions"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 931,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 936,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 944,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 974,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseExponentialNumberInBuffer",
+      "parseNumberBufferSplitBasicInteger",
+      "parseNumberBufferSplitTriggersParseNumber2",
+      "parseNumberDecimalFractionAndExponentSplit",
+      "parseSimpleIntegerInBuffer",
+      "testExponentBoundaryConditions",
+      "testExponentNineDigitEdgeCase"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 983,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 987,
+    "status": "killed",
+    "killed_by": [
+      "testIntegerZeroComparisonMutant"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 991,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseExponentialNumberInBuffer",
+      "parseNumberBufferSplitBasicInteger",
+      "parseNumberBufferSplitTriggersParseNumber2",
+      "parseNumberDecimalFractionAndExponentSplit",
+      "parseSimpleIntegerInBuffer",
+      "testBufferSplitWithSegmentFinish",
+      "testExponentBoundaryConditions",
+      "testExponentNineDigitEdgeCase"
+    ]
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": ">",
+    "description": "relational: '>=' -> '>'",
+    "line": 993,
+    "status": "killed",
+    "killed_by": [
+      "testBufferSplitWithSegmentFinish"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 998,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseExponentialNumberInBuffer",
+      "parseNumberBufferSplitBasicInteger",
+      "parseNumberDecimalFractionAndExponentSplit",
+      "parseSimpleIntegerInBuffer",
+      "testExponentBoundaryConditions",
+      "testExponentNineDigitEdgeCase",
+      "testIntegerZeroComparisonMutant"
+    ]
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 1017,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "<",
+    "description": "relational: '>=' -> '<'",
+    "line": 1027,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseNumberDecimalFractionAndExponentSplit"
+    ]
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 1034,
+    "status": "killed",
+    "killed_by": [
+      "testBufferSplitWithSegmentFinish"
+    ]
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 1057,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 1062,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 1076,
+    "status": "killed",
+    "killed_by": [
+      "parseNumberDecimalFractionAndExponentSplit",
+      "testBufferSplitWithSegmentFinish",
+      "testExponentBoundaryConditions",
+      "testExponentNineDigitEdgeCase"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "--_inputPtr;",
+    "description": "Wrong increment/decrement on input pointer when verifying root space, stepping back twice or not enough.",
+    "line": 1171,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (c == '-') {",
+    "description": "Missing check for negative sign in exponent parsing inside _parseNumber2, leading to invalid exponent parsing.",
+    "line": 1050,
+    "status": "killed",
+    "killed_by": [
+      "parseExponentialNumberInBuffer",
+      "testExponentBoundaryConditions"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (fractLen < 0) {",
+    "description": "Wrong condition checking fractLen in _parseNumber2, requiring fractLen > 0 when validating the fraction length.",
+    "line": 1034,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "int startPtr = ptr; // to include sign/digit already read",
+    "description": "Off-by-one error in startPtr calculation within _parseNumber, causing the sign to be excluded or misaligned when falling back to _parseNumber2.",
+    "line": 855,
+    "status": "killed",
+    "killed_by": [
+      "parseDecimalNumberInBuffer",
+      "parseExponentialNumberInBuffer",
+      "parseNumberBufferSplitBasicInteger",
+      "parseNumberBufferSplitTriggersParseNumber2",
+      "parseNumberDecimalFractionAndExponentSplit",
+      "parseSimpleIntegerInBuffer",
+      "testExponentBoundaryConditions",
+      "testExponentNineDigitEdgeCase",
+      "testIntegerZeroComparisonInParseNumber",
+      "testRootSpaceValidationAfterNumber",
+      "testRootSpaceWithCarriageReturn"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "while (ch < INT_9 && ch >= INT_0) {",
+    "description": "Wrong comparison operator in _parseNumber for exponent digit checking, using <= instead of < for the upper limit check, or vice versa.",
+    "line": 936,
+    "status": "killed",
+    "killed_by": [
+      "testExponentNineDigitEdgeCase"
+    ]
+  },
+  {
+    "mid": "A5",
+    "kind": "ai",
+    "replacement": "if (fractLen < 0) {",
+    "description": "Wrong condition checking fractLen in _parseNumber2, requiring fractLen > 0 when validating the fraction length.",
+    "line": 918,
+    "status": "killed",
+    "killed_by": [
+      "testDecimalPointNotFollowedByDigitInParseNumber"
+    ]
+  }
+]

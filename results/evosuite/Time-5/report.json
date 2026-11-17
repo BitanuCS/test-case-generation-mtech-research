@@ -1,0 +1,77 @@
+{
+  "bug": "Time-5",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.joda.time.Period",
+      "status": "ok",
+      "detected": true,
+      "final_tests": 72,
+      "final_oracles": 62,
+      "focal_methods": [
+        "normalizedStandard"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.956,
+          "branch": 1.0,
+          "line": 0.955,
+          "complexity": 0.966,
+          "method": 0.954,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 197,
+          "killed": 182,
+          "score": 0.924
+        },
+        "focal": {
+          "generated": 22,
+          "killed": 22,
+          "score": 1.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Time",
+      "version_id": "5f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "1"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 288,
+      "lines_covered": 280,
+      "branches_total": 64,
+      "branches_covered": 64,
+      "line": 0.972,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 550,
+      "covered": 550,
+      "killed": 190,
+      "score": 0.345
+    }
+  },
+  "seconds": 552.1,
+  "extras_measured": true
+}

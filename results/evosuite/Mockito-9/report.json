@@ -1,0 +1,81 @@
+{
+  "bug": "Mockito-9",
+  "setting": "evosuite",
+  "budget_s": 120,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "class": "org.mockito.internal.stubbing.answers.CallsRealMethods",
+      "status": "ok",
+      "detected": false,
+      "final_tests": 1,
+      "final_oracles": 0,
+      "focal_methods": [
+        "answer"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.176,
+          "branch": 0.0,
+          "line": 0.25,
+          "complexity": 0.333,
+          "method": 0.5,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.0,
+          "branch": 0.0
+        },
+        "focal_missed_lines": [
+          38,
+          39,
+          41
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 3,
+          "killed": 0,
+          "score": 0.0
+        },
+        "focal": {
+          "generated": 3,
+          "killed": 0,
+          "score": 0.0
+        }
+      }
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Mockito",
+      "version_id": "9f",
+      "test_suite_source": "evosuite",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 4,
+      "lines_covered": 1,
+      "branches_total": 2,
+      "branches_covered": 0,
+      "line": 0.25,
+      "branch": 0.0
+    },
+    "major_mutation": {
+      "generated": 2,
+      "covered": 2,
+      "killed": 2,
+      "score": 1.0
+    }
+  },
+  "seconds": 319.3,
+  "extras_measured": true
+}

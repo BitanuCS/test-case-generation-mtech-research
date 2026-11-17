@@ -1,0 +1,62 @@
+[
+  {
+    "method": "iterator",
+    "name": "iteratorOnEmptyPopulation",
+    "input": "ListPopulation with 0 chromosomes and populationLimit = 10",
+    "expected": "Returns an iterator whose hasNext() is false, and calling next() throws NoSuchElementException."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorOnPopulatedPopulation",
+    "input": "ListPopulation containing 2 chromosomes and populationLimit = 10",
+    "expected": "Returns an iterator that traverses all chromosomes in the exact order they appear in the underlying list."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorRemoveUnsupported",
+    "input": "ListPopulation containing 1 chromosome, invoking iterator().remove()",
+    "expected": "Throws UnsupportedOperationException because the underlying collection returned by getChromosomes() is unmodifiable."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorMultipleIndependentIterators",
+    "input": "ListPopulation containing 1 chromosome, calling iterator() twice",
+    "expected": "Returns two distinct Iterator instances that operate independently over the unmodifiable chromosome list."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorAfterAddingChromosome",
+    "input": "ListPopulation initialized empty, addChromosome(chromosome) called, then iterator()",
+    "expected": "Returns an iterator containing the newly added chromosome."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorReflectsCurrentState",
+    "input": "ListPopulation with initial list, calling iterator(), then modifying list via setChromosomes()",
+    "expected": "Since getChromosomes() returns an unmodifiable view backed by the current list, the iterator reflects the state at the time iterator() was called."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorHasNextConsistency",
+    "input": "ListPopulation with 1 chromosome, calling hasNext() multiple times consecutively",
+    "expected": "Returns true consistently without advancing the iterator state."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorIterationCompleteness",
+    "input": "ListPopulation with 3 chromosomes, looping via while(iterator.hasNext())",
+    "expected": "Visits exactly 3 elements and terminates successfully."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorOnConstructorWithList",
+    "input": "ListPopulation constructed with a List of 2 chromosomes and limit 5",
+    "expected": "Returns an iterator yielding those 2 initial chromosomes."
+  },
+  {
+    "method": "iterator",
+    "name": "iteratorAfterAddChromosomesCollection",
+    "input": "ListPopulation initialized empty, addChromosomes(collectionOf2) called, then iterator()",
+    "expected": "Returns an iterator containing the 2 added chromosomes from the collection."
+  }
+]
