@@ -1,0 +1,104 @@
+[
+  {
+    "method": "tryMergeFunctionPiecewise",
+    "name": "tryMergeWithEqualParametersLeastSuper",
+    "input": "other function with identical parameters, leastSuper=true",
+    "expected": "Returns a new FunctionType with merged return type (least supertype), combined returnTypeInferred (logical OR), and matching parameters."
+  },
+  {
+    "method": "tryMergeFunctionPiecewise",
+    "name": "tryMergeWithDifferentParametersReturnsNull",
+    "input": "other function with differing parameters, leastSuper=true",
+    "expected": "Returns null because parameters are not equal under IDENTITY equivalence."
+  },
+  {
+    "method": "tryMergeFunctionPiecewise",
+    "name": "tryMergeGreatestSubtype",
+    "input": "other function with identical parameters, leastSuper=false",
+    "expected": "Returns a new FunctionType with the greatest subtype of return types and greatest subtype of 'this' types."
+  },
+  {
+    "method": "tryMergeFunctionPiecewise",
+    "name": "tryMergeWithEquivalentTypeOfThis",
+    "input": "other function with equivalent typeOfThis, leastSuper=true",
+    "expected": "Retains the exact typeOfThis instance since isEquivalent is true."
+  },
+  {
+    "method": "tryMergeFunctionPiecewise",
+    "name": "tryMergeWithNonObjectTypeForThisFallbackLeastSuper",
+    "input": "other function where typeOfThis least supertype results in non-ObjectType, leastSuper=true",
+    "expected": "Falls back to OBJECT_TYPE native object type."
+  },
+  {
+    "method": "tryMergeFunctionPiecewise",
+    "name": "tryMergeWithNonObjectTypeForThisFallbackGreatestSub",
+    "input": "other function where typeOfThis greatest subtype results in non-ObjectType, leastSuper=false",
+    "expected": "Falls back to NO_OBJECT_TYPE native object type."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "constructorsEqualWhenSameReference",
+    "input": "this is constructor, that is constructor, this == that, eqMethod=IDENTITY",
+    "expected": "Returns true because two constructors are only equivalent if they are the exact same instance."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "constructorsNotEqualWhenDifferentReferences",
+    "input": "this is constructor, that is constructor, this != that, eqMethod=IDENTITY",
+    "expected": "Returns false for different constructor instances."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "constructorComparedToNonConstructorReturnsFalse",
+    "input": "this is constructor, that is ordinary function, eqMethod=IDENTITY",
+    "expected": "Returns false because a constructor cannot be equivalent to a non-constructor."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "interfacesEqualWhenNamesMatch",
+    "input": "this is interface with name 'Foo', that is interface with name 'Foo', eqMethod=IDENTITY",
+    "expected": "Returns true because two interfaces are equal if their reference names match."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "interfacesNotEqualWhenNamesDiffer",
+    "input": "this is interface with name 'Foo', that is interface with name 'Bar', eqMethod=IDENTITY",
+    "expected": "Returns false because interface names do not match."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "interfaceComparedToNonInterfaceReturnsFalse",
+    "input": "this is interface, that is ordinary function, eqMethod=IDENTITY",
+    "expected": "Returns false."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "nonInterfaceComparedToInterfaceReturnsFalse",
+    "input": "this is ordinary function, that is interface, eqMethod=IDENTITY",
+    "expected": "Returns false."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "ordinaryFunctionsEquivalentSignatures",
+    "input": "this and that are ordinary functions with equivalent typeOfThis and equivalent arrows, eqMethod=IDENTITY",
+    "expected": "Returns true based on typeOfThis and arrow type equivalence."
+  },
+  {
+    "method": "checkFunctionEquivalenceHelper",
+    "name": "ordinaryFunctionsDifferentArrowType",
+    "input": "this and that are ordinary functions with different arrow types, eqMethod=IDENTITY",
+    "expected": "Returns false because checkArrowEquivalenceHelper fails."
+  },
+  {
+    "method": "hasEqualCallType",
+    "name": "hasEqualCallTypeTrue",
+    "input": "otherType with identically equal call ArrowType",
+    "expected": "Returns true because call types match under IDENTITY equivalence."
+  },
+  {
+    "method": "hasEqualCallType",
+    "name": "hasEqualCallTypeFalse",
+    "input": "otherType with different return or parameters in ArrowType",
+    "expected": "Returns false because checkArrowEquivalenceHelper returns false."
+  }
+]

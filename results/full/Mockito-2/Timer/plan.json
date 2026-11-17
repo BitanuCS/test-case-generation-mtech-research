@@ -1,0 +1,56 @@
+[
+  {
+    "method": "validateInput",
+    "name": "validateInputWithNegativeDurationThrowsException",
+    "input": "durationMillis = -1",
+    "expected": "Throws an exception via Reporter because durationMillis is less than zero (violates timer duration rules)."
+  },
+  {
+    "method": "validateInput",
+    "name": "validateInputWithMinNegativeDurationThrowsException",
+    "input": "durationMillis = Long.MIN_VALUE",
+    "expected": "Throws an exception via Reporter because Long.MIN_VALUE is strictly less than zero."
+  },
+  {
+    "method": "Timer",
+    "name": "constructorWithNegativeDurationThrowsException",
+    "input": "durationMillis = -100L",
+    "expected": "Calls validateInput and throws an exception via Reporter when initializing Timer with a negative duration."
+  },
+  {
+    "method": "validateInput",
+    "name": "validateInputWithZeroDurationSucceeds",
+    "input": "durationMillis = 0",
+    "expected": "Does not throw an exception because durationMillis is not less than zero (boundary value)."
+  },
+  {
+    "method": "validateInput",
+    "name": "validateInputWithPositiveDurationSucceeds",
+    "input": "durationMillis = 1000L",
+    "expected": "Does not throw an exception because durationMillis is strictly greater than zero (normal input)."
+  },
+  {
+    "method": "validateInput",
+    "name": "validateInputWithMaxLongDurationSucceeds",
+    "input": "durationMillis = Long.MAX_VALUE",
+    "expected": "Does not throw an exception because durationMillis is positive (upper boundary value)."
+  },
+  {
+    "method": "Timer",
+    "name": "constructorWithZeroDurationSucceeds",
+    "input": "durationMillis = 0L",
+    "expected": "Successfully constructs the Timer instance without throwing any exceptions."
+  },
+  {
+    "method": "Timer",
+    "name": "constructorWithPositiveDurationSucceeds",
+    "input": "durationMillis = 50L",
+    "expected": "Successfully constructs the Timer instance and properly sets the durationMillis field."
+  },
+  {
+    "method": "Timer",
+    "name": "constructorWithMaxLongDurationSucceeds",
+    "input": "durationMillis = Long.MAX_VALUE",
+    "expected": "Successfully constructs the Timer instance with the maximum possible long duration value."
+  }
+]

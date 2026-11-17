@@ -1,0 +1,104 @@
+[
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatSameInstanceReturnsSame",
+    "input": "df = existing _dateFormat instance",
+    "expected": "Returns the exact same BaseSettings instance (this) because _dateFormat == df branch is satisfied."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatDifferentInstanceReturnsNew",
+    "input": "df = a new/different DateFormat instance",
+    "expected": "Returns a new BaseSettings instance with the updated DateFormat while all other fields remain identical."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatNull",
+    "input": "df = null (when current _dateFormat is non-null)",
+    "expected": "Returns a new BaseSettings instance where the date format field is successfully set to null."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatNullToNull",
+    "input": "df = null (when current _dateFormat is already null)",
+    "expected": "Returns the exact same BaseSettings instance (this) because null == null matches."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatStdDateFormat",
+    "input": "df = new StdDateFormat()",
+    "expected": "Returns a new BaseSettings instance containing the StdDateFormat instance."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatClonedFormat",
+    "input": "df = SimpleDateFormat instance",
+    "expected": "Returns a new BaseSettings instance containing the specified SimpleDateFormat."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatImmutabilityOriginalUnchanged",
+    "input": "df = a new DateFormat instance applied to an existing BaseSettings",
+    "expected": "The original BaseSettings instance retains its original DateFormat (immutability check)."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesClassIntrospector",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same ClassIntrospector as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesAnnotationIntrospector",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same AnnotationIntrospector as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesVisibilityChecker",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same VisibilityChecker as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesPropertyNamingStrategy",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same PropertyNamingStrategy as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesTypeFactory",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same TypeFactory as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesTypeResolverBuilder",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same TypeResolverBuilder as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesHandlerInstantiator",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same HandlerInstantiator as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesLocale",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same Locale as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesTimeZone",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same TimeZone as the source."
+  },
+  {
+    "method": "withDateFormat",
+    "name": "withDateFormatPreservesBase64Variant",
+    "input": "df = new DateFormat()",
+    "expected": "The resulting BaseSettings instance preserves the exact same Base64Variant as the source."
+  }
+]

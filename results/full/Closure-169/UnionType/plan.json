@@ -1,0 +1,68 @@
+[
+  {
+    "method": "checkUnionEquivalenceHelper",
+    "name": "identityEquivalenceDifferentSizeReturnsFalse",
+    "input": "UnionType A with 2 alternates, UnionType B with 1 alternate, eqMethod = EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because sizes differ under IDENTITY equivalence."
+  },
+  {
+    "method": "checkUnionEquivalenceHelper",
+    "name": "structuralEquivalenceDifferentSizeReturnsFalseIfMissingAlternate",
+    "input": "UnionType A with 2 alternates, UnionType B with 3 alternates, eqMethod = EquivalenceMethod.STRUCTURAL",
+    "expected": "Returns false because B contains alternates not present in A."
+  },
+  {
+    "method": "checkUnionEquivalenceHelper",
+    "name": "equivalentUnionTypesSameAlternatesReturnsTrue",
+    "input": "UnionType A and UnionType B with identical sets of alternates, eqMethod = EquivalenceMethod.STRUCTURAL",
+    "expected": "Returns true because every alternate in B has an equivalent alternate in A and vice versa."
+  },
+  {
+    "method": "checkUnionEquivalenceHelper",
+    "name": "identityEquivalenceSameSizeAndAlternatesReturnsTrue",
+    "input": "UnionType A and UnionType B with identical alternates and size, eqMethod = EquivalenceMethod.IDENTITY",
+    "expected": "Returns true because sizes match and all alternates match via identity."
+  },
+  {
+    "method": "checkUnionEquivalenceHelper",
+    "name": "checkUnionEquivalenceHelperMissingAlternateReturnsFalse",
+    "input": "UnionType A containing {Number}, UnionType B containing {String}, eqMethod = EquivalenceMethod.STRUCTURAL",
+    "expected": "Returns false because B has an alternate (String) not found in A."
+  },
+  {
+    "method": "hasAlternate",
+    "name": "hasAlternateMatchingTypeReturnsTrue",
+    "input": "UnionType containing {Number, Boolean}, target type = Number, eqMethod = EquivalenceMethod.STRUCTURAL",
+    "expected": "Returns true because an alternate matches using the equivalence method."
+  },
+  {
+    "method": "hasAlternate",
+    "name": "hasAlternateNoMatchingTypeReturnsFalse",
+    "input": "UnionType containing {Number, Boolean}, target type = String, eqMethod = EquivalenceMethod.STRUCTURAL",
+    "expected": "Returns false because no alternate matches the target type."
+  },
+  {
+    "method": "hasAlternate",
+    "name": "hasAlternateIdentityMismatchReturnsFalse",
+    "input": "UnionType containing a Number instance, target type = a different Number instance with same value, eqMethod = EquivalenceMethod.IDENTITY",
+    "expected": "Returns false under IDENTITY equivalence if the object instances are distinct."
+  },
+  {
+    "method": "hasAlternate",
+    "name": "hasAlternateIdentityMatchReturnsTrue",
+    "input": "UnionType containing a Number instance, target type = the exact same Number instance, eqMethod = EquivalenceMethod.IDENTITY",
+    "expected": "Returns true under IDENTITY equivalence because references are identical."
+  },
+  {
+    "method": "checkUnionEquivalenceHelper",
+    "name": "emptyUnionTypesReturnsTrue",
+    "input": "UnionType A empty, UnionType B empty, eqMethod = EquivalenceMethod.IDENTITY",
+    "expected": "Returns true because both have size 0 and empty alternate collections."
+  },
+  {
+    "method": "checkUnionEquivalenceHelper",
+    "name": "differentOrderOfAlternatesReturnsTrue",
+    "input": "UnionType A with {Number, String}, UnionType B with {String, Number}, eqMethod = EquivalenceMethod.STRUCTURAL",
+    "expected": "Returns true because union equivalence is commutative and order-independent."
+  }
+]

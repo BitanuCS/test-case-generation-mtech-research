@@ -1,0 +1,265 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 180,
+    "status": "killed",
+    "killed_by": [
+      "bothParamsNonNullAndEquivalenceSucceeds",
+      "bothReturnTypesAndParametersEqual",
+      "differentParameterListLengthsThatLonger",
+      "differentParameterListLengthsThisLonger",
+      "multipleParametersAllMatch",
+      "multipleParametersMismatchOnSecond",
+      "testAsymmetricParameterListLengthsAndTypes",
+      "testDifferentParameterListLengthsActuallyReturnFalse",
+      "thisHasParamWithNonNullTypeOtherHasParamWithNullType"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 180,
+    "status": "killed",
+    "killed_by": [
+      "testUnequalParameterListLengthsReturnFalseCorrectly"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 180,
+    "status": "killed",
+    "killed_by": [
+      "bothParamsNonNullAndEquivalenceSucceeds",
+      "bothReturnTypesAndParametersEqual",
+      "differentParameterListLengthsThatLonger",
+      "differentParameterListLengthsThisLonger",
+      "multipleParametersAllMatch",
+      "multipleParametersMismatchOnSecond",
+      "testAsymmetricParameterListLengthsAndTypes",
+      "testDifferentParameterListLengthsActuallyReturnFalse",
+      "testUnequalParameterListLengthsReturnFalseCorrectly",
+      "thisHasParamWithNonNullTypeOtherHasParamWithNullType"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 183,
+    "status": "killed",
+    "killed_by": [
+      "bothParamsNonNullAndEquivalenceSucceeds",
+      "bothReturnTypesAndParametersEqual",
+      "differentParameterListLengthsThatLonger",
+      "differentParameterListLengthsThisLonger",
+      "multipleParametersAllMatch",
+      "multipleParametersMismatchOnSecond",
+      "testAsymmetricParameterListLengthsAndTypes",
+      "testDifferentParameterListLengthsActuallyReturnFalse",
+      "thisHasParamWithNullTypeOtherHasParamWithNonNullType"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 185,
+    "status": "killed",
+    "killed_by": [
+      "bothParamsNonNullButEquivalenceFails",
+      "returnTypesEqualButParametersDiffer",
+      "thisHasParamWithNonNullTypeOtherHasParamWithNullType"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 185,
+    "status": "killed",
+    "killed_by": [
+      "bothParamsNonNullAndEquivalenceSucceeds",
+      "bothReturnTypesAndParametersEqual",
+      "differentParameterListLengthsThatLonger",
+      "differentParameterListLengthsThisLonger",
+      "multipleParametersAllMatch",
+      "multipleParametersMismatchOnSecond",
+      "testAsymmetricParameterListLengthsAndTypes",
+      "testDifferentParameterListLengthsActuallyReturnFalse",
+      "thisHasParamWithNonNullTypeOtherHasParamWithNullType"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "thisParamType.checkEquivalenceHelper(\n                otherParamType, eqMethod)",
+    "description": "negation removed: '!' deleted",
+    "line": 186,
+    "status": "killed",
+    "killed_by": [
+      "bothParamsNonNullAndEquivalenceSucceeds",
+      "bothParamsNonNullButEquivalenceFails",
+      "bothReturnTypesAndParametersEqual",
+      "differentParameterListLengthsThatLonger",
+      "differentParameterListLengthsThisLonger",
+      "multipleParametersAllMatch",
+      "multipleParametersMismatchOnSecond",
+      "returnTypesEqualButParametersDiffer",
+      "testAsymmetricParameterListLengthsAndTypes",
+      "testDifferentParameterListLengthsActuallyReturnFalse"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 188,
+    "status": "killed",
+    "killed_by": [
+      "bothParamsNonNullButEquivalenceFails",
+      "returnTypesEqualButParametersDiffer"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 191,
+    "status": "killed",
+    "killed_by": [
+      "thisHasParamWithNullTypeOtherHasParamWithNonNullType"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 192,
+    "status": "killed",
+    "killed_by": [
+      "thisHasParamWithNullTypeOtherHasParamWithNonNullType"
+    ]
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "bothParameterListsEmpty",
+      "bothParamsNonNullAndEquivalenceSucceeds",
+      "bothReturnTypesAndParametersEqual",
+      "differentParameterListLengthsThatLonger",
+      "differentParameterListLengthsThisLonger",
+      "multipleParametersAllMatch",
+      "multipleParametersMismatchOnSecond",
+      "testAsymmetricParameterListLengthsAndTypes",
+      "testDifferentParameterListLengthsActuallyReturnFalse",
+      "testUnequalParameterListLengthsReturnFalseCorrectly",
+      "thisHasParamWithNonNullTypeOtherHasParamWithNullType"
+    ]
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "returnType.checkEquivalenceHelper(that.returnType, eqMethod)",
+    "description": "negation removed: '!' deleted",
+    "line": 206,
+    "status": "killed",
+    "killed_by": [
+      "bothReturnTypesAndParametersEqual",
+      "returnTypesNotEqual"
+    ]
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 207,
+    "status": "killed",
+    "killed_by": [
+      "returnTypesNotEqual"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (returnType.checkEquivalenceHelper(that.returnType, eqMethod)) {\n        return false;\n      }",
+    "description": "Negated the return value of checkEquivalenceHelper for the return type, causing equal return types to be treated as unequal.",
+    "line": 206,
+    "status": "killed",
+    "killed_by": [
+      "bothReturnTypesAndParametersEqual",
+      "returnTypesNotEqual"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "while (thisParam != null || otherParam != null) {",
+    "description": "Swapped the loop condition from AND (&&) to OR (||), which causes an infinite loop or premature exit when parameter lists differ in length.",
+    "line": 180,
+    "status": "killed",
+    "killed_by": [
+      "testUnequalParameterListLengthsReturnFalseCorrectly"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (otherParamType == null) {\n            return false;\n          }",
+    "description": "Inverted the null check for otherParamType when thisParamType is null, misinterpreting cases where the other parameter has no type.",
+    "line": 191,
+    "status": "killed",
+    "killed_by": [
+      "thisHasParamWithNullTypeOtherHasParamWithNonNullType"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "thisParam = otherParam.getNext();\n        otherParam = otherParam.getNext();",
+    "description": "Accidentally advanced `otherParam` twice instead of advancing `thisParam` and `otherParam` respectively, breaking traversal.",
+    "line": 195,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "return thisParam != otherParam;",
+    "description": "Replaced the final reference equality check `thisParam == otherParam` with inequality `thisParam != otherParam`, returning incorrect boolean results for list length comparisons.",
+    "line": 200,
+    "status": "killed",
+    "killed_by": [
+      "bothParameterListsEmpty",
+      "bothParamsNonNullAndEquivalenceSucceeds",
+      "bothReturnTypesAndParametersEqual",
+      "differentParameterListLengthsThatLonger",
+      "differentParameterListLengthsThisLonger",
+      "multipleParametersAllMatch",
+      "multipleParametersMismatchOnSecond",
+      "testAsymmetricParameterListLengthsAndTypes",
+      "testDifferentParameterListLengthsActuallyReturnFalse",
+      "testUnequalParameterListLengthsReturnFalseCorrectly",
+      "thisHasParamWithNonNullTypeOtherHasParamWithNullType"
+    ]
+  }
+]

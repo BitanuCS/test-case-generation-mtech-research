@@ -1,0 +1,96 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 66,
+    "status": "killed",
+    "killed_by": [
+      "testNextBooleanReturnsFalseWhenNextBitIsZero",
+      "testNextBooleanReturnsTrueWhenNextBitIsNonZero"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 66,
+    "status": "killed",
+    "killed_by": [
+      "testNextBooleanReturnsFalseWhenNextBitIsZero",
+      "testNextBooleanReturnsTrueWhenNextBitIsNonZero"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 66,
+    "status": "killed",
+    "killed_by": [
+      "testNextBooleanReturnsFalseWhenNextBitIsZero",
+      "testNextBooleanReturnsTrueWhenNextBitIsNonZero"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "return next(2) != 0;",
+    "description": "Change the bit count requested for nextBoolean from 1 to 2",
+    "line": 66,
+    "status": "killed",
+    "killed_by": [
+      "testNextBooleanReturnsFalseWhenNextBitIsZero",
+      "testNextBooleanReturnsTrueWhenNextBitIsNonZero"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return next(1) == 0;",
+    "description": "Change the comparison operator in nextBoolean from != to ==",
+    "line": 66,
+    "status": "killed",
+    "killed_by": [
+      "testNextBooleanReturnsFalseWhenNextBitIsZero",
+      "testNextBooleanReturnsTrueWhenNextBitIsNonZero"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "return next(1) != 1;",
+    "description": "Compare against 1 instead of 0 in nextBoolean",
+    "line": 66,
+    "status": "killed",
+    "killed_by": [
+      "testNextBooleanReturnsFalseWhenNextBitIsZero",
+      "testNextBooleanReturnsTrueWhenNextBitIsNonZero"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "nextGaussian = 0.0D;",
+    "description": "Initialize nextGaussian to zero instead of Double.NaN in the constructor",
+    "line": 41,
+    "status": "killed",
+    "killed_by": [
+      "testConstructorInitializesNextGaussianToNaNRatherThanZeroOrOne"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "nextGaussian = 1.0D;",
+    "description": "Initialize nextGaussian to 1.0 instead of Double.NaN in the constructor",
+    "line": 41,
+    "status": "killed",
+    "killed_by": [
+      "testConstructorInitializesNextGaussianToNaNRatherThanZeroOrOne"
+    ]
+  }
+]

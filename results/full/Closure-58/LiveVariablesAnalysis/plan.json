@@ -1,0 +1,86 @@
+[
+  {
+    "method": "computeGenKill",
+    "name": "scriptBlockFunctionNodesReturnEarly",
+    "input": "n = Node of type Token.BLOCK (or SCRIPT/FUNCTION), gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Both gen and kill sets remain empty because SCRIPT, BLOCK, and FUNCTION nodes do not contribute directly to gen/kill at their container level."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "whileNodeRecursesCondition",
+    "input": "n = Node of type Token.WHILE with a NAME condition (e.g. 'x'), gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Delegates to computeGenKill on the condition expression, adding 'x' to gen if 'x' is a local unescaped variable."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "nameNodeAddsToGen",
+    "input": "n = Node of type Token.NAME representing a local declared variable 'x', gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Calls addToSetIfLocal(n, gen), setting the bit corresponding to variable 'x' in the gen BitSet."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "argumentsNameTriggersMarkAllParametersEscaped",
+    "input": "n = Node of type Token.NAME with value 'arguments' (not declared locally), gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Recognizes 'arguments' via isArgumentsName(n) and calls markAllParametersEscaped(), adding all function parameters to the escaped set."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "simpleAssignmentKillsAndGensRhs",
+    "input": "n = Assignment node (Token.ASSIGN) with LHS = Token.NAME 'x' and RHS = Token.NAME 'y', gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Since not conditional, 'x' is added to kill. Token.ASSIGN is not a compound assignment, so LHS is not added to gen. RHS ('y') is processed with computeGenKill, adding 'y' to gen."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "compoundAssignmentAddsLhsToGenAndKill",
+    "input": "n = Compound assignment node (Token.ASSIGN_ADD) with LHS = Token.NAME 'x' and RHS = Token.NUMBER '1', gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Since not conditional, 'x' is added to kill. Because it is a compound assignment (!NodeUtil.isAssign(n)), 'x' is also added to gen (since it reads 'x'). RHS is recursively processed."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "conditionalAssignmentDoesNotKill",
+    "input": "n = Assignment node (Token.ASSIGN) with LHS = Token.NAME 'x' and RHS = Token.NUMBER '1', gen = empty BitSet, kill = empty BitSet, conditional = true",
+    "expected": "Because conditional is true, 'x' is NOT added to kill, but RHS is processed normally."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "varDeclarationWithoutConditionalKillsAndGensInitializer",
+    "input": "n = Token.VAR node declaring 'x = y', gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Computes gen/kill for the initializer 'y' (adding 'y' to gen), and since conditional is false, adds 'x' to kill."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "varDeclarationWithConditionalDoesNotKill",
+    "input": "n = Token.VAR node declaring 'x = y', gen = empty BitSet, kill = empty BitSet, conditional = true",
+    "expected": "Computes gen/kill for the initializer 'y' (adding 'y' to gen), but does NOT add 'x' to kill because conditional is true."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "andOrShortCircuitSetsConditionalTrueForRhs",
+    "input": "n = Token.AND node with LHS = 'x' and RHS = 'y', gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Computes gen/kill on LHS ('x') with current conditional (false), then computes gen/kill on RHS ('y') with conditional forced to true due to potential short-circuiting."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "hookTernaryOperatorForcesConditionalOnBranches",
+    "input": "n = Token.HOOK node (condition ? then : else), gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Computes gen/kill on condition with original conditional, then computes gen/kill on both the 'then' and 'else' child nodes with conditional forced to true."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "standardForLoopConditionAndBody",
+    "input": "n = Standard Token.FOR node with condition 'x < 10' and body, gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Checks that it is not a for-in loop via NodeUtil.isForIn(n), then computes gen/kill on the condition expression."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "forInLoopWithVarLhs",
+    "input": "n = Token.FOR representing 'for(var x in y)', gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Identifies for-in loop, unwraps 'var x' to get name 'x', adds 'x' to both kill and gen, and computes gen/kill on rhs 'y'."
+  },
+  {
+    "method": "computeGenKill",
+    "name": "defaultTreeNodeTraversal",
+    "input": "n = Generic container node (e.g., Token.EXPR_RESULT containing 'x'), gen = empty BitSet, kill = empty BitSet, conditional = false",
+    "expected": "Falls through to default case, iterating over all child nodes and recursively calling computeGenKill on each child."
+  }
+]

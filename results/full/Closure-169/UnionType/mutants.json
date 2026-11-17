@@ -1,0 +1,170 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 335,
+    "status": "killed",
+    "killed_by": [
+      "testIdentityEquivalenceDifferentSizeReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 335,
+    "status": "killed",
+    "killed_by": [
+      "testEmptyUnionTypesReturnsTrue",
+      "testHasAlternateIdentityMatchReturnsTrue",
+      "testIdentityEquivalenceSameSizeAndAlternatesReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 336,
+    "status": "killed",
+    "killed_by": [
+      "testEmptyUnionTypesReturnsTrue",
+      "testHasAlternateIdentityMatchReturnsTrue",
+      "testIdentityEquivalenceDifferentSizeReturnsFalse",
+      "testIdentityEquivalenceSameSizeAndAlternatesReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 337,
+    "status": "killed",
+    "killed_by": [
+      "testCheckUnionEquivalenceHelper_ReturnsFalseWhenAlternateMissing",
+      "testIdentityEquivalenceDifferentSizeReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "hasAlternate(alternate, eqMethod)",
+    "description": "negation removed: '!' deleted",
+    "line": 340,
+    "status": "killed",
+    "killed_by": [
+      "testCheckUnionEquivalenceHelper_ReturnsFalseWhenHasAlternateFails",
+      "testHasAlternateIdentityMatchReturnsTrue",
+      "testIdentityEquivalenceSameSizeAndAlternatesReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 341,
+    "status": "killed",
+    "killed_by": [
+      "testCheckUnionEquivalenceHelper_ReturnsFalseWhenHasAlternateFails"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 344,
+    "status": "killed",
+    "killed_by": [
+      "testEmptyUnionTypesReturnsTrue",
+      "testHasAlternateIdentityMatchReturnsTrue",
+      "testIdentityEquivalenceSameSizeAndAlternatesReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 350,
+    "status": "killed",
+    "killed_by": [
+      "testHasAlternateIdentityMatchReturnsTrue",
+      "testIdentityEquivalenceSameSizeAndAlternatesReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 353,
+    "status": "killed",
+    "killed_by": [
+      "testCheckUnionEquivalenceHelper_ReturnsFalseWhenHasAlternateFails"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "for (JSType alternate : that.alternates) {",
+    "description": "In hasAlternate, iterate over that.alternates instead of alternates, checking the wrong collection.",
+    "line": 348,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return true;",
+    "description": "Change the return value of hasAlternate on a match failure from false to true, improperly short-circuiting or returning positive equivalence.",
+    "line": 353,
+    "status": "killed",
+    "killed_by": [
+      "testCheckUnionEquivalenceHelper_ReturnsFalseWhenHasAlternateFails"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (eqMethod == EquivalenceMethod.IDENTITY\n          && alternates.size() == that.alternates.size()) {",
+    "description": "Change the IDENTITY equivalence check condition from checking inequality (!=) to equality (==) for sizes, meaning it only fails when sizes are equal instead of different.",
+    "line": 335,
+    "status": "killed",
+    "killed_by": [
+      "testEmptyUnionTypesReturnsTrue",
+      "testHasAlternateIdentityMatchReturnsTrue",
+      "testIdentityEquivalenceDifferentSizeReturnsFalse",
+      "testIdentityEquivalenceSameSizeAndAlternatesReturnsTrue"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "for (JSType alternate : alternates) {",
+    "description": "In the subset check loop, check against this.alternates instead of that.alternates, making it test whether the current union is a subset of the other instead of vice versa.",
+    "line": 339,
+    "status": "killed",
+    "killed_by": [
+      "testCheckUnionEquivalenceHelper_ReturnsFalseWhenHasAlternateFails"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (hasAlternate(alternate, eqMethod)) {",
+    "description": "Negate the result of hasAlternate in the check loop, meaning it fails if an alternate *is* found rather than if it is *not* found.",
+    "line": 340,
+    "status": "killed",
+    "killed_by": [
+      "testCheckUnionEquivalenceHelper_ReturnsFalseWhenHasAlternateFails",
+      "testHasAlternateIdentityMatchReturnsTrue",
+      "testIdentityEquivalenceSameSizeAndAlternatesReturnsTrue"
+    ]
+  }
+]

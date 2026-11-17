@@ -1,0 +1,73 @@
+// ===== Class under test: org.jsoup.parser.CharacterReader =====
+package org.jsoup.parser;
+import org.jsoup.helper.Validate;
+
+/**
+ CharacterReader cosumes tokens off a string. To replace the old TokenQueue.
+ */
+class CharacterReader {
+
+  // --- fields ---
+  static final char EOF = (char) -1;
+  private final String input;
+  private final int length;
+  private int pos = 0;
+  private int mark = 0;
+
+  // --- constructors and other methods (signatures only) ---
+  int pos();
+  boolean isEmpty();
+  char current();
+  char consume();
+  void unconsume();
+  void advance();
+  void mark();
+  void rewindToMark();
+  String consumeAsString();
+  String consumeTo(char c);
+  String consumeTo(String seq);
+  String consumeToAny(char... seq);
+  String consumeLetterSequence();
+  String consumeHexSequence();
+  String consumeDigitSequence();
+  boolean matches(char c);
+  boolean matches(String seq);
+  boolean matchesIgnoreCase(String seq);
+  boolean matchesAny(char... seq);
+  boolean matchesLetter();
+  boolean matchesDigit();
+  boolean matchConsume(String seq);
+  boolean matchConsumeIgnoreCase(String seq);
+  boolean containsIgnoreCase(String seq);
+  @Override public String toString();
+
+  // --- METHOD(S) UNDER TEST ---
+  CharacterReader(String input) {
+          Validate.notNull(input);
+          input = input.replaceAll("\r\n?", "\n"); // normalise carriage returns to newlines
+
+          this.input = input;
+          this.length = input.length();
+      }
+  String consumeToEnd() {
+          String data = input.substring(pos, input.length());
+          pos = input.length();
+          return data;
+      }
+}
+
+// ===== Existing test class CharacterReaderTest (test methods removed; style/setup reference only) =====
+package org.jsoup.parser;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * Test suite for character reader.
+ *
+ * @author Jonathan Hedley, jonathan@hedley.net
+ */
+public class CharacterReaderTest {
+
+}

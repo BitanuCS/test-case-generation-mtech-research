@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapped the loop condition from AND (&&) to OR (||), which causes an infinite loop or premature exit when parameter lists differ in length.",
+    "original": "while (thisParam != null && otherParam != null) {",
+    "mutated": "while (thisParam != null || otherParam != null) {"
+  },
+  {
+    "description": "Inverted the null check for otherParamType when thisParamType is null, misinterpreting cases where the other parameter has no type.",
+    "original": "          if (otherParamType != null) {\n            return false;\n          }",
+    "mutated": "          if (otherParamType == null) {\n            return false;\n          }"
+  },
+  {
+    "description": "Accidentally advanced `otherParam` twice instead of advancing `thisParam` and `otherParam` respectively, breaking traversal.",
+    "original": "        thisParam = thisParam.getNext();\n        otherParam = otherParam.getNext();",
+    "mutated": "        thisParam = otherParam.getNext();\n        otherParam = otherParam.getNext();"
+  },
+  {
+    "description": "Replaced the final reference equality check `thisParam == otherParam` with inequality `thisParam != otherParam`, returning incorrect boolean results for list length comparisons.",
+    "original": "      return thisParam == otherParam;",
+    "mutated": "      return thisParam != otherParam;"
+  },
+  {
+    "description": "Negated the return value of checkEquivalenceHelper for the return type, causing equal return types to be treated as unequal.",
+    "original": "      if (!returnType.checkEquivalenceHelper(that.returnType, eqMethod)) {\n        return false;\n      }",
+    "mutated": "      if (returnType.checkEquivalenceHelper(that.returnType, eqMethod)) {\n        return false;\n      }"
+  }
+]

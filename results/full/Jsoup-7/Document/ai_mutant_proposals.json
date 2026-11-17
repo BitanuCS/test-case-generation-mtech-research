@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Wrong loop start index in normaliseStructure: starting at 0 instead of 1 will try to process the master element as a duplicate of itself, causing it to remove its own child nodes or throw errors.",
+    "original": "for (int i = 1; i < elements.size(); i++) {",
+    "mutated": "for (int i = 0; i < elements.size(); i++) {"
+  },
+  {
+    "description": "Wrong comparison operator in normaliseStructure: using >= instead of > will fail to detect duplicate elements when there are multiple ones, leaving duplicates unmerged.",
+    "original": "if (elements.size() > 1) { // dupes, move contents to master",
+    "mutated": "if (elements.size() >= 1) { // dupes, move contents to master"
+  },
+  {
+    "description": "Swapped arguments in normaliseStructure call: passing htmlEl as the tag name and head as the element will cause tag lookup to fail or look for the wrong structure.",
+    "original": "normaliseStructure(\"head\", htmlEl);",
+    "mutated": "normaliseStructure(htmlEl.tagName(), htmlEl);"
+  },
+  {
+    "description": "Missing normalisation order for the document itself: omitting normaliseTextNodes(this) will leave loose text nodes directly inside the Document root un-pulled into the body.",
+    "original": "normaliseTextNodes(this);",
+    "mutated": "// normaliseTextNodes(this);"
+  },
+  {
+    "description": "Wrong target element check for body: checking head() instead of body() when checking for missing body will cause it to append a body element twice or miss the check.",
+    "original": "if (body() == null)",
+    "mutated": "if (head() == null)"
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "method": "nextToken",
+    "name": "nextTokenWithPredefinedNextToken",
+    "input": "_nextToken is set to JsonToken.START_OBJECT",
+    "expected": "Returns START_OBJECT, clears _nextToken, updates _currToken, and creates a child object context in _parsingContext."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlStartElementLeaf",
+    "input": "Stream returns XML_START_ELEMENT, _mayBeLeaf is false, not in array",
+    "expected": "Sets _mayBeLeaf to true, sets current name in parsing context, and returns JsonToken.FIELD_NAME."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlStartElementInArray",
+    "input": "Stream returns XML_START_ELEMENT, _parsingContext.inArray() is true",
+    "expected": "Skips/advances underlying stream, sets _mayBeLeaf = true, and loops to process the next token."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlStartElementWithMayBeLeaf",
+    "input": "Stream returns XML_START_ELEMENT, _mayBeLeaf is true",
+    "expected": "Queues FIELD_NAME in _nextToken, creates child object context, and returns START_OBJECT."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlStartElementWithVirtualWrapping",
+    "input": "Stream returns XML_START_ELEMENT, local name matches _namesToWrap",
+    "expected": "Calls _xmlTokens.repeatStartElement(), sets _mayBeLeaf to true, and returns JsonToken.FIELD_NAME."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlEndElementLeafNull",
+    "input": "Stream returns XML_END_ELEMENT, _mayBeLeaf is true, not in array",
+    "expected": "Sets _mayBeLeaf to false and returns JsonToken.VALUE_NULL."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlEndElementLeafInArray",
+    "input": "Stream returns XML_END_ELEMENT, _mayBeLeaf is true, _parsingContext.inArray() is true",
+    "expected": "Sets _mayBeLeaf to false, queues END_OBJECT in _nextToken, creates child object context, and returns START_OBJECT."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlEndElementNormalObject",
+    "input": "Stream returns XML_END_ELEMENT, _mayBeLeaf is false, in object context",
+    "expected": "Returns END_OBJECT, pops parent context, and updates _namesToWrap."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlEndElementNormalArray",
+    "input": "Stream returns XML_END_ELEMENT, _mayBeLeaf is false, in array context",
+    "expected": "Returns END_ARRAY, pops parent context, and updates _namesToWrap."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlAttributeNameWithMayBeLeaf",
+    "input": "Stream returns XML_ATTRIBUTE_NAME, _mayBeLeaf is true",
+    "expected": "Sets _mayBeLeaf to false, queues FIELD_NAME in _nextToken, caches text, creates child object context, and returns START_OBJECT."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlAttributeNameNormal",
+    "input": "Stream returns XML_ATTRIBUTE_NAME, _mayBeLeaf is false",
+    "expected": "Sets current name in parsing context from local name and returns JsonToken.FIELD_NAME."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlAttributeValue",
+    "input": "Stream returns XML_ATTRIBUTE_VALUE",
+    "expected": "Caches text in _currText and returns JsonToken.VALUE_STRING."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlTextLeafValidString",
+    "input": "Stream returns XML_TEXT, _mayBeLeaf is true, text is non-empty",
+    "expected": "Caches text, sets _mayBeLeaf to false, skips end element, and returns JsonToken.VALUE_STRING."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlTextLeafEmptyInArray",
+    "input": "Stream returns XML_TEXT, _mayBeLeaf is true, in array, text is empty/whitespace",
+    "expected": "Caches text, sets _mayBeLeaf to false, skips end element, queues END_OBJECT, creates child object context, and returns START_OBJECT."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlTextNonLeafEmptyInObject",
+    "input": "Stream returns XML_TEXT, _mayBeLeaf is false, in object, text is empty, _currToken != FIELD_NAME",
+    "expected": "Returns END_OBJECT, pops parent context, and updates _namesToWrap."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlTextNonLeafValidString",
+    "input": "Stream returns XML_TEXT, _mayBeLeaf is false, text is non-empty",
+    "expected": "Caches text, sets current name to text element name config, queues VALUE_STRING, and returns JsonToken.FIELD_NAME."
+  },
+  {
+    "method": "nextToken",
+    "name": "nextTokenXmlEnd",
+    "input": "Stream returns XML_END",
+    "expected": "Sets _currToken to null and returns null."
+  }
+]

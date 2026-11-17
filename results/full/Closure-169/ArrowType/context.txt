@@ -1,0 +1,74 @@
+// ===== Class under test: com.google.javascript.rhino.jstype.ArrowType =====
+package com.google.javascript.rhino.jstype;
+import static com.google.javascript.rhino.jstype.JSTypeNative.UNKNOWN_TYPE;
+import com.google.javascript.rhino.ErrorReporter;
+import com.google.javascript.rhino.Node;
+
+/**
+ * The arrow type is an internal type that models the functional arrow type
+ * seen in typical functional programming languages.  It is used solely for
+ * separating the management of the arrow type from the complex
+ * {@link FunctionType} that models JavaScript's notion of functions.
+ */
+final class ArrowType extends JSType {
+
+  // --- fields ---
+  private static final long serialVersionUID = 1L;
+  final Node parameters;
+  JSType returnType;
+  final boolean returnTypeInferred;
+
+  // --- constructors and other methods (signatures only) ---
+  ArrowType(JSTypeRegistry registry, Node parameters, JSType returnType);
+  ArrowType(JSTypeRegistry registry, Node parameters, JSType returnType, boolean returnTypeInferred);
+  @Override public boolean isSubtype(JSType other);
+  @Override public int hashCode();
+  @Override public JSType getLeastSupertype(JSType that);
+  @Override public JSType getGreatestSubtype(JSType that);
+  @Override public TernaryValue testForEquality(JSType that);
+  @Override public <T> T visit(Visitor<T> visitor);
+  @Override public BooleanLiteralSet getPossibleToBooleanOutcomes();
+  @Override JSType resolveInternal(ErrorReporter t, StaticScope<JSType> scope);
+  boolean hasUnknownParamsOrReturn();
+  @Override String toStringHelper(boolean forAnnotations);
+  @Override public boolean hasAnyTemplateInternal();
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+     * @return True if our parameter spec is equal to {@code that}'s parameter
+     *     spec.
+     */
+  boolean hasEqualParameters(ArrowType that, EquivalenceMethod eqMethod) {
+      Node thisParam = parameters.getFirstChild();
+      Node otherParam = that.parameters.getFirstChild();
+      while (thisParam != null && otherParam != null) {
+        JSType thisParamType = thisParam.getJSType();
+        JSType otherParamType = otherParam.getJSType();
+        if (thisParamType != null) {
+          // Both parameter lists give a type for this param, it should be equal
+          if (otherParamType != null &&
+              !thisParamType.checkEquivalenceHelper(
+                  otherParamType, eqMethod)) {
+            return false;
+          }
+        } else {
+          if (otherParamType != null) {
+            return false;
+          }
+        }
+        thisParam = thisParam.getNext();
+        otherParam = otherParam.getNext();
+      }
+      // One of the parameters is null, so the types are only equal if both
+      // parameter lists are null (they are equal).
+      return thisParam == otherParam;
+    }
+  boolean checkArrowEquivalenceHelper(
+        ArrowType that, EquivalenceMethod eqMethod) {
+      // Please keep this method in sync with the hashCode() method below.
+      if (!returnType.checkEquivalenceHelper(that.returnType, eqMethod)) {
+        return false;
+      }
+      return hasEqualParameters(that, eqMethod);
+    }
+}

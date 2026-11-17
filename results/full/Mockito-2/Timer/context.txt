@@ -1,0 +1,43 @@
+// ===== Class under test: org.mockito.internal.util.Timer =====
+package org.mockito.internal.util;
+import org.mockito.exceptions.Reporter;
+
+
+public class Timer {
+
+  // --- fields ---
+  private final long durationMillis;
+  private long startTime = -1;
+
+  // --- constructors and other methods (signatures only) ---
+  public boolean isCounting();
+  public void start();
+
+  // --- METHOD(S) UNDER TEST ---
+  public Timer(long durationMillis) {
+          validateInput(durationMillis);
+          this.durationMillis = durationMillis;
+      }
+  private void validateInput(long durationMillis) {
+          if (durationMillis < 0) {
+              new Reporter().cannotCreateTimerWithNegativeDurationTime(durationMillis);
+          }
+      }
+}
+
+// ===== Existing test class TimerTest (test methods removed; style/setup reference only) =====
+package org.mockito.internal.util;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.exceptions.misusing.FriendlyReminderException;
+import org.mockitoutil.TestBase;
+
+import static org.hamcrest.CoreMatchers.is;
+
+public class TimerTest extends TestBase {
+
+    private void oneMillisecondPasses() throws InterruptedException {
+        Thread.sleep(1);
+    }
+}

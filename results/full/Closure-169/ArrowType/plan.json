@@ -1,0 +1,74 @@
+[
+  {
+    "method": "checkArrowEquivalenceHelper",
+    "name": "bothReturnTypesAndParametersEqual",
+    "input": "this ArrowType with returnType A and param [type A], that ArrowType with returnType A and param [type A], EquivalenceMethod.IDENTITY",
+    "expected": "Returns true because return types are equivalent and parameters match perfectly."
+  },
+  {
+    "method": "checkArrowEquivalenceHelper",
+    "name": "returnTypesNotEqual",
+    "input": "this ArrowType with returnType A, that ArrowType with returnType B, same parameters, EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because returnType.checkEquivalenceHelper returns false early."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "bothParameterListsEmpty",
+    "input": "this ArrowType with empty parameters node, that ArrowType with empty parameters node, EquivalenceMethod.IDENTITY",
+    "expected": "Returns true because bothParam == otherParam evaluates to true when both are null."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "thisHasParamWithNullTypeOtherHasParamWithNonNullType",
+    "input": "this ArrowType with param node having null JSType, that ArrowType with param node having non-null JSType, EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because thisParamType is null while otherParamType is not null."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "thisHasParamWithNonNullTypeOtherHasParamWithNullType",
+    "input": "this ArrowType with param node having non-null JSType, that ArrowType with param node having null JSType, EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because thisParamType != null, but otherParamType is null, failing equivalence check."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "bothParamsNonNullButEquivalenceFails",
+    "input": "this ArrowType with param type A, that ArrowType with param type B (non-equivalent), EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because thisParamType.checkEquivalenceHelper returns false."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "bothParamsNonNullAndEquivalenceSucceeds",
+    "input": "this ArrowType with param type A, that ArrowType with equivalent param type A, EquivalenceMethod.IDENTITY",
+    "expected": "Returns true because checkEquivalenceHelper returns true for the parameters."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "differentParameterListLengthsThisLonger",
+    "input": "this ArrowType with two parameters, that ArrowType with one parameter, EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because after looping, thisParam != otherParam (one is non-null, one is null)."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "differentParameterListLengthsThatLonger",
+    "input": "this ArrowType with one parameter, that ArrowType with two parameters, EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because after looping, thisParam != otherParam (thisParam is null, otherParam is non-null)."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "multipleParametersAllMatch",
+    "input": "this ArrowType with params [type A, type B], that ArrowType with params [type A, type B], EquivalenceMethod.IDENTITY",
+    "expected": "Returns true because all parameter pairs match and lists terminate at the same time."
+  },
+  {
+    "method": "hasEqualParameters",
+    "name": "multipleParametersMismatchOnSecond",
+    "input": "this ArrowType with params [type A, type B], that ArrowType with params [type A, type C], EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because the second parameter fails the equivalence check."
+  },
+  {
+    "method": "checkArrowEquivalenceHelper",
+    "name": "returnTypesEqualButParametersDiffer",
+    "input": "this ArrowType with returnType A and param A, that ArrowType with returnType A and param B, EquivalenceMethod.IDENTITY",
+    "expected": "Returns false because while return types match, hasEqualParameters returns false."
+  }
+]

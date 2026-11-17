@@ -1,0 +1,283 @@
+{
+  "bug": "Closure-45",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 387,
+      "lines_covered": 17,
+      "branches_total": 283,
+      "branches_covered": 0,
+      "line": 0.044,
+      "branch": 0.0
+    },
+    "major_mutation": {
+      "generated": 437,
+      "covered": 437,
+      "killed": 435,
+      "score": 0.995
+    }
+  },
+  "seconds": 245.0,
+  "llm_calls": {
+    "fresh": 14,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 14
+    },
+    "tokens_in": 41406,
+    "tokens_out": 9009
+  },
+  "classes": [
+    {
+      "bug": "Closure-45",
+      "class": "com.google.javascript.jscomp.RemoveUnusedVars",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 9
+        },
+        {
+          "round": 2,
+          "compile_errors": 5
+        },
+        {
+          "round": 3,
+          "compile_errors": 1
+        },
+        {
+          "round": 1,
+          "compile_errors": 5
+        },
+        {
+          "round": 2,
+          "passed": 1,
+          "failed": 4,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "compile_errors": 4
+        },
+        {
+          "round": 1,
+          "compile_errors": 3
+        },
+        {
+          "round": 2,
+          "passed": 1,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 1,
+          "failed": 2,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "testProcessRun",
+          "fails"
+        ],
+        [
+          "testInterpretAssignsVarParentNodeCheck",
+          "fails"
+        ],
+        [
+          "testInterpretAssignsLogicalOperatorAndVsOr",
+          "fails"
+        ],
+        [
+          "testInterpretAssignsMultipleVarsOffByOne",
+          "fails"
+        ],
+        [
+          "testInterpretAssignsChangesFlagReset",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "interpretAssigns",
+        "Assign"
+      ],
+      "generated_tests": 5,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 5,
+        "oracles": 5,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 5,
+        "compiles": false,
+        "compile_ok_tests": 0,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.0,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 1,
+      "mutation": [
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 0,
+            "score": 0.0
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 0,
+            "score": 0.0
+          },
+          "tests": 1,
+          "coverage": {
+            "line": 0.0,
+            "branch": 0.0
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 0,
+            "score": 0.0
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 0,
+            "score": 0.0
+          },
+          "tests": 1,
+          "coverage": {
+            "line": 0.0,
+            "branch": 0.0
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 0,
+            "score": 0.0
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 0,
+            "score": 0.0
+          },
+          "tests": 1,
+          "coverage": {
+            "line": 0.0,
+            "branch": 0.0
+          }
+        }
+      ],
+      "final_tests": 1,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.048,
+          "branch": 0.0,
+          "line": 0.079,
+          "complexity": 0.01,
+          "method": 0.071,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.0,
+          "branch": 0.0
+        },
+        "focal_missed_lines": [
+          705,
+          707,
+          712,
+          713,
+          714,
+          715,
+          716,
+          718,
+          719,
+          721,
+          722,
+          723,
+          724,
+          725,
+          726,
+          729,
+          732,
+          733,
+          734,
+          735,
+          736,
+          737,
+          738,
+          740,
+          741,
+          743,
+          745,
+          746,
+          747,
+          748,
+          752,
+          753,
+          902,
+          903,
+          904,
+          905,
+          906,
+          908,
+          909,
+          911,
+          912,
+          913
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 125,
+          "killed": 0,
+          "score": 0.0
+        },
+        "focal": {
+          "generated": 18,
+          "killed": 0,
+          "score": 0.0
+        }
+      },
+      "final_oracles": 1,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    }
+  ]
+}

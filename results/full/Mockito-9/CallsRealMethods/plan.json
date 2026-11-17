@@ -1,0 +1,62 @@
+[
+  {
+    "method": "answer",
+    "name": "callsRealMethodWhenMethodIsConcrete",
+    "input": "InvocationOnMock where getMethod() returns a concrete (non-abstract) method and callRealMethod() succeeds",
+    "expected": "Returns the result of invocation.callRealMethod() because the method is not abstract."
+  },
+  {
+    "method": "answer",
+    "name": "delegatesToGloballyConfiguredAnswerWhenMethodIsAbstract",
+    "input": "InvocationOnMock where getMethod() returns an abstract method (Modifier.isAbstract is true)",
+    "expected": "Delegates to GloballyConfiguredAnswer and returns its answer, avoiding an AbstractMethodError when calling real methods on abstract definitions."
+  },
+  {
+    "method": "answer",
+    "name": "propagatesThrowableWhenCallRealMethodThrowsException",
+    "input": "InvocationOnMock where getMethod() is concrete and invocation.callRealMethod() throws a RuntimeException",
+    "expected": "Propagates the thrown RuntimeException from callRealMethod() without catching or wrapping it."
+  },
+  {
+    "method": "answer",
+    "name": "propagatesCheckedExceptionWhenCallRealMethodThrowsCheckedException",
+    "input": "InvocationOnMock where getMethod() is concrete and invocation.callRealMethod() throws a checked Exception (e.g., IOException)",
+    "expected": "Propagates the checked Exception because the method signature declares 'throws Throwable'."
+  },
+  {
+    "method": "answer",
+    "name": "handlesNullInvocationSafely",
+    "input": "invocation = null",
+    "expected": "Throws NullPointerException when attempting to call invocation.getMethod()."
+  },
+  {
+    "method": "answer",
+    "name": "handlesAbstractMethodWithGloballyConfiguredAnswerReturningNull",
+    "input": "InvocationOnMock for an abstract method where GloballyConfiguredAnswer returns null",
+    "expected": "Returns null as returned by the fallback GloballyConfiguredAnswer."
+  },
+  {
+    "method": "answer",
+    "name": "handlesInterfaceMethodWhichIsImplicitlyAbstract",
+    "input": "InvocationOnMock where getMethod() is a method declared inside an interface (inherently abstract modifier)",
+    "expected": "Recognizes the abstract modifier via Modifier.isAbstract and delegates to GloballyConfiguredAnswer."
+  },
+  {
+    "method": "answer",
+    "name": "handlesStaticAbstractMethodIfPossible",
+    "input": "InvocationOnMock where getMethod() has abstract and static modifiers",
+    "expected": "Treats it as abstract (Modifier.isAbstract is true) and delegates to GloballyConfiguredAnswer."
+  },
+  {
+    "method": "answer",
+    "name": "serializabilityContractMaintained",
+    "input": "An instance of CallsRealMethods serialized and deserialized using standard Java serialization",
+    "expected": "Deserializes successfully and retains identical behavior for answer(InvocationOnMock)."
+  },
+  {
+    "method": "answer",
+    "name": "serialVersionUIDIsRespected",
+    "input": "Checking serialVersionUID constant on CallsRealMethods class",
+    "expected": "Equals 9057165148930624087L ensuring backward compatibility across serialization versions."
+  }
+]

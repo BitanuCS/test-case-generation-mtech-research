@@ -1,0 +1,122 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "<=",
+    "description": "relational: '<' -> '<='",
+    "line": 31,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithZeroDurationSucceeds",
+      "validateInputWithZeroDurationSucceeds"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": ">=",
+    "description": "relational: '<' -> '>='",
+    "line": 31,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithMaxLongDurationSucceeds",
+      "constructorWithNegativeDurationThrowsException",
+      "constructorWithPositiveDurationSucceeds",
+      "constructorWithZeroDurationSucceeds",
+      "shouldReportNegativeDurationTimeWithSpecificException",
+      "should_report_negative_duration_time",
+      "validateInputWithMaxLongDurationSucceeds",
+      "validateInputWithMinNegativeDurationThrowsException",
+      "validateInputWithNegativeDurationThrowsException",
+      "validateInputWithPositiveDurationSucceeds",
+      "validateInputWithZeroDurationSucceeds"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "1",
+    "description": "constant: 0 -> 1",
+    "line": 31,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithZeroDurationSucceeds",
+      "validateInputWithZeroDurationSucceeds"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (durationMillis <= 0) {",
+    "description": "Change the less-than operator to less-than-or-equal, causing zero duration to incorrectly throw an exception.",
+    "line": 31,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithZeroDurationSucceeds",
+      "validateInputWithZeroDurationSucceeds"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (durationMillis != 0) {",
+    "description": "Change the less-than operator to not-equal, which breaks positive values and changes the condition boundary.",
+    "line": 31,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithMaxLongDurationSucceeds",
+      "constructorWithPositiveDurationSucceeds",
+      "validateInputWithMaxLongDurationSucceeds",
+      "validateInputWithPositiveDurationSucceeds"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (durationMillis < -1) {",
+    "description": "Change the validation check to trigger only when duration is strictly less than -1, allowing -1 to pass without exception.",
+    "line": 31,
+    "status": "killed",
+    "killed_by": [
+      "shouldReportNegativeDurationTimeWithSpecificException",
+      "should_report_negative_duration_time",
+      "validateInputWithNegativeDurationThrowsException"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "if (durationMillis >= 0) {",
+    "description": "Negate the validation condition so that only negative numbers pass and positive/zero numbers throw an exception.",
+    "line": 31,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithMaxLongDurationSucceeds",
+      "constructorWithNegativeDurationThrowsException",
+      "constructorWithPositiveDurationSucceeds",
+      "constructorWithZeroDurationSucceeds",
+      "shouldReportNegativeDurationTimeWithSpecificException",
+      "should_report_negative_duration_time",
+      "validateInputWithMaxLongDurationSucceeds",
+      "validateInputWithMinNegativeDurationThrowsException",
+      "validateInputWithNegativeDurationThrowsException",
+      "validateInputWithPositiveDurationSucceeds",
+      "validateInputWithZeroDurationSucceeds"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "// validateInput(durationMillis);",
+    "description": "Remove the validation call from the constructor, allowing negative durations to be silently accepted.",
+    "line": 11,
+    "status": "killed",
+    "killed_by": [
+      "constructorWithNegativeDurationThrowsException",
+      "shouldReportNegativeDurationTimeWithSpecificException",
+      "should_report_negative_duration_time",
+      "validateInputWithMinNegativeDurationThrowsException",
+      "validateInputWithNegativeDurationThrowsException"
+    ]
+  }
+]

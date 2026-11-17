@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Initialize nextGaussian to zero instead of Double.NaN in the constructor",
+    "original": "nextGaussian = Double.NaN;",
+    "mutated": "nextGaussian = 0.0D;"
+  },
+  {
+    "description": "Change the bit count requested for nextBoolean from 1 to 2",
+    "original": "return next(1) != 0;",
+    "mutated": "return next(2) != 0;"
+  },
+  {
+    "description": "Change the comparison operator in nextBoolean from != to ==",
+    "original": "return next(1) != 0;",
+    "mutated": "return next(1) == 0;"
+  },
+  {
+    "description": "Compare against 1 instead of 0 in nextBoolean",
+    "original": "return next(1) != 0;",
+    "mutated": "return next(1) != 1;"
+  },
+  {
+    "description": "Initialize nextGaussian to 1.0 instead of Double.NaN in the constructor",
+    "original": "nextGaussian = Double.NaN;",
+    "mutated": "nextGaussian = 1.0D;"
+  }
+]

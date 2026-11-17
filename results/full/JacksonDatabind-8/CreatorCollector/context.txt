@@ -1,0 +1,117 @@
+// ===== Class under test: com.fasterxml.jackson.databind.deser.impl.CreatorCollector =====
+package com.fasterxml.jackson.databind.deser.impl;
+import java.io.IOException;
+import java.lang.reflect.Member;
+import java.util.*;
+import com.fasterxml.jackson.databind.BeanDescription;
+import com.fasterxml.jackson.databind.DeserializationConfig;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.deser.CreatorProperty;
+import com.fasterxml.jackson.databind.deser.ValueInstantiator;
+import com.fasterxml.jackson.databind.deser.std.StdValueInstantiator;
+import com.fasterxml.jackson.databind.introspect.*;
+import com.fasterxml.jackson.databind.type.TypeBindings;
+import com.fasterxml.jackson.databind.util.ClassUtil;
+
+/**
+ * Container class for storing information on creators (based on annotations,
+ * visibility), to be able to build actual instantiator later on.
+ */
+public class CreatorCollector {
+
+  // --- fields ---
+  protected final static int C_DEFAULT = 0;
+  protected final static int C_STRING = 1;
+  protected final static int C_INT = 2;
+  protected final static int C_LONG = 3;
+  protected final static int C_DOUBLE = 4;
+  protected final static int C_BOOLEAN = 5;
+  protected final static int C_DELEGATE = 6;
+  protected final static int C_PROPS = 7;
+  protected final static String[] TYPE_DESCS = new String[] { "default", "String", "int", "long", "double", "boolean", "delegate", "property-based" };
+  final protected BeanDescription _beanDesc;
+  final protected boolean _canFixAccess;
+  protected final AnnotatedWithParams[] _creators = new AnnotatedWithParams[8];
+  protected int _explicitCreators = 0;
+  protected boolean _hasNonDefaultCreator = false;
+  protected CreatorProperty[] _delegateArgs;
+  protected CreatorProperty[] _propertyBasedArgs;
+  protected AnnotatedParameter _incompleteParameter;
+
+  // --- constructors and other methods (signatures only) ---
+  public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess);
+  public ValueInstantiator constructValueInstantiator(DeserializationConfig config);
+  public void setDefaultCreator(AnnotatedWithParams creator);
+  public void addStringCreator(AnnotatedWithParams creator, boolean explicit);
+  public void addIntCreator(AnnotatedWithParams creator, boolean explicit);
+  public void addLongCreator(AnnotatedWithParams creator, boolean explicit);
+  public void addDoubleCreator(AnnotatedWithParams creator, boolean explicit);
+  public void addBooleanCreator(AnnotatedWithParams creator, boolean explicit);
+  public void addDelegatingCreator(AnnotatedWithParams creator, boolean explicit, CreatorProperty[] injectables);
+  public void addPropertyCreator(AnnotatedWithParams creator, boolean explicit, CreatorProperty[] properties);
+  public void addIncompeteParameter(AnnotatedParameter parameter);
+  @Deprecated // since 2.5 public void addStringCreator(AnnotatedWithParams creator);
+  @Deprecated // since 2.5 public void addIntCreator(AnnotatedWithParams creator);
+  @Deprecated // since 2.5 public void addLongCreator(AnnotatedWithParams creator);
+  @Deprecated // since 2.5 public void addDoubleCreator(AnnotatedWithParams creator);
+  @Deprecated // since 2.5 public void addBooleanCreator(AnnotatedWithParams creator);
+  @Deprecated // since 2.5 public void addDelegatingCreator(AnnotatedWithParams creator, CreatorProperty[] injectables);
+  @Deprecated // since 2.5 public void addPropertyCreator(AnnotatedWithParams creator, CreatorProperty[] properties);
+  public boolean hasDefaultCreator();
+
+  // --- helper methods called by the method(s) under test ---
+  private <T extends AnnotatedMember> T _fixAccess(T member)
+      {
+          if (member != null && _canFixAccess) {
+              ClassUtil.checkAndFixAccess((Member) member.getAnnotated());
+          }
+          return member;
+      }
+
+  // --- METHOD(S) UNDER TEST ---
+  protected void verifyNonDup(AnnotatedWithParams newOne, int typeIndex, boolean explicit)
+      {
+          final int mask = (1 << typeIndex);
+          _hasNonDefaultCreator = true;
+          AnnotatedWithParams oldOne = _creators[typeIndex];
+          // already had an explicitly marked one?
+          if (oldOne != null) {
+              boolean verify;
+
+              if ((_explicitCreators & mask) != 0) { // already had explicitly annotated, leave as-is
+                  // but skip, if new one not annotated
+                  if (!explicit) {
+                      return;
+                  }
+                  // both explicit: verify
+                  verify = true;
+              } else {
+                  // otherwise only verify if neither explicitly annotated.
+                  verify = !explicit;
+              }
+
+              // one more thing: ok to override in sub-class
+              if (verify && (oldOne.getClass() == newOne.getClass())) {
+                  // [databind#667]: avoid one particular class of bogus problems
+                  Class<?> oldType = oldOne.getRawParameterType(0);
+                  Class<?> newType = newOne.getRawParameterType(0);
+
+                  if (oldType == newType) {
+                      throw new IllegalArgumentException("Conflicting "+TYPE_DESCS[typeIndex]
+                              +" creators: already had explicitly marked "+oldOne+", encountered "+newOne);
+                  }
+                  // otherwise, which one to choose?
+                  if (newType.isAssignableFrom(oldType)) {
+                      // new type more generic, use old
+                      return;
+                  }
+                  // new type more specific, use it
+              }
+          }
+          if (explicit) {
+              _explicitCreators |= mask;
+          }
+          _creators[typeIndex] = _fixAccess(newOne);
+      }
+}

@@ -1,0 +1,363 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "checkEquivalenceHelper(that, EquivalenceMethod.DATA_FLOW)",
+    "description": "negation removed: '!' deleted",
+    "line": 514,
+    "status": "killed",
+    "killed_by": [
+      "testDiffersFromIdenticalTypes"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 521,
+    "status": "killed",
+    "killed_by": [
+      "testDataFlowWithOneUnknown",
+      "testFunctionTypeEquivalenceHelperDelegation",
+      "testParameterizedTypeOneMissingIdentity",
+      "testUnknownNominalMismatchDataFlow"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 522,
+    "status": "killed",
+    "killed_by": [
+      "testDataFlowWithBothUnknown",
+      "testDiffersFromIdenticalTypes",
+      "testFunctionTypeEquivalenceDelegation",
+      "testIdenticalReferenceShortCircuit",
+      "testIsEquivalentToBasicTrue",
+      "testParameterizedTypeMatchingBoth",
+      "testParameterizedTypeOneMissingDataFlow",
+      "testProxyObjectTypeUnboxingThat",
+      "testProxyObjectTypeUnboxingThis",
+      "testRecordTypeEquivalenceDelegation",
+      "testUnionTypeEquivalenceDelegation",
+      "testUnknownNominalMismatchFail"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 527,
+    "status": "killed",
+    "killed_by": [
+      "testInvariantWithUnknownType",
+      "testIsInvariantWithUnknown"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 528,
+    "status": "killed",
+    "killed_by": [
+      "testDataFlowWithOneUnknown",
+      "testInvariantWithUnknownType",
+      "testIsInvariantWithUnknown",
+      "testUnknownNominalMismatchDataFlow"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 532,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 535,
+    "status": "killed",
+    "killed_by": [
+      "testDataFlowWithOneUnknown",
+      "testUnknownNominalMismatchDataFlow"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 536,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 536,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 541,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 545,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 550,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 555,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 562,
+    "status": "killed",
+    "killed_by": [
+      "testNominalTypeSameReferenceName",
+      "testParameterizedTypeOneMissingIdentity",
+      "testProxyObjectTypeUnboxingThat",
+      "testProxyObjectTypeUnboxingThis"
+    ]
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 562,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeOneMissingIdentity"
+    ]
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 562,
+    "status": "killed",
+    "killed_by": [
+      "testNominalTypeSameReferenceName",
+      "testProxyObjectTypeUnboxingThat",
+      "testProxyObjectTypeUnboxingThis"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 564,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 565,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeMatchingBoth",
+      "testParameterizedTypeOneMissingDataFlow",
+      "testParameterizedTypeOneMissingIdentity"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 568,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeOneMissingDataFlow",
+      "testParameterizedTypeOneMissingIdentity"
+    ]
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 569,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeOneMissingIdentity"
+    ]
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 577,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeMatchingBoth",
+      "testParameterizedTypeOneMissingDataFlow"
+    ]
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 579,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeMatchingBoth",
+      "testParameterizedTypeOneMissingDataFlow",
+      "testParameterizedTypeOneMissingIdentity"
+    ]
+  },
+  {
+    "mid": "R22",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 581,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeOneMissingIdentity"
+    ]
+  },
+  {
+    "mid": "R23",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 585,
+    "status": "killed",
+    "killed_by": [
+      "testDataFlowWithBothUnknown",
+      "testDataFlowWithOneUnknown",
+      "testDiffersFromIdenticalTypes",
+      "testFunctionTypeEquivalenceDelegation",
+      "testFunctionTypeEquivalenceHelperDelegation",
+      "testIdenticalReferenceShortCircuit",
+      "testInvariantWithUnknownType",
+      "testIsEquivalentToBasicTrue",
+      "testIsInvariantWithUnknown",
+      "testNominalTypeSameReferenceName",
+      "testParameterizedTypeMatchingBoth",
+      "testParameterizedTypeOneMissingDataFlow",
+      "testParameterizedTypeOneMissingIdentity",
+      "testProxyObjectTypeUnboxingThat",
+      "testProxyObjectTypeUnboxingThis",
+      "testRecordTypeEquivalenceDelegation",
+      "testUnionTypeEquivalenceDelegation",
+      "testUnknownNominalMismatchDataFlow",
+      "testUnknownNominalMismatchFail"
+    ]
+  },
+  {
+    "mid": "R24",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 607,
+    "status": "killed",
+    "killed_by": [
+      "testFunctionTypeEquivalenceHelperDelegation"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "} else if (thisUnknown || thatUnknown &&\n            (isNominalType() ^ that.isNominalType())) {",
+    "description": "Swapped logical AND to OR in the unknown type nominal check, causing incorrect failure logic.",
+    "line": 536,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "return thisUnknown || thatUnknown;",
+    "description": "Changed data flow unknown condition from logical AND to logical OR.",
+    "line": 535,
+    "status": "killed",
+    "killed_by": [
+      "testDataFlowWithOneUnknown",
+      "testUnknownNominalMismatchDataFlow"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "return !paramsMatch &&\n            thisRootType.checkEquivalenceHelper(thatRootType, eqMethod);",
+    "description": "Inverted the parameterized type parameter match logic by negating paramsMatch.",
+    "line": 581,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeMatchingBoth",
+      "testParameterizedTypeOneMissingDataFlow",
+      "testParameterizedTypeOneMissingIdentity"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "JSType thisRootType = thatParamType == null ?\n            this : thisParamType.getReferencedTypeInternal();",
+    "description": "Swapped thisParamType and thatParamType null checks when determining thisRootType.",
+    "line": 577,
+    "status": "killed",
+    "killed_by": [
+      "testParameterizedTypeOneMissingDataFlow"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "return false;",
+    "description": "Changed the checkEquivalenceHelper return value for diffsFrom/identity fallback from this == that to false.",
+    "line": 607,
+    "status": "survived",
+    "killed_by": []
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapped _classIntrospector and _annotationIntrospector arguments in the constructor call",
+    "original": "return new BaseSettings(_classIntrospector, _annotationIntrospector, _visibilityChecker, _propertyNamingStrategy, _typeFactory,",
+    "mutated": "return new BaseSettings(_annotationIntrospector, _classIntrospector, _visibilityChecker, _propertyNamingStrategy, _typeFactory,"
+  },
+  {
+    "description": "Swapped _locale and _timeZone arguments in the constructor call",
+    "original": "                  _typeResolverBuilder, df, _handlerInstantiator, _locale,\n                  _timeZone, _defaultBase64);",
+    "mutated": "                  _typeResolverBuilder, df, _handlerInstantiator, _timeZone,\n                  _locale, _defaultBase64);"
+  },
+  {
+    "description": "Replaced _handlerInstantiator with _defaultBase64 in the constructor call",
+    "original": "                  _typeResolverBuilder, df, _handlerInstantiator, _locale,",
+    "mutated": "                  _typeResolverBuilder, df, _defaultBase64, _locale,"
+  },
+  {
+    "description": "Replaced _typeFactory with _typeResolverBuilder in the constructor call",
+    "original": "          return new BaseSettings(_classIntrospector, _annotationIntrospector, _visibilityChecker, _propertyNamingStrategy, _typeFactory,",
+    "mutated": "          return new BaseSettings(_classIntrospector, _annotationIntrospector, _visibilityChecker, _propertyNamingStrategy, _typeResolverBuilder,"
+  },
+  {
+    "description": "Replaced the equality check with inequality check (swapping optimization condition)",
+    "original": "          if (_dateFormat == df) {",
+    "mutated": "          if (_dateFormat != df) {"
+  }
+]

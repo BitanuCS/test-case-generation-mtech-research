@@ -1,0 +1,210 @@
+{
+  "bug": "Collections-1",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 495,
+      "lines_covered": 82,
+      "branches_total": 376,
+      "branches_covered": 51,
+      "line": 0.166,
+      "branch": 0.136
+    },
+    "major_mutation": {
+      "generated": 624,
+      "covered": 624,
+      "killed": 555,
+      "score": 0.889
+    }
+  },
+  "seconds": 106.5,
+  "llm_calls": {
+    "fresh": 5,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 5
+    },
+    "tokens_in": 12421,
+    "tokens_out": 3185
+  },
+  "classes": [
+    {
+      "bug": "Collections-1",
+      "class": "org.apache.commons.collections.map.Flat3Map",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 8,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 12,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 13,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "setValue",
+        "setValue"
+      ],
+      "generated_tests": 8,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 8,
+        "oracles": 17,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 8,
+        "compiles": true,
+        "compile_ok_tests": 8,
+        "passed": 8,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 1.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 8,
+      "mutation": [
+        {
+          "all": {
+            "total": 20,
+            "valid": 16,
+            "killed": 8,
+            "score": 0.5
+          },
+          "rule": {
+            "total": 10,
+            "valid": 6,
+            "killed": 3,
+            "score": 0.5
+          },
+          "tests": 8,
+          "coverage": {
+            "line": 0.5,
+            "branch": 0.417
+          }
+        },
+        {
+          "all": {
+            "total": 20,
+            "valid": 16,
+            "killed": 8,
+            "score": 0.5
+          },
+          "rule": {
+            "total": 10,
+            "valid": 6,
+            "killed": 3,
+            "score": 0.5
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 0.5,
+            "branch": 0.417
+          }
+        },
+        {
+          "all": {
+            "total": 20,
+            "valid": 16,
+            "killed": 8,
+            "score": 0.5
+          },
+          "rule": {
+            "total": 10,
+            "valid": 6,
+            "killed": 3,
+            "score": 0.5
+          },
+          "tests": 13,
+          "coverage": {
+            "line": 0.5,
+            "branch": 0.417
+          }
+        }
+      ],
+      "final_tests": 13,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.166,
+          "branch": 0.125,
+          "line": 0.152,
+          "complexity": 0.099,
+          "method": 0.261,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.5,
+          "branch": 0.417
+        },
+        "focal_missed_lines": [
+          802,
+          803,
+          805,
+          806,
+          808,
+          809,
+          811,
+          812,
+          814,
+          817
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 216,
+          "killed": 24,
+          "score": 0.111
+        },
+        "focal": {
+          "generated": 0,
+          "killed": 0,
+          "score": null
+        }
+      },
+      "final_oracles": 29,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "testSetValueIndex3DoesNotMutateValue2"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "testSetValueIndex3DoesNotMutateValue2": "org.junit.ComparisonFailure: expected:<[val2]> but was:<[newValue3]>\n    at org.apache.commons.collections.map.Flat3Map_CandorTest.testSetValueIndex3DoesNotMutateValue2(Flat3Map_CandorTest.java:162)"
+      },
+      "status": "ok"
+    }
+  ]
+}

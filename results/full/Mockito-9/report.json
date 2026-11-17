@@ -1,0 +1,145 @@
+{
+  "bug": "Mockito-9",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 4,
+      "lines_covered": 4,
+      "branches_total": 2,
+      "branches_covered": 2,
+      "line": 1.0,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 2,
+      "covered": 2,
+      "killed": 2,
+      "score": 1.0
+    }
+  },
+  "seconds": 222.2,
+  "llm_calls": {
+    "fresh": 5,
+    "cached": 1,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 5
+    },
+    "tokens_in": 11182,
+    "tokens_out": 7337
+  },
+  "classes": [
+    {
+      "bug": "Mockito-9",
+      "class": "org.mockito.internal.stubbing.answers.CallsRealMethods",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 24
+        },
+        {
+          "round": 2,
+          "compile_errors": 1
+        },
+        {
+          "round": 3,
+          "compile_errors": 1
+        }
+      ],
+      "removed": [
+        [
+          "serializabilityContractMaintained",
+          "compile"
+        ]
+      ],
+      "focal_methods": [
+        "answer"
+      ],
+      "generated_tests": 10,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 10,
+        "oracles": 14,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 10,
+        "compiles": false,
+        "compile_ok_tests": 2,
+        "passed": 2,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.2,
+        "execution_rate": 0.2,
+        "pass_rate": 0.2,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 9,
+      "mutation": null,
+      "final_tests": 9,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 1.0,
+          "branch": 1.0,
+          "line": 1.0,
+          "complexity": 1.0,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 1.0
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 3,
+          "killed": 2,
+          "score": 0.667
+        },
+        "focal": {
+          "generated": 3,
+          "killed": 2,
+          "score": 0.667
+        }
+      },
+      "final_oracles": 12,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "delegatesToGloballyConfiguredAnswerWhenMethodIsAbstract",
+        "handlesAbstractMethodWithGloballyConfiguredAnswerReturningNull",
+        "handlesInterfaceMethodWhichIsImplicitlyAbstract",
+        "handlesStaticAbstractMethodIfPossible"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "delegatesToGloballyConfiguredAnswerWhenMethodIsAbstract": "java.lang.AssertionError: Should not call real method on abstract method\n    at org.mockito.internal.stubbing.answers.CallsRealMethods_CandorTest$2.callRealMethod(CallsRealMethods_CandorTest.java:63)\n    at org.mockito.internal.stubbing.answers.CallsRealMethods_CandorTest.delegatesToGloballyConfiguredAnswerWhenMethodIsAbstract(CallsRealMethods_CandorTest.java:69)",
+        "handlesInterfaceMethodWhichIsImplicitlyAbstract": "java.lang.AssertionError: expected null, but was:<shouldNotBeCalled>\n    at org.mockito.internal.stubbing.answers.CallsRealMethods_CandorTest.handlesInterfaceMethodWhichIsImplicitlyAbstract(CallsRealMethods_CandorTest.java:143)",
+        "handlesAbstractMethodWithGloballyConfiguredAnswerReturningNull": "java.lang.AssertionError: expected null, but was:<shouldNotBeCalled>\n    at org.mockito.internal.stubbing.answers.CallsRealMethods_CandorTest.handlesAbstractMethodWithGloballyConfiguredAnswerReturningNull(CallsRealMethods_CandorTest.java:125)",
+        "handlesStaticAbstractMethodIfPossible": "java.lang.AssertionError: expected null, but was:<shouldNotBeCalled>\n    at org.mockito.internal.stubbing.answers.CallsRealMethods_CandorTest.handlesStaticAbstractMethodIfPossible(CallsRealMethods_CandorTest.java:161)"
+      },
+      "status": "ok"
+    }
+  ]
+}

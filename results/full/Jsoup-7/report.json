@@ -1,0 +1,192 @@
+{
+  "bug": "Jsoup-7",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": null,
+      "lines_covered": null,
+      "branches_total": null,
+      "branches_covered": null,
+      "line": null,
+      "branch": null
+    },
+    "major_mutation": {
+      "generated": null,
+      "covered": null,
+      "killed": null,
+      "score": null
+    }
+  },
+  "seconds": 80.5,
+  "llm_calls": {
+    "fresh": 5,
+    "cached": 1,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 5
+    },
+    "tokens_in": 13191,
+    "tokens_out": 3714
+  },
+  "classes": [
+    {
+      "bug": "Jsoup-7",
+      "class": "org.jsoup.nodes.Document",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 11
+        },
+        {
+          "round": 2,
+          "passed": 0,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 0,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 0,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "normalise",
+        "normaliseStructure"
+      ],
+      "generated_tests": 11,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 11,
+        "oracles": 20,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 11,
+        "compiles": false,
+        "compile_ok_tests": 5,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.455,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 11,
+      "mutation": [
+        {
+          "all": {
+            "total": 15,
+            "valid": 15,
+            "killed": 15,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 10,
+            "valid": 10,
+            "killed": 10,
+            "score": 1.0
+          },
+          "tests": 11,
+          "coverage": {
+            "line": 0.667,
+            "branch": 0.312
+          }
+        },
+        {
+          "all": {
+            "total": 15,
+            "valid": 15,
+            "killed": 15,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 10,
+            "valid": 10,
+            "killed": 10,
+            "score": 1.0
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 0.667,
+            "branch": 0.312
+          }
+        },
+        {
+          "all": {
+            "total": 15,
+            "valid": 15,
+            "killed": 15,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 10,
+            "valid": 10,
+            "killed": 10,
+            "score": 1.0
+          },
+          "tests": 13,
+          "coverage": {
+            "line": 0.667,
+            "branch": 0.312
+          }
+        }
+      ],
+      "final_tests": 13,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.737,
+          "branch": 0.765,
+          "line": 0.726,
+          "complexity": 0.594,
+          "method": 0.533,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.963,
+          "branch": 0.812
+        },
+        "focal_missed_lines": [
+          104
+        ]
+      },
+      "pit": {
+        "error": "Testing(DefaultCoverageGenerator.java:127)\n\tat org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:109)\n\tat org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:53)\n\tat org.pitest.mutationtest.tooling.MutationCoverage.runAnalysis(MutationCoverage.java:150)\n\tat org.pitest.mutationtest.tooling.MutationCoverage.runReport(MutationCoverage.java:137)\n\tat org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:137)\n\tat org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:64)\n\tat org.pitest.mutationtest.commandline.MutationCoverageReport.runReport(MutationCoverageReport.java:98)\n\tat org.pitest.mutationtest.commandline.MutationCoverageReport.main(MutationCoverageReport.java:45)\n"
+      },
+      "final_oracles": 26,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [],
+      "detected": false,
+      "failures_on_other": {},
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapped arguments in checkEquivalenceHelper call inside checkRecordEquivalenceHelper",
+    "original": "        if (!otherProps.get(key).checkEquivalenceHelper(\n                properties.get(key), eqMethod)) {",
+    "mutated": "        if (!properties.get(key).checkEquivalenceHelper(\n                otherProps.get(key), eqMethod)) {"
+  },
+  {
+    "description": "Changed negation operator to check if property types are invariant instead of not invariant in getGreatestSubtypeHelper",
+    "original": "          if (thatRecord.hasProperty(property) &&\n              !thatRecord.getPropertyType(property).isInvariant(\n                  getPropertyType(property))) {",
+    "mutated": "          if (thatRecord.hasProperty(property) &&\n              thatRecord.getPropertyType(property).isInvariant(\n                  getPropertyType(property))) {"
+  },
+  {
+    "description": "Changed condition in getGreatestSubtypeHelper to add unique properties when property is already present instead of when missing",
+    "original": "        for (String property : thatRecord.properties.keySet()) {\n          if (!hasProperty(property)) {\n            builder.addProperty(property, thatRecord.getPropertyType(property),\n                thatRecord.getPropertyNode(property));\n          }\n        }",
+    "mutated": "        for (String property : thatRecord.properties.keySet()) {\n          if (hasProperty(property)) {\n            builder.addProperty(property, thatRecord.getPropertyType(property),\n                thatRecord.getPropertyNode(property));\n          }\n        }"
+  },
+  {
+    "description": "Changed negation on hasProperty check in isSubtype to verify property absence incorrectly",
+    "original": "      for (String property : typeB.properties.keySet()) {\n        if (!typeA.hasProperty(property)) {\n          return false;\n        }",
+    "mutated": "      for (String property : typeB.properties.keySet()) {\n        if (typeA.hasProperty(property)) {\n          return false;\n        }"
+  },
+  {
+    "description": "Swapped isInvariant and isSubtype checks for declared and inferred properties in isSubtype",
+    "original": "        if (typeA.isPropertyTypeDeclared(property)) {\n          // If one declared property isn't invariant,\n          // then the whole record isn't covariant.\n          if (!propA.isInvariant(propB)) {\n            return false;\n          }\n        } else {\n          // If one inferred property isn't a subtype,\n          // then the whole record isn't covariant.\n          if (!propA.isSubtype(propB)) {\n            return false;\n          }\n        }",
+    "mutated": "        if (typeA.isPropertyTypeDeclared(property)) {\n          // If one declared property isn't invariant,\n          // then the whole record isn't covariant.\n          if (!propA.isSubtype(propB)) {\n            return false;\n          }\n        } else {\n          // If one inferred property isn't a subtype,\n          // then the whole record isn't covariant.\n          if (!propA.isInvariant(propB)) {\n            return false;\n          }\n        }"
+  }
+]

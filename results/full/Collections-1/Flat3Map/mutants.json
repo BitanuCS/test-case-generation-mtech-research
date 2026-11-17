@@ -1,0 +1,249 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 647,
+    "status": "killed",
+    "killed_by": [
+      "setValueFlatModeIndex1",
+      "setValueFlatModeIndex2",
+      "setValueFlatModeIndex3",
+      "setValueMultipleTimesConsecutively",
+      "setValueReplacingNullWithNonNull",
+      "setValueWithNullValue",
+      "testSetValueCanRemoveTrueThrowsExceptionInMutant",
+      "testSetValueIndex1DoesNotMutateValue2",
+      "testSetValueIndex3DoesNotMutateValue2",
+      "testSetValueReachesAllSwitchBranchesAndReturnsCorrectOldValue",
+      "testSetValueReturnsOldValueNotAlwaysNull"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 647,
+    "status": "killed",
+    "killed_by": [
+      "setValueFlatModeIndex1",
+      "setValueFlatModeIndex2",
+      "setValueFlatModeIndex3",
+      "setValueMultipleTimesConsecutively",
+      "setValueReplacingNullWithNonNull",
+      "setValueWithNullValue",
+      "testSetValueCanRemoveTrueThrowsExceptionInMutant",
+      "testSetValueIndex1DoesNotMutateValue2",
+      "testSetValueIndex3DoesNotMutateValue2",
+      "testSetValueReachesAllSwitchBranchesAndReturnsCorrectOldValue",
+      "testSetValueReturnsOldValueNotAlwaysNull"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "4",
+    "description": "constant: 3 -> 4",
+    "line": 652,
+    "status": "killed",
+    "killed_by": [
+      "setValueFlatModeIndex3",
+      "testSetValueIndex3DoesNotMutateValue2",
+      "testSetValueReachesAllSwitchBranchesAndReturnsCorrectOldValue"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "3",
+    "description": "constant: 2 -> 3",
+    "line": 655,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 658,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 802,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 802,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "4",
+    "description": "constant: 3 -> 4",
+    "line": 807,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "3",
+    "description": "constant: 2 -> 3",
+    "line": 810,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "2",
+    "description": "constant: 1 -> 2",
+    "line": 813,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (canRemove != false) {",
+    "description": "Wrong operator: negate canRemove check (change == to !=)",
+    "line": 802,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "case 3: \n                      parent.value2 = value;\n                      break;",
+    "description": "Off-by-one error in switch case: case 3 updates value2 instead of value3",
+    "line": 807,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "return null;",
+    "description": "Wrong variable: return null instead of old value",
+    "line": 817,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "case 1:\n                      parent.value2 = value;\n                      break;",
+    "description": "Wrong variable assignment: case 1 updates value2 instead of value1",
+    "line": 813,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "Object old = null;",
+    "description": "Missing state update: remove the call to getValue() so old always returns null",
+    "line": 805,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A5",
+    "kind": "ai",
+    "replacement": "if (canRemove != false) {",
+    "description": "Wrong operator: negate canRemove check (change == to !=)",
+    "line": 647,
+    "status": "killed",
+    "killed_by": [
+      "setValueFlatModeIndex1",
+      "setValueFlatModeIndex2",
+      "setValueFlatModeIndex3",
+      "setValueMultipleTimesConsecutively",
+      "setValueReplacingNullWithNonNull",
+      "setValueWithNullValue",
+      "testSetValueCanRemoveTrueThrowsExceptionInMutant",
+      "testSetValueIndex1DoesNotMutateValue2",
+      "testSetValueIndex3DoesNotMutateValue2",
+      "testSetValueReachesAllSwitchBranchesAndReturnsCorrectOldValue",
+      "testSetValueReturnsOldValueNotAlwaysNull"
+    ]
+  },
+  {
+    "mid": "A6",
+    "kind": "ai",
+    "replacement": "case 3: \n                      parent.value2 = value;\n                      break;",
+    "description": "Off-by-one error in switch case: case 3 updates value2 instead of value3",
+    "line": 652,
+    "status": "killed",
+    "killed_by": [
+      "setValueFlatModeIndex3",
+      "testSetValueIndex3DoesNotMutateValue2",
+      "testSetValueReachesAllSwitchBranchesAndReturnsCorrectOldValue"
+    ]
+  },
+  {
+    "mid": "A7",
+    "kind": "ai",
+    "replacement": "return null;",
+    "description": "Wrong variable: return null instead of old value",
+    "line": 662,
+    "status": "killed",
+    "killed_by": [
+      "setValueFlatModeIndex1",
+      "setValueFlatModeIndex2",
+      "setValueFlatModeIndex3",
+      "setValueMultipleTimesConsecutively",
+      "setValueWithNullValue",
+      "testSetValueReachesAllSwitchBranchesAndReturnsCorrectOldValue",
+      "testSetValueReturnsOldValueNotAlwaysNull"
+    ]
+  },
+  {
+    "mid": "A8",
+    "kind": "ai",
+    "replacement": "case 1:\n                      parent.value2 = value;\n                      break;",
+    "description": "Wrong variable assignment: case 1 updates value2 instead of value1",
+    "line": 658,
+    "status": "killed",
+    "killed_by": [
+      "setValueFlatModeIndex1",
+      "setValueMultipleTimesConsecutively",
+      "setValueReplacingNullWithNonNull",
+      "setValueWithNullValue",
+      "testSetValueIndex1DoesNotMutateValue2",
+      "testSetValueReachesAllSwitchBranchesAndReturnsCorrectOldValue"
+    ]
+  },
+  {
+    "mid": "A9",
+    "kind": "ai",
+    "replacement": "Object old = null;",
+    "description": "Missing state update: remove the call to getValue() so old always returns null",
+    "line": 650,
+    "status": "killed",
+    "killed_by": [
+      "setValueFlatModeIndex1",
+      "setValueFlatModeIndex2",
+      "setValueFlatModeIndex3",
+      "setValueMultipleTimesConsecutively",
+      "setValueWithNullValue",
+      "testSetValueReachesAllSwitchBranchesAndReturnsCorrectOldValue",
+      "testSetValueReturnsOldValueNotAlwaysNull"
+    ]
+  }
+]

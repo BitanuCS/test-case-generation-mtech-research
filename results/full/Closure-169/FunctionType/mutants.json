@@ -1,0 +1,141 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "&&",
+    "description": "logical: '||' -> '&&'",
+    "line": 821,
+    "status": "killed",
+    "killed_by": [
+      "testTryMergePiecewiseReturnTypeInferredOrLogic"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 827,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 827,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 893,
+    "status": "killed",
+    "killed_by": [
+      "testConstructorsEqualWhenSameReference",
+      "testConstructorsNotEqualWhenDifferentReferences"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 895,
+    "status": "killed",
+    "killed_by": [
+      "testConstructorComparedToNonConstructorReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 901,
+    "status": "killed",
+    "killed_by": [
+      "testInterfaceComparedToNonInterfaceReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 904,
+    "status": "killed",
+    "killed_by": [
+      "testNonInterfaceComparedToInterfaceReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 907,
+    "status": "killed",
+    "killed_by": [
+      "testOrdinaryFunctionsDifferentArrowType",
+      "testTryMergePiecewiseTernaryLeastSuperVsGreatestSubtypeOrder"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "if (that.isConstructor()) {\n          return true;\n        }",
+    "description": "In checkFunctionEquivalenceHelper, changed the constructor equivalence check to always return true for any two constructors regardless of reference equality.",
+    "line": 892,
+    "status": "killed",
+    "killed_by": [
+      "testConstructorsNotEqualWhenDifferentReferences"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (that.isInterface()) {\n        return true;\n      }",
+    "description": "In checkFunctionEquivalenceHelper, changed the non-interface vs interface check to incorrectly return true instead of false.",
+    "line": 903,
+    "status": "killed",
+    "killed_by": [
+      "testNonInterfaceComparedToInterfaceReturnsFalse"
+    ]
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "boolean newReturnTypeInferred =\n          call.returnTypeInferred && other.call.returnTypeInferred;",
+    "description": "In tryMergeFunctionPiecewise, changed the returnTypeInferred assignment operator from logical OR to logical AND.",
+    "line": 820,
+    "status": "killed",
+    "killed_by": [
+      "testTryMergePiecewiseReturnTypeInferredOrLogic"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "newTypeOfThis = leastSuper ?\n              registry.getNativeObjectType(JSTypeNative.NO_OBJECT_TYPE) :\n              registry.getNativeObjectType(JSTypeNative.OBJECT_TYPE);",
+    "description": "In tryMergeFunctionPiecewise, swapped the fallback native object types for leastSuper vs greatestSubtype when maybeNewTypeOfThis is not an ObjectType.",
+    "line": 814,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "JSType maybeNewTypeOfThis = leastSuper ?\n            typeOfThis.getGreatestSubtype(other.typeOfThis) :\n            typeOfThis.getLeastSupertype(other.typeOfThis);",
+    "description": "In tryMergeFunctionPiecewise, swapped the ternary branches for newTypeOfThis calculation so that it uses greatestSubtype when leastSuper is true.",
+    "line": 808,
+    "status": "killed",
+    "killed_by": [
+      "testTryMergePiecewiseFallbackWhenMaybeNewTypeOfThisNotObjectType"
+    ]
+  }
+]

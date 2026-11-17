@@ -1,0 +1,50 @@
+[
+  {
+    "method": "setValue",
+    "name": "setValueInvalidStateThrowsException",
+    "input": "canRemove = false, value = \"newValue\"",
+    "expected": "Throws IllegalStateException because canRemove is false, indicating setValue cannot be called before next() or after remove()/reset()."
+  },
+  {
+    "method": "setValue",
+    "name": "setValueFlatModeIndex1",
+    "input": "canRemove = true, nextIndex = 1, parent.value1 = \"oldValue\", value = \"newValue\"",
+    "expected": "Returns \"oldValue\" and updates parent.value1 to \"newValue\"."
+  },
+  {
+    "method": "setValue",
+    "name": "setValueFlatModeIndex2",
+    "input": "canRemove = true, nextIndex = 2, parent.value2 = \"oldValue\", value = \"newValue\"",
+    "expected": "Returns \"oldValue\" and updates parent.value2 to \"newValue\"."
+  },
+  {
+    "method": "setValue",
+    "name": "setValueFlatModeIndex3",
+    "input": "canRemove = true, nextIndex = 3, parent.value3 = \"oldValue\", value = \"newValue\"",
+    "expected": "Returns \"oldValue\" and updates parent.value3 to \"newValue\"."
+  },
+  {
+    "method": "setValue",
+    "name": "setValueWithNullValue",
+    "input": "canRemove = true, nextIndex = 1, parent.value1 = \"oldValue\", value = null",
+    "expected": "Returns \"oldValue\" and updates parent.value1 to null successfully."
+  },
+  {
+    "method": "setValue",
+    "name": "setValueReplacingNullWithNonNull",
+    "input": "canRemove = true, nextIndex = 2, parent.value2 = null, value = \"newValue\"",
+    "expected": "Returns null and updates parent.value2 to \"newValue\"."
+  },
+  {
+    "method": "setValue",
+    "name": "setValueMultipleTimesConsecutively",
+    "input": "canRemove = true, nextIndex = 1, parent.value1 = \"v1\", value = \"v2\", then value = \"v3\"",
+    "expected": "First call returns \"v1\" and sets \"v2\"; second call returns \"v2\" and sets \"v3\"."
+  },
+  {
+    "method": "setValue",
+    "name": "setValueDelegateMode",
+    "input": "canRemove = true, map in delegate mode, entry value = \"oldDelegateVal\", value = \"newDelegateVal\"",
+    "expected": "Delegates the set operation to the underlying map entry and returns \"oldDelegateVal\"."
+  }
+]

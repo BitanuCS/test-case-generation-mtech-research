@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change the IDENTITY equivalence check condition from checking inequality (!=) to equality (==) for sizes, meaning it only fails when sizes are equal instead of different.",
+    "original": "      if (eqMethod == EquivalenceMethod.IDENTITY\n          && alternates.size() != that.alternates.size()) {",
+    "mutated": "      if (eqMethod == EquivalenceMethod.IDENTITY\n          && alternates.size() == that.alternates.size()) {"
+  },
+  {
+    "description": "In the subset check loop, check against this.alternates instead of that.alternates, making it test whether the current union is a subset of the other instead of vice versa.",
+    "original": "      for (JSType alternate : that.alternates) {",
+    "mutated": "      for (JSType alternate : alternates) {"
+  },
+  {
+    "description": "Negate the result of hasAlternate in the check loop, meaning it fails if an alternate *is* found rather than if it is *not* found.",
+    "original": "        if (!hasAlternate(alternate, eqMethod)) {",
+    "mutated": "        if (hasAlternate(alternate, eqMethod)) {"
+  },
+  {
+    "description": "In hasAlternate, iterate over that.alternates instead of alternates, checking the wrong collection.",
+    "original": "      for (JSType alternate : alternates) {",
+    "mutated": "      for (JSType alternate : that.alternates) {"
+  },
+  {
+    "description": "Change the return value of hasAlternate on a match failure from false to true, improperly short-circuiting or returning positive equivalence.",
+    "original": "      return false;",
+    "mutated": "      return true;"
+  }
+]

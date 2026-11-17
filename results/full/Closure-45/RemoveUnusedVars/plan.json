@@ -1,0 +1,80 @@
+[
+  {
+    "method": "Assign",
+    "name": "assignWithValidAssignmentOp",
+    "input": "assignNode = 'x = 5' (assignment op), nameNode = 'x', isPropertyAssign = false",
+    "expected": "Successfully constructs Assign object, evaluating maybeAliased and mayHaveSecondarySideEffects based on NodeUtil checks."
+  },
+  {
+    "method": "Assign",
+    "name": "assignThrowsExceptionOnNonAssignmentOp",
+    "input": "assignNode = '5 + 3' (not an assignment op), nameNode = 'x', isPropertyAssign = false",
+    "expected": "Throws IllegalStateException because Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode)) fails."
+  },
+  {
+    "method": "interpretAssigns",
+    "name": "interpretAssignsAlreadyReferencedVar",
+    "input": "maybeUnreferenced contains a Var whose reference set already contains the Var (referenced.contains(var) is true)",
+    "expected": "Removes the variable from maybeUnreferenced list during the iteration without marking or triggering extra changes."
+  },
+  {
+    "method": "interpretAssigns",
+    "name": "interpretAssignsLiteralInitialValueNoPropertyAssign",
+    "input": "Var initialized with literal value (e.g. var x = 5;), has no property assigns and not assigned to unknown value.",
+    "expected": "Does not mark variable as referenced, leaving it in maybeUnreferenced if no other conditions match."
+  },
+  {
+    "method": "interpretAssigns",
+    "name": "interpretAssignsUnknownInitialValueWithPropertyAssign",
+    "input": "Var initialized to function call (unknown value) and has a property assignment (x.foo = 3).",
+    "expected": "Sets assignedToUnknownValue = true and hasPropertyAssign = true, triggering markReferencedVar(var) and removing from maybeUnreferenced, looping to fixed point."
+  },
+  {
+    "method": "interpretAssigns",
+    "name": "interpretAssignsFunctionArgOrCatchParamWithPropertyAssign",
+    "input": "Var is a function argument or catch parameter (parent node is not var), and has a property assign (e.g., e.foo = 1).",
+    "expected": "assignedToUnknownValue is defaulted to true, hasPropertyAssign is true, causing markReferencedVar(var) to be called."
+  },
+  {
+    "method": "interpretAssigns",
+    "name": "interpretAssignsMaybeAliasedPropertyAssign",
+    "input": "Var has an assign where assign.maybeAliased is true (expression result used) and hasPropertyAssign is true.",
+    "expected": "maybeEscaped becomes true, triggering markReferencedVar(var) and removing the variable from maybeUnreferenced."
+  },
+  {
+    "method": "interpretAssigns",
+    "name": "interpretAssignsNonLiteralAssignmentValue",
+    "input": "Var declared with literal value, but later assigned a non-literal value via assignment and has a property assignment.",
+    "expected": "assignedToUnknownValue becomes true via non-literal assign check, triggering markReferencedVar(var) along with hasPropertyAssign."
+  },
+  {
+    "method": "interpretAssigns",
+    "name": "interpretAssignsFixedPointIterationLoop",
+    "input": "Multiple unreferenced variables where marking one variable as referenced triggers continuations that mark another variable, requiring multiple iterations of the do-while loop.",
+    "expected": "Runs until changes = false, ensuring all cascading references are fully resolved to a fixed point."
+  },
+  {
+    "method": "interpretAssigns",
+    "name": "interpretAssignsEmptyMaybeUnreferencedList",
+    "input": "maybeUnreferenced list is empty.",
+    "expected": "Loop does not execute, method finishes immediately with no changes."
+  },
+  {
+    "method": "Assign",
+    "name": "assignWithAliasedExpressionResultUsed",
+    "input": "assignNode = 'x = (y = 5)' where expression result is used, nameNode = 'x', isPropertyAssign = false",
+    "expected": "maybeAliased is set to true, which in turn sets mayHaveSecondarySideEffects to true."
+  },
+  {
+    "method": "Assign",
+    "name": "assignWithSideEffectFirstChild",
+    "input": "assignNode = 'getObj().foo = 5' where first child has side effects, nameNode = 'obj', isPropertyAssign = true",
+    "expected": "mayHaveSecondarySideEffects is set to true because NodeUtil.mayHaveSideEffects(assignNode.getFirstChild()) is true."
+  },
+  {
+    "method": "Assign",
+    "name": "assignWithSideEffectLastChild",
+    "input": "assignNode = 'x = sideEffectFunction()', nameNode = 'x', isPropertyAssign = false",
+    "expected": "mayHaveSecondarySideEffects is set to true because NodeUtil.mayHaveSideEffects(assignNode.getLastChild()) is true."
+  }
+]

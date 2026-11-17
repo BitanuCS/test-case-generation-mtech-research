@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Wrong operator: negate canRemove check (change == to !=)",
+    "original": "if (canRemove == false) {",
+    "mutated": "if (canRemove != false) {"
+  },
+  {
+    "description": "Off-by-one error in switch case: case 3 updates value2 instead of value3",
+    "original": "case 3: \n                      parent.value3 = value;\n                      break;",
+    "mutated": "case 3: \n                      parent.value2 = value;\n                      break;"
+  },
+  {
+    "description": "Wrong variable: return null instead of old value",
+    "original": "return old;",
+    "mutated": "return null;"
+  },
+  {
+    "description": "Wrong variable assignment: case 1 updates value2 instead of value1",
+    "original": "case 1:\n                      parent.value1 = value;\n                      break;",
+    "mutated": "case 1:\n                      parent.value2 = value;\n                      break;"
+  },
+  {
+    "description": "Missing state update: remove the call to getValue() so old always returns null",
+    "original": "Object old = getValue();",
+    "mutated": "Object old = null;"
+  }
+]

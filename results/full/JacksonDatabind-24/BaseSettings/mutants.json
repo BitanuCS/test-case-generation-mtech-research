@@ -1,0 +1,70 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "!=",
+    "description": "relational: '==' -> '!='",
+    "line": 231,
+    "status": "killed",
+    "killed_by": [
+      "withDateFormatClonedFormat",
+      "withDateFormatDifferentInstanceReturnsNew",
+      "withDateFormatNull",
+      "withDateFormatNullToNull",
+      "withDateFormatSameInstanceReturnsSame",
+      "withDateFormatStdDateFormat"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "return new BaseSettings(_annotationIntrospector, _classIntrospector, _visibilityChecker, _propertyNamingStrategy, _typeFactory,",
+    "description": "Swapped _classIntrospector and _annotationIntrospector arguments in the constructor call",
+    "line": 234,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "_typeResolverBuilder, df, _handlerInstantiator, _timeZone,\n                  _locale, _defaultBase64);",
+    "description": "Swapped _locale and _timeZone arguments in the constructor call",
+    "line": 235,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "_typeResolverBuilder, df, _defaultBase64, _locale,",
+    "description": "Replaced _handlerInstantiator with _defaultBase64 in the constructor call",
+    "line": 235,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "return new BaseSettings(_classIntrospector, _annotationIntrospector, _visibilityChecker, _propertyNamingStrategy, _typeResolverBuilder,",
+    "description": "Replaced _typeFactory with _typeResolverBuilder in the constructor call",
+    "line": 234,
+    "status": "stillborn",
+    "killed_by": []
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (_dateFormat != df) {",
+    "description": "Replaced the equality check with inequality check (swapping optimization condition)",
+    "line": 231,
+    "status": "killed",
+    "killed_by": [
+      "withDateFormatClonedFormat",
+      "withDateFormatDifferentInstanceReturnsNew",
+      "withDateFormatNull",
+      "withDateFormatNullToNull",
+      "withDateFormatSameInstanceReturnsSame",
+      "withDateFormatStdDateFormat"
+    ]
+  }
+]

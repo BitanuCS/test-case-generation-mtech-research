@@ -1,0 +1,724 @@
+// ===== Class under test: com.google.javascript.rhino.jstype.JSType =====
+package com.google.javascript.rhino.jstype;
+import static com.google.javascript.rhino.jstype.TernaryValue.UNKNOWN;
+import com.google.common.base.Predicate;
+import com.google.javascript.rhino.ErrorReporter;
+import com.google.javascript.rhino.JSDocInfo;
+import com.google.javascript.rhino.jstype.JSTypeRegistry.ResolveMode;
+import java.io.Serializable;
+import java.util.Comparator;
+
+/**
+ * Represents JavaScript value types.<p>
+ *
+ * Types are split into two separate families: value types and object types.
+ *
+ * A special {@link UnknownType} exists to represent a wildcard type on which
+ * no information can be gathered. In particular, it can assign to everyone,
+ * is a subtype of everyone (and everyone is a subtype of it).<p>
+ *
+ * If you remove the {@link UnknownType}, the set of types in the type system
+ * forms a lattice with the {@link #isSubtype} relation defining the partial
+ * order of types. All types are united at the top of the lattice by the
+ * {@link AllType} and at the bottom by the {@link NoType}.<p>
+ *
+ */
+public abstract class JSType implements Serializable {
+
+  // --- fields ---
+  private static final long serialVersionUID = 1L;
+  private boolean resolved = false;
+  private JSType resolveResult = null;
+  private boolean inTemplatedCheckVisit = false;
+  public static final String UNKNOWN_NAME = "Unknown class name";
+  public static final String NOT_A_CLASS = "Not declared as a constructor";
+  public static final String NOT_A_TYPE = "Not declared as a type name";
+  public static final String EMPTY_TYPE_COMPONENT = "Named type with empty name component";
+  static final Comparator<JSType> ALPHA = new Comparator<JSType>() { @Override public int compare(JSType t1, JSType t2) { return t1.toString().compareTo(t2.toString()); } };
+  public static final int ENUMDECL = 1;
+  public static final int NOT_ENUMDECL = 0;
+  final JSTypeRegistry registry;
+
+  // --- constructors and other methods (signatures only) ---
+  JSType(JSTypeRegistry registry);
+  JSType getNativeType(JSTypeNative typeId);
+  public JSDocInfo getJSDocInfo();
+  public String getDisplayName();
+  public boolean hasDisplayName();
+  public boolean hasProperty(String pname);
+  public boolean isNoType();
+  public boolean isNoResolvedType();
+  public boolean isNoObjectType();
+  public final boolean isEmptyType();
+  public boolean isNumberObjectType();
+  public boolean isNumberValueType();
+  public boolean isFunctionPrototypeType();
+  public boolean isStringObjectType();
+  boolean isTheObjectType();
+  public boolean isStringValueType();
+  public final boolean isString();
+  public final boolean isNumber();
+  public boolean isArrayType();
+  public boolean isBooleanObjectType();
+  public boolean isBooleanValueType();
+  public boolean isRegexpType();
+  public boolean isDateType();
+  public boolean isNullType();
+  public boolean isVoidType();
+  public boolean isAllType();
+  public boolean isCheckedUnknownType();
+  public boolean isStruct();
+  public boolean isDict();
+  public final boolean isGlobalThisType();
+  public final boolean isEnumElementType();
+  public EnumElementType toMaybeEnumElementType();
+  public boolean isEnumType();
+  public EnumType toMaybeEnumType();
+  boolean isNamedType();
+  public final boolean isParameterizedType();
+  public final boolean isTemplateType();
+  public TemplateType toMaybeTemplateType();
+  public static TemplateType toMaybeTemplateType(JSType type);
+  public boolean hasAnyTemplate();
+  boolean hasAnyTemplateInternal();
+  public boolean isObject();
+  public boolean isConstructor();
+  public final boolean isNominalConstructor();
+  public boolean isInstanceType();
+  public boolean isInterface();
+  public boolean isOrdinaryFunction();
+  public static boolean isEquivalent(JSType typeA, JSType typeB);
+  @Override public boolean equals(Object jsType);
+  @Override public int hashCode();
+  public final boolean matchesInt32Context();
+  public final boolean matchesUint32Context();
+  public boolean matchesNumberContext();
+  public boolean matchesStringContext();
+  public boolean matchesObjectContext();
+  public JSType findPropertyType(String propertyName);
+  public boolean canBeCalled();
+  public boolean canAssignTo(JSType that);
+  public JSType autoboxesTo();
+  public JSType unboxesTo();
+  public JSType autobox();
+  public final ObjectType dereference();
+  public final boolean canTestForEqualityWith(JSType that);
+  public TernaryValue testForEquality(JSType that);
+  TernaryValue testForEqualityHelper(JSType aType, JSType bType);
+  public final boolean canTestForShallowEqualityWith(JSType that);
+  public boolean isNullable();
+  public JSType collapseUnion();
+  public JSType getLeastSupertype(JSType that);
+  static JSType getLeastSupertype(JSType thisType, JSType thatType);
+  public JSType getGreatestSubtype(JSType that);
+  static JSType getGreatestSubtype(JSType thisType, JSType thatType);
+  static JSType filterNoResolvedType(JSType type);
+  public JSType getRestrictedTypeGivenToBooleanOutcome(boolean outcome);
+  public abstract BooleanLiteralSet getPossibleToBooleanOutcomes();
+  public TypePair getTypesUnderEquality(JSType that);
+  public TypePair getTypesUnderInequality(JSType that);
+  public TypePair getTypesUnderShallowEquality(JSType that);
+  public TypePair getTypesUnderShallowInequality(JSType that);
+  public JSType restrictByNotNullOrUndefined();
+  public boolean isSubtype(JSType that);
+  static boolean isSubtypeHelper(JSType thisType, JSType thatType);
+  public abstract <T> T visit(Visitor<T> visitor);
+  public final JSType forceResolve(ErrorReporter t, StaticScope<JSType> scope);
+  public final JSType resolve(ErrorReporter t, StaticScope<JSType> scope);
+  abstract JSType resolveInternal(ErrorReporter t, StaticScope<JSType> scope);
+  void setResolvedTypeInternal(JSType type);
+  public final boolean isResolved();
+  public final void clearResolved();
+  static final JSType safeResolve( JSType type, ErrorReporter t, StaticScope<JSType> scope);
+  public boolean setValidator(Predicate<JSType> validator);
+  @Override public String toString();
+  public String toDebugHashCodeString();
+  public final String toAnnotationString();
+  abstract String toStringHelper(boolean forAnnotations);
+  public void matchConstraint(JSType constraint);
+
+  // --- helper methods called by the method(s) under test ---
+  /**
+     * Casts this to an ObjectType, or returns null if this is not an ObjectType.
+     * If this is a scalar type, it will *not* be converted to an object type.
+     * If you want to simulate JS autoboxing or dereferencing, you should use
+     * autoboxesTo() or dereference().
+     */
+  public ObjectType toObjectType() {
+      return this instanceof ObjectType ? (ObjectType) this : null;
+    }
+  /**
+     * Whether this type is a nominal type (a named instance object or
+     * a named enum).
+     */
+  public boolean isNominalType() {
+      return false;
+    }
+  /**
+     * Downcasts this to a ParameterizedType, or returns null if this is not
+     * a function.
+     */
+  public ParameterizedType toMaybeParameterizedType() {
+      return null;
+    }
+  /**
+     * Null-safe version of toMaybeParameterizedType().
+     */
+  public static ParameterizedType toMaybeParameterizedType(JSType type) {
+      return type == null ? null : type.toMaybeParameterizedType();
+    }
+  /**
+     * Downcasts this to a RecordType, or returns null if this is not
+     * a RecordType.
+     */
+  RecordType toMaybeRecordType() {
+      return null;
+    }
+  public boolean isRecordType() {
+      return toMaybeRecordType() != null;
+    }
+  /**
+     * Downcasts this to a FunctionType, or returns null if this is not
+     * a function.
+     *
+     * For the purposes of this function, we define a MaybeFunctionType as any
+     * type in the sub-lattice
+     * { x | LEAST_FUNCTION_TYPE <= x <= GREATEST_FUNCTION_TYPE }
+     * This definition excludes bottom types like NoType and NoObjectType.
+     *
+     * This definition is somewhat arbitrary and axiomatic, but this is the
+     * definition that makes the most sense for the most callers.
+     */
+  public FunctionType toMaybeFunctionType() {
+      return null;
+    }
+  /**
+     * Null-safe version of toMaybeFunctionType().
+     */
+  public static FunctionType toMaybeFunctionType(JSType type) {
+      return type == null ? null : type.toMaybeFunctionType();
+    }
+  /** Returns true if toMaybeFunctionType returns a non-null FunctionType. */
+  public final boolean isFunctionType() {
+      return toMaybeFunctionType() != null;
+    }
+  /**
+     * Downcasts this to a UnionType, or returns null if this is not a UnionType.
+     *
+     * Named in honor of Haskell's Maybe type constructor.
+     */
+  public UnionType toMaybeUnionType() {
+      return null;
+    }
+  public final boolean isUnionType() {
+      return toMaybeUnionType() != null;
+    }
+  public boolean isUnknownType() {
+      return false;
+    }
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+     * Checks if two types are equivalent.
+     */
+  public final boolean isEquivalentTo(JSType that) {
+      return checkEquivalenceHelper(that, EquivalenceMethod.IDENTITY);
+    }
+  /**
+     * Checks if two types are invariant.
+     * @see EquivalenceMethod
+     */
+  public final boolean isInvariant(JSType that) {
+      return checkEquivalenceHelper(that, EquivalenceMethod.INVARIANT);
+    }
+  /**
+     * Whether this type is meaningfully different from {@code that} type for
+     * the purposes of data flow analysis.
+     *
+     * This is a trickier check than pure equality, because it has to properly
+     * handle unknown types. See {@code EquivalenceMethod} for more info.
+     *
+     * @see <a href="http://www.youtube.com/watch?v=_RpSv3HjpEw">Unknown
+     *     unknowns</a>
+     */
+  public final boolean differsFrom(JSType that) {
+      return !checkEquivalenceHelper(that, EquivalenceMethod.DATA_FLOW);
+    }
+  /**
+     * An equivalence visitor.
+     */
+  boolean checkEquivalenceHelper(JSType that, EquivalenceMethod eqMethod) {
+      if (this == that) {
+        return true;
+      }
+
+      boolean thisUnknown = isUnknownType();
+      boolean thatUnknown = that.isUnknownType();
+      if (thisUnknown || thatUnknown) {
+        if (eqMethod == EquivalenceMethod.INVARIANT) {
+          // If we're checking for invariance, the unknown type is invariant
+          // with everyone.
+          return true;
+        } else if (eqMethod == EquivalenceMethod.DATA_FLOW) {
+          // If we're checking data flow, then two types are the same if they're
+          // both unknown.
+          return thisUnknown && thatUnknown;
+        } else if (thisUnknown && thatUnknown &&
+            (isNominalType() ^ that.isNominalType())) {
+          // If they're both unknown, but one is a nominal type and the other
+          // is not, then we should fail out immediately. This ensures that
+          // we won't unbox the unknowns further down.
+          return false;
+        }
+      }
+
+      if (isUnionType() && that.isUnionType()) {
+        return this.toMaybeUnionType().checkUnionEquivalenceHelper(
+            that.toMaybeUnionType(), eqMethod);
+      }
+
+      if (isFunctionType() && that.isFunctionType()) {
+        return this.toMaybeFunctionType().checkFunctionEquivalenceHelper(
+            that.toMaybeFunctionType(), eqMethod);
+      }
+
+      if (isRecordType() && that.isRecordType()) {
+        return this.toMaybeRecordType().checkRecordEquivalenceHelper(
+            that.toMaybeRecordType(), eqMethod);
+      }
+
+      ParameterizedType thisParamType = toMaybeParameterizedType();
+      ParameterizedType thatParamType = that.toMaybeParameterizedType();
+      if (thisParamType != null || thatParamType != null) {
+        // Check if one type is parameterized, but the other is not.
+        boolean paramsMatch = false;
+        if (thisParamType != null && thatParamType != null) {
+          paramsMatch = thisParamType.getParameterType().checkEquivalenceHelper(
+              thatParamType.getParameterType(), eqMethod);
+        } else if (eqMethod == EquivalenceMethod.IDENTITY) {
+          paramsMatch = false;
+        } else {
+          // If one of the type parameters is unknown, but the other is not,
+          // then we consider these the same for the purposes of data flow
+          // and invariance.
+          paramsMatch = true;
+        }
+
+        JSType thisRootType = thisParamType == null ?
+            this : thisParamType.getReferencedTypeInternal();
+        JSType thatRootType = thatParamType == null ?
+            that : thatParamType.getReferencedTypeInternal();
+        return paramsMatch &&
+            thisRootType.checkEquivalenceHelper(thatRootType, eqMethod);
+      }
+
+      if (isNominalType() && that.isNominalType()) {
+        return toObjectType().getReferenceName().equals(
+            that.toObjectType().getReferenceName());
+      }
+
+      // Unbox other proxies.
+      if (this instanceof ProxyObjectType) {
+        return ((ProxyObjectType) this)
+            .getReferencedTypeInternal().checkEquivalenceHelper(
+                that, eqMethod);
+      }
+
+      if (that instanceof ProxyObjectType) {
+        return checkEquivalenceHelper(
+            ((ProxyObjectType) that).getReferencedTypeInternal(),
+            eqMethod);
+      }
+
+      // Relies on the fact that for the base {@link JSType}, only one
+      // instance of each sub-type will ever be created in a given registry, so
+      // there is no need to verify members. If the object pointers are not
+      // identical, then the type member must be different.
+      return this == that;
+    }
+}
+
+// ===== Existing test class JSTypeTest (test methods removed; style/setup reference only) =====
+package com.google.javascript.rhino.jstype;
+
+import static com.google.javascript.rhino.jstype.TernaryValue.FALSE;
+import static com.google.javascript.rhino.jstype.TernaryValue.TRUE;
+import static com.google.javascript.rhino.jstype.TernaryValue.UNKNOWN;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
+import com.google.javascript.rhino.JSDocInfo;
+import com.google.javascript.rhino.JSDocInfo.Visibility;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.SimpleErrorReporter;
+import com.google.javascript.rhino.Token;
+import com.google.javascript.rhino.jstype.ArrowType;
+import com.google.javascript.rhino.jstype.JSType.TypePair;
+import com.google.javascript.rhino.jstype.RecordTypeBuilder.RecordProperty;
+import com.google.javascript.rhino.testing.Asserts;
+import com.google.javascript.rhino.testing.BaseJSTypeTestCase;
+import com.google.javascript.rhino.testing.AbstractStaticScope;
+import com.google.javascript.rhino.testing.MapBasedScope;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class JSTypeTest extends BaseJSTypeTestCase {
+  private FunctionType dateMethod;
+  private FunctionType functionType;
+  private NamedType unresolvedNamedType;
+  private FunctionType googBar;
+  private FunctionType googSubBar;
+  private FunctionType googSubSubBar;
+  private ObjectType googBarInst;
+  private ObjectType googSubBarInst;
+  private ObjectType googSubSubBarInst;
+  private NamedType namedGoogBar;
+  private ObjectType subclassOfUnresolvedNamedType;
+  private FunctionType subclassCtor;
+  private FunctionType interfaceType;
+  private ObjectType interfaceInstType;
+  private FunctionType subInterfaceType;
+  private ObjectType subInterfaceInstType;
+  private JSType recordType;
+  private EnumType enumType;
+  private EnumElementType elementsType;
+  private NamedType forwardDeclaredNamedType;
+
+  private static final StaticScope<JSType> EMPTY_SCOPE =
+      MapBasedScope.emptyScope();
+
+  /**
+   * A non exhaustive list of representative types used to test simple
+   * properties that should hold for all types (such as the reflexivity
+   * of subtyping).
+   */
+  private List<JSType> types;
+
+  @Override
+  protected void setUp() throws Exception {
+    super.setUp();
+
+    RecordTypeBuilder builder = new RecordTypeBuilder(registry);
+    builder.addProperty("a", NUMBER_TYPE, null);
+    builder.addProperty("b", STRING_TYPE, null);
+    recordType = builder.build();
+
+    enumType = new EnumType(registry, "Enum", null, NUMBER_TYPE);
+    elementsType = enumType.getElementsType();
+    functionType = new FunctionBuilder(registry)
+        .withReturnType(NUMBER_TYPE)
+        .build();
+    dateMethod = new FunctionBuilder(registry)
+        .withParamsNode(new Node(Token.PARAM_LIST))
+        .withReturnType(NUMBER_TYPE)
+        .withTypeOfThis(DATE_TYPE)
+        .build();
+    unresolvedNamedType =
+        new NamedType(registry, "not.resolved.named.type", null, -1, -1);
+    namedGoogBar = new NamedType(registry, "goog.Bar", null, -1, -1);
+
+    subclassCtor =
+        new FunctionType(registry, null, null, createArrowType(null),
+            null, null, true, false);
+    subclassCtor.setPrototypeBasedOn(unresolvedNamedType);
+    subclassOfUnresolvedNamedType = subclassCtor.getInstanceType();
+
+    interfaceType = FunctionType.forInterface(registry, "Interface", null);
+    interfaceInstType = interfaceType.getInstanceType();
+
+    subInterfaceType = FunctionType.forInterface(
+        registry, "SubInterface", null);
+    subInterfaceType.setExtendedInterfaces(
+        Lists.<ObjectType>newArrayList(interfaceInstType));
+    subInterfaceInstType = subInterfaceType.getInstanceType();
+
+    googBar = registry.createConstructorType("goog.Bar", null, null, null);
+    googBar.getPrototype().defineDeclaredProperty("date", DATE_TYPE,
+        null);
+    googBar.setImplementedInterfaces(
+        Lists.<ObjectType>newArrayList(interfaceInstType));
+    googBarInst = googBar.getInstanceType();
+
+    googSubBar = registry.createConstructorType(
+        "googSubBar", null, null, null);
+    googSubBar.setPrototypeBasedOn(googBar.getInstanceType());
+    googSubBarInst = googSubBar.getInstanceType();
+
+    googSubSubBar = registry.createConstructorType(
+        "googSubSubBar", null, null, null);
+    googSubSubBar.setPrototypeBasedOn(googSubBar.getInstanceType());
+    googSubSubBarInst = googSubSubBar.getInstanceType();
+
+    final ObjectType googObject = registry.createAnonymousObjectType();
+    googObject.defineDeclaredProperty("Bar", googBar, null);
+
+    namedGoogBar.resolve(null, new AbstractStaticScope<JSType>() {
+          @Override
+          public StaticSlot<JSType> getSlot(String name) {
+            if ("goog".equals(name)) {
+              return new SimpleSlot("goog", googObject, false);
+            } else {
+              return null;
+            }
+          }
+        });
+    assertNotNull(namedGoogBar.getImplicitPrototype());
+
+    forwardDeclaredNamedType =
+        new NamedType(registry, "forwardDeclared", "source", 1, 0);
+    registry.forwardDeclareType("forwardDeclared");
+    forwardDeclaredNamedType.resolve(
+        new SimpleErrorReporter(), EMPTY_SCOPE);
+
+    types = ImmutableList.of(
+        NO_OBJECT_TYPE,
+        NO_RESOLVED_TYPE,
+        NO_TYPE,
+        BOOLEAN_OBJECT_TYPE,
+        BOOLEAN_TYPE,
+        STRING_OBJECT_TYPE,
+        STRING_TYPE,
+        VOID_TYPE,
+        UNKNOWN_TYPE,
+        NULL_TYPE,
+        NUMBER_OBJECT_TYPE,
+        NUMBER_TYPE,
+        DATE_TYPE,
+        ERROR_TYPE,
+        SYNTAX_ERROR_TYPE,
+        dateMethod,
+        functionType,
+        unresolvedNamedType,
+        googBar,
+        googSubBar,
+        googSubSubBar,
+        namedGoogBar,
+        googBar.getInstanceType(),
+        subclassOfUnresolvedNamedType,
+        subclassCtor,
+        recordType,
+        enumType,
+        elementsType,
+        googBar,
+        googSubBar,
+        forwardDeclaredNamedType);
+  }
+
+  private void assertPropertyTypeDeclared(ObjectType ownerType, String prop) {
+    assertTrue(ownerType.isPropertyTypeDeclared(prop));
+    assertFalse(ownerType.isPropertyTypeInferred(prop));
+  }
+
+  private void assertPropertyTypeInferred(ObjectType ownerType, String prop) {
+    assertFalse(ownerType.isPropertyTypeDeclared(prop));
+    assertTrue(ownerType.isPropertyTypeInferred(prop));
+  }
+
+  private void assertPropertyTypeUnknown(ObjectType ownerType, String prop) {
+    assertFalse(ownerType.isPropertyTypeDeclared(prop));
+    assertFalse(ownerType.isPropertyTypeInferred(prop));
+    assertTrue(ownerType.getPropertyType(prop).isUnknownType());
+  }
+
+  private void assertReturnTypeEquals(JSType expectedReturnType,
+      JSType function) {
+    assertTrue(function instanceof FunctionType);
+    assertTypeEquals(expectedReturnType,
+        ((FunctionType) function).getReturnType());
+  }
+
+  private void compare(TernaryValue r, JSType t1, JSType t2) {
+    assertEquals(r, t1.testForEquality(t2));
+    assertEquals(r, t2.testForEquality(t1));
+  }
+
+  private void assertCanTestForEqualityWith(JSType t1, JSType t2) {
+    assertTrue(t1.canTestForEqualityWith(t2));
+    assertTrue(t2.canTestForEqualityWith(t1));
+  }
+
+  private void assertCannotTestForEqualityWith(JSType t1, JSType t2) {
+    assertFalse(t1.canTestForEqualityWith(t2));
+    assertFalse(t2.canTestForEqualityWith(t1));
+  }
+
+  /**
+   * Types to test for symmetrical relationships.
+   */
+  private List<JSType> getTypesToTestForSymmetry() {
+    return Lists.newArrayList(
+        UNKNOWN_TYPE,
+        NULL_TYPE,
+        VOID_TYPE,
+        NUMBER_TYPE,
+        STRING_TYPE,
+        BOOLEAN_TYPE,
+        OBJECT_TYPE,
+        U2U_CONSTRUCTOR_TYPE,
+        LEAST_FUNCTION_TYPE,
+        GREATEST_FUNCTION_TYPE,
+        ALL_TYPE,
+        NO_TYPE,
+        NO_OBJECT_TYPE,
+        NO_RESOLVED_TYPE,
+        createUnionType(BOOLEAN_TYPE, STRING_TYPE),
+        createUnionType(NUMBER_TYPE, STRING_TYPE),
+        createUnionType(NULL_TYPE, dateMethod),
+        createUnionType(UNKNOWN_TYPE, dateMethod),
+        createUnionType(namedGoogBar, dateMethod),
+        createUnionType(NULL_TYPE, unresolvedNamedType),
+        enumType,
+        elementsType,
+        dateMethod,
+        functionType,
+        unresolvedNamedType,
+        googBar,
+        namedGoogBar,
+        googBar.getInstanceType(),
+        namedGoogBar,
+        subclassOfUnresolvedNamedType,
+        subclassCtor,
+        recordType,
+        forwardDeclaredNamedType,
+        createUnionType(forwardDeclaredNamedType, NULL_TYPE));
+  }
+
+  /**
+   * Tests that the given chain of types has a total ordering defined
+   * by the subtype relationship, with types at the top of the lattice
+   * listed first.
+   *
+   * Also verifies that the infimum of any two types on the chain
+   * is the lower type, and the supremum of any two types on the chain
+   * is the higher type.
+   */
+  public void verifySubtypeChain(List<JSType> typeChain) throws Exception {
+    verifySubtypeChain(typeChain, true);
+  }
+
+  public void verifySubtypeChain(List<JSType> typeChain,
+                                 boolean checkSubtyping) throws Exception {
+
+    for (int i = 0; i < typeChain.size(); i++) {
+      for (int j = 0; j < typeChain.size(); j++) {
+        JSType typeI = typeChain.get(i);
+        JSType typeJ = typeChain.get(j);
+
+        JSType namedTypeI = getNamedWrapper("TypeI", typeI);
+        JSType namedTypeJ = getNamedWrapper("TypeJ", typeJ);
+        JSType proxyTypeI = new ProxyObjectType(registry, typeI);
+        JSType proxyTypeJ = new ProxyObjectType(registry, typeJ);
+
+        if (i == j) {
+          assertTrue(typeI + " should equal itself",
+              typeI.isEquivalentTo(typeI));
+          assertTrue("Named " + typeI + " should equal itself",
+              namedTypeI.isEquivalentTo(namedTypeI));
+          assertTrue("Proxy " + typeI + " should equal itself",
+              proxyTypeI.isEquivalentTo(proxyTypeI));
+        } else {
+          assertFalse(typeI + " should not equal " + typeJ,
+              typeI.isEquivalentTo(typeJ));
+          assertFalse("Named " + typeI + " should not equal " + typeJ,
+              namedTypeI.isEquivalentTo(namedTypeJ));
+          assertFalse("Proxy " + typeI + " should not equal " + typeJ,
+              proxyTypeI.isEquivalentTo(proxyTypeJ));
+        }
+
+        if (checkSubtyping) {
+          if (i <= j) {
+            assertTrue(typeJ + " should be a subtype of " + typeI,
+                typeJ.isSubtype(typeI));
+            assertTrue(
+                "Named " + typeJ + " should be a subtype of Named " + typeI,
+                namedTypeJ.isSubtype(namedTypeI));
+            assertTrue(
+                "Proxy " + typeJ + " should be a subtype of Proxy " + typeI,
+                proxyTypeJ.isSubtype(proxyTypeI));
+          } else {
+            assertFalse(typeJ + " should not be a subtype of " + typeI,
+                typeJ.isSubtype(typeI));
+            assertFalse(
+                "Named " + typeJ + " should not be a subtype of Named " + typeI,
+                namedTypeJ.isSubtype(namedTypeI));
+            assertFalse(
+                "Named " + typeJ + " should not be a subtype of Named " + typeI,
+                proxyTypeJ.isSubtype(proxyTypeI));
+          }
+
+          JSType expectedSupremum = i < j ? typeI : typeJ;
+          JSType expectedInfimum = i > j ? typeI : typeJ;
+
+          assertTypeEquals(
+              expectedSupremum + " should be the least supertype of " + typeI +
+              " and " + typeJ,
+              expectedSupremum, typeI.getLeastSupertype(typeJ));
+
+          assertTypeEquals(
+              expectedInfimum + " should be the greatest subtype of " + typeI +
+              " and " + typeJ,
+              expectedInfimum, typeI.getGreatestSubtype(typeJ));
+
+        }
+      }
+    }
+  }
+
+  JSType getNamedWrapper(String name, JSType jstype) {
+
+    if (!jstype.isNoType()) {
+      NamedType namedWrapper = new NamedType(
+          registry, name, "[testcode]", -1, -1);
+      namedWrapper.setReferencedType(jstype);
+      return namedWrapper;
+    } else {
+      return jstype;
+    }
+  }
+
+  public void assertUnionContains(UnionType union, JSType type) {
+    assertTrue(union + " should contain " + type, union.contains(type));
+  }
+
+  /**
+   * Assert that a type can assign to itself.
+   */
+  private void assertTypeCanAssignToItself(JSType type) {
+    assertTrue(type.canAssignTo(type));
+  }
+
+  private static boolean containsType(
+      Iterable<? extends JSType> types, JSType type) {
+    for (JSType alt : types) {
+      if (alt.isEquivalentTo(type)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static boolean assertTypeListEquals(
+      Iterable<? extends JSType> typeListA,
+      Iterable<? extends JSType> typeListB) {
+    for (JSType alt : typeListA) {
+      assertTrue(
+          "List : " + typeListA + "\n" +
+          "does not contain: " + alt,
+          containsType(typeListA, alt));
+    }
+    for (JSType alt : typeListB) {
+      assertTrue(
+          "List : " + typeListB + "\n" +
+          "does not contain: " + alt,
+          containsType(typeListB, alt));
+    }
+    return false;
+  }
+
+  private ArrowType createArrowType(Node params) {
+    return registry.createArrowType(params);
+  }
+}

@@ -1,0 +1,202 @@
+// ===== Class under test: com.google.javascript.jscomp.RemoveUnusedVars =====
+package com.google.javascript.jscomp;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.javascript.jscomp.CodingConvention.SubclassRelationship;
+import com.google.javascript.jscomp.DefinitionsRemover.Definition;
+import com.google.javascript.jscomp.Scope.Var;
+import com.google.javascript.rhino.IR;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+import java.util.*;
+
+/**
+ * Garbage collection for variable and function definitions. Basically performs
+ * a mark-and-sweep type algorithm over the javascript parse tree.
+ *
+ * For each scope:
+ * (1) Scan the variable/function declarations at that scope.
+ * (2) Traverse the scope for references, marking all referenced variables.
+ *     Unlike other compiler passes, this is a pre-order traversal, not a
+ *     post-order traversal.
+ * (3) If the traversal encounters an assign without other side-effects,
+ *     create a continuation. Continue the continuation iff the assigned
+ *     variable is referenced.
+ * (4) When the traversal completes, remove all unreferenced variables.
+ *
+ * If it makes it easier, you can think of the continuations of the traversal
+ * as a reference graph. Each continuation represents a set of edges, where the
+ * source node is a known variable, and the destination nodes are lazily
+ * evaluated when the continuation is executed.
+ *
+ * This algorithm is similar to the algorithm used by {@code SmartNameRemoval}.
+ * {@code SmartNameRemoval} maintains an explicit graph of dependencies
+ * between global symbols. However, {@code SmartNameRemoval} cannot handle
+ * non-trivial edges in the reference graph ("A is referenced iff both B and C
+ * are referenced"), or local variables. {@code SmartNameRemoval} is also
+ * substantially more complicated because it tries to handle namespaces
+ * (which is largely unnecessary in the presence of {@code CollapseProperties}.
+ *
+ * This pass also uses a more complex analysis of assignments, where
+ * an assignment to a variable or a property of that variable does not
+ * necessarily count as a reference to that variable, unless we can prove
+ * that it modifies external state. This is similar to
+ * {@code FlowSensitiveInlineVariables}, except that it works for variables
+ * used across scopes.
+ *
+ */
+class RemoveUnusedVars implements CompilerPass, OptimizeCalls.CallGraphCompilerPass {
+
+  // --- fields ---
+  private final AbstractCompiler compiler;
+  private final CodingConvention codingConvention;
+  private final boolean removeGlobals;
+  private boolean preserveFunctionExpressionNames;
+  private final Set<Var> referenced = Sets.newHashSet();
+  private final List<Var> maybeUnreferenced = Lists.newArrayList();
+  private final List<Scope> allFunctionScopes = Lists.newArrayList();
+  private final Multimap<Var, Assign> assignsByVar = ArrayListMultimap.create();
+  private final Map<Node, Assign> assignsByNode = Maps.newHashMap();
+  private final Multimap<Var, Node> inheritsCalls = ArrayListMultimap.create();
+  private final Multimap<Var, Continuation> continuations = ArrayListMultimap.create();
+  private boolean modifyCallSites;
+  private CallSiteOptimizer callSiteOptimizer;
+
+  // --- constructors and other methods (signatures only) ---
+  RemoveUnusedVars( AbstractCompiler compiler, boolean removeGlobals, boolean preserveFunctionExpressionNames, boolean modifyCallSites);
+  @Override public void process(Node externs, Node root);
+  @Override public void process( Node externs, Node root, SimpleDefinitionFinder defFinder);
+
+  // --- helper methods called by the method(s) under test ---
+  /**
+     * Marks a var as referenced, recursing into any values of this var
+     * that we skipped.
+     * @return True if this variable had not been referenced before.
+     */
+  private boolean markReferencedVar(Var var) {
+      if (referenced.add(var)) {
+        for (Continuation c : continuations.get(var)) {
+          c.apply();
+        }
+        return true;
+      }
+      return false;
+    }
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+     * Look at all the property assigns to all variables.
+     * These may or may not count as references. For example,
+     *
+     * <code>
+     * var x = {};
+     * x.foo = 3; // not a reference.
+     * var y = foo();
+     * y.foo = 3; // is a reference.
+     * </code>
+     *
+     * Interpreting assignments could mark a variable as referenced that
+     * wasn't referenced before, in order to keep it alive. Because we find
+     * references by lazily traversing subtrees, marking a variable as
+     * referenced could trigger new traversals of new subtrees, which could
+     * find new references.
+     *
+     * Therefore, this interpretation needs to be run to a fixed point.
+     */
+  private void interpretAssigns() {
+      boolean changes = false;
+      do {
+        changes = false;
+
+        // We can't use traditional iterators and iterables for this list,
+        // because our lazily-evaluated continuations will modify it while
+        // we traverse it.
+        for (int current = 0; current < maybeUnreferenced.size(); current++) {
+          Var var = maybeUnreferenced.get(current);
+          if (referenced.contains(var)) {
+            maybeUnreferenced.remove(current);
+            current--;
+          } else {
+            boolean assignedToUnknownValue = false;
+            boolean hasPropertyAssign = false;
+
+            if (var.getParentNode().isVar() &&
+                !NodeUtil.isForIn(var.getParentNode().getParent())) {
+              Node value = var.getInitialValue();
+              assignedToUnknownValue = value != null &&
+                  !NodeUtil.isLiteralValue(value, true);
+            } else {
+              // This was initialized to a function arg or a catch param
+              // or a for...in variable.
+              assignedToUnknownValue = true;
+            }
+
+            boolean maybeEscaped = false;
+            for (Assign assign : assignsByVar.get(var)) {
+              if (assign.isPropertyAssign) {
+                hasPropertyAssign = true;
+              } else if (!NodeUtil.isLiteralValue(
+                  assign.assignNode.getLastChild(), true)) {
+                assignedToUnknownValue = true;
+              }
+              if (assign.maybeAliased) {
+                maybeEscaped = true;
+              }
+            }
+
+            if ((assignedToUnknownValue || maybeEscaped) && hasPropertyAssign) {
+              changes = markReferencedVar(var) || changes;
+              maybeUnreferenced.remove(current);
+              current--;
+            }
+          }
+        }
+      } while (changes);
+    }
+  Assign(Node assignNode, Node nameNode, boolean isPropertyAssign) {
+        Preconditions.checkState(NodeUtil.isAssignmentOp(assignNode));
+        this.assignNode = assignNode;
+        this.nameNode = nameNode;
+        this.isPropertyAssign = isPropertyAssign;
+
+        this.maybeAliased = NodeUtil.isExpressionResultUsed(assignNode);
+        this.mayHaveSecondarySideEffects =
+            maybeAliased ||
+            NodeUtil.mayHaveSideEffects(assignNode.getFirstChild()) ||
+            NodeUtil.mayHaveSideEffects(assignNode.getLastChild());
+      }
+}
+
+// ===== Existing test class RemoveUnusedVarsTest (test methods removed; style/setup reference only) =====
+package com.google.javascript.jscomp;
+
+public class RemoveUnusedVarsTest extends CompilerTestCase {
+
+  private boolean removeGlobal;
+  private boolean preserveFunctionExpressionNames;
+  private boolean modifyCallSites;
+
+  public RemoveUnusedVarsTest() {
+    super("function alert() {}");
+    enableNormalize();
+  }
+
+  @Override
+  public void setUp() {
+    removeGlobal = true;
+    preserveFunctionExpressionNames = false;
+    modifyCallSites = false;
+  }
+
+  @Override
+  protected CompilerPass getProcessor(final Compiler compiler) {
+    return new RemoveUnusedVars(
+        compiler, removeGlobal, preserveFunctionExpressionNames,
+        modifyCallSites);
+  }
+
+}

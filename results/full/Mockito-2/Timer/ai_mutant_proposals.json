@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Change the less-than operator to less-than-or-equal, causing zero duration to incorrectly throw an exception.",
+    "original": "if (durationMillis < 0) {",
+    "mutated": "if (durationMillis <= 0) {"
+  },
+  {
+    "description": "Change the less-than operator to not-equal, which breaks positive values and changes the condition boundary.",
+    "original": "if (durationMillis < 0) {",
+    "mutated": "if (durationMillis != 0) {"
+  },
+  {
+    "description": "Change the validation check to trigger only when duration is strictly less than -1, allowing -1 to pass without exception.",
+    "original": "if (durationMillis < 0) {",
+    "mutated": "if (durationMillis < -1) {"
+  },
+  {
+    "description": "Remove the validation call from the constructor, allowing negative durations to be silently accepted.",
+    "original": "validateInput(durationMillis);",
+    "mutated": "// validateInput(durationMillis);"
+  },
+  {
+    "description": "Negate the validation condition so that only negative numbers pass and positive/zero numbers throw an exception.",
+    "original": "if (durationMillis < 0) {",
+    "mutated": "if (durationMillis >= 0) {"
+  }
+]

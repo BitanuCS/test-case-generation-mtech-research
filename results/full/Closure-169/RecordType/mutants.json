@@ -1,0 +1,301 @@
+[
+  {
+    "mid": "R0",
+    "kind": "rule",
+    "replacement": "otherProps.keySet().equals(keySet)",
+    "description": "negation removed: '!' deleted",
+    "line": 121,
+    "status": "killed",
+    "killed_by": [
+      "testCheckRecordEquivalenceDifferentKeySetsReturnsFalse",
+      "testCheckRecordEquivalenceEmptyRecordsReturnsTrue",
+      "testCheckRecordEquivalenceNonSymmetricCheckDetectsMutant",
+      "testCheckRecordEquivalenceSameKeySetsEquivalentPropsReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R1",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 122,
+    "status": "killed",
+    "killed_by": [
+      "testCheckRecordEquivalenceDifferentKeySetsReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R2",
+    "kind": "rule",
+    "replacement": "otherProps.get(key).checkEquivalenceHelper(\n              properties.get(key), eqMethod)",
+    "description": "negation removed: '!' deleted",
+    "line": 125,
+    "status": "killed",
+    "killed_by": [
+      "testCheckRecordEquivalenceAsymmetryMutant",
+      "testCheckRecordEquivalenceNonSymmetricCheckDetectsMutant",
+      "testCheckRecordEquivalenceSameKeySetsDifferentPropsReturnsFalse",
+      "testCheckRecordEquivalenceSameKeySetsEquivalentPropsReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R3",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 127,
+    "status": "killed",
+    "killed_by": [
+      "testCheckRecordEquivalenceAsymmetryMutant",
+      "testCheckRecordEquivalenceSameKeySetsDifferentPropsReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R4",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 130,
+    "status": "killed",
+    "killed_by": [
+      "testCheckRecordEquivalenceEmptyRecordsReturnsTrue",
+      "testCheckRecordEquivalenceNonSymmetricCheckDetectsMutant",
+      "testCheckRecordEquivalenceSameKeySetsEquivalentPropsReturnsTrue"
+    ]
+  },
+  {
+    "mid": "R5",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 157,
+    "status": "killed",
+    "killed_by": [
+      "testGetGreatestSubtypeSynthesizedTrueDetectsMutant"
+    ]
+  },
+  {
+    "mid": "R6",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 163,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R7",
+    "kind": "rule",
+    "replacement": "thatRecord.getPropertyType(property).isInvariant(\n                getPropertyType(property))",
+    "description": "negation removed: '!' deleted",
+    "line": 164,
+    "status": "killed",
+    "killed_by": [
+      "testGetGreatestSubtypeLogicalAndDetectsMutant",
+      "testGetGreatestSubtypeRecordConflictingPropertyReturnsNoType"
+    ]
+  },
+  {
+    "mid": "R8",
+    "kind": "rule",
+    "replacement": "hasProperty(property)",
+    "description": "negation removed: '!' deleted",
+    "line": 174,
+    "status": "killed",
+    "killed_by": [
+      "testGetGreatestSubtypeRecordCompatiblePropertiesMergesSuccessfully"
+    ]
+  },
+  {
+    "mid": "R9",
+    "kind": "rule",
+    "replacement": "thatRestrictedToObj.isEmptyType()",
+    "description": "negation removed: '!' deleted",
+    "line": 188,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R10",
+    "kind": "rule",
+    "replacement": "==",
+    "description": "relational: '!=' -> '=='",
+    "line": 202,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R11",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 202,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R12",
+    "kind": "rule",
+    "replacement": "alt.isEquivalentTo(this)",
+    "description": "negation removed: '!' deleted",
+    "line": 202,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R13",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 202,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R14",
+    "kind": "rule",
+    "replacement": "||",
+    "description": "logical: '&&' -> '||'",
+    "line": 202,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R15",
+    "kind": "rule",
+    "replacement": "typeA.hasProperty(property)",
+    "description": "negation removed: '!' deleted",
+    "line": 261,
+    "status": "killed",
+    "killed_by": [
+      "testIsSubtypeDeclaredPropertyInvariantReturnsTrue",
+      "testIsSubtypeInferredPropertySubtypeCheckMutant"
+    ]
+  },
+  {
+    "mid": "R16",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 262,
+    "status": "killed",
+    "killed_by": [
+      "testIsSubtypeMissingPropertyReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R17",
+    "kind": "rule",
+    "replacement": "propA.isInvariant(propB)",
+    "description": "negation removed: '!' deleted",
+    "line": 270,
+    "status": "killed",
+    "killed_by": [
+      "testIsSubtypeDeclaredPropertyInvariantReturnsTrue",
+      "testIsSubtypeDeclaredPropertyNotInvariantReturnsFalse",
+      "testIsSubtypeInferredPropertyNotSubtypeDetectsMutant",
+      "testIsSubtypeInferredPropertyNotSubtypeReturnsFalse",
+      "testIsSubtypeInferredPropertyNotSubtypeReturnsFalseMutant",
+      "testIsSubtypeInferredPropertySubtypeCheckMutant",
+      "testIsSubtypeMultiplePropertiesOneInvalidReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R18",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 271,
+    "status": "killed",
+    "killed_by": [
+      "testIsSubtypeDeclaredPropertyNotInvariantReturnsFalse",
+      "testIsSubtypeInferredPropertyNotSubtypeDetectsMutant",
+      "testIsSubtypeInferredPropertyNotSubtypeReturnsFalse",
+      "testIsSubtypeInferredPropertyNotSubtypeReturnsFalseMutant",
+      "testIsSubtypeMultiplePropertiesOneInvalidReturnsFalse"
+    ]
+  },
+  {
+    "mid": "R19",
+    "kind": "rule",
+    "replacement": "propA.isSubtype(propB)",
+    "description": "negation removed: '!' deleted",
+    "line": 276,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R20",
+    "kind": "rule",
+    "replacement": "true",
+    "description": "boolean: false -> true",
+    "line": 277,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "R21",
+    "kind": "rule",
+    "replacement": "false",
+    "description": "boolean: true -> false",
+    "line": 282,
+    "status": "killed",
+    "killed_by": [
+      "testIsSubtypeDeclaredPropertyInvariantReturnsTrue",
+      "testIsSubtypeInferredPropertySubtypeCheckMutant"
+    ]
+  },
+  {
+    "mid": "A0",
+    "kind": "ai",
+    "replacement": "for (String property : typeB.properties.keySet()) {\n        if (typeA.hasProperty(property)) {\n          return false;\n        }",
+    "description": "Changed negation on hasProperty check in isSubtype to verify property absence incorrectly",
+    "line": 260,
+    "status": "killed",
+    "killed_by": [
+      "testIsSubtypeDeclaredPropertyInvariantReturnsTrue",
+      "testIsSubtypeInferredPropertySubtypeCheckMutant"
+    ]
+  },
+  {
+    "mid": "A1",
+    "kind": "ai",
+    "replacement": "if (typeA.isPropertyTypeDeclared(property)) {\n          // If one declared property isn't invariant,\n          // then the whole record isn't covariant.\n          if (!propA.isSubtype(propB)) {\n            return false;\n          }\n        } else {\n          // If one inferred property isn't a subtype,\n          // then the whole record isn't covariant.\n          if (!propA.isInvariant(propB)) {\n            return false;\n          }\n        }",
+    "description": "Swapped isInvariant and isSubtype checks for declared and inferred properties in isSubtype",
+    "line": 267,
+    "status": "survived",
+    "killed_by": []
+  },
+  {
+    "mid": "A2",
+    "kind": "ai",
+    "replacement": "if (thatRecord.hasProperty(property) &&\n              thatRecord.getPropertyType(property).isInvariant(\n                  getPropertyType(property))) {",
+    "description": "Changed negation operator to check if property types are invariant instead of not invariant in getGreatestSubtypeHelper",
+    "line": 163,
+    "status": "killed",
+    "killed_by": [
+      "testGetGreatestSubtypeLogicalAndDetectsMutant",
+      "testGetGreatestSubtypeRecordConflictingPropertyReturnsNoType"
+    ]
+  },
+  {
+    "mid": "A3",
+    "kind": "ai",
+    "replacement": "for (String property : thatRecord.properties.keySet()) {\n          if (hasProperty(property)) {\n            builder.addProperty(property, thatRecord.getPropertyType(property),\n                thatRecord.getPropertyNode(property));\n          }\n        }",
+    "description": "Changed condition in getGreatestSubtypeHelper to add unique properties when property is already present instead of when missing",
+    "line": 173,
+    "status": "killed",
+    "killed_by": [
+      "testGetGreatestSubtypeRecordCompatiblePropertiesMergesSuccessfully"
+    ]
+  },
+  {
+    "mid": "A4",
+    "kind": "ai",
+    "replacement": "if (!properties.get(key).checkEquivalenceHelper(\n                otherProps.get(key), eqMethod)) {",
+    "description": "Swapped arguments in checkEquivalenceHelper call inside checkRecordEquivalenceHelper",
+    "line": 125,
+    "status": "survived",
+    "killed_by": []
+  }
+]

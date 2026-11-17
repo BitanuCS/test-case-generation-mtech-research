@@ -5,11 +5,11 @@ Update it after every run.
 
 ---
 
-## 1. Summary so far (16 Nov 2026)
+## 1. Summary so far (17 Nov 2026)
 
 - **Built:** a multi-agent framework that writes JUnit tests for Defects4J bugs. It has 8 agents: Context, Planner, Tester, Fixer, 3-AI panel, Curator, Mutant agent, Killer. Everything runs on free AI models.
 - **Fresh start, 16 Nov:** old results were zipped (`old_results_backup.zip`), the junk was cleaned up, and the 40-bug development set was made.
-- **Current result:** 16 of 28 finished bugs detected (**57%**). On the first 9 bugs both tools finished, EvoSuite detected 3/9 and we detected 5/9.
+- **Current result (all 40 dev bugs, 17 Nov):** ours **20/40 (50%)**, EvoSuite 13/40 (32%). Together 23/40 (58%).
 - **Target to beat:** AdverTest's published **66.6%** and HITS's **61.4%**.
 
 ---
@@ -30,6 +30,7 @@ Update it after every run.
 | ~10–15 Nov | Tried more free models: Mistral (no free API), Kaggle (needs phone verification), Groq (works, small limits). Settled on one main model, **gemini-3.5-flash-lite**, for fairness. |
 | 15–16 Nov | Big study started (198 bugs and all settings). We found broken EvoSuite and PIT results and stopped it. |
 | 16 Nov | Fixed 6 problems (section 3), did a fresh start, and started the 40-bug run. The quota ran out after 29 bugs. |
+| 17 Nov | EvoSuite finished all 40 (13/40). Our last 12 bugs ran after the 13:30 IST quota reset: 4/12 detected. Math-12 failed once on a network drop and was re-run (missed). Final 20/40. About 110 Gemini calls used for these 12 bugs. 40-bug comparison made. |
 
 ---
 
@@ -54,7 +55,7 @@ Update it after every run.
 ## 4. What is still missing (to do)
 
 ### Runs
-- [ ] Finish the last 12 bugs of the 40-bug set. Queued for 17 Nov 13:35 IST, after the quota reset (`scripts/run_framework_at_reset.sh`). **Note: Gemini's daily quota resets at midnight Pacific = 13:30 IST, not at our midnight.**
+- [x] Finish the last 12 bugs of the 40-bug set: done 17 Nov, 4/12 detected, 20/40 overall. **Note: Gemini's daily quota resets at midnight Pacific = 13:30 IST, not at our midnight.**
 - [x] EvoSuite on the 40 bugs: done on 17 Nov, 13/40 detected, no crashes.
 - [ ] **Single-shot AI** baseline on the 40.
 - [ ] **Ablations** on the 40: no-context, no-planner, no-fix, no-mutation.
@@ -153,6 +154,18 @@ It also writes summary.md and per_bug.csv.
 - **Mutant challenge:** rule-mutant score goes from 65% at the start to 81% after round 1 and 82% after round 2. Buggy-method coverage goes from 88% to 94% to 96%.
 - **Per bug, Major mutation:** ours higher on 19 of 22 bugs, EvoSuite higher on 2.
 - **Coverage is not detection:** ours missed 4 bugs at 100% buggy-method coverage; EvoSuite missed 8.
+
+**17 Nov, our framework vs EvoSuite, all 40 bugs** (`our-framework_vs_evosuite_40bugs_2026-11-17`):
+- **Detected:** ours 20/40 (50%), EvoSuite 13/40 (32%). Only ours 10, only EvoSuite 3, both 10, neither 17.
+- **Fix loop (49 test classes):** passing 53% → 72% → 79% → 84%; compiles 69% → 94%.
+- **Mutant challenge:** rule-mutant score 67% → 80% → 81%; buggy-method coverage 84% → 90% → 91%.
+- **Per bug, Major mutation:** ours higher on 21 of 26 bugs, EvoSuite higher on 2.
+- **Coverage is not detection:** ours missed 6 bugs at 100% buggy-method coverage (Cli-7, Jsoup-18, Lang-4, Math-2, Math-12, Time-5); EvoSuite missed 9.
+- **Observation:** the last 12 bugs (Jsoup, Closure, Jackson) were much harder (4/12). Closure-169 used 50 AI calls and still missed. Jsoup-18 finished in 41 s with 3 calls: check why the mutant step was so short.
+
+## 6c. GitHub
+
+Public repository: https://github.com/BitanuCS/test-case-generation-mtech-research (first push on 17 Nov 2026). Not uploaded: `.env` (API keys), `cache/`, `Research/` PDFs, `old_results_backup.zip` and logs (see `.gitignore`). To update it: `git add -A && git commit -m "..." && git push`.
 
 ## 7. How to resume
 

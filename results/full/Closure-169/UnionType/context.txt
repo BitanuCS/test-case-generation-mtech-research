@@ -1,0 +1,126 @@
+// ===== Class under test: com.google.javascript.rhino.jstype.UnionType =====
+package com.google.javascript.rhino.jstype;
+import static com.google.javascript.rhino.jstype.TernaryValue.UNKNOWN;
+import com.google.common.base.Joiner;
+import com.google.common.base.Preconditions;
+import com.google.common.base.Predicate;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import com.google.javascript.rhino.ErrorReporter;
+import java.util.Collection;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+/**
+ * The {@code UnionType} implements a common JavaScript idiom in which the
+ * code is specifically designed to work with multiple input types.  Because
+ * JavaScript always knows the run-time type of an object value, this is safer
+ * than a C union.<p>
+ *
+ * For instance, values of the union type {@code (String,boolean)} can be of
+ * type {@code String} or of type {@code boolean}. The commutativity of the
+ * statement is captured by making {@code (String,boolean)} and
+ * {@code (boolean,String)} equal.<p>
+ *
+ * The implementation of this class prevents the creation of nested
+ * unions.<p>
+ */
+public class UnionType extends JSType {
+
+  // --- fields ---
+  private static final long serialVersionUID = 1L;
+  Collection<JSType> alternates;
+  private final int hashcode;
+
+  // --- constructors and other methods (signatures only) ---
+  UnionType(JSTypeRegistry registry, Collection<JSType> alternates);
+  public Iterable<JSType> getAlternates();
+  @Override public boolean matchesNumberContext();
+  @Override public boolean matchesStringContext();
+  @Override public boolean matchesObjectContext();
+  @Override public JSType findPropertyType(String propertyName);
+  @Override public boolean canAssignTo(JSType that);
+  @Override public boolean canBeCalled();
+  @Override public JSType autobox();
+  @Override public JSType restrictByNotNullOrUndefined();
+  @Override public TernaryValue testForEquality(JSType that);
+  @Override public boolean isNullable();
+  @Override public boolean isUnknownType();
+  @Override public boolean isStruct();
+  @Override public boolean isDict();
+  @Override public JSType getLeastSupertype(JSType that);
+  JSType meet(JSType that);
+  @Override public boolean hasProperty(String pname);
+  @Override public int hashCode();
+  @Override public UnionType toMaybeUnionType();
+  @Override public boolean isObject();
+  public boolean contains(JSType type);
+  public JSType getRestrictedUnion(JSType type);
+  @Override String toStringHelper(boolean forAnnotations);
+  @Override public boolean isSubtype(JSType that);
+  @Override public JSType getRestrictedTypeGivenToBooleanOutcome(boolean outcome);
+  @Override public BooleanLiteralSet getPossibleToBooleanOutcomes();
+  @Override public TypePair getTypesUnderEquality(JSType that);
+  @Override public TypePair getTypesUnderInequality(JSType that);
+  @Override public TypePair getTypesUnderShallowInequality(JSType that);
+  @Override public <T> T visit(Visitor<T> visitor);
+  @Override JSType resolveInternal(ErrorReporter t, StaticScope<JSType> scope);
+  @Override public String toDebugHashCodeString();
+  @Override public boolean setValidator(Predicate<JSType> validator);
+  @Override public JSType collapseUnion();
+  @Override public void matchConstraint(JSType constraint);
+  @Override public boolean hasAnyTemplateInternal();
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+     * Two union types are equal if they have the same number of alternates
+     * and all alternates are equal.
+     */
+  boolean checkUnionEquivalenceHelper(
+        UnionType that, EquivalenceMethod eqMethod) {
+      if (eqMethod == EquivalenceMethod.IDENTITY
+          && alternates.size() != that.alternates.size()) {
+        return false;
+      }
+      for (JSType alternate : that.alternates) {
+        if (!hasAlternate(alternate, eqMethod)) {
+          return false;
+        }
+      }
+      return true;
+    }
+  private boolean hasAlternate(JSType type, EquivalenceMethod eqMethod) {
+      for (JSType alternate : alternates) {
+        if (alternate.checkEquivalenceHelper(type, eqMethod)) {
+          return true;
+        }
+      }
+      return false;
+    }
+}
+
+// ===== Existing test class UnionTypeTest (test methods removed; style/setup reference only) =====
+package com.google.javascript.rhino.jstype;
+
+import com.google.javascript.rhino.testing.BaseJSTypeTestCase;
+import com.google.javascript.rhino.testing.Asserts;
+
+public class UnionTypeTest extends BaseJSTypeTestCase {
+  private NamedType unresolvedNamedType;
+
+  @Override
+  public void setUp() throws Exception {
+    super.setUp();
+    unresolvedNamedType =
+        new NamedType(registry, "not.resolved.named.type", null, -1, -1);
+  }
+
+  /**
+   * Assert that a type can assign to itself.
+   */
+  private void assertTypeCanAssignToItself(JSType type) {
+    assertTrue(type.canAssignTo(type));
+  }
+
+}

@@ -1,0 +1,910 @@
+{
+  "bug": "Closure-169",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": false,
+  "incomplete": false,
+  "standard_metrics": {
+    "error": "ng: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds\n    [javac] Compiling 5 source files to /Users/bitu/mtech-tools/work/_std/Closure-169/out/tmp/run_mutation.pl_36268_1794904401/169f/.classes_testgen\n    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6\n    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release\n    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release\n    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.\n    [javac] /Users/bitu/mtech-tools/work/_std/Closure-169/out/tmp/run_mutation.pl_36268_1794904401/candor/com/google/javascript/rhino/jstype/RecordType_CandorTest.java:147: error: incompatible types: ImmutableMap<Object,Object> cannot be converted to Map<String,RecordProperty>\n    [javac]     RecordType typeA = new RecordType(registry, ImmutableMap.of());\n    [javac]                                                                ^\n    [javac] Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output\n    [javac] 1 error\n    [javac] 4 warnings\n\nBUILD FAILED\n/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.\n\nTotal time: 4 seconds\nTests do not compile! at /Users/bitu/mtech-tools/defects4j/framework/bin/run_mutation.pl line 326.\n"
+  },
+  "seconds": 722.1,
+  "llm_calls": {
+    "fresh": 50,
+    "cached": 1,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 50
+    },
+    "tokens_in": 249974,
+    "tokens_out": 93949
+  },
+  "classes": [
+    {
+      "bug": "Closure-169",
+      "class": "com.google.javascript.rhino.jstype.ArrowType",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 2
+        },
+        {
+          "round": 2,
+          "passed": 8,
+          "failed": 4,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 9,
+          "failed": 3,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 12,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 14,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 15,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 15,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 15,
+          "failed": 1,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "testParameterTraversalAdvancesCorrectlyOnMultipleParams",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "hasEqualParameters",
+        "checkArrowEquivalenceHelper"
+      ],
+      "generated_tests": 12,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 12,
+        "oracles": 12,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 12,
+        "compiles": false,
+        "compile_ok_tests": 0,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.0,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 12,
+      "mutation": [
+        {
+          "all": {
+            "total": 18,
+            "valid": 18,
+            "killed": 15,
+            "score": 0.833
+          },
+          "rule": {
+            "total": 13,
+            "valid": 13,
+            "killed": 12,
+            "score": 0.923
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.812
+          }
+        },
+        {
+          "all": {
+            "total": 18,
+            "valid": 18,
+            "killed": 15,
+            "score": 0.833
+          },
+          "rule": {
+            "total": 13,
+            "valid": 13,
+            "killed": 12,
+            "score": 0.923
+          },
+          "tests": 14,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.812
+          }
+        },
+        {
+          "all": {
+            "total": 18,
+            "valid": 18,
+            "killed": 17,
+            "score": 0.944
+          },
+          "rule": {
+            "total": 13,
+            "valid": 13,
+            "killed": 13,
+            "score": 1.0
+          },
+          "tests": 15,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.938
+          }
+        }
+      ],
+      "final_tests": 15,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.223,
+          "branch": 0.155,
+          "line": 0.255,
+          "complexity": 0.155,
+          "method": 0.25,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 0.938
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 80,
+          "killed": 16,
+          "score": 0.2
+        },
+        "focal": {
+          "generated": 14,
+          "killed": 14,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 15,
+      "other_version_compiles": false,
+      "detected": false,
+      "detecting_tests": [],
+      "compile_output": "Test\nArrowType_CandorTest.java:165: error: cannot find symbol\n    assertTrue(thisArrow.hasEqualParameters(thatArrow, EquivalenceMethod.IDENTITY));\n                                                       ^\n  symbol:   variable EquivalenceMethod\n  location: class ArrowType_CandorTest\nArrowType_CandorTest.java:181: error: cannot find symbol\n    assertTrue(thisArrow.hasEqualParameters(thatArrow, EquivalenceMethod.IDENTITY));\n                                                       ^\n  symbol:   variable EquivalenceMethod\n  location: class ArrowType_CandorTest\nArrowType_CandorTest.java:197: error: cannot find symbol\n    assertTrue(thisArrow.hasEqualParameters(thatArrow, EquivalenceMethod.IDENTITY));\n                                                       ^\n  symbol:   variable EquivalenceMethod\n  location: class ArrowType_CandorTest\nArrowType_CandorTest.java:213: error: cannot find symbol\n    assertFalse(thisArrow.checkArrowEquivalenceHelper(thatArrow, EquivalenceMethod.IDENTITY));\n                                                                 ^\n  symbol:   variable EquivalenceMethod\n  location: class ArrowType_CandorTest\nArrowType_CandorTest.java:289: error: cannot find symbol\n        assertTrue(thisArrow.hasEqualParameters(thatArrow, EquivalenceMethod.IDENTITY));\n                                                           ^\n  symbol:   variable EquivalenceMethod\n  location: class ArrowType_CandorTest\nArrowType_CandorTest.java:305: error: cannot find symbol\n        assertTrue(thisArrow.hasEqualParameters(thatArrow, EquivalenceMethod.IDENTITY));\n                                                           ^\n  symbol:   variable EquivalenceMethod\n  location: class ArrowType_CandorTest\nArrowType_CandorTest.java:350: error: cannot find symbol\n        assertFalse(thisArrow.hasEqualParameters(thatArrow, EquivalenceMethod.IDENTITY));\n                                                            ^\n  symbol:   variable EquivalenceMethod\n  location: class ArrowType_CandorTest\n16 errors\n",
+      "status": "ok"
+    },
+    {
+      "bug": "Closure-169",
+      "class": "com.google.javascript.rhino.jstype.EquivalenceMethod",
+      "mode": "standard",
+      "fix_rounds": [],
+      "removed": [],
+      "focal_methods": [],
+      "status": "no_focal_method",
+      "skip_reason": "class does not exist in the buggy version"
+    },
+    {
+      "bug": "Closure-169",
+      "class": "com.google.javascript.rhino.jstype.FunctionType",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 12
+        },
+        {
+          "round": 2,
+          "passed": 12,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "passed": 14,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 15,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "passed": 16,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 17,
+          "failed": 1,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "testTryMergePiecewiseTypeOfThisFallbackLeastSuperVsGreatestSubtype",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "tryMergeFunctionPiecewise",
+        "checkFunctionEquivalenceHelper",
+        "hasEqualCallType"
+      ],
+      "generated_tests": 17,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 17,
+        "oracles": 22,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 17,
+        "compiles": false,
+        "compile_ok_tests": 11,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.647,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 12,
+      "mutation": [
+        {
+          "all": {
+            "total": 13,
+            "valid": 13,
+            "killed": 7,
+            "score": 0.538
+          },
+          "rule": {
+            "total": 8,
+            "valid": 8,
+            "killed": 5,
+            "score": 0.625
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 0.394,
+            "branch": 0.469
+          }
+        },
+        {
+          "all": {
+            "total": 13,
+            "valid": 13,
+            "killed": 9,
+            "score": 0.692
+          },
+          "rule": {
+            "total": 8,
+            "valid": 8,
+            "killed": 6,
+            "score": 0.75
+          },
+          "tests": 15,
+          "coverage": {
+            "line": 0.879,
+            "branch": 0.844
+          }
+        },
+        {
+          "all": {
+            "total": 13,
+            "valid": 13,
+            "killed": 10,
+            "score": 0.769
+          },
+          "rule": {
+            "total": 8,
+            "valid": 8,
+            "killed": 6,
+            "score": 0.75
+          },
+          "tests": 17,
+          "coverage": {
+            "line": 0.879,
+            "branch": 0.844
+          }
+        }
+      ],
+      "final_tests": 17,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.33,
+          "branch": 0.275,
+          "line": 0.315,
+          "complexity": 0.232,
+          "method": 0.417,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.879,
+          "branch": 0.844
+        },
+        "focal_missed_lines": [
+          797,
+          814,
+          815,
+          816
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 318,
+          "killed": 69,
+          "score": 0.217
+        },
+        "focal": {
+          "generated": 26,
+          "killed": 22,
+          "score": 0.846
+        }
+      },
+      "final_oracles": 27,
+      "other_version_compiles": false,
+      "detected": false,
+      "detecting_tests": [],
+      "compile_output": "enceMethod\n  location: class FunctionType_CandorTest\nFunctionType_CandorTest.java:69: error: cannot find symbol\n    assertTrue(interfaceFnFoo1.checkFunctionEquivalenceHelper(interfaceFnFoo2, EquivalenceMethod.IDENTITY));\n                                                                               ^\n  symbol:   variable EquivalenceMethod\n  location: class FunctionType_CandorTest\nFunctionType_CandorTest.java:73: error: cannot find symbol\n    assertFalse(interfaceFnFoo1.checkFunctionEquivalenceHelper(interfaceFnBar, EquivalenceMethod.IDENTITY));\n                                                                               ^\n  symbol:   variable EquivalenceMethod\n  location: class FunctionType_CandorTest\nFunctionType_CandorTest.java:77: error: cannot find symbol\n    assertFalse(interfaceFnFoo1.checkFunctionEquivalenceHelper(ordinaryFn1, EquivalenceMethod.IDENTITY));\n                                                                            ^\n  symbol:   variable EquivalenceMethod\n  location: class FunctionType_CandorTest\nFunctionType_CandorTest.java:81: error: cannot find symbol\n    assertFalse(ordinaryFn1.checkFunctionEquivalenceHelper(interfaceFnFoo1, EquivalenceMethod.IDENTITY));\n                                                                            ^\n  symbol:   variable EquivalenceMethod\n  location: class FunctionType_CandorTest\nFunctionType_CandorTest.java:85: error: cannot find symbol\n    assertTrue(ordinaryFn1.checkFunctionEquivalenceHelper(ordinaryFn3, EquivalenceMethod.IDENTITY));\n                                                                       ^\n  symbol:   variable EquivalenceMethod\n  location: class FunctionType_CandorTest\nFunctionType_CandorTest.java:89: error: cannot find symbol\n    assertFalse(ordinaryFn1.checkFunctionEquivalenceHelper(ordinaryFn2, EquivalenceMethod.IDENTITY));\n                                                                        ^\n  symbol:   variable EquivalenceMethod\n  location: class FunctionType_CandorTest\n9 errors\n",
+      "status": "ok"
+    },
+    {
+      "bug": "Closure-169",
+      "class": "com.google.javascript.rhino.jstype.JSType",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 4
+        },
+        {
+          "round": 2,
+          "passed": 17,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "passed": 19,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "compile_errors": 3
+        },
+        {
+          "round": 2,
+          "passed": 19,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 3,
+          "passed": 19,
+          "failed": 1,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "testUnknownAndNominalUnknownUnderDataFlow",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "isEquivalentTo",
+        "isInvariant",
+        "differsFrom",
+        "checkEquivalenceHelper"
+      ],
+      "generated_tests": 17,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 17,
+        "oracles": 17,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 17,
+        "compiles": false,
+        "compile_ok_tests": 15,
+        "passed": 15,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.882,
+        "execution_rate": 0.882,
+        "pass_rate": 0.882,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 17,
+      "mutation": [
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 19,
+            "score": 0.633
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 16,
+            "score": 0.64
+          },
+          "tests": 17,
+          "coverage": {
+            "line": 0.9,
+            "branch": 0.661
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 20,
+            "score": 0.667
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 17,
+            "score": 0.68
+          },
+          "tests": 19,
+          "coverage": {
+            "line": 0.94,
+            "branch": 0.694
+          }
+        },
+        {
+          "all": {
+            "total": 30,
+            "valid": 30,
+            "killed": 20,
+            "score": 0.667
+          },
+          "rule": {
+            "total": 25,
+            "valid": 25,
+            "killed": 17,
+            "score": 0.68
+          },
+          "tests": 19,
+          "coverage": {
+            "line": 0.94,
+            "branch": 0.694
+          }
+        }
+      ],
+      "final_tests": 19,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.254,
+          "branch": 0.225,
+          "line": 0.27,
+          "complexity": 0.196,
+          "method": 0.257,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.94,
+          "branch": 0.694
+        },
+        "focal_missed_lines": [
+          536,
+          537,
+          541
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 306,
+          "killed": 50,
+          "score": 0.163
+        },
+        "focal": {
+          "generated": 55,
+          "killed": 38,
+          "score": 0.691
+        }
+      },
+      "final_oracles": 19,
+      "other_version_compiles": false,
+      "detected": false,
+      "detecting_tests": [],
+      "compile_output": "ndorTest\nJSType_CandorTest.java:98: error: cannot find symbol\n    boolean result = param1.checkEquivalenceHelper(objType, EquivalenceMethod.IDENTITY);\n                                                            ^\n  symbol:   variable EquivalenceMethod\n  location: class JSType_CandorTest\nJSType_CandorTest.java:106: error: cannot find symbol\n    boolean result = param1.checkEquivalenceHelper(objType, EquivalenceMethod.DATA_FLOW);\n                                                            ^\n  symbol:   variable EquivalenceMethod\n  location: class JSType_CandorTest\nJSType_CandorTest.java:116: error: cannot find symbol\n    boolean result = inst1.checkEquivalenceHelper(inst2, EquivalenceMethod.IDENTITY);\n                                                         ^\n  symbol:   variable EquivalenceMethod\n  location: class JSType_CandorTest\nJSType_CandorTest.java:123: error: cannot find symbol\n    boolean result = proxy.checkEquivalenceHelper(numberType, EquivalenceMethod.IDENTITY);\n                                                              ^\n  symbol:   variable EquivalenceMethod\n  location: class JSType_CandorTest\nJSType_CandorTest.java:130: error: cannot find symbol\n    boolean result = numberType.checkEquivalenceHelper(proxy, EquivalenceMethod.IDENTITY);\n                                                              ^\n  symbol:   variable EquivalenceMethod\n  location: class JSType_CandorTest\nJSType_CandorTest.java:158: error: cannot find symbol\n    boolean result = unknownType.checkEquivalenceHelper(nominalUnknown, EquivalenceMethod.DATA_FLOW);\n                                                                        ^\n  symbol:   variable EquivalenceMethod\n  location: class JSType_CandorTest\nJSType_CandorTest.java:166: error: cannot find symbol\n    boolean result = func1.checkEquivalenceHelper(func2, EquivalenceMethod.IDENTITY);\n                                                         ^\n  symbol:   variable EquivalenceMethod\n  location: class JSType_CandorTest\n16 errors\n",
+      "status": "ok"
+    },
+    {
+      "bug": "Closure-169",
+      "class": "com.google.javascript.rhino.jstype.RecordType",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 30
+        },
+        {
+          "round": 2,
+          "compile_errors": 30
+        },
+        {
+          "round": 3,
+          "passed": 12,
+          "failed": 2,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 18,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 23,
+          "failed": 1,
+          "bug_reports": 0
+        },
+        {
+          "round": 2,
+          "passed": 24,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "checkRecordEquivalenceHelper",
+        "getGreatestSubtypeHelper",
+        "isSubtype"
+      ],
+      "generated_tests": 14,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 14,
+        "oracles": 17,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 14,
+        "compiles": false,
+        "compile_ok_tests": 0,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.0,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 12,
+      "mutation": [
+        {
+          "all": {
+            "total": 27,
+            "valid": 27,
+            "killed": 15,
+            "score": 0.556
+          },
+          "rule": {
+            "total": 22,
+            "valid": 22,
+            "killed": 12,
+            "score": 0.545
+          },
+          "tests": 12,
+          "coverage": {
+            "line": 0.746,
+            "branch": 0.571
+          }
+        },
+        {
+          "all": {
+            "total": 27,
+            "valid": 27,
+            "killed": 16,
+            "score": 0.593
+          },
+          "rule": {
+            "total": 22,
+            "valid": 22,
+            "killed": 13,
+            "score": 0.591
+          },
+          "tests": 18,
+          "coverage": {
+            "line": 0.864,
+            "branch": 0.667
+          }
+        },
+        {
+          "all": {
+            "total": 27,
+            "valid": 27,
+            "killed": 16,
+            "score": 0.593
+          },
+          "rule": {
+            "total": 22,
+            "valid": 22,
+            "killed": 13,
+            "score": 0.591
+          },
+          "tests": 24,
+          "coverage": {
+            "line": 0.864,
+            "branch": 0.667
+          }
+        }
+      ],
+      "final_tests": 24,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.81,
+          "branch": 0.641,
+          "line": 0.822,
+          "complexity": 0.605,
+          "method": 0.909,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.864,
+          "branch": 0.667
+        },
+        "focal_missed_lines": [
+          201,
+          202,
+          203,
+          204,
+          205,
+          207,
+          276,
+          277
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 48,
+          "killed": 23,
+          "score": 0.479
+        },
+        "focal": {
+          "generated": 26,
+          "killed": 18,
+          "score": 0.692
+        }
+      },
+      "final_oracles": 29,
+      "other_version_compiles": false,
+      "detected": false,
+      "detecting_tests": [],
+      "compile_output": "RecordType_CandorTest.java:69: error: cannot find symbol\n    assertFalse(typeA.checkRecordEquivalenceHelper(typeB, EquivalenceMethod.DATA_FLOW));\n                                                          ^\n  symbol:   variable EquivalenceMethod\n  location: class RecordType_CandorTest\nRecordType_CandorTest.java:78: error: cannot find symbol\n    assertTrue(typeA.checkRecordEquivalenceHelper(typeB, EquivalenceMethod.DATA_FLOW));\n                                                         ^\n  symbol:   variable EquivalenceMethod\n  location: class RecordType_CandorTest\nRecordType_CandorTest.java:88: error: cannot find symbol\n    assertFalse(typeA.checkRecordEquivalenceHelper(typeB, EquivalenceMethod.DATA_FLOW));\n                                                          ^\n  symbol:   variable EquivalenceMethod\n  location: class RecordType_CandorTest\nRecordType_CandorTest.java:150: error: cannot find symbol\n    assertTrue(typeA.checkRecordEquivalenceHelper(typeB, EquivalenceMethod.DATA_FLOW));\n                                                         ^\n  symbol:   variable EquivalenceMethod\n  location: class RecordType_CandorTest\nRecordType_CandorTest.java:186: error: cannot find symbol\n        assertTrue(typeA.checkRecordEquivalenceHelper(typeB, EquivalenceMethod.DATA_FLOW));\n                                                             ^\n  symbol:   variable EquivalenceMethod\n  location: class RecordType_CandorTest\nRecordType_CandorTest.java:273: error: cannot find symbol\n        assertFalse(typeA.checkRecordEquivalenceHelper(typeB, EquivalenceMethod.DATA_FLOW));\n                                                              ^\n  symbol:   variable EquivalenceMethod\n  location: class RecordType_CandorTest\n6 errors\n",
+      "status": "ok"
+    },
+    {
+      "bug": "Closure-169",
+      "class": "com.google.javascript.rhino.jstype.UnionType",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "compile_errors": 30
+        },
+        {
+          "round": 2,
+          "compile_errors": 6
+        },
+        {
+          "round": 3,
+          "compile_errors": 6
+        },
+        {
+          "round": 1,
+          "compile_errors": 1
+        },
+        {
+          "round": 2,
+          "passed": 6,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [
+        [
+          "testStructuralEquivalenceDifferentSizeReturnsFalseIfMissingAlternate",
+          "compile"
+        ],
+        [
+          "testHasAlternateMatchingTypeReturnsTrue",
+          "compile"
+        ],
+        [
+          "testDifferentOrderOfAlternatesReturnsTrue",
+          "compile"
+        ],
+        [
+          "testHasAlternateNoMatchingTypeReturnsFalse",
+          "compile"
+        ],
+        [
+          "testEquivalentUnionTypesSameAlternatesReturnsTrue",
+          "compile"
+        ],
+        [
+          "testCheckUnionEquivalenceHelperMissingAlternateReturnsFalse",
+          "compile"
+        ],
+        [
+          "testHasAlternateIdentityMismatchReturnsFalse",
+          "fails"
+        ]
+      ],
+      "focal_methods": [
+        "checkUnionEquivalenceHelper",
+        "hasAlternate"
+      ],
+      "generated_tests": 11,
+      "first_compiles": false,
+      "first_attempt": {
+        "tests": 11,
+        "oracles": 11,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 11,
+        "compiles": false,
+        "compile_ok_tests": 0,
+        "passed": 0,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 0.0,
+        "execution_rate": 0.0,
+        "pass_rate": 0.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 4,
+      "mutation": [
+        {
+          "all": {
+            "total": 14,
+            "valid": 13,
+            "killed": 9,
+            "score": 0.692
+          },
+          "rule": {
+            "total": 9,
+            "valid": 9,
+            "killed": 7,
+            "score": 0.778
+          },
+          "tests": 4,
+          "coverage": {
+            "line": 0.846,
+            "branch": 0.75
+          }
+        },
+        {
+          "all": {
+            "total": 14,
+            "valid": 13,
+            "killed": 13,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 9,
+            "valid": 9,
+            "killed": 9,
+            "score": 1.0
+          },
+          "tests": 6,
+          "coverage": {
+            "line": 1.0,
+            "branch": 0.917
+          }
+        }
+      ],
+      "final_tests": 6,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.062,
+          "branch": 0.06,
+          "line": 0.064,
+          "complexity": 0.062,
+          "method": 0.077,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 0.917
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 125,
+          "killed": 9,
+          "score": 0.072
+        },
+        "focal": {
+          "generated": 9,
+          "killed": 9,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 6,
+      "other_version_compiles": false,
+      "detected": false,
+      "detecting_tests": [],
+      "compile_output": "UnionType_CandorTest.java:25: error: cannot find symbol\n    assertFalse(unionA.checkUnionEquivalenceHelper(unionB, EquivalenceMethod.IDENTITY));\n                                                           ^\n  symbol:   variable EquivalenceMethod\n  location: class UnionType_CandorTest\nUnionType_CandorTest.java:35: error: cannot find symbol\n    assertTrue(unionA.checkUnionEquivalenceHelper(unionB, EquivalenceMethod.IDENTITY));\n                                                          ^\n  symbol:   variable EquivalenceMethod\n  location: class UnionType_CandorTest\nUnionType_CandorTest.java:44: error: cannot find symbol\n    assertTrue(unionA.checkUnionEquivalenceHelper(unionB, EquivalenceMethod.IDENTITY));\n                                                          ^\n  symbol:   variable EquivalenceMethod\n  location: class UnionType_CandorTest\nUnionType_CandorTest.java:51: error: cannot find symbol\n    assertTrue(unionA.checkUnionEquivalenceHelper(unionB, EquivalenceMethod.IDENTITY));\n                                                          ^\n  symbol:   variable EquivalenceMethod\n  location: class UnionType_CandorTest\nUnionType_CandorTest.java:66: error: cannot find symbol\n        assertFalse(unionA.checkUnionEquivalenceHelper(unionB, EquivalenceMethod.IDENTITY));\n                                                               ^\n  symbol:   variable EquivalenceMethod\n  location: class UnionType_CandorTest\nUnionType_CandorTest.java:81: error: cannot find symbol\n        assertFalse(unionA.checkUnionEquivalenceHelper(unionB, EquivalenceMethod.IDENTITY));\n                                                               ^\n  symbol:   variable EquivalenceMethod\n  location: class UnionType_CandorTest\n6 errors\n",
+      "status": "ok"
+    }
+  ]
+}

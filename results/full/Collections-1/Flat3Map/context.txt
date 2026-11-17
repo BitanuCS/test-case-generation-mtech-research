@@ -1,0 +1,133 @@
+// ===== Class under test: org.apache.commons.collections.map.Flat3Map =====
+package org.apache.commons.collections.map;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.AbstractCollection;
+import java.util.AbstractSet;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Set;
+import org.apache.commons.collections.IterableMap;
+import org.apache.commons.collections.MapIterator;
+import org.apache.commons.collections.ResettableIterator;
+import org.apache.commons.collections.iterators.EmptyIterator;
+import org.apache.commons.collections.iterators.EmptyMapIterator;
+
+/**
+ * A <code>Map</code> implementation that stores data in simple fields until
+ * the size is greater than 3.
+ * <p>
+ * This map is designed for performance and can outstrip HashMap.
+ * It also has good garbage collection characteristics.
+ * <ul>
+ * <li>Optimised for operation at size 3 or less.
+ * <li>Still works well once size 3 exceeded.
+ * <li>Gets at size 3 or less are about 0-10% faster than HashMap,
+ * <li>Puts at size 3 or less are over 4 times faster than HashMap.
+ * <li>Performance 5% slower than HashMap once size 3 exceeded once.
+ * </ul>
+ * The design uses two distinct modes of operation - flat and delegate.
+ * While the map is size 3 or less, operations map straight onto fields using
+ * switch statements. Once size 4 is reached, the map switches to delegate mode
+ * and only switches back when cleared. In delegate mode, all operations are
+ * forwarded straight to a HashMap resulting in the 5% performance loss.
+ * <p>
+ * The performance gains on puts are due to not needing to create a Map Entry
+ * object. This is a large saving not only in performance but in garbage collection.
+ * <p>
+ * Whilst in flat mode this map is also easy for the garbage collector to dispatch.
+ * This is because it contains no complex objects or arrays which slow the progress.
+ * <p>
+ * Do not use <code>Flat3Map</code> if the size is likely to grow beyond 3.
+ * <p>
+ * <strong>Note that Flat3Map is not synchronized and is not thread-safe.</strong>
+ * If you wish to use this map from multiple threads concurrently, you must use
+ * appropriate synchronization. The simplest approach is to wrap this map
+ * using {@link java.util.Collections#synchronizedMap(Map)}. This class may throw 
+ * exceptions when accessed by concurrent threads without synchronization.
+ *
+ * @since Commons Collections 3.0
+ * @version $Revision$ $Date$
+ *
+ * @author Stephen Colebourne
+ */
+public class Flat3Map implements IterableMap, Serializable, Cloneable {
+
+  // --- fields ---
+  private static final long serialVersionUID = -6701087419741928296L;
+  private transient int size;
+  private transient int hash1;
+  private transient int hash2;
+  private transient int hash3;
+  private transient Object key1;
+  private transient Object key2;
+  private transient Object key3;
+  private transient Object value1;
+  private transient Object value2;
+  private transient Object value3;
+  private transient AbstractHashedMap delegateMap;
+
+  // --- constructors and other methods (signatures only) ---
+  public Flat3Map();
+  public Flat3Map(Map map);
+  public Object get(Object key);
+  public int size();
+  public boolean isEmpty();
+  public boolean containsKey(Object key);
+  public boolean containsValue(Object value);
+  public Object put(Object key, Object value);
+  public void putAll(Map map);
+  protected AbstractHashedMap createDelegateMap();
+  public Object remove(Object key);
+  public void clear();
+  public MapIterator mapIterator();
+  public Set entrySet();
+  public Set keySet();
+  public Collection values();
+  public Object clone();
+  public boolean equals(Object obj);
+  public int hashCode();
+  public String toString();
+
+  // --- METHOD(S) UNDER TEST ---
+  public Object setValue(Object value) {
+              if (canRemove == false) {
+                  throw new IllegalStateException(AbstractHashedMap.SETVALUE_INVALID);
+              }
+              Object old = getValue();
+              switch (nextIndex) {
+                  case 3: 
+                      parent.value3 = value;
+                      break;
+                  case 2:
+                      parent.value2 = value;
+                      break;
+                  case 1:
+                      parent.value1 = value;
+                      break;
+              }
+              return old;
+          }
+  public Object setValue(Object value) {
+              if (canRemove == false) {
+                  throw new IllegalStateException(AbstractHashedMap.SETVALUE_INVALID);
+              }
+              Object old = getValue();
+              switch (nextIndex) {
+                  case 3: 
+                      parent.value3 = value;
+                      break;
+                  case 2:
+                      parent.value2 = value;
+                      break;
+                  case 1:
+                      parent.value1 = value;
+                      break;
+              }
+              return old;
+          }
+}

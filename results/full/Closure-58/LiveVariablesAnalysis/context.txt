@@ -1,0 +1,180 @@
+// ===== Class under test: com.google.javascript.jscomp.LiveVariablesAnalysis =====
+package com.google.javascript.jscomp;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Sets;
+import com.google.javascript.jscomp.ControlFlowGraph.Branch;
+import com.google.javascript.jscomp.Scope.Var;
+import com.google.javascript.jscomp.graph.DiGraph.DiGraphEdge;
+import com.google.javascript.rhino.Node;
+import com.google.javascript.rhino.Token;
+import java.util.BitSet;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * Compute the "liveness" of all local variables. A variable is "live" at a
+ * point of a program if the value it is currently holding might be read later.
+ * Otherwise, the variable is considered "dead" if we know for sure that it will
+ * no longer be read. Dead variables are candidates for dead assignment
+ * elimination and variable name sharing. The worst case safe assumption is to
+ * assume that all variables are live. In that case, we will have no opportunity
+ * for optimizations. This is especially the case within a TRY block when an
+ * assignment is not guaranteed to take place. We bail out by assuming that
+ * all variables are live.
+ * <p>
+ * Due to the possibility of inner functions and closures, certain "local"
+ * variables can escape the function. These variables will be considered as
+ * global and they can be retrieved with {@link #getEscapedLocals()}.
+ *
+ */
+class LiveVariablesAnalysis extends DataFlowAnalysis<Node, LiveVariablesAnalysis.LiveVariableLattice> {
+
+  // --- fields ---
+  public static final String ARGUMENT_ARRAY_ALIAS = "arguments";
+  private final Scope jsScope;
+  private final Set<Var> escaped;
+
+  // --- constructors and other methods (signatures only) ---
+  LiveVariablesAnalysis(ControlFlowGraph<Node> cfg, Scope jsScope, AbstractCompiler compiler);
+  public Set<Var> getEscapedLocals();
+  public int getVarIndex(String var);
+  @Override boolean isForward();
+  @Override LiveVariableLattice createEntryLattice();
+  @Override LiveVariableLattice createInitialEstimateLattice();
+  @Override LiveVariableLattice flowThrough(Node node, LiveVariableLattice input);
+
+  // --- helper methods called by the method(s) under test ---
+  private void addToSetIfLocal(Node node, BitSet set) {
+      Preconditions.checkState(NodeUtil.isName(node));
+      String name = node.getString();
+      if (!jsScope.isDeclared(name, false)) {
+        return;
+      }
+      Var var = jsScope.getVar(name);
+      if (!escaped.contains(var)) {
+        set.set(var.index);
+      }
+    }
+  /**
+     * Give up computing liveness of formal parameter by putting all the parameter
+     * names in the escaped set.
+     */
+  void markAllParametersEscaped() {
+      Node lp = jsScope.getRootNode().getFirstChild().getNext();
+      for(Node arg = lp.getFirstChild(); arg != null; arg = arg.getNext()) {
+        escaped.add(jsScope.getVar(arg.getString()));
+      }
+    }
+  private boolean isArgumentsName(Node n) {
+      if (n.getType() != Token.NAME ||
+          !n.getString().equals(ARGUMENT_ARRAY_ALIAS) ||
+          jsScope.isDeclared(ARGUMENT_ARRAY_ALIAS, false)) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+  // --- METHOD(S) UNDER TEST ---
+  /**
+     * Computes the GEN and KILL set.
+     *
+     * @param n Root node.
+     * @param gen Local variables that are live because of the instruction at
+     *        {@code n} will be added to this set.
+     * @param kill Local variables that are killed because of the instruction at
+     *        {@code n} will be added to this set.
+     * @param conditional {@code true} if any assignments encountered are
+     *        conditionally executed. These assignments might not kill a variable.
+     */
+  private void computeGenKill(Node n, BitSet gen, BitSet kill,
+        boolean conditional) {
+
+      switch (n.getType()) {
+        case Token.SCRIPT:
+        case Token.BLOCK:
+        case Token.FUNCTION:
+          return;
+
+        case Token.WHILE:
+        case Token.DO:
+        case Token.IF:
+          computeGenKill(NodeUtil.getConditionExpression(n), gen, kill,
+              conditional);
+          return;
+
+        case Token.FOR:
+          if (!NodeUtil.isForIn(n)) {
+            computeGenKill(NodeUtil.getConditionExpression(n), gen, kill,
+                conditional);
+          } else {
+            // for(x in y) {...}
+            Node lhs = n.getFirstChild();
+            Node rhs = lhs.getNext();
+            if (NodeUtil.isVar(lhs)) {
+              // for(var x in y) {...}
+              lhs = lhs.getLastChild();
+            }
+            if (NodeUtil.isName(lhs)) {
+              addToSetIfLocal(lhs, kill);
+              addToSetIfLocal(lhs, gen);
+            } else {
+              computeGenKill(lhs, gen, kill, conditional);
+            }
+            computeGenKill(rhs, gen, kill, conditional);
+          }
+          return;
+
+        case Token.VAR:
+          for (Node c = n.getFirstChild(); c != null; c = c.getNext()) {
+            if (c.hasChildren()) {
+              computeGenKill(c.getFirstChild(), gen, kill, conditional);
+              if (!conditional) {
+                addToSetIfLocal(c, kill);
+              }
+            }
+          }
+          return;
+
+        case Token.AND:
+        case Token.OR:
+          computeGenKill(n.getFirstChild(), gen, kill, conditional);
+          // May short circuit.
+          computeGenKill(n.getLastChild(), gen, kill, true);
+          return;
+
+        case Token.HOOK:
+          computeGenKill(n.getFirstChild(), gen, kill, conditional);
+          // Assume both sides are conditional.
+          computeGenKill(n.getFirstChild().getNext(), gen, kill, true);
+          computeGenKill(n.getLastChild(), gen, kill, true);
+          return;
+
+        case Token.NAME:
+          if (isArgumentsName(n)) {
+            markAllParametersEscaped();
+          } else {
+            addToSetIfLocal(n, gen);
+          }
+          return;
+
+        default:
+          if (NodeUtil.isAssignmentOp(n) && NodeUtil.isName(n.getFirstChild())) {
+            Node lhs = n.getFirstChild();
+            if (!conditional) {
+              addToSetIfLocal(lhs, kill);
+            }
+            if (!NodeUtil.isAssign(n)) {
+              // assignments such as a += 1 reads a.
+              addToSetIfLocal(lhs, gen);
+            }
+            computeGenKill(lhs.getNext(), gen, kill, conditional);
+          } else {
+            for (Node c = n.getFirstChild(); c != null; c = c.getNext()) {
+              computeGenKill(c, gen, kill, conditional);
+            }
+          }
+          return;
+      }
+    }
+}

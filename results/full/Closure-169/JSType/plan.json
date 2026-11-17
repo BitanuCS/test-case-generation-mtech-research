@@ -1,0 +1,104 @@
+[
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "identicalReferenceShortCircuit",
+    "input": "this = NUMBER_TYPE, that = NUMBER_TYPE (same reference), eqMethod = IDENTITY",
+    "expected": "Returns true immediately because this == that."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "invariantWithUnknownType",
+    "input": "this = UNKNOWN_TYPE, that = NUMBER_TYPE, eqMethod = INVARIANT",
+    "expected": "Returns true because for invariance, the unknown type is invariant with everyone."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "dataFlowWithBothUnknown",
+    "input": "this = UNKNOWN_TYPE, that = UNKNOWN_TYPE, eqMethod = DATA_FLOW",
+    "expected": "Returns true because for data flow, two types are the same if they are both unknown."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "dataFlowWithOneUnknown",
+    "input": "this = UNKNOWN_TYPE, that = NUMBER_TYPE, eqMethod = DATA_FLOW",
+    "expected": "Returns false because not both are unknown under data flow evaluation."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "unknownNominalMismatchFail",
+    "input": "this = UNKNOWN_TYPE (nominal=true), that = UNKNOWN_TYPE (nominal=false), eqMethod = IDENTITY",
+    "expected": "Returns false because both are unknown but one is a nominal type and the other is not."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "unionTypeEquivalenceDelegation",
+    "input": "this = UnionType(number, string), that = UnionType(number, string), eqMethod = IDENTITY",
+    "expected": "Delegates and returns true via checkUnionEquivalenceHelper."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "functionTypeEquivalenceDelegation",
+    "input": "this = functionType, that = functionType, eqMethod = IDENTITY",
+    "expected": "Delegates and returns true via checkFunctionEquivalenceHelper."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "recordTypeEquivalenceDelegation",
+    "input": "this = recordType, that = recordType, eqMethod = IDENTITY",
+    "expected": "Delegates and returns true via checkRecordEquivalenceHelper."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "parameterizedTypeMatchingBoth",
+    "input": "this = ParameterizedType(A), that = ParameterizedType(A), eqMethod = IDENTITY",
+    "expected": "Returns true if both root types and parameter types match equivalently."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "parameterizedTypeOneMissingIdentity",
+    "input": "this = ParameterizedType(A), that = RootType(A), eqMethod = IDENTITY",
+    "expected": "Returns false under IDENTITY when one is parameterized and the other is not."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "parameterizedTypeOneMissingDataFlow",
+    "input": "this = ParameterizedType(A), that = RootType(A), eqMethod = DATA_FLOW",
+    "expected": "Returns true/matches because one type parameter being unknown/missing is treated as compatible for data flow/invariance."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "nominalTypeSameReferenceName",
+    "input": "this = googBarInst, that = googBarInst (or equivalent nominal object), eqMethod = IDENTITY",
+    "expected": "Returns true by matching reference names of object types."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "proxyObjectTypeUnboxingThis",
+    "input": "this = Proxy(NUMBER_TYPE), that = NUMBER_TYPE, eqMethod = IDENTITY",
+    "expected": "Unboxes this ProxyObjectType to its referenced type and checks equivalence."
+  },
+  {
+    "method": "checkEquivalenceHelper",
+    "name": "proxyObjectTypeUnboxingThat",
+    "input": "this = NUMBER_TYPE, that = Proxy(NUMBER_TYPE), eqMethod = IDENTITY",
+    "expected": "Unboxes that ProxyObjectType to its referenced type and checks equivalence."
+  },
+  {
+    "method": "isEquivalentTo",
+    "name": "isEquivalentToBasicTrue",
+    "input": "this = NUMBER_TYPE, that = NUMBER_TYPE",
+    "expected": "Returns true using EquivalenceMethod.IDENTITY."
+  },
+  {
+    "method": "isInvariant",
+    "name": "isInvariantWithUnknown",
+    "input": "this = UNKNOWN_TYPE, that = NUMBER_TYPE",
+    "expected": "Returns true using EquivalenceMethod.INVARIANT."
+  },
+  {
+    "method": "differsFrom",
+    "name": "differsFromIdenticalTypes",
+    "input": "this = STRING_TYPE, that = STRING_TYPE",
+    "expected": "Returns false because they do not differ (negation of checkEquivalenceHelper under DATA_FLOW or IDENTITY)."
+  }
+]

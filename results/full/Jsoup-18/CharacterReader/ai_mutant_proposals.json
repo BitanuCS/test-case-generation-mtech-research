@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Off-by-one error: using this.length instead of input.length() for substring end bound, which could cause issues if length was incorrectly initialized or mutable.",
+    "original": "String data = input.substring(pos, input.length());",
+    "mutated": "String data = input.substring(pos, this.length);"
+  },
+  {
+    "description": "Off-by-one boundary bug: setting pos to length - 1 instead of length when consuming to end.",
+    "original": "pos = input.length();",
+    "mutated": "pos = input.length() - 1;"
+  },
+  {
+    "description": "Wrong variable usage: using pos as the beginning index of substring instead of input.length(), resulting in an empty or incorrect substring when consuming to end.",
+    "original": "String data = input.substring(pos, input.length());",
+    "mutated": "String data = input.substring(pos, pos);"
+  },
+  {
+    "description": "Missing state update: failing to update `pos` to the end of the input string during `consumeToEnd()`.",
+    "original": "pos = input.length();",
+    "mutated": "// pos = input.length();"
+  },
+  {
+    "description": "Wrong argument swapped or offset: substring starts at pos + 1 instead of pos, skipping the current character.",
+    "original": "String data = input.substring(pos, input.length());",
+    "mutated": "String data = input.substring(pos + 1, input.length());"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "method": "verifyNonDup",
+    "name": "firstCreatorAddedNoExisting",
+    "input": "newOne = mockAnnotatedWithParams1, typeIndex = 1 (String), explicit = false",
+    "expected": "_creators[1] is set to newOne, _hasNonDefaultCreator becomes true, _explicitCreators bitmask for type 1 remains 0."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "firstExplicitCreatorAddedNoExisting",
+    "input": "newOne = mockAnnotatedWithParams1, typeIndex = 1 (String), explicit = true",
+    "expected": "_creators[1] is set to newOne, _hasNonDefaultCreator becomes true, _explicitCreators bitmask for type 1 has the bit set (bit 1)."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "existingExplicitNewImplicitIgnoresNew",
+    "input": "Existing = explicitCreator1 at typeIndex = 1; newOne = newImplicitCreator, typeIndex = 1, explicit = false",
+    "expected": "Since oldOne exists, (_explicitCreators & mask) != 0 is true, and !explicit is true, so it returns immediately without replacing _creators[1]."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "existingExplicitNewExplicitSameTypeClassAndRawParamThrowsException",
+    "input": "Existing = explicitCreator1 (Class A, rawParamType String); newOne = explicitCreator2 (Class A, rawParamType String), typeIndex = 1, explicit = true",
+    "expected": "Both explicit, same class, same raw parameter type -> throws IllegalArgumentException due to conflicting creators."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "existingExplicitNewExplicitSameClassNewParamMoreGenericKeepsOld",
+    "input": "Existing = explicitCreator1 (Class A, rawParamType String); newOne = explicitCreator2 (Class A, rawParamType Object), typeIndex = 1, explicit = true",
+    "expected": "newType (Object) isAssignableFrom oldType (String) is true -> keeps old creator (returns without modifying _creators[1])."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "existingExplicitNewExplicitSameClassNewParamMoreSpecificReplacesOld",
+    "input": "Existing = explicitCreator1 (Class A, rawParamType Object); newOne = explicitCreator2 (Class A, rawParamType String), typeIndex = 1, explicit = true",
+    "expected": "newType (String) is assignable from oldType (Object) is false -> replaces old creator with newOne, and updates explicit bitmask."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "existingImplicitNewExplicitOverridesOld",
+    "input": "Existing = implicitCreator1; newOne = explicitCreator2, typeIndex = 1, explicit = true",
+    "expected": "Since existing was not explicit ((_explicitCreators & mask) == 0), verify is set to !explicit (false). Skips verification block, updates _creators[1] with newOne and sets explicit bitmask."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "existingImplicitNewImplicitVerifyTrueSameClassSameTypeThrowsException",
+    "input": "Existing = implicitCreator1 (Class A, rawParamType Integer); newOne = implicitCreator2 (Class A, rawParamType Integer), typeIndex = 2 (int), explicit = false",
+    "expected": "Neither explicitly annotated (verify = !explicit = true), same class, same parameter type -> throws IllegalArgumentException."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "existingImplicitNewImplicitDifferentClassSkipsVerification",
+    "input": "Existing = implicitCreator1 (Class A); newOne = implicitCreator2 (Class B), typeIndex = 1, explicit = false",
+    "expected": "oldOne.getClass() == newOne.getClass() is false -> verification block skipped, replaces _creators[1] with newOne."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "typeIndexBoundaryZeroDefaultCreator",
+    "input": "newOne = defaultCreator, typeIndex = 0 (C_DEFAULT), explicit = true",
+    "expected": "Correctly indexes into _creators[0] using mask (1 << 0), sets explicit bit for type 0, and updates _hasNonDefaultCreator to true."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "typeIndexBoundaryMaxPropertyCreator",
+    "input": "newOne = propCreator, typeIndex = 7 (C_PROPS), explicit = true",
+    "expected": "Correctly indexes into _creators[7] using mask (1 << 7), sets explicit bit for type 7, and updates _hasNonDefaultCreator to true."
+  },
+  {
+    "method": "verifyNonDup",
+    "name": "fixAccessCalledWhenCanFixAccessTrue",
+    "input": "newOne = mockAnnotatedWithParams, typeIndex = 1, explicit = false, _canFixAccess = true",
+    "expected": "_fixAccess is invoked on newOne, modifying access if possible before storing in _creators[1]."
+  }
+]

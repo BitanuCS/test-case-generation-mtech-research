@@ -1,0 +1,86 @@
+[
+  {
+    "method": "isSubtype",
+    "name": "isSubtypeMissingPropertyReturnsFalse",
+    "input": "typeA = {a: string}, typeB = {a: string, b: number}",
+    "expected": "Returns false because typeA lacks property 'b' required by typeB (Condition 1)."
+  },
+  {
+    "method": "isSubtype",
+    "name": "isSubtypeDeclaredPropertyNotInvariantReturnsFalse",
+    "input": "typeA = {a: string} (declared), typeB = {a: object}",
+    "expected": "Returns false because property 'a' in typeA is declared but not invariant to property 'a' in typeB (Condition 2a)."
+  },
+  {
+    "method": "isSubtype",
+    "name": "isSubtypeDeclaredPropertyInvariantReturnsTrue",
+    "input": "typeA = {a: string} (declared), typeB = {a: string} (declared)",
+    "expected": "Returns true because property 'a' in typeA is declared and invariant to property 'a' in typeB."
+  },
+  {
+    "method": "isSubtype",
+    "name": "isSubtypeInferredPropertyNotSubtypeReturnsFalse",
+    "input": "typeA = {a: object} (inferred), typeB = {a: string}",
+    "expected": "Returns false because property 'a' in typeA is inferred and not a subtype of property 'a' in typeB (Condition 2b)."
+  },
+  {
+    "method": "isSubtype",
+    "name": "isSubtypeInferredPropertyIsSubtypeReturnsTrue",
+    "input": "typeA = {a: string} (inferred), typeB = {a: object}",
+    "expected": "Returns true because property 'a' in typeA is inferred and is a subtype of property 'a' in typeB."
+  },
+  {
+    "method": "checkRecordEquivalenceHelper",
+    "name": "checkRecordEquivalenceDifferentKeySetsReturnsFalse",
+    "input": "this = {a: string}, otherRecord = {b: string}, eqMethod = DEFAULT",
+    "expected": "Returns false because the key sets of the two record types do not match."
+  },
+  {
+    "method": "checkRecordEquivalenceHelper",
+    "name": "checkRecordEquivalenceSameKeySetsEquivalentPropsReturnsTrue",
+    "input": "this = {a: string}, otherRecord = {a: string}, eqMethod = DEFAULT",
+    "expected": "Returns true because key sets match and corresponding properties are equivalent."
+  },
+  {
+    "method": "checkRecordEquivalenceHelper",
+    "name": "checkRecordEquivalenceSameKeySetsDifferentPropsReturnsFalse",
+    "input": "this = {a: string}, otherRecord = {a: number}, eqMethod = DEFAULT",
+    "expected": "Returns true because key sets match but corresponding properties are not equivalent."
+  },
+  {
+    "method": "getGreatestSubtypeHelper",
+    "name": "getGreatestSubtypeRecordConflictingPropertyReturnsNoType",
+    "input": "this = {a: string}, that = {a: number}",
+    "expected": "Returns NO_TYPE because overlapping property 'a' has non-invariant types between the two record types."
+  },
+  {
+    "method": "getGreatestSubtypeHelper",
+    "name": "getGreatestSubtypeRecordCompatiblePropertiesMergesSuccessfully",
+    "input": "this = {a: string}, that = {b: number}",
+    "expected": "Returns a combined record type containing both properties 'a' and 'b'."
+  },
+  {
+    "method": "getGreatestSubtypeHelper",
+    "name": "getGreatestSubtypeNonRecordObjectEmptyIntersectionReturnsNoObjectType",
+    "input": "this = {a: string}, that = NoObjectType or disjoint type",
+    "expected": "Returns NO_OBJECT_TYPE because the restriction of 'that' to ObjectType is empty."
+  },
+  {
+    "method": "isSubtype",
+    "name": "isSubtypeMultiplePropertiesAllValidReturnsTrue",
+    "input": "typeA = {a: string, b: number} (all inferred), typeB = {a: object, b: number}",
+    "expected": "Returns true because all properties of typeB are present in typeA and satisfy subtype/invariant rules."
+  },
+  {
+    "method": "isSubtype",
+    "name": "isSubtypeMultiplePropertiesOneInvalidReturnsFalse",
+    "input": "typeA = {a: string, b: string} (all inferred), typeB = {a: object, b: number}",
+    "expected": "Returns false because property 'b' fails the subtype relationship requirement."
+  },
+  {
+    "method": "checkRecordEquivalenceHelper",
+    "name": "checkRecordEquivalenceEmptyRecordsReturnsTrue",
+    "input": "this = {}, otherRecord = {}, eqMethod = DEFAULT",
+    "expected": "Returns true because both records have empty, matching key sets."
+  }
+]

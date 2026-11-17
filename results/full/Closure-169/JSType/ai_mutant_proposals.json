@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Swapped logical AND to OR in the unknown type nominal check, causing incorrect failure logic.",
+    "original": "        } else if (thisUnknown && thatUnknown &&\n            (isNominalType() ^ that.isNominalType())) {",
+    "mutated": "        } else if (thisUnknown || thatUnknown &&\n            (isNominalType() ^ that.isNominalType())) {"
+  },
+  {
+    "description": "Changed data flow unknown condition from logical AND to logical OR.",
+    "original": "          return thisUnknown && thatUnknown;",
+    "mutated": "          return thisUnknown || thatUnknown;"
+  },
+  {
+    "description": "Inverted the parameterized type parameter match logic by negating paramsMatch.",
+    "original": "        return paramsMatch &&\n            thisRootType.checkEquivalenceHelper(thatRootType, eqMethod);",
+    "mutated": "        return !paramsMatch &&\n            thisRootType.checkEquivalenceHelper(thatRootType, eqMethod);"
+  },
+  {
+    "description": "Swapped thisParamType and thatParamType null checks when determining thisRootType.",
+    "original": "        JSType thisRootType = thisParamType == null ?\n            this : thisParamType.getReferencedTypeInternal();",
+    "mutated": "        JSType thisRootType = thatParamType == null ?\n            this : thisParamType.getReferencedTypeInternal();"
+  },
+  {
+    "description": "Changed the checkEquivalenceHelper return value for diffsFrom/identity fallback from this == that to false.",
+    "original": "      return this == that;",
+    "mutated": "      return false;"
+  }
+]

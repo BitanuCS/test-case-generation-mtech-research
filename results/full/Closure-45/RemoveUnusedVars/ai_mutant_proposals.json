@@ -1,0 +1,27 @@
+[
+  {
+    "description": "Off-by-one error: forgetting to decrement current index after removing an element from maybeUnreferenced, causing the loop to skip the next variable.",
+    "original": "            if (referenced.contains(var)) {\n              maybeUnreferenced.remove(current);\n              current--;\n            } else {",
+    "mutated": "            if (referenced.contains(var)) {\n              maybeUnreferenced.remove(current);\n              \n            } else {"
+  },
+  {
+    "description": "Logical operator mistake: using logical OR instead of AND for checking if a variable should be marked referenced based on unknown value/escaped state and property assignment.",
+    "original": "            if ((assignedToUnknownValue || maybeEscaped) && hasPropertyAssign) {\n              changes = markReferencedVar(var) || changes;",
+    "mutated": "            if ((assignedToUnknownValue || maybeEscaped) || hasPropertyAssign) {\n              changes = markReferencedVar(var) || changes;"
+  },
+  {
+    "description": "Wrong loop termination flag reset: setting changes to true instead of false at the beginning of the do-while loop iteration, causing an infinite loop if not careful.",
+    "original": "      do {\n        changes = false;",
+    "mutated": "      do {\n        changes = true;"
+  },
+  {
+    "description": "Inverted boolean flag: checking if the parent node is NOT a var when determining if it was initialized to a known literal value.",
+    "original": "            if (var.getParentNode().isVar() &&\n                !NodeUtil.isForIn(var.getParentNode().getParent())) {\n              Node value = var.getInitialValue();",
+    "mutated": "            if (!var.getParentNode().isVar() &&\n                !NodeUtil.isForIn(var.getParentNode().getParent())) {\n              Node value = var.getInitialValue();"
+  },
+  {
+    "description": "Wrong assignment check condition: forgetting to decrement current inside the inner removal block when `assignedToUnknownValue || maybeEscaped` is true and `hasPropertyAssign` is true.",
+    "original": "            if ((assignedToUnknownValue || maybeEscaped) && hasPropertyAssign) {\n              changes = markReferencedVar(var) || changes;\n              maybeUnreferenced.remove(current);\n              current--;\n            }",
+    "mutated": "            if ((assignedToUnknownValue || maybeEscaped) && hasPropertyAssign) {\n              changes = markReferencedVar(var) || changes;\n              maybeUnreferenced.remove(current);\n              \n            }"
+  }
+]

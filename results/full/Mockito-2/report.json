@@ -1,0 +1,196 @@
+{
+  "bug": "Mockito-2",
+  "setting": "full",
+  "settings": {
+    "mode": "standard",
+    "context": true,
+    "planner": true,
+    "fix_rounds": 3,
+    "panel": true,
+    "mutation_rounds": 2,
+    "rule_mutants": 25,
+    "ai_mutants": 5,
+    "coverage": true,
+    "standard_metrics": true,
+    "pit": true,
+    "repeat": 0
+  },
+  "detected": true,
+  "incomplete": false,
+  "standard_metrics": {
+    "error": " a future release\n     [exec] POM relocation to an other version number is not fully supported in Gradle : xml-apis:xml-apis:2.0.2 relocated to xml-apis:xml-apis:1.0.b2.\n\ncompile.gen.tests:\n     [echo] classes.dir: /Users/bitu/mtech-tools/work/_std/Mockito-2/out/tmp/run_mutation.pl_37981_1794904732/2f/build/classes/java/main\n     [echo] build.home: /Users/bitu/mtech-tools/work/_std/Mockito-2/out/tmp/run_mutation.pl_37981_1794904732/2f/build\n    [mkdir] Created dir: /Users/bitu/mtech-tools/work/_std/Mockito-2/out/tmp/run_mutation.pl_37981_1794904732/2f/.classes_testgen\n    [javac] /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds\n    [javac] Compiling 1 source file to /Users/bitu/mtech-tools/work/_std/Mockito-2/out/tmp/run_mutation.pl_37981_1794904732/2f/.classes_testgen\n    [javac] /Users/bitu/mtech-tools/work/_std/Mockito-2/out/tmp/run_mutation.pl_37981_1794904732/candor/org/mockito/internal/util/Timer_CandorTest.java:8: error: package org.mockitoutil does not exist\n    [javac] import org.mockitoutil.TestBase;\n    [javac]                       ^\n    [javac] 1 error\n\nBUILD FAILED\n/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.\n\nTotal time: 9 seconds\nTests do not compile! at /Users/bitu/mtech-tools/defects4j/framework/bin/run_mutation.pl line 326.\n"
+  },
+  "seconds": 182.1,
+  "llm_calls": {
+    "fresh": 5,
+    "cached": 0,
+    "by_model": {
+      "gemini/gemini-3.5-flash-lite": 5
+    },
+    "tokens_in": 4362,
+    "tokens_out": 1634
+  },
+  "classes": [
+    {
+      "bug": "Mockito-2",
+      "class": "org.mockito.internal.util.Timer",
+      "mode": "standard",
+      "fix_rounds": [
+        {
+          "round": 1,
+          "passed": 9,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 10,
+          "failed": 0,
+          "bug_reports": 0
+        },
+        {
+          "round": 1,
+          "passed": 11,
+          "failed": 0,
+          "bug_reports": 0
+        }
+      ],
+      "removed": [],
+      "focal_methods": [
+        "Timer",
+        "validateInput"
+      ],
+      "generated_tests": 9,
+      "first_compiles": true,
+      "first_attempt": {
+        "tests": 9,
+        "oracles": 9,
+        "output_format": "code_block",
+        "syntax_ok": true,
+        "syntax_ok_tests": 9,
+        "compiles": true,
+        "compile_ok_tests": 9,
+        "passed": 9,
+        "assertion_failures": 0,
+        "error_failures": 0,
+        "timeout": false,
+        "syntax_rate": 1.0,
+        "compile_rate": 1.0,
+        "execution_rate": 1.0,
+        "pass_rate": 1.0,
+        "oracle_correctness": 1.0
+      },
+      "valid_tests_before_challenge": 9,
+      "mutation": [
+        {
+          "all": {
+            "total": 8,
+            "valid": 8,
+            "killed": 8,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 3,
+            "valid": 3,
+            "killed": 3,
+            "score": 1.0
+          },
+          "tests": 9,
+          "coverage": {
+            "line": 0.857,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 8,
+            "valid": 8,
+            "killed": 8,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 3,
+            "valid": 3,
+            "killed": 3,
+            "score": 1.0
+          },
+          "tests": 10,
+          "coverage": {
+            "line": 0.857,
+            "branch": 1.0
+          }
+        },
+        {
+          "all": {
+            "total": 8,
+            "valid": 8,
+            "killed": 8,
+            "score": 1.0
+          },
+          "rule": {
+            "total": 3,
+            "valid": 3,
+            "killed": 3,
+            "score": 1.0
+          },
+          "tests": 11,
+          "coverage": {
+            "line": 0.857,
+            "branch": 1.0
+          }
+        }
+      ],
+      "final_tests": 11,
+      "bug_reports": [],
+      "panel": [],
+      "coverage": {
+        "class": {
+          "instruction": 0.367,
+          "branch": 0.333,
+          "line": 0.615,
+          "complexity": 0.5,
+          "method": 0.6,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 0.857,
+          "branch": 1.0
+        },
+        "focal_missed_lines": [
+          32
+        ]
+      },
+      "pit": {
+        "class": {
+          "generated": 8,
+          "killed": 4,
+          "score": 0.5
+        },
+        "focal": {
+          "generated": 4,
+          "killed": 4,
+          "score": 1.0
+        }
+      },
+      "final_oracles": 11,
+      "other_version_compiles": true,
+      "timeout": false,
+      "detecting_tests": [
+        "constructorWithNegativeDurationThrowsException",
+        "shouldReportNegativeDurationTimeWithSpecificException",
+        "should_report_negative_duration_time",
+        "validateInputWithMinNegativeDurationThrowsException",
+        "validateInputWithNegativeDurationThrowsException"
+      ],
+      "detected": true,
+      "failures_on_other": {
+        "shouldReportNegativeDurationTimeWithSpecificException": "junit.framework.AssertionFailedError: Expected an exception to be thrown when creating a Timer with a negative duration\n    at org.mockito.internal.util.Timer_CandorTest.shouldReportNegativeDurationTimeWithSpecificException(Timer_CandorTest.java:76)",
+        "validateInputWithMinNegativeDurationThrowsException": "java.lang.AssertionError: Expected exception: java.lang.RuntimeException",
+        "validateInputWithNegativeDurationThrowsException": "java.lang.AssertionError: Expected exception: java.lang.RuntimeException",
+        "should_report_negative_duration_time": "java.lang.AssertionError: Expected exception: java.lang.RuntimeException",
+        "constructorWithNegativeDurationThrowsException": "java.lang.AssertionError: Expected exception: java.lang.RuntimeException"
+      },
+      "status": "ok"
+    }
+  ]
+}
