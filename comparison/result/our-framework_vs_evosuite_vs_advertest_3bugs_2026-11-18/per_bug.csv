@@ -1,0 +1,10 @@
+setting,bug,detected,status,generated_tests,first_compiles,final_tests,false_alarms,bug_encoding_tests,line_cov,branch_cov,mutation_score,ai_calls,tokens,seconds,d4j_line_cov,d4j_branch_cov,major_mutation,pit_class,pit_method,first_syntax_rate,first_compile_rate,first_execution_rate,first_pass_rate,first_oracle_correctness,oracles_per_test
+full,Lang-4,0,ok,10,1.0,18,0,0,1.0,1.0,0.722,8,27275,121.8,1.0,1.0,0.829,0.733,0.733,1.0,1.0,1.0,0.9,0.947,1.889
+full,Lang-9,1,ok,12,1.0,15,0,0,1.0,0.9,1.0,6,26708,100.9,0.778,0.648,0.696,0.533,1.0,1.0,1.0,1.0,0.917,0.917,1.733
+full,Lang-13,0,ok,13,0.0,17,0,0,,,0.0,13,82559,136.3,,,,0.0,,1.0,0.077,0.0,0.0,1.0,2.0
+evosuite,Lang-4,0,ok,0,,4,0,0,0.92,1.0,,0,,61.6,0.96,1.0,0.683,0.667,0.667,,,,,,0.75
+evosuite,Lang-9,1,ok,0,,41,0,0,1.0,1.0,,0,,148.4,0.833,0.808,0.641,0.935,1.0,,,,,,0.976
+evosuite,Lang-13,0,ok,0,,9,0,0,0.571,0.0,,0,,114.8,0.734,0.812,0.433,0.625,,,,,,,0.889
+advertest,Lang-4,0,ok,0,,4,0,0,1.0,0.786,,26,48338,1600,1.0,0.786,0.707,0.733,0.733,,,,,,1.5
+advertest,Lang-9,1,ok,0,,39,0,0,1.0,0.9,,96,257587,3210.8,0.695,0.504,0.83,0.523,1.0,,,,,,2.308
+advertest,Lang-13,0,ok,0,,110,0,0,0.0,0.0,,172,318516,3730.3,0.392,0.5,0.833,0.562,,,,,,,2.055

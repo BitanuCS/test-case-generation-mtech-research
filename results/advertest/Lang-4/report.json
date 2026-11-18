@@ -9,11 +9,45 @@
     "tokens_in": 35359,
     "tokens_out": 12979
   },
-  "seconds": 7.4,
+  "seconds": 1600,
   "classes": [
     {
+      "class": "org.apache.commons.lang3.text.translate.LookupTranslator",
       "status": "ok",
-      "detected": false
+      "detected": false,
+      "final_tests": 4,
+      "final_oracles": 6,
+      "focal_methods": [
+        "LookupTranslator",
+        "translate"
+      ],
+      "coverage": {
+        "class": {
+          "instruction": 0.982,
+          "branch": 0.786,
+          "line": 1.0,
+          "complexity": 0.667,
+          "method": 1.0,
+          "class": 1.0
+        },
+        "focal": {
+          "line": 1.0,
+          "branch": 0.786
+        },
+        "focal_missed_lines": []
+      },
+      "pit": {
+        "class": {
+          "generated": 15,
+          "killed": 11,
+          "score": 0.733
+        },
+        "focal": {
+          "generated": 15,
+          "killed": 11,
+          "score": 0.733
+        }
+      }
     }
   ],
   "detected": false,
@@ -42,5 +76,7 @@
       "killed": 29,
       "score": 0.707
     }
-  }
+  },
+  "extras_measured": true,
+  "seconds_note": "AdverTest ran 14:36-~15:03 IST (Demonstration.log, last round 15:01:46); the first scoring step crashed, so the saved time (7.4 s) was only the re-scoring."
 }

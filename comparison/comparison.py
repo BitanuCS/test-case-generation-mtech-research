@@ -118,10 +118,10 @@ def save(fig, path, title, subtitle=None):
     plt.close(fig)
 
 
-def legend(ax, fws, loc="lower right"):
+def legend(ax, fws, loc="lower right", **kw):
     from matplotlib.patches import Patch
     ax.legend(handles=[Patch(color=color(s, i), label=name(s)) for i, s in enumerate(fws)],
-              loc=loc, frameon=False, fontsize=9, labelcolor=INK)
+              loc=loc, frameon=False, fontsize=9, labelcolor=INK, **kw)
 
 
 def avg(rows, key):
@@ -200,7 +200,7 @@ def main():
     ax.set_xlim(0, 108)
     ax.xaxis.set_major_formatter(lambda v, _: f"{v:.0f}%" if v <= 100 else "")
     style(ax)
-    legend(ax, fws)
+    legend(ax, fws, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=len(fws))   # above the bars: never covers a label
     save(fig, out / "02_key_measures.png", "Key measures", note
          + (f"  Not shown (not measured for every framework): {', '.join(missing)}." if missing else ""))
 

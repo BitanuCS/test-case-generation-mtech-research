@@ -174,6 +174,13 @@ It also writes summary.md and per_bug.csv.
 - **17 Nov, 20:00 IST:** stopped by the user's choice. Lang-19 had used 29 calls; its partial result was deleted. Done today (before the fence fix): Lang-4 missed (26 calls), Lang-9 detected (96), Lang-13 missed (172). **Next (18 Nov, after 13:30 IST):** add fence stripping to `run_one.py`'s CountingGemini, delete `results/advertest/*`, re-run `scripts/run_advertest.py bugs/dev40.txt`. Keep today's three bugs' call counts as the "before the fix" numbers.
 - **Why so many calls:** AdverTest repairs one test method per call, does 5 improve rounds with up to 3 retries each, and Gemini's ``` code fences cause extra compile errors.
 
+**18 Nov, our framework vs EvoSuite vs AdverTest, 3 bugs** (`our-framework_vs_evosuite_vs_advertest_3bugs_2026-11-18`; Lang-4, Lang-9, Lang-13; AdverTest run before the fence fix):
+- **Detected:** 1/3 each (all three catch Lang-9 only).
+- **Major mutation (2 bugs):** ours 76%, EvoSuite 66%, AdverTest 77%. **PIT, class:** 42% / 74% / 61%. **PIT, buggy method (2 bugs):** 87% / 83% / 87%.
+- **Cost:** AI calls per bug 9 / 0 / 98; seconds per bug 120 / 108 / 2847. AdverTest tests per bug: 51.
+- AdverTest extras measured by the new `scripts/advertest_extras.py` (same method as evosuite_extras.py; on the tests Defects4J kept; macOS `._*` files removed). Lang-4's AdverTest time was corrected to about 1600 s from its Demonstration.log (the saved 7.4 s was only re-scoring).
+- Too few bugs to draw conclusions; this mainly checks that the 3-way pipeline works.
+
 ## 6c. GitHub
 
 Public repository: https://github.com/BitanuCS/test-case-generation-mtech-research (first push on 17 Nov 2026). Not uploaded: `.env` (API keys), `cache/`, `Research/` PDFs, `old_results_backup.zip` and logs (see `.gitignore`). To update it: `git add -A && git commit -m "..." && git push`.
