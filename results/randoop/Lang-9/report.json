@@ -1,0 +1,44 @@
+{
+  "bug": "Lang-9",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": true
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "9f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "36"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 275,
+      "lines_covered": 228,
+      "branches_total": 125,
+      "branches_covered": 90,
+      "line": 0.829,
+      "branch": 0.72
+    },
+    "major_mutation": {
+      "generated": 306,
+      "covered": 306,
+      "killed": 237,
+      "score": 0.775
+    }
+  },
+  "seconds": 373.6
+}

@@ -181,6 +181,20 @@ It also writes summary.md and per_bug.csv.
 - AdverTest extras measured by the new `scripts/advertest_extras.py` (same method as evosuite_extras.py; on the tests Defects4J kept; macOS `._*` files removed). Lang-4's AdverTest time was corrected to about 1600 s from its Demonstration.log (the saved 7.4 s was only re-scoring).
 - Too few bugs to draw conclusions; this mainly checks that the 3-way pipeline works.
 
+## 6d. Non-LLM and ML baselines (setup, 19 Nov 2026)
+
+The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **Randoop (2007), EvoSuite (2011), CodeT5 (2021, A3Test's trained baseline), TOGA (2022), A3Test (2023)**. Candidates still open: AsserT5 (2025, newest), CAT-LM (2023, needs Colab). Left out with reasons: TeCo (test completion, a different task, no trained model), EditAS (same job as TOGA and AsserT5), AthenaTest (model never released; A3Test beats it). **Rule from the user: set up everything, but ask before running anything on bugs.**
+
+| Tool | Script | Setup |
+|---|---|---|
+| Randoop 4.3.4 | `scripts/run_randoop.py` | Built into Defects4J; same 120 s budget as EvoSuite, seed 1. One trial on Lang-9 (detected, 83% line, Major 78%). |
+| TOGA | `scripts/run_toga.py` + `scripts/toga_prepare.py` | Code in `mtech-tools/toga`, models from Zenodo 6210589 (unpacked), own venv (`toga/.venv`: torch, transformers 4.39, javalang, pandas<2.2). Uses the SAME EvoSuite tests as the EvoSuite baseline, splits them at each assertion, and TOGA predicts one oracle per prefix. One test per class (as in TOGA's own evaluation). Checked end to end on a toy example. |
+| A3Test | `scripts/run_mltests.py --tool a3test` + `scripts/ml_testgen.py` | PLBART model from huggingface.co/SaranyaAakas/A3Test; tokenizer saved locally. Input = Methods2Test `src_fm_fc_ms_ff` for the SAME focal methods as our framework; greedy decoding; A3Test's post-processing rules. Model load-checked. |
+| CodeT5 | `scripts/run_mltests.py --tool codet5` | CodeT5-small trained by the A3Test authors (same Hugging Face repo). Model load-checked. |
+
+**Declared adaptations:** one generated test per class (so one compile error does not remove the others); `throws Exception` added to A3Test/CodeT5 tests when missing; JUnit + Hamcrest CoreMatchers imports added (the models write `assertThat(x, is(..))`). For every tool, `fix_test_suite.pl` removes tests that fail or do not compile on the fixed version (counted as false alarms), then `run_bug_detection.pl` + Defects4J coverage + Major.
+**Setup problems fixed:** an expired Hugging Face login on this Mac (now `HF_HUB_DISABLE_IMPLICIT_TOKEN`, offline mode, local tokenizers); a partial CodeT5 download (resumed); new pandas breaking TOGA (pinned <2.2); TOGA's scripts call plain `python` (venv put first on PATH); TOGA needs `roberta-base` and `microsoft/codebert-base` cached.
+
 ## 6c. GitHub
 
 Public repository: https://github.com/BitanuCS/test-case-generation-mtech-research (first push on 17 Nov 2026). Not uploaded: `.env` (API keys), `cache/`, `Research/` PDFs, `old_results_backup.zip` and logs (see `.gitignore`). To update it: `git add -A && git commit -m "..." && git push`.
