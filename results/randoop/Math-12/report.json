@@ -1,0 +1,44 @@
+{
+  "bug": "Math-12",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Math",
+      "version_id": "12f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 48,
+      "lines_covered": 48,
+      "branches_total": 14,
+      "branches_covered": 14,
+      "line": 1.0,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 204,
+      "covered": 204,
+      "killed": 173,
+      "score": 0.848
+    }
+  },
+  "seconds": 342.0
+}

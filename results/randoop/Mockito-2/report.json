@@ -1,0 +1,20 @@
+{
+  "bug": "Mockito-2",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ],
+  "error": "Randoop produced no test suite (or none survived on the fixed version)",
+  "standard_metrics": null,
+  "seconds": 156.7
+}

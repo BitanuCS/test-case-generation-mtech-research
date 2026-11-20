@@ -1,0 +1,44 @@
+{
+  "bug": "Chart-10",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": true
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Chart",
+      "version_id": "10f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "5536"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 3,
+      "lines_covered": 3,
+      "branches_total": 0,
+      "branches_covered": 0,
+      "line": 1.0,
+      "branch": null
+    },
+    "major_mutation": {
+      "generated": 0,
+      "covered": 0,
+      "killed": 0,
+      "score": null
+    }
+  },
+  "seconds": 280.9
+}

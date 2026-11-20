@@ -1,0 +1,44 @@
+{
+  "bug": "Lang-4",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "4f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 25,
+      "lines_covered": 25,
+      "branches_total": 14,
+      "branches_covered": 14,
+      "line": 1.0,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 41,
+      "covered": 41,
+      "killed": 32,
+      "score": 0.78
+    }
+  },
+  "seconds": 220.9
+}

@@ -28,10 +28,16 @@ BIN = d4j.D4J_BIN.parent
 SEED = 1                      # fixed seed, so the run can be repeated
 
 
+XMX = None                    # e.g. "3g": more Java memory, set by --xmx (retry of out-of-memory crashes)
+
+
 def run(cmd, log, timeout=3600):
+    env = d4j._env()
+    if XMX:
+        env["JAVA_TOOL_OPTIONS"] = f"-Xmx{XMX}"
     with open(log, "a") as f:
         try:
-            return subprocess.run(cmd, env=d4j._env(), stdout=f, stderr=subprocess.STDOUT,
+            return subprocess.run(cmd, env=env, stdout=f, stderr=subprocess.STDOUT,
                                   timeout=timeout).returncode
         except subprocess.TimeoutExpired:
             f.write(f"\nTIMEOUT after {timeout}s: {' '.join(cmd)}\n")
@@ -48,7 +54,7 @@ def one(bug, budget):
     run([str(BIN / "gen_tests.pl"), "-g", "randoop", "-p", project, "-v", f"{bid}f", "-n", "1",
          "-o", str(work / "suites"), "-b", str(budget), "-s", str(SEED)], log)
     suite_dir = work / "suites" / project / "randoop" / "1"
-    report = {"bug": bug, "setting": "randoop", "budget_s": budget, "seed": SEED, "detected": False,
+    report = {"bug": bug, "setting": "randoop", "budget_s": budget, "seed": SEED, "java_xmx": XMX, "detected": False,
               "llm_calls": {"fresh": 0, "cached": 0}, "classes": []}
     archives = list(suite_dir.glob("*.tar.bz2"))
     if archives:
@@ -89,8 +95,18 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("bug_file")
     ap.add_argument("--budget", type=int, default=120, help="Randoop time per bug (s); same as EvoSuite")
+    ap.add_argument("--xmx", default=None, help="Java max memory, e.g. 3g")
+    ap.add_argument("--retry-oom", action="store_true",
+                    help="redo bugs whose Randoop run crashed with OutOfMemoryError")
     args = ap.parse_args()
+    XMX = args.xmx
     bugs = Path(args.bug_file).read_text().split()
+    if args.retry_oom:
+        for b in bugs:
+            lg = RESULTS_DIR / "randoop" / b / "log.txt"
+            if lg.exists() and "OutOfMemoryError" in lg.read_text(errors="replace"):
+                print(f"{b}: out of memory before, redo", flush=True)
+                shutil.move(str(lg.parent), str(TOOLS_DIR / "randoop_out" / f"{b}-oom-first-try"))
     todo = [b for b in bugs if not (RESULTS_DIR / "randoop" / b / "report.json").exists()]
     print(f"{len(bugs)} bugs, {len(todo)} to go  [randoop]", flush=True)
     for b in todo:

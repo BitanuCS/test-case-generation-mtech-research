@@ -1,0 +1,44 @@
+{
+  "bug": "Closure-58",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Closure",
+      "version_id": "58f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 106,
+      "lines_covered": 3,
+      "branches_total": 54,
+      "branches_covered": 0,
+      "line": 0.028,
+      "branch": 0.0
+    },
+    "major_mutation": {
+      "generated": 93,
+      "covered": 93,
+      "killed": 92,
+      "score": 0.989
+    }
+  },
+  "seconds": 255.0
+}

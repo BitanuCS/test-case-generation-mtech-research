@@ -1,0 +1,80 @@
+Checking out ac239c7c to /tmp/gen_tests.pl_66762_1795119128................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ac239c7c:b4c6a605..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-169f.................................... OK
+Running ant (compile)...................................................... OK
+Creating temporary output directory........................................ OK
+Generating (regression) tests with: randoop................................ 
+(Randoop for Java version "4.3.4, local changes, branch master, commit 96e7279, 2025-06-06".)..... FAIL
+Executed command: /Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/bin/randoop.sh
+Running Randoop on relevant classes only
+Running randoop.sh
+
+Executing command:
+java -ea -classpath /tmp/gen_tests.pl_66762_1795119128/build/classes:/tmp/gen_tests.pl_66762_1795119128/lib/args4j.jar:/tmp/gen_tests.pl_66762_1795119128/lib/guava.jar:/tmp/gen_tests.pl_66762_1795119128/lib/json.jar:/tmp/gen_tests.pl_66762_1795119128/lib/jsr305.jar:/tmp/gen_tests.pl_66762_1795119128/lib/protobuf-java.jar:/tmp/gen_tests.pl_66762_1795119128/build/lib/rhino.jar:/tmp/gen_tests.pl_66762_1795119128/lib/ant.jar:/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/randoop-current.jar   -Xbootclasspath/a:/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/replacecall-current.jar   -javaagent:/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/replacecall-current.jar   -javaagent:/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/covered-class-current.jar    randoop.main.Main gentests      --classlist=/tmp/gen_tests.pl_66762_1795119128/classes.randoop   --require-covered-classes=/Users/bitu/mtech-tools/defects4j/framework/projects/Closure/modified_classes/169.src   --junit-package-name=com.google.javascript.rhino.jstype   --junit-output-dir=/tmp/gen_tests.pl_66762_1795119128/randoop   --randomseed=1   --time-limit=120   --regression-test-basename=RegressionTest   --error-test-basename=ErrorTest   --flaky-test-behavior=output --usethreads --clear=10000 --string-maxlen=5000 --forbid-null=false --null-ratio=0.1 --only-test-public-members=false --omit-methods=HashCodeAndEqualsSafeSet.of --omit-methods=CSVPrinter.close  --no-error-revealing-tests=true
+Randoop for Java version "4.3.4, local changes, branch master, commit 96e7279, 2025-06-06".
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CheckAccessControls specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CheckDebuggerStatement specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CheckGlobalNames specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CheckGlobalThis specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CheckProvides specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CheckRegExp specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CheckSideEffects specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CheckUnreachableCode specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.CleanupPasses specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible interface com.google.javascript.jscomp.CodeChangeHandler specified via --testclass or --classlist.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.ConstCheck specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.ControlFlowAnalysis specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.ControlFlowGraph specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.ControlStructureCheck specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.DataFlowAnalysis specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.DisambiguateProperties specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.FunctionTypeBuilder specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.InferJSDocInfo specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible interface com.google.javascript.jscomp.JoinOp specified via --testclass or --classlist.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.JsMessageVisitor specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.LinkedFlowScope specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.MemoizedScopeCreator specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.parsing.Annotation specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.parsing.IRFactory specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.parsing.JsDocToken specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.parsing.JsDocTokenStream specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.parsing.TypeSafeDispatcher specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.PrepareAst specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.ProcessDefines specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.ProcessTweaks specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.ReferenceCollectingCallback specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.RhinoErrorReporter specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible interface com.google.javascript.jscomp.ScopeCreator specified via --testclass or --classlist.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.StrictModeCheck specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.SuppressDocWarningsGuard specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.SyntacticScopeCreator specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.TypedScopeCreator specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.TypeInference specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.TypeInferencePass specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.TypeValidator specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.VarCheck specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class com.google.javascript.jscomp.VariableReferenceCheck specified via --testclass or --classlist; will use its static methods.
+
+Could not load class com.google.javascript.rhino.testing.BaseJSTypeTestCase: Unable to load class "com.google.javascript.rhino.testing.BaseJSTypeTestCase" due to exception: java.lang.ClassNotFoundException: com.google.javascript.rhino.testing.BaseJSTypeTestCase
+Classpath:
+/tmp/gen_tests.pl_66762_1795119128/build/classes
+/tmp/gen_tests.pl_66762_1795119128/lib/args4j.jar
+/tmp/gen_tests.pl_66762_1795119128/lib/guava.jar
+/tmp/gen_tests.pl_66762_1795119128/lib/json.jar
+/tmp/gen_tests.pl_66762_1795119128/lib/jsr305.jar
+/tmp/gen_tests.pl_66762_1795119128/lib/protobuf-java.jar
+/tmp/gen_tests.pl_66762_1795119128/build/lib/rhino.jar
+/tmp/gen_tests.pl_66762_1795119128/lib/ant.jar
+/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/randoop-current.jar
+FAILED
+Failed to generate tests! at /Users/bitu/mtech-tools/defects4j/framework/bin/gen_tests.pl line 264.

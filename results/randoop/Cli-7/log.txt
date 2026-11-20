@@ -1,0 +1,79 @@
+Checking out 4ee0d6c4 to /tmp/gen_tests.pl_43898_1795112476................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ee0d6c4:73276486..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-7f.......................................... OK
+Running ant (compile)...................................................... OK
+Creating temporary output directory........................................ OK
+Generating (regression) tests with: randoop................................ 
+(Randoop for Java version "4.3.4, local changes, branch master, commit 96e7279, 2025-06-06".)..... OK
+Creating test suite archive................................................ OK
+Creating output directory.................................................. OK
+Moving test suite archive to /Users/bitu/mtech-tools/randoop_out/Cli-7/suit OK
+Checking out 4ee0d6c4 to /tmp/fix_test_suite.pl_44178_1795112604........... --------------------------------------------------------------------------------
+Cli-7f-randoop.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ee0d6c4:73276486..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-7f.......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Use of uninitialized value $num_uncompilable_test_classes in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 477.
+Use of uninitialized value $num_uncompilable_test_classes in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 477.
+Use of uninitialized value $num_uncompilable_tests in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 479.
+Use of uninitialized value $num_uncompilable_tests in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 479.
+Use of uninitialized value $num_failing_tests in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 481.
+Use of uninitialized value $num_failing_tests in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 481.
+Extract test suite......................................................... Executing test suite: Cli-7f-randoop.1.tar.bz2
+OK
+Checking out 4ee0d6c4 to /tmp/run_bug_detection.pl_44269_1795112609/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ee0d6c4:73276486..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-7f.......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 4ee0d6c4 to /tmp/run_bug_detection.pl_44269_1795112609/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ee0d6c4:73276486..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-7b.......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

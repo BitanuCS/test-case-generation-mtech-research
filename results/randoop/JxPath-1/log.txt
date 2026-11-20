@@ -1,0 +1,213 @@
+Checking out fab38abb to /tmp/gen_tests.pl_51901_1795114553................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fab38abb:932131e6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-1f....................................... OK
+Running ant (compile)...................................................... OK
+Creating temporary output directory........................................ OK
+Generating (regression) tests with: randoop................................ 
+(Randoop for Java version "4.3.4, local changes, branch master, commit 96e7279, 2025-06-06".)..... POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+POINTER: /@null(org.apache.commons.jxpath.ri.model.jdom.JDOMAttributePointer)
+   of (org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer)
+OK
+Creating test suite archive................................................ OK
+Creating output directory.................................................. OK
+Moving test suite archive to /Users/bitu/mtech-tools/randoop_out/JxPath-1/s OK
+Checking out fab38abb to /tmp/fix_test_suite.pl_52147_1795114693........... --------------------------------------------------------------------------------
+JxPath-1f-randoop.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fab38abb:932131e6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-1f....................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Extract test suite......................................................... Executing test suite: JxPath-1f-randoop.1.tar.bz2
+OK
+Checking out fab38abb to /tmp/run_bug_detection.pl_52282_1795114725/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fab38abb:932131e6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-1f....................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out fab38abb to /tmp/run_bug_detection.pl_52282_1795114725/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fab38abb:932131e6..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-1b....................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

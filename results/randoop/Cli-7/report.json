@@ -1,0 +1,44 @@
+{
+  "bug": "Cli-7",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Cli",
+      "version_id": "7f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Broken",
+      "num_trigger": "-"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": null,
+      "lines_covered": null,
+      "branches_total": null,
+      "branches_covered": null,
+      "line": null,
+      "branch": null
+    },
+    "major_mutation": {
+      "generated": 58,
+      "covered": 58,
+      "killed": 26,
+      "score": 0.448
+    }
+  },
+  "seconds": 160.3
+}

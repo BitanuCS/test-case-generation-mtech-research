@@ -1,0 +1,44 @@
+{
+  "bug": "Jsoup-7",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": true
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Jsoup",
+      "version_id": "7f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "18"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 96,
+      "lines_covered": 94,
+      "branches_total": 36,
+      "branches_covered": 34,
+      "line": 0.979,
+      "branch": 0.944
+    },
+    "major_mutation": {
+      "generated": 71,
+      "covered": 71,
+      "killed": 57,
+      "score": 0.803
+    }
+  },
+  "seconds": 233.2
+}

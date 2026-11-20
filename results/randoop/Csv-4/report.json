@@ -1,0 +1,44 @@
+{
+  "bug": "Csv-4",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": true
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Csv",
+      "version_id": "4f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "78"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 100,
+      "lines_covered": 7,
+      "branches_total": 52,
+      "branches_covered": 0,
+      "line": 0.07,
+      "branch": 0.0
+    },
+    "major_mutation": {
+      "generated": 69,
+      "covered": 69,
+      "killed": 60,
+      "score": 0.87
+    }
+  },
+  "seconds": 189.3
+}

@@ -1,0 +1,320 @@
+Checking out 31f90802 to /tmp/gen_tests.pl_69758_1795119868................ OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/gen_tests.pl_69758_1795119868/build.xml........ OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 31f90802:f45c2dc0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Mockito-9f...................................... OK
+Running ant (compile)...................................................... OK
+Creating temporary output directory........................................ OK
+Generating (regression) tests with: randoop................................ 
+(Randoop for Java version "4.3.4, local changes, branch master, commit 96e7279, 2025-06-06".)..... WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.mockito.internal.util.reflection.AccessibilityChanger (file:/private/tmp/gen_tests.pl_69758_1795119868/build/classes/java/main/) to field java.lang.Integer.digits
+WARNING: Please consider reporting this to the maintainers of org.mockito.internal.util.reflection.AccessibilityChanger
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+FAIL
+Executed command: /Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/bin/randoop.sh
+Running Randoop on relevant classes only
+Running randoop.sh
+
+Executing command:
+java -ea -classpath /tmp/gen_tests.pl_69758_1795119868/build/classes/java/main:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/asm-all-5.0.4.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/assertj-core-2.1.0.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/cglib-and-asm-1.0.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/cobertura-2.0.3.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/fest-assert-1.3.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/fest-util-1.1.4.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/hamcrest-all-1.3.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/hamcrest-core-1.1.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/objenesis-2.1.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/objenesis-2.2.jar:/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/lib/powermock-reflect-1.2.5.jar:/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/randoop-current.jar   -Xbootclasspath/a:/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/replacecall-current.jar   -javaagent:/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/replacecall-current.jar   -javaagent:/Users/bitu/mtech-tools/defects4j/framework/lib/test_generation/generation/covered-class-current.jar    randoop.main.Main gentests      --classlist=/tmp/gen_tests.pl_69758_1795119868/classes.randoop   --require-covered-classes=/Users/bitu/mtech-tools/defects4j/framework/projects/Mockito/modified_classes/9.src   --junit-package-name=org.mockito.internal.stubbing.answers   --junit-output-dir=/tmp/gen_tests.pl_69758_1795119868/randoop   --randomseed=1   --time-limit=120   --regression-test-basename=RegressionTest   --error-test-basename=ErrorTest   --flaky-test-behavior=output --usethreads --clear=10000 --string-maxlen=5000 --forbid-null=false --null-ratio=0.1 --only-test-public-members=false --omit-methods=HashCodeAndEqualsSafeSet.of --omit-methods=CSVPrinter.close  --no-error-revealing-tests=true
+Randoop for Java version "4.3.4, local changes, branch master, commit 96e7279, 2025-06-06".
+Cannot instantiate non-accessible class org.mockito.internal.creation.cglib.AcrossJVMSerializationFeature specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.creation.cglib.CGLIBHacker specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.creation.cglib.ClassImposterizer specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.creation.cglib.DelegatingMockitoMethodProxy specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.creation.cglib.MethodInterceptorFilter specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.creation.cglib.MockitoNamingPolicy specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.creation.cglib.SerializableNoOp specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.creation.instance.ObjenesisInstantiator specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.handler.InvocationNotifierHandler specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.handler.MockHandlerImpl specified via --testclass or --classlist; will use its static methods.
+Cannot instantiate non-accessible class org.mockito.internal.handler.NullResultGuardian specified via --testclass or --classlist; will use its static methods.
+
+Will try to generate tests for 165 classes.
+PUBLIC MEMBERS=801
+Explorer = ForwardGenerator(steps: 0, null steps: 0, num_sequences_generated: 0;
+    allSequences: 0, regresson seqs: 0, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 0;
+    sideEffectFreeMethods: 1115, runtimePrimitivesSeen: 38)
+
+Progress update: steps=1, test inputs generated=0, failing inputs=0      (2026-11-19T20:25:06.155385Z     43.8M used)
+Progress update: steps=1000, test inputs generated=485, failing inputs=0      (2026-11-19T20:25:07.963744Z     88.7M used)
+Progress update: steps=2000, test inputs generated=1139, failing inputs=0      (2026-11-19T20:25:14.761983Z     33.4M used)
+Progress update: steps=3000, test inputs generated=1811, failing inputs=0      (2026-11-19T20:25:26.503286Z     41.6M used)
+Progress update: steps=4000, test inputs generated=2492, failing inputs=0      (2026-11-19T20:25:38.416083Z     53.4M used)
+Progress update: steps=5000, test inputs generated=3166, failing inputs=0      (2026-11-19T20:25:58.125659Z     143M used)############ Logging method invocation #1 on mock/spy ########
+
+Progress update: steps=5465, test inputs generated=3460, failing inputs=0      (2026-11-19T20:26:06.189098Z     68.4M used)
+Progress update: steps=6000, test inputs generated=3802, failing inputs=0      (2026-11-19T20:26:15.510849Z     89.5M used)
+Progress update: steps=7000, test inputs generated=4479, failing inputs=0      (2026-11-19T20:26:37.184183Z     85.7M used)
+Progress update: steps=8000, test inputs generated=5155, failing inputs=0      (2026-11-19T20:27:01.510873Z     52.9M used)
+Progress update: steps=8153, test inputs generated=5264, failing inputs=0      (2026-11-19T20:27:06.200992Z     99.9M used)
+Progress update: steps=8153, test inputs generated=5265, failing inputs=0      (2026-11-19T20:27:06.326072Z     105M used)
+Normal method executions: 3021959
+Exceptional method executions: 1735
+
+Average method execution time (normal termination):      0.0366
+Average method execution time (exceptional termination): 0.133
+Approximate memory usage 105M
+Explorer = ForwardGenerator(steps: 8153, null steps: 2888, num_sequences_generated: 5265;
+    allSequences: 5265, regresson seqs: 47, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 5218;
+    sideEffectFreeMethods: 1115, runtimePrimitivesSeen: 69)
+
+About to look for failing assertions in 43 regression sequences.
+
+Regression test output:
+Regression test count: 43
+Writing regression JUnit tests...
+JUnit version 4.13.2
+..............E..........E..................E.
+Time: 0.193
+There were 3 failures:
+1) test14(org.mockito.internal.stubbing.answers.RegressionTest0)
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+Misplaced argument matcher detected here:
+
+-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+
+You cannot use argument matchers outside of verification or stubbing.
+Examples of correct usage of argument matchers:
+    when(mock.get(anyInt())).thenReturn(null);
+    doThrow(new RuntimeException()).when(mock).someVoidMethod(anyObject());
+    verify(mock).someMethod(contains("foo"))
+
+Also, this error might show up because you use argument matchers with methods that cannot be mocked.
+Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().
+Mocking methods declared on non-public parent classes is not supported.
+
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+2) test24(org.mockito.internal.stubbing.answers.RegressionTest0)
+org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+Unfinished stubbing detected here:
+-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, you naughty developer!
+ 3: you are stubbing the behaviour of another mock inside before 'thenReturn' instruction if completed
+
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+3) test42(org.mockito.internal.stubbing.answers.RegressionTest0)
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+Misplaced argument matcher detected here:
+
+-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+
+You cannot use argument matchers outside of verification or stubbing.
+Examples of correct usage of argument matchers:
+    when(mock.get(anyInt())).thenReturn(null);
+    doThrow(new RuntimeException()).when(mock).someVoidMethod(anyObject());
+    verify(mock).someMethod(contains("foo"))
+
+Also, this error might show up because you use argument matchers with methods that cannot be mocked.
+Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().
+Mocking methods declared on non-public parent classes is not supported.
+
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)
+	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)
+
+FAILURES!!!
+Tests run: 43,  Failures: 3
+failureCount = 0, totalFailures = 3
+Didn't find \s+at\s+\Qorg.mockito.internal.stubbing.answers.RegressionTest0\E\.\Qtest14\E\(\QRegressionTest0\E\.java:(\d+)\)in:
+JUnit version 4.13.2..............E..........E..................E.Time: 0.193There were 3 failures:1) test14(org.mockito.internal.stubbing.answers.RegressionTest0)org.mockito.exceptions.misusing.InvalidUseOfMatchersException: Misplaced argument matcher detected here:-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)You cannot use argument matchers outside of verification or stubbing.Examples of correct usage of argument matchers:    when(mock.get(anyInt())).thenReturn(null);    doThrow(new RuntimeException()).when(mock).someVoidMethod(anyObject());    verify(mock).someMethod(contains("foo"))Also, this error might show up because you use argument matchers with methods that cannot be mocked.Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().Mocking methods declared on non-public parent classes is not supported.	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)	at java.base/java.lang.reflect.Method.invoke(Method.java:566)	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)	at org.junit.runners.Suite.runChild(Suite.java:128)	at org.junit.runners.Suite.runChild(Suite.java:27)	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)2) test24(org.mockito.internal.stubbing.answers.RegressionTest0)org.mockito.exceptions.misusing.UnfinishedStubbingException: Unfinished stubbing detected here:-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)E.g. thenReturn() may be missing.Examples of correct stubbing:    when(mock.isOk()).thenReturn(true);    when(mock.isOk()).thenThrow(exception);    doThrow(exception).when(mock).someVoidMethod();Hints: 1. missing thenReturn() 2. you are trying to stub a final method, you naughty developer! 3: you are stubbing the behaviour of another mock inside before 'thenReturn' instruction if completed	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)	at java.base/java.lang.reflect.Method.invoke(Method.java:566)	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)	at org.junit.runners.Suite.runChild(Suite.java:128)	at org.junit.runners.Suite.runChild(Suite.java:27)	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)3) test42(org.mockito.internal.stubbing.answers.RegressionTest0)org.mockito.exceptions.misusing.InvalidUseOfMatchersException: Misplaced argument matcher detected here:-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)-> at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)You cannot use argument matchers outside of verification or stubbing.Examples of correct usage of argument matchers:    when(mock.get(anyInt())).thenReturn(null);    doThrow(new RuntimeException()).when(mock).someVoidMethod(anyObject());    verify(mock).someMethod(contains("foo"))Also, this error might show up because you use argument matchers with methods that cannot be mocked.Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().Mocking methods declared on non-public parent classes is not supported.	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)	at java.base/java.lang.reflect.Method.invoke(Method.java:566)	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)	at org.junit.runners.Suite.runChild(Suite.java:128)	at org.junit.runners.Suite.runChild(Suite.java:27)	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)	at org.junit.runner.JUnitCore.runMain(JUnitCore.java:77)	at org.junit.runner.JUnitCore.main(JUnitCore.java:36)FAILURES!!!Tests run: 43,  Failures: 3End of output for didn't find \s+at\s+\Qorg.mockito.internal.stubbing.answers.RegressionTest0\E\.\Qtest14\E\(\QRegressionTest0\E\.java:(\d+)\)
+GenTests.writeTestFiles threw an exception
+randoop.output.FailingAssertionCommentWriter$NotMatchedException: NotMatchedException(\s+at\s+\Qorg.mockito.internal.stubbing.answers.RegressionTest0\E\.\Qtest14\E\(\QRegressionTest0\E\.java:(\d+)\))
+	at randoop.output.FailingAssertionCommentWriter.readUntilMatch(FailingAssertionCommentWriter.java:551)
+	at randoop.output.FailingAssertionCommentWriter.commentFailingAssertions(FailingAssertionCommentWriter.java:354)
+	at randoop.output.FailingAssertionCommentWriter.writeClassCode(FailingAssertionCommentWriter.java:176)
+	at randoop.main.GenTests.writeTestFiles(GenTests.java:1003)
+	at randoop.main.GenTests.handle(GenTests.java:635)
+	at randoop.main.Main.nonStaticMain(Main.java:69)
+	at randoop.main.Main.main(Main.java:31)
+
+Throwable thrown while handling command: randoop.output.FailingAssertionCommentWriter$NotMatchedException: NotMatchedException(\s+at\s+\Qorg.mockito.internal.stubbing.answers.RegressionTest0\E\.\Qtest14\E\(\QRegressionTest0\E\.java:(\d+)\))
+randoop.output.FailingAssertionCommentWriter$NotMatchedException: NotMatchedException(\s+at\s+\Qorg.mockito.internal.stubbing.answers.RegressionTest0\E\.\Qtest14\E\(\QRegressionTest0\E\.java:(\d+)\))
+	at randoop.output.FailingAssertionCommentWriter.readUntilMatch(FailingAssertionCommentWriter.java:551)
+	at randoop.output.FailingAssertionCommentWriter.commentFailingAssertions(FailingAssertionCommentWriter.java:354)
+	at randoop.output.FailingAssertionCommentWriter.writeClassCode(FailingAssertionCommentWriter.java:176)
+	at randoop.main.GenTests.writeTestFiles(GenTests.java:1003)
+	at randoop.main.GenTests.handle(GenTests.java:635)
+	at randoop.main.Main.nonStaticMain(Main.java:69)
+	at randoop.main.Main.main(Main.java:31)
+
+Randoop failed.
+Last sequence under execution: 
+org.mockito.internal.invocation.ArgumentsComparator argumentsComparator0 = new org.mockito.internal.invocation.ArgumentsComparator();
+org.mockito.invocation.Invocation invocation1 = null;
+java.lang.Object obj2 = null;
+org.mockito.internal.matchers.Equals equals3 = new org.mockito.internal.matchers.Equals(obj2);
+org.hamcrest.Matcher[] matcherArray4 = new org.hamcrest.Matcher[] { equals3 };
+java.util.ArrayList<org.hamcrest.Matcher> matcherList5 = new java.util.ArrayList<org.hamcrest.Matcher>();
+boolean boolean6 = java.util.Collections.addAll((java.util.Collection<org.hamcrest.Matcher>) matcherList5, matcherArray4);
+org.mockito.internal.invocation.InvocationMatcher invocationMatcher7 = new org.mockito.internal.invocation.InvocationMatcher(invocation1, (java.util.List<org.hamcrest.Matcher>)matcherList5);
+org.mockito.exceptions.verification.TooManyActualInvocations tooManyActualInvocations9 = new org.mockito.exceptions.verification.TooManyActualInvocations("");
+org.mockito.exceptions.verification.TooManyActualInvocations tooManyActualInvocations11 = org.mockito.internal.util.Checks.checkNotNull(tooManyActualInvocations9, "");
+java.lang.StackTraceElement[] stackTraceElementArray12 = tooManyActualInvocations9.getUnfilteredStackTrace();
+boolean boolean13 = argumentsComparator0.argumentsMatch(invocationMatcher7, (java.lang.Object[]) stackTraceElementArray12);
+org.mockito.internal.invocation.ArgumentsComparator argumentsComparator14 = new org.mockito.internal.invocation.ArgumentsComparator();
+org.mockito.invocation.Invocation invocation15 = null;
+java.lang.Object obj16 = null;
+org.mockito.internal.matchers.Equals equals17 = new org.mockito.internal.matchers.Equals(obj16);
+org.hamcrest.Matcher[] matcherArray18 = new org.hamcrest.Matcher[] { equals17 };
+java.util.ArrayList<org.hamcrest.Matcher> matcherList19 = new java.util.ArrayList<org.hamcrest.Matcher>();
+boolean boolean20 = java.util.Collections.addAll((java.util.Collection<org.hamcrest.Matcher>) matcherList19, matcherArray18);
+org.mockito.internal.invocation.InvocationMatcher invocationMatcher21 = new org.mockito.internal.invocation.InvocationMatcher(invocation15, (java.util.List<org.hamcrest.Matcher>)matcherList19);
+org.mockito.exceptions.verification.TooManyActualInvocations tooManyActualInvocations23 = new org.mockito.exceptions.verification.TooManyActualInvocations("");
+org.mockito.exceptions.verification.TooManyActualInvocations tooManyActualInvocations25 = org.mockito.internal.util.Checks.checkNotNull(tooManyActualInvocations23, "");
+java.lang.StackTraceElement[] stackTraceElementArray26 = tooManyActualInvocations23.getUnfilteredStackTrace();
+boolean boolean27 = argumentsComparator14.argumentsMatch(invocationMatcher21, (java.lang.Object[]) stackTraceElementArray26);
+org.mockito.invocation.Invocation invocation28 = invocationMatcher21.getInvocation();
+org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls returnsSmartNulls29 = new org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls();
+org.mockito.internal.stubbing.StubbedInvocationMatcher stubbedInvocationMatcher30 = new org.mockito.internal.stubbing.StubbedInvocationMatcher(invocationMatcher21, (org.mockito.stubbing.Answer)returnsSmartNulls29);
+org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls returnsSmartNulls31 = new org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls();
+stubbedInvocationMatcher30.addAnswer((org.mockito.stubbing.Answer) returnsSmartNulls31);
+org.mockito.stubbing.Stubber stubber33 = org.mockito.Mockito.doAnswer((org.mockito.stubbing.Answer) stubbedInvocationMatcher30);
+org.mockito.internal.invocation.InvocationMatcher invocationMatcher35 = org.mockito.internal.util.Checks.checkNotNull((org.mockito.internal.invocation.InvocationMatcher) stubbedInvocationMatcher30, "platform");
+org.mockito.internal.MockitoCore mockitoCore36 = new org.mockito.internal.MockitoCore();
+org.mockito.exceptions.misusing.MockitoConfigurationException mockitoConfigurationException38 = new org.mockito.exceptions.misusing.MockitoConfigurationException("org.mockito.exceptions.verification.WantedButNotInvoked: platform");
+java.lang.Throwable[] throwableArray39 = mockitoConfigurationException38.getSuppressed();
+java.lang.Object[] objArray40 = mockitoCore36.ignoreStubs((java.lang.Object[]) throwableArray39);
+boolean boolean41 = argumentsComparator0.argumentsMatch(invocationMatcher35, (java.lang.Object[]) throwableArray39);
+org.mockito.internal.invocation.ArgumentsComparator argumentsComparator42 = new org.mockito.internal.invocation.ArgumentsComparator();
+org.mockito.invocation.Invocation invocation43 = null;
+java.lang.Object obj44 = null;
+org.mockito.internal.matchers.Equals equals45 = new org.mockito.internal.matchers.Equals(obj44);
+org.hamcrest.Matcher[] matcherArray46 = new org.hamcrest.Matcher[] { equals45 };
+java.util.ArrayList<org.hamcrest.Matcher> matcherList47 = new java.util.ArrayList<org.hamcrest.Matcher>();
+boolean boolean48 = java.util.Collections.addAll((java.util.Collection<org.hamcrest.Matcher>) matcherList47, matcherArray46);
+org.mockito.internal.invocation.InvocationMatcher invocationMatcher49 = new org.mockito.internal.invocation.InvocationMatcher(invocation43, (java.util.List<org.hamcrest.Matcher>)matcherList47);
+org.mockito.exceptions.verification.TooManyActualInvocations tooManyActualInvocations51 = new org.mockito.exceptions.verification.TooManyActualInvocations("");
+org.mockito.exceptions.verification.TooManyActualInvocations tooManyActualInvocations53 = org.mockito.internal.util.Checks.checkNotNull(tooManyActualInvocations51, "");
+java.lang.StackTraceElement[] stackTraceElementArray54 = tooManyActualInvocations51.getUnfilteredStackTrace();
+boolean boolean55 = argumentsComparator42.argumentsMatch(invocationMatcher49, (java.lang.Object[]) stackTraceElementArray54);
+org.mockito.invocation.Invocation invocation56 = invocationMatcher49.getInvocation();
+org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls returnsSmartNulls57 = new org.mockito.internal.stubbing.defaultanswers.ReturnsSmartNulls();
+org.mockito.internal.stubbing.StubbedInvocationMatcher stubbedInvocationMatcher58 = new org.mockito.internal.stubbing.StubbedInvocationMatcher(invocationMatcher49, (org.mockito.stubbing.Answer)returnsSmartNulls57);
+org.mockito.plugins.MockMaker mockMaker60 = org.mockito.internal.configuration.ClassPathLoader.getMockMaker();
+org.mockito.exceptions.verification.TooLittleActualInvocations tooLittleActualInvocations62 = new org.mockito.exceptions.verification.TooLittleActualInvocations("hi!");
+java.lang.String[] strArray66 = new java.lang.String[] { "hi!", "", "" };
+java.lang.AssertionError assertionError67 = org.mockito.Matchers.refEq((java.lang.AssertionError) tooLittleActualInvocations62, strArray66);
+org.mockito.plugins.MockMaker mockMaker68 = org.mockito.Matchers.refEq(mockMaker60, strArray66);
+java.lang.Object[] objArray69 = org.mockito.internal.invocation.ArgumentsProcessor.expandVarArgs(false, (java.lang.Object[]) strArray66);
+boolean boolean70 = argumentsComparator0.argumentsMatch((org.mockito.internal.invocation.InvocationMatcher) stubbedInvocationMatcher58, objArray69);
+FAILED
+Failed to generate tests! at /Users/bitu/mtech-tools/defects4j/framework/bin/gen_tests.pl line 264.

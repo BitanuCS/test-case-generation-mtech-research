@@ -1,0 +1,44 @@
+{
+  "bug": "Lang-13",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "13f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 79,
+      "lines_covered": 58,
+      "branches_total": 16,
+      "branches_covered": 12,
+      "line": 0.734,
+      "branch": 0.75
+    },
+    "major_mutation": {
+      "generated": 30,
+      "covered": 30,
+      "killed": 12,
+      "score": 0.4
+    }
+  },
+  "seconds": 240.6
+}

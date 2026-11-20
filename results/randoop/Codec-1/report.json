@@ -1,0 +1,44 @@
+{
+  "bug": "Codec-1",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Codec",
+      "version_id": "1f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 256,
+      "lines_covered": 211,
+      "branches_total": 184,
+      "branches_covered": 121,
+      "line": 0.824,
+      "branch": 0.658
+    },
+    "major_mutation": {
+      "generated": 585,
+      "covered": 585,
+      "killed": 373,
+      "score": 0.638
+    }
+  },
+  "seconds": 484.0
+}

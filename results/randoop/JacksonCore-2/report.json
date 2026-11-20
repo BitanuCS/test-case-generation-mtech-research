@@ -1,0 +1,44 @@
+{
+  "bug": "JacksonCore-2",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": true
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "JacksonCore",
+      "version_id": "2f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "2"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 2491,
+      "lines_covered": 292,
+      "branches_total": 1714,
+      "branches_covered": 127,
+      "line": 0.117,
+      "branch": 0.074
+    },
+    "major_mutation": {
+      "generated": 5247,
+      "covered": 5247,
+      "killed": 4826,
+      "score": 0.92
+    }
+  },
+  "seconds": 377.0
+}

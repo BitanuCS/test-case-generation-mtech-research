@@ -1,0 +1,44 @@
+{
+  "bug": "Gson-2",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": true
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Gson",
+      "version_id": "2f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "2"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 454,
+      "lines_covered": 177,
+      "branches_total": 192,
+      "branches_covered": 44,
+      "line": 0.39,
+      "branch": 0.229
+    },
+    "major_mutation": {
+      "generated": 266,
+      "covered": 266,
+      "killed": 244,
+      "score": 0.917
+    }
+  },
+  "seconds": 173.6
+}

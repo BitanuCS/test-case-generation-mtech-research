@@ -195,6 +195,15 @@ The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **
 **Declared adaptations:** one generated test per class (so one compile error does not remove the others); `throws Exception` added to A3Test/CodeT5 tests when missing; JUnit + Hamcrest CoreMatchers imports added (the models write `assertThat(x, is(..))`). For every tool, `fix_test_suite.pl` removes tests that fail or do not compile on the fixed version (counted as false alarms), then `run_bug_detection.pl` + Defects4J coverage + Major.
 **Setup problems fixed:** an expired Hugging Face login on this Mac (now `HF_HUB_DISABLE_IMPLICIT_TOKEN`, offline mode, local tokenizers); a partial CodeT5 download (resumed); new pandas breaking TOGA (pinned <2.2); TOGA's scripts call plain `python` (venv put first on PATH); TOGA needs `roberta-base` and `microsoft/codebert-base` cached.
 
+**Randoop dev40 run (19–20 Nov 2026, about 3 h, 0 AI calls): 8/40 detected.**
+
+- **Detected:** Lang-9, Csv-4, Gson-2, Chart-10, Chart-12, JacksonCore-2, Jsoup-7, Jsoup-18.
+- **Tools at a glance:** our framework detects 20/40, EvoSuite 13/40, Randoop 8/40.
+- **Caught by Randoop only (not by EvoSuite and not by ours):** Chart-12, Jsoup-7, Jsoup-18.
+- **No test suite** from Randoop: Math-34, Closure-45, Closure-169, Mockito-2, Mockito-9. These count as missed.
+- **Math-42:** ran out of Java memory on the first try. Rerun with `--retry-oom --xmx 3g` (script `scripts/run_randoop_then_oom_retry.sh`); no memory error the second time, but still missed. The first try's folder is kept in `mtech-tools/randoop_out/Math-42-oom-first-try`.
+- **Not done yet:** focal-class JaCoCo coverage and PIT for Randoop, which need a `randoop_extras` script like `evosuite_extras`.
+
 ## 6c. GitHub
 
 Public repository: https://github.com/BitanuCS/test-case-generation-mtech-research (first push on 17 Nov 2026). Not uploaded: `.env` (API keys), `cache/`, `Research/` PDFs, `old_results_backup.zip` and logs (see `.gitignore`). To update it: `git add -A && git commit -m "..." && git push`.

@@ -1,0 +1,44 @@
+{
+  "bug": "Compress-12",
+  "setting": "randoop",
+  "budget_s": 120,
+  "seed": 1,
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Compress",
+      "version_id": "12f",
+      "test_suite_source": "randoop",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 200,
+      "lines_covered": 58,
+      "branches_total": 110,
+      "branches_covered": 20,
+      "line": 0.29,
+      "branch": 0.182
+    },
+    "major_mutation": {
+      "generated": 318,
+      "covered": 318,
+      "killed": 268,
+      "score": 0.843
+    }
+  },
+  "seconds": 367.5
+}
