@@ -1,0 +1,187 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Compress-5/evo /Users/bitu/mtech-tools/work/Compress-5f/src/main/java Compress 5 /Users/bitu/mtech-tools/toga_out/Compress-5
+16 test prefixes, 16 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Compress-5/inputs.csv /Users/bitu/mtech-tools/toga_out/Compress-5/meta.csv
+11/21/2026 05:39:53 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 05:39:54 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 05:39:56 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 05:39:56 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 05:39:56 - INFO - utils -   Writing example 0 of 16
+11/21/2026 05:39:56 - INFO - utils -   *** Example ***
+11/21/2026 05:39:56 - INFO - utils -   guid: test-0
+11/21/2026 05:39:56 - INFO - utils -   tokens: <s> public ĠArchive Entry Ġget Next Entry () Ġthrows ĠIO Exception Ġ{ Ġreturn Ġget Next Zip Entry (); Ġ} </s> public Ġvoid Ġtest Get Next Entry () Ġ{ ĠZip Arch ive Input Stream Ġzip Arch ive Input Stream 0 Ġ= Ġnew ĠZip Arch ive Input Stream (( Input Stream ) Ġnull ); Ġzip Arch ive Input Stream 0 . close (); Ġzip Arch ive Input Stream 0 . get Next Entry (); Ġ} </s>
+11/21/2026 05:39:56 - INFO - utils -   input_ids: 0 15110 29389 46640 120 19192 46640 43048 6989 38266 48847 25522 671 120 19192 47945 46640 47006 35524 2 15110 13842 1296 14181 19192 46640 43048 25522 38277 37848 2088 48214 36757 23595 37848 2088 48214 36757 288 5457 92 38277 37848 2088 48214 36757 48461 48214 36757 43 23796 4397 23595 37848 2088 48214 36757 288 4 22641 47006 23595 37848 2088 48214 36757 288 4 6460 19192 46640 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:39:56 - INFO - utils -   *** Example ***
+11/21/2026 05:39:56 - INFO - utils -   guid: test-1
+11/21/2026 05:39:56 - INFO - utils -   tokens: <s> public ĠArchive Entry Ġget Next Entry () Ġthrows ĠIO Exception Ġ{ Ġreturn Ġget Next Zip Entry (); Ġ} </s> public Ġvoid Ġtest Get Next Entry () Ġ{ ĠZip Arch ive Input Stream Ġzip Arch ive Input Stream 0 Ġ= Ġnew ĠZip Arch ive Input Stream (( Input Stream ) Ġnull ); Ġzip Arch ive Input Stream 0 . close (); Ġzip Arch ive Input Stream 0 . get Next Entry (); Ġ} </s>
+11/21/2026 05:39:56 - INFO - utils -   input_ids: 0 15110 29389 46640 120 19192 46640 43048 6989 38266 48847 25522 671 120 19192 47945 46640 47006 35524 2 15110 13842 1296 14181 19192 46640 43048 25522 38277 37848 2088 48214 36757 23595 37848 2088 48214 36757 288 5457 92 38277 37848 2088 48214 36757 48461 48214 36757 43 23796 4397 23595 37848 2088 48214 36757 288 4 22641 47006 23595 37848 2088 48214 36757 288 4 6460 19192 46640 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:39:56 - INFO - utils -   *** Example ***
+11/21/2026 05:39:56 - INFO - utils -   guid: test-2
+11/21/2026 05:39:56 - INFO - utils -   tokens: <s> public Ġlong Ġskip ( long Ġvalue ) Ġthrows ĠIO Exception Ġ{ Ġif Ġ( value Ġ>= Ġ0 ) Ġ{ Ġlong Ġskipped Ġ= Ġ0 ; Ġbyte [] Ġb Ġ= Ġnew Ġbyte [ 1024 ]; Ġwhile Ġ( sk ipped Ġ!= Ġvalue ) Ġ{ Ġlong Ġrem Ġ= Ġvalue Ġ- Ġskipped ; Ġint Ġx Ġ= </s> public Ġvoid Ġtest Skip () Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 4 ]; ĠByte Array Input Stream Ġbyte Array Input Stream 0 Ġ= Ġnew ĠByte Array Input Stream ( byte Array 0 , Ġ1932 , Ġ( byte ) 4 ); ĠZip Arch ive Input Stream Ġzip Arch ive Input Stream 0 Ġ= Ġnew ĠZip Arch ive Input Stream ( byte Array Input Stream 0 ); Ġzip Arch ive Input Stream 0 . close (); Ġzip Arch ive Input Stream 0 . skip ( 9 22 33 720 36 85 47 75 807 L ); Ġ} </s>
+11/21/2026 05:39:56 - INFO - utils -   input_ids: 0 15110 251 14514 1640 3479 923 43 6989 38266 48847 25522 114 36 19434 49095 321 43 25522 251 22904 5457 321 131 47893 48992 741 5457 92 47893 10975 47477 44082 150 36 7771 8246 49333 923 43 25522 251 6398 5457 923 111 22904 131 6979 3023 5457 2 15110 13842 1296 28056 43048 25522 47893 48992 47893 48222 288 5457 92 47893 10975 306 44082 46594 48222 48214 36757 47893 48222 48214 36757 288 5457 92 46594 48222 48214 36757 1640 47692 48222 288 6 33176 6 36 47692 43 306 4397 38277 37848 2088 48214 36757 23595 37848 2088 48214 36757 288 5457 92 38277 37848 2088 48214 36757 1640 47692 48222 48214 36757 288 4397 23595 37848 2088 48214 36757 288 4 22641 47006 23595 37848 2088 48214 36757 288 4 46554 1640 466 2036 3103 29721 3367 4531 3706 2545 38633 574 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 05:39:56 - INFO - utils -   *** Example ***
+11/21/2026 05:39:56 - INFO - utils -   guid: test-3
+11/21/2026 05:39:56 - INFO - utils -   tokens: <s> public Ġint Ġget Count () Ġ{ Ġreturn Ġbytes Read ; Ġ} </s> public Ġvoid Ġtest Get Count () Ġ{ ĠZip Arch ive Input Stream Ġzip Arch ive Input Stream 0 Ġ= Ġnew ĠZip Arch ive Input Stream (( Input Stream ) Ġnull ); Ġzip Arch ive Input Stream 0 . close (); Ġzip Arch ive Input Stream 0 . close (); Ġ} </s>
+11/21/2026 05:39:56 - INFO - utils -   input_ids: 0 15110 6979 120 23329 43048 25522 671 46487 25439 131 35524 2 15110 13842 1296 14181 23329 43048 25522 38277 37848 2088 48214 36757 23595 37848 2088 48214 36757 288 5457 92 38277 37848 2088 48214 36757 48461 48214 36757 43 23796 4397 23595 37848 2088 48214 36757 288 4 22641 47006 23595 37848 2088 48214 36757 288 4 22641 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:39:56 - INFO - utils -   *** Example ***
+11/21/2026 05:39:56 - INFO - utils -   guid: test-4
+11/21/2026 05:39:56 - INFO - utils -   tokens: <s> public Ġvoid Ġclose () Ġthrows ĠIO Exception Ġ{ Ġif Ġ(! closed ) Ġ{ Ġclosed Ġ= Ġtrue ; Ġin . close (); Ġ} Ġ} </s> public Ġvoid Ġtest Close () Ġ{ ĠZip Arch ive Input Stream Ġzip Arch ive Input Stream 0 Ġ= Ġnew ĠZip Arch ive Input Stream (( Input Stream ) Ġnull ); Ġzip Arch ive Input Stream 0 . close (); Ġzip Arch ive Input Stream 0 . close (); Ġ} </s>
+11/21/2026 05:39:56 - INFO - utils -   input_ids: 0 15110 13842 593 43048 6989 38266 48847 25522 114 48209 25315 43 25522 1367 5457 1528 131 11 4 22641 47006 35524 35524 2 15110 13842 1296 42841 43048 25522 38277 37848 2088 48214 36757 23595 37848 2088 48214 36757 288 5457 92 38277 37848 2088 48214 36757 48461 48214 36757 43 23796 4397 23595 37848 2088 48214 36757 288 4 22641 47006 23595 37848 2088 48214 36757 288 4 22641 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:39:56 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:39:56 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 05:39:56 - INFO - __main__ -     Num examples = 16
+11/21/2026 05:39:56 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 16 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.42s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.42s/it]
+11/21/2026 05:40:01 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 05:40:03 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 05:40:04 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 05:40:04 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 05:40:04 - INFO - utils -   Writing example 0 of 13
+11/21/2026 05:40:04 - INFO - utils -   *** Example ***
+11/21/2026 05:40:04 - INFO - utils -   guid: 0
+11/21/2026 05:40:04 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 0 () Ġthrows ĠThrow able Ġ{ ĠZip Arch ive Input Stream Ġzip Arch ive Input Stream 0 Ġ= Ġnew ĠZip Arch ive Input Stream (( Input Stream ) Ġnull ); Ġzip Arch ive Input Stream 0 . close (); ĠArchive Entry Ġarchive Entry 0 Ġ= Ġzip Arch </s> public ĠArchive Entry Ġget Next Entry () Ġthrows ĠIO Exception Ġ{ Ġreturn Ġget Next Zip Entry (); Ġ} </s> assert Not Null ( archive Entry 0 ) </s>
+11/21/2026 05:40:04 - INFO - utils -   input_ids: 0 15110 13842 1296 288 43048 6989 28106 868 25522 38277 37848 2088 48214 36757 23595 37848 2088 48214 36757 288 5457 92 38277 37848 2088 48214 36757 48461 48214 36757 43 23796 4397 23595 37848 2088 48214 36757 288 4 22641 47006 29389 46640 22397 46640 288 5457 23595 37848 2 15110 29389 46640 120 19192 46640 43048 6989 38266 48847 25522 671 120 19192 47945 46640 47006 35524 2 46346 7199 49302 1640 46862 46640 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:40:04 - INFO - utils -   *** Example ***
+11/21/2026 05:40:04 - INFO - utils -   guid: 3
+11/21/2026 05:40:04 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 2 () Ġthrows ĠThrow able Ġ{ ĠZip Arch ive Input Stream Ġzip Arch ive Input Stream 0 Ġ= Ġnew ĠZip Arch ive Input Stream (( Input Stream ) Ġnull ); Ġzip Arch ive Input Stream 0 . close (); Ġzip Arch ive Input Stream 0 . close </s> public Ġint Ġget Count () Ġ{ Ġreturn Ġbytes Read ; Ġ} </s> assert Equ als ( 1 , Ġzip Arch ive Input Stream 0 . get Count ()) </s>
+11/21/2026 05:40:04 - INFO - utils -   input_ids: 0 15110 13842 1296 176 43048 6989 28106 868 25522 38277 37848 2088 48214 36757 23595 37848 2088 48214 36757 288 5457 92 38277 37848 2088 48214 36757 48461 48214 36757 43 23796 4397 23595 37848 2088 48214 36757 288 4 22641 47006 23595 37848 2088 48214 36757 288 4 22641 2 15110 6979 120 23329 43048 25522 671 46487 25439 131 35524 2 46346 28568 1536 1640 134 6 23595 37848 2088 48214 36757 288 4 6460 23329 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:40:04 - INFO - utils -   *** Example ***
+11/21/2026 05:40:04 - INFO - utils -   guid: 3
+11/21/2026 05:40:04 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 2 () Ġthrows ĠThrow able Ġ{ ĠZip Arch ive Input Stream Ġzip Arch ive Input Stream 0 Ġ= Ġnew ĠZip Arch ive Input Stream (( Input Stream ) Ġnull ); Ġzip Arch ive Input Stream 0 . close (); Ġzip Arch ive Input Stream 0 . close </s> public Ġint Ġget Count () Ġ{ Ġreturn Ġbytes Read ; Ġ} </s> assert Equ als ( 0 , Ġzip Arch ive Input Stream 0 . get Count ()) </s>
+11/21/2026 05:40:04 - INFO - utils -   input_ids: 0 15110 13842 1296 176 43048 6989 28106 868 25522 38277 37848 2088 48214 36757 23595 37848 2088 48214 36757 288 5457 92 38277 37848 2088 48214 36757 48461 48214 36757 43 23796 4397 23595 37848 2088 48214 36757 288 4 22641 47006 23595 37848 2088 48214 36757 288 4 22641 2 15110 6979 120 23329 43048 25522 671 46487 25439 131 35524 2 46346 28568 1536 1640 288 6 23595 37848 2088 48214 36757 288 4 6460 23329 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:40:04 - INFO - utils -   *** Example ***
+11/21/2026 05:40:04 - INFO - utils -   guid: 6
+11/21/2026 05:40:04 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 4 () Ġthrows ĠThrow able Ġ{ ĠFile Ġfile 0 Ġ= ĠMock File . create Temp File (" ib m 850 ", Ġ"" ); ĠMock File Input Stream Ġmock File Input Stream 0 Ġ= Ġnew ĠMock File Input Stream ( file 0 ); ĠZip Arch ive Input Stream </s> public Ġlong Ġskip ( long Ġvalue ) Ġthrows ĠIO Exception Ġ{ Ġif Ġ( value Ġ>= Ġ0 ) Ġ{ Ġlong Ġskipped Ġ= Ġ0 ; Ġbyte [] Ġb Ġ= Ġnew Ġbyte [ 1024 ]; Ġwhile Ġ( sk ipped Ġ!= Ġvalue ) Ġ{ Ġlong Ġrem Ġ= Ġvalue Ġ- Ġskipped ; Ġint Ġx Ġ= Ġread ( b , Ġ0 , Ġ( int ) Ġ( b . length Ġ> Ġrem Ġ? Ġrem Ġ: Ġb . length )); Ġif Ġ( x Ġ== Ġ- 1 ) Ġ{ Ġreturn Ġskipped ; Ġ} Ġskipped Ġ+= Ġx ; Ġ} Ġreturn Ġskipped ; Ġ} Ġthrow Ġnew ĠIllegal Arg ument Exception (); Ġ} </s> assert Equ als ( 0 , Ġlong 0 ) </s>
+11/21/2026 05:40:04 - INFO - utils -   input_ids: 0 15110 13842 1296 306 43048 6989 28106 868 25522 8655 2870 288 5457 38800 9966 4 32845 47971 9966 46469 1452 119 19270 1297 41039 4397 38800 9966 48214 36757 16177 9966 48214 36757 288 5457 92 38800 9966 48214 36757 1640 21710 288 4397 38277 37848 2088 48214 36757 2 15110 251 14514 1640 3479 923 43 6989 38266 48847 25522 114 36 19434 49095 321 43 25522 251 22904 5457 321 131 47893 48992 741 5457 92 47893 10975 47477 44082 150 36 7771 8246 49333 923 43 25522 251 6398 5457 923 111 22904 131 6979 3023 5457 1166 1640 428 6 321 6 36 2544 43 36 428 4 16096 8061 6398 17487 6398 4832 741 4 16096 48749 114 36 1178 45994 111 134 43 25522 671 22904 131 35524 22904 49371 3023 131 35524 671 22904 131 35524 3211 92 36993 45621 18816 48847 47006 35524 2 46346 28568 1536 1640 288 6 251 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:40:04 - INFO - utils -   *** Example ***
+11/21/2026 05:40:04 - INFO - utils -   guid: 6
+11/21/2026 05:40:04 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 4 () Ġthrows ĠThrow able Ġ{ ĠFile Ġfile 0 Ġ= ĠMock File . create Temp File (" ib m 850 ", Ġ"" ); ĠMock File Input Stream Ġmock File Input Stream 0 Ġ= Ġnew ĠMock File Input Stream ( file 0 ); ĠZip Arch ive Input Stream </s> public Ġlong Ġskip ( long Ġvalue ) Ġthrows ĠIO Exception Ġ{ Ġif Ġ( value Ġ>= Ġ0 ) Ġ{ Ġlong Ġskipped Ġ= Ġ0 ; Ġbyte [] Ġb Ġ= Ġnew Ġbyte [ 1024 ]; Ġwhile Ġ( sk ipped Ġ!= Ġvalue ) Ġ{ Ġlong Ġrem Ġ= Ġvalue Ġ- Ġskipped ; Ġint Ġx Ġ= Ġread ( b , Ġ0 , Ġ( int ) Ġ( b . length Ġ> Ġrem Ġ? Ġrem Ġ: Ġb . length )); Ġif Ġ( x Ġ== Ġ- 1 ) Ġ{ Ġreturn Ġskipped ; Ġ} Ġskipped Ġ+= Ġx ; Ġ} Ġreturn Ġskipped ; Ġ} Ġthrow Ġnew ĠIllegal Arg ument Exception (); Ġ} </s> assert Equ als ( 1 , Ġlong 0 ) </s>
+11/21/2026 05:40:04 - INFO - utils -   input_ids: 0 15110 13842 1296 306 43048 6989 28106 868 25522 8655 2870 288 5457 38800 9966 4 32845 47971 9966 46469 1452 119 19270 1297 41039 4397 38800 9966 48214 36757 16177 9966 48214 36757 288 5457 92 38800 9966 48214 36757 1640 21710 288 4397 38277 37848 2088 48214 36757 2 15110 251 14514 1640 3479 923 43 6989 38266 48847 25522 114 36 19434 49095 321 43 25522 251 22904 5457 321 131 47893 48992 741 5457 92 47893 10975 47477 44082 150 36 7771 8246 49333 923 43 25522 251 6398 5457 923 111 22904 131 6979 3023 5457 1166 1640 428 6 321 6 36 2544 43 36 428 4 16096 8061 6398 17487 6398 4832 741 4 16096 48749 114 36 1178 45994 111 134 43 25522 671 22904 131 35524 22904 49371 3023 131 35524 671 22904 131 35524 3211 92 36993 45621 18816 48847 47006 35524 2 46346 28568 1536 1640 134 6 251 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:40:04 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:40:04 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 05:40:04 - INFO - __main__ -     Num examples = 13
+11/21/2026 05:40:04 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 13 total truncations 2, mean_trunc 68.92307692307692, median 0.0, max = 448
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.4375
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Compress -d /Users/bitu/mtech-tools/toga_out/Compress-5/suite -v 5f
+Checking out dc3fc470 to /tmp/fix_test_suite.pl_8966_1795268406............ --------------------------------------------------------------------------------
+Compress-5f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_8966_1795268406/maven-build.x OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dc3fc470:c520d00b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-5f..................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Compress -d /Users/bitu/mtech-tools/toga_out/Compress-5/suite -o /Users/bitu/mtech-tools/toga_out/Compress-5/detect
+Extract test suite......................................................... Executing test suite: Compress-5f-toga.1.tar.bz2
+OK
+Checking out dc3fc470 to /tmp/run_bug_detection.pl_9131_1795268432/V_fixed. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_9131_1795268432/V_fixed/ma OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dc3fc470:c520d00b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-5f..................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out dc3fc470 to /tmp/run_bug_detection.pl_9131_1795268432/V_buggy. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_9131_1795268432/V_buggy/ma OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dc3fc470:c520d00b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Compress-5b..................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

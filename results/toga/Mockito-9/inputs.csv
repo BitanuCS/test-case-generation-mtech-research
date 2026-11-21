@@ -1,0 +1,4 @@
+focal_method,test_prefix,docstring
+,"  public void test0()  throws Throwable  {
+      CallsRealMethods callsRealMethods0 = new CallsRealMethods();
+  }",

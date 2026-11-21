@@ -1,0 +1,202 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/JacksonDatabind-8/evo /Users/bitu/mtech-tools/work/JacksonDatabind-8f/src/main/java JacksonDatabind 8 /Users/bitu/mtech-tools/toga_out/JacksonDatabind-8
+46 test prefixes, 42 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/JacksonDatabind-8/inputs.csv /Users/bitu/mtech-tools/toga_out/JacksonDatabind-8/meta.csv
+11/21/2026 08:14:25 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 08:14:26 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 08:14:27 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 08:14:27 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 08:14:27 - INFO - utils -   Writing example 0 of 42
+11/21/2026 08:14:27 - INFO - utils -   *** Example ***
+11/21/2026 08:14:27 - INFO - utils -   guid: test-0
+11/21/2026 08:14:27 - INFO - utils -   tokens: <s> public Ġboolean Ġhas Default Creat or () Ġ{ Ġreturn Ġ_ creat ors [ C _ DE FAULT ] Ġ!= Ġnull ; Ġ} </s> public Ġvoid Ġtest Has Default Creat or () Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġfalse ); Ġcreator Collect or 0 . add Long Creat or (( An not ated With Par ams ) Ġnull , Ġfalse ); Ġ} </s>
+11/21/2026 08:14:27 - INFO - utils -   input_ids: 0 15110 49378 34 48398 42349 368 43048 25522 671 18134 25761 994 10975 347 1215 10089 47697 742 49333 23796 131 35524 2 15110 13842 1296 35634 48398 42349 368 43048 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 3950 4397 12475 44252 368 288 4 4917 21001 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 6 3950 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:27 - INFO - utils -   *** Example ***
+11/21/2026 08:14:27 - INFO - utils -   guid: test-1
+11/21/2026 08:14:27 - INFO - utils -   tokens: <s> public Ġvoid Ġadd Long Creat or ( An not ated With Par ams Ġcreator , Ġboolean Ġexplicit ) Ġ{ Ġverify Non D up ( creator , ĠC _ L ONG , Ġexplicit ); Ġ} </s> public Ġvoid Ġtest Add Long Creat or () Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġfalse ); Ġcreator Collect or 0 . add Long Creat or (( An not ated With Par ams ) Ġnull , Ġfalse ); Ġ} </s>
+11/21/2026 08:14:27 - INFO - utils -   input_ids: 0 15110 13842 1606 21001 42349 368 1640 4688 3654 1070 3908 22011 7042 12475 6 49378 16045 43 25522 12881 33239 495 658 1640 37652 6 230 1215 574 9672 6 16045 4397 35524 2 15110 13842 1296 20763 21001 42349 368 43048 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 3950 4397 12475 44252 368 288 4 4917 21001 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 6 3950 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:27 - INFO - utils -   *** Example ***
+11/21/2026 08:14:27 - INFO - utils -   guid: test-2
+11/21/2026 08:14:27 - INFO - utils -   tokens: <s> public Ġboolean Ġhas Default Creat or () Ġ{ Ġreturn Ġ_ creat ors [ C _ DE FAULT ] Ġ!= Ġnull ; Ġ} </s> public Ġvoid Ġtest Has Default Creat or () Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġtrue ); Ġcreator Collect or 0 . add Long Creat or (( An not ated With Par ams ) Ġnull ); Ġ} </s>
+11/21/2026 08:14:27 - INFO - utils -   input_ids: 0 15110 49378 34 48398 42349 368 43048 25522 671 18134 25761 994 10975 347 1215 10089 47697 742 49333 23796 131 35524 2 15110 13842 1296 35634 48398 42349 368 43048 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 1528 4397 12475 44252 368 288 4 4917 21001 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:27 - INFO - utils -   *** Example ***
+11/21/2026 08:14:27 - INFO - utils -   guid: test-3
+11/21/2026 08:14:27 - INFO - utils -   tokens: <s> public Ġvoid Ġadd Long Creat or ( An not ated With Par ams Ġcreator , Ġboolean Ġexplicit ) Ġ{ Ġverify Non D up ( creator , ĠC _ L ONG , Ġexplicit ); Ġ} </s> public Ġvoid Ġtest Add Long Creat or () Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġtrue ); Ġcreator Collect or 0 . add Long Creat or (( An not ated With Par ams ) Ġnull ); Ġ} </s>
+11/21/2026 08:14:27 - INFO - utils -   input_ids: 0 15110 13842 1606 21001 42349 368 1640 4688 3654 1070 3908 22011 7042 12475 6 49378 16045 43 25522 12881 33239 495 658 1640 37652 6 230 1215 574 9672 6 16045 4397 35524 2 15110 13842 1296 20763 21001 42349 368 43048 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 1528 4397 12475 44252 368 288 4 4917 21001 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:27 - INFO - utils -   *** Example ***
+11/21/2026 08:14:27 - INFO - utils -   guid: test-4
+11/21/2026 08:14:27 - INFO - utils -   tokens: <s> protected ĠAn not ated With Par ams Ġverify Non D up ( An not ated With Par ams Ġnew One , Ġint Ġtype Index ) Ġ{ Ġverify Non D up ( new One , Ġtype Index , Ġfalse ); Ġreturn Ġ_ creat ors [ type Index ]; Ġ} </s> public Ġvoid Ġtest Ver ify Non D up () Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġtrue ); Ġcreator Collect or 0 . ver ify Non D up (( An not ated With Par ams ) Ġnull , Ġ(- 11 78 )); Ġ} </s>
+11/21/2026 08:14:27 - INFO - utils -   input_ids: 0 37659 660 3654 1070 3908 22011 7042 12881 33239 495 658 1640 4688 3654 1070 3908 22011 7042 92 3762 6 6979 1907 45673 43 25522 12881 33239 495 658 1640 4651 3762 6 1907 45673 6 3950 4397 671 18134 25761 994 10975 12528 45673 44082 35524 2 15110 13842 1296 21119 4591 33239 495 658 43048 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 1528 4397 12475 44252 368 288 4 2802 4591 33239 495 658 48461 4688 3654 1070 3908 22011 7042 43 23796 6 15611 1225 5479 48749 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:27 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 08:14:27 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 08:14:27 - INFO - __main__ -     Num examples = 42
+11/21/2026 08:14:27 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 42 total truncations 5, mean_trunc 25.714285714285715, median 0.0, max = 261
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:03<00:00,  3.05s/it]Evaluating: 100%|██████████| 1/1 [00:03<00:00,  3.06s/it]
+11/21/2026 08:14:33 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 08:14:34 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 08:14:35 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 08:14:35 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 08:14:35 - INFO - utils -   Writing example 0 of 30
+11/21/2026 08:14:35 - INFO - utils -   *** Example ***
+11/21/2026 08:14:35 - INFO - utils -   guid: 0
+11/21/2026 08:14:35 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġfalse ); Ġcreator Collect or 0 . add Long Creat or (( An not ated With Par ams ) Ġnull , Ġfalse </s> public Ġboolean Ġhas Default Creat or () Ġ{ Ġreturn Ġ_ creat ors [ C _ DE FAULT ] Ġ!= Ġnull ; Ġ} </s> assert True ( creator Collect or 0 . has Default Creat or ()) </s>
+11/21/2026 08:14:35 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 3950 4397 12475 44252 368 288 4 4917 21001 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 6 3950 2 15110 49378 34 48398 42349 368 43048 25522 671 18134 25761 994 10975 347 1215 10089 47697 742 49333 23796 131 35524 2 46346 36948 1640 37652 44252 368 288 4 7333 48398 42349 368 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:35 - INFO - utils -   *** Example ***
+11/21/2026 08:14:35 - INFO - utils -   guid: 0
+11/21/2026 08:14:35 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġfalse ); Ġcreator Collect or 0 . add Long Creat or (( An not ated With Par ams ) Ġnull , Ġfalse </s> public Ġboolean Ġhas Default Creat or () Ġ{ Ġreturn Ġ_ creat ors [ C _ DE FAULT ] Ġ!= Ġnull ; Ġ} </s> assert False ( creator Collect or 0 . has Default Creat or ()) </s>
+11/21/2026 08:14:35 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 3950 4397 12475 44252 368 288 4 4917 21001 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 6 3950 2 15110 49378 34 48398 42349 368 43048 25522 671 18134 25761 994 10975 347 1215 10089 47697 742 49333 23796 131 35524 2 46346 46659 1640 37652 44252 368 288 4 7333 48398 42349 368 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:35 - INFO - utils -   *** Example ***
+11/21/2026 08:14:35 - INFO - utils -   guid: 2
+11/21/2026 08:14:35 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 01 () Ġthrows ĠThrow able Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġtrue ); Ġcreator Collect or 0 . add Long Creat or (( An not ated With Par ams ) Ġnull ); Ġ"< </s> public Ġboolean Ġhas Default Creat or () Ġ{ Ġreturn Ġ_ creat ors [ C _ DE FAULT ] Ġ!= Ġnull ; Ġ} </s> assert True ( creator Collect or 0 . has Default Creat or ()) </s>
+11/21/2026 08:14:35 - INFO - utils -   input_ids: 0 15110 13842 1296 2663 43048 6989 28106 868 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 1528 4397 12475 44252 368 288 4 4917 21001 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 4397 49900 2 15110 49378 34 48398 42349 368 43048 25522 671 18134 25761 994 10975 347 1215 10089 47697 742 49333 23796 131 35524 2 46346 36948 1640 37652 44252 368 288 4 7333 48398 42349 368 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:35 - INFO - utils -   *** Example ***
+11/21/2026 08:14:35 - INFO - utils -   guid: 2
+11/21/2026 08:14:35 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 01 () Ġthrows ĠThrow able Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġtrue ); Ġcreator Collect or 0 . add Long Creat or (( An not ated With Par ams ) Ġnull ); Ġ"< </s> public Ġboolean Ġhas Default Creat or () Ġ{ Ġreturn Ġ_ creat ors [ C _ DE FAULT ] Ġ!= Ġnull ; Ġ} </s> assert False ( creator Collect or 0 . has Default Creat or ()) </s>
+11/21/2026 08:14:35 - INFO - utils -   input_ids: 0 15110 13842 1296 2663 43048 6989 28106 868 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 1528 4397 12475 44252 368 288 4 4917 21001 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 4397 49900 2 15110 49378 34 48398 42349 368 43048 25522 671 18134 25761 994 10975 347 1215 10089 47697 742 49333 23796 131 35524 2 46346 46659 1640 37652 44252 368 288 4 7333 48398 42349 368 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:35 - INFO - utils -   *** Example ***
+11/21/2026 08:14:35 - INFO - utils -   guid: 5
+11/21/2026 08:14:35 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 03 () Ġthrows ĠThrow able Ġ{ ĠCreator Collect or Ġcreator Collect or 0 Ġ= Ġnew ĠCreator Collect or (( Be an Description ) Ġnull , Ġfalse ); Ġcreator Collect or 0 . add Int Creat or (( An not ated With Par ams ) Ġnull ); Ġ"< </s> public Ġboolean Ġhas Default Creat or () Ġ{ Ġreturn Ġ_ creat ors [ C _ DE FAULT ] Ġ!= Ġnull ; Ġ} </s> assert True ( creator Collect or 0 . has Default Creat or ()) </s>
+11/21/2026 08:14:35 - INFO - utils -   input_ids: 0 15110 13842 1296 3933 43048 6989 28106 868 25522 36168 44252 368 12475 44252 368 288 5457 92 36168 44252 368 48461 9325 260 41602 43 23796 6 3950 4397 12475 44252 368 288 4 4917 22886 42349 368 48461 4688 3654 1070 3908 22011 7042 43 23796 4397 49900 2 15110 49378 34 48398 42349 368 43048 25522 671 18134 25761 994 10975 347 1215 10089 47697 742 49333 23796 131 35524 2 46346 36948 1640 37652 44252 368 288 4 7333 48398 42349 368 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 08:14:35 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 08:14:35 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 08:14:35 - INFO - __main__ -     Num examples = 30
+11/21/2026 08:14:35 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 30 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.87s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.87s/it]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.5652173913043478
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p JacksonDatabind -d /Users/bitu/mtech-tools/toga_out/JacksonDatabind-8/suite -v 8f
+Checking out 3b041e3b to /tmp/fix_test_suite.pl_23331_1795277678........... --------------------------------------------------------------------------------
+JacksonDatabind-8f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Correct Module ambiguity 1................................................. OK
+Correct Module ambiguity 2................................................. OK
+Correct Module ambiguity 3................................................. OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_23331_1795277678/maven-build. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3b041e3b:a399c540..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonDatabind-8f.............................. OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p JacksonDatabind -d /Users/bitu/mtech-tools/toga_out/JacksonDatabind-8/suite -o /Users/bitu/mtech-tools/toga_out/JacksonDatabind-8/detect
+Extract test suite......................................................... Executing test suite: JacksonDatabind-8f-toga.1.tar.bz2
+OK
+Checking out 3b041e3b to /tmp/run_bug_detection.pl_23605_1795277785/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Correct Module ambiguity 1................................................. OK
+Correct Module ambiguity 2................................................. OK
+Correct Module ambiguity 3................................................. OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_23605_1795277785/V_fixed/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3b041e3b:a399c540..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonDatabind-8f.............................. OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 3b041e3b to /tmp/run_bug_detection.pl_23605_1795277785/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Correct Module ambiguity 1................................................. OK
+Correct Module ambiguity 2................................................. OK
+Correct Module ambiguity 3................................................. OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_23605_1795277785/V_buggy/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 3b041e3b:a399c540..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonDatabind-8b.............................. OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

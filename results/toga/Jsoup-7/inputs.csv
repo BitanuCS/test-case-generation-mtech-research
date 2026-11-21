@@ -1,0 +1,413 @@
+focal_method,test_prefix,docstring
+"    public String nodeName() {
+        return ""#document"";
+    }","  public void test00()  throws Throwable  {
+      Document document0 = Document.createShell(""he/ad"");
+      document0.text(""he/ad"");
+      String string0 = document0.outerHtml();
+      assertEquals(""#document"", document0.nodeName());
+}",
+"    public String outerHtml() {
+        return super.html(); // no outer wrapper tag
+    }","  public void test00()  throws Throwable  {
+      Document document0 = Document.createShell(""he/ad"");
+      document0.text(""he/ad"");
+      String string0 = document0.outerHtml();
+      assertEquals(""<html>\n <head></head>\n <body>\n  he/ad\n </body>\n</html>"", string0);
+}",
+"    public String outerHtml() {
+        return super.html(); // no outer wrapper tag
+    }","  public void test00()  throws Throwable  {
+      Document document0 = Document.createShell(""he/ad"");
+      document0.text(""he/ad"");
+      String string0 = document0.outerHtml();
+  }",
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test01()  throws Throwable  {
+      Document document0 = new Document(""larrbfs"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      // Undeclared exception!
+      try { 
+        document_OutputSettings0.charset((String) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Null charset name
+         //
+         verifyException(""java.nio.charset.Charset"", e);
+      }
+  }","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public Document(String baseUri) {
+        super(Tag.valueOf(""#root""), baseUri);
+    }","  public void test02()  throws Throwable  {
+      Document document0 = new Document(""]?"");
+      Document.OutputSettings document_OutputSettings0 = document0.new OutputSettings();
+      document_OutputSettings0.charset();
+      assertEquals(1, document_OutputSettings0.indentAmount());
+}","/**
+     Create a new, empty Document.
+     @param baseUri base URI of document
+     @see org.jsoup.Jsoup#parse
+     @see #createShell
+     */"
+"    public Document(String baseUri) {
+        super(Tag.valueOf(""#root""), baseUri);
+    }","  public void test02()  throws Throwable  {
+      Document document0 = new Document(""]?"");
+      Document.OutputSettings document_OutputSettings0 = document0.new OutputSettings();
+      document_OutputSettings0.charset();
+      assertTrue(document_OutputSettings0.prettyPrint());
+}","/**
+     Create a new, empty Document.
+     @param baseUri base URI of document
+     @see org.jsoup.Jsoup#parse
+     @see #createShell
+     */"
+"    public Document(String baseUri) {
+        super(Tag.valueOf(""#root""), baseUri);
+    }","  public void test02()  throws Throwable  {
+      Document document0 = new Document(""]?"");
+      Document.OutputSettings document_OutputSettings0 = document0.new OutputSettings();
+      document_OutputSettings0.charset();
+  }","/**
+     Create a new, empty Document.
+     @param baseUri base URI of document
+     @see org.jsoup.Jsoup#parse
+     @see #createShell
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test03()  throws Throwable  {
+      Document document0 = new Document(""larrbfs"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.prettyPrint(true);
+      assertEquals(1, document_OutputSettings1.indentAmount());
+}","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test03()  throws Throwable  {
+      Document document0 = new Document(""larrbfs"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.prettyPrint(true);
+      assertTrue(document_OutputSettings0.prettyPrint());
+}","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test03()  throws Throwable  {
+      Document document0 = new Document(""larrbfs"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.prettyPrint(true);
+  }","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test04()  throws Throwable  {
+      Document document0 = Document.createShell(""J?Xz'NX1L"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Entities.EscapeMode entities_EscapeMode0 = Entities.EscapeMode.extended;
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.escapeMode(entities_EscapeMode0);
+      assertEquals(1, document_OutputSettings1.indentAmount());
+}","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test04()  throws Throwable  {
+      Document document0 = Document.createShell(""J?Xz'NX1L"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Entities.EscapeMode entities_EscapeMode0 = Entities.EscapeMode.extended;
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.escapeMode(entities_EscapeMode0);
+      assertTrue(document_OutputSettings1.prettyPrint());
+}","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test04()  throws Throwable  {
+      Document document0 = Document.createShell(""J?Xz'NX1L"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Entities.EscapeMode entities_EscapeMode0 = Entities.EscapeMode.extended;
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.escapeMode(entities_EscapeMode0);
+  }","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test05()  throws Throwable  {
+      Document document0 = new Document(""hoI\u0001v)yJH^R"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Charset charset0 = Charset.defaultCharset();
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.charset(charset0);
+      assertEquals(1, document_OutputSettings1.indentAmount());
+}","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test05()  throws Throwable  {
+      Document document0 = new Document(""hoI\u0001v)yJH^R"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Charset charset0 = Charset.defaultCharset();
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.charset(charset0);
+      assertTrue(document_OutputSettings1.prettyPrint());
+}","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test05()  throws Throwable  {
+      Document document0 = new Document(""hoI\u0001v)yJH^R"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      Charset charset0 = Charset.defaultCharset();
+      Document.OutputSettings document_OutputSettings1 = document_OutputSettings0.charset(charset0);
+  }","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public String nodeName() {
+        return ""#document"";
+    }","  public void test06()  throws Throwable  {
+      Document document0 = Document.createShell(""qP_b#Ksl1K1GM!"");
+      Element element0 = document0.createElement(""qP_b#Ksl1K1GM!"");
+      assertEquals(""qp_b#ksl1k1gm!"", element0.nodeName());
+}",
+"    public Element createElement(String tagName) {
+        return new Element(Tag.valueOf(tagName), this.baseUri());
+    }","  public void test06()  throws Throwable  {
+      Document document0 = Document.createShell(""qP_b#Ksl1K1GM!"");
+      Element element0 = document0.createElement(""qP_b#Ksl1K1GM!"");
+  }","/**
+     Create a new Element, with this document's base uri. Does not make the new element a child of this document.
+     @param tagName element tag name (e.g. {@code a})
+     @return new element
+     */"
+"    public String title() {
+        Element titleEl = getElementsByTag(""title"").first();
+        return titleEl != null ? titleEl.text().trim() : """";
+    }","  public void test07()  throws Throwable  {
+      Document document0 = Document.createShell(""J?Xz'NX1L"");
+      String string0 = document0.title();
+      assertEquals("""", string0);
+}","/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimed title, or empty string if none set.
+     */"
+"    public String title() {
+        Element titleEl = getElementsByTag(""title"").first();
+        return titleEl != null ? titleEl.text().trim() : """";
+    }","  public void test07()  throws Throwable  {
+      Document document0 = Document.createShell(""J?Xz'NX1L"");
+      String string0 = document0.title();
+  }","/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimed title, or empty string if none set.
+     */"
+"    public String title() {
+        Element titleEl = getElementsByTag(""title"").first();
+        return titleEl != null ? titleEl.text().trim() : """";
+    }","  public void test08()  throws Throwable  {
+      Document document0 = Document.createShell(""head"");
+      document0.appendElement(""title"");
+      String string0 = document0.title();
+      assertEquals("""", string0);
+}","/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimed title, or empty string if none set.
+     */"
+"    public String title() {
+        Element titleEl = getElementsByTag(""title"").first();
+        return titleEl != null ? titleEl.text().trim() : """";
+    }","  public void test08()  throws Throwable  {
+      Document document0 = Document.createShell(""head"");
+      document0.appendElement(""title"");
+      String string0 = document0.title();
+  }","/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimed title, or empty string if none set.
+     */"
+"    public String nodeName() {
+        return ""#document"";
+    }","  public void test09()  throws Throwable  {
+      Document document0 = Document.createShell("""");
+      document0.title("""");
+      document0.title("""");
+      assertEquals(""#document"", document0.nodeName());
+}",
+"    public String title() {
+        Element titleEl = getElementsByTag(""title"").first();
+        return titleEl != null ? titleEl.text().trim() : """";
+    }","  public void test09()  throws Throwable  {
+      Document document0 = Document.createShell("""");
+      document0.title("""");
+      document0.title("""");
+  }","/**
+     Get the string contents of the document's {@code title} element.
+     @return Trimed title, or empty string if none set.
+     */"
+"    public String nodeName() {
+        return ""#document"";
+    }","  public void test10()  throws Throwable  {
+      Document document0 = Document.createShell(""J?Xz'NX1L"");
+      document0.appendText("""");
+      Document document1 = document0.normalise();
+      assertEquals(""#document"", document1.nodeName());
+}",
+"    public Document normalise() {
+        Element htmlEl = findFirstElementByTagName(""html"", this);
+        if (htmlEl == null)
+            htmlEl = appendElement(""html"");
+        if (head() == null)
+            htmlEl.prependElement(""head"");
+        if (body() == null)
+            htmlEl.appendElement(""body"");
+
+        // pull text nodes out of root, html, and head els, and push into body. non-text nodes are already taken care
+        // of. do in inverse order to maintain text order.
+        normaliseTextNodes(head());
+        normaliseTextNodes(htmlEl);
+        normaliseTextNodes(this);
+
+        normaliseStructure(""head"", htmlEl);
+        normaliseStructure(""body"", htmlEl);
+        
+        return this;
+    }","  public void test10()  throws Throwable  {
+      Document document0 = Document.createShell(""J?Xz'NX1L"");
+      document0.appendText("""");
+      Document document1 = document0.normalise();
+  }","/**
+     Normalise the document. This happens after the parse phase so generally does not need to be called.
+     Moves any text content that is not in the body element into the body.
+     @return this document after normalisation
+     */"
+"    public String nodeName() {
+        return ""#document"";
+    }","  public void test11()  throws Throwable  {
+      Document document0 = new Document(""body"");
+      document0.appendText(""body"");
+      Document document1 = document0.normalise();
+      assertEquals(""#document"", document1.nodeName());
+}",
+"    public Document normalise() {
+        Element htmlEl = findFirstElementByTagName(""html"", this);
+        if (htmlEl == null)
+            htmlEl = appendElement(""html"");
+        if (head() == null)
+            htmlEl.prependElement(""head"");
+        if (body() == null)
+            htmlEl.appendElement(""body"");
+
+        // pull text nodes out of root, html, and head els, and push into body. non-text nodes are already taken care
+        // of. do in inverse order to maintain text order.
+        normaliseTextNodes(head());
+        normaliseTextNodes(htmlEl);
+        normaliseTextNodes(this);
+
+        normaliseStructure(""head"", htmlEl);
+        normaliseStructure(""body"", htmlEl);
+        
+        return this;
+    }","  public void test11()  throws Throwable  {
+      Document document0 = new Document(""body"");
+      document0.appendText(""body"");
+      Document document1 = document0.normalise();
+  }","/**
+     Normalise the document. This happens after the parse phase so generally does not need to be called.
+     Moves any text content that is not in the body element into the body.
+     @return this document after normalisation
+     */"
+"    public String nodeName() {
+        return ""#document"";
+    }","  public void test12()  throws Throwable  {
+      Document document0 = Document.createShell(""body"");
+      document0.text(""title"");
+      document0.prependElement(""body"");
+      Document document1 = document0.normalise();
+      assertEquals(""#document"", document1.nodeName());
+}",
+"    public Document normalise() {
+        Element htmlEl = findFirstElementByTagName(""html"", this);
+        if (htmlEl == null)
+            htmlEl = appendElement(""html"");
+        if (head() == null)
+            htmlEl.prependElement(""head"");
+        if (body() == null)
+            htmlEl.appendElement(""body"");
+
+        // pull text nodes out of root, html, and head els, and push into body. non-text nodes are already taken care
+        // of. do in inverse order to maintain text order.
+        normaliseTextNodes(head());
+        normaliseTextNodes(htmlEl);
+        normaliseTextNodes(this);
+
+        normaliseStructure(""head"", htmlEl);
+        normaliseStructure(""body"", htmlEl);
+        
+        return this;
+    }","  public void test12()  throws Throwable  {
+      Document document0 = Document.createShell(""body"");
+      document0.text(""title"");
+      document0.prependElement(""body"");
+      Document document1 = document0.normalise();
+  }","/**
+     Normalise the document. This happens after the parse phase so generally does not need to be called.
+     Moves any text content that is not in the body element into the body.
+     @return this document after normalisation
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test13()  throws Throwable  {
+      Document document0 = Document.createShell(""hoI\u0001v)yJH^R"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      // Undeclared exception!
+      try { 
+        document_OutputSettings0.indentAmount((-253));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Must be true
+         //
+         verifyException(""org.jsoup.helper.Validate"", e);
+      }
+  }","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test14()  throws Throwable  {
+      Document document0 = new Document(""y"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      document_OutputSettings0.indentAmount(2106);
+      assertEquals(2106, document_OutputSettings0.indentAmount());
+}","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"
+"    public OutputSettings outputSettings() {
+        return outputSettings;
+    }","  public void test14()  throws Throwable  {
+      Document document0 = new Document(""y"");
+      Document.OutputSettings document_OutputSettings0 = document0.outputSettings();
+      document_OutputSettings0.indentAmount(2106);
+  }","/**
+     * Get the document's current output settings.
+     * @return the document's current output settings.
+     */"

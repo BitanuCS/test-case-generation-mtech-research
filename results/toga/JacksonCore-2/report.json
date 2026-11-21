@@ -1,0 +1,54 @@
+{
+  "bug": "JacksonCore-2",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 2078,
+    "exception": 21,
+    "assertion": 731
+  },
+  "tests": {
+    "written": 2078,
+    "kept_on_fixed": 1428,
+    "false_alarms_removed": 650,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "JacksonCore",
+      "version_id": "2f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 2491,
+      "lines_covered": 545,
+      "branches_total": 1714,
+      "branches_covered": 335,
+      "line": 0.219,
+      "branch": 0.195
+    },
+    "major_mutation": {
+      "generated": null,
+      "covered": null,
+      "killed": null,
+      "score": null
+    }
+  },
+  "seconds": 2521.4,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

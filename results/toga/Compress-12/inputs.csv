@@ -1,0 +1,699 @@
+focal_method,test_prefix,docstring
+"    protected final boolean isAtEOF() {
+        return hasHitEOF;
+    }","  public void test00()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      boolean boolean0 = tarArchiveInputStream0.isAtEOF();
+      assertFalse(boolean0);
+}",
+"    protected final boolean isAtEOF() {
+        return hasHitEOF;
+    }","  public void test00()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      boolean boolean0 = tarArchiveInputStream0.isAtEOF();
+  }",
+"    public long getBytesRead() {
+        return bytesRead;
+    }","  public void test01()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(10240);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(pipedInputStream0, pipedInputStream0);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(sequenceInputStream0, 257);
+      tarArchiveInputStream0.reset();
+      assertEquals(0L, tarArchiveInputStream0.getBytesRead());
+}","/**
+     * Returns the current number of bytes read from this stream.
+     * @return the number of read bytes
+     * @since Apache Commons Compress 1.1
+     */"
+"    public synchronized void reset() {
+    }","  public void test01()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(10240);
+      SequenceInputStream sequenceInputStream0 = new SequenceInputStream(pipedInputStream0, pipedInputStream0);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(sequenceInputStream0, 257);
+      tarArchiveInputStream0.reset();
+  }","/**
+     * Since we do not support marking just yet, we do nothing.
+     */"
+"    public int getRecordSize() {
+        return buffer.getRecordSize();
+    }","  public void test02()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(2);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0, 2);
+      int int0 = tarArchiveInputStream0.getRecordSize();
+      assertEquals(512, int0);
+}","/**
+     * Get the record size being used by this stream's TarBuffer.
+     *
+     * @return The TarBuffer record size.
+     */"
+"    public int getRecordSize() {
+        return buffer.getRecordSize();
+    }","  public void test02()  throws Throwable  {
+      PipedInputStream pipedInputStream0 = new PipedInputStream(2);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0, 2);
+      int int0 = tarArchiveInputStream0.getRecordSize();
+  }","/**
+     * Get the record size being used by this stream's TarBuffer.
+     *
+     * @return The TarBuffer record size.
+     */"
+"    public int available() throws IOException {
+        if (entrySize - entryOffset > Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        }
+        return (int) (entrySize - entryOffset);
+    }","  public void test03()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      tarArchiveInputStream0.close();
+      assertEquals(0, tarArchiveInputStream0.available());
+}","/**
+     * Get the available data that can be read from the current
+     * entry in the archive. This does not indicate how much data
+     * is left in the entire archive, only in the current entry.
+     * This value is determined from the entry's size header field
+     * and the amount of data already read from the current entry.
+     * Integer.MAX_VALUE is returen in case more than Integer.MAX_VALUE
+     * bytes are left in the current entry in the archive.
+     *
+     * @return The number of available bytes for the current entry.
+     * @throws IOException for signature
+     */"
+"    public void close() throws IOException {
+        buffer.close();
+    }","  public void test03()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      tarArchiveInputStream0.close();
+  }","/**
+     * Closes this stream. Calls the TarBuffer's close() method.
+     * @throws IOException on error
+     */"
+"    public ArchiveEntry getNextEntry() throws IOException {
+        return getNextTarEntry();
+    }","  public void test04()  throws Throwable  {
+      PushbackInputStream pushbackInputStream0 = new PushbackInputStream((InputStream) null);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pushbackInputStream0);
+      TarArchiveEntry tarArchiveEntry0 = new TarArchiveEntry(""uname"", (byte)24);
+      tarArchiveInputStream0.setCurrentEntry(tarArchiveEntry0);
+      try { 
+        tarArchiveInputStream0.getNextEntry();
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Stream closed
+         //
+         verifyException(""java.io.PushbackInputStream"", e);
+      }
+  }",
+"    protected final TarArchiveEntry getCurrentEntry() {
+        return currEntry;
+    }","  public void test05()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 5086);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0);
+      TarArchiveEntry tarArchiveEntry0 = tarArchiveInputStream0.getCurrentEntry();
+      assertNull(tarArchiveEntry0);
+}",
+"    protected final TarArchiveEntry getCurrentEntry() {
+        return currEntry;
+    }","  public void test05()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 5086);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0);
+      TarArchiveEntry tarArchiveEntry0 = tarArchiveInputStream0.getCurrentEntry();
+  }",
+"    public int available() throws IOException {
+        if (entrySize - entryOffset > Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        }
+        return (int) (entrySize - entryOffset);
+    }","  public void test06()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      int int0 = tarArchiveInputStream0.available();
+      assertEquals(0, int0);
+}","/**
+     * Get the available data that can be read from the current
+     * entry in the archive. This does not indicate how much data
+     * is left in the entire archive, only in the current entry.
+     * This value is determined from the entry's size header field
+     * and the amount of data already read from the current entry.
+     * Integer.MAX_VALUE is returen in case more than Integer.MAX_VALUE
+     * bytes are left in the current entry in the archive.
+     *
+     * @return The number of available bytes for the current entry.
+     * @throws IOException for signature
+     */"
+"    public int available() throws IOException {
+        if (entrySize - entryOffset > Integer.MAX_VALUE) {
+            return Integer.MAX_VALUE;
+        }
+        return (int) (entrySize - entryOffset);
+    }","  public void test06()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      int int0 = tarArchiveInputStream0.available();
+  }","/**
+     * Get the available data that can be read from the current
+     * entry in the archive. This does not indicate how much data
+     * is left in the entire archive, only in the current entry.
+     * This value is determined from the entry's size header field
+     * and the amount of data already read from the current entry.
+     * Integer.MAX_VALUE is returen in case more than Integer.MAX_VALUE
+     * bytes are left in the current entry in the archive.
+     *
+     * @return The number of available bytes for the current entry.
+     * @throws IOException for signature
+     */"
+"    public long skip(long numToSkip) throws IOException {
+        // REVIEW
+        // This is horribly inefficient, but it ensures that we
+        // properly skip over bytes via the TarBuffer...
+        //
+        byte[] skipBuf = new byte[BUFFER_SIZE];
+        long skip = numToSkip;
+        while (skip > 0) {
+            int realSkip = (int) (skip > skipBuf.length ? skipBuf.length : skip);
+            int numRead = read(skipBuf, 0, realSkip);
+            if (numRead == -1) {
+                break;
+            }
+            skip -= numRead;
+        }
+        return (numToSkip - skip);
+    }","  public void test07()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      long long0 = tarArchiveInputStream0.skip((-1L));
+      assertEquals(0L, long0);
+}","/**
+     * Skip bytes in the input buffer. This skips bytes in the
+     * current entry's data, not the entire archive, and will
+     * stop at the end of the current entry's data if the number
+     * to skip extends beyond that point.
+     *
+     * @param numToSkip The number of bytes to skip.
+     * @return the number actually skipped
+     * @throws IOException on error
+     */"
+"    public long skip(long numToSkip) throws IOException {
+        // REVIEW
+        // This is horribly inefficient, but it ensures that we
+        // properly skip over bytes via the TarBuffer...
+        //
+        byte[] skipBuf = new byte[BUFFER_SIZE];
+        long skip = numToSkip;
+        while (skip > 0) {
+            int realSkip = (int) (skip > skipBuf.length ? skipBuf.length : skip);
+            int numRead = read(skipBuf, 0, realSkip);
+            if (numRead == -1) {
+                break;
+            }
+            skip -= numRead;
+        }
+        return (numToSkip - skip);
+    }","  public void test07()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      long long0 = tarArchiveInputStream0.skip((-1L));
+  }","/**
+     * Skip bytes in the input buffer. This skips bytes in the
+     * current entry's data, not the entire archive, and will
+     * stop at the end of the current entry's data if the number
+     * to skip extends beyond that point.
+     *
+     * @param numToSkip The number of bytes to skip.
+     * @return the number actually skipped
+     * @throws IOException on error
+     */"
+"    public long skip(long numToSkip) throws IOException {
+        // REVIEW
+        // This is horribly inefficient, but it ensures that we
+        // properly skip over bytes via the TarBuffer...
+        //
+        byte[] skipBuf = new byte[BUFFER_SIZE];
+        long skip = numToSkip;
+        while (skip > 0) {
+            int realSkip = (int) (skip > skipBuf.length ? skipBuf.length : skip);
+            int numRead = read(skipBuf, 0, realSkip);
+            if (numRead == -1) {
+                break;
+            }
+            skip -= numRead;
+        }
+        return (numToSkip - skip);
+    }","  public void test08()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 5086);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0);
+      long long0 = tarArchiveInputStream0.skip(1197L);
+      assertEquals(0L, long0);
+}","/**
+     * Skip bytes in the input buffer. This skips bytes in the
+     * current entry's data, not the entire archive, and will
+     * stop at the end of the current entry's data if the number
+     * to skip extends beyond that point.
+     *
+     * @param numToSkip The number of bytes to skip.
+     * @return the number actually skipped
+     * @throws IOException on error
+     */"
+"    public long skip(long numToSkip) throws IOException {
+        // REVIEW
+        // This is horribly inefficient, but it ensures that we
+        // properly skip over bytes via the TarBuffer...
+        //
+        byte[] skipBuf = new byte[BUFFER_SIZE];
+        long skip = numToSkip;
+        while (skip > 0) {
+            int realSkip = (int) (skip > skipBuf.length ? skipBuf.length : skip);
+            int numRead = read(skipBuf, 0, realSkip);
+            if (numRead == -1) {
+                break;
+            }
+            skip -= numRead;
+        }
+        return (numToSkip - skip);
+    }","  public void test08()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 5086);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0);
+      long long0 = tarArchiveInputStream0.skip(1197L);
+  }","/**
+     * Skip bytes in the input buffer. This skips bytes in the
+     * current entry's data, not the entire archive, and will
+     * stop at the end of the current entry's data if the number
+     * to skip extends beyond that point.
+     *
+     * @param numToSkip The number of bytes to skip.
+     * @return the number actually skipped
+     * @throws IOException on error
+     */"
+"    public long skip(long numToSkip) throws IOException {
+        // REVIEW
+        // This is horribly inefficient, but it ensures that we
+        // properly skip over bytes via the TarBuffer...
+        //
+        byte[] skipBuf = new byte[BUFFER_SIZE];
+        long skip = numToSkip;
+        while (skip > 0) {
+            int realSkip = (int) (skip > skipBuf.length ? skipBuf.length : skip);
+            int numRead = read(skipBuf, 0, realSkip);
+            if (numRead == -1) {
+                break;
+            }
+            skip -= numRead;
+        }
+        return (numToSkip - skip);
+    }","  public void test09()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      long long0 = tarArchiveInputStream0.skip(1095216660480L);
+      assertEquals(0L, long0);
+}","/**
+     * Skip bytes in the input buffer. This skips bytes in the
+     * current entry's data, not the entire archive, and will
+     * stop at the end of the current entry's data if the number
+     * to skip extends beyond that point.
+     *
+     * @param numToSkip The number of bytes to skip.
+     * @return the number actually skipped
+     * @throws IOException on error
+     */"
+"    public long skip(long numToSkip) throws IOException {
+        // REVIEW
+        // This is horribly inefficient, but it ensures that we
+        // properly skip over bytes via the TarBuffer...
+        //
+        byte[] skipBuf = new byte[BUFFER_SIZE];
+        long skip = numToSkip;
+        while (skip > 0) {
+            int realSkip = (int) (skip > skipBuf.length ? skipBuf.length : skip);
+            int numRead = read(skipBuf, 0, realSkip);
+            if (numRead == -1) {
+                break;
+            }
+            skip -= numRead;
+        }
+        return (numToSkip - skip);
+    }","  public void test09()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      long long0 = tarArchiveInputStream0.skip(1095216660480L);
+  }","/**
+     * Skip bytes in the input buffer. This skips bytes in the
+     * current entry's data, not the entire archive, and will
+     * stop at the end of the current entry's data if the number
+     * to skip extends beyond that point.
+     *
+     * @param numToSkip The number of bytes to skip.
+     * @return the number actually skipped
+     * @throws IOException on error
+     */"
+"    public ArchiveEntry getNextEntry() throws IOException {
+        return getNextTarEntry();
+    }","  public void test10()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      TarArchiveInputStream tarArchiveInputStream1 = new TarArchiveInputStream(tarArchiveInputStream0);
+      tarArchiveInputStream1.getNextEntry();
+      ArchiveEntry archiveEntry0 = tarArchiveInputStream1.getNextEntry();
+      assertNull(archiveEntry0);
+}",
+"    public ArchiveEntry getNextEntry() throws IOException {
+        return getNextTarEntry();
+    }","  public void test10()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      TarArchiveInputStream tarArchiveInputStream1 = new TarArchiveInputStream(tarArchiveInputStream0);
+      tarArchiveInputStream1.getNextEntry();
+      ArchiveEntry archiveEntry0 = tarArchiveInputStream1.getNextEntry();
+  }",
+"    public ArchiveEntry getNextEntry() throws IOException {
+        return getNextTarEntry();
+    }","  public void test11()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      TarArchiveInputStream tarArchiveInputStream1 = new TarArchiveInputStream(tarArchiveInputStream0);
+      tarArchiveInputStream1.getNextEntry();
+      tarArchiveInputStream1.setAtEOF(false);
+      ArchiveEntry archiveEntry0 = tarArchiveInputStream1.getNextEntry();
+      assertNull(archiveEntry0);
+}",
+"    public ArchiveEntry getNextEntry() throws IOException {
+        return getNextTarEntry();
+    }","  public void test11()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      TarArchiveInputStream tarArchiveInputStream1 = new TarArchiveInputStream(tarArchiveInputStream0);
+      tarArchiveInputStream1.getNextEntry();
+      tarArchiveInputStream1.setAtEOF(false);
+      ArchiveEntry archiveEntry0 = tarArchiveInputStream1.getNextEntry();
+  }",
+"    Map<String, String> parsePaxHeaders(Reader br) throws IOException {
+        Map<String, String> headers = new HashMap<String, String>();
+        // Format is ""length keyword=value\n"";
+        while(true){ // get length
+            int ch;
+            int len = 0;
+            int read = 0;
+            while((ch = br.read()) != -1){
+                read++;
+                if (ch == ' '){ // End of length string
+                    // Get keyword
+                    StringBuffer sb = new StringBuffer();
+                    while((ch = br.read()) != -1){
+                        read++;
+                        if (ch == '='){ // end of keyword
+                            String keyword = sb.toString();
+                            // Get rest of entry
+                            char[] cbuf = new char[len-read];
+                            int got = br.read(cbuf);
+                            if (got != len - read){
+                                throw new IOException(""Failed to read ""
+                                                      + ""Paxheader. Expected ""
+                                                      + (len - read)
+                                                      + "" chars, read ""
+                                                      + got);
+                            }
+                            // Drop trailing NL
+                            String value = new String(cbuf, 0,
+                                                      len - read - 1);
+                            headers.put(keyword, value);
+                            break;
+                        }
+                        sb.append((char) ch);
+                    }
+                    break; // Processed single header
+                }
+                len *= 10;
+                len += ch - '0';
+            }
+            if (ch == -1){ // EOF
+                break;
+            }
+        }
+        return headers;
+    }","  public void test12()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 5086);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0);
+      StringReader stringReader0 = new StringReader(""yyJ#e"");
+      Map<String, String> map0 = tarArchiveInputStream0.parsePaxHeaders(stringReader0);
+      assertEquals(0, map0.size());
+}",
+"    Map<String, String> parsePaxHeaders(Reader br) throws IOException {
+        Map<String, String> headers = new HashMap<String, String>();
+        // Format is ""length keyword=value\n"";
+        while(true){ // get length
+            int ch;
+            int len = 0;
+            int read = 0;
+            while((ch = br.read()) != -1){
+                read++;
+                if (ch == ' '){ // End of length string
+                    // Get keyword
+                    StringBuffer sb = new StringBuffer();
+                    while((ch = br.read()) != -1){
+                        read++;
+                        if (ch == '='){ // end of keyword
+                            String keyword = sb.toString();
+                            // Get rest of entry
+                            char[] cbuf = new char[len-read];
+                            int got = br.read(cbuf);
+                            if (got != len - read){
+                                throw new IOException(""Failed to read ""
+                                                      + ""Paxheader. Expected ""
+                                                      + (len - read)
+                                                      + "" chars, read ""
+                                                      + got);
+                            }
+                            // Drop trailing NL
+                            String value = new String(cbuf, 0,
+                                                      len - read - 1);
+                            headers.put(keyword, value);
+                            break;
+                        }
+                        sb.append((char) ch);
+                    }
+                    break; // Processed single header
+                }
+                len *= 10;
+                len += ch - '0';
+            }
+            if (ch == -1){ // EOF
+                break;
+            }
+        }
+        return headers;
+    }","  public void test12()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 5086);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0);
+      StringReader stringReader0 = new StringReader(""yyJ#e"");
+      Map<String, String> map0 = tarArchiveInputStream0.parsePaxHeaders(stringReader0);
+  }",
+"    public boolean canReadEntryData(ArchiveEntry ae) {
+        if (ae instanceof TarArchiveEntry) {
+            TarArchiveEntry te = (TarArchiveEntry) ae;
+            return !te.isGNUSparse();
+        }
+        return false;
+    }","  public void test13()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 5086);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0);
+      boolean boolean0 = tarArchiveInputStream0.canReadEntryData((ArchiveEntry) null);
+      assertFalse(boolean0);
+}","/**
+     * Whether this class is able to read the given entry.
+     *
+     * <p>May return false if the current entry is a sparse file.</p>
+     */"
+"    public boolean canReadEntryData(ArchiveEntry ae) {
+        if (ae instanceof TarArchiveEntry) {
+            TarArchiveEntry te = (TarArchiveEntry) ae;
+            return !te.isGNUSparse();
+        }
+        return false;
+    }","  public void test13()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      PipedInputStream pipedInputStream0 = new PipedInputStream(pipedOutputStream0, 5086);
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream(pipedInputStream0);
+      boolean boolean0 = tarArchiveInputStream0.canReadEntryData((ArchiveEntry) null);
+  }","/**
+     * Whether this class is able to read the given entry.
+     *
+     * <p>May return false if the current entry is a sparse file.</p>
+     */"
+"    public boolean canReadEntryData(ArchiveEntry ae) {
+        if (ae instanceof TarArchiveEntry) {
+            TarArchiveEntry te = (TarArchiveEntry) ae;
+            return !te.isGNUSparse();
+        }
+        return false;
+    }","  public void test14()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      TarArchiveEntry tarArchiveEntry0 = new TarArchiveEntry(""GhcK "", (byte)65);
+      boolean boolean0 = tarArchiveInputStream0.canReadEntryData(tarArchiveEntry0);
+      assertTrue(boolean0);
+}","/**
+     * Whether this class is able to read the given entry.
+     *
+     * <p>May return false if the current entry is a sparse file.</p>
+     */"
+"    public boolean canReadEntryData(ArchiveEntry ae) {
+        if (ae instanceof TarArchiveEntry) {
+            TarArchiveEntry te = (TarArchiveEntry) ae;
+            return !te.isGNUSparse();
+        }
+        return false;
+    }","  public void test14()  throws Throwable  {
+      TarArchiveInputStream tarArchiveInputStream0 = new TarArchiveInputStream((InputStream) null);
+      TarArchiveEntry tarArchiveEntry0 = new TarArchiveEntry(""GhcK "", (byte)65);
+      boolean boolean0 = tarArchiveInputStream0.canReadEntryData(tarArchiveEntry0);
+  }","/**
+     * Whether this class is able to read the given entry.
+     *
+     * <p>May return false if the current entry is a sparse file.</p>
+     */"
+"    public static boolean matches(byte[] signature, int length) {
+        if (length < TarConstants.VERSION_OFFSET+TarConstants.VERSIONLEN) {
+            return false;
+        }
+
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_POSIX,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_POSIX,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+                ){
+            return true;
+        }
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_GNU,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            (
+             ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_GNU_SPACE,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+            ||
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_GNU_ZERO,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+            )
+                ){
+            return true;
+        }
+        // COMPRESS-107 - recognise Ant tar files
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_ANT,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_ANT,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+                ){
+            return true;
+        }
+        return false;
+    }","  public void test15()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        TarArchiveInputStream.matches((byte[]) null, 16877);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.compress.utils.ArchiveUtils"", e);
+      }
+  }","/**
+     * Checks if the signature matches what is expected for a tar file.
+     * 
+     * @param signature
+     *            the bytes to check
+     * @param length
+     *            the number of bytes to check
+     * @return true, if this stream is a tar archive stream, false otherwise
+     */"
+"    public static boolean matches(byte[] signature, int length) {
+        if (length < TarConstants.VERSION_OFFSET+TarConstants.VERSIONLEN) {
+            return false;
+        }
+
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_POSIX,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_POSIX,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+                ){
+            return true;
+        }
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_GNU,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            (
+             ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_GNU_SPACE,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+            ||
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_GNU_ZERO,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+            )
+                ){
+            return true;
+        }
+        // COMPRESS-107 - recognise Ant tar files
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_ANT,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_ANT,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+                ){
+            return true;
+        }
+        return false;
+    }","  public void test16()  throws Throwable  {
+      boolean boolean0 = TarArchiveInputStream.matches((byte[]) null, 70);
+      assertFalse(boolean0);
+}","/**
+     * Checks if the signature matches what is expected for a tar file.
+     * 
+     * @param signature
+     *            the bytes to check
+     * @param length
+     *            the number of bytes to check
+     * @return true, if this stream is a tar archive stream, false otherwise
+     */"
+"    public static boolean matches(byte[] signature, int length) {
+        if (length < TarConstants.VERSION_OFFSET+TarConstants.VERSIONLEN) {
+            return false;
+        }
+
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_POSIX,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_POSIX,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+                ){
+            return true;
+        }
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_GNU,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            (
+             ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_GNU_SPACE,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+            ||
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_GNU_ZERO,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+            )
+                ){
+            return true;
+        }
+        // COMPRESS-107 - recognise Ant tar files
+        if (ArchiveUtils.matchAsciiBuffer(TarConstants.MAGIC_ANT,
+                signature, TarConstants.MAGIC_OFFSET, TarConstants.MAGICLEN)
+            &&
+            ArchiveUtils.matchAsciiBuffer(TarConstants.VERSION_ANT,
+                signature, TarConstants.VERSION_OFFSET, TarConstants.VERSIONLEN)
+                ){
+            return true;
+        }
+        return false;
+    }","  public void test16()  throws Throwable  {
+      boolean boolean0 = TarArchiveInputStream.matches((byte[]) null, 70);
+  }","/**
+     * Checks if the signature matches what is expected for a tar file.
+     * 
+     * @param signature
+     *            the bytes to check
+     * @param length
+     *            the number of bytes to check
+     * @return true, if this stream is a tar archive stream, false otherwise
+     */"

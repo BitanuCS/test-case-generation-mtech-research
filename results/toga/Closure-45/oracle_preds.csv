@@ -1,0 +1,90 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test0,"  public void test0()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""eJgC=_Q"", ""eJgC=_Q"");
+      AbstractCompiler.LifeCycleStage abstractCompiler_LifeCycleStage0 = AbstractCompiler.LifeCycleStage.NORMALIZED;
+      compiler0.setLifeCycleStage(abstractCompiler_LifeCycleStage0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, false);
+      removeUnusedVars0.process(node0, node0);
+      assertFalse(node0.isVar());
+}",0,assertFalse(node0.isVar())
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test0,"  public void test0()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""eJgC=_Q"", ""eJgC=_Q"");
+      AbstractCompiler.LifeCycleStage abstractCompiler_LifeCycleStage0 = AbstractCompiler.LifeCycleStage.NORMALIZED;
+      compiler0.setLifeCycleStage(abstractCompiler_LifeCycleStage0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, false);
+      removeUnusedVars0.process(node0, node0);
+  }",0,
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test1,"  public void test1()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""arguments"", ""arguments"");
+      AbstractCompiler.LifeCycleStage abstractCompiler_LifeCycleStage0 = AbstractCompiler.LifeCycleStage.NORMALIZED_OBFUSCATED;
+      compiler0.setLifeCycleStage(abstractCompiler_LifeCycleStage0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      // Undeclared exception!
+      try { 
+        removeUnusedVars0.process(node0, node0);
+        fail(""Expecting exception: RuntimeException"");
+      } catch(RuntimeException e) {
+         //
+         // INTERNAL COMPILER ERROR.
+         // Please report this problem.
+         // Unexpected lValue type NAME
+         //   Node(NAME arguments):  [testcode] :1:0
+         // arguments
+         //   Parent(EXPR_RESULT):  [testcode] :1:0
+         // arguments
+         //
+         verifyException(""com.google.common.base.Preconditions"", e);
+      }
+  }",0,
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test2,"  public void test2()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""prototype"", ""prototype"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, false, false, false);
+      removeUnusedVars0.process(node0, node0, simpleDefinitionFinder0);
+      assertEquals(1, node0.getLineno());
+}",0,"assertEquals(1, node0.getLineno())"
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test2,"  public void test2()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""prototype"", ""prototype"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, false, false, false);
+      removeUnusedVars0.process(node0, node0, simpleDefinitionFinder0);
+  }",0,
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test3,"  public void test3()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""arguments"", ""arguments"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      Node node1 = new Node(37, node0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      removeUnusedVars0.process(node1, node1, simpleDefinitionFinder0);
+      assertFalse(node1.isBlock());
+}",0,assertFalse(node1.isBlock())
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test3,"  public void test3()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""arguments"", ""arguments"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      Node node1 = new Node(37, node0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      removeUnusedVars0.process(node1, node1, simpleDefinitionFinder0);
+  }",0,
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test4,"  public void test4()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = compiler0.parseTestCode(""eJBC=_Q"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      Node node1 = new Node(86, node0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      removeUnusedVars0.process(node1, node1, simpleDefinitionFinder0);
+      assertEquals(45, Node.IS_VAR_ARGS_PARAM);
+}",0,
+Closure,45,com.google.javascript.jscomp.RemoveUnusedVars_ESTest::test4,"  public void test4()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = compiler0.parseTestCode(""eJBC=_Q"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      Node node1 = new Node(86, node0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      removeUnusedVars0.process(node1, node1, simpleDefinitionFinder0);
+  }",0,

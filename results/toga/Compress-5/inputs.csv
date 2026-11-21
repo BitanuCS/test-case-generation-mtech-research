@@ -1,0 +1,394 @@
+focal_method,test_prefix,docstring
+"    public ArchiveEntry getNextEntry() throws IOException {
+        return getNextZipEntry();
+    }","  public void test0()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      zipArchiveInputStream0.close();
+      ArchiveEntry archiveEntry0 = zipArchiveInputStream0.getNextEntry();
+      assertNull(archiveEntry0);
+}",
+"    public ArchiveEntry getNextEntry() throws IOException {
+        return getNextZipEntry();
+    }","  public void test0()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      zipArchiveInputStream0.close();
+      ArchiveEntry archiveEntry0 = zipArchiveInputStream0.getNextEntry();
+  }",
+"    public long skip(long value) throws IOException {
+        if (value >= 0) {
+            long skipped = 0;
+            byte[] b = new byte[1024];
+            while (skipped != value) {
+                long rem = value - skipped;
+                int x = read(b, 0, (int) (b.length > rem ? rem : b.length));
+                if (x == -1) {
+                    return skipped;
+                }
+                skipped += x;
+            }
+            return skipped;
+        }
+        throw new IllegalArgumentException();
+    }","  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 1932, (byte)4);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(byteArrayInputStream0);
+      zipArchiveInputStream0.close();
+      try { 
+        zipArchiveInputStream0.skip(9223372036854775807L);
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // The stream is closed
+         //
+         verifyException(""org.apache.commons.compress.archivers.zip.ZipArchiveInputStream"", e);
+      }
+  }",
+"    public int getCount() {
+        return bytesRead;
+    }","  public void test2()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      zipArchiveInputStream0.close();
+      zipArchiveInputStream0.close();
+      assertEquals(0, zipArchiveInputStream0.getCount());
+}","/**
+     * Returns the current number of bytes read from this stream.
+     * @return the number of read bytes
+     */"
+"    public void close() throws IOException {
+        if (!closed) {
+            closed = true;
+            in.close();
+        }
+    }","  public void test2()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      zipArchiveInputStream0.close();
+      zipArchiveInputStream0.close();
+  }",
+"    public long skip(long value) throws IOException {
+        if (value >= 0) {
+            long skipped = 0;
+            byte[] b = new byte[1024];
+            while (skipped != value) {
+                long rem = value - skipped;
+                int x = read(b, 0, (int) (b.length > rem ? rem : b.length));
+                if (x == -1) {
+                    return skipped;
+                }
+                skipped += x;
+            }
+            return skipped;
+        }
+        throw new IllegalArgumentException();
+    }","  public void test3()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      // Undeclared exception!
+      try { 
+        zipArchiveInputStream0.skip((-1L));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.compress.archivers.zip.ZipArchiveInputStream"", e);
+      }
+  }",
+"    public long skip(long value) throws IOException {
+        if (value >= 0) {
+            long skipped = 0;
+            byte[] b = new byte[1024];
+            while (skipped != value) {
+                long rem = value - skipped;
+                int x = read(b, 0, (int) (b.length > rem ? rem : b.length));
+                if (x == -1) {
+                    return skipped;
+                }
+                skipped += x;
+            }
+            return skipped;
+        }
+        throw new IllegalArgumentException();
+    }","  public void test4()  throws Throwable  {
+      File file0 = MockFile.createTempFile(""ibm850"", """");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(mockFileInputStream0);
+      long long0 = zipArchiveInputStream0.skip(0);
+      assertEquals(0L, long0);
+}",
+"    public long skip(long value) throws IOException {
+        if (value >= 0) {
+            long skipped = 0;
+            byte[] b = new byte[1024];
+            while (skipped != value) {
+                long rem = value - skipped;
+                int x = read(b, 0, (int) (b.length > rem ? rem : b.length));
+                if (x == -1) {
+                    return skipped;
+                }
+                skipped += x;
+            }
+            return skipped;
+        }
+        throw new IllegalArgumentException();
+    }","  public void test4()  throws Throwable  {
+      File file0 = MockFile.createTempFile(""ibm850"", """");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(mockFileInputStream0);
+      long long0 = zipArchiveInputStream0.skip(0);
+  }",
+"    public long skip(long value) throws IOException {
+        if (value >= 0) {
+            long skipped = 0;
+            byte[] b = new byte[1024];
+            while (skipped != value) {
+                long rem = value - skipped;
+                int x = read(b, 0, (int) (b.length > rem ? rem : b.length));
+                if (x == -1) {
+                    return skipped;
+                }
+                skipped += x;
+            }
+            return skipped;
+        }
+        throw new IllegalArgumentException();
+    }","  public void test5()  throws Throwable  {
+      File file0 = MockFile.createTempFile(""ibm850"", """");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(mockFileInputStream0);
+      long long0 = zipArchiveInputStream0.skip(30L);
+      assertEquals(0L, long0);
+}",
+"    public long skip(long value) throws IOException {
+        if (value >= 0) {
+            long skipped = 0;
+            byte[] b = new byte[1024];
+            while (skipped != value) {
+                long rem = value - skipped;
+                int x = read(b, 0, (int) (b.length > rem ? rem : b.length));
+                if (x == -1) {
+                    return skipped;
+                }
+                skipped += x;
+            }
+            return skipped;
+        }
+        throw new IllegalArgumentException();
+    }","  public void test5()  throws Throwable  {
+      File file0 = MockFile.createTempFile(""ibm850"", """");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(mockFileInputStream0);
+      long long0 = zipArchiveInputStream0.skip(30L);
+  }",
+"    public static boolean matches(byte[] signature, int length) {
+        if (length < ZipArchiveOutputStream.LFH_SIG.length) {
+            return false;
+        }
+
+        return checksig(signature, ZipArchiveOutputStream.LFH_SIG) // normal file
+            || checksig(signature, ZipArchiveOutputStream.EOCD_SIG); // empty zip
+    }","  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      boolean boolean0 = ZipArchiveInputStream.matches(byteArray0, 117);
+      assertFalse(boolean0);
+}",
+"    public static boolean matches(byte[] signature, int length) {
+        if (length < ZipArchiveOutputStream.LFH_SIG.length) {
+            return false;
+        }
+
+        return checksig(signature, ZipArchiveOutputStream.LFH_SIG) // normal file
+            || checksig(signature, ZipArchiveOutputStream.EOCD_SIG); // empty zip
+    }","  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      boolean boolean0 = ZipArchiveInputStream.matches(byteArray0, 117);
+  }",
+"    public static boolean matches(byte[] signature, int length) {
+        if (length < ZipArchiveOutputStream.LFH_SIG.length) {
+            return false;
+        }
+
+        return checksig(signature, ZipArchiveOutputStream.LFH_SIG) // normal file
+            || checksig(signature, ZipArchiveOutputStream.EOCD_SIG); // empty zip
+    }","  public void test7()  throws Throwable  {
+      boolean boolean0 = ZipArchiveInputStream.matches((byte[]) null, (-3692));
+      assertFalse(boolean0);
+}",
+"    public static boolean matches(byte[] signature, int length) {
+        if (length < ZipArchiveOutputStream.LFH_SIG.length) {
+            return false;
+        }
+
+        return checksig(signature, ZipArchiveOutputStream.LFH_SIG) // normal file
+            || checksig(signature, ZipArchiveOutputStream.EOCD_SIG); // empty zip
+    }","  public void test7()  throws Throwable  {
+      boolean boolean0 = ZipArchiveInputStream.matches((byte[]) null, (-3692));
+  }",
+"    public ZipArchiveEntry getNextZipEntry() throws IOException {
+        if (closed || hitCentralDirectory) {
+            return null;
+        }
+        if (current != null) {
+            closeEntry();
+        }
+        byte[] lfh = new byte[LFH_LEN];
+        try {
+            readFully(lfh);
+        } catch (EOFException e) {
+            return null;
+        }
+        ZipLong sig = new ZipLong(lfh);
+        if (sig.equals(ZipLong.CFH_SIG)) {
+            hitCentralDirectory = true;
+            return null;
+        }
+        if (!sig.equals(ZipLong.LFH_SIG)) {
+            return null;
+        }
+
+        int off = WORD;
+        current = new ZipArchiveEntry();
+
+        int versionMadeBy = ZipShort.getValue(lfh, off);
+        off += SHORT;
+        current.setPlatform((versionMadeBy >> ZipFile.BYTE_SHIFT)
+                            & ZipFile.NIBLET_MASK);
+
+        final int generalPurposeFlag = ZipShort.getValue(lfh, off);
+        final boolean hasEFS = 
+            (generalPurposeFlag & ZipArchiveOutputStream.EFS_FLAG) != 0;
+        final ZipEncoding entryEncoding =
+            hasEFS ? ZipEncodingHelper.UTF8_ZIP_ENCODING : zipEncoding;
+        hasDataDescriptor = (generalPurposeFlag & 8) != 0;
+
+        off += SHORT;
+
+        current.setMethod(ZipShort.getValue(lfh, off));
+        off += SHORT;
+
+        long time = ZipUtil.dosToJavaTime(ZipLong.getValue(lfh, off));
+        current.setTime(time);
+        off += WORD;
+
+        if (!hasDataDescriptor) {
+            current.setCrc(ZipLong.getValue(lfh, off));
+            off += WORD;
+
+            current.setCompressedSize(ZipLong.getValue(lfh, off));
+            off += WORD;
+
+            current.setSize(ZipLong.getValue(lfh, off));
+            off += WORD;
+        } else {
+            off += 3 * WORD;
+        }
+
+        int fileNameLen = ZipShort.getValue(lfh, off);
+
+        off += SHORT;
+
+        int extraLen = ZipShort.getValue(lfh, off);
+        off += SHORT;
+
+        byte[] fileName = new byte[fileNameLen];
+        readFully(fileName);
+        current.setName(entryEncoding.decode(fileName));
+
+        byte[] extraData = new byte[extraLen];
+        readFully(extraData);
+        current.setExtra(extraData);
+
+        if (!hasEFS && useUnicodeExtraFields) {
+            ZipUtil.setNameAndCommentFromExtraFields(current, fileName, null);
+        }
+        return current;
+    }","  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(byteArrayInputStream0);
+      zipArchiveInputStream0.getNextZipEntry();
+      assertEquals(0, byteArrayInputStream0.available());
+}",
+"    public ZipArchiveEntry getNextZipEntry() throws IOException {
+        if (closed || hitCentralDirectory) {
+            return null;
+        }
+        if (current != null) {
+            closeEntry();
+        }
+        byte[] lfh = new byte[LFH_LEN];
+        try {
+            readFully(lfh);
+        } catch (EOFException e) {
+            return null;
+        }
+        ZipLong sig = new ZipLong(lfh);
+        if (sig.equals(ZipLong.CFH_SIG)) {
+            hitCentralDirectory = true;
+            return null;
+        }
+        if (!sig.equals(ZipLong.LFH_SIG)) {
+            return null;
+        }
+
+        int off = WORD;
+        current = new ZipArchiveEntry();
+
+        int versionMadeBy = ZipShort.getValue(lfh, off);
+        off += SHORT;
+        current.setPlatform((versionMadeBy >> ZipFile.BYTE_SHIFT)
+                            & ZipFile.NIBLET_MASK);
+
+        final int generalPurposeFlag = ZipShort.getValue(lfh, off);
+        final boolean hasEFS = 
+            (generalPurposeFlag & ZipArchiveOutputStream.EFS_FLAG) != 0;
+        final ZipEncoding entryEncoding =
+            hasEFS ? ZipEncodingHelper.UTF8_ZIP_ENCODING : zipEncoding;
+        hasDataDescriptor = (generalPurposeFlag & 8) != 0;
+
+        off += SHORT;
+
+        current.setMethod(ZipShort.getValue(lfh, off));
+        off += SHORT;
+
+        long time = ZipUtil.dosToJavaTime(ZipLong.getValue(lfh, off));
+        current.setTime(time);
+        off += WORD;
+
+        if (!hasDataDescriptor) {
+            current.setCrc(ZipLong.getValue(lfh, off));
+            off += WORD;
+
+            current.setCompressedSize(ZipLong.getValue(lfh, off));
+            off += WORD;
+
+            current.setSize(ZipLong.getValue(lfh, off));
+            off += WORD;
+        } else {
+            off += 3 * WORD;
+        }
+
+        int fileNameLen = ZipShort.getValue(lfh, off);
+
+        off += SHORT;
+
+        int extraLen = ZipShort.getValue(lfh, off);
+        off += SHORT;
+
+        byte[] fileName = new byte[fileNameLen];
+        readFully(fileName);
+        current.setName(entryEncoding.decode(fileName));
+
+        byte[] extraData = new byte[extraLen];
+        readFully(extraData);
+        current.setExtra(extraData);
+
+        if (!hasEFS && useUnicodeExtraFields) {
+            ZipUtil.setNameAndCommentFromExtraFields(current, fileName, null);
+        }
+        return current;
+    }","  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(byteArrayInputStream0);
+      zipArchiveInputStream0.getNextZipEntry();
+  }",

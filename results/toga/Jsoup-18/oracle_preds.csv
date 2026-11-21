@@ -1,0 +1,520 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test00,"  public void test00()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      characterReader0.rewindToMark();
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test00,"  public void test00()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      characterReader0.rewindToMark();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test01,"  public void test01()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""uf)^=bf>]~Od,m yO"");
+      boolean boolean0 = characterReader0.matchConsumeIgnoreCase(""E"");
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test01,"  public void test01()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""uf)^=bf>]~Od,m yO"");
+      boolean boolean0 = characterReader0.matchConsumeIgnoreCase(""E"");
+      assertEquals(""uf)^=bf>]~Od,m yO"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test01,"  public void test01()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""uf)^=bf>]~Od,m yO"");
+      boolean boolean0 = characterReader0.matchConsumeIgnoreCase(""E"");
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test02,"  public void test02()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.mark();
+      assertEquals(""7CCc!1G1Z"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test02,"  public void test02()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.mark();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test03,"  public void test03()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""@^I!3S#$`WsKw|?"");
+      boolean boolean0 = characterReader0.matchConsume(""@^I!3S#$`WsKw|?"");
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test03,"  public void test03()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""@^I!3S#$`WsKw|?"");
+      boolean boolean0 = characterReader0.matchConsume(""@^I!3S#$`WsKw|?"");
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test03,"  public void test03()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""@^I!3S#$`WsKw|?"");
+      boolean boolean0 = characterReader0.matchConsume(""@^I!3S#$`WsKw|?"");
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test04,"  public void test04()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      characterReader0.unconsume();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test05,"  public void test05()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      String string0 = characterReader0.toString();
+      assertEquals("""", string0);
+}",0,assertNotNull(string0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test05,"  public void test05()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      String string0 = characterReader0.toString();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test06,"  public void test06()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""@^I!3S#$`WsKw|?"");
+      characterReader0.consumeTo('1');
+      char char0 = characterReader0.current();
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test06,"  public void test06()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""@^I!3S#$`WsKw|?"");
+      characterReader0.consumeTo('1');
+      char char0 = characterReader0.current();
+      assertEquals('\uFFFF', char0);
+}",0,assertNotNull(char0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test06,"  public void test06()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""@^I!3S#$`WsKw|?"");
+      characterReader0.consumeTo('1');
+      char char0 = characterReader0.current();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test07,"  public void test07()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""$<1`;;_:lsVoE^"");
+      int int0 = characterReader0.pos();
+      assertEquals(0, int0);
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test07,"  public void test07()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""$<1`;;_:lsVoE^"");
+      int int0 = characterReader0.pos();
+      assertEquals(""$<1`;;_:lsVoE^"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test07,"  public void test07()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""$<1`;;_:lsVoE^"");
+      int int0 = characterReader0.pos();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test08,"  public void test08()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""3&I;}E@"");
+      char char0 = characterReader0.current();
+      assertEquals('3', char0);
+}",0,assertNotNull(char0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test08,"  public void test08()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""3&I;}E@"");
+      char char0 = characterReader0.current();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test09,"  public void test09()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      char char0 = characterReader0.consume();
+      assertEquals('\uFFFF', char0);
+}",0,assertNotNull(char0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test09,"  public void test09()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      char char0 = characterReader0.consume();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test10,"  public void test10()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      characterReader0.consumeTo('o');
+      assertEquals(""org.jsoup.parser.CharacterReader"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test10,"  public void test10()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      characterReader0.consumeTo('o');
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test11,"  public void test11()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""@^I!3S#$`WsKw|?"");
+      characterReader0.consumeTo(""Array must not contain any null objects"");
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test11,"  public void test11()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""@^I!3S#$`WsKw|?"");
+      characterReader0.consumeTo(""Array must not contain any null objects"");
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test12,"  public void test12()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("".fHyPzE<Il\""4"");
+      String string0 = characterReader0.consumeTo("".fHyPzE<Il\""4"");
+      assertEquals("""", string0);
+}",0,assertNotNull(string0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test12,"  public void test12()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("".fHyPzE<Il\""4"");
+      String string0 = characterReader0.consumeTo("".fHyPzE<Il\""4"");
+      assertEquals("".fHyPzE<Il\""4"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test12,"  public void test12()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("".fHyPzE<Il\""4"");
+      String string0 = characterReader0.consumeTo("".fHyPzE<Il\""4"");
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test13,"  public void test13()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      char[] charArray0 = new char[2];
+      characterReader0.consumeToAny(charArray0);
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test13,"  public void test13()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      char[] charArray0 = new char[2];
+      characterReader0.consumeToAny(charArray0);
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test14,"  public void test14()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      char[] charArray0 = new char[2];
+      charArray0[1] = 'o';
+      String string0 = characterReader0.consumeToAny(charArray0);
+      assertEquals("""", string0);
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test14,"  public void test14()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      char[] charArray0 = new char[2];
+      charArray0[1] = 'o';
+      String string0 = characterReader0.consumeToAny(charArray0);
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test15,"  public void test15()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""ce"");
+      characterReader0.consumeLetterSequence();
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test15,"  public void test15()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""ce"");
+      characterReader0.consumeLetterSequence();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test16,"  public void test16()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      characterReader0.consumeLetterSequence();
+      characterReader0.consumeAsString();
+      boolean boolean0 = characterReader0.matchesLetter();
+      assertEquals(""wd"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test16,"  public void test16()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      characterReader0.consumeLetterSequence();
+      characterReader0.consumeAsString();
+      boolean boolean0 = characterReader0.matchesLetter();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test16,"  public void test16()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      characterReader0.consumeLetterSequence();
+      characterReader0.consumeAsString();
+      boolean boolean0 = characterReader0.matchesLetter();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test17,"  public void test17()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xnNd"");
+      characterReader0.consumeLetterSequence();
+      assertEquals(""d"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test17,"  public void test17()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xnNd"");
+      characterReader0.consumeLetterSequence();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test18,"  public void test18()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.consumeTo('%');
+      characterReader0.consumeHexSequence();
+      assertEquals("""", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test18,"  public void test18()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.consumeTo('%');
+      characterReader0.consumeHexSequence();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test19,"  public void test19()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      characterReader0.consumeHexSequence();
+      assertEquals(""st)+$%a7Ivw0yIMQ,F"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test19,"  public void test19()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      characterReader0.consumeHexSequence();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test20,"  public void test20()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.consumeHexSequence();
+      assertEquals(""!1G1Z"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test20,"  public void test20()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.consumeHexSequence();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test21,"  public void test21()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      characterReader0.consumeDigitSequence();
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test21,"  public void test21()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      characterReader0.consumeDigitSequence();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test22,"  public void test22()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("".fHyPzE<Il\""4"");
+      characterReader0.consumeDigitSequence();
+      assertEquals("".fHyPzE<Il\""4"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test22,"  public void test22()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("".fHyPzE<Il\""4"");
+      characterReader0.consumeDigitSequence();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test23,"  public void test23()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.consumeTo('%');
+      boolean boolean0 = characterReader0.matches('%');
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test23,"  public void test23()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.consumeTo('%');
+      boolean boolean0 = characterReader0.matches('%');
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test23,"  public void test23()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""7CCc!1G1Z"");
+      characterReader0.consumeTo('%');
+      boolean boolean0 = characterReader0.matches('%');
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test24,"  public void test24()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""uf)^=bf>]~Od,m yO"");
+      boolean boolean0 = characterReader0.matches('u');
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test24,"  public void test24()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""uf)^=bf>]~Od,m yO"");
+      boolean boolean0 = characterReader0.matches('u');
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test25,"  public void test25()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""uf)^=bf>]~Od,m yO"");
+      characterReader0.consume();
+      boolean boolean0 = characterReader0.matches('u');
+      assertEquals(""f)^=bf>]~Od,m yO"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test25,"  public void test25()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""uf)^=bf>]~Od,m yO"");
+      characterReader0.consume();
+      boolean boolean0 = characterReader0.matches('u');
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test25,"  public void test25()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""uf)^=bf>]~Od,m yO"");
+      characterReader0.consume();
+      boolean boolean0 = characterReader0.matches('u');
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test26,"  public void test26()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      char[] charArray0 = new char[6];
+      boolean boolean0 = characterReader0.matchesAny(charArray0);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test26,"  public void test26()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      char[] charArray0 = new char[6];
+      boolean boolean0 = characterReader0.matchesAny(charArray0);
+      assertEquals(""st)+$%a7Ivw0yIMQ,F"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test26,"  public void test26()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      char[] charArray0 = new char[6];
+      boolean boolean0 = characterReader0.matchesAny(charArray0);
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test27,"  public void test27()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("".fHyPzE<Il\""4"");
+      assertEquals("".fHyPzE<Il\""4"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test27,"  public void test27()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("".fHyPzE<Il\""4"");
+      characterReader0.consumeToEnd();
+      char[] charArray0 = new char[0];
+      boolean boolean0 = characterReader0.matchesAny(charArray0);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test27,"  public void test27()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("".fHyPzE<Il\""4"");
+      characterReader0.consumeToEnd();
+      char[] charArray0 = new char[0];
+      boolean boolean0 = characterReader0.matchesAny(charArray0);
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test28,"  public void test28()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      char[] charArray0 = new char[6];
+      charArray0[0] = 's';
+      boolean boolean0 = characterReader0.matchesAny(charArray0);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test28,"  public void test28()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      char[] charArray0 = new char[6];
+      charArray0[0] = 's';
+      boolean boolean0 = characterReader0.matchesAny(charArray0);
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test29,"  public void test29()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""ce"");
+      boolean boolean0 = characterReader0.matchesLetter();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test29,"  public void test29()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""ce"");
+      boolean boolean0 = characterReader0.matchesLetter();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test30,"  public void test30()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""[E2A!"");
+      characterReader0.advance();
+      characterReader0.consumeAsString();
+      characterReader0.consumeDigitSequence();
+      characterReader0.consumeAsString();
+      characterReader0.advance();
+      boolean boolean0 = characterReader0.matchesLetter();
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test30,"  public void test30()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""[E2A!"");
+      characterReader0.advance();
+      characterReader0.consumeAsString();
+      characterReader0.consumeDigitSequence();
+      characterReader0.consumeAsString();
+      characterReader0.advance();
+      boolean boolean0 = characterReader0.matchesLetter();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test30,"  public void test30()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""[E2A!"");
+      characterReader0.advance();
+      characterReader0.consumeAsString();
+      characterReader0.consumeDigitSequence();
+      characterReader0.consumeAsString();
+      characterReader0.advance();
+      boolean boolean0 = characterReader0.matchesLetter();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test31,"  public void test31()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("",78!^75PhW~xZrXj"");
+      boolean boolean0 = characterReader0.matchesLetter();
+      assertEquals("",78!^75PhW~xZrXj"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test31,"  public void test31()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("",78!^75PhW~xZrXj"");
+      boolean boolean0 = characterReader0.matchesLetter();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test31,"  public void test31()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("",78!^75PhW~xZrXj"");
+      boolean boolean0 = characterReader0.matchesLetter();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test32,"  public void test32()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""C{3Wz1@:"");
+      boolean boolean0 = characterReader0.matchesLetter();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test32,"  public void test32()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""C{3Wz1@:"");
+      boolean boolean0 = characterReader0.matchesLetter();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test33,"  public void test33()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      boolean boolean0 = characterReader0.matchesDigit();
+      assertEquals(""xn=wd"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test33,"  public void test33()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      boolean boolean0 = characterReader0.matchesDigit();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test33,"  public void test33()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      boolean boolean0 = characterReader0.matchesDigit();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test34,"  public void test34()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      boolean boolean0 = characterReader0.matchesDigit();
+      assertEquals("""", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test34,"  public void test34()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      boolean boolean0 = characterReader0.matchesDigit();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test34,"  public void test34()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("""");
+      boolean boolean0 = characterReader0.matchesDigit();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test35,"  public void test35()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("",Q2t^v-z|zC"");
+      boolean boolean0 = characterReader0.matchesDigit();
+      assertEquals("",Q2t^v-z|zC"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test35,"  public void test35()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("",Q2t^v-z|zC"");
+      boolean boolean0 = characterReader0.matchesDigit();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test35,"  public void test35()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader("",Q2t^v-z|zC"");
+      boolean boolean0 = characterReader0.matchesDigit();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test36,"  public void test36()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""4iHC'[{"");
+      boolean boolean0 = characterReader0.matchesDigit();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test36,"  public void test36()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""4iHC'[{"");
+      boolean boolean0 = characterReader0.matchesDigit();
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test37,"  public void test37()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      characterReader0.consume();
+      boolean boolean0 = characterReader0.matchConsume(""org.jsoup.parser.CharacterReader"");
+      assertEquals(""rg.jsoup.parser.CharacterReader"", characterReader0.toString());
+}",0,assertNotNull(characterReader0.toString())
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test37,"  public void test37()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      characterReader0.consume();
+      boolean boolean0 = characterReader0.matchConsume(""org.jsoup.parser.CharacterReader"");
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test37,"  public void test37()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      characterReader0.consume();
+      boolean boolean0 = characterReader0.matchConsume(""org.jsoup.parser.CharacterReader"");
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test38,"  public void test38()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      boolean boolean0 = characterReader0.matchConsumeIgnoreCase("""");
+      assertEquals(""st)+$%a7Ivw0yIMQ,F"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test38,"  public void test38()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      boolean boolean0 = characterReader0.matchConsumeIgnoreCase("""");
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test38,"  public void test38()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""st)+$%a7Ivw0yIMQ,F"");
+      boolean boolean0 = characterReader0.matchConsumeIgnoreCase("""");
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test39,"  public void test39()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      boolean boolean0 = characterReader0.containsIgnoreCase("""");
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test39,"  public void test39()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      boolean boolean0 = characterReader0.containsIgnoreCase("""");
+      assertEquals(""org.jsoup.parser.CharacterReader"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test39,"  public void test39()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""org.jsoup.parser.CharacterReader"");
+      boolean boolean0 = characterReader0.containsIgnoreCase("""");
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test40,"  public void test40()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      boolean boolean0 = characterReader0.containsIgnoreCase(""t)+"");
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test40,"  public void test40()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      boolean boolean0 = characterReader0.containsIgnoreCase(""t)+"");
+      assertEquals(""xn=wd"", characterReader0.toString());
+}",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test40,"  public void test40()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""xn=wd"");
+      boolean boolean0 = characterReader0.containsIgnoreCase(""t)+"");
+  }",0,
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test41,"  public void test41()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""-8D&"");
+      boolean boolean0 = characterReader0.containsIgnoreCase(""-8D&"");
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Jsoup,18,org.jsoup.parser.CharacterReader_ESTest::test41,"  public void test41()  throws Throwable  {
+      CharacterReader characterReader0 = new CharacterReader(""-8D&"");
+      boolean boolean0 = characterReader0.containsIgnoreCase(""-8D&"");
+  }",0,

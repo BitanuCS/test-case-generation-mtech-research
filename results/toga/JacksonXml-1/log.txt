@@ -1,0 +1,104 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/JacksonXml-1/evo /Users/bitu/mtech-tools/work/JacksonXml-1f/src/main/java JacksonXml 1 /Users/bitu/mtech-tools/toga_out/JacksonXml-1
+3 test prefixes, 1 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/JacksonXml-1/inputs.csv /Users/bitu/mtech-tools/toga_out/JacksonXml-1/meta.csv
+11/21/2026 06:44:22 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 06:44:23 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 06:44:24 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 06:44:24 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 06:44:24 - INFO - utils -   Writing example 0 of 1
+11/21/2026 06:44:24 - INFO - utils -   *** Example ***
+11/21/2026 06:44:24 - INFO - utils -   guid: test-0
+11/21/2026 06:44:24 - INFO - utils -   tokens: <s> public ĠFrom X ml Parser ( IO Context Ġc txt , Ġint Ġgeneric Parser Features , Ġint Ġxml Features , ĠObject Cod ec Ġcodec , ĠXML Stream Reader Ġxml Reader ) Ġ{ Ġsuper ( generic Parser Features ); Ġ_ format Features Ġ= Ġxml Features ; Ġ_ io Context Ġ= Ġc </s> public Ġvoid Ġtest From X ml Parser () Ġ{ ĠStream Reader De legate Ġstream Reader De legate 0 Ġ= Ġnew ĠStream Reader De legate (); ĠFrom X ml Parser Ġfrom X ml Parser 0 Ġ= Ġnull ; Ġfrom X ml Parser 0 Ġ= Ġnew ĠFrom X ml Parser (( IO Context ) Ġnull , Ġ0 , Ġ0 , Ġ( Object Cod ec ) Ġnull , Ġstream Reader De legate 0 ); Ġ} </s>
+11/21/2026 06:44:24 - INFO - utils -   input_ids: 0 15110 1740 1000 18517 49707 1640 6454 48522 740 46795 6 6979 14569 49707 48192 6 6979 49377 48192 6 35671 47436 3204 45797 6 46917 36757 46347 49377 46347 43 25522 2422 1640 47663 49707 48192 4397 18134 34609 48192 5457 49377 48192 131 18134 1020 48522 5457 740 2 15110 13842 1296 7605 1000 18517 49707 43048 25522 16183 46347 13365 35976 4615 46347 13365 35976 288 5457 92 16183 46347 13365 35976 47006 1740 1000 18517 49707 31 1000 18517 49707 288 5457 23796 131 31 1000 18517 49707 288 5457 92 1740 1000 18517 49707 48461 6454 48522 43 23796 6 321 6 321 6 36 46674 47436 3204 43 23796 6 4615 46347 13365 35976 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:44:24 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:44:24 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:44:24 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 06:44:24 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 06:44:24 - INFO - __main__ -     Num examples = 1
+11/21/2026 06:44:24 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 1 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  8.66it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  8.63it/s]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.3333333333333333
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p JacksonXml -d /Users/bitu/mtech-tools/toga_out/JacksonXml-1/suite -v 1f
+Checking out 2d7683ed to /tmp/fix_test_suite.pl_16393_1795272265........... --------------------------------------------------------------------------------
+JacksonXml-1f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_16393_1795272265/maven-build. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2d7683ed:81f38e19..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonXml-1f................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p JacksonXml -d /Users/bitu/mtech-tools/toga_out/JacksonXml-1/suite -o /Users/bitu/mtech-tools/toga_out/JacksonXml-1/detect
+Extract test suite......................................................... Executing test suite: JacksonXml-1f-toga.1.tar.bz2
+OK
+Checking out 2d7683ed to /tmp/run_bug_detection.pl_16535_1795272295/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_16535_1795272295/V_fixed/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2d7683ed:81f38e19..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonXml-1f................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 2d7683ed to /tmp/run_bug_detection.pl_16535_1795272295/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_16535_1795272295/V_buggy/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 2d7683ed:81f38e19..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonXml-1b................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

@@ -1,0 +1,184 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/JacksonCore-8/evo /Users/bitu/mtech-tools/work/JacksonCore-8f/src/main/java JacksonCore 8 /Users/bitu/mtech-tools/toga_out/JacksonCore-8
+133 test prefixes, 133 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/JacksonCore-8/inputs.csv /Users/bitu/mtech-tools/toga_out/JacksonCore-8/meta.csv
+11/21/2026 06:26:26 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 06:26:27 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 06:26:28 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 06:26:28 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 06:26:28 - INFO - utils -   Writing example 0 of 133
+11/21/2026 06:26:28 - INFO - utils -   *** Example ***
+11/21/2026 06:26:28 - INFO - utils -   guid: test-0
+11/21/2026 06:26:28 - INFO - utils -   tokens: <s> public Ġchar [] Ġcontents As Array () Ġ{ Ġchar [] Ġresult Ġ= Ġ_ result Array ; Ġif Ġ( result Ġ== Ġnull ) Ġ{ Ġ_ result Array Ġ= Ġresult Ġ= Ġresult Array (); Ġ} Ġreturn Ġresult ; Ġ} </s> public Ġvoid Ġtest Contents As Array () Ġ{ ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer (( Buffer Rec y cler ) Ġnull ); Ġtext Buffer 0 . to String (); Ġtext Buffer 0 . cont ents As Array (); Ġ} </s>
+11/21/2026 06:26:28 - INFO - utils -   input_ids: 0 15110 16224 48992 13654 1620 48222 43048 25522 16224 48992 898 5457 18134 43155 48222 131 114 36 43155 45994 23796 43 25522 18134 43155 48222 5457 898 5457 898 48222 47006 35524 671 898 131 35524 2 15110 13842 1296 49482 1620 48222 43048 25522 14159 49334 2788 49334 288 5457 92 14159 49334 48461 49334 21109 219 39255 43 23796 4397 2788 49334 288 4 560 34222 47006 2788 49334 288 4 10800 4189 1620 48222 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:28 - INFO - utils -   *** Example ***
+11/21/2026 06:26:28 - INFO - utils -   guid: test-1
+11/21/2026 06:26:28 - INFO - utils -   tokens: <s> public Ġchar [] Ġcontents As Array () Ġ{ Ġchar [] Ġresult Ġ= Ġ_ result Array ; Ġif Ġ( result Ġ== Ġnull ) Ġ{ Ġ_ result Array Ġ= Ġresult Ġ= Ġresult Array (); Ġ} Ġreturn Ġresult ; Ġ} </s> public Ġvoid Ġtest Contents As Array () Ġ{ ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer (( Buffer Rec y cler ) Ġnull ); Ġtext Buffer 0 . to String (); Ġtext Buffer 0 . cont ents As Array (); Ġ} </s>
+11/21/2026 06:26:28 - INFO - utils -   input_ids: 0 15110 16224 48992 13654 1620 48222 43048 25522 16224 48992 898 5457 18134 43155 48222 131 114 36 43155 45994 23796 43 25522 18134 43155 48222 5457 898 5457 898 48222 47006 35524 671 898 131 35524 2 15110 13842 1296 49482 1620 48222 43048 25522 14159 49334 2788 49334 288 5457 92 14159 49334 48461 49334 21109 219 39255 43 23796 4397 2788 49334 288 4 560 34222 47006 2788 49334 288 4 10800 4189 1620 48222 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:28 - INFO - utils -   *** Example ***
+11/21/2026 06:26:28 - INFO - utils -   guid: test-2
+11/21/2026 06:26:28 - INFO - utils -   tokens: <s> public Ġdouble Ġcontents As Double () Ġthrows ĠNumber Format Exception Ġ{ Ġreturn ĠNumber Input . parse Double ( cont ents As String ()); Ġ} </s> public Ġvoid Ġtest Contents As Double () Ġ{ ĠBuffer Rec y cler Ġbuffer Rec y cler 0 Ġ= Ġnew ĠBuffer Rec y cler (); ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer ( buffer Rec y cler 0 ); Ġtext Buffer 0 . cont ents As Double (); Ġ} </s>
+11/21/2026 06:26:28 - INFO - utils -   input_ids: 0 15110 1457 13654 1620 42380 43048 6989 12270 48587 48847 25522 671 12270 48214 4 48778 42380 1640 10800 4189 1620 34222 49291 35524 2 15110 13842 1296 49482 1620 42380 43048 25522 44314 21109 219 39255 21944 21109 219 39255 288 5457 92 44314 21109 219 39255 47006 14159 49334 2788 49334 288 5457 92 14159 49334 1640 47438 21109 219 39255 288 4397 2788 49334 288 4 10800 4189 1620 42380 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 06:26:28 - INFO - utils -   *** Example ***
+11/21/2026 06:26:28 - INFO - utils -   guid: test-3
+11/21/2026 06:26:28 - INFO - utils -   tokens: <s> public Ġint Ġsize () Ġ{ Ġif Ġ(_ input Start Ġ>= Ġ0 ) Ġ{ Ġ// Ġshared Ġcopy Ġfrom Ġinput Ġbuf Ġreturn Ġ_ input Len ; Ġ} Ġif Ġ(_ result Array Ġ!= Ġnull ) Ġ{ Ġreturn Ġ_ result Array . length ; Ġ} Ġif Ġ(_ result String Ġ!= Ġnull ) Ġ{ Ġreturn </s> public Ġvoid Ġtest Size () Ġ{ ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer (( Buffer Rec y cler ) Ġnull ); Ġtext Buffer 0 . ens ure Not Sh ared (); Ġtext Buffer 0 . fin ish Current Seg ment (); Ġ} </s>
+11/21/2026 06:26:28 - INFO - utils -   input_ids: 0 15110 6979 1836 43048 25522 114 49828 46797 33724 49095 321 43 25522 21277 1373 5375 31 8135 49125 671 18134 46797 45280 131 35524 114 49828 43155 48222 49333 23796 43 25522 671 18134 43155 48222 4 16096 131 35524 114 49828 43155 34222 49333 23796 43 25522 671 2 15110 13842 1296 45698 43048 25522 14159 49334 2788 49334 288 5457 92 14159 49334 48461 49334 21109 219 39255 43 23796 4397 2788 49334 288 4 1290 2407 7199 3609 6537 47006 2788 49334 288 4 13597 1173 42124 42775 1757 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:28 - INFO - utils -   *** Example ***
+11/21/2026 06:26:28 - INFO - utils -   guid: test-4
+11/21/2026 06:26:28 - INFO - utils -   tokens: <s> public Ġchar [] Ġempty And Get Current Seg ment () Ġ{ Ġ// Ġin lined Ġ' reset With Empty () ' Ġ_ input Start Ġ= Ġ- 1 ; Ġ// Ġindicates Ġshared Ġbuffer Ġnot Ġused Ġ_ current Size Ġ= Ġ0 ; Ġ_ input Len Ġ= Ġ0 ; Ġ_ input Buffer Ġ= Ġnull </s> public Ġvoid Ġtest Empty And Get Current Seg ment () Ġ{ ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer (( Buffer Rec y cler ) Ġnull ); Ġtext Buffer 0 . ens ure Not Sh ared (); Ġtext Buffer 0 . fin ish Current Seg ment (); Ġtext Buffer 0 . empty And Get Current Seg ment (); Ġ} </s>
+11/21/2026 06:26:28 - INFO - utils -   input_ids: 0 15110 16224 48992 5802 2409 14181 42124 42775 1757 43048 25522 21277 11 17422 128 45703 3908 47819 43048 108 18134 46797 33724 5457 111 134 131 21277 8711 1373 21944 45 341 18134 28311 45698 5457 321 131 18134 46797 45280 5457 321 131 18134 46797 49334 5457 23796 2 15110 13842 1296 47819 2409 14181 42124 42775 1757 43048 25522 14159 49334 2788 49334 288 5457 92 14159 49334 48461 49334 21109 219 39255 43 23796 4397 2788 49334 288 4 1290 2407 7199 3609 6537 47006 2788 49334 288 4 13597 1173 42124 42775 1757 47006 2788 49334 288 4 41486 2409 14181 42124 42775 1757 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:29 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 06:26:29 - INFO - __main__ -     Num examples = 133
+11/21/2026 06:26:29 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 133 total truncations 1, mean_trunc 0.09774436090225563, median 0.0, max = 13
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:10<00:00, 10.29s/it]Evaluating: 100%|██████████| 1/1 [00:10<00:00, 10.29s/it]
+11/21/2026 06:26:42 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 06:26:43 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 06:26:44 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 06:26:44 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 06:26:44 - INFO - utils -   Writing example 0 of 118
+11/21/2026 06:26:44 - INFO - utils -   *** Example ***
+11/21/2026 06:26:44 - INFO - utils -   guid: 3
+11/21/2026 06:26:44 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer (( Buffer Rec y cler ) Ġnull ); Ġtext Buffer 0 . ens ure Not Sh ared (); Ġtext Buffer 0 . fin ish Current Seg ment (); Ġ"< Ass ert Place </s> public Ġint Ġsize () Ġ{ Ġif Ġ(_ input Start Ġ>= Ġ0 ) Ġ{ Ġ// Ġshared Ġcopy Ġfrom Ġinput Ġbuf Ġreturn Ġ_ input Len ; Ġ} Ġif Ġ(_ result Array Ġ!= Ġnull ) Ġ{ Ġreturn Ġ_ result Array . length ; Ġ} Ġif Ġ(_ result String Ġ!= Ġnull ) Ġ{ Ġreturn Ġ_ result String . length (); Ġ} Ġ// Ġlocal Ġsegment ed Ġbuffers Ġreturn Ġ_ se gment Size Ġ+ Ġ_ current Size ; Ġ} </s> assert Equ als ( 0 , Ġtext Buffer 0 . size ()) </s>
+11/21/2026 06:26:44 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 14159 49334 2788 49334 288 5457 92 14159 49334 48461 49334 21109 219 39255 43 23796 4397 2788 49334 288 4 1290 2407 7199 3609 6537 47006 2788 49334 288 4 13597 1173 42124 42775 1757 47006 49900 26039 2399 41863 2 15110 6979 1836 43048 25522 114 49828 46797 33724 49095 321 43 25522 21277 1373 5375 31 8135 49125 671 18134 46797 45280 131 35524 114 49828 43155 48222 49333 23796 43 25522 671 18134 43155 48222 4 16096 131 35524 114 49828 43155 34222 49333 23796 43 25522 671 18134 43155 34222 4 16096 47006 35524 21277 400 2835 196 39588 671 18134 1090 10757 45698 2055 18134 28311 45698 131 35524 2 46346 28568 1536 1640 288 6 2788 49334 288 4 10799 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:44 - INFO - utils -   *** Example ***
+11/21/2026 06:26:44 - INFO - utils -   guid: 3
+11/21/2026 06:26:44 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer (( Buffer Rec y cler ) Ġnull ); Ġtext Buffer 0 . ens ure Not Sh ared (); Ġtext Buffer 0 . fin ish Current Seg ment (); Ġ"< Ass ert Place </s> public Ġint Ġsize () Ġ{ Ġif Ġ(_ input Start Ġ>= Ġ0 ) Ġ{ Ġ// Ġshared Ġcopy Ġfrom Ġinput Ġbuf Ġreturn Ġ_ input Len ; Ġ} Ġif Ġ(_ result Array Ġ!= Ġnull ) Ġ{ Ġreturn Ġ_ result Array . length ; Ġ} Ġif Ġ(_ result String Ġ!= Ġnull ) Ġ{ Ġreturn Ġ_ result String . length (); Ġ} Ġ// Ġlocal Ġsegment ed Ġbuffers Ġreturn Ġ_ se gment Size Ġ+ Ġ_ current Size ; Ġ} </s> assert Equ als ( 1 , Ġtext Buffer 0 . size ()) </s>
+11/21/2026 06:26:44 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 14159 49334 2788 49334 288 5457 92 14159 49334 48461 49334 21109 219 39255 43 23796 4397 2788 49334 288 4 1290 2407 7199 3609 6537 47006 2788 49334 288 4 13597 1173 42124 42775 1757 47006 49900 26039 2399 41863 2 15110 6979 1836 43048 25522 114 49828 46797 33724 49095 321 43 25522 21277 1373 5375 31 8135 49125 671 18134 46797 45280 131 35524 114 49828 43155 48222 49333 23796 43 25522 671 18134 43155 48222 4 16096 131 35524 114 49828 43155 34222 49333 23796 43 25522 671 18134 43155 34222 4 16096 47006 35524 21277 400 2835 196 39588 671 18134 1090 10757 45698 2055 18134 28311 45698 131 35524 2 46346 28568 1536 1640 134 6 2788 49334 288 4 10799 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:44 - INFO - utils -   *** Example ***
+11/21/2026 06:26:44 - INFO - utils -   guid: 6
+11/21/2026 06:26:44 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 03 () Ġthrows ĠThrow able Ġ{ ĠBuffer Rec y cler Ġbuffer Rec y cler 0 Ġ= Ġnew ĠBuffer Rec y cler ( 45 86 , Ġ4 586 ); ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer ( buffer Rec y cler 0 ); Ġint Ġint 0 </s> public Ġint Ġget Current Seg ment Size () Ġ{ Ġreturn Ġ_ current Size ; Ġ} </s> assert Equ als ( 0 , Ġint 0 ) </s>
+11/21/2026 06:26:44 - INFO - utils -   input_ids: 0 15110 13842 1296 3933 43048 6989 28106 868 25522 44314 21109 219 39255 21944 21109 219 39255 288 5457 92 44314 21109 219 39255 1640 1898 5334 6 204 38014 4397 14159 49334 2788 49334 288 5457 92 14159 49334 1640 47438 21109 219 39255 288 4397 6979 6979 288 2 15110 6979 120 42124 42775 1757 45698 43048 25522 671 18134 28311 45698 131 35524 2 46346 28568 1536 1640 288 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:44 - INFO - utils -   *** Example ***
+11/21/2026 06:26:44 - INFO - utils -   guid: 6
+11/21/2026 06:26:44 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 03 () Ġthrows ĠThrow able Ġ{ ĠBuffer Rec y cler Ġbuffer Rec y cler 0 Ġ= Ġnew ĠBuffer Rec y cler ( 45 86 , Ġ4 586 ); ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer ( buffer Rec y cler 0 ); Ġint Ġint 0 </s> public Ġint Ġget Current Seg ment Size () Ġ{ Ġreturn Ġ_ current Size ; Ġ} </s> assert Equ als ( 1 , Ġint 0 ) </s>
+11/21/2026 06:26:44 - INFO - utils -   input_ids: 0 15110 13842 1296 3933 43048 6989 28106 868 25522 44314 21109 219 39255 21944 21109 219 39255 288 5457 92 44314 21109 219 39255 1640 1898 5334 6 204 38014 4397 14159 49334 2788 49334 288 5457 92 14159 49334 1640 47438 21109 219 39255 288 4397 6979 6979 288 2 15110 6979 120 42124 42775 1757 45698 43048 25522 671 18134 28311 45698 131 35524 2 46346 28568 1536 1640 134 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:44 - INFO - utils -   *** Example ***
+11/21/2026 06:26:44 - INFO - utils -   guid: 8
+11/21/2026 06:26:44 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 04 () Ġthrows ĠThrow able Ġ{ ĠBuffer Rec y cler Ġbuffer Rec y cler 0 Ġ= Ġnew ĠBuffer Rec y cler (); ĠText Buffer Ġtext Buffer 0 Ġ= Ġnew ĠText Buffer ( buffer Rec y cler 0 ); Ġtext Buffer 0 . release Buff ers (); Ġ"< </s> public Ġint Ġget Current Seg ment Size () Ġ{ Ġreturn Ġ_ current Size ; Ġ} </s> assert Equ als ( 0 , Ġtext Buffer 0 . get Current Seg ment Size ()) </s>
+11/21/2026 06:26:44 - INFO - utils -   input_ids: 0 15110 13842 1296 3387 43048 6989 28106 868 25522 44314 21109 219 39255 21944 21109 219 39255 288 5457 92 44314 21109 219 39255 47006 14159 49334 2788 49334 288 5457 92 14159 49334 1640 47438 21109 219 39255 288 4397 2788 49334 288 4 27561 42021 268 47006 49900 2 15110 6979 120 42124 42775 1757 45698 43048 25522 671 18134 28311 45698 131 35524 2 46346 28568 1536 1640 288 6 2788 49334 288 4 6460 42124 42775 1757 45698 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:26:44 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:26:44 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 06:26:44 - INFO - __main__ -     Num examples = 118
+11/21/2026 06:26:44 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 118 total truncations 1, mean_trunc 1.4745762711864407, median 0.0, max = 174
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:08<00:00,  8.10s/it]Evaluating: 100%|██████████| 1/1 [00:08<00:00,  8.10s/it]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.15037593984962405
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p JacksonCore -d /Users/bitu/mtech-tools/toga_out/JacksonCore-8/suite -v 8f
+Checking out 11f0b409 to /tmp/fix_test_suite.pl_13464_1795271213........... --------------------------------------------------------------------------------
+JacksonCore-8f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_13464_1795271213/maven-build. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 11f0b409:ac6d8e22..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-8f.................................. OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p JacksonCore -d /Users/bitu/mtech-tools/toga_out/JacksonCore-8/suite -o /Users/bitu/mtech-tools/toga_out/JacksonCore-8/detect
+Extract test suite......................................................... Executing test suite: JacksonCore-8f-toga.1.tar.bz2
+OK
+Checking out 11f0b409 to /tmp/run_bug_detection.pl_13625_1795271243/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_13625_1795271243/V_fixed/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 11f0b409:ac6d8e22..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-8f.................................. OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 11f0b409 to /tmp/run_bug_detection.pl_13625_1795271243/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_13625_1795271243/V_buggy/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 11f0b409:ac6d8e22..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-8b.................................. OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

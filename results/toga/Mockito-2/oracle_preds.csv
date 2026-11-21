@@ -1,0 +1,47 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Mockito,2,org.mockito.internal.util.Timer_ESTest::test0,"  public void test0()  throws Throwable  {
+      Timer timer0 = new Timer(0L);
+      timer0.start();
+      boolean boolean0 = timer0.isCounting();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Mockito,2,org.mockito.internal.util.Timer_ESTest::test0,"  public void test0()  throws Throwable  {
+      Timer timer0 = new Timer(0L);
+      timer0.start();
+      boolean boolean0 = timer0.isCounting();
+  }",0,
+Mockito,2,org.mockito.internal.util.Timer_ESTest::test1,"  public void test1()  throws Throwable  {
+      Timer timer0 = new Timer(0L);
+      // Undeclared exception!
+      try { 
+        timer0.isCounting();
+        fail(""Expecting exception: AssertionError"");
+      } catch(AssertionError e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }",0,
+Mockito,2,org.mockito.internal.util.Timer_ESTest::test2,"  public void test2()  throws Throwable  {
+      System.setCurrentTimeMillis((-203L));
+      Timer timer0 = new Timer(0L);
+      timer0.start();
+      System.setCurrentTimeMillis(0L);
+      boolean boolean0 = timer0.isCounting();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Mockito,2,org.mockito.internal.util.Timer_ESTest::test2,"  public void test2()  throws Throwable  {
+      System.setCurrentTimeMillis((-203L));
+      Timer timer0 = new Timer(0L);
+      timer0.start();
+      System.setCurrentTimeMillis(0L);
+      boolean boolean0 = timer0.isCounting();
+  }",0,
+Mockito,2,org.mockito.internal.util.Timer_ESTest::test3,"  public void test3()  throws Throwable  {
+      Timer timer0 = null;
+      try {
+        timer0 = new Timer((-25L));
+        fail(""Expecting exception: RuntimeException"");
+      } catch(RuntimeException e) {
+      }
+  }",0,

@@ -1,0 +1,207 @@
+focal_method,test_prefix,docstring
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test0()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""eJgC=_Q"", ""eJgC=_Q"");
+      AbstractCompiler.LifeCycleStage abstractCompiler_LifeCycleStage0 = AbstractCompiler.LifeCycleStage.NORMALIZED;
+      compiler0.setLifeCycleStage(abstractCompiler_LifeCycleStage0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, false);
+      removeUnusedVars0.process(node0, node0);
+      assertFalse(node0.isVar());
+}","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test0()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""eJgC=_Q"", ""eJgC=_Q"");
+      AbstractCompiler.LifeCycleStage abstractCompiler_LifeCycleStage0 = AbstractCompiler.LifeCycleStage.NORMALIZED;
+      compiler0.setLifeCycleStage(abstractCompiler_LifeCycleStage0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, false);
+      removeUnusedVars0.process(node0, node0);
+  }","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test1()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""arguments"", ""arguments"");
+      AbstractCompiler.LifeCycleStage abstractCompiler_LifeCycleStage0 = AbstractCompiler.LifeCycleStage.NORMALIZED_OBFUSCATED;
+      compiler0.setLifeCycleStage(abstractCompiler_LifeCycleStage0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      // Undeclared exception!
+      try { 
+        removeUnusedVars0.process(node0, node0);
+        fail(""Expecting exception: RuntimeException"");
+      } catch(RuntimeException e) {
+         //
+         // INTERNAL COMPILER ERROR.
+         // Please report this problem.
+         // Unexpected lValue type NAME
+         //   Node(NAME arguments):  [testcode] :1:0
+         // arguments
+         //   Parent(EXPR_RESULT):  [testcode] :1:0
+         // arguments
+         //
+         verifyException(""com.google.common.base.Preconditions"", e);
+      }
+  }","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test2()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""prototype"", ""prototype"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, false, false, false);
+      removeUnusedVars0.process(node0, node0, simpleDefinitionFinder0);
+      assertEquals(1, node0.getLineno());
+}","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test2()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""prototype"", ""prototype"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, false, false, false);
+      removeUnusedVars0.process(node0, node0, simpleDefinitionFinder0);
+  }","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test3()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""arguments"", ""arguments"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      Node node1 = new Node(37, node0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      removeUnusedVars0.process(node1, node1, simpleDefinitionFinder0);
+      assertFalse(node1.isBlock());
+}","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test3()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""arguments"", ""arguments"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      Node node1 = new Node(37, node0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      removeUnusedVars0.process(node1, node1, simpleDefinitionFinder0);
+  }","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test4()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = compiler0.parseTestCode(""eJBC=_Q"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      Node node1 = new Node(86, node0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      removeUnusedVars0.process(node1, node1, simpleDefinitionFinder0);
+      assertEquals(45, Node.IS_VAR_ARGS_PARAM);
+}","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"
+"  public void process(Node externs, Node root) {
+    Preconditions.checkState(compiler.getLifeCycleStage().isNormalized());
+    SimpleDefinitionFinder defFinder = null;
+
+    if (modifyCallSites) {
+      // For testing, allow the SimpleDefinitionFinder to be build now.
+      defFinder = new SimpleDefinitionFinder(compiler);
+      defFinder.process(externs, root);
+    }
+    process(externs, root, defFinder);
+  }","  public void test4()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = compiler0.parseTestCode(""eJBC=_Q"");
+      SimpleDefinitionFinder simpleDefinitionFinder0 = new SimpleDefinitionFinder(compiler0);
+      Node node1 = new Node(86, node0);
+      RemoveUnusedVars removeUnusedVars0 = new RemoveUnusedVars(compiler0, true, true, true);
+      removeUnusedVars0.process(node1, node1, simpleDefinitionFinder0);
+  }","/**
+   * Traverses the root, removing all unused variables. Multiple traversals
+   * may occur to ensure all unused variables are removed.
+   */"

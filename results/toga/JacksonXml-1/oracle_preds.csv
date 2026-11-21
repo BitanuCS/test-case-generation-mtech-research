@@ -1,0 +1,21 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+JacksonXml,1,com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser_ESTest::test0,"  public void test0()  throws Throwable  {
+      StreamReaderDelegate streamReaderDelegate0 = new StreamReaderDelegate();
+      FromXmlParser fromXmlParser0 = null;
+      try {
+        fromXmlParser0 = new FromXmlParser((IOContext) null, 0, 0, (ObjectCodec) null, streamReaderDelegate0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser"", e);
+      }
+  }",0,
+JacksonXml,1,com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser_ESTest::test1,"  public void test1()  throws Throwable  {
+      int int0 = FromXmlParser.Feature.collectDefaults();
+      assertEquals(0, int0);
+}",0,
+JacksonXml,1,com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser_ESTest::test1,"  public void test1()  throws Throwable  {
+      int int0 = FromXmlParser.Feature.collectDefaults();
+  }",0,

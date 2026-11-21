@@ -1,0 +1,187 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Jsoup-7/evo /Users/bitu/mtech-tools/work/Jsoup-7f/src/main/java Jsoup 7 /Users/bitu/mtech-tools/toga_out/Jsoup-7
+33 test prefixes, 33 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Jsoup-7/inputs.csv /Users/bitu/mtech-tools/toga_out/Jsoup-7/meta.csv
+11/21/2026 06:35:37 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 06:35:39 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 06:35:40 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 06:35:40 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 06:35:40 - INFO - utils -   Writing example 0 of 33
+11/21/2026 06:35:40 - INFO - utils -   *** Example ***
+11/21/2026 06:35:40 - INFO - utils -   guid: test-0
+11/21/2026 06:35:40 - INFO - utils -   tokens: <s> public ĠString Ġnode Name () Ġ{ Ġreturn Ġ"# document "; Ġ} </s> public Ġvoid Ġtest Node Name () Ġ{ ĠDocument Ġdocument 0 Ġ= ĠDocument . create Shell (" he / ad "); Ġdocument 0 . text (" he / ad "); Ġdocument 0 . outer H tml (); Ġ} </s>
+11/21/2026 06:35:40 - INFO - utils -   input_ids: 0 15110 26602 37908 31723 43048 25522 671 35290 43017 25718 35524 2 15110 13842 1296 48271 31723 43048 25522 27246 3780 288 5457 27246 4 32845 44806 46469 700 73 625 45751 3780 288 4 29015 46469 700 73 625 45751 3780 288 4 44827 725 46653 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:40 - INFO - utils -   *** Example ***
+11/21/2026 06:35:40 - INFO - utils -   guid: test-1
+11/21/2026 06:35:40 - INFO - utils -   tokens: <s> public ĠString Ġouter H tml () Ġ{ Ġreturn Ġsuper . html (); Ġ// Ġno Ġouter Ġwrapper Ġtag Ġ} </s> public Ġvoid Ġtest Out er H tml () Ġ{ ĠDocument Ġdocument 0 Ġ= ĠDocument . create Shell (" he / ad "); Ġdocument 0 . text (" he / ad "); Ġdocument 0 . outer H tml (); Ġ} </s>
+11/21/2026 06:35:40 - INFO - utils -   input_ids: 0 15110 26602 15705 725 46653 43048 25522 671 2422 4 6660 47006 21277 117 15705 44796 6694 35524 2 15110 13842 1296 14944 254 725 46653 43048 25522 27246 3780 288 5457 27246 4 32845 44806 46469 700 73 625 45751 3780 288 4 29015 46469 700 73 625 45751 3780 288 4 44827 725 46653 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:40 - INFO - utils -   *** Example ***
+11/21/2026 06:35:40 - INFO - utils -   guid: test-2
+11/21/2026 06:35:40 - INFO - utils -   tokens: <s> public ĠString Ġouter H tml () Ġ{ Ġreturn Ġsuper . html (); Ġ// Ġno Ġouter Ġwrapper Ġtag Ġ} </s> public Ġvoid Ġtest Out er H tml () Ġ{ ĠDocument Ġdocument 0 Ġ= ĠDocument . create Shell (" he / ad "); Ġdocument 0 . text (" he / ad "); Ġdocument 0 . outer H tml (); Ġ} </s>
+11/21/2026 06:35:40 - INFO - utils -   input_ids: 0 15110 26602 15705 725 46653 43048 25522 671 2422 4 6660 47006 21277 117 15705 44796 6694 35524 2 15110 13842 1296 14944 254 725 46653 43048 25522 27246 3780 288 5457 27246 4 32845 44806 46469 700 73 625 45751 3780 288 4 29015 46469 700 73 625 45751 3780 288 4 44827 725 46653 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:40 - INFO - utils -   *** Example ***
+11/21/2026 06:35:40 - INFO - utils -   guid: test-3
+11/21/2026 06:35:40 - INFO - utils -   tokens: <s> public ĠOutput Settings Ġoutput Settings () Ġ{ Ġreturn Ġoutput Settings ; Ġ} </s> public Ġvoid Ġtest Output Settings () Ġ{ ĠDocument Ġdocument 0 Ġ= Ġnew ĠDocument (" l arr b fs "); ĠDocument . Output Settings Ġdocument _ Output Settings 0 Ġ= Ġdocument 0 . output Settings (); Ġdocument _ Output Settings 0 . ch ars et (( String ) Ġnull ); Ġ} </s>
+11/21/2026 06:35:40 - INFO - utils -   input_ids: 0 15110 38252 47718 4195 47718 43048 25522 671 4195 47718 131 35524 2 15110 13842 1296 48293 47718 43048 25522 27246 3780 288 5457 92 27246 46469 462 6166 428 17884 45751 27246 4 48293 47718 3780 1215 48293 47718 288 5457 3780 288 4 46234 47718 47006 3780 1215 48293 47718 288 4 611 2726 594 48461 34222 43 23796 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 06:35:40 - INFO - utils -   *** Example ***
+11/21/2026 06:35:40 - INFO - utils -   guid: test-4
+11/21/2026 06:35:40 - INFO - utils -   tokens: <s> public ĠDocument ( String Ġbase U ri ) Ġ{ Ġsuper ( Tag . value Of (" # root "), Ġbase U ri ); Ġ} </s> public Ġvoid Ġtest Document () Ġ{ ĠDocument Ġdocument 0 Ġ= Ġnew ĠDocument (" ] ?" ); ĠDocument . Output Settings Ġdocument _ Output Settings 0 Ġ= Ġdocument 0 . new ĠOutput Settings (); Ġdocument _ Output Settings 0 . ch ars et (); Ġ} </s>
+11/21/2026 06:35:40 - INFO - utils -   input_ids: 0 15110 27246 1640 34222 1542 791 1069 43 25522 2422 1640 45650 4 19434 10643 46469 10431 29059 16844 1542 791 1069 4397 35524 2 15110 13842 1296 47088 43048 25522 27246 3780 288 5457 92 27246 46469 742 1917 4397 27246 4 48293 47718 3780 1215 48293 47718 288 5457 3780 288 4 4651 38252 47718 47006 3780 1215 48293 47718 288 4 611 2726 594 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:40 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:40 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 06:35:40 - INFO - __main__ -     Num examples = 33
+11/21/2026 06:35:40 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 33 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:02<00:00,  2.09s/it]Evaluating: 100%|██████████| 1/1 [00:02<00:00,  2.09s/it]
+11/21/2026 06:35:45 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 06:35:46 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 06:35:47 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 06:35:47 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 06:35:47 - INFO - utils -   Writing example 0 of 27
+11/21/2026 06:35:47 - INFO - utils -   *** Example ***
+11/21/2026 06:35:47 - INFO - utils -   guid: 0
+11/21/2026 06:35:47 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠDocument Ġdocument 0 Ġ= ĠDocument . create Shell (" he / ad "); Ġdocument 0 . text (" he / ad "); ĠString Ġstring 0 Ġ= Ġdocument 0 . outer H tml (); Ġ"< Ass ert Place H older >" Ġ; </s> public ĠString Ġnode Name () Ġ{ Ġreturn Ġ"# document "; Ġ} </s> assert Not Null ( document 0 . node Name ()) </s>
+11/21/2026 06:35:47 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 27246 3780 288 5457 27246 4 32845 44806 46469 700 73 625 45751 3780 288 4 29015 46469 700 73 625 45751 26602 6755 288 5457 3780 288 4 44827 725 46653 47006 49900 26039 2399 41863 725 33780 49721 25606 2 15110 26602 37908 31723 43048 25522 671 35290 43017 25718 35524 2 46346 7199 49302 1640 43017 288 4 46840 31723 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:47 - INFO - utils -   *** Example ***
+11/21/2026 06:35:47 - INFO - utils -   guid: 1
+11/21/2026 06:35:47 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠDocument Ġdocument 0 Ġ= ĠDocument . create Shell (" he / ad "); Ġdocument 0 . text (" he / ad "); ĠString Ġstring 0 Ġ= Ġdocument 0 . outer H tml (); Ġ"< Ass ert Place H older >" Ġ; </s> public ĠString Ġouter H tml () Ġ{ Ġreturn Ġsuper . html (); Ġ// Ġno Ġouter Ġwrapper Ġtag Ġ} </s> assert Not Null ( string 0 ) </s>
+11/21/2026 06:35:47 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 27246 3780 288 5457 27246 4 32845 44806 46469 700 73 625 45751 3780 288 4 29015 46469 700 73 625 45751 26602 6755 288 5457 3780 288 4 44827 725 46653 47006 49900 26039 2399 41863 725 33780 49721 25606 2 15110 26602 15705 725 46653 43048 25522 671 2422 4 6660 47006 21277 117 15705 44796 6694 35524 2 46346 7199 49302 1640 20951 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:47 - INFO - utils -   *** Example ***
+11/21/2026 06:35:47 - INFO - utils -   guid: 4
+11/21/2026 06:35:47 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠDocument Ġdocument 0 Ġ= Ġnew ĠDocument (" ] ?" ); ĠDocument . Output Settings Ġdocument _ Output Settings 0 Ġ= Ġdocument 0 . new ĠOutput Settings (); Ġdocument _ Output Settings 0 . ch ars et (); Ġ"< Ass ert Place </s> public ĠDocument ( String Ġbase U ri ) Ġ{ Ġsuper ( Tag . value Of (" # root "), Ġbase U ri ); Ġ} </s> assert Equ als ( 0 , Ġdocument _ Output Settings 0 . ind ent Amount ()) </s>
+11/21/2026 06:35:47 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 27246 3780 288 5457 92 27246 46469 742 1917 4397 27246 4 48293 47718 3780 1215 48293 47718 288 5457 3780 288 4 4651 38252 47718 47006 3780 1215 48293 47718 288 4 611 2726 594 47006 49900 26039 2399 41863 2 15110 27246 1640 34222 1542 791 1069 43 25522 2422 1640 45650 4 19434 10643 46469 10431 29059 16844 1542 791 1069 4397 35524 2 46346 28568 1536 1640 288 6 3780 1215 48293 47718 288 4 2028 1342 48302 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:47 - INFO - utils -   *** Example ***
+11/21/2026 06:35:47 - INFO - utils -   guid: 4
+11/21/2026 06:35:47 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠDocument Ġdocument 0 Ġ= Ġnew ĠDocument (" ] ?" ); ĠDocument . Output Settings Ġdocument _ Output Settings 0 Ġ= Ġdocument 0 . new ĠOutput Settings (); Ġdocument _ Output Settings 0 . ch ars et (); Ġ"< Ass ert Place </s> public ĠDocument ( String Ġbase U ri ) Ġ{ Ġsuper ( Tag . value Of (" # root "), Ġbase U ri ); Ġ} </s> assert Equ als ( 1 , Ġdocument _ Output Settings 0 . ind ent Amount ()) </s>
+11/21/2026 06:35:47 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 27246 3780 288 5457 92 27246 46469 742 1917 4397 27246 4 48293 47718 3780 1215 48293 47718 288 5457 3780 288 4 4651 38252 47718 47006 3780 1215 48293 47718 288 4 611 2726 594 47006 49900 26039 2399 41863 2 15110 27246 1640 34222 1542 791 1069 43 25522 2422 1640 45650 4 19434 10643 46469 10431 29059 16844 1542 791 1069 4397 35524 2 46346 28568 1536 1640 134 6 3780 1215 48293 47718 288 4 2028 1342 48302 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:47 - INFO - utils -   *** Example ***
+11/21/2026 06:35:47 - INFO - utils -   guid: 5
+11/21/2026 06:35:47 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠDocument Ġdocument 0 Ġ= Ġnew ĠDocument (" ] ?" ); ĠDocument . Output Settings Ġdocument _ Output Settings 0 Ġ= Ġdocument 0 . new ĠOutput Settings (); Ġdocument _ Output Settings 0 . ch ars et (); Ġ"< Ass ert Place </s> public ĠDocument ( String Ġbase U ri ) Ġ{ Ġsuper ( Tag . value Of (" # root "), Ġbase U ri ); Ġ} </s> assert True ( document _ Output Settings 0 . pretty Print ()) </s>
+11/21/2026 06:35:47 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 27246 3780 288 5457 92 27246 46469 742 1917 4397 27246 4 48293 47718 3780 1215 48293 47718 288 5457 3780 288 4 4651 38252 47718 47006 3780 1215 48293 47718 288 4 611 2726 594 47006 49900 26039 2399 41863 2 15110 27246 1640 34222 1542 791 1069 43 25522 2422 1640 45650 4 19434 10643 46469 10431 29059 16844 1542 791 1069 4397 35524 2 46346 36948 1640 43017 1215 48293 47718 288 4 28674 43945 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 06:35:47 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 06:35:47 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 06:35:47 - INFO - __main__ -     Num examples = 27
+11/21/2026 06:35:47 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 27 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.67s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.67s/it]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.3333333333333333
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Jsoup -d /Users/bitu/mtech-tools/toga_out/Jsoup-7/suite -v 7f
+Checking out 82855b07 to /tmp/fix_test_suite.pl_14313_1795271750........... --------------------------------------------------------------------------------
+Jsoup-7f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_14313_1795271750/maven-build. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 82855b07:08a3d672..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Jsoup-7f........................................ OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Jsoup -d /Users/bitu/mtech-tools/toga_out/Jsoup-7/suite -o /Users/bitu/mtech-tools/toga_out/Jsoup-7/detect
+Extract test suite......................................................... Executing test suite: Jsoup-7f-toga.1.tar.bz2
+OK
+Checking out 82855b07 to /tmp/run_bug_detection.pl_14463_1795271781/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_14463_1795271781/V_fixed/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 82855b07:08a3d672..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Jsoup-7f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 82855b07 to /tmp/run_bug_detection.pl_14463_1795271781/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_14463_1795271781/V_buggy/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 82855b07:08a3d672..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Jsoup-7b........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

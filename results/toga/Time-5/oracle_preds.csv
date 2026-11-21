@@ -1,0 +1,713 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Time,5,org.joda.time.Period_ESTest::test00,"  public void test00()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Period period1 = period0.withDays(12);
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test00,"  public void test00()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Period period1 = period0.withDays(12);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test01,"  public void test01()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withMinutes(2315);
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test01,"  public void test01()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withMinutes(2315);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test02,"  public void test02()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.minusMillis(85);
+      assertNotSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test02,"  public void test02()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.minusMillis(85);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test03,"  public void test03()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withHours(1000);
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test03,"  public void test03()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withHours(1000);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test04,"  public void test04()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Period period1 = period0.withWeeks(12);
+      assertNotSame(period0, period1);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test04,"  public void test04()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Period period1 = period0.withWeeks(12);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test05,"  public void test05()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withSeconds((-925));
+      assertNotSame(period0, period1);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test05,"  public void test05()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withSeconds((-925));
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test06,"  public void test06()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.time();
+      Period period0 = new Period(0L);
+      Period period1 = period0.withPeriodType(periodType0);
+      assertNotSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test06,"  public void test06()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.time();
+      Period period0 = new Period(0L);
+      Period period1 = period0.withPeriodType(periodType0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test07,"  public void test07()  throws Throwable  {
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.negated();
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test07,"  public void test07()  throws Throwable  {
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.negated();
+      assertNotSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test07,"  public void test07()  throws Throwable  {
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.negated();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test08,"  public void test08()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Period.parse(""sh4eI$?4tc@~w sC4"");
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid format: \""sh4eI$?4tc@~w sC4\""
+         //
+         verifyException(""org.joda.time.format.PeriodFormatter"", e);
+      }
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test09,"  public void test09()  throws Throwable  {
+      GJChronology gJChronology0 = GJChronology.getInstanceUTC();
+      LocalDate localDate0 = new LocalDate((-1396L), (Chronology) gJChronology0);
+      Period period0 = new Period(localDate0, localDate0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test10,"  public void test10()  throws Throwable  {
+      Period period0 = new Period(499, 83, 499, 83);
+      Period period1 = new Period(period0, (Chronology) null);
+      assertTrue(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test10,"  public void test10()  throws Throwable  {
+      Period period0 = new Period(499, 83, 499, 83);
+      Period period1 = new Period(period0, (Chronology) null);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test11,"  public void test11()  throws Throwable  {
+      Period period0 = new Period(1829, (-2308), 1829, (-2308), 1198, 1198, (-597), 1829, (PeriodType) null);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test12,"  public void test12()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Days days0 = period0.ZERO.toStandardDays();
+      assertEquals(0, days0.getDays());
+}",0,"assertEquals(0, days0.getDays())"
+Time,5,org.joda.time.Period_ESTest::test12,"  public void test12()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Days days0 = period0.ZERO.toStandardDays();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test13,"  public void test13()  throws Throwable  {
+      Duration duration0 = Duration.standardSeconds(1714L);
+      Period period0 = duration0.toPeriod((PeriodType) null);
+      assertNotNull(period0);
+}",0,assertNotNull(period0)
+Time,5,org.joda.time.Period_ESTest::test13,"  public void test13()  throws Throwable  {
+      Duration duration0 = Duration.standardSeconds(1714L);
+      Period period0 = duration0.toPeriod((PeriodType) null);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test14,"  public void test14()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12, 12, 12, 12, 12);
+      Period period1 = period0.minusMonths(12);
+      assertNotSame(period1, period0);
+}",1,
+Time,5,org.joda.time.Period_ESTest::test14,"  public void test14()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12, 12, 12, 12, 12);
+      Period period1 = period0.minusMonths(12);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test15,"  public void test15()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withMillis((-1345));
+      assertNotSame(period0, period1);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test15,"  public void test15()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withMillis((-1345));
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test16,"  public void test16()  throws Throwable  {
+      Duration duration0 = Duration.standardDays(2452L);
+      Period period0 = duration0.toPeriodFrom((ReadableInstant) null);
+      Interval interval0 = new Interval(period0, (ReadableInstant) null);
+      Period period1 = interval0.toPeriod();
+      assertNotSame(period0, period1);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test16,"  public void test16()  throws Throwable  {
+      Duration duration0 = Duration.standardDays(2452L);
+      Period period0 = duration0.toPeriodFrom((ReadableInstant) null);
+      Interval interval0 = new Interval(period0, (ReadableInstant) null);
+      Period period1 = interval0.toPeriod();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test17,"  public void test17()  throws Throwable  {
+      Period period0 = Period.weeks(7);
+      assertNotNull(period0);
+}",0,assertNotNull(period0)
+Time,5,org.joda.time.Period_ESTest::test17,"  public void test17()  throws Throwable  {
+      Period period0 = Period.weeks(7);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test18,"  public void test18()  throws Throwable  {
+      Period period0 = new Period(0L);
+      Period period1 = period0.toPeriod();
+      assertSame(period0, period1);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test18,"  public void test18()  throws Throwable  {
+      Period period0 = new Period(0L);
+      Period period1 = period0.toPeriod();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test19,"  public void test19()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      DurationFieldType durationFieldType0 = DurationFieldType.WEEKS_TYPE;
+      Period period1 = period0.withFieldAdded(durationFieldType0, 0);
+      assertSame(period1, period0);
+}",1,
+Time,5,org.joda.time.Period_ESTest::test19,"  public void test19()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      DurationFieldType durationFieldType0 = DurationFieldType.WEEKS_TYPE;
+      Period period1 = period0.withFieldAdded(durationFieldType0, 0);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test20,"  public void test20()  throws Throwable  {
+      Period period0 = Period.millis(0);
+      assertNotNull(period0);
+}",0,assertNotNull(period0)
+Time,5,org.joda.time.Period_ESTest::test20,"  public void test20()  throws Throwable  {
+      Period period0 = Period.millis(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test21,"  public void test21()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Period period1 = period0.ZERO.minusHours((-6127));
+      assertNotSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test21,"  public void test21()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Period period1 = period0.ZERO.minusHours((-6127));
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test22,"  public void test22()  throws Throwable  {
+      Duration duration0 = Duration.standardSeconds(33780L);
+      Instant instant0 = new Instant();
+      GJChronology gJChronology0 = GJChronology.getInstance();
+      DateTime dateTime0 = instant0.toDateTime((Chronology) gJChronology0);
+      Period period0 = new Period(duration0, dateTime0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test23,"  public void test23()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Hours hours0 = period0.toStandardHours();
+      assertEquals(12, hours0.getHours());
+}",0,"assertEquals(0, hours0.getHours())"
+Time,5,org.joda.time.Period_ESTest::test23,"  public void test23()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Hours hours0 = period0.toStandardHours();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test24,"  public void test24()  throws Throwable  {
+      Period period0 = Period.hours((-834));
+      assertNotNull(period0);
+}",0,assertNotNull(period0)
+Time,5,org.joda.time.Period_ESTest::test24,"  public void test24()  throws Throwable  {
+      Period period0 = Period.hours((-834));
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test25,"  public void test25()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.minusMinutes(5);
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test25,"  public void test25()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.minusMinutes(5);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test26,"  public void test26()  throws Throwable  {
+      DateTime dateTime0 = new DateTime();
+      Period period0 = new Period(dateTime0, dateTime0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test27,"  public void test27()  throws Throwable  {
+      Period period0 = new Period(15778476000L, 1125L);
+      // Undeclared exception!
+      try { 
+        period0.toStandardDuration();
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Cannot convert to Duration as this period contains months and months vary in length
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test28,"  public void test28()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.hours();
+      MutablePeriod mutablePeriod0 = new MutablePeriod(31556952000L, periodType0);
+      Period period0 = mutablePeriod0.toPeriod();
+      assertNotNull(period0);
+}",0,assertNotNull(period0)
+Time,5,org.joda.time.Period_ESTest::test28,"  public void test28()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.hours();
+      MutablePeriod mutablePeriod0 = new MutablePeriod(31556952000L, periodType0);
+      Period period0 = mutablePeriod0.toPeriod();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test29,"  public void test29()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      JulianChronology julianChronology0 = JulianChronology.getInstanceUTC();
+      LocalDate localDate0 = new LocalDate(localDateTime0, julianChronology0);
+      Period period0 = new Period(localDate0, localDate0, (PeriodType) null);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test30,"  public void test30()  throws Throwable  {
+      Period period0 = Period.days((-855));
+      assertNotNull(period0);
+}",0,assertNotNull(period0)
+Time,5,org.joda.time.Period_ESTest::test30,"  public void test30()  throws Throwable  {
+      Period period0 = Period.days((-855));
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test31,"  public void test31()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period((Object) null, periodType0, (Chronology) null);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test32,"  public void test32()  throws Throwable  {
+      Period period0 = new Period();
+      Minutes minutes0 = period0.toStandardMinutes();
+      assertEquals(0, minutes0.getMinutes());
+}",0,"assertEquals(0, minutes0.getMinutes())"
+Time,5,org.joda.time.Period_ESTest::test32,"  public void test32()  throws Throwable  {
+      Period period0 = new Period();
+      Minutes minutes0 = period0.toStandardMinutes();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test33,"  public void test33()  throws Throwable  {
+      IslamicChronology islamicChronology0 = IslamicChronology.getInstanceUTC();
+      Period period0 = new Period(0L, (Chronology) islamicChronology0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test34,"  public void test34()  throws Throwable  {
+      Duration duration0 = Duration.standardMinutes(2415L);
+      MutableDateTime mutableDateTime0 = new MutableDateTime(2415L);
+      PeriodType periodType0 = PeriodType.yearDayTime();
+      Period period0 = new Period(duration0, mutableDateTime0, periodType0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test35,"  public void test35()  throws Throwable  {
+      Period period0 = Period.months((-834));
+      Period period1 = period0.normalizedStandard();
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test35,"  public void test35()  throws Throwable  {
+      Period period0 = Period.months((-834));
+      Period period1 = period0.normalizedStandard();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test36,"  public void test36()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Duration duration0 = period0.ZERO.toStandardDuration();
+      assertEquals(0L, duration0.getMillis());
+}",0,"assertEquals(0, duration0.getMillis())"
+Time,5,org.joda.time.Period_ESTest::test36,"  public void test36()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Duration duration0 = period0.ZERO.toStandardDuration();
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test37,"  public void test37()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.weeks();
+      Period period0 = new Period(2042L, 0L, periodType0, (Chronology) null);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test38,"  public void test38()  throws Throwable  {
+      Days days0 = Days.ZERO;
+      Duration duration0 = days0.toStandardDuration();
+      PeriodType periodType0 = PeriodType.years();
+      Period period0 = new Period((ReadableInstant) null, duration0, periodType0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test39,"  public void test39()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.minusDays((-834));
+      assertNotSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test39,"  public void test39()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.minusDays((-834));
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test40,"  public void test40()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Seconds seconds0 = period0.toStandardSeconds();
+      assertEquals(0, seconds0.getSeconds());
+}",0,"assertEquals(0, seconds0.getSeconds())"
+Time,5,org.joda.time.Period_ESTest::test40,"  public void test40()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Seconds seconds0 = period0.toStandardSeconds();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test41,"  public void test41()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      Period period1 = period0.minusWeeks(0);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test41,"  public void test41()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      Period period1 = period0.minusWeeks(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test42,"  public void test42()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      // Undeclared exception!
+      try { 
+        period0.minusSeconds(23);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Field is not supported
+         //
+         verifyException(""org.joda.time.PeriodType"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test43,"  public void test43()  throws Throwable  {
+      DateTimeZone dateTimeZone0 = DateTimeZone.getDefault();
+      GregorianChronology gregorianChronology0 = GregorianChronology.getInstance(dateTimeZone0);
+      DateTime dateTime0 = new DateTime((-11820L), (Chronology) gregorianChronology0);
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(dateTime0, dateTime0, periodType0);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test44,"  public void test44()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference((ReadablePartial) null, (ReadablePartial) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must not be null
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test45,"  public void test45()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference(localDateTime0, (ReadablePartial) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must not be null
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test46,"  public void test46()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      JulianChronology julianChronology0 = JulianChronology.getInstanceUTC();
+      LocalDate localDate0 = new LocalDate(localDateTime0, julianChronology0);
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference(localDateTime0, localDate0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must have the same set of fields
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test47,"  public void test47()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      LocalTime localTime0 = new LocalTime((-3614L));
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference(localDateTime0, localTime0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must have the same set of fields
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test48,"  public void test48()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[5];
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.dayOfYear();
+      dateTimeFieldTypeArray0[0] = dateTimeFieldType0;
+      dateTimeFieldTypeArray0[1] = dateTimeFieldType0;
+      int[] intArray0 = new int[3];
+      Partial partial0 = new Partial((Chronology) null, dateTimeFieldTypeArray0, intArray0);
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference(partial0, partial0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must not have overlapping fields
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test49,"  public void test49()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      Period period1 = period0.withPeriodType(periodType0);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test49,"  public void test49()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      Period period1 = period0.withPeriodType(periodType0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test50,"  public void test50()  throws Throwable  {
+      Days days0 = Days.ONE;
+      Period period0 = days0.toPeriod();
+      // Undeclared exception!
+      try { 
+        period0.ZERO.withField((DurationFieldType) null, 3);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Field must not be null
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test51,"  public void test51()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.withFields((ReadablePeriod) null);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test51,"  public void test51()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.withFields((ReadablePeriod) null);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test52,"  public void test52()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      DurationFieldType durationFieldType0 = DurationFieldType.years();
+      Period period1 = period0.withField(durationFieldType0, 0);
+      assertTrue(period1.equals((Object)period0));
+}",1,
+Time,5,org.joda.time.Period_ESTest::test52,"  public void test52()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      DurationFieldType durationFieldType0 = DurationFieldType.years();
+      Period period1 = period0.withField(durationFieldType0, 0);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test53,"  public void test53()  throws Throwable  {
+      DurationFieldType durationFieldType0 = DurationFieldType.MILLIS_TYPE;
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.withFieldAdded(durationFieldType0, (-2308));
+      assertNotSame(period1, period0);
+}",1,
+Time,5,org.joda.time.Period_ESTest::test53,"  public void test53()  throws Throwable  {
+      DurationFieldType durationFieldType0 = DurationFieldType.MILLIS_TYPE;
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.withFieldAdded(durationFieldType0, (-2308));
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test54,"  public void test54()  throws Throwable  {
+      Period period0 = Period.seconds(897);
+      // Undeclared exception!
+      try { 
+        period0.withFieldAdded((DurationFieldType) null, 2162);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Field must not be null
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test55,"  public void test55()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period(0L, 0L, periodType0);
+      Period period1 = period0.plus(period0);
+      assertNotSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test55,"  public void test55()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period(0L, 0L, periodType0);
+      Period period1 = period0.plus(period0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test56,"  public void test56()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.plus((ReadablePeriod) null);
+      assertSame(period0, period1);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test56,"  public void test56()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.plus((ReadablePeriod) null);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test57,"  public void test57()  throws Throwable  {
+      MonthDay monthDay0 = MonthDay.now();
+      Period period0 = Period.fieldDifference(monthDay0, monthDay0);
+      Period period1 = period0.ZERO.plusYears(0);
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test57,"  public void test57()  throws Throwable  {
+      MonthDay monthDay0 = MonthDay.now();
+      Period period0 = Period.fieldDifference(monthDay0, monthDay0);
+      Period period1 = period0.ZERO.plusYears(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test58,"  public void test58()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearWeekDay();
+      Period period0 = new Period(0L, 86400L, periodType0);
+      Period period1 = period0.minusMonths(0);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test58,"  public void test58()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearWeekDay();
+      Period period0 = new Period(0L, 86400L, periodType0);
+      Period period1 = period0.minusMonths(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test59,"  public void test59()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12, 12, 12, 12, 12);
+      Period period1 = period0.ZERO.minusWeeks(12);
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test59,"  public void test59()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12, 12, 12, 12, 12);
+      Period period1 = period0.ZERO.minusWeeks(12);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test60,"  public void test60()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.minusDays(0);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test60,"  public void test60()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.minusDays(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test61,"  public void test61()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.plusHours(0);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test61,"  public void test61()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.plusHours(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test62,"  public void test62()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.plusMinutes(0);
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test62,"  public void test62()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.plusMinutes(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test63,"  public void test63()  throws Throwable  {
+      Days days0 = Days.SEVEN;
+      Period period0 = days0.toPeriod();
+      Period period1 = period0.plusSeconds(0);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test63,"  public void test63()  throws Throwable  {
+      Days days0 = Days.SEVEN;
+      Period period0 = days0.toPeriod();
+      Period period1 = period0.plusSeconds(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test64,"  public void test64()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.plusMillis(0);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test64,"  public void test64()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.plusMillis(0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test65,"  public void test65()  throws Throwable  {
+      Period period0 = new Period(12, 12, 65, 12);
+      Period period1 = period0.minus(period0);
+      assertNotSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test65,"  public void test65()  throws Throwable  {
+      Period period0 = new Period(12, 12, 65, 12);
+      Period period1 = period0.minus(period0);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test66,"  public void test66()  throws Throwable  {
+      Period period0 = new Period(65, 65, (-688), 1434);
+      Period period1 = period0.minus((ReadablePeriod) null);
+      assertSame(period1, period0);
+}",0,
+Time,5,org.joda.time.Period_ESTest::test66,"  public void test66()  throws Throwable  {
+      Period period0 = new Period(65, 65, (-688), 1434);
+      Period period1 = period0.minus((ReadablePeriod) null);
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test67,"  public void test67()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Period period1 = period0.multipliedBy(26);
+      assertSame(period1, period0);
+}",1,
+Time,5,org.joda.time.Period_ESTest::test67,"  public void test67()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Period period1 = period0.multipliedBy(26);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test68,"  public void test68()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.multipliedBy(1);
+      assertSame(period1, period0);
+}",1,
+Time,5,org.joda.time.Period_ESTest::test68,"  public void test68()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.multipliedBy(1);
+  }",1,
+Time,5,org.joda.time.Period_ESTest::test69,"  public void test69()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.minusYears(1030);
+      // Undeclared exception!
+      try { 
+        period1.toStandardWeeks();
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Cannot convert to Weeks as this period contains years and years vary in length
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test70,"  public void test70()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period(0L, 0L, periodType0);
+      Period period1 = period0.normalizedStandard();
+      assertFalse(period1.equals((Object)period0));
+}",0,
+Time,5,org.joda.time.Period_ESTest::test70,"  public void test70()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period(0L, 0L, periodType0);
+      Period period1 = period0.normalizedStandard();
+  }",0,
+Time,5,org.joda.time.Period_ESTest::test71,"  public void test71()  throws Throwable  {
+      Period period0 = Period.years((-1166));
+      PeriodType periodType0 = PeriodType.millis();
+      // Undeclared exception!
+      try { 
+        period0.normalizedStandard(periodType0);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Unable to normalize as PeriodType is missing either years or months but period has a month/year amount: P-1166Y
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }",0,

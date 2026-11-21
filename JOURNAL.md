@@ -224,6 +224,14 @@ The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **
   - EvoSuite's Codec-5 measurements are also empty.
   - The TOGA run was restarted with 28 bugs to go, Cli-17 included.
 
+**TOGA dev40 result (finished 21 Nov 2026, 23:5x IST): 5/40 detected** — Lang-19, Csv-4, JxPath-1, Time-1, JacksonCore-8.
+- All 5 are also detected by EvoSuite (13/40). TOGA reuses EvoSuite's test prefixes and replaces its oracles, so on dev40 it only lost bugs (EvoSuite caught 8 that TOGA missed); it caught none that EvoSuite missed.
+- No usable tests (3): Cli-7 (no EvoSuite tests); JacksonDatabind-24 (1 prefix, 0 with a focal method) and Mockito-9 (0 prefixes) — TOGA's own code crashes on empty input (`ZeroDivisionError`, no `exception_preds.csv`). Counted as missed; TOGA's real limitation, not patched.
+- Mutation timed out (1 h) on Codec-5 and Closure-169, so those mutation scores are missing.
+- Times unreliable (laptop slept): Codec-5, Csv-1, Csv-4, Gson-2, Gson-6, JxPath-1 — do not use them in time comparisons.
+- Many tests removed as false alarms on the fixed version (e.g. JacksonCore-2: 650 of 2078; Closure-169: 222 of 787).
+- dev40 so far: our framework 20, EvoSuite 13, Randoop 8, TOGA 5.
+
 ## 6c. GitHub
 
 Public repository: https://github.com/BitanuCS/test-case-generation-mtech-research (first push on 17 Nov 2026). Not uploaded: `.env` (API keys), `cache/`, `Research/` PDFs, `old_results_backup.zip` and logs (see `.gitignore`). To update it: `git add -A && git commit -m "..." && git push`.

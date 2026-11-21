@@ -1,0 +1,976 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test00,"  public void test00()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.toString();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      assertEquals(0, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test00,"  public void test00()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.toString();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test01,"  public void test01()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      try { 
+        textBuffer0.contentsAsDouble();
+        fail(""Expecting exception: NumberFormatException"");
+      } catch(NumberFormatException e) {
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test02,"  public void test02()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      assertEquals(1000, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test02,"  public void test02()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      assertEquals(1500, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test02,"  public void test02()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test03,"  public void test03()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler(4586, 4586);
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      int int0 = textBuffer0.getCurrentSegmentSize();
+      assertEquals(0, int0);
+}",0,"assertEquals(0, int0)"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test03,"  public void test03()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler(4586, 4586);
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      int int0 = textBuffer0.getCurrentSegmentSize();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test04,"  public void test04()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.releaseBuffers();
+      assertEquals(0, textBuffer0.getCurrentSegmentSize());
+}",0,"assertEquals(0, textBuffer0.getCurrentSegmentSize())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test04,"  public void test04()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.releaseBuffers();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test05,"  public void test05()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.releaseBuffers();
+      assertEquals(0, textBuffer0.size());
+}",0,"assertEquals(0, textBuffer0.size())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test05,"  public void test05()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.releaseBuffers();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertNotNull(charArray0);
+}",0,assertNotNull(charArray0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test05,"  public void test05()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.releaseBuffers();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertEquals(0, textBuffer0.getTextOffset());
+}",0,"assertEquals(0, textBuffer0.getTextOffset())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test05,"  public void test05()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.releaseBuffers();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test06,"  public void test06()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.releaseBuffers();
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test06,"  public void test06()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.releaseBuffers();
+      assertEquals(0, textBuffer0.getTextOffset());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test06,"  public void test06()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.releaseBuffers();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test07,"  public void test07()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      assertEquals(200, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test07,"  public void test07()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.resetWithEmpty();
+      assertEquals(0, textBuffer0.getCurrentSegmentSize());
+}",0,"assertEquals(0, textBuffer0.getCurrentSegmentSize())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test07,"  public void test07()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.resetWithEmpty();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test08,"  public void test08()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.resetWithShared(charArray0, 2, 2);
+      try { 
+        textBuffer0.contentsAsDecimal();
+        fail(""Expecting exception: NumberFormatException"");
+      } catch(NumberFormatException e) {
+         //
+         // Value \""\u0000\u0000\"" can not be represented as BigDecimal
+         //
+         verifyException(""com.fasterxml.jackson.core.io.NumberInput"", e);
+      }
+  }",1,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test09,"  public void test09()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.finishCurrentSegment();
+      textBuffer0.resetWithShared(charArray0, 3, 3);
+      assertEquals(3, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test09,"  public void test09()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.finishCurrentSegment();
+      textBuffer0.resetWithShared(charArray0, 3, 3);
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test10,"  public void test10()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      assertNotNull(charArray0);
+}",0,assertNotNull(charArray0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test10,"  public void test10()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      assertEquals(0, textBuffer0.getTextOffset());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test10,"  public void test10()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.resetWithCopy(charArray0, 2, 0);
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test10,"  public void test10()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.resetWithCopy(charArray0, 2, 0);
+      assertEquals(200, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test10,"  public void test10()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.resetWithCopy(charArray0, 2, 0);
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test11,"  public void test11()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.finishCurrentSegment();
+      assertEquals(200, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test11,"  public void test11()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.resetWithCopy(charArray0, 2, 0);
+      assertEquals(0, textBuffer0.getCurrentSegmentSize());
+}",0,"assertEquals(0, textBuffer0.getCurrentSegmentSize())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test11,"  public void test11()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.resetWithCopy(charArray0, 2, 0);
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test12,"  public void test12()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      // Undeclared exception!
+      try { 
+        textBuffer0.resetWithCopy(charArray0, 2, 0);
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(ArrayIndexOutOfBoundsException e) {
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test13,"  public void test13()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      assertEquals(1000, textBuffer0.size());
+}",0,"assertEquals(0, textBuffer0.size())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test13,"  public void test13()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.resetWithString((String) null);
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test13,"  public void test13()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.resetWithString((String) null);
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test14,"  public void test14()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler(45, 45);
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      int int0 = textBuffer0.size();
+      assertEquals(0, int0);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test14,"  public void test14()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler(45, 45);
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      int int0 = textBuffer0.size();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test15,"  public void test15()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      assertNotNull(charArray0);
+}",0,assertNotNull(charArray0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test15,"  public void test15()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      int int0 = textBuffer0.size();
+      assertEquals(0, textBuffer0.getTextOffset());
+}",0,"assertEquals(0, textBuffer0.getTextOffset())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test15,"  public void test15()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      int int0 = textBuffer0.size();
+      assertEquals(0, int0);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test15,"  public void test15()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      int int0 = textBuffer0.size();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test16,"  public void test16()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler(200, 200);
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.resetWithString("""");
+      textBuffer0.size();
+      assertFalse(textBuffer0.hasTextAsCharacters());
+}",0,assertTrue(textBuffer0.hasTextAsCharacters())
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test16,"  public void test16()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler(200, 200);
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.resetWithString("""");
+      textBuffer0.size();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test17,"  public void test17()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      int int0 = textBuffer0.getTextOffset();
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test17,"  public void test17()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      int int0 = textBuffer0.getTextOffset();
+      assertEquals(0, int0);
+}",0,"assertEquals(0, int0)"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test17,"  public void test17()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      int int0 = textBuffer0.getTextOffset();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test18,"  public void test18()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      int int0 = textBuffer0.getTextOffset();
+      assertEquals(0, int0);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test18,"  public void test18()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      int int0 = textBuffer0.getTextOffset();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test19,"  public void test19()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test19,"  public void test19()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test20,"  public void test20()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test20,"  public void test20()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+      assertEquals(0, textBuffer0.size());
+}",0,"assertEquals(0, textBuffer0.size())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test20,"  public void test20()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+      assertEquals(0, textBuffer0.getTextOffset());
+}",0,"assertEquals(0, textBuffer0.getTextOffset())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test20,"  public void test20()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test21,"  public void test21()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      assertNotNull(charArray0);
+}",0,assertNotNull(charArray0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test21,"  public void test21()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test21,"  public void test21()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test21,"  public void test21()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test22,"  public void test22()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.resetWithString("""");
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test22,"  public void test22()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.resetWithString("""");
+      boolean boolean0 = textBuffer0.hasTextAsCharacters();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test23,"  public void test23()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertNull(charArray0);
+}",0,assertNotNull(charArray0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test23,"  public void test23()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      char[] charArray0 = textBuffer0.getTextBuffer();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test24,"  public void test24()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.contentsAsArray();
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertEquals(0, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test24,"  public void test24()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.contentsAsArray();
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertEquals(0, textBuffer0.getCurrentSegmentSize());
+}",0,"assertEquals(0, textBuffer0.getCurrentSegmentSize())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test24,"  public void test24()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.contentsAsArray();
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertNotNull(charArray0);
+}",0,assertNotNull(charArray0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test24,"  public void test24()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.contentsAsArray();
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test25,"  public void test25()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.resetWithString("""");
+      assertFalse(textBuffer0.hasTextAsCharacters());
+}",0,assertTrue(textBuffer0.hasTextAsCharacters())
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test25,"  public void test25()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.resetWithString("""");
+      textBuffer0.getTextBuffer();
+      assertTrue(textBuffer0.hasTextAsCharacters());
+}",0,assertTrue(textBuffer0.hasTextAsCharacters())
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test25,"  public void test25()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.resetWithString("""");
+      textBuffer0.getTextBuffer();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test26,"  public void test26()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.getTextBuffer();
+      assertEquals(1000, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test26,"  public void test26()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.getTextBuffer();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test27,"  public void test27()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test27,"  public void test27()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertEquals(1000, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test27,"  public void test27()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+      assertNotNull(charArray0);
+}",0,assertNotNull(charArray0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test27,"  public void test27()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getTextBuffer();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test28,"  public void test28()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.contentsAsArray();
+      String string0 = textBuffer0.toString();
+      assertEquals("""", string0);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test28,"  public void test28()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.contentsAsArray();
+      String string0 = textBuffer0.toString();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test29,"  public void test29()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      textBuffer0.resetWithShared(charArray0, 1, 1);
+      textBuffer0.toString();
+      assertEquals(1, textBuffer0.getTextOffset());
+}",0,"assertEquals(0, textBuffer0.getTextOffset())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test29,"  public void test29()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      textBuffer0.resetWithShared(charArray0, 1, 1);
+      textBuffer0.toString();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test30,"  public void test30()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      String string0 = textBuffer0.contentsAsString();
+      TextBuffer textBuffer1 = new TextBuffer(bufferRecycler0);
+      textBuffer1.append(string0, 0, 3);
+      assertEquals(200, textBuffer0.size());
+}",0,"assertEquals(0, textBuffer0.size())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test30,"  public void test30()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      String string0 = textBuffer0.contentsAsString();
+      TextBuffer textBuffer1 = new TextBuffer(bufferRecycler0);
+      textBuffer1.append(string0, 0, 3);
+      String string1 = textBuffer1.contentsAsString();
+      assertEquals(""\u0000\u0000\u0000"", string1);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test30,"  public void test30()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      String string0 = textBuffer0.contentsAsString();
+      TextBuffer textBuffer1 = new TextBuffer(bufferRecycler0);
+      textBuffer1.append(string0, 0, 3);
+      String string1 = textBuffer1.contentsAsString();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test31,"  public void test31()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.contentsAsArray();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+      assertEquals(0, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test31,"  public void test31()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.contentsAsArray();
+      char[] charArray0 = textBuffer0.contentsAsArray();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test32,"  public void test32()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      try { 
+        textBuffer0.contentsAsDecimal();
+        fail(""Expecting exception: NumberFormatException"");
+      } catch(NumberFormatException e) {
+         //
+         // Value \""\"" can not be represented as BigDecimal
+         //
+         verifyException(""com.fasterxml.jackson.core.io.NumberInput"", e);
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test33,"  public void test33()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.contentsAsArray();
+      try { 
+        textBuffer0.contentsAsDecimal();
+        fail(""Expecting exception: NumberFormatException"");
+      } catch(NumberFormatException e) {
+         //
+         // Value \""\"" can not be represented as BigDecimal
+         //
+         verifyException(""com.fasterxml.jackson.core.io.NumberInput"", e);
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test34,"  public void test34()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      try { 
+        textBuffer0.contentsAsDecimal();
+        fail(""Expecting exception: NumberFormatException"");
+      } catch(NumberFormatException e) {
+         //
+         // Value \""\"" can not be represented as BigDecimal
+         //
+         verifyException(""com.fasterxml.jackson.core.io.NumberInput"", e);
+      }
+  }",1,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test35,"  public void test35()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      try { 
+        textBuffer0.contentsAsDecimal();
+        fail(""Expecting exception: NumberFormatException"");
+      } catch(NumberFormatException e) {
+         //
+         // Value \""\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\"" can not be represented as BigDecimal
+         //
+         verifyException(""com.fasterxml.jackson.core.io.NumberInput"", e);
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test36,"  public void test36()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.resetWithEmpty();
+      textBuffer0.ensureNotShared();
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test36,"  public void test36()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.resetWithEmpty();
+      textBuffer0.ensureNotShared();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test37,"  public void test37()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.setCurrentLength(3278);
+      textBuffer0.append('{');
+      assertEquals(1, textBuffer0.getCurrentSegmentSize());
+}",0,"assertEquals(0, textBuffer0.getCurrentSegmentSize())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test37,"  public void test37()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.setCurrentLength(3278);
+      textBuffer0.append('{');
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test38,"  public void test38()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.finishCurrentSegment();
+      TextBuffer textBuffer1 = new TextBuffer(bufferRecycler0);
+      textBuffer1.append(charArray0, 650, 163);
+      textBuffer1.append(charArray0, 2, 1168);
+      assertEquals(1000, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test38,"  public void test38()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.finishCurrentSegment();
+      TextBuffer textBuffer1 = new TextBuffer(bufferRecycler0);
+      textBuffer1.append(charArray0, 650, 163);
+      textBuffer1.append(charArray0, 2, 1168);
+      assertEquals(1500, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test38,"  public void test38()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.finishCurrentSegment();
+      TextBuffer textBuffer1 = new TextBuffer(bufferRecycler0);
+      textBuffer1.append(charArray0, 650, 163);
+      textBuffer1.append(charArray0, 2, 1168);
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test39,"  public void test39()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.setCurrentLength(921);
+      // Undeclared exception!
+      try { 
+        textBuffer0.append(charArray0, 1, (-41));
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(ArrayIndexOutOfBoundsException e) {
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test40,"  public void test40()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      String string0 = textBuffer0.contentsAsString();
+      // Undeclared exception!
+      try { 
+        textBuffer0.append(string0, 0, 1500);
+        fail(""Expecting exception: StringIndexOutOfBoundsException"");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test41,"  public void test41()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.expandCurrentSegment(17076);
+      textBuffer0.finishCurrentSegment();
+      String string0 = textBuffer0.contentsAsString();
+      assertEquals(17076, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test41,"  public void test41()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.expandCurrentSegment(17076);
+      textBuffer0.finishCurrentSegment();
+      String string0 = textBuffer0.contentsAsString();
+      TextBuffer textBuffer1 = new TextBuffer(bufferRecycler0);
+      textBuffer1.append(string0, 0, 3);
+      textBuffer1.append(string0, 0, 1500);
+      assertEquals(1503, textBuffer1.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test41,"  public void test41()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.expandCurrentSegment(17076);
+      textBuffer0.finishCurrentSegment();
+      String string0 = textBuffer0.contentsAsString();
+      TextBuffer textBuffer1 = new TextBuffer(bufferRecycler0);
+      textBuffer1.append(string0, 0, 3);
+      textBuffer1.append(string0, 0, 1500);
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test42,"  public void test42()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.releaseBuffers();
+      assertEquals(0, textBuffer0.getTextOffset());
+}",0,"assertEquals(0, textBuffer0.getTextOffset())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test42,"  public void test42()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.releaseBuffers();
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      assertEquals(1000, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test42,"  public void test42()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.releaseBuffers();
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test43,"  public void test43()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      assertEquals(1000, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test43,"  public void test43()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      assertEquals(0, textBuffer0.getTextOffset());
+}",0,"assertEquals(0, textBuffer0.getTextOffset())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test43,"  public void test43()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test43,"  public void test43()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test44,"  public void test44()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.setCurrentLength(1818);
+      textBuffer0.getCurrentSegment();
+      assertEquals(0, textBuffer0.getCurrentSegmentSize());
+}",0,"assertEquals(0, textBuffer0.getCurrentSegmentSize())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test44,"  public void test44()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.setCurrentLength(1818);
+      textBuffer0.getCurrentSegment();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test45,"  public void test45()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      String string0 = textBuffer0.setCurrentAndReturn(0);
+      assertEquals("""", string0);
+}",0,assertNotNull(string0)
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test45,"  public void test45()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      String string0 = textBuffer0.setCurrentAndReturn(0);
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test46,"  public void test46()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      // Undeclared exception!
+      try { 
+        textBuffer0.setCurrentAndReturn(3);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test47,"  public void test47()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.finishCurrentSegment();
+      assertEquals(1200, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test47,"  public void test47()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.finishCurrentSegment();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test48,"  public void test48()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.expandCurrentSegment(262144);
+      textBuffer0.finishCurrentSegment();
+      assertEquals(262144, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test48,"  public void test48()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.ensureNotShared();
+      textBuffer0.expandCurrentSegment(262144);
+      textBuffer0.finishCurrentSegment();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test49,"  public void test49()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      assertEquals(200, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test49,"  public void test49()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      textBuffer0.expandCurrentSegment(262132);
+      char[] charArray1 = textBuffer0.expandCurrentSegment();
+      assertEquals(327665, charArray1.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test49,"  public void test49()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      textBuffer0.expandCurrentSegment(262132);
+      char[] charArray1 = textBuffer0.expandCurrentSegment();
+      assertEquals(0, textBuffer0.getCurrentSegmentSize());
+}",0,"assertEquals(0, textBuffer0.getCurrentSegmentSize())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test49,"  public void test49()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      textBuffer0.expandCurrentSegment(262132);
+      char[] charArray1 = textBuffer0.expandCurrentSegment();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test50,"  public void test50()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.expandCurrentSegment(3);
+      assertEquals(0, textBuffer0.getTextOffset());
+}",0,"assertEquals(0, textBuffer0.getTextOffset())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test50,"  public void test50()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.expandCurrentSegment(3);
+      assertEquals(0, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test50,"  public void test50()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.expandCurrentSegment(3);
+      assertEquals(200, charArray0.length);
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test50,"  public void test50()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      char[] charArray0 = textBuffer0.expandCurrentSegment(3);
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test51,"  public void test51()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.resetWithShared(charArray0, 2, 2);
+      textBuffer0.getCurrentSegment();
+      assertEquals(2, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test51,"  public void test51()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.emptyAndGetCurrentSegment();
+      textBuffer0.resetWithShared(charArray0, 2, 2);
+      textBuffer0.getCurrentSegment();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test52,"  public void test52()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = textBuffer0.getCurrentSegment();
+      textBuffer0.resetWithShared(charArray0, 3, 2);
+      // Undeclared exception!
+      try { 
+        textBuffer0.append(charArray0, 0, 2421);
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(ArrayIndexOutOfBoundsException e) {
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test53,"  public void test53()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      textBuffer0.ensureNotShared();
+      textBuffer0.expandCurrentSegment(17076);
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.setCurrentAndReturn(17076);
+      textBuffer0.expandCurrentSegment();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.expandCurrentSegment();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.finishCurrentSegment();
+      textBuffer0.setCurrentAndReturn(262144);
+      // Undeclared exception!
+      try { 
+        textBuffer0.append("""", 1, 2);
+        fail(""Expecting exception: StringIndexOutOfBoundsException"");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test54,"  public void test54()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = bufferRecycler0.calloc(0);
+      textBuffer0.resetWithShared(charArray0, 0, 3);
+      textBuffer0.contentsAsArray();
+      assertEquals(3, textBuffer0.size());
+}",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test54,"  public void test54()  throws Throwable  {
+      BufferRecycler bufferRecycler0 = new BufferRecycler();
+      TextBuffer textBuffer0 = new TextBuffer(bufferRecycler0);
+      char[] charArray0 = bufferRecycler0.calloc(0);
+      textBuffer0.resetWithShared(charArray0, 0, 3);
+      textBuffer0.contentsAsArray();
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test55,"  public void test55()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.resetWithShared((char[]) null, 317, 317);
+      // Undeclared exception!
+      try { 
+        textBuffer0.contentsAsArray();
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""java.util.Arrays"", e);
+      }
+  }",0,
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test56,"  public void test56()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.append('{');
+      textBuffer0.contentsAsArray();
+      assertEquals(1, textBuffer0.getCurrentSegmentSize());
+}",0,"assertEquals(0, textBuffer0.getCurrentSegmentSize())"
+JacksonCore,8,com.fasterxml.jackson.core.util.TextBuffer_ESTest::test56,"  public void test56()  throws Throwable  {
+      TextBuffer textBuffer0 = new TextBuffer((BufferRecycler) null);
+      textBuffer0.append('{');
+      textBuffer0.contentsAsArray();
+  }",0,

@@ -1,0 +1,54 @@
+{
+  "bug": "Jsoup-18",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 102,
+    "exception": 0,
+    "assertion": 46
+  },
+  "tests": {
+    "written": 102,
+    "kept_on_fixed": 89,
+    "false_alarms_removed": 13,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Jsoup",
+      "version_id": "18f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 98,
+      "lines_covered": 98,
+      "branches_total": 82,
+      "branches_covered": 82,
+      "line": 1.0,
+      "branch": 1.0
+    },
+    "major_mutation": {
+      "generated": 180,
+      "covered": 180,
+      "killed": 52,
+      "score": 0.289
+    }
+  },
+  "seconds": 199.9,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

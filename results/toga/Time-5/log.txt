@@ -1,0 +1,198 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Time-5/evo /Users/bitu/mtech-tools/work/Time-5f/src/main/java Time 5 /Users/bitu/mtech-tools/toga_out/Time-5
+122 test prefixes, 122 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Time-5/inputs.csv /Users/bitu/mtech-tools/toga_out/Time-5/meta.csv
+11/21/2026 05:16:11 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 05:16:12 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 05:16:13 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 05:16:13 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 05:16:13 - INFO - utils -   Writing example 0 of 122
+11/21/2026 05:16:13 - INFO - utils -   *** Example ***
+11/21/2026 05:16:13 - INFO - utils -   guid: test-0
+11/21/2026 05:16:13 - INFO - utils -   tokens: <s> public ĠPeriod Ġwith Days ( int Ġdays ) Ġ{ Ġint [] Ġvalues Ġ= Ġget Values (); Ġ// Ġcl oned Ġget Per iod Type (). set Index ed Field ( this , ĠPeriod Type . DAY _ IND EX , Ġvalues , Ġdays ); Ġreturn Ġnew ĠPeriod ( values , Ġget </s> public Ġvoid Ġtest With Days () Ġ{ ĠPeriod Ġperiod 0 Ġ= Ġnew ĠPeriod ( 12 , Ġ12 , Ġ12 , Ġ12 ); Ġperiod 0 . with Days ( 12 ); Ġ} </s>
+11/21/2026 05:16:13 - INFO - utils -   input_ids: 0 15110 18365 19 41077 1640 2544 360 43 25522 6979 48992 3266 5457 120 48738 47006 21277 3741 11469 120 20823 22694 40118 49123 8738 45673 196 27780 1640 9226 6 18365 40118 4 2774 1215 13796 6725 6 3266 6 360 4397 671 92 18365 1640 43994 6 120 2 15110 13842 1296 3908 41077 43048 25522 18365 675 288 5457 92 18365 1640 1092 6 316 6 316 6 316 4397 675 288 4 5632 41077 1640 1092 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:13 - INFO - utils -   *** Example ***
+11/21/2026 05:16:13 - INFO - utils -   guid: test-1
+11/21/2026 05:16:13 - INFO - utils -   tokens: <s> public ĠPeriod Ġwith Days ( int Ġdays ) Ġ{ Ġint [] Ġvalues Ġ= Ġget Values (); Ġ// Ġcl oned Ġget Per iod Type (). set Index ed Field ( this , ĠPeriod Type . DAY _ IND EX , Ġvalues , Ġdays ); Ġreturn Ġnew ĠPeriod ( values , Ġget </s> public Ġvoid Ġtest With Days () Ġ{ ĠPeriod Ġperiod 0 Ġ= Ġnew ĠPeriod ( 12 , Ġ12 , Ġ12 , Ġ12 ); Ġperiod 0 . with Days ( 12 ); Ġ} </s>
+11/21/2026 05:16:13 - INFO - utils -   input_ids: 0 15110 18365 19 41077 1640 2544 360 43 25522 6979 48992 3266 5457 120 48738 47006 21277 3741 11469 120 20823 22694 40118 49123 8738 45673 196 27780 1640 9226 6 18365 40118 4 2774 1215 13796 6725 6 3266 6 360 4397 671 92 18365 1640 43994 6 120 2 15110 13842 1296 3908 41077 43048 25522 18365 675 288 5457 92 18365 1640 1092 6 316 6 316 6 316 4397 675 288 4 5632 41077 1640 1092 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:13 - INFO - utils -   *** Example ***
+11/21/2026 05:16:13 - INFO - utils -   guid: test-2
+11/21/2026 05:16:13 - INFO - utils -   tokens: <s> public ĠPeriod Ġwith Min utes ( int Ġminutes ) Ġ{ Ġint [] Ġvalues Ġ= Ġget Values (); Ġ// Ġcl oned Ġget Per iod Type (). set Index ed Field ( this , ĠPeriod Type . MIN UTE _ IND EX , Ġvalues , Ġminutes ); Ġreturn Ġnew ĠPeriod ( values </s> public Ġvoid Ġtest With Min utes () Ġ{ ĠLocal Date Time Ġlocal Date Time 0 Ġ= Ġnew ĠLocal Date Time (); ĠPeriod Ġperiod 0 Ġ= ĠPeriod . field Diff erence ( local Date Time 0 , Ġlocal Date Time 0 ); Ġperiod 0 . Z ERO . with Min utes ( 23 15 ); Ġ} </s>
+11/21/2026 05:16:13 - INFO - utils -   input_ids: 0 15110 18365 19 20086 11282 1640 2544 728 43 25522 6979 48992 3266 5457 120 48738 47006 21277 3741 11469 120 20823 22694 40118 49123 8738 45673 196 27780 1640 9226 6 18365 40118 4 24765 38300 1215 13796 6725 6 3266 6 728 4397 671 92 18365 1640 43994 2 15110 13842 1296 3908 20086 11282 43048 25522 4004 39525 14699 400 39525 14699 288 5457 92 4004 39525 14699 47006 18365 675 288 5457 18365 4 1399 45985 24935 1640 18076 39525 14699 288 6 400 39525 14699 288 4397 675 288 4 1301 37553 4 5632 20086 11282 1640 1922 996 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:13 - INFO - utils -   *** Example ***
+11/21/2026 05:16:13 - INFO - utils -   guid: test-3
+11/21/2026 05:16:13 - INFO - utils -   tokens: <s> public ĠPeriod Ġwith Min utes ( int Ġminutes ) Ġ{ Ġint [] Ġvalues Ġ= Ġget Values (); Ġ// Ġcl oned Ġget Per iod Type (). set Index ed Field ( this , ĠPeriod Type . MIN UTE _ IND EX , Ġvalues , Ġminutes ); Ġreturn Ġnew ĠPeriod ( values </s> public Ġvoid Ġtest With Min utes () Ġ{ ĠLocal Date Time Ġlocal Date Time 0 Ġ= Ġnew ĠLocal Date Time (); ĠPeriod Ġperiod 0 Ġ= ĠPeriod . field Diff erence ( local Date Time 0 , Ġlocal Date Time 0 ); Ġperiod 0 . Z ERO . with Min utes ( 23 15 ); Ġ} </s>
+11/21/2026 05:16:13 - INFO - utils -   input_ids: 0 15110 18365 19 20086 11282 1640 2544 728 43 25522 6979 48992 3266 5457 120 48738 47006 21277 3741 11469 120 20823 22694 40118 49123 8738 45673 196 27780 1640 9226 6 18365 40118 4 24765 38300 1215 13796 6725 6 3266 6 728 4397 671 92 18365 1640 43994 2 15110 13842 1296 3908 20086 11282 43048 25522 4004 39525 14699 400 39525 14699 288 5457 92 4004 39525 14699 47006 18365 675 288 5457 18365 4 1399 45985 24935 1640 18076 39525 14699 288 6 400 39525 14699 288 4397 675 288 4 1301 37553 4 5632 20086 11282 1640 1922 996 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:13 - INFO - utils -   *** Example ***
+11/21/2026 05:16:13 - INFO - utils -   guid: test-4
+11/21/2026 05:16:13 - INFO - utils -   tokens: <s> public ĠPeriod Ġminus Mill is ( int Ġmill is ) Ġ{ Ġreturn Ġplus Mill is (- mill is ); Ġ} </s> public Ġvoid Ġtest Min us Mill is () Ġ{ ĠLocal Date Time Ġlocal Date Time 0 Ġ= Ġnew ĠLocal Date Time (); ĠPeriod Ġperiod 0 Ġ= ĠPeriod . field Diff erence ( local Date Time 0 , Ġlocal Date Time 0 ); Ġperiod 0 . minus Mill is ( 85 ); Ġ} </s>
+11/21/2026 05:16:13 - INFO - utils -   input_ids: 0 15110 18365 10877 26377 354 1640 2544 7259 354 43 25522 671 2704 26377 354 48614 15466 354 4397 35524 2 15110 13842 1296 20086 687 26377 354 43048 25522 4004 39525 14699 400 39525 14699 288 5457 92 4004 39525 14699 47006 18365 675 288 5457 18365 4 1399 45985 24935 1640 18076 39525 14699 288 6 400 39525 14699 288 4397 675 288 4 32501 26377 354 1640 4531 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:13 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:13 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 05:16:13 - INFO - __main__ -     Num examples = 122
+11/21/2026 05:16:13 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 122 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:09<00:00,  9.16s/it]Evaluating: 100%|██████████| 1/1 [00:09<00:00,  9.16s/it]
+11/21/2026 05:16:26 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 05:16:27 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 05:16:28 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 05:16:28 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 05:16:28 - INFO - utils -   Writing example 0 of 16
+11/21/2026 05:16:28 - INFO - utils -   *** Example ***
+11/21/2026 05:16:28 - INFO - utils -   guid: 22
+11/21/2026 05:16:28 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 12 () Ġthrows ĠThrow able Ġ{ ĠLocal Date Time Ġlocal Date Time 0 Ġ= ĠLocal Date Time . now (); ĠPeriod Ġperiod 0 Ġ= ĠPeriod . field Diff erence ( local Date Time 0 , Ġlocal Date Time 0 ); ĠDays Ġdays 0 Ġ= Ġperiod 0 . </s> public Ġint Ġget Days () Ġ{ Ġreturn Ġget Per iod Type (). get Index ed Field ( this , ĠPeriod Type . DAY _ IND EX ); Ġ} </s> assert Equ als ( 0 , Ġdays 0 . get Days ()) </s>
+11/21/2026 05:16:28 - INFO - utils -   input_ids: 0 15110 13842 1296 1092 43048 6989 28106 868 25522 4004 39525 14699 400 39525 14699 288 5457 4004 39525 14699 4 8310 47006 18365 675 288 5457 18365 4 1399 45985 24935 1640 18076 39525 14699 288 6 400 39525 14699 288 4397 10046 360 288 5457 675 288 4 2 15110 6979 120 41077 43048 25522 671 120 20823 22694 40118 49123 6460 45673 196 27780 1640 9226 6 18365 40118 4 2774 1215 13796 6725 4397 35524 2 46346 28568 1536 1640 288 6 360 288 4 6460 41077 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:28 - INFO - utils -   *** Example ***
+11/21/2026 05:16:28 - INFO - utils -   guid: 22
+11/21/2026 05:16:28 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 12 () Ġthrows ĠThrow able Ġ{ ĠLocal Date Time Ġlocal Date Time 0 Ġ= ĠLocal Date Time . now (); ĠPeriod Ġperiod 0 Ġ= ĠPeriod . field Diff erence ( local Date Time 0 , Ġlocal Date Time 0 ); ĠDays Ġdays 0 Ġ= Ġperiod 0 . </s> public Ġint Ġget Days () Ġ{ Ġreturn Ġget Per iod Type (). get Index ed Field ( this , ĠPeriod Type . DAY _ IND EX ); Ġ} </s> assert Equ als ( 1 , Ġdays 0 . get Days ()) </s>
+11/21/2026 05:16:28 - INFO - utils -   input_ids: 0 15110 13842 1296 1092 43048 6989 28106 868 25522 4004 39525 14699 400 39525 14699 288 5457 4004 39525 14699 4 8310 47006 18365 675 288 5457 18365 4 1399 45985 24935 1640 18076 39525 14699 288 6 400 39525 14699 288 4397 10046 360 288 5457 675 288 4 2 15110 6979 120 41077 43048 25522 671 120 20823 22694 40118 49123 6460 45673 196 27780 1640 9226 6 18365 40118 4 2774 1215 13796 6725 4397 35524 2 46346 28568 1536 1640 134 6 360 288 4 6460 41077 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:28 - INFO - utils -   *** Example ***
+11/21/2026 05:16:28 - INFO - utils -   guid: 24
+11/21/2026 05:16:28 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 13 () Ġthrows ĠThrow able Ġ{ ĠDuration Ġduration 0 Ġ= ĠDuration . standard Second s ( 17 14 L ); ĠPeriod Ġperiod 0 Ġ= Ġduration 0 . to Per iod (( Per iod Type ) Ġnull ); Ġ"< Ass ert Place H older >" Ġ; Ġ} </s> public ĠPeriod Ġto Per iod () Ġ{ Ġreturn Ġthis ; Ġ} </s> assert Not Null ( period 0 ) </s>
+11/21/2026 05:16:28 - INFO - utils -   input_ids: 0 15110 13842 1296 1558 43048 6989 28106 868 25522 44077 13428 288 5457 44077 4 21993 32703 29 1640 1360 1570 574 4397 18365 675 288 5457 13428 288 4 560 20823 22694 48461 20823 22694 40118 43 23796 4397 49900 26039 2399 41863 725 33780 49721 25606 35524 2 15110 18365 7 20823 22694 43048 25522 671 42 131 35524 2 46346 7199 49302 1640 28030 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:28 - INFO - utils -   *** Example ***
+11/21/2026 05:16:28 - INFO - utils -   guid: 32
+11/21/2026 05:16:28 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 17 () Ġthrows ĠThrow able Ġ{ ĠPeriod Ġperiod 0 Ġ= ĠPeriod . we eks ( 7 ); Ġ"< Ass ert Place H older >" Ġ; Ġ} </s> public Ġstatic ĠPeriod Ġweeks ( int Ġweeks ) Ġ{ Ġreturn Ġnew ĠPeriod ( new Ġint [] Ġ{ 0 , Ġ0 , Ġweeks , Ġ0 , Ġ0 , Ġ0 , Ġ0 , Ġ0 }, ĠPeriod Type . standard ()); Ġ} </s> assert Not Null ( period 0 ) </s>
+11/21/2026 05:16:28 - INFO - utils -   input_ids: 0 15110 13842 1296 1360 43048 6989 28106 868 25522 18365 675 288 5457 18365 4 1694 15390 1640 406 4397 49900 26039 2399 41863 725 33780 49721 25606 35524 2 15110 25156 18365 688 1640 2544 688 43 25522 671 92 18365 1640 4651 6979 48992 25522 288 6 321 6 688 6 321 6 321 6 321 6 321 6 321 48268 18365 40118 4 21993 49291 35524 2 46346 7199 49302 1640 28030 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:28 - INFO - utils -   *** Example ***
+11/21/2026 05:16:28 - INFO - utils -   guid: 38
+11/21/2026 05:16:28 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 20 () Ġthrows ĠThrow able Ġ{ ĠPeriod Ġperiod 0 Ġ= ĠPeriod . mill is ( 0 ); Ġ"< Ass ert Place H older >" Ġ; Ġ} </s> public Ġstatic ĠPeriod Ġmill is ( int Ġmill is ) Ġ{ Ġreturn Ġnew ĠPeriod ( new Ġint [] Ġ{ 0 , Ġ0 , Ġ0 , Ġ0 , Ġ0 , Ġ0 , Ġ0 , Ġmill is }, ĠPeriod Type . standard ()); Ġ} </s> assert Not Null ( period 0 ) </s>
+11/21/2026 05:16:28 - INFO - utils -   input_ids: 0 15110 13842 1296 844 43048 6989 28106 868 25522 18365 675 288 5457 18365 4 15466 354 1640 288 4397 49900 26039 2399 41863 725 33780 49721 25606 35524 2 15110 25156 18365 7259 354 1640 2544 7259 354 43 25522 671 92 18365 1640 4651 6979 48992 25522 288 6 321 6 321 6 321 6 321 6 321 6 321 6 7259 354 48268 18365 40118 4 21993 49291 35524 2 46346 7199 49302 1640 28030 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 05:16:28 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 05:16:28 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 05:16:28 - INFO - __main__ -     Num examples = 16
+11/21/2026 05:16:28 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 16 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.03it/s]
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1879: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.22950819672131148
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Time -d /Users/bitu/mtech-tools/toga_out/Time-5/suite -v 5f
+Checking out a6cb59ed to /tmp/fix_test_suite.pl_7343_1795266990............ --------------------------------------------------------------------------------
+Time-5f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_7343_1795266990/maven-build.x OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6cb59ed:a38b5e0c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-5f......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Time -d /Users/bitu/mtech-tools/toga_out/Time-5/suite -o /Users/bitu/mtech-tools/toga_out/Time-5/detect
+Extract test suite......................................................... Executing test suite: Time-5f-toga.1.tar.bz2
+OK
+Checking out a6cb59ed to /tmp/run_bug_detection.pl_7560_1795267091/V_fixed. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_7560_1795267091/V_fixed/ma OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6cb59ed:a38b5e0c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-5f......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out a6cb59ed to /tmp/run_bug_detection.pl_7560_1795267091/V_buggy. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_7560_1795267091/V_buggy/ma OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff a6cb59ed:a38b5e0c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Time-5b......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

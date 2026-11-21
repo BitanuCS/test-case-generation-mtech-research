@@ -1,0 +1,2428 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test000,"  public void test000()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map_FlatMapIterator0.reset();
+      assertFalse(flat3Map_FlatMapIterator0.hasNext());
+}",0,assertFalse(flat3Map_FlatMapIterator0.hasNext())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test000,"  public void test000()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map_FlatMapIterator0.reset();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test001,"  public void test001()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      Object[] objectArray0 = new Object[1];
+      flat3Map_EntrySet0.toArray(objectArray0);
+      assertEquals(0, flat3Map_EntrySet0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test001,"  public void test001()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      Object[] objectArray0 = new Object[1];
+      flat3Map_EntrySet0.toArray(objectArray0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test002,"  public void test002()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      flat3Map_EntrySet0.clear();
+      assertEquals(0, flat3Map_EntrySet0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test002,"  public void test002()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      flat3Map_EntrySet0.clear();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test003,"  public void test003()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+      assertEquals(1, flat3Map0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test003,"  public void test003()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+      assertFalse(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test003,"  public void test003()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test004,"  public void test004()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map0);
+      boolean boolean0 = flat3Map_KeySet0.remove((Object) null);
+      assertFalse(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test004,"  public void test004()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map0);
+      boolean boolean0 = flat3Map_KeySet0.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test005,"  public void test005()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map0);
+      flat3Map_KeySet0.clear();
+      assertEquals(0, flat3Map_KeySet0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test005,"  public void test005()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map0);
+      flat3Map_KeySet0.clear();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test006,"  public void test006()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Integer integer0 = new Integer(841);
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map0);
+      boolean boolean0 = flat3Map_KeySet0.contains(integer0);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test006,"  public void test006()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Integer integer0 = new Integer(841);
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map0);
+      boolean boolean0 = flat3Map_KeySet0.contains(integer0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test007,"  public void test007()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(flat3Map1, (Object) null);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map3 = new Flat3Map();
+      flat3Map2.put(flat3Map3, flat3Map0);
+      flat3Map2.putIfAbsent((Object) null, (Object) null);
+      assertEquals(5, flat3Map2.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test007,"  public void test007()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(flat3Map1, (Object) null);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map3 = new Flat3Map();
+      flat3Map2.put(flat3Map3, flat3Map0);
+      flat3Map2.putIfAbsent((Object) null, (Object) null);
+  }",1,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test008,"  public void test008()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      boolean boolean0 = flat3Map_Values0.contains((Object) null);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test008,"  public void test008()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      boolean boolean0 = flat3Map_Values0.contains((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test009,"  public void test009()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      flat3Map_Values0.clear();
+      assertEquals(0, flat3Map_Values0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test009,"  public void test009()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      flat3Map_Values0.clear();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test010,"  public void test010()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      int int0 = flat3Map_Values0.size();
+      assertEquals(0, int0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test010,"  public void test010()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      int int0 = flat3Map_Values0.size();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test011,"  public void test011()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      boolean boolean0 = flat3Map_Values0.remove("""");
+      assertEquals(0, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test011,"  public void test011()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      boolean boolean0 = flat3Map_Values0.remove("""");
+      assertTrue(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test011,"  public void test011()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      boolean boolean0 = flat3Map_Values0.remove("""");
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test012,"  public void test012()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      boolean boolean0 = flat3Map0.containsValue((Object) null);
+      assertEquals(2, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test012,"  public void test012()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      boolean boolean0 = flat3Map0.containsValue((Object) null);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test012,"  public void test012()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      boolean boolean0 = flat3Map0.containsValue((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test013,"  public void test013()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent(hashedMap0, hashedMap0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(integer0, integer0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_ValuesIterator0);
+      assertEquals(3, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test013,"  public void test013()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent(hashedMap0, hashedMap0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(integer0, integer0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_ValuesIterator0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test014,"  public void test014()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.equals(flat3Map1);
+      assertTrue(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test014,"  public void test014()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.equals(flat3Map1);
+      assertEquals(3, flat3Map2.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test014,"  public void test014()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.equals(flat3Map1);
+      assertFalse(flat3Map2.equals((Object)flat3Map0));
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test014,"  public void test014()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.equals(flat3Map1);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test015,"  public void test015()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map3.equals(flat3Map2);
+      assertTrue(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test015,"  public void test015()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map3.equals(flat3Map2);
+      assertEquals(3, flat3Map3.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test015,"  public void test015()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map3.equals(flat3Map2);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test016,"  public void test016()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_FlatMapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test016,"  public void test016()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_FlatMapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test017,"  public void test017()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Integer integer0 = new Integer(27);
+      flat3Map0.putIfAbsent(flat3Map_ValuesIterator0, integer0);
+      Flat3Map flat3Map1 = new Flat3Map(flat3Map0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+      assertEquals(2, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test017,"  public void test017()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Integer integer0 = new Integer(27);
+      flat3Map0.putIfAbsent(flat3Map_ValuesIterator0, integer0);
+      Flat3Map flat3Map1 = new Flat3Map(flat3Map0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+      assertFalse(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test017,"  public void test017()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Integer integer0 = new Integer(27);
+      flat3Map0.putIfAbsent(flat3Map_ValuesIterator0, integer0);
+      Flat3Map flat3Map1 = new Flat3Map(flat3Map0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test018,"  public void test018()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, (Object) null);
+      hashedMap0.put((Object) null, flat3Map0);
+      Integer integer0 = new Integer((-268));
+      hashedMap0.put(flat3Map0, integer0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map3 = new Flat3Map(flat3Map2);
+      assertEquals(4, flat3Map3.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test018,"  public void test018()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, (Object) null);
+      hashedMap0.put((Object) null, flat3Map0);
+      Integer integer0 = new Integer((-268));
+      hashedMap0.put(flat3Map0, integer0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map3 = new Flat3Map(flat3Map2);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test019,"  public void test019()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.put(hashedMap0, flat3Map0);
+      boolean boolean0 = flat3Map0.isEmpty();
+      assertEquals(1, flat3Map0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test019,"  public void test019()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.put(hashedMap0, flat3Map0);
+      boolean boolean0 = flat3Map0.isEmpty();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test019,"  public void test019()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.put(hashedMap0, flat3Map0);
+      boolean boolean0 = flat3Map0.isEmpty();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test020,"  public void test020()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      boolean boolean0 = flat3Map0.isEmpty();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test020,"  public void test020()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      boolean boolean0 = flat3Map0.isEmpty();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test021,"  public void test021()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UEK fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07UEK fUHr"");
+      Integer integer0 = new Integer((-2684));
+      hashedMap0.put(integer0, integer0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.containsKey(hashedMap0);
+      assertEquals(4, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test021,"  public void test021()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UEK fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07UEK fUHr"");
+      Integer integer0 = new Integer((-2684));
+      hashedMap0.put(integer0, integer0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.containsKey(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test022,"  public void test022()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map0);
+      assertTrue(flat3Map_FlatMapIterator0.hasNext());
+}",0,assertFalse(flat3Map_FlatMapIterator0.hasNext())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test022,"  public void test022()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map0);
+      boolean boolean0 = flat3Map0.containsKey((Object) null);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test022,"  public void test022()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map0);
+      boolean boolean0 = flat3Map0.containsKey((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test023,"  public void test023()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      flat3Map0.putAll(hashedMap0);
+      boolean boolean0 = flat3Map0.containsKey((Object) null);
+      assertFalse(flat3Map0.isEmpty());
+}",0,assertTrue(flat3Map0.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test023,"  public void test023()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      flat3Map0.putAll(hashedMap0);
+      boolean boolean0 = flat3Map0.containsKey((Object) null);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test023,"  public void test023()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      flat3Map0.putAll(hashedMap0);
+      boolean boolean0 = flat3Map0.containsKey((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test024,"  public void test024()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(object0, object0);
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map();
+      flat3Map1.putAll(hashedMap0);
+      boolean boolean0 = flat3Map1.containsKey((Object) null);
+      assertFalse(flat3Map1.isEmpty());
+}",0,assertTrue(flat3Map1.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test024,"  public void test024()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(object0, object0);
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map();
+      flat3Map1.putAll(hashedMap0);
+      boolean boolean0 = flat3Map1.containsKey((Object) null);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test024,"  public void test024()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(object0, object0);
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map();
+      flat3Map1.putAll(hashedMap0);
+      boolean boolean0 = flat3Map1.containsKey((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test025,"  public void test025()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map2);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      flat3Map2.putAll(hashedMap0);
+      boolean boolean0 = flat3Map2.containsKey((Object) null);
+      assertEquals(2, flat3Map2.size());
+}",0,"assertEquals(0, flat3Map2.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test025,"  public void test025()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map2);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      flat3Map2.putAll(hashedMap0);
+      boolean boolean0 = flat3Map2.containsKey((Object) null);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test025,"  public void test025()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map2);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      flat3Map2.putAll(hashedMap0);
+      boolean boolean0 = flat3Map2.containsKey((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test026,"  public void test026()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsKey(""K~7^07K fUHr"");
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test026,"  public void test026()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsKey(""K~7^07K fUHr"");
+      assertEquals(3, flat3Map2.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test026,"  public void test026()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsKey(""K~7^07K fUHr"");
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test027,"  public void test027()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, integer0);
+      assertTrue(flat3Map_FlatMapIterator0.hasNext());
+}",0,assertFalse(flat3Map_FlatMapIterator0.hasNext())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test027,"  public void test027()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, integer0);
+      flat3Map0.putIfAbsent(integer0, integer0);
+      boolean boolean0 = flat3Map0.containsKey(integer0);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test027,"  public void test027()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, integer0);
+      flat3Map0.putIfAbsent(integer0, integer0);
+      boolean boolean0 = flat3Map0.containsKey(integer0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test028,"  public void test028()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map0);
+      boolean boolean0 = flat3Map0.containsKey(flat3Map_FlatMapIterator0);
+      assertTrue(flat3Map_FlatMapIterator0.hasNext());
+}",0,assertFalse(flat3Map_FlatMapIterator0.hasNext())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test028,"  public void test028()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map0);
+      boolean boolean0 = flat3Map0.containsKey(flat3Map_FlatMapIterator0);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test028,"  public void test028()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map0);
+      boolean boolean0 = flat3Map0.containsKey(flat3Map_FlatMapIterator0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test029,"  public void test029()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, (Object) null);
+      hashedMap0.put((Object) null, flat3Map0);
+      Integer integer0 = new Integer((-268));
+      hashedMap0.put(flat3Map0, integer0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsValue((Object) null);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test029,"  public void test029()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, (Object) null);
+      hashedMap0.put((Object) null, flat3Map0);
+      Integer integer0 = new Integer((-268));
+      hashedMap0.put(flat3Map0, integer0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsValue((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test030,"  public void test030()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      boolean boolean0 = flat3Map0.containsValue(flat3Map_ValuesIterator0);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test030,"  public void test030()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      boolean boolean0 = flat3Map0.containsValue(flat3Map_ValuesIterator0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test031,"  public void test031()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue((Object) null);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test031,"  public void test031()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue((Object) null);
+      assertEquals(1, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test031,"  public void test031()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test032,"  public void test032()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(flat3Map1, (Object) null);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsValue((Object) null);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test032,"  public void test032()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(flat3Map1, (Object) null);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsValue((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test033,"  public void test033()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue((Object) null);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test033,"  public void test033()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue((Object) null);
+      assertEquals(3, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test033,"  public void test033()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test034,"  public void test034()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue(flat3Map0);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test034,"  public void test034()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue(flat3Map0);
+      assertFalse(flat3Map1.equals((Object)flat3Map0));
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test034,"  public void test034()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue(flat3Map0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test035,"  public void test035()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(object0, (Object) null);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map1);
+      boolean boolean0 = flat3Map1.containsValue(flat3Map_ValuesIterator0);
+      assertEquals(3, hashedMap0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test035,"  public void test035()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(object0, (Object) null);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map1);
+      boolean boolean0 = flat3Map1.containsValue(flat3Map_ValuesIterator0);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test035,"  public void test035()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(object0, (Object) null);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map1);
+      boolean boolean0 = flat3Map1.containsValue(flat3Map_ValuesIterator0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test036,"  public void test036()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""="", flat3Map0);
+      hashedMap0.put((Object) null, ""="");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue(""="");
+      assertEquals(3, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test036,"  public void test036()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""="", flat3Map0);
+      hashedMap0.put((Object) null, ""="");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue(""="");
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test036,"  public void test036()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""="", flat3Map0);
+      hashedMap0.put((Object) null, ""="");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.containsValue(""="");
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test037,"  public void test037()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.putAll(hashedMap0);
+      assertFalse(flat3Map1.equals((Object)flat3Map0));
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test037,"  public void test037()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.putAll(hashedMap0);
+      assertEquals(3, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test037,"  public void test037()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.putAll(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test038,"  public void test038()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      flat3Map2.putAll(hashedMap0);
+      assertFalse(flat3Map2.equals((Object)flat3Map1));
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test038,"  public void test038()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      flat3Map2.putAll(hashedMap0);
+      assertEquals(3, flat3Map2.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test038,"  public void test038()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      flat3Map2.putAll(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test039,"  public void test039()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, ""K~7^07K fUHr"");
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      hashedMap0.put(flat3Map_ValuesIterator0, flat3Map0);
+      flat3Map0.putAll(hashedMap0);
+      flat3Map0.putAll(hashedMap0);
+      assertEquals(3, flat3Map0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test039,"  public void test039()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, ""K~7^07K fUHr"");
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      hashedMap0.put(flat3Map_ValuesIterator0, flat3Map0);
+      flat3Map0.putAll(hashedMap0);
+      flat3Map0.putAll(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test040,"  public void test040()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      hashedMap0.put(flat3Map_ValuesIterator0, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.putAll(hashedMap0);
+      assertEquals(2, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test040,"  public void test040()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      hashedMap0.put(flat3Map_ValuesIterator0, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.putAll(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test041,"  public void test041()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.putIfAbsent(flat3Map1, (Object) null);
+      flat3Map1.putAll(hashedMap0);
+      assertEquals(4, flat3Map1.size());
+}",0,"assertEquals(0, flat3Map1.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test041,"  public void test041()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.putIfAbsent(flat3Map1, (Object) null);
+      flat3Map1.putAll(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test042,"  public void test042()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.size = 1080;
+      flat3Map0.put(hashedMap0, flat3Map0);
+      flat3Map0.putAll(hashedMap0);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test042,"  public void test042()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.size = 1080;
+      flat3Map0.put(hashedMap0, flat3Map0);
+      flat3Map0.putAll(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test043,"  public void test043()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      hashedMap0.put(""D=_B;6mict6F^8_h"", (Object) null);
+      hashedMap0.put(flat3Map1, hashedMap0);
+      flat3Map1.putAll(hashedMap0);
+      assertEquals(4, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test043,"  public void test043()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      hashedMap0.put(""D=_B;6mict6F^8_h"", (Object) null);
+      hashedMap0.put(flat3Map1, hashedMap0);
+      flat3Map1.putAll(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test044,"  public void test044()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, (Object) null);
+      hashedMap0.put((Object) null, flat3Map0);
+      Integer integer0 = new Integer((-268));
+      hashedMap0.put(flat3Map0, integer0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      flat3Map2.remove((Object) hashedMap0);
+      assertEquals(4, flat3Map2.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test044,"  public void test044()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, (Object) null);
+      hashedMap0.put((Object) null, flat3Map0);
+      Integer integer0 = new Integer((-268));
+      hashedMap0.put(flat3Map0, integer0);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      flat3Map2.remove((Object) hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test045,"  public void test045()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Object object0 = flat3Map0.remove((Object) null);
+      assertNull(object0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test045,"  public void test045()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Object object0 = flat3Map0.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test046,"  public void test046()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Integer integer0 = new Integer(27);
+      flat3Map0.putIfAbsent(flat3Map_ValuesIterator0, integer0);
+      Object object0 = flat3Map0.remove((Object) null);
+      assertNull(object0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test046,"  public void test046()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Integer integer0 = new Integer(27);
+      flat3Map0.putIfAbsent(flat3Map_ValuesIterator0, integer0);
+      Object object0 = flat3Map0.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test047,"  public void test047()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UEK fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07UEK fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Object object1 = flat3Map1.remove((Object) null);
+      assertNotNull(object1);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test047,"  public void test047()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UEK fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07UEK fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Object object1 = flat3Map1.remove((Object) null);
+      assertEquals(2, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test047,"  public void test047()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UEK fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07UEK fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Object object1 = flat3Map1.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test048,"  public void test048()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_EntrySet0, (Object) null);
+      flat3Map0.remove((Object) null);
+      assertFalse(flat3Map0.isEmpty());
+}",0,assertTrue(flat3Map0.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test048,"  public void test048()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_EntrySet0, (Object) null);
+      flat3Map0.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test049,"  public void test049()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(flat3Map1, (Object) null);
+      flat3Map1.putAll(hashedMap0);
+      flat3Map1.remove((Object) null);
+      assertFalse(flat3Map1.isEmpty());
+}",0,assertTrue(flat3Map1.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test049,"  public void test049()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map1);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(flat3Map1, (Object) null);
+      flat3Map1.putAll(hashedMap0);
+      flat3Map1.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test050,"  public void test050()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      hashedMap0.remove((Object) ""P$':H%f}H\""rO"");
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.keySet();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      assertEquals(3, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test050,"  public void test050()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      hashedMap0.remove((Object) ""P$':H%f}H\""rO"");
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.keySet();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.remove((Object) null);
+      assertEquals(2, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test050,"  public void test050()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      hashedMap0.remove((Object) ""P$':H%f}H\""rO"");
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.keySet();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test051,"  public void test051()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_EntrySet0);
+      flat3Map0.remove((Object) null);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test051,"  public void test051()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_EntrySet0);
+      flat3Map0.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test052,"  public void test052()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map2);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      Object object0 = flat3Map3.remove((Object) null);
+      assertEquals(1, flat3Map3.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test052,"  public void test052()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map2);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      Object object0 = flat3Map3.remove((Object) null);
+      assertNotNull(object0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test052,"  public void test052()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map2);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      Object object0 = flat3Map3.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test053,"  public void test053()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent((Object) null, hashedMap0);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test053,"  public void test053()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent((Object) null, hashedMap0);
+      flat3Map0.remove((Object) null);
+      assertTrue(flat3Map0.isEmpty());
+}",0,assertTrue(flat3Map0.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test053,"  public void test053()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent((Object) null, hashedMap0);
+      flat3Map0.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test054,"  public void test054()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      flat3Map0.remove((Object) mapIterator0);
+      assertEquals(2, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test054,"  public void test054()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      flat3Map0.remove((Object) mapIterator0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test055,"  public void test055()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(object0, (Object) null);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.remove((Object) flat3Map0);
+      assertEquals(3, hashedMap0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test055,"  public void test055()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(object0, (Object) null);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.remove((Object) flat3Map0);
+      assertEquals(2, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test055,"  public void test055()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Object object0 = flat3Map0.clone();
+      hashedMap0.put(""K~7^07K fUHr"", object0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(object0, (Object) null);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.remove((Object) flat3Map0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test056,"  public void test056()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Object object0 = new Object();
+      HashedMap hashedMap1 = new HashedMap(flat3Map0);
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.remove((Object) ""K~7^07K fUHr"");
+      assertEquals(3, flat3Map1.size());
+}",0,"assertEquals(0, flat3Map1.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test056,"  public void test056()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Object object0 = new Object();
+      HashedMap hashedMap1 = new HashedMap(flat3Map0);
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.remove((Object) ""K~7^07K fUHr"");
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test057,"  public void test057()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      hashedMap0.put(flat3Map0, flat3Map1);
+      flat3Map0.putAll(hashedMap0);
+      flat3Map0.remove((Object) flat3Map1);
+      assertFalse(flat3Map0.isEmpty());
+}",0,assertTrue(flat3Map0.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test057,"  public void test057()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      hashedMap0.put(flat3Map0, flat3Map1);
+      flat3Map0.putAll(hashedMap0);
+      flat3Map0.remove((Object) flat3Map1);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test058,"  public void test058()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, integer0);
+      flat3Map0.putIfAbsent(integer0, (Object) null);
+      flat3Map0.remove((Object) integer0);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test058,"  public void test058()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, integer0);
+      flat3Map0.putIfAbsent(integer0, (Object) null);
+      flat3Map0.remove((Object) integer0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test059,"  public void test059()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_ValuesIterator0, hashedMap0);
+      flat3Map0.putIfAbsent(""s|K^G/fIX0Y&aLdWM"", ""s|K^G/fIX0Y&aLdWM"");
+      flat3Map0.remove((Object) flat3Map_ValuesIterator0);
+      assertEquals(2, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test059,"  public void test059()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_ValuesIterator0, hashedMap0);
+      flat3Map0.putIfAbsent(""s|K^G/fIX0Y&aLdWM"", ""s|K^G/fIX0Y&aLdWM"");
+      flat3Map0.remove((Object) flat3Map_ValuesIterator0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test060,"  public void test060()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent(hashedMap0, hashedMap0);
+      flat3Map0.putIfAbsent((Object) null, hashedMap0);
+      flat3Map0.remove((Object) hashedMap0);
+      assertEquals(1, flat3Map0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test060,"  public void test060()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent(hashedMap0, hashedMap0);
+      flat3Map0.putIfAbsent((Object) null, hashedMap0);
+      flat3Map0.remove((Object) hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test061,"  public void test061()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySetIterator flat3Map_EntrySetIterator0 = new Flat3Map.EntrySetIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_EntrySetIterator0, ""K~7^07UE-K fUH."");
+      Object object0 = flat3Map0.remove((Object) flat3Map0);
+      assertNull(object0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test061,"  public void test061()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySetIterator flat3Map_EntrySetIterator0 = new Flat3Map.EntrySetIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_EntrySetIterator0, ""K~7^07UE-K fUH."");
+      Object object0 = flat3Map0.remove((Object) flat3Map0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test062,"  public void test062()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(3);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      flat3Map1.clear();
+      assertTrue(flat3Map1.isEmpty());
+}",0,assertTrue(flat3Map1.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test062,"  public void test062()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(3);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      flat3Map1.clear();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test063,"  public void test063()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""{}"", ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.put((Object) null, flat3Map0);
+      flat3Map0.putAll(flat3Map1);
+      flat3Map0.mapIterator();
+      assertEquals(4, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test063,"  public void test063()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""{}"", ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.put((Object) null, flat3Map0);
+      flat3Map0.putAll(flat3Map1);
+      flat3Map0.mapIterator();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test064,"  public void test064()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.putAll(hashedMap0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      ObjectOutputStream objectOutputStream0 = new ObjectOutputStream(byteArrayOutputStream0);
+      hashedMap0.doWriteObject(objectOutputStream0);
+      assertEquals(92, byteArrayOutputStream0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test064,"  public void test064()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.putAll(hashedMap0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      ObjectOutputStream objectOutputStream0 = new ObjectOutputStream(byteArrayOutputStream0);
+      hashedMap0.doWriteObject(objectOutputStream0);
+      assertEquals(""\uFFFD\uFFFD\u0000\u0005w\f?@\u0000\u0000\u0000\u0000\u0000\u0010\u0000\u0000\u0000\u0001sr\u0000+org.apache.commons.collections.map.Flat3Map\uFFFD\u0000\uFFFD~\uFFFDq\uFFFD\uFFFD\u0003\u0000\u0000xpw\u0004\u0000\u0000\u0000\u0001q\u0000~\u0000\u0001pxp"", byteArrayOutputStream0.toString());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test064,"  public void test064()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.putAll(hashedMap0);
+      ByteArrayOutputStream byteArrayOutputStream0 = new ByteArrayOutputStream();
+      ObjectOutputStream objectOutputStream0 = new ObjectOutputStream(byteArrayOutputStream0);
+      hashedMap0.doWriteObject(objectOutputStream0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test065,"  public void test065()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_FlatMapIterator0.next();
+        fail(""Expecting exception: NoSuchElementException"");
+      } catch(NoSuchElementException e) {
+         //
+         // No next() entry in the iteration
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$FlatMapIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test066,"  public void test066()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<Integer> consumer0 = (Consumer<Integer>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      flat3Map_FlatMapIterator0.remove();
+      assertTrue(flat3Map0.isEmpty());
+}",0,assertTrue(flat3Map0.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test066,"  public void test066()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<Integer> consumer0 = (Consumer<Integer>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      flat3Map_FlatMapIterator0.remove();
+      assertFalse(flat3Map_FlatMapIterator0.hasNext());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test066,"  public void test066()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<Integer> consumer0 = (Consumer<Integer>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      flat3Map_FlatMapIterator0.remove();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test067,"  public void test067()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_FlatMapIterator0.remove();
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // remove() can only be called once after next()
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$FlatMapIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test068,"  public void test068()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_FlatMapIterator0.getKey();
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // getKey() can only be called after next() and before remove()
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$FlatMapIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test069,"  public void test069()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<String> consumer0 = (Consumer<String>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      flat3Map_FlatMapIterator0.setValue(flat3Map0);
+      assertEquals(2, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test069,"  public void test069()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<String> consumer0 = (Consumer<String>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      flat3Map_FlatMapIterator0.setValue(flat3Map0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test070,"  public void test070()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_FlatMapIterator0.getValue();
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // getValue() can only be called after next() and before remove()
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$FlatMapIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test071,"  public void test071()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_FlatMapIterator0.setValue(""Tx/t_lnm>{Qd?'"");
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // setValue() can only be called after next() and before remove()
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$FlatMapIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test072,"  public void test072()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<Integer> consumer0 = (Consumer<Integer>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      Object object0 = flat3Map_FlatMapIterator0.setValue(flat3Map0);
+      assertEquals("""", object0);
+}",0,assertNotNull(object0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test072,"  public void test072()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<Integer> consumer0 = (Consumer<Integer>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      Object object0 = flat3Map_FlatMapIterator0.setValue(flat3Map0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test073,"  public void test073()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map_FlatMapIterator0);
+      String string0 = flat3Map0.toString();
+      assertEquals(""{Iterator[]=Iterator[]}"", string0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test073,"  public void test073()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, flat3Map_FlatMapIterator0);
+      String string0 = flat3Map0.toString();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test074,"  public void test074()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<Integer> consumer0 = (Consumer<Integer>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      String string0 = flat3Map_FlatMapIterator0.toString();
+      assertEquals(""Iterator[=]"", string0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test074,"  public void test074()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Consumer<Integer> consumer0 = (Consumer<Integer>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      flat3Map_FlatMapIterator0.forEachRemaining(consumer0);
+      String string0 = flat3Map_FlatMapIterator0.toString();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test075,"  public void test075()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_EntrySet0.remove(flat3Map_ValuesIterator0);
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // getKey() can only be called after next() and before remove()
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$EntrySetIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test076,"  public void test076()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      Integer integer0 = new Integer(2);
+      boolean boolean0 = flat3Map_EntrySet0.remove(integer0);
+      assertFalse(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test076,"  public void test076()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      Integer integer0 = new Integer(2);
+      boolean boolean0 = flat3Map_EntrySet0.remove(integer0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test077,"  public void test077()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""D=_B;6mict6F^8_h"", flat3Map0);
+      hashedMap0.put((Object) null, ""D=_B;6mict6F^8_h"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(3);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map1);
+      flat3Map_EntrySet0.iterator();
+      assertEquals(4, flat3Map1.size());
+}",0,"assertEquals(0, flat3Map1.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test077,"  public void test077()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""D=_B;6mict6F^8_h"", flat3Map0);
+      hashedMap0.put((Object) null, ""D=_B;6mict6F^8_h"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(3);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map1);
+      flat3Map_EntrySet0.iterator();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test078,"  public void test078()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_ValuesIterator0.next();
+        fail(""Expecting exception: NoSuchElementException"");
+      } catch(NoSuchElementException e) {
+         //
+         // No next() entry in the iteration
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$EntrySetIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test079,"  public void test079()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_ValuesIterator0.remove();
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // remove() can only be called once after next()
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$EntrySetIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test080,"  public void test080()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_ValuesIterator0.getValue();
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // getValue() can only be called after next() and before remove()
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$EntrySetIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test081,"  public void test081()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySetIterator flat3Map_EntrySetIterator0 = new Flat3Map.EntrySetIterator(flat3Map0);
+      // Undeclared exception!
+      try { 
+        flat3Map_EntrySetIterator0.setValue(flat3Map0);
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // setValue() can only be called after next() and before remove()
+         //
+         verifyException(""org.apache.commons.collections.map.Flat3Map$EntrySetIterator"", e);
+      }
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test082,"  public void test082()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      Flat3Map.EntrySetIterator flat3Map_EntrySetIterator0 = new Flat3Map.EntrySetIterator(flat3Map0);
+      Object object1 = flat3Map_EntrySetIterator0.next();
+      flat3Map1.putIfAbsent(object1, ""K~7^07UE-K fUH."");
+      flat3Map1.get(flat3Map_EntrySetIterator0);
+      assertEquals(2, flat3Map1.size());
+}",0,"assertEquals(0, flat3Map1.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test082,"  public void test082()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      Flat3Map.EntrySetIterator flat3Map_EntrySetIterator0 = new Flat3Map.EntrySetIterator(flat3Map0);
+      Object object1 = flat3Map_EntrySetIterator0.next();
+      flat3Map1.putIfAbsent(object1, ""K~7^07UE-K fUH."");
+      flat3Map1.get(flat3Map_EntrySetIterator0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test083,"  public void test083()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent(hashedMap0, hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Object object0 = flat3Map_ValuesIterator0.next();
+      boolean boolean0 = flat3Map_ValuesIterator0.equals(object0);
+      assertFalse(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test083,"  public void test083()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent(hashedMap0, hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Object object0 = flat3Map_ValuesIterator0.next();
+      boolean boolean0 = flat3Map_ValuesIterator0.equals(object0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test084,"  public void test084()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, integer0);
+      HashMap<Flat3Map.EntrySet, HashedMap> hashMap0 = new HashMap<Flat3Map.EntrySet, HashedMap>();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      HashedMap hashedMap0 = new HashedMap(1921, 1921);
+      hashMap0.put(flat3Map_EntrySet0, hashedMap0);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test084,"  public void test084()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      Integer integer0 = new Integer(1921);
+      flat3Map0.putIfAbsent(flat3Map_FlatMapIterator0, integer0);
+      HashMap<Flat3Map.EntrySet, HashedMap> hashMap0 = new HashMap<Flat3Map.EntrySet, HashedMap>();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      HashedMap hashedMap0 = new HashedMap(1921, 1921);
+      hashMap0.put(flat3Map_EntrySet0, hashedMap0);
+  }",1,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test085,"  public void test085()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_FlatMapIterator0);
+      HashMap<Flat3Map.EntrySet, HashedMap> hashMap0 = new HashMap<Flat3Map.EntrySet, HashedMap>(1921, 1921);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashMap0.put(flat3Map_EntrySet0, hashedMap0);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test085,"  public void test085()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_FlatMapIterator0);
+      HashMap<Flat3Map.EntrySet, HashedMap> hashMap0 = new HashMap<Flat3Map.EntrySet, HashedMap>(1921, 1921);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashMap0.put(flat3Map_EntrySet0, hashedMap0);
+      assertFalse(flat3Map0.isEmpty());
+}",0,assertTrue(flat3Map0.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test085,"  public void test085()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.FlatMapIterator flat3Map_FlatMapIterator0 = new Flat3Map.FlatMapIterator(flat3Map0);
+      flat3Map0.putIfAbsent((Object) null, flat3Map_FlatMapIterator0);
+      HashMap<Flat3Map.EntrySet, HashedMap> hashMap0 = new HashMap<Flat3Map.EntrySet, HashedMap>(1921, 1921);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashMap0.put(flat3Map_EntrySet0, hashedMap0);
+  }",1,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test086,"  public void test086()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      HashMap<Flat3Map.EntrySet, HashedMap> hashMap0 = new HashMap<Flat3Map.EntrySet, HashedMap>(125, 125);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashMap0.put(flat3Map_EntrySet0, hashedMap0);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(1, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test086,"  public void test086()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      HashMap<Flat3Map.EntrySet, HashedMap> hashMap0 = new HashMap<Flat3Map.EntrySet, HashedMap>(125, 125);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashMap0.put(flat3Map_EntrySet0, hashedMap0);
+      assertFalse(flat3Map0.isEmpty());
+}",0,assertTrue(flat3Map0.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test086,"  public void test086()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      HashMap<Flat3Map.EntrySet, HashedMap> hashMap0 = new HashMap<Flat3Map.EntrySet, HashedMap>(125, 125);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashMap0.put(flat3Map_EntrySet0, hashedMap0);
+  }",1,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test087,"  public void test087()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySetIterator flat3Map_EntrySetIterator0 = new Flat3Map.EntrySetIterator(flat3Map0);
+      String string0 = flat3Map_EntrySetIterator0.toString();
+      assertEquals("""", string0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test087,"  public void test087()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySetIterator flat3Map_EntrySetIterator0 = new Flat3Map.EntrySetIterator(flat3Map0);
+      String string0 = flat3Map_EntrySetIterator0.toString();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test088,"  public void test088()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      Function<Flat3Map, Flat3Map> function0 = Function.identity();
+      flat3Map0.computeIfAbsent(flat3Map_EntrySet0, function0);
+      flat3Map0.toString();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test089,"  public void test089()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(125);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      flat3Map1.keySet();
+      assertEquals(4, flat3Map1.size());
+}",0,"assertEquals(0, flat3Map1.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test089,"  public void test089()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(125);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      flat3Map1.keySet();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test090,"  public void test090()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(3);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map1);
+      flat3Map_KeySet0.iterator();
+      assertEquals(4, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test090,"  public void test090()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(3);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map1);
+      flat3Map_KeySet0.iterator();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test091,"  public void test091()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map0);
+      flat3Map_KeySet0.iterator();
+      assertEquals(0, flat3Map_KeySet0.size());
+}",0,"assertEquals(0, flat3Map_KeySet0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test091,"  public void test091()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.KeySet flat3Map_KeySet0 = new Flat3Map.KeySet(flat3Map0);
+      flat3Map_KeySet0.iterator();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test092,"  public void test092()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Collection collection0 = flat3Map0.values();
+      assertNotNull(collection0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test092,"  public void test092()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Collection collection0 = flat3Map0.values();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test093,"  public void test093()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(flat3Map2, flat3Map1);
+      hashedMap0.put(""="", flat3Map2);
+      hashedMap0.put(flat3Map0, flat3Map0);
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      flat3Map3.put(flat3Map1, flat3Map2);
+      assertEquals(0, flat3Map2.size());
+}",0,"assertEquals(0, flat3Map2.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test093,"  public void test093()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(flat3Map2, flat3Map1);
+      hashedMap0.put(""="", flat3Map2);
+      hashedMap0.put(flat3Map0, flat3Map0);
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      flat3Map3.put(flat3Map1, flat3Map2);
+      flat3Map3.values();
+      assertEquals(4, flat3Map3.size());
+}",0,"assertEquals(0, flat3Map3.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test093,"  public void test093()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      Flat3Map flat3Map2 = new Flat3Map(flat3Map0);
+      hashedMap0.put(flat3Map2, flat3Map1);
+      hashedMap0.put(""="", flat3Map2);
+      hashedMap0.put(flat3Map0, flat3Map0);
+      Flat3Map flat3Map3 = new Flat3Map(hashedMap0);
+      flat3Map3.put(flat3Map1, flat3Map2);
+      flat3Map3.values();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test094,"  public void test094()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.put(hashedMap0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      boolean boolean0 = flat3Map_Values0.remove((Object) null);
+      assertEquals(3, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test094,"  public void test094()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.put(hashedMap0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      boolean boolean0 = flat3Map_Values0.remove((Object) null);
+      assertTrue(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test094,"  public void test094()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.put(hashedMap0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      boolean boolean0 = flat3Map_Values0.remove((Object) null);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test095,"  public void test095()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      flat3Map_Values0.iterator();
+      assertEquals(0, flat3Map_Values0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test095,"  public void test095()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.Values flat3Map_Values0 = new Flat3Map.Values(flat3Map0);
+      flat3Map_Values0.iterator();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test096,"  public void test096()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.put(hashedMap0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      flat3Map0.clone();
+      assertEquals(4, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test096,"  public void test096()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      flat3Map0.put(hashedMap0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      flat3Map0.clone();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test097,"  public void test097()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UEK fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07UEK fUHr"");
+      Integer integer0 = new Integer((-2684));
+      hashedMap0.put(integer0, integer0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map1.equals(flat3Map_ValuesIterator0);
+      assertEquals(4, flat3Map1.size());
+}",0,"assertEquals(0, flat3Map1.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test097,"  public void test097()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UEK fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07UEK fUHr"");
+      Integer integer0 = new Integer((-2684));
+      hashedMap0.put(integer0, integer0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map1.equals(flat3Map_ValuesIterator0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test098,"  public void test098()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      boolean boolean0 = flat3Map0.equals(hashedMap0);
+      assertFalse(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test098,"  public void test098()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      boolean boolean0 = flat3Map0.equals(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test099,"  public void test099()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsValue(flat3Map0);
+      assertFalse(flat3Map0.equals((Object)flat3Map2));
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test099,"  public void test099()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsValue(flat3Map0);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test099,"  public void test099()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsValue(flat3Map0);
+      assertEquals(1, flat3Map2.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test099,"  public void test099()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, flat3Map1);
+      Flat3Map flat3Map2 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map2.containsValue(flat3Map0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test100,"  public void test100()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      hashedMap0.remove((Object) ""D=_B;6mict^8_"");
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.keySet();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.equals(hashedMap0);
+      assertTrue(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test100,"  public void test100()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      hashedMap0.remove((Object) ""D=_B;6mict^8_"");
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.keySet();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.equals(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test101,"  public void test101()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map_EntrySet0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Integer integer0 = new Integer((-429));
+      hashedMap0.put(flat3Map_ValuesIterator0, integer0);
+      boolean boolean0 = flat3Map0.equals(hashedMap0);
+      assertEquals(2, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test101,"  public void test101()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map_EntrySet0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Integer integer0 = new Integer((-429));
+      hashedMap0.put(flat3Map_ValuesIterator0, integer0);
+      boolean boolean0 = flat3Map0.equals(hashedMap0);
+      assertFalse(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test101,"  public void test101()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      Flat3Map.EntrySet flat3Map_EntrySet0 = new Flat3Map.EntrySet(flat3Map0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map_EntrySet0);
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      Integer integer0 = new Integer((-429));
+      hashedMap0.put(flat3Map_ValuesIterator0, integer0);
+      boolean boolean0 = flat3Map0.equals(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test102,"  public void test102()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      hashedMap0.remove((Object) ""D=_B;6mict6F^8_h"");
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.keySet();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.equals(hashedMap0);
+      assertTrue(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test102,"  public void test102()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      hashedMap0.remove((Object) ""D=_B;6mict6F^8_h"");
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.keySet();
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.equals(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test103,"  public void test103()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.equals(hashedMap0);
+      assertTrue(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test103,"  public void test103()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      boolean boolean0 = flat3Map1.equals(hashedMap0);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test104,"  public void test104()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map0, flat3Map_ValuesIterator0);
+      Flat3Map flat3Map1 = new Flat3Map(flat3Map0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+      assertEquals(1, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test104,"  public void test104()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map0, flat3Map_ValuesIterator0);
+      Flat3Map flat3Map1 = new Flat3Map(flat3Map0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+      assertFalse(boolean0);
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test104,"  public void test104()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      Flat3Map.ValuesIterator flat3Map_ValuesIterator0 = new Flat3Map.ValuesIterator(flat3Map0);
+      flat3Map0.putIfAbsent(flat3Map0, flat3Map_ValuesIterator0);
+      Flat3Map flat3Map1 = new Flat3Map(flat3Map0);
+      boolean boolean0 = flat3Map0.equals(flat3Map1);
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test105,"  public void test105()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.hashCode();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test106,"  public void test106()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""{}"", ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.put(hashedMap0, flat3Map0);
+      flat3Map1.hashCode();
+      assertEquals(4, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test106,"  public void test106()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""{}"", ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.put(hashedMap0, flat3Map0);
+      flat3Map1.hashCode();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test107,"  public void test107()  throws Throwable  {
+      Flat3Map flat3Map0 = new Flat3Map();
+      flat3Map0.putIfAbsent("""", """");
+      flat3Map0.hashCode();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test108,"  public void test108()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      flat3Map0.hashCode();
+      assertEquals(2, flat3Map0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test108,"  public void test108()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      flat3Map0.hashCode();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test109,"  public void test109()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Object object0 = new Object();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.hashCode();
+      assertEquals(3, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test109,"  public void test109()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      Object object0 = new Object();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map1.hashCode();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test110,"  public void test110()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      BiFunction<Object, String, HashedMap> biFunction0 = (BiFunction<Object, String, HashedMap>) mock(BiFunction.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null, (Object) null, (Object) null).when(biFunction0).apply(any() , anyString());
+      flat3Map1.replaceAll(biFunction0);
+      flat3Map1.hashCode();
+      assertEquals(3, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test110,"  public void test110()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map(hashedMap0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      BiFunction<Object, String, HashedMap> biFunction0 = (BiFunction<Object, String, HashedMap>) mock(BiFunction.class, new ViolatedAssumptionAnswer());
+      doReturn((Object) null, (Object) null, (Object) null).when(biFunction0).apply(any() , anyString());
+      flat3Map1.replaceAll(biFunction0);
+      flat3Map1.hashCode();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test111,"  public void test111()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(127);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      flat3Map1.toString();
+      assertEquals(4, flat3Map1.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test111,"  public void test111()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, (Object) null);
+      hashedMap0.put(""K~7^07K fUHr"", flat3Map0);
+      hashedMap0.put((Object) null, ""K~7^07K fUHr"");
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      Integer integer0 = new Integer(127);
+      flat3Map1.putIfAbsent(hashedMap0, integer0);
+      flat3Map1.toString();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test112,"  public void test112()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      flat3Map0.toString();
+      assertEquals(2, flat3Map0.size());
+}",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test112,"  public void test112()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      flat3Map0.put(hashedMap0, mapIterator0);
+      flat3Map0.putIfAbsent((Object) null, (Object) null);
+      flat3Map0.toString();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test113,"  public void test113()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.putIfAbsent((Object) null, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      flat3Map0.toString();
+      assertEquals(3, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test113,"  public void test113()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      hashedMap0.put(flat3Map0, (Object) null);
+      flat3Map0.putIfAbsent((Object) null, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      flat3Map0.toString();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test114,"  public void test114()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, (Object) null);
+      hashedMap0.put(""{}"", ""K~7^07K fUHr"");
+      flat3Map1.putAll(hashedMap0);
+      flat3Map1.toString();
+      assertFalse(flat3Map1.isEmpty());
+}",0,assertTrue(flat3Map1.isEmpty())
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test114,"  public void test114()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Flat3Map flat3Map0 = new Flat3Map();
+      MapIterator mapIterator0 = flat3Map0.mapIterator();
+      hashedMap0.put(mapIterator0, flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map();
+      hashedMap0.put(flat3Map1, (Object) null);
+      hashedMap0.put(""{}"", ""K~7^07K fUHr"");
+      flat3Map1.putAll(hashedMap0);
+      flat3Map1.toString();
+  }",0,
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test115,"  public void test115()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UE-K fUH."", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      flat3Map0.toString();
+      assertEquals(2, flat3Map0.size());
+}",0,"assertEquals(0, flat3Map0.size())"
+Collections,1,org.apache.commons.collections.map.Flat3Map_ESTest::test115,"  public void test115()  throws Throwable  {
+      HashedMap hashedMap0 = new HashedMap();
+      Object object0 = new Object();
+      Flat3Map flat3Map0 = new Flat3Map();
+      hashedMap0.put(flat3Map0, object0);
+      hashedMap0.put(""K~7^07UE-K fUH."", flat3Map0);
+      Flat3Map flat3Map1 = new Flat3Map(hashedMap0);
+      flat3Map0.putAll(flat3Map1);
+      flat3Map0.toString();
+  }",0,

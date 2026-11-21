@@ -1,0 +1,702 @@
+focal_method,test_prefix,docstring
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test00()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addLongCreator((AnnotatedWithParams) null, false);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addLongCreator(AnnotatedWithParams creator, boolean explicit) {
+        verifyNonDup(creator, C_LONG, explicit);
+    }","  public void test00()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addLongCreator((AnnotatedWithParams) null, false);
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test01()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      creatorCollector0.addLongCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addLongCreator(AnnotatedWithParams creator, boolean explicit) {
+        verifyNonDup(creator, C_LONG, explicit);
+    }","  public void test01()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      creatorCollector0.addLongCreator((AnnotatedWithParams) null);
+  }",
+"    protected AnnotatedWithParams verifyNonDup(AnnotatedWithParams newOne, int typeIndex) {
+        verifyNonDup(newOne, typeIndex, false);
+        return _creators[typeIndex];
+    }","  public void test02()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      // Undeclared exception!
+      try { 
+        creatorCollector0.verifyNonDup((AnnotatedWithParams) null, (-1178));
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // Index -1178 out of bounds for length 8
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test03()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addIntCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addIntCreator(AnnotatedWithParams creator, boolean explicit) {
+        verifyNonDup(creator, C_INT, explicit);
+    }","  public void test03()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addIntCreator((AnnotatedWithParams) null);
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test04()  throws Throwable  {
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[0];
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addDelegatingCreator((AnnotatedWithParams) null, creatorPropertyArray0);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addDelegatingCreator(AnnotatedWithParams creator, boolean explicit,
+            CreatorProperty[] injectables)
+    {
+        verifyNonDup(creator, C_DELEGATE, explicit);
+        _delegateArgs = injectables;
+    }","  public void test04()  throws Throwable  {
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[0];
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addDelegatingCreator((AnnotatedWithParams) null, creatorPropertyArray0);
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test05()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addBooleanCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addBooleanCreator(AnnotatedWithParams creator, boolean explicit) {
+        verifyNonDup(creator, C_BOOLEAN, explicit);
+    }","  public void test05()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addBooleanCreator((AnnotatedWithParams) null);
+  }",
+"    public void addPropertyCreator(AnnotatedWithParams creator, boolean explicit,
+            CreatorProperty[] properties)
+    {
+        verifyNonDup(creator, C_PROPS, explicit);
+        // [JACKSON-470] Better ensure we have no duplicate names either...
+        if (properties.length > 1) {
+            HashMap<String,Integer> names = new HashMap<String,Integer>();
+            for (int i = 0, len = properties.length; i < len; ++i) {
+                String name = properties[i].getName();
+                /* [Issue-13]: Need to consider Injectables, which may not have
+                 *   a name at all, and need to be skipped
+                 */
+                if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+                    continue;
+                }
+                Integer old = names.put(name, Integer.valueOf(i));
+                if (old != null) {
+                    throw new IllegalArgumentException(""Duplicate creator property \""""+name+""\"" (index ""+old+"" vs ""+i+"")"");
+                }
+            }
+        }
+        _propertyBasedArgs = properties;
+    }","  public void test06()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      // Undeclared exception!
+      try { 
+        creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, (CreatorProperty[]) null);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test07()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addStringCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addStringCreator(AnnotatedWithParams creator, boolean explicit) {
+        verifyNonDup(creator, C_STRING, explicit);
+    }","  public void test07()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addStringCreator((AnnotatedWithParams) null);
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test08()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addDoubleCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addDoubleCreator(AnnotatedWithParams creator, boolean explicit) {
+        verifyNonDup(creator, C_DOUBLE, explicit);
+    }","  public void test08()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addDoubleCreator((AnnotatedWithParams) null);
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test09()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      creatorCollector0.addDoubleCreator((AnnotatedWithParams) null, true);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addDoubleCreator(AnnotatedWithParams creator, boolean explicit) {
+        verifyNonDup(creator, C_DOUBLE, explicit);
+    }","  public void test09()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      creatorCollector0.addDoubleCreator((AnnotatedWithParams) null, true);
+  }",
+,"  public void test10()  throws Throwable  {
+      ObjectMapper objectMapper0 = new ObjectMapper();
+      PropertyAccessor propertyAccessor0 = PropertyAccessor.CREATOR;
+      JsonAutoDetect.Visibility jsonAutoDetect_Visibility0 = JsonAutoDetect.Visibility.NONE;
+      objectMapper0.setVisibility(propertyAccessor0, jsonAutoDetect_Visibility0);
+      Class<BasicBeanDescription> class0 = BasicBeanDescription.class;
+      ObjectReader objectReader0 = objectMapper0.reader((Class<?>) class0);
+      assertNotNull(objectReader0);
+}",
+,"  public void test10()  throws Throwable  {
+      ObjectMapper objectMapper0 = new ObjectMapper();
+      PropertyAccessor propertyAccessor0 = PropertyAccessor.CREATOR;
+      JsonAutoDetect.Visibility jsonAutoDetect_Visibility0 = JsonAutoDetect.Visibility.NONE;
+      objectMapper0.setVisibility(propertyAccessor0, jsonAutoDetect_Visibility0);
+      Class<BasicBeanDescription> class0 = BasicBeanDescription.class;
+      ObjectReader objectReader0 = objectMapper0.reader((Class<?>) class0);
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test11()  throws Throwable  {
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(4641);
+      boolean boolean0 = creatorCollector_Vanilla0.canInstantiate();
+      assertTrue(boolean0);
+}",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test11()  throws Throwable  {
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(4641);
+      boolean boolean0 = creatorCollector_Vanilla0.canInstantiate();
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test12()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[0];
+      creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, true, creatorPropertyArray0);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addPropertyCreator(AnnotatedWithParams creator, boolean explicit,
+            CreatorProperty[] properties)
+    {
+        verifyNonDup(creator, C_PROPS, explicit);
+        // [JACKSON-470] Better ensure we have no duplicate names either...
+        if (properties.length > 1) {
+            HashMap<String,Integer> names = new HashMap<String,Integer>();
+            for (int i = 0, len = properties.length; i < len; ++i) {
+                String name = properties[i].getName();
+                /* [Issue-13]: Need to consider Injectables, which may not have
+                 *   a name at all, and need to be skipped
+                 */
+                if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+                    continue;
+                }
+                Integer old = names.put(name, Integer.valueOf(i));
+                if (old != null) {
+                    throw new IllegalArgumentException(""Duplicate creator property \""""+name+""\"" (index ""+old+"" vs ""+i+"")"");
+                }
+            }
+        }
+        _propertyBasedArgs = properties;
+    }","  public void test12()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[0];
+      creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, true, creatorPropertyArray0);
+  }",
+"    public void addPropertyCreator(AnnotatedWithParams creator, boolean explicit,
+            CreatorProperty[] properties)
+    {
+        verifyNonDup(creator, C_PROPS, explicit);
+        // [JACKSON-470] Better ensure we have no duplicate names either...
+        if (properties.length > 1) {
+            HashMap<String,Integer> names = new HashMap<String,Integer>();
+            for (int i = 0, len = properties.length; i < len; ++i) {
+                String name = properties[i].getName();
+                /* [Issue-13]: Need to consider Injectables, which may not have
+                 *   a name at all, and need to be skipped
+                 */
+                if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+                    continue;
+                }
+                Integer old = names.put(name, Integer.valueOf(i));
+                if (old != null) {
+                    throw new IllegalArgumentException(""Duplicate creator property \""""+name+""\"" (index ""+old+"" vs ""+i+"")"");
+                }
+            }
+        }
+        _propertyBasedArgs = properties;
+    }","  public void test13()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      Class<Integer> class0 = Integer.class;
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[6];
+      PropertyName propertyName0 = new PropertyName("""");
+      JavaType javaType0 = TypeFactory.unknownType();
+      MapLikeType mapLikeType0 = MapLikeType.construct(class0, javaType0, javaType0);
+      CollectionType collectionType0 = CollectionType.construct(class0, mapLikeType0);
+      TypeFactory typeFactory0 = TypeFactory.defaultInstance();
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(javaType0, typeFactory0);
+      AsExternalTypeDeserializer asExternalTypeDeserializer0 = new AsExternalTypeDeserializer(collectionType0, classNameIdResolver0, """", false, class0);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, annotationMap0, 95);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, collectionType0, propertyName0, asExternalTypeDeserializer0, annotationMap0, annotatedParameter0, 6, propertyName0, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      creatorPropertyArray0[1] = creatorProperty0;
+      creatorPropertyArray0[2] = creatorProperty0;
+      creatorPropertyArray0[3] = creatorPropertyArray0[0];
+      creatorPropertyArray0[4] = creatorPropertyArray0[0];
+      creatorPropertyArray0[5] = creatorPropertyArray0[3];
+      creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, false, creatorPropertyArray0);
+      assertEquals(6, creatorPropertyArray0.length);
+}",
+"    public void addPropertyCreator(AnnotatedWithParams creator, boolean explicit,
+            CreatorProperty[] properties)
+    {
+        verifyNonDup(creator, C_PROPS, explicit);
+        // [JACKSON-470] Better ensure we have no duplicate names either...
+        if (properties.length > 1) {
+            HashMap<String,Integer> names = new HashMap<String,Integer>();
+            for (int i = 0, len = properties.length; i < len; ++i) {
+                String name = properties[i].getName();
+                /* [Issue-13]: Need to consider Injectables, which may not have
+                 *   a name at all, and need to be skipped
+                 */
+                if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+                    continue;
+                }
+                Integer old = names.put(name, Integer.valueOf(i));
+                if (old != null) {
+                    throw new IllegalArgumentException(""Duplicate creator property \""""+name+""\"" (index ""+old+"" vs ""+i+"")"");
+                }
+            }
+        }
+        _propertyBasedArgs = properties;
+    }","  public void test13()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      Class<Integer> class0 = Integer.class;
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[6];
+      PropertyName propertyName0 = new PropertyName("""");
+      JavaType javaType0 = TypeFactory.unknownType();
+      MapLikeType mapLikeType0 = MapLikeType.construct(class0, javaType0, javaType0);
+      CollectionType collectionType0 = CollectionType.construct(class0, mapLikeType0);
+      TypeFactory typeFactory0 = TypeFactory.defaultInstance();
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(javaType0, typeFactory0);
+      AsExternalTypeDeserializer asExternalTypeDeserializer0 = new AsExternalTypeDeserializer(collectionType0, classNameIdResolver0, """", false, class0);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, annotationMap0, 95);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, collectionType0, propertyName0, asExternalTypeDeserializer0, annotationMap0, annotatedParameter0, 6, propertyName0, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      creatorPropertyArray0[1] = creatorProperty0;
+      creatorPropertyArray0[2] = creatorProperty0;
+      creatorPropertyArray0[3] = creatorPropertyArray0[0];
+      creatorPropertyArray0[4] = creatorPropertyArray0[0];
+      creatorPropertyArray0[5] = creatorPropertyArray0[3];
+      creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, false, creatorPropertyArray0);
+  }",
+"    public void addPropertyCreator(AnnotatedWithParams creator, boolean explicit,
+            CreatorProperty[] properties)
+    {
+        verifyNonDup(creator, C_PROPS, explicit);
+        // [JACKSON-470] Better ensure we have no duplicate names either...
+        if (properties.length > 1) {
+            HashMap<String,Integer> names = new HashMap<String,Integer>();
+            for (int i = 0, len = properties.length; i < len; ++i) {
+                String name = properties[i].getName();
+                /* [Issue-13]: Need to consider Injectables, which may not have
+                 *   a name at all, and need to be skipped
+                 */
+                if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+                    continue;
+                }
+                Integer old = names.put(name, Integer.valueOf(i));
+                if (old != null) {
+                    throw new IllegalArgumentException(""Duplicate creator property \""""+name+""\"" (index ""+old+"" vs ""+i+"")"");
+                }
+            }
+        }
+        _propertyBasedArgs = properties;
+    }","  public void test14()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      Class<Integer> class0 = Integer.class;
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[6];
+      PropertyName propertyName0 = new PropertyName(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"");
+      JavaType javaType0 = TypeFactory.unknownType();
+      MapLikeType mapLikeType0 = MapLikeType.construct(class0, javaType0, javaType0);
+      CollectionType collectionType0 = CollectionType.construct(class0, mapLikeType0);
+      TypeFactory typeFactory0 = TypeFactory.defaultInstance();
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(javaType0, typeFactory0);
+      AsExternalTypeDeserializer asExternalTypeDeserializer0 = new AsExternalTypeDeserializer(collectionType0, classNameIdResolver0, ""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", false, class0);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, annotationMap0, 95);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, collectionType0, propertyName0, asExternalTypeDeserializer0, annotationMap0, annotatedParameter0, 6, propertyName0, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      // Undeclared exception!
+      try { 
+        creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, true, creatorPropertyArray0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",
+"    public void addPropertyCreator(AnnotatedWithParams creator, boolean explicit,
+            CreatorProperty[] properties)
+    {
+        verifyNonDup(creator, C_PROPS, explicit);
+        // [JACKSON-470] Better ensure we have no duplicate names either...
+        if (properties.length > 1) {
+            HashMap<String,Integer> names = new HashMap<String,Integer>();
+            for (int i = 0, len = properties.length; i < len; ++i) {
+                String name = properties[i].getName();
+                /* [Issue-13]: Need to consider Injectables, which may not have
+                 *   a name at all, and need to be skipped
+                 */
+                if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+                    continue;
+                }
+                Integer old = names.put(name, Integer.valueOf(i));
+                if (old != null) {
+                    throw new IllegalArgumentException(""Duplicate creator property \""""+name+""\"" (index ""+old+"" vs ""+i+"")"");
+                }
+            }
+        }
+        _propertyBasedArgs = properties;
+    }","  public void test15()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[2];
+      PropertyName propertyName0 = new PropertyName("""");
+      Class<Field> class0 = Field.class;
+      SimpleType simpleType0 = SimpleType.constructUnsafe(class0);
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(simpleType0, (TypeFactory) null);
+      Class<Integer> class1 = Integer.class;
+      AsPropertyTypeDeserializer asPropertyTypeDeserializer0 = new AsPropertyTypeDeserializer(simpleType0, classNameIdResolver0, """", true, class1);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, simpleType0, annotationMap0, 3596);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, simpleType0, propertyName0, asPropertyTypeDeserializer0, annotationMap0, annotatedParameter0, 2749, (Object) null, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      // Undeclared exception!
+      try { 
+        creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, true, creatorPropertyArray0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",
+"    public void addPropertyCreator(AnnotatedWithParams creator, boolean explicit,
+            CreatorProperty[] properties)
+    {
+        verifyNonDup(creator, C_PROPS, explicit);
+        // [JACKSON-470] Better ensure we have no duplicate names either...
+        if (properties.length > 1) {
+            HashMap<String,Integer> names = new HashMap<String,Integer>();
+            for (int i = 0, len = properties.length; i < len; ++i) {
+                String name = properties[i].getName();
+                /* [Issue-13]: Need to consider Injectables, which may not have
+                 *   a name at all, and need to be skipped
+                 */
+                if (name.length() == 0 && properties[i].getInjectableValueId() != null) {
+                    continue;
+                }
+                Integer old = names.put(name, Integer.valueOf(i));
+                if (old != null) {
+                    throw new IllegalArgumentException(""Duplicate creator property \""""+name+""\"" (index ""+old+"" vs ""+i+"")"");
+                }
+            }
+        }
+        _propertyBasedArgs = properties;
+    }","  public void test16()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[2];
+      PropertyName propertyName0 = new PropertyName("""");
+      Class<Field> class0 = Field.class;
+      SimpleType simpleType0 = SimpleType.constructUnsafe(class0);
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(simpleType0, (TypeFactory) null);
+      Class<Integer> class1 = Integer.class;
+      AsPropertyTypeDeserializer asPropertyTypeDeserializer0 = new AsPropertyTypeDeserializer(simpleType0, classNameIdResolver0, """", true, class1);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, simpleType0, annotationMap0, 3596);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, simpleType0, propertyName0, asPropertyTypeDeserializer0, annotationMap0, annotatedParameter0, 2749, (Object) null, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      creatorPropertyArray0[1] = creatorProperty0;
+      // Undeclared exception!
+      try { 
+        creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, false, creatorPropertyArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Duplicate creator property \""\"" (index 0 vs 1)
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",
+"    public void addIncompeteParameter(AnnotatedParameter parameter) {
+        if (_incompleteParameter == null) {
+            _incompleteParameter = parameter;
+        }
+    }","  public void test17()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, (AnnotationMap) null, 8);
+      creatorCollector0._incompleteParameter = annotatedParameter0;
+      creatorCollector0.addIncompeteParameter(annotatedParameter0);
+      assertEquals(8, annotatedParameter0.getIndex());
+}",
+"    public void addIncompeteParameter(AnnotatedParameter parameter) {
+        if (_incompleteParameter == null) {
+            _incompleteParameter = parameter;
+        }
+    }","  public void test17()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, (AnnotationMap) null, 8);
+      creatorCollector0._incompleteParameter = annotatedParameter0;
+      creatorCollector0.addIncompeteParameter(annotatedParameter0);
+  }",
+"    public boolean hasDefaultCreator() {
+        return _creators[C_DEFAULT] != null;
+    }","  public void test18()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addIncompeteParameter((AnnotatedParameter) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}","/**
+     * @since 2.1
+     */"
+"    public void addIncompeteParameter(AnnotatedParameter parameter) {
+        if (_incompleteParameter == null) {
+            _incompleteParameter = parameter;
+        }
+    }","  public void test18()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addIncompeteParameter((AnnotatedParameter) null);
+  }",
+,"  public void test19()  throws Throwable  {
+      ObjectMapper objectMapper0 = new ObjectMapper();
+      MapperFeature[] mapperFeatureArray0 = new MapperFeature[3];
+      MapperFeature mapperFeature0 = MapperFeature.DEFAULT_VIEW_INCLUSION;
+      mapperFeatureArray0[0] = mapperFeature0;
+      mapperFeatureArray0[1] = mapperFeature0;
+      MapperFeature mapperFeature1 = MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS;
+      mapperFeatureArray0[2] = mapperFeature1;
+      objectMapper0.disable(mapperFeatureArray0);
+      Class<BasicBeanDescription> class0 = BasicBeanDescription.class;
+      ObjectReader objectReader0 = objectMapper0.reader((Class<?>) class0);
+      assertNotNull(objectReader0);
+}",
+,"  public void test19()  throws Throwable  {
+      ObjectMapper objectMapper0 = new ObjectMapper();
+      MapperFeature[] mapperFeatureArray0 = new MapperFeature[3];
+      MapperFeature mapperFeature0 = MapperFeature.DEFAULT_VIEW_INCLUSION;
+      mapperFeatureArray0[0] = mapperFeature0;
+      mapperFeatureArray0[1] = mapperFeature0;
+      MapperFeature mapperFeature1 = MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS;
+      mapperFeatureArray0[2] = mapperFeature1;
+      objectMapper0.disable(mapperFeatureArray0);
+      Class<BasicBeanDescription> class0 = BasicBeanDescription.class;
+      ObjectReader objectReader0 = objectMapper0.reader((Class<?>) class0);
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test20()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(1);
+      try { 
+        creatorCollector_Vanilla0.createFromString(defaultDeserializationContext_Impl0, """");
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Can not instantiate value of type java.util.ArrayList from String value (''); no single-String constructor/factory method
+         //
+         verifyException(""com.fasterxml.jackson.databind.JsonMappingException"", e);
+      }
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test21()  throws Throwable  {
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla((-5));
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      try { 
+        creatorCollector_Vanilla0.createUsingDelegate(defaultDeserializationContext_Impl0, deserializerFactoryConfig0);
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Can not instantiate value of type java.lang.Object using delegate
+         //
+         verifyException(""com.fasterxml.jackson.databind.JsonMappingException"", e);
+      }
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test22()  throws Throwable  {
+      BeanDeserializerFactory beanDeserializerFactory0 = BeanDeserializerFactory.instance;
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(2);
+      try { 
+        creatorCollector_Vanilla0.createFromInt(defaultDeserializationContext_Impl0, 939);
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Can not instantiate value of type java.util.LinkedHashMap from Integer number (939, int)
+         //
+         verifyException(""com.fasterxml.jackson.databind.JsonMappingException"", e);
+      }
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test23()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(3);
+      try { 
+        creatorCollector_Vanilla0.createUsingDelegate(defaultDeserializationContext_Impl0, deserializerFactoryConfig0);
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Can not instantiate value of type java.util.HashMap using delegate
+         //
+         verifyException(""com.fasterxml.jackson.databind.JsonMappingException"", e);
+      }
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test24()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(1);
+      ArrayList arrayList0 = (ArrayList)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+      assertTrue(arrayList0.isEmpty());
+}",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test24()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(1);
+      ArrayList arrayList0 = (ArrayList)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test25()  throws Throwable  {
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla((-8));
+      BeanDeserializerFactory beanDeserializerFactory0 = BeanDeserializerFactory.instance;
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      // Undeclared exception!
+      try { 
+        creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // Unknown type -8
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector$Vanilla"", e);
+      }
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test26()  throws Throwable  {
+      BeanDeserializerFactory beanDeserializerFactory0 = BeanDeserializerFactory.instance;
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(2);
+      LinkedHashMap linkedHashMap0 = (LinkedHashMap)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+      assertTrue(linkedHashMap0.isEmpty());
+}",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test26()  throws Throwable  {
+      BeanDeserializerFactory beanDeserializerFactory0 = BeanDeserializerFactory.instance;
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(2);
+      LinkedHashMap linkedHashMap0 = (LinkedHashMap)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+  }",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test27()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(3);
+      HashMap hashMap0 = (HashMap)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+      assertEquals(0, hashMap0.size());
+}",
+"    public CreatorCollector(BeanDescription beanDesc, boolean canFixAccess)
+    {
+        _beanDesc = beanDesc;
+        _canFixAccess = canFixAccess;
+    }","  public void test27()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(3);
+      HashMap hashMap0 = (HashMap)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+  }",

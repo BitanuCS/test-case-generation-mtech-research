@@ -1,0 +1,249 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Closure-169/evo /Users/bitu/mtech-tools/work/Closure-169f/src Closure 169 /Users/bitu/mtech-tools/toga_out/Closure-169
+787 test prefixes, 766 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Closure-169/inputs.csv /Users/bitu/mtech-tools/toga_out/Closure-169/meta.csv
+11/21/2026 07:03:16 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 07:03:17 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 07:03:18 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 07:03:18 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 07:03:18 - INFO - utils -   Writing example 0 of 758
+11/21/2026 07:03:18 - INFO - utils -   *** Example ***
+11/21/2026 07:03:18 - INFO - utils -   guid: test-0
+11/21/2026 07:03:18 - INFO - utils -   tokens: <s> public ĠJ ST ype Ġget Great est Sub type ( J ST ype Ġthat ) Ġ{ Ġthrow Ġnew ĠUn supported Operation Exception (); Ġ} </s> public Ġvoid Ġtest Get Great est Sub type () Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 ); ĠError Function Type Ġerror Function Type 0 Ġ= Ġnew ĠError Function Type ( j ST ype Reg istry 0 , Ġ" com . g ogle . common . col le c +. I te ( ators $ 14 "); ĠArrow Type Ġarrow Type 0 Ġ= Ġerror Function Type 0 . get Internal Ar row Type (); Ġarrow Type 0 . get Great est Sub type ( error Function Type 0 ); Ġ} </s>
+11/21/2026 07:03:18 - INFO - utils -   input_ids: 0 15110 344 4014 37356 120 19065 990 23055 12528 1640 863 4014 37356 14 43 25522 3211 92 1890 29799 35360 48847 47006 35524 2 15110 13842 1296 14181 19065 990 23055 12528 43048 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 4397 37943 47802 40118 5849 47802 40118 288 5457 92 37943 47802 40118 1640 267 4014 37356 23007 20217 288 6 22 175 4 571 32507 4 27278 4 9119 459 438 27079 100 859 1640 3629 1629 1570 45751 19249 40118 27899 40118 288 5457 5849 47802 40118 288 4 6460 47666 8138 4610 40118 47006 27899 40118 288 4 6460 19065 990 23055 12528 1640 44223 47802 40118 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 07:03:18 - INFO - utils -   *** Example ***
+11/21/2026 07:03:18 - INFO - utils -   guid: test-1
+11/21/2026 07:03:18 - INFO - utils -   tokens: <s> public ĠJ ST ype Ġget Le ast Super type ( J ST ype Ġthat ) Ġ{ Ġthrow Ġnew ĠUn supported Operation Exception (); Ġ} </s> public Ġvoid Ġtest Get Le ast Super type () Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 ); ĠError Function Type Ġerror Function Type 0 Ġ= Ġnew ĠError Function Type ( j ST ype Reg istry 0 , Ġ" EX PR _ RES ULT "); ĠArrow Type Ġarrow Type 0 Ġ= Ġerror Function Type 0 . get Internal Ar row Type (); Ġarrow Type 0 . get Le ast Super type ( error Function Type 0 ); Ġ} </s>
+11/21/2026 07:03:18 - INFO - utils -   input_ids: 0 15110 344 4014 37356 120 10350 1988 16713 12528 1640 863 4014 37356 14 43 25522 3211 92 1890 29799 35360 48847 47006 35524 2 15110 13842 1296 14181 10350 1988 16713 12528 43048 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 4397 37943 47802 40118 5849 47802 40118 288 5457 92 37943 47802 40118 1640 267 4014 37356 23007 20217 288 6 22 6725 4454 1215 32030 25938 45751 19249 40118 27899 40118 288 5457 5849 47802 40118 288 4 6460 47666 8138 4610 40118 47006 27899 40118 288 4 6460 10350 1988 16713 12528 1640 44223 47802 40118 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 07:03:18 - INFO - utils -   *** Example ***
+11/21/2026 07:03:18 - INFO - utils -   guid: test-2
+11/21/2026 07:03:18 - INFO - utils -   tokens: <s> String Ġto String Helper ( bo olean Ġfor An notations ) Ġ{ Ġreturn Ġ"[ Ar row Type ] "; Ġ} </s> public Ġvoid Ġtest To String Helper () Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 , Ġfalse ); ĠJ ST ype [] Ġj ST ype Array 0 Ġ= Ġnew ĠJ ST ype [ 0 ]; ĠNode Ġnode 0 Ġ= Ġj ST ype Reg istry 0 . create Parameters ( j ST ype Array 0 ); ĠAll Type Ġall Type 0 Ġ= Ġnew ĠAll Type ( j ST ype Reg istry 0 ); ĠArrow Type Ġarrow Type 0 Ġ= Ġnew ĠArrow Type ( j ST ype Reg istry 0 , Ġnode 0 , Ġall Type 0 ); Ġarrow Type 0 . to String Helper ( false ); Ġ} </s>
+11/21/2026 07:03:18 - INFO - utils -   input_ids: 0 34222 7 34222 48825 1640 3983 48547 13 4688 43920 43 25522 671 11227 8138 4610 40118 742 25718 35524 2 15110 13842 1296 3972 34222 48825 43048 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 6 3950 4397 344 4014 37356 48992 1236 4014 37356 48222 288 5457 92 344 4014 37356 10975 288 44082 44058 37908 288 5457 1236 4014 37356 23007 20217 288 4 32845 49725 1640 267 4014 37356 48222 288 4397 404 40118 70 40118 288 5457 92 404 40118 1640 267 4014 37356 23007 20217 288 4397 19249 40118 27899 40118 288 5457 92 19249 40118 1640 267 4014 37356 23007 20217 288 6 37908 288 6 70 40118 288 4397 27899 40118 288 4 560 34222 48825 1640 22303 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 07:03:18 - INFO - utils -   *** Example ***
+11/21/2026 07:03:18 - INFO - utils -   guid: test-3
+11/21/2026 07:03:18 - INFO - utils -   tokens: <s> String Ġto String Helper ( bo olean Ġfor An notations ) Ġ{ Ġreturn Ġ"[ Ar row Type ] "; Ġ} </s> public Ġvoid Ġtest To String Helper () Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 , Ġfalse ); ĠJ ST ype [] Ġj ST ype Array 0 Ġ= Ġnew ĠJ ST ype [ 0 ]; ĠNode Ġnode 0 Ġ= Ġj ST ype Reg istry 0 . create Parameters ( j ST ype Array 0 ); ĠAll Type Ġall Type 0 Ġ= Ġnew ĠAll Type ( j ST ype Reg istry 0 ); ĠArrow Type Ġarrow Type 0 Ġ= Ġnew ĠArrow Type ( j ST ype Reg istry 0 , Ġnode 0 , Ġall Type 0 ); Ġarrow Type 0 . to String Helper ( false ); Ġ} </s>
+11/21/2026 07:03:18 - INFO - utils -   input_ids: 0 34222 7 34222 48825 1640 3983 48547 13 4688 43920 43 25522 671 11227 8138 4610 40118 742 25718 35524 2 15110 13842 1296 3972 34222 48825 43048 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 6 3950 4397 344 4014 37356 48992 1236 4014 37356 48222 288 5457 92 344 4014 37356 10975 288 44082 44058 37908 288 5457 1236 4014 37356 23007 20217 288 4 32845 49725 1640 267 4014 37356 48222 288 4397 404 40118 70 40118 288 5457 92 404 40118 1640 267 4014 37356 23007 20217 288 4397 19249 40118 27899 40118 288 5457 92 19249 40118 1640 267 4014 37356 23007 20217 288 6 37908 288 6 70 40118 288 4397 27899 40118 288 4 560 34222 48825 1640 22303 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 07:03:18 - INFO - utils -   *** Example ***
+11/21/2026 07:03:18 - INFO - utils -   guid: test-4
+11/21/2026 07:03:18 - INFO - utils -   tokens: <s> public Ġ< T > ĠT Ġvisit ( Vis itor < T > Ġvisitor ) Ġ{ Ġthrow Ġnew ĠUn supported Operation Exception (); Ġ} </s> public Ġvoid Ġtest Visit () Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 ); ĠError Function Type Ġerror Function Type 0 Ġ= Ġnew ĠError Function Type ( j ST ype Reg istry 0 , Ġ"_ X Q + ; a \" 8 R + w E 1 e + N > "); ĠArrow Type Ġarrow Type 0 Ġ= Ġerror Function Type 0 . get Internal Ar row Type (); Ġarrow Type 0 . vis it (( Vis itor < No Type >) Ġnull ); Ġ} </s>
+11/21/2026 07:03:18 - INFO - utils -   input_ids: 0 15110 28696 565 15698 255 825 1640 27654 7852 41552 565 15698 13338 43 25522 3211 92 1890 29799 35360 48847 47006 35524 2 15110 13842 1296 45070 43048 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 4397 37943 47802 40118 5849 47802 40118 288 5457 92 37943 47802 40118 1640 267 4014 37356 23007 20217 288 6 49713 1000 1864 2744 131 102 48110 398 500 2744 605 717 134 242 2744 487 15698 45751 19249 40118 27899 40118 288 5457 5849 47802 40118 288 4 6460 47666 8138 4610 40118 47006 27899 40118 288 4 9578 405 48461 27654 7852 41552 3084 40118 49798 23796 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:03:18 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 07:03:19 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 07:03:19 - INFO - __main__ -     Num examples = 758
+11/21/2026 07:03:19 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 758 total truncations 202, mean_trunc 13.379947229551451, median 0.0, max = 359
+Evaluating:   0%|          | 0/3 [00:00<?, ?it/s]Evaluating:  33%|███▎      | 1/3 [00:20<00:41, 20.79s/it]Evaluating:  67%|██████▋   | 2/3 [00:41<00:20, 20.89s/it]Evaluating: 100%|██████████| 3/3 [00:57<00:00, 18.72s/it]Evaluating: 100%|██████████| 3/3 [00:57<00:00, 19.29s/it]
+11/21/2026 07:04:21 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 07:04:22 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 07:04:22 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 07:04:22 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 07:04:22 - INFO - utils -   Writing example 0 of 916
+11/21/2026 07:04:22 - INFO - utils -   *** Example ***
+11/21/2026 07:04:22 - INFO - utils -   guid: 3
+11/21/2026 07:04:22 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 03 () Ġthrows ĠThrow able Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 , </s> String Ġto String Helper ( bo olean Ġfor An notations ) Ġ{ Ġreturn Ġ"[ Ar row Type ] "; Ġ} </s> assert Not Null ( string 0 ) </s>
+11/21/2026 07:04:22 - INFO - utils -   input_ids: 0 15110 13842 1296 3933 43048 6989 28106 868 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 6 2 34222 7 34222 48825 1640 3983 48547 13 4688 43920 43 25522 671 11227 8138 4610 40118 742 25718 35524 2 46346 7199 49302 1640 20951 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:04:22 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:04:22 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 07:04:22 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 07:04:22 - INFO - utils -   *** Example ***
+11/21/2026 07:04:22 - INFO - utils -   guid: 8
+11/21/2026 07:04:22 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 06 () Ġthrows ĠThrow able Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 ); </s> public Ġboolean Ġis Sub type ( J ST ype Ġother ) Ġ{ Ġif Ġ(! ( other Ġinstance of ĠArrow Type )) Ġ{ Ġreturn Ġfalse ; Ġ} ĠArrow Type Ġthat Ġ= Ġ( Ar row Type ) Ġother ; Ġ// ĠThis Ġis Ġdescribed Ġin ĠDraft Ġ2 Ġof Ġthe ĠES 4 Ġspec , Ġ// ĠSection Ġ3 . 4 . 7 : ĠSub ty ping ĠFunction ĠTypes . Ġ// Ġthis . return Type Ġ< : Ġthat . return Type Ġ( c ov ari ant ) Ġif Ġ(! this . return Type . is Sub type ( that . return Type )) Ġ{ Ġreturn Ġfalse ; Ġ} Ġ// Ġthat . param Type [ i ] Ġ< : Ġthis . param Type [ i ] Ġ( cont rav ari ant ) Ġ// Ġ// ĠIf Ġthis . param Type [ </s> assert True ( error Function Type 0 . has C ached Values ()) </s>
+11/21/2026 07:04:22 - INFO - utils -   input_ids: 0 15110 13842 1296 4124 43048 6989 28106 868 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 4397 2 15110 49378 16 23055 12528 1640 863 4014 37356 97 43 25522 114 48209 1640 7443 4327 1116 19249 40118 35122 25522 671 3950 131 35524 19249 40118 14 5457 36 8138 4610 40118 43 97 131 21277 152 16 1602 11 10190 132 9 5 18366 306 12002 6 21277 7162 155 4 306 4 406 35 4052 2553 15341 42419 35403 4 21277 42 4 30921 40118 28696 35 14 4 30921 40118 36 438 1417 1512 927 43 114 48209 9226 4 30921 40118 4 354 23055 12528 1640 6025 4 30921 40118 35122 25522 671 3950 131 35524 21277 14 4 46669 40118 10975 118 742 28696 35 42 4 46669 40118 10975 118 742 36 10800 6472 1512 927 43 21277 21277 318 42 4 46669 40118 10975 2 46346 36948 1640 44223 47802 40118 288 4 7333 347 12552 48738 49338 2
+11/21/2026 07:04:22 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 07:04:22 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 07:04:22 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 07:04:22 - INFO - utils -   *** Example ***
+11/21/2026 07:04:22 - INFO - utils -   guid: 8
+11/21/2026 07:04:22 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 06 () Ġthrows ĠThrow able Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 ); </s> public Ġboolean Ġis Sub type ( J ST ype Ġother ) Ġ{ Ġif Ġ(! ( other Ġinstance of ĠArrow Type )) Ġ{ Ġreturn Ġfalse ; Ġ} ĠArrow Type Ġthat Ġ= Ġ( Ar row Type ) Ġother ; Ġ// ĠThis Ġis Ġdescribed Ġin ĠDraft Ġ2 Ġof Ġthe ĠES 4 Ġspec , Ġ// ĠSection Ġ3 . 4 . 7 : ĠSub ty ping ĠFunction ĠTypes . Ġ// Ġthis . return Type Ġ< : Ġthat . return Type Ġ( c ov ari ant ) Ġif Ġ(! this . return Type . is Sub type ( that . return Type )) Ġ{ Ġreturn Ġfalse ; Ġ} Ġ// Ġthat . param Type [ i ] Ġ< : Ġthis . param Type [ i ] Ġ( cont rav ari ant ) Ġ// Ġ// ĠIf Ġthis . param Type [ </s> assert False ( error Function Type 0 . has C ached Values ()) </s>
+11/21/2026 07:04:22 - INFO - utils -   input_ids: 0 15110 13842 1296 4124 43048 6989 28106 868 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 4397 2 15110 49378 16 23055 12528 1640 863 4014 37356 97 43 25522 114 48209 1640 7443 4327 1116 19249 40118 35122 25522 671 3950 131 35524 19249 40118 14 5457 36 8138 4610 40118 43 97 131 21277 152 16 1602 11 10190 132 9 5 18366 306 12002 6 21277 7162 155 4 306 4 406 35 4052 2553 15341 42419 35403 4 21277 42 4 30921 40118 28696 35 14 4 30921 40118 36 438 1417 1512 927 43 114 48209 9226 4 30921 40118 4 354 23055 12528 1640 6025 4 30921 40118 35122 25522 671 3950 131 35524 21277 14 4 46669 40118 10975 118 742 28696 35 42 4 46669 40118 10975 118 742 36 10800 6472 1512 927 43 21277 21277 318 42 4 46669 40118 10975 2 46346 46659 1640 44223 47802 40118 288 4 7333 347 12552 48738 49338 2
+11/21/2026 07:04:22 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 07:04:22 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 07:04:22 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 07:04:22 - INFO - utils -   *** Example ***
+11/21/2026 07:04:22 - INFO - utils -   guid: 9
+11/21/2026 07:04:22 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 06 () Ġthrows ĠThrow able Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 ); </s> public Ġboolean Ġis Sub type ( J ST ype Ġother ) Ġ{ Ġif Ġ(! ( other Ġinstance of ĠArrow Type )) Ġ{ Ġreturn Ġfalse ; Ġ} ĠArrow Type Ġthat Ġ= Ġ( Ar row Type ) Ġother ; Ġ// ĠThis Ġis Ġdescribed Ġin ĠDraft Ġ2 Ġof Ġthe ĠES 4 Ġspec , Ġ// ĠSection Ġ3 . 4 . 7 : ĠSub ty ping ĠFunction ĠTypes . Ġ// Ġthis . return Type Ġ< : Ġthat . return Type Ġ( c ov ari ant ) Ġif Ġ(! this . return Type . is Sub type ( that . return Type )) Ġ{ Ġreturn Ġfalse ; Ġ} Ġ// Ġthat . param Type [ i ] Ġ< : Ġthis . param Type [ i ] Ġ( cont rav ari ant ) Ġ// Ġ// ĠIf Ġthis . param Type [ i ] Ġis Ġrequired , Ġ// </s> assert False ( bo olean 0 ) </s>
+11/21/2026 07:04:22 - INFO - utils -   input_ids: 0 15110 13842 1296 4124 43048 6989 28106 868 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 4397 2 15110 49378 16 23055 12528 1640 863 4014 37356 97 43 25522 114 48209 1640 7443 4327 1116 19249 40118 35122 25522 671 3950 131 35524 19249 40118 14 5457 36 8138 4610 40118 43 97 131 21277 152 16 1602 11 10190 132 9 5 18366 306 12002 6 21277 7162 155 4 306 4 406 35 4052 2553 15341 42419 35403 4 21277 42 4 30921 40118 28696 35 14 4 30921 40118 36 438 1417 1512 927 43 114 48209 9226 4 30921 40118 4 354 23055 12528 1640 6025 4 30921 40118 35122 25522 671 3950 131 35524 21277 14 4 46669 40118 10975 118 742 28696 35 42 4 46669 40118 10975 118 742 36 10800 6472 1512 927 43 21277 21277 318 42 4 46669 40118 10975 118 742 16 1552 6 21277 2 46346 46659 1640 3983 48547 288 43 2
+11/21/2026 07:04:22 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 07:04:22 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+11/21/2026 07:04:22 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 07:04:22 - INFO - utils -   *** Example ***
+11/21/2026 07:04:22 - INFO - utils -   guid: 9
+11/21/2026 07:04:22 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 06 () Ġthrows ĠThrow able Ġ{ ĠSimple Error Rep orter Ġsimple Error Rep orter 0 Ġ= Ġnew ĠSimple Error Rep orter (); ĠJ ST ype Reg istry Ġj ST ype Reg istry 0 Ġ= Ġnew ĠJ ST ype Reg istry ( simple Error Rep orter 0 ); </s> public Ġboolean Ġis Sub type ( J ST ype Ġother ) Ġ{ Ġif Ġ(! ( other Ġinstance of ĠArrow Type )) Ġ{ Ġreturn Ġfalse ; Ġ} ĠArrow Type Ġthat Ġ= Ġ( Ar row Type ) Ġother ; Ġ// ĠThis Ġis Ġdescribed Ġin ĠDraft Ġ2 Ġof Ġthe ĠES 4 Ġspec , Ġ// ĠSection Ġ3 . 4 . 7 : ĠSub ty ping ĠFunction ĠTypes . Ġ// Ġthis . return Type Ġ< : Ġthat . return Type Ġ( c ov ari ant ) Ġif Ġ(! this . return Type . is Sub type ( that . return Type )) Ġ{ Ġreturn Ġfalse ; Ġ} Ġ// Ġthat . param Type [ i ] Ġ< : Ġthis . param Type [ i ] Ġ( cont rav ari ant ) Ġ// Ġ// ĠIf Ġthis . param Type [ i ] Ġis Ġrequired , Ġ// </s> assert True ( bo olean 0 ) </s>
+11/21/2026 07:04:22 - INFO - utils -   input_ids: 0 15110 13842 1296 4124 43048 6989 28106 868 25522 21375 30192 22026 10679 2007 30192 22026 10679 288 5457 92 21375 30192 22026 10679 47006 344 4014 37356 23007 20217 1236 4014 37356 23007 20217 288 5457 92 344 4014 37356 23007 20217 1640 41918 30192 22026 10679 288 4397 2 15110 49378 16 23055 12528 1640 863 4014 37356 97 43 25522 114 48209 1640 7443 4327 1116 19249 40118 35122 25522 671 3950 131 35524 19249 40118 14 5457 36 8138 4610 40118 43 97 131 21277 152 16 1602 11 10190 132 9 5 18366 306 12002 6 21277 7162 155 4 306 4 406 35 4052 2553 15341 42419 35403 4 21277 42 4 30921 40118 28696 35 14 4 30921 40118 36 438 1417 1512 927 43 114 48209 9226 4 30921 40118 4 354 23055 12528 1640 6025 4 30921 40118 35122 25522 671 3950 131 35524 21277 14 4 46669 40118 10975 118 742 28696 35 42 4 46669 40118 10975 118 742 36 10800 6472 1512 927 43 21277 21277 318 42 4 46669 40118 10975 118 742 16 1552 6 21277 2 46346 36948 1640 3983 48547 288 43 2
+11/21/2026 07:04:22 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 07:04:22 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+11/21/2026 07:04:22 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 07:04:23 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 07:04:23 - INFO - __main__ -     Num examples = 916
+11/21/2026 07:04:23 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 916 total truncations 123, mean_trunc 31.329694323144103, median 0.0, max = 642
+Evaluating:   0%|          | 0/4 [00:00<?, ?it/s]Evaluating:  25%|██▌       | 1/4 [00:25<01:15, 25.15s/it]Evaluating:  50%|█████     | 2/4 [00:45<00:44, 22.33s/it]Evaluating:  75%|███████▌  | 3/4 [01:07<00:22, 22.34s/it]Evaluating: 100%|██████████| 4/4 [01:17<00:00, 17.26s/it]Evaluating: 100%|██████████| 4/4 [01:17<00:00, 19.33s/it]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.2820838627700127
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Closure -d /Users/bitu/mtech-tools/toga_out/Closure-169/suite -v 169f
+Checking out ac239c7c to /tmp/fix_test_suite.pl_19403_1795273543........... --------------------------------------------------------------------------------
+Closure-169f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ac239c7c:b4c6a605..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-169f.................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Closure -d /Users/bitu/mtech-tools/toga_out/Closure-169/suite -o /Users/bitu/mtech-tools/toga_out/Closure-169/detect
+Extract test suite......................................................... Executing test suite: Closure-169f-toga.1.tar.bz2
+OK
+Checking out ac239c7c to /tmp/run_bug_detection.pl_19780_1795273900/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ac239c7c:b4c6a605..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-169f.................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out ac239c7c to /tmp/run_bug_detection.pl_19780_1795273900/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff ac239c7c:b4c6a605..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Closure-169b.................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/run_bug_detection.pl_19780_1795273900/V_buggy && ant -f /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/Users/bitu/mtech-tools/defects4j -Dd4j.dir.projects=/Users/bitu/mtech-tools/defects4j/framework/projects -Dbasedir=/tmp/run_bug_detection.pl_19780_1795273900/V_buggy -Dd4j.test.dir=/tmp/run_bug_detection.pl_19780_1795273900/toga compile.gen.tests 2>&1
+Buildfile: /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml
+
+rhino:
+
+properties:
+
+init:
+
+compile:
+
+compile-most:
+
+compile-jdk15:
+
+compile:
+
+properties:
+
+compile:
+
+xmlimplsrc-compile:
+     [echo] Calling /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/lib/rhino/xmlimplsrc/build.xml
+
+compile:
+
+compile-all:
+
+compile:
+
+jar:
+
+rhino-jarjar:
+   [jarjar] Updating jar: /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/build/lib/rhino.jar
+
+svnversion:
+
+compile:
+    [javac] /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/build.xml:256: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/build.xml:262: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+[propertyfile] Updating property file: /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/build/classes/com/google/javascript/jscomp/parsing/ParserConfig.properties
+
+compile.gen.tests:
+     [echo] classes.dir: /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/build/classes
+     [echo] build.home: /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/build
+    [mkdir] Created dir: /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/.classes_testgen
+    [javac] /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 793 source files to /tmp/run_bug_detection.pl_19780_1795273900/V_buggy/.classes_testgen
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/run_bug_detection.pl_19780_1795273900/toga/com/google/javascript/rhino/jstype/ArrowType_ESTest_T0.java:16: error: cannot find symbol
+    [javac] import com.google.javascript.rhino.jstype.EquivalenceMethod;
+    [javac]                                          ^
+    [javac]   symbol:   class EquivalenceMethod
+    [javac]   location: package com.google.javascript.rhino.jstype
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 error
+    [javac] 4 warnings
+
+BUILD FAILED
+/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 2 seconds

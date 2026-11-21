@@ -1,0 +1,54 @@
+{
+  "bug": "Compress-12",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 32,
+    "exception": 0,
+    "assertion": 8
+  },
+  "tests": {
+    "written": 32,
+    "kept_on_fixed": 24,
+    "false_alarms_removed": 8,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Compress",
+      "version_id": "12f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 200,
+      "lines_covered": 62,
+      "branches_total": 110,
+      "branches_covered": 24,
+      "line": 0.31,
+      "branch": 0.218
+    },
+    "major_mutation": {
+      "generated": 318,
+      "covered": 318,
+      "killed": 237,
+      "score": 0.745
+    }
+  },
+  "seconds": 154.9,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

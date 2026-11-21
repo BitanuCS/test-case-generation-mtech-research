@@ -1,0 +1,54 @@
+{
+  "bug": "JacksonDatabind-8",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 46,
+    "exception": 16,
+    "assertion": 13
+  },
+  "tests": {
+    "written": 46,
+    "kept_on_fixed": 20,
+    "false_alarms_removed": 26,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "JacksonDatabind",
+      "version_id": "8f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 123,
+      "lines_covered": 71,
+      "branches_total": 72,
+      "branches_covered": 37,
+      "line": 0.577,
+      "branch": 0.514
+    },
+    "major_mutation": {
+      "generated": 135,
+      "covered": 135,
+      "killed": 64,
+      "score": 0.474
+    }
+  },
+  "seconds": 629.3,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,2757 @@
+focal_method,test_prefix,docstring
+"    public Period withDays(int days) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.DAY_INDEX, values, days);
+        return new Period(values, getPeriodType());
+    }","  public void test00()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Period period1 = period0.withDays(12);
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Returns a new period with the specified number of days.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param days  the amount of days to add, may be negative
+     * @return the new period with the increased days
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withDays(int days) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.DAY_INDEX, values, days);
+        return new Period(values, getPeriodType());
+    }","  public void test00()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Period period1 = period0.withDays(12);
+  }","/**
+     * Returns a new period with the specified number of days.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param days  the amount of days to add, may be negative
+     * @return the new period with the increased days
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withMinutes(int minutes) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.MINUTE_INDEX, values, minutes);
+        return new Period(values, getPeriodType());
+    }","  public void test01()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withMinutes(2315);
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Returns a new period with the specified number of minutes.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param minutes  the amount of minutes to add, may be negative
+     * @return the new period with the increased minutes
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withMinutes(int minutes) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.MINUTE_INDEX, values, minutes);
+        return new Period(values, getPeriodType());
+    }","  public void test01()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withMinutes(2315);
+  }","/**
+     * Returns a new period with the specified number of minutes.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param minutes  the amount of minutes to add, may be negative
+     * @return the new period with the increased minutes
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusMillis(int millis) {
+        return plusMillis(-millis);
+    }","  public void test02()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.minusMillis(85);
+      assertNotSame(period1, period0);
+}","/**
+     * Returns a new period minus the specified number of millis taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param millis  the amount of millis to take away, may be negative
+     * @return the new period minus the increased millis
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusMillis(int millis) {
+        return plusMillis(-millis);
+    }","  public void test02()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.minusMillis(85);
+  }","/**
+     * Returns a new period minus the specified number of millis taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param millis  the amount of millis to take away, may be negative
+     * @return the new period minus the increased millis
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withHours(int hours) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.HOUR_INDEX, values, hours);
+        return new Period(values, getPeriodType());
+    }","  public void test03()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withHours(1000);
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Returns a new period with the specified number of hours.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param hours  the amount of hours to add, may be negative
+     * @return the new period with the increased hours
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withHours(int hours) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.HOUR_INDEX, values, hours);
+        return new Period(values, getPeriodType());
+    }","  public void test03()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withHours(1000);
+  }","/**
+     * Returns a new period with the specified number of hours.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param hours  the amount of hours to add, may be negative
+     * @return the new period with the increased hours
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withWeeks(int weeks) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.WEEK_INDEX, values, weeks);
+        return new Period(values, getPeriodType());
+    }","  public void test04()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Period period1 = period0.withWeeks(12);
+      assertNotSame(period0, period1);
+}","/**
+     * Returns a new period with the specified number of weeks.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param weeks  the amount of weeks to add, may be negative
+     * @return the new period with the increased weeks
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withWeeks(int weeks) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.WEEK_INDEX, values, weeks);
+        return new Period(values, getPeriodType());
+    }","  public void test04()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Period period1 = period0.withWeeks(12);
+  }","/**
+     * Returns a new period with the specified number of weeks.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param weeks  the amount of weeks to add, may be negative
+     * @return the new period with the increased weeks
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withSeconds(int seconds) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.SECOND_INDEX, values, seconds);
+        return new Period(values, getPeriodType());
+    }","  public void test05()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withSeconds((-925));
+      assertNotSame(period0, period1);
+}","/**
+     * Returns a new period with the specified number of seconds.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param seconds  the amount of seconds to add, may be negative
+     * @return the new period with the increased seconds
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withSeconds(int seconds) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.SECOND_INDEX, values, seconds);
+        return new Period(values, getPeriodType());
+    }","  public void test05()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withSeconds((-925));
+  }","/**
+     * Returns a new period with the specified number of seconds.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param seconds  the amount of seconds to add, may be negative
+     * @return the new period with the increased seconds
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withPeriodType(PeriodType type) {
+        type = DateTimeUtils.getPeriodType(type);
+        if (type.equals(getPeriodType())) {
+            return this;
+        }
+        return new Period(this, type);
+    }","  public void test06()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.time();
+      Period period0 = new Period(0L);
+      Period period1 = period0.withPeriodType(periodType0);
+      assertNotSame(period1, period0);
+}","/**
+     * Creates a new Period instance with the same field values but
+     * different PeriodType.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param type  the period type to use, null means standard
+     * @return the new period instance
+     * @throws IllegalArgumentException if the new period won't accept all of the current fields
+     */"
+"    public Period withPeriodType(PeriodType type) {
+        type = DateTimeUtils.getPeriodType(type);
+        if (type.equals(getPeriodType())) {
+            return this;
+        }
+        return new Period(this, type);
+    }","  public void test06()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.time();
+      Period period0 = new Period(0L);
+      Period period1 = period0.withPeriodType(periodType0);
+  }","/**
+     * Creates a new Period instance with the same field values but
+     * different PeriodType.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param type  the period type to use, null means standard
+     * @return the new period instance
+     * @throws IllegalArgumentException if the new period won't accept all of the current fields
+     */"
+"    public Period negated() {
+        return multipliedBy(-1);
+    }","  public void test07()  throws Throwable  {
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.negated();
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Returns a new instance with each amount in this period negated.
+     *
+     * @return a {@code Period} based on this period with the amounts negated, never null
+     * @throws ArithmeticException if any field has the minimum value
+     * @since 2.1
+     */"
+"    public Period negated() {
+        return multipliedBy(-1);
+    }","  public void test07()  throws Throwable  {
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.negated();
+      assertNotSame(period1, period0);
+}","/**
+     * Returns a new instance with each amount in this period negated.
+     *
+     * @return a {@code Period} based on this period with the amounts negated, never null
+     * @throws ArithmeticException if any field has the minimum value
+     * @since 2.1
+     */"
+"    public Period negated() {
+        return multipliedBy(-1);
+    }","  public void test07()  throws Throwable  {
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.negated();
+  }","/**
+     * Returns a new instance with each amount in this period negated.
+     *
+     * @return a {@code Period} based on this period with the amounts negated, never null
+     * @throws ArithmeticException if any field has the minimum value
+     * @since 2.1
+     */"
+"    public static Period parse(String str) {
+        return parse(str, ISOPeriodFormat.standard());
+    }","  public void test08()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Period.parse(""sh4eI$?4tc@~w sC4"");
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid format: \""sh4eI$?4tc@~w sC4\""
+         //
+         verifyException(""org.joda.time.format.PeriodFormatter"", e);
+      }
+  }","/**
+     * Parses a {@code Period} from the specified string.
+     * <p>
+     * This uses {@link ISOPeriodFormat#standard()}.
+     * 
+     * @param str  the string to parse, not null
+     * @since 2.0
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test09()  throws Throwable  {
+      GJChronology gJChronology0 = GJChronology.getInstanceUTC();
+      LocalDate localDate0 = new LocalDate((-1396L), (Chronology) gJChronology0);
+      Period period0 = new Period(localDate0, localDate0);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test10()  throws Throwable  {
+      Period period0 = new Period(499, 83, 499, 83);
+      Period period1 = new Period(period0, (Chronology) null);
+      assertTrue(period1.equals((Object)period0));
+}","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test10()  throws Throwable  {
+      Period period0 = new Period(499, 83, 499, 83);
+      Period period1 = new Period(period0, (Chronology) null);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test11()  throws Throwable  {
+      Period period0 = new Period(1829, (-2308), 1829, (-2308), 1198, 1198, (-597), 1829, (PeriodType) null);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public int getDays() {
+        return getPeriodType().getIndexedField(this, PeriodType.DAY_INDEX);
+    }","  public void test12()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Days days0 = period0.ZERO.toStandardDays();
+      assertEquals(0, days0.getDays());
+}","/**
+     * Gets the days field part of the period.
+     * 
+     * @return the number of days in the period, zero if unsupported
+     */"
+"    public Days toStandardDays() {
+        checkYearsAndMonths(""Days"");
+        long millis = getMillis();  // assign to a long
+        millis += ((long) getSeconds()) * DateTimeConstants.MILLIS_PER_SECOND;
+        millis += ((long) getMinutes()) * DateTimeConstants.MILLIS_PER_MINUTE;
+        millis += ((long) getHours()) * DateTimeConstants.MILLIS_PER_HOUR;
+        long days = millis / DateTimeConstants.MILLIS_PER_DAY;
+        days = FieldUtils.safeAdd(days, getDays());
+        days = FieldUtils.safeAdd(days, ((long) getWeeks()) * ((long) DateTimeConstants.DAYS_PER_WEEK));
+        return Days.days(FieldUtils.safeToInt(days));
+    }","  public void test12()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Days days0 = period0.ZERO.toStandardDays();
+  }","/**
+     * Converts this period to a period in days assuming a
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to convert between different types of period.
+     * However to achieve this it makes the assumption that all
+     * weeks are 7 days, all days are 24 hours, all hours are 60 minutes and
+     * all minutes are 60 seconds. This is not true when daylight savings time
+     * is considered, and may also not be true for some unusual chronologies.
+     * However, it is included as it is a useful operation for many
+     * applications and business rules.
+     * <p>
+     * If the period contains years or months, an exception will be thrown.
+     * 
+     * @return a period representing the number of standard days in this period
+     * @throws UnsupportedOperationException if the period contains years or months
+     * @throws ArithmeticException if the number of days is too large to be represented
+     * @since 1.5
+     */"
+"    public Period toPeriod() {
+        return this;
+    }","  public void test13()  throws Throwable  {
+      Duration duration0 = Duration.standardSeconds(1714L);
+      Period period0 = duration0.toPeriod((PeriodType) null);
+      assertNotNull(period0);
+}","/**
+     * Get this period as an immutable <code>Period</code> object
+     * by returning <code>this</code>.
+     * 
+     * @return <code>this</code>
+     */"
+"    public Period toPeriod() {
+        return this;
+    }","  public void test13()  throws Throwable  {
+      Duration duration0 = Duration.standardSeconds(1714L);
+      Period period0 = duration0.toPeriod((PeriodType) null);
+  }","/**
+     * Get this period as an immutable <code>Period</code> object
+     * by returning <code>this</code>.
+     * 
+     * @return <code>this</code>
+     */"
+"    public Period minusMonths(int months) {
+        return plusMonths(-months);
+    }","  public void test14()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12, 12, 12, 12, 12);
+      Period period1 = period0.minusMonths(12);
+      assertNotSame(period1, period0);
+}","/**
+     * Returns a new period minus the specified number of months taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param months  the amount of months to take away, may be negative
+     * @return the new period minus the increased months
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusMonths(int months) {
+        return plusMonths(-months);
+    }","  public void test14()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12, 12, 12, 12, 12);
+      Period period1 = period0.minusMonths(12);
+  }","/**
+     * Returns a new period minus the specified number of months taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param months  the amount of months to take away, may be negative
+     * @return the new period minus the increased months
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withMillis(int millis) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.MILLI_INDEX, values, millis);
+        return new Period(values, getPeriodType());
+    }","  public void test15()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withMillis((-1345));
+      assertNotSame(period0, period1);
+}","/**
+     * Returns a new period with the specified number of millis.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param millis  the amount of millis to add, may be negative
+     * @return the new period with the increased millis
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period withMillis(int millis) {
+        int[] values = getValues();  // cloned
+        getPeriodType().setIndexedField(this, PeriodType.MILLI_INDEX, values, millis);
+        return new Period(values, getPeriodType());
+    }","  public void test15()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.withMillis((-1345));
+  }","/**
+     * Returns a new period with the specified number of millis.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param millis  the amount of millis to add, may be negative
+     * @return the new period with the increased millis
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period toPeriod() {
+        return this;
+    }","  public void test16()  throws Throwable  {
+      Duration duration0 = Duration.standardDays(2452L);
+      Period period0 = duration0.toPeriodFrom((ReadableInstant) null);
+      Interval interval0 = new Interval(period0, (ReadableInstant) null);
+      Period period1 = interval0.toPeriod();
+      assertNotSame(period0, period1);
+}","/**
+     * Get this period as an immutable <code>Period</code> object
+     * by returning <code>this</code>.
+     * 
+     * @return <code>this</code>
+     */"
+"    public Period toPeriod() {
+        return this;
+    }","  public void test16()  throws Throwable  {
+      Duration duration0 = Duration.standardDays(2452L);
+      Period period0 = duration0.toPeriodFrom((ReadableInstant) null);
+      Interval interval0 = new Interval(period0, (ReadableInstant) null);
+      Period period1 = interval0.toPeriod();
+  }","/**
+     * Get this period as an immutable <code>Period</code> object
+     * by returning <code>this</code>.
+     * 
+     * @return <code>this</code>
+     */"
+"    public static Period weeks(int weeks) {
+        return new Period(new int[] {0, 0, weeks, 0, 0, 0, 0, 0}, PeriodType.standard());
+    }","  public void test17()  throws Throwable  {
+      Period period0 = Period.weeks(7);
+      assertNotNull(period0);
+}","/**
+     * Create a period with a specified number of weeks.
+     * <p>
+     * The standard period type is used, thus you can add other fields such
+     * as months or days using the <code>withXxx()</code> methods.
+     * For example, <code>Period.weeks(2).withDays(6);</code>
+     * <p>
+     * If you want a week-based period that cannot have other fields added,
+     * then you should consider using {@link Weeks}.
+     *
+     * @param weeks  the amount of weeks in this period
+     * @return the period
+     */"
+"    public static Period weeks(int weeks) {
+        return new Period(new int[] {0, 0, weeks, 0, 0, 0, 0, 0}, PeriodType.standard());
+    }","  public void test17()  throws Throwable  {
+      Period period0 = Period.weeks(7);
+  }","/**
+     * Create a period with a specified number of weeks.
+     * <p>
+     * The standard period type is used, thus you can add other fields such
+     * as months or days using the <code>withXxx()</code> methods.
+     * For example, <code>Period.weeks(2).withDays(6);</code>
+     * <p>
+     * If you want a week-based period that cannot have other fields added,
+     * then you should consider using {@link Weeks}.
+     *
+     * @param weeks  the amount of weeks in this period
+     * @return the period
+     */"
+"    public Period toPeriod() {
+        return this;
+    }","  public void test18()  throws Throwable  {
+      Period period0 = new Period(0L);
+      Period period1 = period0.toPeriod();
+      assertSame(period0, period1);
+}","/**
+     * Get this period as an immutable <code>Period</code> object
+     * by returning <code>this</code>.
+     * 
+     * @return <code>this</code>
+     */"
+"    public Period toPeriod() {
+        return this;
+    }","  public void test18()  throws Throwable  {
+      Period period0 = new Period(0L);
+      Period period1 = period0.toPeriod();
+  }","/**
+     * Get this period as an immutable <code>Period</code> object
+     * by returning <code>this</code>.
+     * 
+     * @return <code>this</code>
+     */"
+"    public Period withFieldAdded(DurationFieldType field, int value) {
+        if (field == null) {
+            throw new IllegalArgumentException(""Field must not be null"");
+        }
+        if (value == 0) {
+            return this;
+        }
+        int[] newValues = getValues();  // cloned
+        super.addFieldInto(newValues, field, value);
+        return new Period(newValues, getPeriodType());
+    }","  public void test19()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      DurationFieldType durationFieldType0 = DurationFieldType.WEEKS_TYPE;
+      Period period1 = period0.withFieldAdded(durationFieldType0, 0);
+      assertSame(period1, period0);
+}","/**
+     * Creates a new Period instance with the valueToAdd added to the specified field.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param field  the field to set, not null
+     * @param value  the value to add
+     * @return the new period instance
+     * @throws IllegalArgumentException if the field type is null or unsupported
+     */"
+"    public Period withFieldAdded(DurationFieldType field, int value) {
+        if (field == null) {
+            throw new IllegalArgumentException(""Field must not be null"");
+        }
+        if (value == 0) {
+            return this;
+        }
+        int[] newValues = getValues();  // cloned
+        super.addFieldInto(newValues, field, value);
+        return new Period(newValues, getPeriodType());
+    }","  public void test19()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      DurationFieldType durationFieldType0 = DurationFieldType.WEEKS_TYPE;
+      Period period1 = period0.withFieldAdded(durationFieldType0, 0);
+  }","/**
+     * Creates a new Period instance with the valueToAdd added to the specified field.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param field  the field to set, not null
+     * @param value  the value to add
+     * @return the new period instance
+     * @throws IllegalArgumentException if the field type is null or unsupported
+     */"
+"    public static Period millis(int millis) {
+        return new Period(new int[] {0, 0, 0, 0, 0, 0, 0, millis}, PeriodType.standard());
+    }","  public void test20()  throws Throwable  {
+      Period period0 = Period.millis(0);
+      assertNotNull(period0);
+}","/**
+     * Create a period with a specified number of millis.
+     * <p>
+     * The standard period type is used, thus you can add other fields such
+     * as days or hours using the <code>withXxx()</code> methods.
+     * For example, <code>Period.millis(20).withSeconds(30);</code>
+     *
+     * @param millis  the amount of millis in this period
+     * @return the period
+     */"
+"    public static Period millis(int millis) {
+        return new Period(new int[] {0, 0, 0, 0, 0, 0, 0, millis}, PeriodType.standard());
+    }","  public void test20()  throws Throwable  {
+      Period period0 = Period.millis(0);
+  }","/**
+     * Create a period with a specified number of millis.
+     * <p>
+     * The standard period type is used, thus you can add other fields such
+     * as days or hours using the <code>withXxx()</code> methods.
+     * For example, <code>Period.millis(20).withSeconds(30);</code>
+     *
+     * @param millis  the amount of millis in this period
+     * @return the period
+     */"
+"    public Period minusHours(int hours) {
+        return plusHours(-hours);
+    }","  public void test21()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Period period1 = period0.ZERO.minusHours((-6127));
+      assertNotSame(period1, period0);
+}","/**
+     * Returns a new period minus the specified number of hours taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param hours  the amount of hours to take away, may be negative
+     * @return the new period minus the increased hours
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusHours(int hours) {
+        return plusHours(-hours);
+    }","  public void test21()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Period period1 = period0.ZERO.minusHours((-6127));
+  }","/**
+     * Returns a new period minus the specified number of hours taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param hours  the amount of hours to take away, may be negative
+     * @return the new period minus the increased hours
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test22()  throws Throwable  {
+      Duration duration0 = Duration.standardSeconds(33780L);
+      Instant instant0 = new Instant();
+      GJChronology gJChronology0 = GJChronology.getInstance();
+      DateTime dateTime0 = instant0.toDateTime((Chronology) gJChronology0);
+      Period period0 = new Period(duration0, dateTime0);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public int getHours() {
+        return getPeriodType().getIndexedField(this, PeriodType.HOUR_INDEX);
+    }","  public void test23()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Hours hours0 = period0.toStandardHours();
+      assertEquals(12, hours0.getHours());
+}","/**
+     * Gets the hours field part of the period.
+     * 
+     * @return the number of hours in the period, zero if unsupported
+     */"
+"    public Hours toStandardHours() {
+        checkYearsAndMonths(""Hours"");
+        long millis = getMillis();  // assign to a long
+        millis += ((long) getSeconds()) * DateTimeConstants.MILLIS_PER_SECOND;
+        millis += ((long) getMinutes()) * DateTimeConstants.MILLIS_PER_MINUTE;
+        long hours = millis / DateTimeConstants.MILLIS_PER_HOUR;
+        hours = FieldUtils.safeAdd(hours, getHours());
+        hours = FieldUtils.safeAdd(hours, ((long) getDays()) * ((long) DateTimeConstants.HOURS_PER_DAY));
+        hours = FieldUtils.safeAdd(hours, ((long) getWeeks()) * ((long) DateTimeConstants.HOURS_PER_WEEK));
+        return Hours.hours(FieldUtils.safeToInt(hours));
+    }","  public void test23()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12);
+      Hours hours0 = period0.toStandardHours();
+  }","/**
+     * Converts this period to a period in hours assuming a
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to convert between different types of period.
+     * However to achieve this it makes the assumption that all
+     * weeks are 7 days, all days are 24 hours, all hours are 60 minutes and
+     * all minutes are 60 seconds. This is not true when daylight savings time
+     * is considered, and may also not be true for some unusual chronologies.
+     * However, it is included as it is a useful operation for many
+     * applications and business rules.
+     * <p>
+     * If the period contains years or months, an exception will be thrown.
+     * 
+     * @return a period representing the number of standard hours in this period
+     * @throws UnsupportedOperationException if the period contains years or months
+     * @throws ArithmeticException if the number of hours is too large to be represented
+     * @since 1.5
+     */"
+"    public static Period hours(int hours) {
+        return new Period(new int[] {0, 0, 0, 0, hours, 0, 0, 0}, PeriodType.standard());
+    }","  public void test24()  throws Throwable  {
+      Period period0 = Period.hours((-834));
+      assertNotNull(period0);
+}","/**
+     * Create a period with a specified number of hours.
+     * <p>
+     * The standard period type is used, thus you can add other fields such
+     * as months or days using the <code>withXxx()</code> methods.
+     * For example, <code>Period.hours(2).withMinutes(30);</code>
+     * <p>
+     * If you want a hour-based period that cannot have other fields added,
+     * then you should consider using {@link Hours}.
+     *
+     * @param hours  the amount of hours in this period
+     * @return the period
+     */"
+"    public static Period hours(int hours) {
+        return new Period(new int[] {0, 0, 0, 0, hours, 0, 0, 0}, PeriodType.standard());
+    }","  public void test24()  throws Throwable  {
+      Period period0 = Period.hours((-834));
+  }","/**
+     * Create a period with a specified number of hours.
+     * <p>
+     * The standard period type is used, thus you can add other fields such
+     * as months or days using the <code>withXxx()</code> methods.
+     * For example, <code>Period.hours(2).withMinutes(30);</code>
+     * <p>
+     * If you want a hour-based period that cannot have other fields added,
+     * then you should consider using {@link Hours}.
+     *
+     * @param hours  the amount of hours in this period
+     * @return the period
+     */"
+"    public Period minusMinutes(int minutes) {
+        return plusMinutes(-minutes);
+    }","  public void test25()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.minusMinutes(5);
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Returns a new period minus the specified number of minutes taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param minutes  the amount of minutes to take away, may be negative
+     * @return the new period minus the increased minutes
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusMinutes(int minutes) {
+        return plusMinutes(-minutes);
+    }","  public void test25()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.minusMinutes(5);
+  }","/**
+     * Returns a new period minus the specified number of minutes taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param minutes  the amount of minutes to take away, may be negative
+     * @return the new period minus the increased minutes
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test26()  throws Throwable  {
+      DateTime dateTime0 = new DateTime();
+      Period period0 = new Period(dateTime0, dateTime0);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public Duration toStandardDuration() {
+        checkYearsAndMonths(""Duration"");
+        long millis = getMillis();  // no overflow can happen, even with Integer.MAX_VALUEs
+        millis += (((long) getSeconds()) * ((long) DateTimeConstants.MILLIS_PER_SECOND));
+        millis += (((long) getMinutes()) * ((long) DateTimeConstants.MILLIS_PER_MINUTE));
+        millis += (((long) getHours()) * ((long) DateTimeConstants.MILLIS_PER_HOUR));
+        millis += (((long) getDays()) * ((long) DateTimeConstants.MILLIS_PER_DAY));
+        millis += (((long) getWeeks()) * ((long) DateTimeConstants.MILLIS_PER_WEEK));
+        return new Duration(millis);
+    }","  public void test27()  throws Throwable  {
+      Period period0 = new Period(15778476000L, 1125L);
+      // Undeclared exception!
+      try { 
+        period0.toStandardDuration();
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Cannot convert to Duration as this period contains months and months vary in length
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Converts this period to a duration assuming a
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to convert from a period to a duration.
+     * However to achieve this it makes the assumption that all
+     * weeks are 7 days, all days are 24 hours, all hours are 60 minutes and
+     * all minutes are 60 seconds. This is not true when daylight savings time
+     * is considered, and may also not be true for some unusual chronologies.
+     * However, it is included as it is a useful operation for many
+     * applications and business rules.
+     * <p>
+     * If the period contains years or months, an exception will be thrown.
+     * 
+     * @return a duration equivalent to this period
+     * @throws UnsupportedOperationException if the period contains years or months
+     * @since 1.5
+     */"
+"    public Period toPeriod() {
+        return this;
+    }","  public void test28()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.hours();
+      MutablePeriod mutablePeriod0 = new MutablePeriod(31556952000L, periodType0);
+      Period period0 = mutablePeriod0.toPeriod();
+      assertNotNull(period0);
+}","/**
+     * Get this period as an immutable <code>Period</code> object
+     * by returning <code>this</code>.
+     * 
+     * @return <code>this</code>
+     */"
+"    public Period toPeriod() {
+        return this;
+    }","  public void test28()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.hours();
+      MutablePeriod mutablePeriod0 = new MutablePeriod(31556952000L, periodType0);
+      Period period0 = mutablePeriod0.toPeriod();
+  }","/**
+     * Get this period as an immutable <code>Period</code> object
+     * by returning <code>this</code>.
+     * 
+     * @return <code>this</code>
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test29()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      JulianChronology julianChronology0 = JulianChronology.getInstanceUTC();
+      LocalDate localDate0 = new LocalDate(localDateTime0, julianChronology0);
+      Period period0 = new Period(localDate0, localDate0, (PeriodType) null);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public static Period days(int days) {
+        return new Period(new int[] {0, 0, 0, days, 0, 0, 0, 0}, PeriodType.standard());
+    }","  public void test30()  throws Throwable  {
+      Period period0 = Period.days((-855));
+      assertNotNull(period0);
+}","/**
+     * Create a period with a specified number of days.
+     * <p>
+     * The standard period type is used, thus you can add other fields such
+     * as months or weeks using the <code>withXxx()</code> methods.
+     * For example, <code>Period.days(2).withHours(6);</code>
+     * <p>
+     * If you want a day-based period that cannot have other fields added,
+     * then you should consider using {@link Days}.
+     *
+     * @param days  the amount of days in this period
+     * @return the period
+     */"
+"    public static Period days(int days) {
+        return new Period(new int[] {0, 0, 0, days, 0, 0, 0, 0}, PeriodType.standard());
+    }","  public void test30()  throws Throwable  {
+      Period period0 = Period.days((-855));
+  }","/**
+     * Create a period with a specified number of days.
+     * <p>
+     * The standard period type is used, thus you can add other fields such
+     * as months or weeks using the <code>withXxx()</code> methods.
+     * For example, <code>Period.days(2).withHours(6);</code>
+     * <p>
+     * If you want a day-based period that cannot have other fields added,
+     * then you should consider using {@link Days}.
+     *
+     * @param days  the amount of days in this period
+     * @return the period
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test31()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period((Object) null, periodType0, (Chronology) null);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public int getMinutes() {
+        return getPeriodType().getIndexedField(this, PeriodType.MINUTE_INDEX);
+    }","  public void test32()  throws Throwable  {
+      Period period0 = new Period();
+      Minutes minutes0 = period0.toStandardMinutes();
+      assertEquals(0, minutes0.getMinutes());
+}","/**
+     * Gets the minutes field part of the period.
+     * 
+     * @return the number of minutes in the period, zero if unsupported
+     */"
+"    public Minutes toStandardMinutes() {
+        checkYearsAndMonths(""Minutes"");
+        long millis = getMillis();  // assign to a long
+        millis += ((long) getSeconds()) * DateTimeConstants.MILLIS_PER_SECOND;
+        long minutes = millis / DateTimeConstants.MILLIS_PER_MINUTE;
+        minutes = FieldUtils.safeAdd(minutes, getMinutes());
+        minutes = FieldUtils.safeAdd(minutes, ((long) getHours()) * ((long) DateTimeConstants.MINUTES_PER_HOUR));
+        minutes = FieldUtils.safeAdd(minutes, ((long) getDays()) * ((long) DateTimeConstants.MINUTES_PER_DAY));
+        minutes = FieldUtils.safeAdd(minutes, ((long) getWeeks()) * ((long) DateTimeConstants.MINUTES_PER_WEEK));
+        return Minutes.minutes(FieldUtils.safeToInt(minutes));
+    }","  public void test32()  throws Throwable  {
+      Period period0 = new Period();
+      Minutes minutes0 = period0.toStandardMinutes();
+  }","/**
+     * Converts this period to a period in minutes assuming a
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to convert between different types of period.
+     * However to achieve this it makes the assumption that all
+     * weeks are 7 days, all days are 24 hours, all hours are 60 minutes and
+     * all minutes are 60 seconds. This is not true when daylight savings time
+     * is considered, and may also not be true for some unusual chronologies.
+     * However, it is included as it is a useful operation for many
+     * applications and business rules.
+     * <p>
+     * If the period contains years or months, an exception will be thrown.
+     * 
+     * @return a period representing the number of standard minutes in this period
+     * @throws UnsupportedOperationException if the period contains years or months
+     * @throws ArithmeticException if the number of minutes is too large to be represented
+     * @since 1.5
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test33()  throws Throwable  {
+      IslamicChronology islamicChronology0 = IslamicChronology.getInstanceUTC();
+      Period period0 = new Period(0L, (Chronology) islamicChronology0);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test34()  throws Throwable  {
+      Duration duration0 = Duration.standardMinutes(2415L);
+      MutableDateTime mutableDateTime0 = new MutableDateTime(2415L);
+      PeriodType periodType0 = PeriodType.yearDayTime();
+      Period period0 = new Period(duration0, mutableDateTime0, periodType0);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public Period normalizedStandard() {
+        return normalizedStandard(PeriodType.standard());
+    }","  public void test35()  throws Throwable  {
+      Period period0 = Period.months((-834));
+      Period period1 = period0.normalizedStandard();
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Normalizes this period using standard rules, assuming a 12 month year,
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to normalize a period.
+     * However to achieve this it makes the assumption that all years are
+     * 12 months, all weeks are 7 days, all days are 24 hours,
+     * all hours are 60 minutes and all minutes are 60 seconds. This is not
+     * true when daylight savings time is considered, and may also not be true
+     * for some chronologies. However, it is included as it is a useful operation
+     * for many applications and business rules.
+     * <p>
+     * If the period contains years or months, then the months will be
+     * normalized to be between 0 and 11. The days field and below will be
+     * normalized as necessary, however this will not overflow into the months
+     * field. Thus a period of 1 year 15 months will normalize to 2 years 3 months.
+     * But a period of 1 month 40 days will remain as 1 month 40 days.
+     * <p>
+     * The result will always have a <code>PeriodType</code> of standard, thus
+     * days will be grouped into weeks.
+     * 
+     * @return a normalized period equivalent to this period
+     * @throws ArithmeticException if any field is too large to be represented
+     * @since 1.5
+     */"
+"    public Period normalizedStandard() {
+        return normalizedStandard(PeriodType.standard());
+    }","  public void test35()  throws Throwable  {
+      Period period0 = Period.months((-834));
+      Period period1 = period0.normalizedStandard();
+  }","/**
+     * Normalizes this period using standard rules, assuming a 12 month year,
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to normalize a period.
+     * However to achieve this it makes the assumption that all years are
+     * 12 months, all weeks are 7 days, all days are 24 hours,
+     * all hours are 60 minutes and all minutes are 60 seconds. This is not
+     * true when daylight savings time is considered, and may also not be true
+     * for some chronologies. However, it is included as it is a useful operation
+     * for many applications and business rules.
+     * <p>
+     * If the period contains years or months, then the months will be
+     * normalized to be between 0 and 11. The days field and below will be
+     * normalized as necessary, however this will not overflow into the months
+     * field. Thus a period of 1 year 15 months will normalize to 2 years 3 months.
+     * But a period of 1 month 40 days will remain as 1 month 40 days.
+     * <p>
+     * The result will always have a <code>PeriodType</code> of standard, thus
+     * days will be grouped into weeks.
+     * 
+     * @return a normalized period equivalent to this period
+     * @throws ArithmeticException if any field is too large to be represented
+     * @since 1.5
+     */"
+"    public int getMillis() {
+        return getPeriodType().getIndexedField(this, PeriodType.MILLI_INDEX);
+    }","  public void test36()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Duration duration0 = period0.ZERO.toStandardDuration();
+      assertEquals(0L, duration0.getMillis());
+}","/**
+     * Gets the millis field part of the period.
+     * 
+     * @return the number of millis in the period, zero if unsupported
+     */"
+"    public Duration toStandardDuration() {
+        checkYearsAndMonths(""Duration"");
+        long millis = getMillis();  // no overflow can happen, even with Integer.MAX_VALUEs
+        millis += (((long) getSeconds()) * ((long) DateTimeConstants.MILLIS_PER_SECOND));
+        millis += (((long) getMinutes()) * ((long) DateTimeConstants.MILLIS_PER_MINUTE));
+        millis += (((long) getHours()) * ((long) DateTimeConstants.MILLIS_PER_HOUR));
+        millis += (((long) getDays()) * ((long) DateTimeConstants.MILLIS_PER_DAY));
+        millis += (((long) getWeeks()) * ((long) DateTimeConstants.MILLIS_PER_WEEK));
+        return new Duration(millis);
+    }","  public void test36()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Duration duration0 = period0.ZERO.toStandardDuration();
+  }","/**
+     * Converts this period to a duration assuming a
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to convert from a period to a duration.
+     * However to achieve this it makes the assumption that all
+     * weeks are 7 days, all days are 24 hours, all hours are 60 minutes and
+     * all minutes are 60 seconds. This is not true when daylight savings time
+     * is considered, and may also not be true for some unusual chronologies.
+     * However, it is included as it is a useful operation for many
+     * applications and business rules.
+     * <p>
+     * If the period contains years or months, an exception will be thrown.
+     * 
+     * @return a duration equivalent to this period
+     * @throws UnsupportedOperationException if the period contains years or months
+     * @since 1.5
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test37()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.weeks();
+      Period period0 = new Period(2042L, 0L, periodType0, (Chronology) null);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test38()  throws Throwable  {
+      Days days0 = Days.ZERO;
+      Duration duration0 = days0.toStandardDuration();
+      PeriodType periodType0 = PeriodType.years();
+      Period period0 = new Period((ReadableInstant) null, duration0, periodType0);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public Period minusDays(int days) {
+        return plusDays(-days);
+    }","  public void test39()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.minusDays((-834));
+      assertNotSame(period1, period0);
+}","/**
+     * Returns a new period minus the specified number of days taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param days  the amount of days to take away, may be negative
+     * @return the new period minus the increased days
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusDays(int days) {
+        return plusDays(-days);
+    }","  public void test39()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.minusDays((-834));
+  }","/**
+     * Returns a new period minus the specified number of days taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param days  the amount of days to take away, may be negative
+     * @return the new period minus the increased days
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public int getSeconds() {
+        return getPeriodType().getIndexedField(this, PeriodType.SECOND_INDEX);
+    }","  public void test40()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Seconds seconds0 = period0.toStandardSeconds();
+      assertEquals(0, seconds0.getSeconds());
+}","/**
+     * Gets the seconds field part of the period.
+     * 
+     * @return the number of seconds in the period, zero if unsupported
+     */"
+"    public Seconds toStandardSeconds() {
+        checkYearsAndMonths(""Seconds"");
+        long seconds = getMillis() / DateTimeConstants.MILLIS_PER_SECOND;
+        seconds = FieldUtils.safeAdd(seconds, getSeconds());
+        seconds = FieldUtils.safeAdd(seconds, ((long) getMinutes()) * ((long) DateTimeConstants.SECONDS_PER_MINUTE));
+        seconds = FieldUtils.safeAdd(seconds, ((long) getHours()) * ((long) DateTimeConstants.SECONDS_PER_HOUR));
+        seconds = FieldUtils.safeAdd(seconds, ((long) getDays()) * ((long) DateTimeConstants.SECONDS_PER_DAY));
+        seconds = FieldUtils.safeAdd(seconds, ((long) getWeeks()) * ((long) DateTimeConstants.SECONDS_PER_WEEK));
+        return Seconds.seconds(FieldUtils.safeToInt(seconds));
+    }","  public void test40()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Seconds seconds0 = period0.toStandardSeconds();
+  }","/**
+     * Converts this period to a period in seconds assuming a
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to convert between different types of period.
+     * However to achieve this it makes the assumption that all
+     * weeks are 7 days, all days are 24 hours, all hours are 60 minutes and
+     * all minutes are 60 seconds. This is not true when daylight savings time
+     * is considered, and may also not be true for some unusual chronologies.
+     * However, it is included as it is a useful operation for many
+     * applications and business rules.
+     * <p>
+     * If the period contains years or months, an exception will be thrown.
+     * 
+     * @return a period representing the number of standard seconds in this period
+     * @throws UnsupportedOperationException if the period contains years or months
+     * @throws ArithmeticException if the number of seconds is too large to be represented
+     * @since 1.5
+     */"
+"    public Period minusWeeks(int weeks) {
+        return plusWeeks(-weeks);
+    }","  public void test41()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      Period period1 = period0.minusWeeks(0);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new period minus the specified number of weeks taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param weeks  the amount of weeks to take away, may be negative
+     * @return the new period minus the increased weeks
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusWeeks(int weeks) {
+        return plusWeeks(-weeks);
+    }","  public void test41()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      Period period1 = period0.minusWeeks(0);
+  }","/**
+     * Returns a new period minus the specified number of weeks taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param weeks  the amount of weeks to take away, may be negative
+     * @return the new period minus the increased weeks
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusSeconds(int seconds) {
+        return plusSeconds(-seconds);
+    }","  public void test42()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      // Undeclared exception!
+      try { 
+        period0.minusSeconds(23);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Field is not supported
+         //
+         verifyException(""org.joda.time.PeriodType"", e);
+      }
+  }","/**
+     * Returns a new period minus the specified number of seconds taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param seconds  the amount of seconds to take away, may be negative
+     * @return the new period minus the increased seconds
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period() {
+        super(0L, null, null);
+    }","  public void test43()  throws Throwable  {
+      DateTimeZone dateTimeZone0 = DateTimeZone.getDefault();
+      GregorianChronology gregorianChronology0 = GregorianChronology.getInstance(dateTimeZone0);
+      DateTime dateTime0 = new DateTime((-11820L), (Chronology) gregorianChronology0);
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(dateTime0, dateTime0, periodType0);
+  }","/**
+     * Creates a new empty period with the standard set of fields.
+     * <p>
+     * One way to initialise a period is as follows:
+     * <pre>
+     * Period = new Period().withYears(6).withMonths(3).withSeconds(23);
+     * </pre>
+     * Bear in mind that this creates four period instances in total, three of
+     * which are immediately discarded.
+     * The alterative is more efficient, but less readable:
+     * <pre>
+     * Period = new Period(6, 3, 0, 0, 0, 0, 23, 0);
+     * </pre>
+     * The following is also slightly less wasteful:
+     * <pre>
+     * Period = Period.years(6).withMonths(3).withSeconds(23);
+     * </pre>
+     */"
+"    public static Period fieldDifference(ReadablePartial start, ReadablePartial end) {
+        if (start == null || end == null) {
+            throw new IllegalArgumentException(""ReadablePartial objects must not be null"");
+        }
+        if (start.size() != end.size()) {
+            throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+        }
+        DurationFieldType[] types = new DurationFieldType[start.size()];
+        int[] values = new int[start.size()];
+        for (int i = 0, isize = start.size(); i < isize; i++) {
+            if (start.getFieldType(i) != end.getFieldType(i)) {
+                throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+            }
+            types[i] = start.getFieldType(i).getDurationType();
+            if (i > 0 && types[i - 1] == types[i]) {
+                throw new IllegalArgumentException(""ReadablePartial objects must not have overlapping fields"");
+            }
+            values[i] = end.getValue(i) - start.getValue(i);
+        }
+        return new Period(values, PeriodType.forFields(types));
+    }","  public void test44()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference((ReadablePartial) null, (ReadablePartial) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must not be null
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Creates a period from two partially specified times, calculating
+     * by field difference.
+     * <p>
+     * The two partials must contain the same fields, thus you can specify
+     * two <code>LocalDate</code> objects, or two <code>LocalTime</code> objects,
+     * but not one of each. Also, the partial may not contain overlapping
+     * fields, such as dayOfWeek and dayOfMonth.
+     * <p>
+     * Calculation by field difference works by extracting the difference
+     * one field at a time and not wrapping into other fields.
+     * Thus 2005-06-09/2007-04-12 will yield P1Y-2M3D.
+     * <p>
+     * For example, you have an event that always runs from the 27th of
+     * each month to the 2nd of the next month. If you calculate this
+     * period using a standard constructor, then you will get between
+     * P3D and P6D depending on the month. If you use this method, then
+     * you will get P1M-25D. This field-difference based period can
+     * be successfully applied to each month of the year to obtain the
+     * correct end date for a given start date.
+     *
+     * @param start  the start of the period, must not be null
+     * @param end  the end of the period, must not be null
+     * @throws IllegalArgumentException if the partials are null or invalid
+     * @since 1.1
+     */"
+"    public static Period fieldDifference(ReadablePartial start, ReadablePartial end) {
+        if (start == null || end == null) {
+            throw new IllegalArgumentException(""ReadablePartial objects must not be null"");
+        }
+        if (start.size() != end.size()) {
+            throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+        }
+        DurationFieldType[] types = new DurationFieldType[start.size()];
+        int[] values = new int[start.size()];
+        for (int i = 0, isize = start.size(); i < isize; i++) {
+            if (start.getFieldType(i) != end.getFieldType(i)) {
+                throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+            }
+            types[i] = start.getFieldType(i).getDurationType();
+            if (i > 0 && types[i - 1] == types[i]) {
+                throw new IllegalArgumentException(""ReadablePartial objects must not have overlapping fields"");
+            }
+            values[i] = end.getValue(i) - start.getValue(i);
+        }
+        return new Period(values, PeriodType.forFields(types));
+    }","  public void test45()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference(localDateTime0, (ReadablePartial) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must not be null
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Creates a period from two partially specified times, calculating
+     * by field difference.
+     * <p>
+     * The two partials must contain the same fields, thus you can specify
+     * two <code>LocalDate</code> objects, or two <code>LocalTime</code> objects,
+     * but not one of each. Also, the partial may not contain overlapping
+     * fields, such as dayOfWeek and dayOfMonth.
+     * <p>
+     * Calculation by field difference works by extracting the difference
+     * one field at a time and not wrapping into other fields.
+     * Thus 2005-06-09/2007-04-12 will yield P1Y-2M3D.
+     * <p>
+     * For example, you have an event that always runs from the 27th of
+     * each month to the 2nd of the next month. If you calculate this
+     * period using a standard constructor, then you will get between
+     * P3D and P6D depending on the month. If you use this method, then
+     * you will get P1M-25D. This field-difference based period can
+     * be successfully applied to each month of the year to obtain the
+     * correct end date for a given start date.
+     *
+     * @param start  the start of the period, must not be null
+     * @param end  the end of the period, must not be null
+     * @throws IllegalArgumentException if the partials are null or invalid
+     * @since 1.1
+     */"
+"    public static Period fieldDifference(ReadablePartial start, ReadablePartial end) {
+        if (start == null || end == null) {
+            throw new IllegalArgumentException(""ReadablePartial objects must not be null"");
+        }
+        if (start.size() != end.size()) {
+            throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+        }
+        DurationFieldType[] types = new DurationFieldType[start.size()];
+        int[] values = new int[start.size()];
+        for (int i = 0, isize = start.size(); i < isize; i++) {
+            if (start.getFieldType(i) != end.getFieldType(i)) {
+                throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+            }
+            types[i] = start.getFieldType(i).getDurationType();
+            if (i > 0 && types[i - 1] == types[i]) {
+                throw new IllegalArgumentException(""ReadablePartial objects must not have overlapping fields"");
+            }
+            values[i] = end.getValue(i) - start.getValue(i);
+        }
+        return new Period(values, PeriodType.forFields(types));
+    }","  public void test46()  throws Throwable  {
+      LocalDateTime localDateTime0 = LocalDateTime.now();
+      JulianChronology julianChronology0 = JulianChronology.getInstanceUTC();
+      LocalDate localDate0 = new LocalDate(localDateTime0, julianChronology0);
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference(localDateTime0, localDate0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must have the same set of fields
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Creates a period from two partially specified times, calculating
+     * by field difference.
+     * <p>
+     * The two partials must contain the same fields, thus you can specify
+     * two <code>LocalDate</code> objects, or two <code>LocalTime</code> objects,
+     * but not one of each. Also, the partial may not contain overlapping
+     * fields, such as dayOfWeek and dayOfMonth.
+     * <p>
+     * Calculation by field difference works by extracting the difference
+     * one field at a time and not wrapping into other fields.
+     * Thus 2005-06-09/2007-04-12 will yield P1Y-2M3D.
+     * <p>
+     * For example, you have an event that always runs from the 27th of
+     * each month to the 2nd of the next month. If you calculate this
+     * period using a standard constructor, then you will get between
+     * P3D and P6D depending on the month. If you use this method, then
+     * you will get P1M-25D. This field-difference based period can
+     * be successfully applied to each month of the year to obtain the
+     * correct end date for a given start date.
+     *
+     * @param start  the start of the period, must not be null
+     * @param end  the end of the period, must not be null
+     * @throws IllegalArgumentException if the partials are null or invalid
+     * @since 1.1
+     */"
+"    public static Period fieldDifference(ReadablePartial start, ReadablePartial end) {
+        if (start == null || end == null) {
+            throw new IllegalArgumentException(""ReadablePartial objects must not be null"");
+        }
+        if (start.size() != end.size()) {
+            throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+        }
+        DurationFieldType[] types = new DurationFieldType[start.size()];
+        int[] values = new int[start.size()];
+        for (int i = 0, isize = start.size(); i < isize; i++) {
+            if (start.getFieldType(i) != end.getFieldType(i)) {
+                throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+            }
+            types[i] = start.getFieldType(i).getDurationType();
+            if (i > 0 && types[i - 1] == types[i]) {
+                throw new IllegalArgumentException(""ReadablePartial objects must not have overlapping fields"");
+            }
+            values[i] = end.getValue(i) - start.getValue(i);
+        }
+        return new Period(values, PeriodType.forFields(types));
+    }","  public void test47()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      LocalTime localTime0 = new LocalTime((-3614L));
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference(localDateTime0, localTime0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must have the same set of fields
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Creates a period from two partially specified times, calculating
+     * by field difference.
+     * <p>
+     * The two partials must contain the same fields, thus you can specify
+     * two <code>LocalDate</code> objects, or two <code>LocalTime</code> objects,
+     * but not one of each. Also, the partial may not contain overlapping
+     * fields, such as dayOfWeek and dayOfMonth.
+     * <p>
+     * Calculation by field difference works by extracting the difference
+     * one field at a time and not wrapping into other fields.
+     * Thus 2005-06-09/2007-04-12 will yield P1Y-2M3D.
+     * <p>
+     * For example, you have an event that always runs from the 27th of
+     * each month to the 2nd of the next month. If you calculate this
+     * period using a standard constructor, then you will get between
+     * P3D and P6D depending on the month. If you use this method, then
+     * you will get P1M-25D. This field-difference based period can
+     * be successfully applied to each month of the year to obtain the
+     * correct end date for a given start date.
+     *
+     * @param start  the start of the period, must not be null
+     * @param end  the end of the period, must not be null
+     * @throws IllegalArgumentException if the partials are null or invalid
+     * @since 1.1
+     */"
+"    public static Period fieldDifference(ReadablePartial start, ReadablePartial end) {
+        if (start == null || end == null) {
+            throw new IllegalArgumentException(""ReadablePartial objects must not be null"");
+        }
+        if (start.size() != end.size()) {
+            throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+        }
+        DurationFieldType[] types = new DurationFieldType[start.size()];
+        int[] values = new int[start.size()];
+        for (int i = 0, isize = start.size(); i < isize; i++) {
+            if (start.getFieldType(i) != end.getFieldType(i)) {
+                throw new IllegalArgumentException(""ReadablePartial objects must have the same set of fields"");
+            }
+            types[i] = start.getFieldType(i).getDurationType();
+            if (i > 0 && types[i - 1] == types[i]) {
+                throw new IllegalArgumentException(""ReadablePartial objects must not have overlapping fields"");
+            }
+            values[i] = end.getValue(i) - start.getValue(i);
+        }
+        return new Period(values, PeriodType.forFields(types));
+    }","  public void test48()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[5];
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.dayOfYear();
+      dateTimeFieldTypeArray0[0] = dateTimeFieldType0;
+      dateTimeFieldTypeArray0[1] = dateTimeFieldType0;
+      int[] intArray0 = new int[3];
+      Partial partial0 = new Partial((Chronology) null, dateTimeFieldTypeArray0, intArray0);
+      // Undeclared exception!
+      try { 
+        Period.fieldDifference(partial0, partial0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // ReadablePartial objects must not have overlapping fields
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Creates a period from two partially specified times, calculating
+     * by field difference.
+     * <p>
+     * The two partials must contain the same fields, thus you can specify
+     * two <code>LocalDate</code> objects, or two <code>LocalTime</code> objects,
+     * but not one of each. Also, the partial may not contain overlapping
+     * fields, such as dayOfWeek and dayOfMonth.
+     * <p>
+     * Calculation by field difference works by extracting the difference
+     * one field at a time and not wrapping into other fields.
+     * Thus 2005-06-09/2007-04-12 will yield P1Y-2M3D.
+     * <p>
+     * For example, you have an event that always runs from the 27th of
+     * each month to the 2nd of the next month. If you calculate this
+     * period using a standard constructor, then you will get between
+     * P3D and P6D depending on the month. If you use this method, then
+     * you will get P1M-25D. This field-difference based period can
+     * be successfully applied to each month of the year to obtain the
+     * correct end date for a given start date.
+     *
+     * @param start  the start of the period, must not be null
+     * @param end  the end of the period, must not be null
+     * @throws IllegalArgumentException if the partials are null or invalid
+     * @since 1.1
+     */"
+"    public Period withPeriodType(PeriodType type) {
+        type = DateTimeUtils.getPeriodType(type);
+        if (type.equals(getPeriodType())) {
+            return this;
+        }
+        return new Period(this, type);
+    }","  public void test49()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      Period period1 = period0.withPeriodType(periodType0);
+      assertSame(period1, period0);
+}","/**
+     * Creates a new Period instance with the same field values but
+     * different PeriodType.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param type  the period type to use, null means standard
+     * @return the new period instance
+     * @throws IllegalArgumentException if the new period won't accept all of the current fields
+     */"
+"    public Period withPeriodType(PeriodType type) {
+        type = DateTimeUtils.getPeriodType(type);
+        if (type.equals(getPeriodType())) {
+            return this;
+        }
+        return new Period(this, type);
+    }","  public void test49()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      Period period1 = period0.withPeriodType(periodType0);
+  }","/**
+     * Creates a new Period instance with the same field values but
+     * different PeriodType.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param type  the period type to use, null means standard
+     * @return the new period instance
+     * @throws IllegalArgumentException if the new period won't accept all of the current fields
+     */"
+"    public Period withField(DurationFieldType field, int value) {
+        if (field == null) {
+            throw new IllegalArgumentException(""Field must not be null"");
+        }
+        int[] newValues = getValues();  // cloned
+        super.setFieldInto(newValues, field, value);
+        return new Period(newValues, getPeriodType());
+    }","  public void test50()  throws Throwable  {
+      Days days0 = Days.ONE;
+      Period period0 = days0.toPeriod();
+      // Undeclared exception!
+      try { 
+        period0.ZERO.withField((DurationFieldType) null, 3);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Field must not be null
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Creates a new Period instance with the specified field set to a new value.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param field  the field to set, not null
+     * @param value  the value to set to
+     * @return the new period instance
+     * @throws IllegalArgumentException if the field type is null or unsupported
+     */"
+"    public Period withFields(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] newValues = getValues();  // cloned
+        newValues = super.mergePeriodInto(newValues, period);
+        return new Period(newValues, getPeriodType());
+    }","  public void test51()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.withFields((ReadablePeriod) null);
+      assertSame(period1, period0);
+}","/**
+     * Creates a new Period instance with the fields from the specified period
+     * copied on top of those from this period.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param period  the period to copy from, null ignored
+     * @return the new period instance
+     * @throws IllegalArgumentException if a field type is unsupported
+     */"
+"    public Period withFields(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] newValues = getValues();  // cloned
+        newValues = super.mergePeriodInto(newValues, period);
+        return new Period(newValues, getPeriodType());
+    }","  public void test51()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.withFields((ReadablePeriod) null);
+  }","/**
+     * Creates a new Period instance with the fields from the specified period
+     * copied on top of those from this period.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param period  the period to copy from, null ignored
+     * @return the new period instance
+     * @throws IllegalArgumentException if a field type is unsupported
+     */"
+"    public Period withField(DurationFieldType field, int value) {
+        if (field == null) {
+            throw new IllegalArgumentException(""Field must not be null"");
+        }
+        int[] newValues = getValues();  // cloned
+        super.setFieldInto(newValues, field, value);
+        return new Period(newValues, getPeriodType());
+    }","  public void test52()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      DurationFieldType durationFieldType0 = DurationFieldType.years();
+      Period period1 = period0.withField(durationFieldType0, 0);
+      assertTrue(period1.equals((Object)period0));
+}","/**
+     * Creates a new Period instance with the specified field set to a new value.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param field  the field to set, not null
+     * @param value  the value to set to
+     * @return the new period instance
+     * @throws IllegalArgumentException if the field type is null or unsupported
+     */"
+"    public Period withField(DurationFieldType field, int value) {
+        if (field == null) {
+            throw new IllegalArgumentException(""Field must not be null"");
+        }
+        int[] newValues = getValues();  // cloned
+        super.setFieldInto(newValues, field, value);
+        return new Period(newValues, getPeriodType());
+    }","  public void test52()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDayTime();
+      Period period0 = new Period(658L, 0, periodType0);
+      DurationFieldType durationFieldType0 = DurationFieldType.years();
+      Period period1 = period0.withField(durationFieldType0, 0);
+  }","/**
+     * Creates a new Period instance with the specified field set to a new value.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param field  the field to set, not null
+     * @param value  the value to set to
+     * @return the new period instance
+     * @throws IllegalArgumentException if the field type is null or unsupported
+     */"
+"    public Period withFieldAdded(DurationFieldType field, int value) {
+        if (field == null) {
+            throw new IllegalArgumentException(""Field must not be null"");
+        }
+        if (value == 0) {
+            return this;
+        }
+        int[] newValues = getValues();  // cloned
+        super.addFieldInto(newValues, field, value);
+        return new Period(newValues, getPeriodType());
+    }","  public void test53()  throws Throwable  {
+      DurationFieldType durationFieldType0 = DurationFieldType.MILLIS_TYPE;
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.withFieldAdded(durationFieldType0, (-2308));
+      assertNotSame(period1, period0);
+}","/**
+     * Creates a new Period instance with the valueToAdd added to the specified field.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param field  the field to set, not null
+     * @param value  the value to add
+     * @return the new period instance
+     * @throws IllegalArgumentException if the field type is null or unsupported
+     */"
+"    public Period withFieldAdded(DurationFieldType field, int value) {
+        if (field == null) {
+            throw new IllegalArgumentException(""Field must not be null"");
+        }
+        if (value == 0) {
+            return this;
+        }
+        int[] newValues = getValues();  // cloned
+        super.addFieldInto(newValues, field, value);
+        return new Period(newValues, getPeriodType());
+    }","  public void test53()  throws Throwable  {
+      DurationFieldType durationFieldType0 = DurationFieldType.MILLIS_TYPE;
+      Period period0 = Period.seconds((-2108));
+      Period period1 = period0.withFieldAdded(durationFieldType0, (-2308));
+  }","/**
+     * Creates a new Period instance with the valueToAdd added to the specified field.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param field  the field to set, not null
+     * @param value  the value to add
+     * @return the new period instance
+     * @throws IllegalArgumentException if the field type is null or unsupported
+     */"
+"    public Period withFieldAdded(DurationFieldType field, int value) {
+        if (field == null) {
+            throw new IllegalArgumentException(""Field must not be null"");
+        }
+        if (value == 0) {
+            return this;
+        }
+        int[] newValues = getValues();  // cloned
+        super.addFieldInto(newValues, field, value);
+        return new Period(newValues, getPeriodType());
+    }","  public void test54()  throws Throwable  {
+      Period period0 = Period.seconds(897);
+      // Undeclared exception!
+      try { 
+        period0.withFieldAdded((DurationFieldType) null, 2162);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Field must not be null
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Creates a new Period instance with the valueToAdd added to the specified field.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     * 
+     * @param field  the field to set, not null
+     * @param value  the value to add
+     * @return the new period instance
+     * @throws IllegalArgumentException if the field type is null or unsupported
+     */"
+"    public Period plus(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, period.get(DurationFieldType.YEARS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MONTH_INDEX, values, period.get(DurationFieldType.MONTHS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, period.get(DurationFieldType.WEEKS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.DAY_INDEX, values, period.get(DurationFieldType.DAYS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, period.get(DurationFieldType.HOURS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, period.get(DurationFieldType.MINUTES_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, period.get(DurationFieldType.SECONDS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, period.get(DurationFieldType.MILLIS_TYPE));
+        return new Period(values, getPeriodType());
+    }","  public void test55()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period(0L, 0L, periodType0);
+      Period period1 = period0.plus(period0);
+      assertNotSame(period1, period0);
+}","/**
+     * Returns a new period with the specified period added.
+     * <p>
+     * Each field of the period is added separately. Thus a period of
+     * 2 hours 30 minutes plus 3 hours 40 minutes will produce a result
+     * of 5 hours 70 minutes - see {@link #normalizedStandard()}.
+     * <p>
+     * If the period being added contains a non-zero amount for a field that
+     * is not supported in this period then an exception is thrown.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param period  the period to add, null adds zero and returns this
+     * @return the new updated period
+     * @throws UnsupportedOperationException if any field is not supported
+     * @since 1.5
+     */"
+"    public Period plus(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, period.get(DurationFieldType.YEARS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MONTH_INDEX, values, period.get(DurationFieldType.MONTHS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, period.get(DurationFieldType.WEEKS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.DAY_INDEX, values, period.get(DurationFieldType.DAYS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, period.get(DurationFieldType.HOURS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, period.get(DurationFieldType.MINUTES_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, period.get(DurationFieldType.SECONDS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, period.get(DurationFieldType.MILLIS_TYPE));
+        return new Period(values, getPeriodType());
+    }","  public void test55()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period(0L, 0L, periodType0);
+      Period period1 = period0.plus(period0);
+  }","/**
+     * Returns a new period with the specified period added.
+     * <p>
+     * Each field of the period is added separately. Thus a period of
+     * 2 hours 30 minutes plus 3 hours 40 minutes will produce a result
+     * of 5 hours 70 minutes - see {@link #normalizedStandard()}.
+     * <p>
+     * If the period being added contains a non-zero amount for a field that
+     * is not supported in this period then an exception is thrown.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param period  the period to add, null adds zero and returns this
+     * @return the new updated period
+     * @throws UnsupportedOperationException if any field is not supported
+     * @since 1.5
+     */"
+"    public Period plus(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, period.get(DurationFieldType.YEARS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MONTH_INDEX, values, period.get(DurationFieldType.MONTHS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, period.get(DurationFieldType.WEEKS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.DAY_INDEX, values, period.get(DurationFieldType.DAYS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, period.get(DurationFieldType.HOURS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, period.get(DurationFieldType.MINUTES_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, period.get(DurationFieldType.SECONDS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, period.get(DurationFieldType.MILLIS_TYPE));
+        return new Period(values, getPeriodType());
+    }","  public void test56()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.plus((ReadablePeriod) null);
+      assertSame(period0, period1);
+}","/**
+     * Returns a new period with the specified period added.
+     * <p>
+     * Each field of the period is added separately. Thus a period of
+     * 2 hours 30 minutes plus 3 hours 40 minutes will produce a result
+     * of 5 hours 70 minutes - see {@link #normalizedStandard()}.
+     * <p>
+     * If the period being added contains a non-zero amount for a field that
+     * is not supported in this period then an exception is thrown.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param period  the period to add, null adds zero and returns this
+     * @return the new updated period
+     * @throws UnsupportedOperationException if any field is not supported
+     * @since 1.5
+     */"
+"    public Period plus(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, period.get(DurationFieldType.YEARS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MONTH_INDEX, values, period.get(DurationFieldType.MONTHS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, period.get(DurationFieldType.WEEKS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.DAY_INDEX, values, period.get(DurationFieldType.DAYS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, period.get(DurationFieldType.HOURS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, period.get(DurationFieldType.MINUTES_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, period.get(DurationFieldType.SECONDS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, period.get(DurationFieldType.MILLIS_TYPE));
+        return new Period(values, getPeriodType());
+    }","  public void test56()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.plus((ReadablePeriod) null);
+  }","/**
+     * Returns a new period with the specified period added.
+     * <p>
+     * Each field of the period is added separately. Thus a period of
+     * 2 hours 30 minutes plus 3 hours 40 minutes will produce a result
+     * of 5 hours 70 minutes - see {@link #normalizedStandard()}.
+     * <p>
+     * If the period being added contains a non-zero amount for a field that
+     * is not supported in this period then an exception is thrown.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param period  the period to add, null adds zero and returns this
+     * @return the new updated period
+     * @throws UnsupportedOperationException if any field is not supported
+     * @since 1.5
+     */"
+"    public Period plusYears(int years) {
+        if (years == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, years);
+        return new Period(values, getPeriodType());
+    }","  public void test57()  throws Throwable  {
+      MonthDay monthDay0 = MonthDay.now();
+      Period period0 = Period.fieldDifference(monthDay0, monthDay0);
+      Period period1 = period0.ZERO.plusYears(0);
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Returns a new period with the specified number of years added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param years  the amount of years to add, may be negative
+     * @return the new period with the increased years
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusYears(int years) {
+        if (years == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, years);
+        return new Period(values, getPeriodType());
+    }","  public void test57()  throws Throwable  {
+      MonthDay monthDay0 = MonthDay.now();
+      Period period0 = Period.fieldDifference(monthDay0, monthDay0);
+      Period period1 = period0.ZERO.plusYears(0);
+  }","/**
+     * Returns a new period with the specified number of years added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param years  the amount of years to add, may be negative
+     * @return the new period with the increased years
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusMonths(int months) {
+        return plusMonths(-months);
+    }","  public void test58()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearWeekDay();
+      Period period0 = new Period(0L, 86400L, periodType0);
+      Period period1 = period0.minusMonths(0);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new period minus the specified number of months taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param months  the amount of months to take away, may be negative
+     * @return the new period minus the increased months
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusMonths(int months) {
+        return plusMonths(-months);
+    }","  public void test58()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearWeekDay();
+      Period period0 = new Period(0L, 86400L, periodType0);
+      Period period1 = period0.minusMonths(0);
+  }","/**
+     * Returns a new period minus the specified number of months taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param months  the amount of months to take away, may be negative
+     * @return the new period minus the increased months
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusWeeks(int weeks) {
+        return plusWeeks(-weeks);
+    }","  public void test59()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12, 12, 12, 12, 12);
+      Period period1 = period0.ZERO.minusWeeks(12);
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Returns a new period minus the specified number of weeks taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param weeks  the amount of weeks to take away, may be negative
+     * @return the new period minus the increased weeks
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusWeeks(int weeks) {
+        return plusWeeks(-weeks);
+    }","  public void test59()  throws Throwable  {
+      Period period0 = new Period(12, 12, 12, 12, 12, 12, 12, 12);
+      Period period1 = period0.ZERO.minusWeeks(12);
+  }","/**
+     * Returns a new period minus the specified number of weeks taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param weeks  the amount of weeks to take away, may be negative
+     * @return the new period minus the increased weeks
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusDays(int days) {
+        return plusDays(-days);
+    }","  public void test60()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.minusDays(0);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new period minus the specified number of days taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param days  the amount of days to take away, may be negative
+     * @return the new period minus the increased days
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minusDays(int days) {
+        return plusDays(-days);
+    }","  public void test60()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.minusDays(0);
+  }","/**
+     * Returns a new period minus the specified number of days taken away.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param days  the amount of days to take away, may be negative
+     * @return the new period minus the increased days
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusHours(int hours) {
+        if (hours == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, hours);
+        return new Period(values, getPeriodType());
+    }","  public void test61()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.plusHours(0);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new period plus the specified number of hours added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param hours  the amount of hours to add, may be negative
+     * @return the new period plus the increased hours
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusHours(int hours) {
+        if (hours == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, hours);
+        return new Period(values, getPeriodType());
+    }","  public void test61()  throws Throwable  {
+      Period period0 = new Period();
+      Period period1 = period0.plusHours(0);
+  }","/**
+     * Returns a new period plus the specified number of hours added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param hours  the amount of hours to add, may be negative
+     * @return the new period plus the increased hours
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusMinutes(int minutes) {
+        if (minutes == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, minutes);
+        return new Period(values, getPeriodType());
+    }","  public void test62()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.plusMinutes(0);
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Returns a new period plus the specified number of minutes added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param minutes  the amount of minutes to add, may be negative
+     * @return the new period plus the increased minutes
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusMinutes(int minutes) {
+        if (minutes == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, minutes);
+        return new Period(values, getPeriodType());
+    }","  public void test62()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.ZERO.plusMinutes(0);
+  }","/**
+     * Returns a new period plus the specified number of minutes added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param minutes  the amount of minutes to add, may be negative
+     * @return the new period plus the increased minutes
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusSeconds(int seconds) {
+        if (seconds == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, seconds);
+        return new Period(values, getPeriodType());
+    }","  public void test63()  throws Throwable  {
+      Days days0 = Days.SEVEN;
+      Period period0 = days0.toPeriod();
+      Period period1 = period0.plusSeconds(0);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new period plus the specified number of seconds added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param seconds  the amount of seconds to add, may be negative
+     * @return the new period plus the increased seconds
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusSeconds(int seconds) {
+        if (seconds == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, seconds);
+        return new Period(values, getPeriodType());
+    }","  public void test63()  throws Throwable  {
+      Days days0 = Days.SEVEN;
+      Period period0 = days0.toPeriod();
+      Period period1 = period0.plusSeconds(0);
+  }","/**
+     * Returns a new period plus the specified number of seconds added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param seconds  the amount of seconds to add, may be negative
+     * @return the new period plus the increased seconds
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusMillis(int millis) {
+        if (millis == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, millis);
+        return new Period(values, getPeriodType());
+    }","  public void test64()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.plusMillis(0);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new period plus the specified number of millis added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param millis  the amount of millis to add, may be negative
+     * @return the new period plus the increased millis
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period plusMillis(int millis) {
+        if (millis == 0) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, millis);
+        return new Period(values, getPeriodType());
+    }","  public void test64()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.plusMillis(0);
+  }","/**
+     * Returns a new period plus the specified number of millis added.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param millis  the amount of millis to add, may be negative
+     * @return the new period plus the increased millis
+     * @throws UnsupportedOperationException if the field is not supported
+     */"
+"    public Period minus(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, -period.get(DurationFieldType.YEARS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MONTH_INDEX, values, -period.get(DurationFieldType.MONTHS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, -period.get(DurationFieldType.WEEKS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.DAY_INDEX, values, -period.get(DurationFieldType.DAYS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, -period.get(DurationFieldType.HOURS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, -period.get(DurationFieldType.MINUTES_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, -period.get(DurationFieldType.SECONDS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, -period.get(DurationFieldType.MILLIS_TYPE));
+        return new Period(values, getPeriodType());
+    }","  public void test65()  throws Throwable  {
+      Period period0 = new Period(12, 12, 65, 12);
+      Period period1 = period0.minus(period0);
+      assertNotSame(period1, period0);
+}","/**
+     * Returns a new period with the specified period subtracted.
+     * <p>
+     * Each field of the period is subtracted separately. Thus a period of
+     * 3 hours 30 minutes minus 2 hours 40 minutes will produce a result
+     * of 1 hour and -10 minutes - see {@link #normalizedStandard()}.
+     * <p>
+     * If the period being added contains a non-zero amount for a field that
+     * is not supported in this period then an exception is thrown.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param period  the period to add, null adds zero and returns this
+     * @return the new updated period
+     * @throws UnsupportedOperationException if any field is not supported
+     * @since 1.5
+     */"
+"    public Period minus(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, -period.get(DurationFieldType.YEARS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MONTH_INDEX, values, -period.get(DurationFieldType.MONTHS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, -period.get(DurationFieldType.WEEKS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.DAY_INDEX, values, -period.get(DurationFieldType.DAYS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, -period.get(DurationFieldType.HOURS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, -period.get(DurationFieldType.MINUTES_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, -period.get(DurationFieldType.SECONDS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, -period.get(DurationFieldType.MILLIS_TYPE));
+        return new Period(values, getPeriodType());
+    }","  public void test65()  throws Throwable  {
+      Period period0 = new Period(12, 12, 65, 12);
+      Period period1 = period0.minus(period0);
+  }","/**
+     * Returns a new period with the specified period subtracted.
+     * <p>
+     * Each field of the period is subtracted separately. Thus a period of
+     * 3 hours 30 minutes minus 2 hours 40 minutes will produce a result
+     * of 1 hour and -10 minutes - see {@link #normalizedStandard()}.
+     * <p>
+     * If the period being added contains a non-zero amount for a field that
+     * is not supported in this period then an exception is thrown.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param period  the period to add, null adds zero and returns this
+     * @return the new updated period
+     * @throws UnsupportedOperationException if any field is not supported
+     * @since 1.5
+     */"
+"    public Period minus(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, -period.get(DurationFieldType.YEARS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MONTH_INDEX, values, -period.get(DurationFieldType.MONTHS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, -period.get(DurationFieldType.WEEKS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.DAY_INDEX, values, -period.get(DurationFieldType.DAYS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, -period.get(DurationFieldType.HOURS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, -period.get(DurationFieldType.MINUTES_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, -period.get(DurationFieldType.SECONDS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, -period.get(DurationFieldType.MILLIS_TYPE));
+        return new Period(values, getPeriodType());
+    }","  public void test66()  throws Throwable  {
+      Period period0 = new Period(65, 65, (-688), 1434);
+      Period period1 = period0.minus((ReadablePeriod) null);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new period with the specified period subtracted.
+     * <p>
+     * Each field of the period is subtracted separately. Thus a period of
+     * 3 hours 30 minutes minus 2 hours 40 minutes will produce a result
+     * of 1 hour and -10 minutes - see {@link #normalizedStandard()}.
+     * <p>
+     * If the period being added contains a non-zero amount for a field that
+     * is not supported in this period then an exception is thrown.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param period  the period to add, null adds zero and returns this
+     * @return the new updated period
+     * @throws UnsupportedOperationException if any field is not supported
+     * @since 1.5
+     */"
+"    public Period minus(ReadablePeriod period) {
+        if (period == null) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        getPeriodType().addIndexedField(this, PeriodType.YEAR_INDEX, values, -period.get(DurationFieldType.YEARS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MONTH_INDEX, values, -period.get(DurationFieldType.MONTHS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.WEEK_INDEX, values, -period.get(DurationFieldType.WEEKS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.DAY_INDEX, values, -period.get(DurationFieldType.DAYS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.HOUR_INDEX, values, -period.get(DurationFieldType.HOURS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MINUTE_INDEX, values, -period.get(DurationFieldType.MINUTES_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.SECOND_INDEX, values, -period.get(DurationFieldType.SECONDS_TYPE));
+        getPeriodType().addIndexedField(this, PeriodType.MILLI_INDEX, values, -period.get(DurationFieldType.MILLIS_TYPE));
+        return new Period(values, getPeriodType());
+    }","  public void test66()  throws Throwable  {
+      Period period0 = new Period(65, 65, (-688), 1434);
+      Period period1 = period0.minus((ReadablePeriod) null);
+  }","/**
+     * Returns a new period with the specified period subtracted.
+     * <p>
+     * Each field of the period is subtracted separately. Thus a period of
+     * 3 hours 30 minutes minus 2 hours 40 minutes will produce a result
+     * of 1 hour and -10 minutes - see {@link #normalizedStandard()}.
+     * <p>
+     * If the period being added contains a non-zero amount for a field that
+     * is not supported in this period then an exception is thrown.
+     * <p>
+     * This period instance is immutable and unaffected by this method call.
+     *
+     * @param period  the period to add, null adds zero and returns this
+     * @return the new updated period
+     * @throws UnsupportedOperationException if any field is not supported
+     * @since 1.5
+     */"
+"    public Period multipliedBy(int scalar) {
+        if (this == ZERO || scalar == 1) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        for (int i = 0; i < values.length; i++) {
+            values[i] = FieldUtils.safeMultiply(values[i], scalar);
+        }
+        return new Period(values, getPeriodType());
+    }","  public void test67()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Period period1 = period0.multipliedBy(26);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new instance with each element in this period multiplied
+     * by the specified scalar.
+     *
+     * @param scalar  the scalar to multiply by, not null
+     * @return a {@code Period} based on this period with the amounts multiplied by the scalar, never null
+     * @throws ArithmeticException if the capacity of any field is exceeded
+     * @since 2.1
+     */"
+"    public Period multipliedBy(int scalar) {
+        if (this == ZERO || scalar == 1) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        for (int i = 0; i < values.length; i++) {
+            values[i] = FieldUtils.safeMultiply(values[i], scalar);
+        }
+        return new Period(values, getPeriodType());
+    }","  public void test67()  throws Throwable  {
+      Period period0 = Period.ZERO;
+      Period period1 = period0.multipliedBy(26);
+  }","/**
+     * Returns a new instance with each element in this period multiplied
+     * by the specified scalar.
+     *
+     * @param scalar  the scalar to multiply by, not null
+     * @return a {@code Period} based on this period with the amounts multiplied by the scalar, never null
+     * @throws ArithmeticException if the capacity of any field is exceeded
+     * @since 2.1
+     */"
+"    public Period multipliedBy(int scalar) {
+        if (this == ZERO || scalar == 1) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        for (int i = 0; i < values.length; i++) {
+            values[i] = FieldUtils.safeMultiply(values[i], scalar);
+        }
+        return new Period(values, getPeriodType());
+    }","  public void test68()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.multipliedBy(1);
+      assertSame(period1, period0);
+}","/**
+     * Returns a new instance with each element in this period multiplied
+     * by the specified scalar.
+     *
+     * @param scalar  the scalar to multiply by, not null
+     * @return a {@code Period} based on this period with the amounts multiplied by the scalar, never null
+     * @throws ArithmeticException if the capacity of any field is exceeded
+     * @since 2.1
+     */"
+"    public Period multipliedBy(int scalar) {
+        if (this == ZERO || scalar == 1) {
+            return this;
+        }
+        int[] values = getValues();  // cloned
+        for (int i = 0; i < values.length; i++) {
+            values[i] = FieldUtils.safeMultiply(values[i], scalar);
+        }
+        return new Period(values, getPeriodType());
+    }","  public void test68()  throws Throwable  {
+      LocalDateTime localDateTime0 = new LocalDateTime();
+      Period period0 = Period.fieldDifference(localDateTime0, localDateTime0);
+      Period period1 = period0.multipliedBy(1);
+  }","/**
+     * Returns a new instance with each element in this period multiplied
+     * by the specified scalar.
+     *
+     * @param scalar  the scalar to multiply by, not null
+     * @return a {@code Period} based on this period with the amounts multiplied by the scalar, never null
+     * @throws ArithmeticException if the capacity of any field is exceeded
+     * @since 2.1
+     */"
+"    public Weeks toStandardWeeks() {
+        checkYearsAndMonths(""Weeks"");
+        long millis = getMillis();  // assign to a long
+        millis += ((long) getSeconds()) * DateTimeConstants.MILLIS_PER_SECOND;
+        millis += ((long) getMinutes()) * DateTimeConstants.MILLIS_PER_MINUTE;
+        millis += ((long) getHours()) * DateTimeConstants.MILLIS_PER_HOUR;
+        millis += ((long) getDays()) * DateTimeConstants.MILLIS_PER_DAY;
+        long weeks = ((long) getWeeks()) + millis / DateTimeConstants.MILLIS_PER_WEEK;
+        return Weeks.weeks(FieldUtils.safeToInt(weeks));
+    }","  public void test69()  throws Throwable  {
+      Period period0 = Period.minutes(0);
+      Period period1 = period0.minusYears(1030);
+      // Undeclared exception!
+      try { 
+        period1.toStandardWeeks();
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Cannot convert to Weeks as this period contains years and years vary in length
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Converts this period to a period in weeks assuming a
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to convert between different types of period.
+     * However to achieve this it makes the assumption that all
+     * weeks are 7 days, all days are 24 hours, all hours are 60 minutes and
+     * all minutes are 60 seconds. This is not true when daylight savings time
+     * is considered, and may also not be true for some unusual chronologies.
+     * However, it is included as it is a useful operation for many
+     * applications and business rules.
+     * <p>
+     * If the period contains years or months, an exception will be thrown.
+     * 
+     * @return a period representing the number of standard weeks in this period
+     * @throws UnsupportedOperationException if the period contains years or months
+     * @throws ArithmeticException if the number of weeks is too large to be represented
+     * @since 1.5
+     */"
+"    public Period normalizedStandard() {
+        return normalizedStandard(PeriodType.standard());
+    }","  public void test70()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period(0L, 0L, periodType0);
+      Period period1 = period0.normalizedStandard();
+      assertFalse(period1.equals((Object)period0));
+}","/**
+     * Normalizes this period using standard rules, assuming a 12 month year,
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to normalize a period.
+     * However to achieve this it makes the assumption that all years are
+     * 12 months, all weeks are 7 days, all days are 24 hours,
+     * all hours are 60 minutes and all minutes are 60 seconds. This is not
+     * true when daylight savings time is considered, and may also not be true
+     * for some chronologies. However, it is included as it is a useful operation
+     * for many applications and business rules.
+     * <p>
+     * If the period contains years or months, then the months will be
+     * normalized to be between 0 and 11. The days field and below will be
+     * normalized as necessary, however this will not overflow into the months
+     * field. Thus a period of 1 year 15 months will normalize to 2 years 3 months.
+     * But a period of 1 month 40 days will remain as 1 month 40 days.
+     * <p>
+     * The result will always have a <code>PeriodType</code> of standard, thus
+     * days will be grouped into weeks.
+     * 
+     * @return a normalized period equivalent to this period
+     * @throws ArithmeticException if any field is too large to be represented
+     * @since 1.5
+     */"
+"    public Period normalizedStandard() {
+        return normalizedStandard(PeriodType.standard());
+    }","  public void test70()  throws Throwable  {
+      PeriodType periodType0 = PeriodType.yearMonthDay();
+      Period period0 = new Period(0L, 0L, periodType0);
+      Period period1 = period0.normalizedStandard();
+  }","/**
+     * Normalizes this period using standard rules, assuming a 12 month year,
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to normalize a period.
+     * However to achieve this it makes the assumption that all years are
+     * 12 months, all weeks are 7 days, all days are 24 hours,
+     * all hours are 60 minutes and all minutes are 60 seconds. This is not
+     * true when daylight savings time is considered, and may also not be true
+     * for some chronologies. However, it is included as it is a useful operation
+     * for many applications and business rules.
+     * <p>
+     * If the period contains years or months, then the months will be
+     * normalized to be between 0 and 11. The days field and below will be
+     * normalized as necessary, however this will not overflow into the months
+     * field. Thus a period of 1 year 15 months will normalize to 2 years 3 months.
+     * But a period of 1 month 40 days will remain as 1 month 40 days.
+     * <p>
+     * The result will always have a <code>PeriodType</code> of standard, thus
+     * days will be grouped into weeks.
+     * 
+     * @return a normalized period equivalent to this period
+     * @throws ArithmeticException if any field is too large to be represented
+     * @since 1.5
+     */"
+"    public Period normalizedStandard() {
+        return normalizedStandard(PeriodType.standard());
+    }","  public void test71()  throws Throwable  {
+      Period period0 = Period.years((-1166));
+      PeriodType periodType0 = PeriodType.millis();
+      // Undeclared exception!
+      try { 
+        period0.normalizedStandard(periodType0);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // Unable to normalize as PeriodType is missing either years or months but period has a month/year amount: P-1166Y
+         //
+         verifyException(""org.joda.time.Period"", e);
+      }
+  }","/**
+     * Normalizes this period using standard rules, assuming a 12 month year,
+     * 7 day week, 24 hour day, 60 minute hour and 60 second minute.
+     * <p>
+     * This method allows you to normalize a period.
+     * However to achieve this it makes the assumption that all years are
+     * 12 months, all weeks are 7 days, all days are 24 hours,
+     * all hours are 60 minutes and all minutes are 60 seconds. This is not
+     * true when daylight savings time is considered, and may also not be true
+     * for some chronologies. However, it is included as it is a useful operation
+     * for many applications and business rules.
+     * <p>
+     * If the period contains years or months, then the months will be
+     * normalized to be between 0 and 11. The days field and below will be
+     * normalized as necessary, however this will not overflow into the months
+     * field. Thus a period of 1 year 15 months will normalize to 2 years 3 months.
+     * But a period of 1 month 40 days will remain as 1 month 40 days.
+     * <p>
+     * The result will always have a <code>PeriodType</code> of standard, thus
+     * days will be grouped into weeks.
+     * 
+     * @return a normalized period equivalent to this period
+     * @throws ArithmeticException if any field is too large to be represented
+     * @since 1.5
+     */"

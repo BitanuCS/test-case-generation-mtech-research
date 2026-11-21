@@ -1,0 +1,54 @@
+{
+  "bug": "Closure-58",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 37,
+    "exception": 0,
+    "assertion": 4
+  },
+  "tests": {
+    "written": 37,
+    "kept_on_fixed": 29,
+    "false_alarms_removed": 8,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Closure",
+      "version_id": "58f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 106,
+      "lines_covered": 56,
+      "branches_total": 54,
+      "branches_covered": 20,
+      "line": 0.528,
+      "branch": 0.37
+    },
+    "major_mutation": {
+      "generated": 93,
+      "covered": 93,
+      "killed": 67,
+      "score": 0.72
+    }
+  },
+  "seconds": 621.3,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test0,"  public void test0()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      zipArchiveInputStream0.close();
+      ArchiveEntry archiveEntry0 = zipArchiveInputStream0.getNextEntry();
+      assertNull(archiveEntry0);
+}",0,assertNotNull(archiveEntry0)
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test0,"  public void test0()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      zipArchiveInputStream0.close();
+      ArchiveEntry archiveEntry0 = zipArchiveInputStream0.getNextEntry();
+  }",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test1,"  public void test1()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0, 1932, (byte)4);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(byteArrayInputStream0);
+      zipArchiveInputStream0.close();
+      try { 
+        zipArchiveInputStream0.skip(9223372036854775807L);
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // The stream is closed
+         //
+         verifyException(""org.apache.commons.compress.archivers.zip.ZipArchiveInputStream"", e);
+      }
+  }",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test2,"  public void test2()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      zipArchiveInputStream0.close();
+      zipArchiveInputStream0.close();
+      assertEquals(0, zipArchiveInputStream0.getCount());
+}",0,"assertEquals(0, zipArchiveInputStream0.getCount())"
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test2,"  public void test2()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      zipArchiveInputStream0.close();
+      zipArchiveInputStream0.close();
+  }",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test3,"  public void test3()  throws Throwable  {
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream((InputStream) null);
+      // Undeclared exception!
+      try { 
+        zipArchiveInputStream0.skip((-1L));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.compress.archivers.zip.ZipArchiveInputStream"", e);
+      }
+  }",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test4,"  public void test4()  throws Throwable  {
+      File file0 = MockFile.createTempFile(""ibm850"", """");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(mockFileInputStream0);
+      long long0 = zipArchiveInputStream0.skip(0);
+      assertEquals(0L, long0);
+}",0,"assertEquals(1, long0)"
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test4,"  public void test4()  throws Throwable  {
+      File file0 = MockFile.createTempFile(""ibm850"", """");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(mockFileInputStream0);
+      long long0 = zipArchiveInputStream0.skip(0);
+  }",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test5,"  public void test5()  throws Throwable  {
+      File file0 = MockFile.createTempFile(""ibm850"", """");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(mockFileInputStream0);
+      long long0 = zipArchiveInputStream0.skip(30L);
+      assertEquals(0L, long0);
+}",0,"assertEquals(1, long0)"
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test5,"  public void test5()  throws Throwable  {
+      File file0 = MockFile.createTempFile(""ibm850"", """");
+      MockFileInputStream mockFileInputStream0 = new MockFileInputStream(file0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(mockFileInputStream0);
+      long long0 = zipArchiveInputStream0.skip(30L);
+  }",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test6,"  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      boolean boolean0 = ZipArchiveInputStream.matches(byteArray0, 117);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test6,"  public void test6()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      boolean boolean0 = ZipArchiveInputStream.matches(byteArray0, 117);
+  }",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test7,"  public void test7()  throws Throwable  {
+      boolean boolean0 = ZipArchiveInputStream.matches((byte[]) null, (-3692));
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test7,"  public void test7()  throws Throwable  {
+      boolean boolean0 = ZipArchiveInputStream.matches((byte[]) null, (-3692));
+  }",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test8,"  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(byteArrayInputStream0);
+      zipArchiveInputStream0.getNextZipEntry();
+      assertEquals(0, byteArrayInputStream0.available());
+}",0,
+Compress,5,org.apache.commons.compress.archivers.zip.ZipArchiveInputStream_ESTest::test8,"  public void test8()  throws Throwable  {
+      byte[] byteArray0 = new byte[8];
+      ByteArrayInputStream byteArrayInputStream0 = new ByteArrayInputStream(byteArray0);
+      ZipArchiveInputStream zipArchiveInputStream0 = new ZipArchiveInputStream(byteArrayInputStream0);
+      zipArchiveInputStream0.getNextZipEntry();
+  }",0,

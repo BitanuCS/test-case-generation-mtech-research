@@ -1,0 +1,430 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test00,"  public void test00()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS9629HS"", ""GJYS9629HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      Set<Scope.Var> set0 = liveVariablesAnalysis0.getEscapedLocals();
+      assertTrue(set0.isEmpty());
+}",0,assertTrue(set0.isEmpty())
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test00,"  public void test00()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS9629HS"", ""GJYS9629HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      Set<Scope.Var> set0 = liveVariablesAnalysis0.getEscapedLocals();
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test01,"  public void test01()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS9629HS"", """");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      // Undeclared exception!
+      try { 
+        liveVariablesAnalysis0.getVarIndex(""GJYS9629HS"");
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.google.javascript.jscomp.LiveVariablesAnalysis"", e);
+      }
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test02,"  public void test02()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS9629HS"", ""GJYS9629HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      // Undeclared exception!
+      try { 
+        liveVariablesAnalysis_LiveVariableLattice0.isLive((Scope.Var) null);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.google.common.base.Preconditions"", e);
+      }
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test03,"  public void test03()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS96MPk29HS"", ""I'AWJs|G8B"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      String string0 = liveVariablesAnalysis_LiveVariableLattice0.toString();
+      assertEquals(""{}"", string0);
+}",0,assertNotNull(string0)
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test03,"  public void test03()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS96MPk29HS"", ""I'AWJs|G8B"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      String string0 = liveVariablesAnalysis_LiveVariableLattice0.toString();
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test04,"  public void test04()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS9629HS"", ""GJYS9629HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      boolean boolean0 = liveVariablesAnalysis_LiveVariableLattice0.isLive(200000);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test04,"  public void test04()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS9629HS"", ""GJYS9629HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      boolean boolean0 = liveVariablesAnalysis_LiveVariableLattice0.isLive(200000);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test05,"  public void test05()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS96MPk29HS"", ""GJYS96MPk29HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.join(liveVariablesAnalysis_LiveVariableLattice0, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice0, liveVariablesAnalysis_LiveVariableLattice1);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test05,"  public void test05()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS96MPk29HS"", ""GJYS96MPk29HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.join(liveVariablesAnalysis_LiveVariableLattice0, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test06,"  public void test06()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS96MPk29HS"", ""GJYS96MPk29HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      boolean boolean0 = liveVariablesAnalysis_LiveVariableLattice0.equals(""GJYS96MPk29HS"");
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test06,"  public void test06()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS96MPk29HS"", ""GJYS96MPk29HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      boolean boolean0 = liveVariablesAnalysis_LiveVariableLattice0.equals(""GJYS96MPk29HS"");
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test07,"  public void test07()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", ""c.&-nr$7;S=GY`"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      ControlFlowGraph.Branch controlFlowGraph_Branch0 = ControlFlowGraph.Branch.SYN_BLOCK;
+      controlFlowGraph0.connectToImplicitReturn(node0, controlFlowGraph_Branch0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test07,"  public void test07()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", ""c.&-nr$7;S=GY`"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      ControlFlowGraph.Branch controlFlowGraph_Branch0 = ControlFlowGraph.Branch.SYN_BLOCK;
+      controlFlowGraph0.connectToImplicitReturn(node0, controlFlowGraph_Branch0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test08,"  public void test08()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS96MPk29HS"", ""GJYS96MPk29HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      ControlFlowGraph.Branch controlFlowGraph_Branch0 = ControlFlowGraph.Branch.ON_EX;
+      controlFlowGraph0.connectToImplicitReturn(node0, controlFlowGraph_Branch0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test08,"  public void test08()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS96MPk29HS"", ""GJYS96MPk29HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      ControlFlowGraph.Branch controlFlowGraph_Branch0 = ControlFlowGraph.Branch.ON_EX;
+      controlFlowGraph0.connectToImplicitReturn(node0, controlFlowGraph_Branch0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test09,"  public void test09()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GVmJYS96k9HS"", ""GVmJYS96k9HS"");
+      Node node1 = new Node(118, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      // Undeclared exception!
+      try { 
+        liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.google.common.base.Preconditions"", e);
+      }
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test10,"  public void test10()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GVJYS9629HS"", ""GVJYS9629HS"");
+      Node node1 = new Node(98, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node1, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      // Undeclared exception!
+      try { 
+        liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.google.javascript.jscomp.LiveVariablesAnalysis"", e);
+      }
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test11,"  public void test11()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GVJYS96k9HS"", ""Lm"");
+      Node node1 = new Node(100, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, false, false);
+      Scope scope0 = new Scope(node1, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test11,"  public void test11()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GVJYS96k9HS"", ""Lm"");
+      Node node1 = new Node(100, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, false, false);
+      Scope scope0 = new Scope(node1, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test12,"  public void test12()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", ""tyb3X01YeTE,[`d"");
+      Node node1 = new Node(101, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, false);
+      Scope scope0 = new Scope(node1, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test12,"  public void test12()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", ""tyb3X01YeTE,[`d"");
+      Node node1 = new Node(101, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, false);
+      Scope scope0 = new Scope(node1, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test13,"  public void test13()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", """");
+      Node node1 = new Node(105, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test13,"  public void test13()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", """");
+      Node node1 = new Node(105, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test14,"  public void test14()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""arguments"", ""GVg96k9HS"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      node0.setType(108);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      // Undeclared exception!
+      try { 
+        liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.google.javascript.jscomp.LiveVariablesAnalysis"", e);
+      }
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test15,"  public void test15()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", """");
+      Node node1 = new Node(113, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test15,"  public void test15()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", """");
+      Node node1 = new Node(113, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test16,"  public void test16()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", """");
+      Node node1 = new Node(114, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, false, true);
+      Scope scope0 = new Scope(node1, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test16,"  public void test16()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", """");
+      Node node1 = new Node(114, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, false, true);
+      Scope scope0 = new Scope(node1, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test17,"  public void test17()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GVJYS96k9HS"", ""GVJYS96k9HS"");
+      Node node1 = new Node(115, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createInitialEstimateLattice();
+      // Undeclared exception!
+      try { 
+        liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // malformed 'for' statement FOR
+         //
+         verifyException(""com.google.javascript.jscomp.NodeUtil"", e);
+      }
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test18,"  public void test18()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS:629-S"", ""GJYS:629-S"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      node0.setType((-2382));
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test18,"  public void test18()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GJYS:629-S"", ""GJYS:629-S"");
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      node0.setType((-2382));
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test19,"  public void test19()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Normalize.parseAndNormalizeTestCode(compiler0, ""d"", "" ?&)p"");
+      Node node0 = Node.newString(118, ""GJYx9629HS"", 36, 2147483645);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, (AbstractCompiler) null);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test19,"  public void test19()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Normalize.parseAndNormalizeTestCode(compiler0, ""d"", "" ?&)p"");
+      Node node0 = Node.newString(118, ""GJYx9629HS"", 36, 2147483645);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, (AbstractCompiler) null);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node0, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test20,"  public void test20()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", """");
+      Node node1 = new Node(88, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+      assertNotSame(liveVariablesAnalysis_LiveVariableLattice1, liveVariablesAnalysis_LiveVariableLattice0);
+}",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test20,"  public void test20()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, """", """");
+      Node node1 = new Node(88, node0, node0, node0);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node1, true, true);
+      Scope scope0 = new Scope(node0, compiler0);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice0 = liveVariablesAnalysis0.createEntryLattice();
+      LiveVariablesAnalysis.LiveVariableLattice liveVariablesAnalysis_LiveVariableLattice1 = liveVariablesAnalysis0.flowThrough(node1, liveVariablesAnalysis_LiveVariableLattice0);
+  }",0,
+Closure,58,com.google.javascript.jscomp.LiveVariablesAnalysis_ESTest::test21,"  public void test21()  throws Throwable  {
+      Compiler compiler0 = new Compiler();
+      Node node0 = Normalize.parseAndNormalizeTestCode(compiler0, ""GVJYS9629HS"", (String) null);
+      ControlFlowGraph<Node> controlFlowGraph0 = new ControlFlowGraph<Node>(node0, false, false);
+      Scope scope0 = new Scope(node0, compiler0);
+      SyntheticAst syntheticAst0 = new SyntheticAst(""GVJYS9629HS"");
+      Node node1 = syntheticAst0.getAstRoot(compiler0);
+      node0.addChildrenToFront(node1);
+      LiveVariablesAnalysis liveVariablesAnalysis0 = new LiveVariablesAnalysis(controlFlowGraph0, scope0, compiler0);
+      liveVariablesAnalysis0.markAllParametersEscaped();
+  }",0,

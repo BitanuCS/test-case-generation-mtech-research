@@ -1,0 +1,422 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test00,"  public void test00()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addLongCreator((AnnotatedWithParams) null, false);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,assertTrue(creatorCollector0.hasDefaultCreator())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test00,"  public void test00()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addLongCreator((AnnotatedWithParams) null, false);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test01,"  public void test01()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      creatorCollector0.addLongCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,assertTrue(creatorCollector0.hasDefaultCreator())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test01,"  public void test01()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      creatorCollector0.addLongCreator((AnnotatedWithParams) null);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test02,"  public void test02()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      // Undeclared exception!
+      try { 
+        creatorCollector0.verifyNonDup((AnnotatedWithParams) null, (-1178));
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // Index -1178 out of bounds for length 8
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test03,"  public void test03()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addIntCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,assertTrue(creatorCollector0.hasDefaultCreator())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test03,"  public void test03()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addIntCreator((AnnotatedWithParams) null);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test04,"  public void test04()  throws Throwable  {
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[0];
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addDelegatingCreator((AnnotatedWithParams) null, creatorPropertyArray0);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,assertTrue(creatorCollector0.hasDefaultCreator())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test04,"  public void test04()  throws Throwable  {
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[0];
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addDelegatingCreator((AnnotatedWithParams) null, creatorPropertyArray0);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test05,"  public void test05()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addBooleanCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,assertTrue(creatorCollector0.hasDefaultCreator())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test05,"  public void test05()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addBooleanCreator((AnnotatedWithParams) null);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test06,"  public void test06()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      // Undeclared exception!
+      try { 
+        creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, (CreatorProperty[]) null);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test07,"  public void test07()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addStringCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,assertTrue(creatorCollector0.hasDefaultCreator())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test07,"  public void test07()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addStringCreator((AnnotatedWithParams) null);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test08,"  public void test08()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addDoubleCreator((AnnotatedWithParams) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,assertTrue(creatorCollector0.hasDefaultCreator())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test08,"  public void test08()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addDoubleCreator((AnnotatedWithParams) null);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test09,"  public void test09()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      creatorCollector0.addDoubleCreator((AnnotatedWithParams) null, true);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test09,"  public void test09()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      creatorCollector0.addDoubleCreator((AnnotatedWithParams) null, true);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test10,"  public void test10()  throws Throwable  {
+      ObjectMapper objectMapper0 = new ObjectMapper();
+      PropertyAccessor propertyAccessor0 = PropertyAccessor.CREATOR;
+      JsonAutoDetect.Visibility jsonAutoDetect_Visibility0 = JsonAutoDetect.Visibility.NONE;
+      objectMapper0.setVisibility(propertyAccessor0, jsonAutoDetect_Visibility0);
+      Class<BasicBeanDescription> class0 = BasicBeanDescription.class;
+      ObjectReader objectReader0 = objectMapper0.reader((Class<?>) class0);
+      assertNotNull(objectReader0);
+}",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test10,"  public void test10()  throws Throwable  {
+      ObjectMapper objectMapper0 = new ObjectMapper();
+      PropertyAccessor propertyAccessor0 = PropertyAccessor.CREATOR;
+      JsonAutoDetect.Visibility jsonAutoDetect_Visibility0 = JsonAutoDetect.Visibility.NONE;
+      objectMapper0.setVisibility(propertyAccessor0, jsonAutoDetect_Visibility0);
+      Class<BasicBeanDescription> class0 = BasicBeanDescription.class;
+      ObjectReader objectReader0 = objectMapper0.reader((Class<?>) class0);
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test11,"  public void test11()  throws Throwable  {
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(4641);
+      boolean boolean0 = creatorCollector_Vanilla0.canInstantiate();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test11,"  public void test11()  throws Throwable  {
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(4641);
+      boolean boolean0 = creatorCollector_Vanilla0.canInstantiate();
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test12,"  public void test12()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[0];
+      creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, true, creatorPropertyArray0);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test12,"  public void test12()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[0];
+      creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, true, creatorPropertyArray0);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test13,"  public void test13()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      Class<Integer> class0 = Integer.class;
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[6];
+      PropertyName propertyName0 = new PropertyName("""");
+      JavaType javaType0 = TypeFactory.unknownType();
+      MapLikeType mapLikeType0 = MapLikeType.construct(class0, javaType0, javaType0);
+      CollectionType collectionType0 = CollectionType.construct(class0, mapLikeType0);
+      TypeFactory typeFactory0 = TypeFactory.defaultInstance();
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(javaType0, typeFactory0);
+      AsExternalTypeDeserializer asExternalTypeDeserializer0 = new AsExternalTypeDeserializer(collectionType0, classNameIdResolver0, """", false, class0);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, annotationMap0, 95);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, collectionType0, propertyName0, asExternalTypeDeserializer0, annotationMap0, annotatedParameter0, 6, propertyName0, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      creatorPropertyArray0[1] = creatorProperty0;
+      creatorPropertyArray0[2] = creatorProperty0;
+      creatorPropertyArray0[3] = creatorPropertyArray0[0];
+      creatorPropertyArray0[4] = creatorPropertyArray0[0];
+      creatorPropertyArray0[5] = creatorPropertyArray0[3];
+      creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, false, creatorPropertyArray0);
+      assertEquals(6, creatorPropertyArray0.length);
+}",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test13,"  public void test13()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      Class<Integer> class0 = Integer.class;
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[6];
+      PropertyName propertyName0 = new PropertyName("""");
+      JavaType javaType0 = TypeFactory.unknownType();
+      MapLikeType mapLikeType0 = MapLikeType.construct(class0, javaType0, javaType0);
+      CollectionType collectionType0 = CollectionType.construct(class0, mapLikeType0);
+      TypeFactory typeFactory0 = TypeFactory.defaultInstance();
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(javaType0, typeFactory0);
+      AsExternalTypeDeserializer asExternalTypeDeserializer0 = new AsExternalTypeDeserializer(collectionType0, classNameIdResolver0, """", false, class0);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, annotationMap0, 95);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, collectionType0, propertyName0, asExternalTypeDeserializer0, annotationMap0, annotatedParameter0, 6, propertyName0, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      creatorPropertyArray0[1] = creatorProperty0;
+      creatorPropertyArray0[2] = creatorProperty0;
+      creatorPropertyArray0[3] = creatorPropertyArray0[0];
+      creatorPropertyArray0[4] = creatorPropertyArray0[0];
+      creatorPropertyArray0[5] = creatorPropertyArray0[3];
+      creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, false, creatorPropertyArray0);
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test14,"  public void test14()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      Class<Integer> class0 = Integer.class;
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[6];
+      PropertyName propertyName0 = new PropertyName(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"");
+      JavaType javaType0 = TypeFactory.unknownType();
+      MapLikeType mapLikeType0 = MapLikeType.construct(class0, javaType0, javaType0);
+      CollectionType collectionType0 = CollectionType.construct(class0, mapLikeType0);
+      TypeFactory typeFactory0 = TypeFactory.defaultInstance();
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(javaType0, typeFactory0);
+      AsExternalTypeDeserializer asExternalTypeDeserializer0 = new AsExternalTypeDeserializer(collectionType0, classNameIdResolver0, ""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", false, class0);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, annotationMap0, 95);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, collectionType0, propertyName0, asExternalTypeDeserializer0, annotationMap0, annotatedParameter0, 6, propertyName0, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      // Undeclared exception!
+      try { 
+        creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, true, creatorPropertyArray0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test15,"  public void test15()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[2];
+      PropertyName propertyName0 = new PropertyName("""");
+      Class<Field> class0 = Field.class;
+      SimpleType simpleType0 = SimpleType.constructUnsafe(class0);
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(simpleType0, (TypeFactory) null);
+      Class<Integer> class1 = Integer.class;
+      AsPropertyTypeDeserializer asPropertyTypeDeserializer0 = new AsPropertyTypeDeserializer(simpleType0, classNameIdResolver0, """", true, class1);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, simpleType0, annotationMap0, 3596);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, simpleType0, propertyName0, asPropertyTypeDeserializer0, annotationMap0, annotatedParameter0, 2749, (Object) null, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      // Undeclared exception!
+      try { 
+        creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, true, creatorPropertyArray0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test16,"  public void test16()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      CreatorProperty[] creatorPropertyArray0 = new CreatorProperty[2];
+      PropertyName propertyName0 = new PropertyName("""");
+      Class<Field> class0 = Field.class;
+      SimpleType simpleType0 = SimpleType.constructUnsafe(class0);
+      ClassNameIdResolver classNameIdResolver0 = new ClassNameIdResolver(simpleType0, (TypeFactory) null);
+      Class<Integer> class1 = Integer.class;
+      AsPropertyTypeDeserializer asPropertyTypeDeserializer0 = new AsPropertyTypeDeserializer(simpleType0, classNameIdResolver0, """", true, class1);
+      AnnotationMap annotationMap0 = new AnnotationMap();
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, simpleType0, annotationMap0, 3596);
+      CreatorProperty creatorProperty0 = new CreatorProperty(propertyName0, simpleType0, propertyName0, asPropertyTypeDeserializer0, annotationMap0, annotatedParameter0, 2749, (Object) null, (PropertyMetadata) null);
+      creatorPropertyArray0[0] = creatorProperty0;
+      creatorPropertyArray0[1] = creatorProperty0;
+      // Undeclared exception!
+      try { 
+        creatorCollector0.addPropertyCreator((AnnotatedWithParams) null, false, creatorPropertyArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Duplicate creator property \""\"" (index 0 vs 1)
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector"", e);
+      }
+  }",1,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test17,"  public void test17()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, (AnnotationMap) null, 8);
+      creatorCollector0._incompleteParameter = annotatedParameter0;
+      creatorCollector0.addIncompeteParameter(annotatedParameter0);
+      assertEquals(8, annotatedParameter0.getIndex());
+}",0,"assertEquals(1, annotatedParameter0.getIndex())"
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test17,"  public void test17()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, true);
+      AnnotatedParameter annotatedParameter0 = new AnnotatedParameter((AnnotatedWithParams) null, (Type) null, (AnnotationMap) null, 8);
+      creatorCollector0._incompleteParameter = annotatedParameter0;
+      creatorCollector0.addIncompeteParameter(annotatedParameter0);
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test18,"  public void test18()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addIncompeteParameter((AnnotatedParameter) null);
+      assertFalse(creatorCollector0.hasDefaultCreator());
+}",0,assertTrue(creatorCollector0.hasDefaultCreator())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test18,"  public void test18()  throws Throwable  {
+      CreatorCollector creatorCollector0 = new CreatorCollector((BeanDescription) null, false);
+      creatorCollector0.addIncompeteParameter((AnnotatedParameter) null);
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test19,"  public void test19()  throws Throwable  {
+      ObjectMapper objectMapper0 = new ObjectMapper();
+      MapperFeature[] mapperFeatureArray0 = new MapperFeature[3];
+      MapperFeature mapperFeature0 = MapperFeature.DEFAULT_VIEW_INCLUSION;
+      mapperFeatureArray0[0] = mapperFeature0;
+      mapperFeatureArray0[1] = mapperFeature0;
+      MapperFeature mapperFeature1 = MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS;
+      mapperFeatureArray0[2] = mapperFeature1;
+      objectMapper0.disable(mapperFeatureArray0);
+      Class<BasicBeanDescription> class0 = BasicBeanDescription.class;
+      ObjectReader objectReader0 = objectMapper0.reader((Class<?>) class0);
+      assertNotNull(objectReader0);
+}",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test19,"  public void test19()  throws Throwable  {
+      ObjectMapper objectMapper0 = new ObjectMapper();
+      MapperFeature[] mapperFeatureArray0 = new MapperFeature[3];
+      MapperFeature mapperFeature0 = MapperFeature.DEFAULT_VIEW_INCLUSION;
+      mapperFeatureArray0[0] = mapperFeature0;
+      mapperFeatureArray0[1] = mapperFeature0;
+      MapperFeature mapperFeature1 = MapperFeature.CAN_OVERRIDE_ACCESS_MODIFIERS;
+      mapperFeatureArray0[2] = mapperFeature1;
+      objectMapper0.disable(mapperFeatureArray0);
+      Class<BasicBeanDescription> class0 = BasicBeanDescription.class;
+      ObjectReader objectReader0 = objectMapper0.reader((Class<?>) class0);
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test20,"  public void test20()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(1);
+      try { 
+        creatorCollector_Vanilla0.createFromString(defaultDeserializationContext_Impl0, """");
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Can not instantiate value of type java.util.ArrayList from String value (''); no single-String constructor/factory method
+         //
+         verifyException(""com.fasterxml.jackson.databind.JsonMappingException"", e);
+      }
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test21,"  public void test21()  throws Throwable  {
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla((-5));
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      try { 
+        creatorCollector_Vanilla0.createUsingDelegate(defaultDeserializationContext_Impl0, deserializerFactoryConfig0);
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Can not instantiate value of type java.lang.Object using delegate
+         //
+         verifyException(""com.fasterxml.jackson.databind.JsonMappingException"", e);
+      }
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test22,"  public void test22()  throws Throwable  {
+      BeanDeserializerFactory beanDeserializerFactory0 = BeanDeserializerFactory.instance;
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(2);
+      try { 
+        creatorCollector_Vanilla0.createFromInt(defaultDeserializationContext_Impl0, 939);
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Can not instantiate value of type java.util.LinkedHashMap from Integer number (939, int)
+         //
+         verifyException(""com.fasterxml.jackson.databind.JsonMappingException"", e);
+      }
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test23,"  public void test23()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(3);
+      try { 
+        creatorCollector_Vanilla0.createUsingDelegate(defaultDeserializationContext_Impl0, deserializerFactoryConfig0);
+        fail(""Expecting exception: IOException"");
+      } catch(IOException e) {
+         //
+         // Can not instantiate value of type java.util.HashMap using delegate
+         //
+         verifyException(""com.fasterxml.jackson.databind.JsonMappingException"", e);
+      }
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test24,"  public void test24()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(1);
+      ArrayList arrayList0 = (ArrayList)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+      assertTrue(arrayList0.isEmpty());
+}",0,assertTrue(arrayList0.isEmpty())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test24,"  public void test24()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(1);
+      ArrayList arrayList0 = (ArrayList)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test25,"  public void test25()  throws Throwable  {
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla((-8));
+      BeanDeserializerFactory beanDeserializerFactory0 = BeanDeserializerFactory.instance;
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      // Undeclared exception!
+      try { 
+        creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+        fail(""Expecting exception: IllegalStateException"");
+      } catch(IllegalStateException e) {
+         //
+         // Unknown type -8
+         //
+         verifyException(""com.fasterxml.jackson.databind.deser.impl.CreatorCollector$Vanilla"", e);
+      }
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test26,"  public void test26()  throws Throwable  {
+      BeanDeserializerFactory beanDeserializerFactory0 = BeanDeserializerFactory.instance;
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(2);
+      LinkedHashMap linkedHashMap0 = (LinkedHashMap)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+      assertTrue(linkedHashMap0.isEmpty());
+}",0,assertTrue(linkedHashMap0.isEmpty())
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test26,"  public void test26()  throws Throwable  {
+      BeanDeserializerFactory beanDeserializerFactory0 = BeanDeserializerFactory.instance;
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(2);
+      LinkedHashMap linkedHashMap0 = (LinkedHashMap)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+  }",0,
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test27,"  public void test27()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(3);
+      HashMap hashMap0 = (HashMap)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+      assertEquals(0, hashMap0.size());
+}",0,"assertEquals(1, hashMap0.size())"
+JacksonDatabind,8,com.fasterxml.jackson.databind.deser.impl.CreatorCollector_ESTest::test27,"  public void test27()  throws Throwable  {
+      DeserializerFactoryConfig deserializerFactoryConfig0 = new DeserializerFactoryConfig();
+      BeanDeserializerFactory beanDeserializerFactory0 = new BeanDeserializerFactory(deserializerFactoryConfig0);
+      DefaultDeserializationContext.Impl defaultDeserializationContext_Impl0 = new DefaultDeserializationContext.Impl(beanDeserializerFactory0);
+      CreatorCollector.Vanilla creatorCollector_Vanilla0 = new CreatorCollector.Vanilla(3);
+      HashMap hashMap0 = (HashMap)creatorCollector_Vanilla0.createUsingDefault(defaultDeserializationContext_Impl0);
+  }",0,
