@@ -1,0 +1,233 @@
+focal_method,test_prefix,docstring
+"    public long nextLong() {
+        final long high  = ((long) next(32)) << 32;
+        final long  low  = ((long) next(32)) & 0xffffffffL;
+        return high | low;
+    }","  public void test0()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((int[]) null);
+      long long0 = iSAACRandom0.nextLong();
+      assertEquals((-7623937731512766048L), long0);
+}",/** {@inheritDoc} */
+"    public long nextLong() {
+        final long high  = ((long) next(32)) << 32;
+        final long  low  = ((long) next(32)) & 0xffffffffL;
+        return high | low;
+    }","  public void test0()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((int[]) null);
+      long long0 = iSAACRandom0.nextLong();
+  }",/** {@inheritDoc} */
+"    public int nextInt() {
+        return next(32);
+    }","  public void test1()  throws Throwable  {
+      MersenneTwister mersenneTwister0 = new MersenneTwister(0);
+      int int0 = mersenneTwister0.nextInt();
+      assertEquals((-1937831252), int0);
+}",/** {@inheritDoc} */
+"    public int nextInt() {
+        return next(32);
+    }","  public void test1()  throws Throwable  {
+      MersenneTwister mersenneTwister0 = new MersenneTwister(0);
+      int int0 = mersenneTwister0.nextInt();
+  }",/** {@inheritDoc} */
+"    public boolean nextBoolean() {
+        return next(1) != 0;
+    }","  public void test2()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((int[]) null);
+      iSAACRandom0.setSeed((-267));
+      boolean boolean0 = iSAACRandom0.nextBoolean();
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean nextBoolean() {
+        return next(1) != 0;
+    }","  public void test2()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((int[]) null);
+      iSAACRandom0.setSeed((-267));
+      boolean boolean0 = iSAACRandom0.nextBoolean();
+  }",/** {@inheritDoc} */
+"    public boolean nextBoolean() {
+        return next(1) != 0;
+    }","  public void test3()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 1324;
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      boolean boolean0 = well44497a0.nextBoolean();
+      assertTrue(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean nextBoolean() {
+        return next(1) != 0;
+    }","  public void test3()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 1324;
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      boolean boolean0 = well44497a0.nextBoolean();
+  }",/** {@inheritDoc} */
+"    public void nextBytes(byte[] bytes) {
+        int i = 0;
+        final int iEnd = bytes.length - 3;
+        while (i < iEnd) {
+            final int random = next(32);
+            bytes[i]     = (byte) (random & 0xff);
+            bytes[i + 1] = (byte) ((random >>  8) & 0xff);
+            bytes[i + 2] = (byte) ((random >> 16) & 0xff);
+            bytes[i + 3] = (byte) ((random >> 24) & 0xff);
+            i += 4;
+        }
+        int random = next(32);
+        while (i < bytes.length) {
+            bytes[i++] = (byte) (random & 0xff);
+            random     = random >> 8;
+        }
+    }","  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      int[] intArray0 = new int[0];
+      ISAACRandom iSAACRandom0 = new ISAACRandom(intArray0);
+      iSAACRandom0.nextBytes(byteArray0);
+      assertArrayEquals(new byte[] {(byte)18, (byte) (-58), (byte)79, (byte) (-56), (byte)123, (byte)52}, byteArray0);
+}",/** {@inheritDoc} */
+"    public void nextBytes(byte[] bytes) {
+        int i = 0;
+        final int iEnd = bytes.length - 3;
+        while (i < iEnd) {
+            final int random = next(32);
+            bytes[i]     = (byte) (random & 0xff);
+            bytes[i + 1] = (byte) ((random >>  8) & 0xff);
+            bytes[i + 2] = (byte) ((random >> 16) & 0xff);
+            bytes[i + 3] = (byte) ((random >> 24) & 0xff);
+            i += 4;
+        }
+        int random = next(32);
+        while (i < bytes.length) {
+            bytes[i++] = (byte) (random & 0xff);
+            random     = random >> 8;
+        }
+    }","  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      int[] intArray0 = new int[0];
+      ISAACRandom iSAACRandom0 = new ISAACRandom(intArray0);
+      iSAACRandom0.nextBytes(byteArray0);
+  }",/** {@inheritDoc} */
+"    public double nextGaussian() {
+
+        final double random;
+        if (Double.isNaN(nextGaussian)) {
+            // generate a new pair of gaussian numbers
+            final double x = nextDouble();
+            final double y = nextDouble();
+            final double alpha = 2 * FastMath.PI * x;
+            final double r      = FastMath.sqrt(-2 * FastMath.log(y));
+            random       = r * FastMath.cos(alpha);
+            nextGaussian = r * FastMath.sin(alpha);
+        } else {
+            // use the second element of the pair already generated
+            random = nextGaussian;
+            nextGaussian = Double.NaN;
+        }
+
+        return random;
+
+    }","  public void test5()  throws Throwable  {
+      Well512a well512a0 = new Well512a();
+      double double0 = well512a0.nextGaussian();
+      assertEquals((-0.6744452302231269), double0, 0.01);
+}",/** {@inheritDoc} */
+"    public double nextGaussian() {
+
+        final double random;
+        if (Double.isNaN(nextGaussian)) {
+            // generate a new pair of gaussian numbers
+            final double x = nextDouble();
+            final double y = nextDouble();
+            final double alpha = 2 * FastMath.PI * x;
+            final double r      = FastMath.sqrt(-2 * FastMath.log(y));
+            random       = r * FastMath.cos(alpha);
+            nextGaussian = r * FastMath.sin(alpha);
+        } else {
+            // use the second element of the pair already generated
+            random = nextGaussian;
+            nextGaussian = Double.NaN;
+        }
+
+        return random;
+
+    }","  public void test5()  throws Throwable  {
+      Well512a well512a0 = new Well512a();
+      double double0 = well512a0.nextGaussian();
+      double double1 = well512a0.nextGaussian();
+      assertEquals((-0.2083723974303613), double1, 0.01);
+}",/** {@inheritDoc} */
+"    public double nextGaussian() {
+
+        final double random;
+        if (Double.isNaN(nextGaussian)) {
+            // generate a new pair of gaussian numbers
+            final double x = nextDouble();
+            final double y = nextDouble();
+            final double alpha = 2 * FastMath.PI * x;
+            final double r      = FastMath.sqrt(-2 * FastMath.log(y));
+            random       = r * FastMath.cos(alpha);
+            nextGaussian = r * FastMath.sin(alpha);
+        } else {
+            // use the second element of the pair already generated
+            random = nextGaussian;
+            nextGaussian = Double.NaN;
+        }
+
+        return random;
+
+    }","  public void test5()  throws Throwable  {
+      Well512a well512a0 = new Well512a();
+      double double0 = well512a0.nextGaussian();
+      double double1 = well512a0.nextGaussian();
+  }",/** {@inheritDoc} */
+"    public int nextInt() {
+        return next(32);
+    }","  public void test6()  throws Throwable  {
+      Well1024a well1024a0 = new Well1024a(2348L);
+      try { 
+        well1024a0.nextInt((-427));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // -427 is smaller than, or equal to, the minimum (0)
+         //
+         verifyException(""org.apache.commons.math3.random.BitsStreamGenerator"", e);
+      }
+  }",/** {@inheritDoc} */
+"    public int nextInt() {
+        return next(32);
+    }","  public void test7()  throws Throwable  {
+      MersenneTwister mersenneTwister0 = new MersenneTwister(4294967295L);
+      int int0 = mersenneTwister0.nextInt(1);
+      assertEquals(0, int0);
+}",/** {@inheritDoc} */
+"    public int nextInt() {
+        return next(32);
+    }","  public void test7()  throws Throwable  {
+      MersenneTwister mersenneTwister0 = new MersenneTwister(4294967295L);
+      int int0 = mersenneTwister0.nextInt(1);
+  }",/** {@inheritDoc} */
+"    public float nextFloat() {
+        return next(23) * 0x1.0p-23f;
+    }","  public void test8()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      float float0 = well44497a0.nextFloat();
+      assertEquals(0.24836719F, float0, 0.01F);
+}",/** {@inheritDoc} */
+"    public int nextInt() {
+        return next(32);
+    }","  public void test8()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      float float0 = well44497a0.nextFloat();
+      int int0 = well44497a0.nextInt(1287627871);
+      assertEquals(652368931, int0);
+}",/** {@inheritDoc} */
+"    public int nextInt() {
+        return next(32);
+    }","  public void test8()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      float float0 = well44497a0.nextFloat();
+      int int0 = well44497a0.nextInt(1287627871);
+  }",/** {@inheritDoc} */

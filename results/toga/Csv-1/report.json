@@ -1,0 +1,54 @@
+{
+  "bug": "Csv-1",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 14,
+    "exception": 0,
+    "assertion": 3
+  },
+  "tests": {
+    "written": 14,
+    "kept_on_fixed": 11,
+    "false_alarms_removed": 3,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Csv",
+      "version_id": "1f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 37,
+      "lines_covered": 33,
+      "branches_total": 26,
+      "branches_covered": 14,
+      "line": 0.892,
+      "branch": 0.538
+    },
+    "major_mutation": {
+      "generated": 97,
+      "covered": 97,
+      "killed": 36,
+      "score": 0.371
+    }
+  },
+  "seconds": 4633.0,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,622 @@
+focal_method,test_prefix,docstring
+"    public String toPattern() {
+        return toPattern;
+    }","  public void test00()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""!%R3{2,}FMz'"", hashMap0);
+      assertEquals(""!%R3{2}FMz"", extendedMessageFormat0.toPattern());
+}","/**
+     * {@inheritDoc}
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test00()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""!%R3{2,}FMz'"", hashMap0);
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"
+"    public void setFormat(int formatElementIndex, Format newFormat) {
+        throw new UnsupportedOperationException();
+    }","  public void test01()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      // Undeclared exception!
+      try { 
+        extendedMessageFormat0.setFormat(22, extendedMessageFormat0);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Throws UnsupportedOperationException - see class Javadoc for details.
+     * 
+     * @param formatElementIndex format element index
+     * @param newFormat the new format
+     * @throws UnsupportedOperationException
+     */"
+"    public void setFormatsByArgumentIndex(Format[] newFormats) {
+        throw new UnsupportedOperationException();
+    }","  public void test02()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""i1d"");
+      // Undeclared exception!
+      try { 
+        extendedMessageFormat0.setFormatsByArgumentIndex((Format[]) null);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Throws UnsupportedOperationException - see class Javadoc for details.
+     * 
+     * @param newFormats new formats
+     * @throws UnsupportedOperationException
+     */"
+"    public void setFormats(Format[] newFormats) {
+        throw new UnsupportedOperationException();
+    }","  public void test03()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      Format[] formatArray0 = new Format[0];
+      // Undeclared exception!
+      try { 
+        extendedMessageFormat0.setFormats(formatArray0);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Throws UnsupportedOperationException - see class Javadoc for details.
+     * 
+     * @param newFormats new formats
+     * @throws UnsupportedOperationException
+     */"
+"    public String toPattern() {
+        return toPattern;
+    }","  public void test04()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""4LxOBa]/vCgQX2gQh"");
+      String string0 = extendedMessageFormat0.toPattern();
+      assertEquals(""4LxOBa]/vCgQX2gQh"", string0);
+}","/**
+     * {@inheritDoc}
+     */"
+"    public String toPattern() {
+        return toPattern;
+    }","  public void test04()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""4LxOBa]/vCgQX2gQh"");
+      String string0 = extendedMessageFormat0.toPattern();
+  }","/**
+     * {@inheritDoc}
+     */"
+"    public int hashCode() {
+        int result = super.hashCode();
+        result = HASH_SEED * result + ObjectUtils.hashCode(registry);
+        result = HASH_SEED * result + ObjectUtils.hashCode(toPattern);
+        return result;
+    }","  public void test05()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""%S\""mdymj"");
+      extendedMessageFormat0.hashCode();
+  }","/**
+     * Return the hashcode.
+     *
+     * @return the hashcode
+     */"
+"    public void setFormatByArgumentIndex(int argumentIndex, Format newFormat) {
+        throw new UnsupportedOperationException();
+    }","  public void test06()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      // Undeclared exception!
+      try { 
+        extendedMessageFormat0.setFormatByArgumentIndex(2517, extendedMessageFormat0);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Throws UnsupportedOperationException - see class Javadoc for details.
+     * 
+     * @param argumentIndex argument index
+     * @param newFormat the new format
+     * @throws UnsupportedOperationException
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test07()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""!>R3{2,{vFu''"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unterminated format element at position 7
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"
+"    public String toPattern() {
+        return toPattern;
+    }","  public void test08()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""D%Z<Y=W{4 }gku/"", hashMap0);
+      assertEquals(""D%Z<Y=W{4}gku/"", extendedMessageFormat0.toPattern());
+}","/**
+     * {@inheritDoc}
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test08()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""D%Z<Y=W{4 }gku/"", hashMap0);
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"
+"    public String toPattern() {
+        return toPattern;
+    }","  public void test09()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("" has no clone method"");
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat1 = new ExtendedMessageFormat("" has no clone method"", hashMap0);
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat1);
+      assertEquals("" has no clone method"", extendedMessageFormat1.toPattern());
+}","/**
+     * {@inheritDoc}
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test09()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("" has no clone method"");
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat1 = new ExtendedMessageFormat("" has no clone method"", hashMap0);
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat1);
+      assertFalse(boolean0);
+}","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test09()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("" has no clone method"");
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat1 = new ExtendedMessageFormat("" has no clone method"", hashMap0);
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat1);
+  }","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test10()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat0);
+      assertTrue(boolean0);
+}","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test10()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat0);
+  }","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test11()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""Cannot get the toString of a null identWty"", (Map<String, ? extends FormatFactory>) null);
+      boolean boolean0 = extendedMessageFormat0.equals((Object) null);
+      assertFalse(boolean0);
+}","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test11()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""Cannot get the toString of a null identWty"", (Map<String, ? extends FormatFactory>) null);
+      boolean boolean0 = extendedMessageFormat0.equals((Object) null);
+  }","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test12()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""4LxOBa]/vQXY2gQh"");
+      boolean boolean0 = extendedMessageFormat0.equals(""4LxOBa]/vQXY2gQh"");
+      assertFalse(boolean0);
+}","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test12()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""4LxOBa]/vQXY2gQh"");
+      boolean boolean0 = extendedMessageFormat0.equals(""4LxOBa]/vQXY2gQh"");
+  }","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test13()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      Object object0 = extendedMessageFormat0.clone();
+      boolean boolean0 = extendedMessageFormat0.equals(object0);
+      assertTrue(boolean0);
+}","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(getClass(), obj.getClass())) {
+          return false;
+        }
+        ExtendedMessageFormat rhs = (ExtendedMessageFormat)obj;
+        if (ObjectUtils.notEqual(toPattern, rhs.toPattern)) {
+            return false;
+        }
+        if (ObjectUtils.notEqual(registry, rhs.registry)) {
+            return false;
+        }
+        return true;
+    }","  public void test13()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      Object object0 = extendedMessageFormat0.clone();
+      boolean boolean0 = extendedMessageFormat0.equals(object0);
+  }","/**
+     * Check if this extended message format is equal to another object.
+     *
+     * @param obj the object to compare to
+     * @return true if this object equals the other, otherwise false
+     */"
+"    public String toPattern() {
+        return toPattern;
+    }","  public void test14()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      FormatFactory formatFactory0 = mock(FormatFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Format) null).when(formatFactory0).getFormat(anyString() , anyString() , any(java.util.Locale.class));
+      hashMap0.put("""", formatFactory0);
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""!%R3{2,}FMz'"", hashMap0);
+      assertEquals(""!%R3{2}FMz"", extendedMessageFormat0.toPattern());
+}","/**
+     * {@inheritDoc}
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test14()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      FormatFactory formatFactory0 = mock(FormatFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Format) null).when(formatFactory0).getFormat(anyString() , anyString() , any(java.util.Locale.class));
+      hashMap0.put("""", formatFactory0);
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""!%R3{2,}FMz'"", hashMap0);
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test15()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""FD;S/F-a/\""Zf'{}M;"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid format argument index at position 14: }
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test16()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""D%Z<Y=W{4 ,gru/"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unterminated format element at position 12
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test17()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""R0%aNZY=Y{4 ^\""PBy/"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid format argument index at position 11: 4 ^
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test18()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""i1Y=j{4,gJ{u}"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unterminated format element at position 9
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"
+"    public ExtendedMessageFormat(String pattern) {
+        this(pattern, Locale.getDefault());
+    }","  public void test19()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""H%M$XY{ "", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unterminated format element at position 8
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }","/**
+     * Create a new ExtendedMessageFormat for the default locale.
+     * 
+     * @param pattern  the pattern to use, not null
+     * @throws IllegalArgumentException in case of a bad pattern.
+     */"

@@ -1,0 +1,581 @@
+focal_method,test_prefix,docstring
+"    public double cumulativeProbability(int x) {
+        double ret;
+
+        int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x < domain[0]) {
+            ret = 0.0;
+        } else if (x >= domain[1]) {
+            ret = 1.0;
+        } else {
+            ret = innerCumulativeProbability(domain[0], x, 1);
+        }
+
+        return ret;
+    }","  public void test00()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.cumulativeProbability(0, 2);
+      assertEquals(0.0016369959063370354, double0, 0.01);
+}",/** {@inheritDoc} */
+"    public double cumulativeProbability(int x) {
+        double ret;
+
+        int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x < domain[0]) {
+            ret = 0.0;
+        } else if (x >= domain[1]) {
+            ret = 1.0;
+        } else {
+            ret = innerCumulativeProbability(domain[0], x, 1);
+        }
+
+        return ret;
+    }","  public void test00()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.cumulativeProbability(0, 2);
+  }",/** {@inheritDoc} */
+"    public double getNumericalMean() {
+        return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());
+    }","  public void test01()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((-1L));
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(iSAACRandom0, 2295, 2295, 2295);
+      hypergeometricDistribution0.sample(2295);
+      assertEquals(2295.0, hypergeometricDistribution0.getNumericalMean(), 0.01);
+}","/**
+     * {@inheritDoc}
+     *
+     * For population size {@code N}, number of successes {@code m}, and sample
+     * size {@code n}, the mean is {@code n * m / N}.
+     */"
+"    public HypergeometricDistribution(int populationSize, int numberOfSuccesses, int sampleSize)
+    throws NotPositiveException, NotStrictlyPositiveException, NumberIsTooLargeException {
+        this(new Well19937c(), populationSize, numberOfSuccesses, sampleSize);
+    }","  public void test01()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((-1L));
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(iSAACRandom0, 2295, 2295, 2295);
+      hypergeometricDistribution0.sample(2295);
+  }","/**
+     * Construct a new hypergeometric distribution with the specified population
+     * size, number of successes in the population, and sample size.
+     *
+     * @param populationSize Population size.
+     * @param numberOfSuccesses Number of successes in the population.
+     * @param sampleSize Sample size.
+     * @throws NotPositiveException if {@code numberOfSuccesses < 0}.
+     * @throws NotStrictlyPositiveException if {@code populationSize <= 0}.
+     * @throws NumberIsTooLargeException if {@code numberOfSuccesses > populationSize},
+     * or {@code sampleSize > populationSize}.
+     */"
+"    public boolean isSupportConnected() {
+        return true;
+    }","  public void test02()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      boolean boolean0 = hypergeometricDistribution0.isSupportConnected();
+      assertTrue(boolean0);
+}","/**
+     * {@inheritDoc}
+     *
+     * The support of this distribution is connected.
+     *
+     * @return {@code true}
+     */"
+"    public double getNumericalMean() {
+        return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());
+    }","  public void test02()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      boolean boolean0 = hypergeometricDistribution0.isSupportConnected();
+      assertEquals(0.001637331150225133, hypergeometricDistribution0.getNumericalMean(), 0.01);
+}","/**
+     * {@inheritDoc}
+     *
+     * For population size {@code N}, number of successes {@code m}, and sample
+     * size {@code n}, the mean is {@code n * m / N}.
+     */"
+"    public boolean isSupportConnected() {
+        return true;
+    }","  public void test02()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      boolean boolean0 = hypergeometricDistribution0.isSupportConnected();
+  }","/**
+     * {@inheritDoc}
+     *
+     * The support of this distribution is connected.
+     *
+     * @return {@code true}
+     */"
+"    public HypergeometricDistribution(int populationSize, int numberOfSuccesses, int sampleSize)
+    throws NotPositiveException, NotStrictlyPositiveException, NumberIsTooLargeException {
+        this(new Well19937c(), populationSize, numberOfSuccesses, sampleSize);
+    }","  public void test03()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = null;
+      try {
+        hypergeometricDistribution0 = new HypergeometricDistribution((RandomGenerator) null, 0, 1213, 1);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // population size (0)
+         //
+         verifyException(""org.apache.commons.math3.distribution.HypergeometricDistribution"", e);
+      }
+  }","/**
+     * Construct a new hypergeometric distribution with the specified population
+     * size, number of successes in the population, and sample size.
+     *
+     * @param populationSize Population size.
+     * @param numberOfSuccesses Number of successes in the population.
+     * @param sampleSize Sample size.
+     * @throws NotPositiveException if {@code numberOfSuccesses < 0}.
+     * @throws NotStrictlyPositiveException if {@code populationSize <= 0}.
+     * @throws NumberIsTooLargeException if {@code numberOfSuccesses > populationSize},
+     * or {@code sampleSize > populationSize}.
+     */"
+"    public HypergeometricDistribution(int populationSize, int numberOfSuccesses, int sampleSize)
+    throws NotPositiveException, NotStrictlyPositiveException, NumberIsTooLargeException {
+        this(new Well19937c(), populationSize, numberOfSuccesses, sampleSize);
+    }","  public void test04()  throws Throwable  {
+      Well19937c well19937c0 = new Well19937c(0L);
+      HypergeometricDistribution hypergeometricDistribution0 = null;
+      try {
+        hypergeometricDistribution0 = new HypergeometricDistribution(well19937c0, 425, (-3759), (-580));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // number of successes (-3,759)
+         //
+         verifyException(""org.apache.commons.math3.distribution.HypergeometricDistribution"", e);
+      }
+  }","/**
+     * Construct a new hypergeometric distribution with the specified population
+     * size, number of successes in the population, and sample size.
+     *
+     * @param populationSize Population size.
+     * @param numberOfSuccesses Number of successes in the population.
+     * @param sampleSize Sample size.
+     * @throws NotPositiveException if {@code numberOfSuccesses < 0}.
+     * @throws NotStrictlyPositiveException if {@code populationSize <= 0}.
+     * @throws NumberIsTooLargeException if {@code numberOfSuccesses > populationSize},
+     * or {@code sampleSize > populationSize}.
+     */"
+"    public HypergeometricDistribution(int populationSize, int numberOfSuccesses, int sampleSize)
+    throws NotPositiveException, NotStrictlyPositiveException, NumberIsTooLargeException {
+        this(new Well19937c(), populationSize, numberOfSuccesses, sampleSize);
+    }","  public void test05()  throws Throwable  {
+      Well44497b well44497b0 = new Well44497b();
+      HypergeometricDistribution hypergeometricDistribution0 = null;
+      try {
+        hypergeometricDistribution0 = new HypergeometricDistribution(well44497b0, 1038, 1038, (-1175));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // number of samples (-1,175)
+         //
+         verifyException(""org.apache.commons.math3.distribution.HypergeometricDistribution"", e);
+      }
+  }","/**
+     * Construct a new hypergeometric distribution with the specified population
+     * size, number of successes in the population, and sample size.
+     *
+     * @param populationSize Population size.
+     * @param numberOfSuccesses Number of successes in the population.
+     * @param sampleSize Sample size.
+     * @throws NotPositiveException if {@code numberOfSuccesses < 0}.
+     * @throws NotStrictlyPositiveException if {@code populationSize <= 0}.
+     * @throws NumberIsTooLargeException if {@code numberOfSuccesses > populationSize},
+     * or {@code sampleSize > populationSize}.
+     */"
+"    public HypergeometricDistribution(int populationSize, int numberOfSuccesses, int sampleSize)
+    throws NotPositiveException, NotStrictlyPositiveException, NumberIsTooLargeException {
+        this(new Well19937c(), populationSize, numberOfSuccesses, sampleSize);
+    }","  public void test06()  throws Throwable  {
+      Well44497a well44497a0 = new Well44497a();
+      HypergeometricDistribution hypergeometricDistribution0 = null;
+      try {
+        hypergeometricDistribution0 = new HypergeometricDistribution(well44497a0, 51, 1542, 2);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // number of successes (1,542) must be less than or equal to population size (51)
+         //
+         verifyException(""org.apache.commons.math3.distribution.HypergeometricDistribution"", e);
+      }
+  }","/**
+     * Construct a new hypergeometric distribution with the specified population
+     * size, number of successes in the population, and sample size.
+     *
+     * @param populationSize Population size.
+     * @param numberOfSuccesses Number of successes in the population.
+     * @param sampleSize Sample size.
+     * @throws NotPositiveException if {@code numberOfSuccesses < 0}.
+     * @throws NotStrictlyPositiveException if {@code populationSize <= 0}.
+     * @throws NumberIsTooLargeException if {@code numberOfSuccesses > populationSize},
+     * or {@code sampleSize > populationSize}.
+     */"
+"    public HypergeometricDistribution(int populationSize, int numberOfSuccesses, int sampleSize)
+    throws NotPositiveException, NotStrictlyPositiveException, NumberIsTooLargeException {
+        this(new Well19937c(), populationSize, numberOfSuccesses, sampleSize);
+    }","  public void test07()  throws Throwable  {
+      Well19937c well19937c0 = new Well19937c();
+      HypergeometricDistribution hypergeometricDistribution0 = null;
+      try {
+        hypergeometricDistribution0 = new HypergeometricDistribution(well19937c0, 2, 2, 18);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // sample size (18) must be less than or equal to population size (2)
+         //
+         verifyException(""org.apache.commons.math3.distribution.HypergeometricDistribution"", e);
+      }
+  }","/**
+     * Construct a new hypergeometric distribution with the specified population
+     * size, number of successes in the population, and sample size.
+     *
+     * @param populationSize Population size.
+     * @param numberOfSuccesses Number of successes in the population.
+     * @param sampleSize Sample size.
+     * @throws NotPositiveException if {@code numberOfSuccesses < 0}.
+     * @throws NotStrictlyPositiveException if {@code populationSize <= 0}.
+     * @throws NumberIsTooLargeException if {@code numberOfSuccesses > populationSize},
+     * or {@code sampleSize > populationSize}.
+     */"
+"    public HypergeometricDistribution(int populationSize, int numberOfSuccesses, int sampleSize)
+    throws NotPositiveException, NotStrictlyPositiveException, NumberIsTooLargeException {
+        this(new Well19937c(), populationSize, numberOfSuccesses, sampleSize);
+    }","  public void test08()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2632, 2632, 2632);
+      int int0 = hypergeometricDistribution0.solveInverseCumulativeProbability(0.0, 0, 1174);
+      assertEquals(1, int0);
+}","/**
+     * Construct a new hypergeometric distribution with the specified population
+     * size, number of successes in the population, and sample size.
+     *
+     * @param populationSize Population size.
+     * @param numberOfSuccesses Number of successes in the population.
+     * @param sampleSize Sample size.
+     * @throws NotPositiveException if {@code numberOfSuccesses < 0}.
+     * @throws NotStrictlyPositiveException if {@code populationSize <= 0}.
+     * @throws NumberIsTooLargeException if {@code numberOfSuccesses > populationSize},
+     * or {@code sampleSize > populationSize}.
+     */"
+"    public double getNumericalMean() {
+        return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());
+    }","  public void test08()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2632, 2632, 2632);
+      int int0 = hypergeometricDistribution0.solveInverseCumulativeProbability(0.0, 0, 1174);
+      assertEquals(2632.0, hypergeometricDistribution0.getNumericalMean(), 0.01);
+}","/**
+     * {@inheritDoc}
+     *
+     * For population size {@code N}, number of successes {@code m}, and sample
+     * size {@code n}, the mean is {@code n * m / N}.
+     */"
+"    public HypergeometricDistribution(int populationSize, int numberOfSuccesses, int sampleSize)
+    throws NotPositiveException, NotStrictlyPositiveException, NumberIsTooLargeException {
+        this(new Well19937c(), populationSize, numberOfSuccesses, sampleSize);
+    }","  public void test08()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2632, 2632, 2632);
+      int int0 = hypergeometricDistribution0.solveInverseCumulativeProbability(0.0, 0, 1174);
+  }","/**
+     * Construct a new hypergeometric distribution with the specified population
+     * size, number of successes in the population, and sample size.
+     *
+     * @param populationSize Population size.
+     * @param numberOfSuccesses Number of successes in the population.
+     * @param sampleSize Sample size.
+     * @throws NotPositiveException if {@code numberOfSuccesses < 0}.
+     * @throws NotStrictlyPositiveException if {@code populationSize <= 0}.
+     * @throws NumberIsTooLargeException if {@code numberOfSuccesses > populationSize},
+     * or {@code sampleSize > populationSize}.
+     */"
+"    public double probability(int x) {
+        double ret;
+
+        int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x < domain[0] || x > domain[1]) {
+            ret = 0.0;
+        } else {
+            double p = (double) sampleSize / (double) populationSize;
+            double q = (double) (populationSize - sampleSize) / (double) populationSize;
+            double p1 = SaddlePointExpansion.logBinomialProbability(x,
+                    numberOfSuccesses, p, q);
+            double p2 =
+                SaddlePointExpansion.logBinomialProbability(sampleSize - x,
+                    populationSize - numberOfSuccesses, p, q);
+            double p3 =
+                SaddlePointExpansion.logBinomialProbability(sampleSize, populationSize, p, q);
+            ret = FastMath.exp(p1 + p2 - p3);
+        }
+
+        return ret;
+    }","  public void test09()  throws Throwable  {
+      Well1024a well1024a0 = new Well1024a(656);
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(well1024a0, 656, 656, 656);
+      double double0 = hypergeometricDistribution0.probability(305);
+      assertEquals(0.0, double0, 0.01);
+}",/** {@inheritDoc} */
+"    public double getNumericalMean() {
+        return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());
+    }","  public void test09()  throws Throwable  {
+      Well1024a well1024a0 = new Well1024a(656);
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(well1024a0, 656, 656, 656);
+      double double0 = hypergeometricDistribution0.probability(305);
+      assertEquals(656.0, hypergeometricDistribution0.getNumericalMean(), 0.01);
+}","/**
+     * {@inheritDoc}
+     *
+     * For population size {@code N}, number of successes {@code m}, and sample
+     * size {@code n}, the mean is {@code n * m / N}.
+     */"
+"    public double probability(int x) {
+        double ret;
+
+        int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x < domain[0] || x > domain[1]) {
+            ret = 0.0;
+        } else {
+            double p = (double) sampleSize / (double) populationSize;
+            double q = (double) (populationSize - sampleSize) / (double) populationSize;
+            double p1 = SaddlePointExpansion.logBinomialProbability(x,
+                    numberOfSuccesses, p, q);
+            double p2 =
+                SaddlePointExpansion.logBinomialProbability(sampleSize - x,
+                    populationSize - numberOfSuccesses, p, q);
+            double p3 =
+                SaddlePointExpansion.logBinomialProbability(sampleSize, populationSize, p, q);
+            ret = FastMath.exp(p1 + p2 - p3);
+        }
+
+        return ret;
+    }","  public void test09()  throws Throwable  {
+      Well1024a well1024a0 = new Well1024a(656);
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(well1024a0, 656, 656, 656);
+      double double0 = hypergeometricDistribution0.probability(305);
+  }",/** {@inheritDoc} */
+"    public double getNumericalMean() {
+        return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());
+    }","  public void test10()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.probability(576);
+      assertEquals(0.001637331150225133, hypergeometricDistribution0.getNumericalMean(), 0.01);
+}","/**
+     * {@inheritDoc}
+     *
+     * For population size {@code N}, number of successes {@code m}, and sample
+     * size {@code n}, the mean is {@code n * m / N}.
+     */"
+"    public double probability(int x) {
+        double ret;
+
+        int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x < domain[0] || x > domain[1]) {
+            ret = 0.0;
+        } else {
+            double p = (double) sampleSize / (double) populationSize;
+            double q = (double) (populationSize - sampleSize) / (double) populationSize;
+            double p1 = SaddlePointExpansion.logBinomialProbability(x,
+                    numberOfSuccesses, p, q);
+            double p2 =
+                SaddlePointExpansion.logBinomialProbability(sampleSize - x,
+                    populationSize - numberOfSuccesses, p, q);
+            double p3 =
+                SaddlePointExpansion.logBinomialProbability(sampleSize, populationSize, p, q);
+            ret = FastMath.exp(p1 + p2 - p3);
+        }
+
+        return ret;
+    }","  public void test10()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.probability(576);
+      assertEquals(0.0, double0, 0.01);
+}",/** {@inheritDoc} */
+"    public double probability(int x) {
+        double ret;
+
+        int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x < domain[0] || x > domain[1]) {
+            ret = 0.0;
+        } else {
+            double p = (double) sampleSize / (double) populationSize;
+            double q = (double) (populationSize - sampleSize) / (double) populationSize;
+            double p1 = SaddlePointExpansion.logBinomialProbability(x,
+                    numberOfSuccesses, p, q);
+            double p2 =
+                SaddlePointExpansion.logBinomialProbability(sampleSize - x,
+                    populationSize - numberOfSuccesses, p, q);
+            double p3 =
+                SaddlePointExpansion.logBinomialProbability(sampleSize, populationSize, p, q);
+            ret = FastMath.exp(p1 + p2 - p3);
+        }
+
+        return ret;
+    }","  public void test10()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.probability(576);
+  }",/** {@inheritDoc} */
+"    public double upperCumulativeProbability(int x) {
+        double ret;
+
+        final int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x <= domain[0]) {
+            ret = 1.0;
+        } else if (x > domain[1]) {
+            ret = 0.0;
+        } else {
+            ret = innerCumulativeProbability(domain[1], x, -1);
+        }
+
+        return ret;
+    }","  public void test11()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.upperCumulativeProbability(1);
+      assertEquals(0.0016369959063368797, double0, 0.01);
+}","/**
+     * For this distribution, {@code X}, this method returns {@code P(X >= x)}.
+     *
+     * @param x Value at which the CDF is evaluated.
+     * @return the upper tail CDF for this distribution.
+     * @since 1.1
+     */"
+"    public double upperCumulativeProbability(int x) {
+        double ret;
+
+        final int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x <= domain[0]) {
+            ret = 1.0;
+        } else if (x > domain[1]) {
+            ret = 0.0;
+        } else {
+            ret = innerCumulativeProbability(domain[1], x, -1);
+        }
+
+        return ret;
+    }","  public void test11()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.upperCumulativeProbability(1);
+  }","/**
+     * For this distribution, {@code X}, this method returns {@code P(X >= x)}.
+     *
+     * @param x Value at which the CDF is evaluated.
+     * @return the upper tail CDF for this distribution.
+     * @since 1.1
+     */"
+"    public double upperCumulativeProbability(int x) {
+        double ret;
+
+        final int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x <= domain[0]) {
+            ret = 1.0;
+        } else if (x > domain[1]) {
+            ret = 0.0;
+        } else {
+            ret = innerCumulativeProbability(domain[1], x, -1);
+        }
+
+        return ret;
+    }","  public void test12()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((-1L));
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(iSAACRandom0, 2295, 2295, 2295);
+      double double0 = hypergeometricDistribution0.upperCumulativeProbability(2295);
+      assertEquals(1.0, double0, 0.01);
+}","/**
+     * For this distribution, {@code X}, this method returns {@code P(X >= x)}.
+     *
+     * @param x Value at which the CDF is evaluated.
+     * @return the upper tail CDF for this distribution.
+     * @since 1.1
+     */"
+"    public double getNumericalMean() {
+        return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());
+    }","  public void test12()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((-1L));
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(iSAACRandom0, 2295, 2295, 2295);
+      double double0 = hypergeometricDistribution0.upperCumulativeProbability(2295);
+      assertEquals(2295.0, hypergeometricDistribution0.getNumericalMean(), 0.01);
+}","/**
+     * {@inheritDoc}
+     *
+     * For population size {@code N}, number of successes {@code m}, and sample
+     * size {@code n}, the mean is {@code n * m / N}.
+     */"
+"    public double upperCumulativeProbability(int x) {
+        double ret;
+
+        final int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x <= domain[0]) {
+            ret = 1.0;
+        } else if (x > domain[1]) {
+            ret = 0.0;
+        } else {
+            ret = innerCumulativeProbability(domain[1], x, -1);
+        }
+
+        return ret;
+    }","  public void test12()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((-1L));
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(iSAACRandom0, 2295, 2295, 2295);
+      double double0 = hypergeometricDistribution0.upperCumulativeProbability(2295);
+  }","/**
+     * For this distribution, {@code X}, this method returns {@code P(X >= x)}.
+     *
+     * @param x Value at which the CDF is evaluated.
+     * @return the upper tail CDF for this distribution.
+     * @since 1.1
+     */"
+"    public double upperCumulativeProbability(int x) {
+        double ret;
+
+        final int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x <= domain[0]) {
+            ret = 1.0;
+        } else if (x > domain[1]) {
+            ret = 0.0;
+        } else {
+            ret = innerCumulativeProbability(domain[1], x, -1);
+        }
+
+        return ret;
+    }","  public void test13()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.upperCumulativeProbability(851);
+      assertEquals(0.0, double0, 0.01);
+}","/**
+     * For this distribution, {@code X}, this method returns {@code P(X >= x)}.
+     *
+     * @param x Value at which the CDF is evaluated.
+     * @return the upper tail CDF for this distribution.
+     * @since 1.1
+     */"
+"    public double getNumericalMean() {
+        return getSampleSize() * (getNumberOfSuccesses() / (double) getPopulationSize());
+    }","  public void test13()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.upperCumulativeProbability(851);
+      assertEquals(0.001637331150225133, hypergeometricDistribution0.getNumericalMean(), 0.01);
+}","/**
+     * {@inheritDoc}
+     *
+     * For population size {@code N}, number of successes {@code m}, and sample
+     * size {@code n}, the mean is {@code n * m / N}.
+     */"
+"    public double upperCumulativeProbability(int x) {
+        double ret;
+
+        final int[] domain = getDomain(populationSize, numberOfSuccesses, sampleSize);
+        if (x <= domain[0]) {
+            ret = 1.0;
+        } else if (x > domain[1]) {
+            ret = 0.0;
+        } else {
+            ret = innerCumulativeProbability(domain[1], x, -1);
+        }
+
+        return ret;
+    }","  public void test13()  throws Throwable  {
+      HypergeometricDistribution hypergeometricDistribution0 = new HypergeometricDistribution(2443, 2, 2);
+      double double0 = hypergeometricDistribution0.upperCumulativeProbability(851);
+  }","/**
+     * For this distribution, {@code X}, this method returns {@code P(X >= x)}.
+     *
+     * @param x Value at which the CDF is evaluated.
+     * @return the upper tail CDF for this distribution.
+     * @since 1.1
+     */"

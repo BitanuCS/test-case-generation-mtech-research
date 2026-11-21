@@ -1,0 +1,189 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Csv-1/evo /Users/bitu/mtech-tools/work/Csv-1f/src/main/java Csv 1 /Users/bitu/mtech-tools/toga_out/Csv-1
+14 test prefixes, 14 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Csv-1/inputs.csv /Users/bitu/mtech-tools/toga_out/Csv-1/meta.csv
+11/20/2026 07:27:27 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/20/2026 07:27:29 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/20/2026 07:27:30 - INFO - __main__ -   Creating features from dataset file at ./
+11/20/2026 07:27:30 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/20/2026 07:27:30 - INFO - utils -   Writing example 0 of 14
+11/20/2026 07:27:30 - INFO - utils -   *** Example ***
+11/20/2026 07:27:30 - INFO - utils -   guid: test-0
+11/20/2026 07:27:30 - INFO - utils -   tokens: <s> int Ġget Line Number () Ġ{ Ġreturn Ġline Counter ; Ġ} </s> public Ġvoid Ġtest Get Line Number () Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); Ġextended Buff ered Reader 0 . get Line Number (); Ġ} </s>
+11/20/2026 07:27:30 - INFO - utils -   input_ids: 0 2544 120 18997 43623 43048 25522 671 516 44057 131 35524 2 15110 13842 1296 14181 18997 43623 43048 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 3112 42021 3215 46347 288 4 6460 18997 43623 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:30 - INFO - utils -   *** Example ***
+11/20/2026 07:27:30 - INFO - utils -   guid: test-1
+11/20/2026 07:27:30 - INFO - utils -   tokens: <s> int Ġget Line Number () Ġ{ Ġreturn Ġline Counter ; Ġ} </s> public Ġvoid Ġtest Get Line Number () Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); Ġextended Buff ered Reader 0 . get Line Number (); Ġ} </s>
+11/20/2026 07:27:30 - INFO - utils -   input_ids: 0 2544 120 18997 43623 43048 25522 671 516 44057 131 35524 2 15110 13842 1296 14181 18997 43623 43048 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 3112 42021 3215 46347 288 4 6460 18997 43623 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:30 - INFO - utils -   *** Example ***
+11/20/2026 07:27:30 - INFO - utils -   guid: test-2
+11/20/2026 07:27:30 - INFO - utils -   tokens: <s> int Ġread Again () Ġ{ Ġreturn Ġlast Char ; Ġ} </s> public Ġvoid Ġtest Read Again () Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); Ġextended Buff ered Reader 0 . read Again (); Ġ} </s>
+11/20/2026 07:27:30 - INFO - utils -   input_ids: 0 2544 1166 34790 43048 25522 671 94 42379 131 35524 2 15110 13842 1296 25439 34790 43048 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 3112 42021 3215 46347 288 4 12745 34790 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:30 - INFO - utils -   *** Example ***
+11/20/2026 07:27:30 - INFO - utils -   guid: test-3
+11/20/2026 07:27:30 - INFO - utils -   tokens: <s> int Ġread Again () Ġ{ Ġreturn Ġlast Char ; Ġ} </s> public Ġvoid Ġtest Read Again () Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); Ġextended Buff ered Reader 0 . read Again (); Ġ} </s>
+11/20/2026 07:27:30 - INFO - utils -   input_ids: 0 2544 1166 34790 43048 25522 671 94 42379 131 35524 2 15110 13842 1296 25439 34790 43048 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 3112 42021 3215 46347 288 4 12745 34790 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:30 - INFO - utils -   *** Example ***
+11/20/2026 07:27:30 - INFO - utils -   guid: test-4
+11/20/2026 07:27:30 - INFO - utils -   tokens: <s> public Ġint Ġread () Ġthrows ĠIO Exception Ġ{ Ġint Ġcurrent Ġ= Ġsuper . read (); Ġif Ġ( current Ġ== Ġ' \ r ' Ġ|| Ġ( current Ġ== Ġ' \ n ' Ġ&& Ġlast Char Ġ!= Ġ' \ r ' )) Ġ{ Ġline Counter ++; Ġ} Ġlast Char Ġ= Ġcurrent ; </s> public Ġvoid Ġtest Read () Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); ĠExtended Buff ered Reader Ġextended Buff ered Reader 1 Ġ= Ġnew ĠExtended Buff ered Reader ( ext ended Buff ered Reader 0 ); Ġextended Buff ered Reader 1 . read (); Ġ} </s>
+11/20/2026 07:27:30 - INFO - utils -   input_ids: 0 15110 6979 1166 43048 6989 38266 48847 25522 6979 595 5457 2422 4 12745 47006 114 36 28311 45994 128 37457 338 108 45056 36 28311 45994 128 37457 282 108 48200 94 42379 49333 128 37457 338 108 35122 25522 516 44057 49789 35524 94 42379 5457 595 131 2 15110 13842 1296 25439 43048 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 36358 42021 3215 46347 3112 42021 3215 46347 134 5457 92 36358 42021 3215 46347 1640 16435 6228 42021 3215 46347 288 4397 3112 42021 3215 46347 134 4 12745 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:30 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:30 - INFO - __main__ -   ***** Running evaluation  *****
+11/20/2026 07:27:30 - INFO - __main__ -     Num examples = 14
+11/20/2026 07:27:30 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 14 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.12s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.12s/it]
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1879: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+11/20/2026 07:27:35 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/20/2026 07:27:36 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/20/2026 07:27:37 - INFO - __main__ -   Creating features from dataset file at ./
+11/20/2026 07:27:37 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/20/2026 07:27:37 - INFO - utils -   Writing example 0 of 12
+11/20/2026 07:27:37 - INFO - utils -   *** Example ***
+11/20/2026 07:27:37 - INFO - utils -   guid: 0
+11/20/2026 07:27:37 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 0 () Ġthrows ĠThrow able Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); Ġint Ġint 0 Ġ= Ġextended Buff ered Reader 0 . get Line Number </s> int Ġget Line Number () Ġ{ Ġreturn Ġline Counter ; Ġ} </s> assert Equ als ( 1 , Ġint 0 ) </s>
+11/20/2026 07:27:37 - INFO - utils -   input_ids: 0 15110 13842 1296 288 43048 6989 28106 868 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 6979 6979 288 5457 3112 42021 3215 46347 288 4 6460 18997 43623 2 2544 120 18997 43623 43048 25522 671 516 44057 131 35524 2 46346 28568 1536 1640 134 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:37 - INFO - utils -   *** Example ***
+11/20/2026 07:27:37 - INFO - utils -   guid: 0
+11/20/2026 07:27:37 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 0 () Ġthrows ĠThrow able Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); Ġint Ġint 0 Ġ= Ġextended Buff ered Reader 0 . get Line Number </s> int Ġget Line Number () Ġ{ Ġreturn Ġline Counter ; Ġ} </s> assert Equ als ( 0 , Ġint 0 ) </s>
+11/20/2026 07:27:37 - INFO - utils -   input_ids: 0 15110 13842 1296 288 43048 6989 28106 868 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 6979 6979 288 5457 3112 42021 3215 46347 288 4 6460 18997 43623 2 2544 120 18997 43623 43048 25522 671 516 44057 131 35524 2 46346 28568 1536 1640 288 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:37 - INFO - utils -   *** Example ***
+11/20/2026 07:27:37 - INFO - utils -   guid: 2
+11/20/2026 07:27:37 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 1 () Ġthrows ĠThrow able Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); Ġint Ġint 0 Ġ= Ġextended Buff ered Reader 0 . read Again (); </s> int Ġread Again () Ġ{ Ġreturn Ġlast Char ; Ġ} </s> assert Equ als ( 1 , Ġint 0 ) </s>
+11/20/2026 07:27:37 - INFO - utils -   input_ids: 0 15110 13842 1296 134 43048 6989 28106 868 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 6979 6979 288 5457 3112 42021 3215 46347 288 4 12745 34790 47006 2 2544 1166 34790 43048 25522 671 94 42379 131 35524 2 46346 28568 1536 1640 134 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:37 - INFO - utils -   *** Example ***
+11/20/2026 07:27:37 - INFO - utils -   guid: 2
+11/20/2026 07:27:37 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 1 () Ġthrows ĠThrow able Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); Ġint Ġint 0 Ġ= Ġextended Buff ered Reader 0 . read Again (); </s> int Ġread Again () Ġ{ Ġreturn Ġlast Char ; Ġ} </s> assert Equ als ( 0 , Ġint 0 ) </s>
+11/20/2026 07:27:37 - INFO - utils -   input_ids: 0 15110 13842 1296 134 43048 6989 28106 868 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 6979 6979 288 5457 3112 42021 3215 46347 288 4 12745 34790 47006 2 2544 1166 34790 43048 25522 671 94 42379 131 35524 2 46346 28568 1536 1640 288 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:37 - INFO - utils -   *** Example ***
+11/20/2026 07:27:37 - INFO - utils -   guid: 4
+11/20/2026 07:27:37 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 2 () Ġthrows ĠThrow able Ġ{ ĠReader Ġreader 0 Ġ= ĠReader . null Reader (); ĠExtended Buff ered Reader Ġextended Buff ered Reader 0 Ġ= Ġnew ĠExtended Buff ered Reader ( reader 0 ); ĠExtended Buff ered Reader Ġextended Buff ered Reader 1 Ġ= Ġnew ĠExtended Buff </s> public Ġint Ġread () Ġthrows ĠIO Exception Ġ{ Ġint Ġcurrent Ġ= Ġsuper . read (); Ġif Ġ( current Ġ== Ġ' \ r ' Ġ|| Ġ( current Ġ== Ġ' \ n ' Ġ&& Ġlast Char Ġ!= Ġ' \ r ' )) Ġ{ Ġline Counter ++; Ġ} Ġlast Char Ġ= Ġcurrent ; Ġreturn Ġlast Char ; Ġ} </s> assert Equ als ( 1 , Ġint 0 ) </s>
+11/20/2026 07:27:37 - INFO - utils -   input_ids: 0 15110 13842 1296 176 43048 6989 28106 868 25522 27019 10746 288 5457 27019 4 15755 46347 47006 36358 42021 3215 46347 3112 42021 3215 46347 288 5457 92 36358 42021 3215 46347 1640 40536 288 4397 36358 42021 3215 46347 3112 42021 3215 46347 134 5457 92 36358 42021 2 15110 6979 1166 43048 6989 38266 48847 25522 6979 595 5457 2422 4 12745 47006 114 36 28311 45994 128 37457 338 108 45056 36 28311 45994 128 37457 282 108 48200 94 42379 49333 128 37457 338 108 35122 25522 516 44057 49789 35524 94 42379 5457 595 131 671 94 42379 131 35524 2 46346 28568 1536 1640 134 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 07:27:37 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 07:27:37 - INFO - __main__ -   ***** Running evaluation  *****
+11/20/2026 07:27:37 - INFO - __main__ -     Num examples = 12
+11/20/2026 07:27:37 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 12 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.07it/s]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.21428571428571427
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Csv -d /Users/bitu/mtech-tools/toga_out/Csv-1/suite -v 1f
+Checking out de1838ea to /tmp/fix_test_suite.pl_95828_1795188459........... --------------------------------------------------------------------------------
+Csv-1f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_95828_1795188459/maven-build. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de1838ea:0833f45b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Csv-1f.......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Csv -d /Users/bitu/mtech-tools/toga_out/Csv-1/suite -o /Users/bitu/mtech-tools/toga_out/Csv-1/detect
+Extract test suite......................................................... Executing test suite: Csv-1f-toga.1.tar.bz2
+OK
+Checking out de1838ea to /tmp/run_bug_detection.pl_95987_1795192084/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_95987_1795192084/V_fixed/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de1838ea:0833f45b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Csv-1f.......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out de1838ea to /tmp/run_bug_detection.pl_95987_1795192084/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_95987_1795192084/V_buggy/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff de1838ea:0833f45b..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Csv-1b.......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

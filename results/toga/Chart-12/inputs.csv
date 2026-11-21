@@ -1,0 +1,1687 @@
+focal_method,test_prefix,docstring
+"    public String getPlotType() {
+        return ""Multiple Pie Plot"";
+         // TODO: need to fetch this from localised resources
+    }","  public void test00()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      String string0 = multiplePiePlot0.getPlotType();
+      assertEquals(""Multiple Pie Plot"", string0);
+}","/**
+     * Returns a short string describing the type of plot.
+     *
+     * @return The plot type.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test00()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      String string0 = multiplePiePlot0.getPlotType();
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public String getPlotType() {
+        return ""Multiple Pie Plot"";
+         // TODO: need to fetch this from localised resources
+    }","  public void test00()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      String string0 = multiplePiePlot0.getPlotType();
+  }","/**
+     * Returns a short string describing the type of plot.
+     *
+     * @return The plot type.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test01()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      Comparable comparable0 = multiplePiePlot0.getAggregatedItemsKey();
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public Comparable getAggregatedItemsKey() {
+        return this.aggregatedItemsKey;
+    }","  public void test01()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      Comparable comparable0 = multiplePiePlot0.getAggregatedItemsKey();
+      assertEquals(""Other"", comparable0);
+}","/**
+     * Returns the key for aggregated items in the pie plots, if there are any.
+     * The default value is ""Other"".
+     *
+     * @return The aggregated items key.
+     *
+     * @since 1.0.2
+     */"
+"    public Comparable getAggregatedItemsKey() {
+        return this.aggregatedItemsKey;
+    }","  public void test01()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      Comparable comparable0 = multiplePiePlot0.getAggregatedItemsKey();
+  }","/**
+     * Returns the key for aggregated items in the pie plots, if there are any.
+     * The default value is ""Other"".
+     *
+     * @return The aggregated items key.
+     *
+     * @since 1.0.2
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test02()  throws Throwable  {
+      double[][] doubleArray0 = new double[9][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      multiplePiePlot0.setLimit(0.18);
+      JFreeChart jFreeChart0 = new JFreeChart("""", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 10);
+      assertEquals(0.18, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public void setLimit(double limit) {
+        this.limit = limit;
+        fireChangeEvent();
+    }","  public void test02()  throws Throwable  {
+      double[][] doubleArray0 = new double[9][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      multiplePiePlot0.setLimit(0.18);
+      JFreeChart jFreeChart0 = new JFreeChart("""", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 10);
+  }","/**
+     * Sets the limit below which pie sections are aggregated.
+     * Set this to 0.0 if you don't want any aggregation to occur.
+     *
+     * @param limit  the limit percent.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test03()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      double double0 = multiplePiePlot0.getLimit();
+      assertEquals(0.0, double0, 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test03()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      double double0 = multiplePiePlot0.getLimit();
+  }","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test04()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      multiplePiePlot0.getDataExtractOrder();
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public TableOrder getDataExtractOrder() {
+        return this.dataExtractOrder;
+    }","  public void test04()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      multiplePiePlot0.getDataExtractOrder();
+  }","/**
+     * Returns the data extract order (by row or by column).
+     *
+     * @return The data extract order (never <code>null</code>).
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test05()  throws Throwable  {
+      double[][] doubleArray0 = new double[6][7];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      Color color0 = (Color)multiplePiePlot0.getAggregatedItemsPaint();
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public Paint getAggregatedItemsPaint() {
+        return this.aggregatedItemsPaint;
+    }","  public void test05()  throws Throwable  {
+      double[][] doubleArray0 = new double[6][7];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      Color color0 = (Color)multiplePiePlot0.getAggregatedItemsPaint();
+      assertEquals((-4144960), color0.getRGB());
+}","/**
+     * Returns the paint used to draw the pie section representing the
+     * aggregated items.  The default value is <code>Color.lightGray</code>.
+     *
+     * @return The paint.
+     *
+     * @since 1.0.2
+     */"
+"    public Paint getAggregatedItemsPaint() {
+        return this.aggregatedItemsPaint;
+    }","  public void test05()  throws Throwable  {
+      double[][] doubleArray0 = new double[6][7];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      Color color0 = (Color)multiplePiePlot0.getAggregatedItemsPaint();
+  }","/**
+     * Returns the paint used to draw the pie section representing the
+     * aggregated items.  The default value is <code>Color.lightGray</code>.
+     *
+     * @return The paint.
+     *
+     * @since 1.0.2
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test06()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      multiplePiePlot0.setDataset(defaultKeyedValues2DDataset0);
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public void setDataset(CategoryDataset dataset) {
+        // if there is an existing dataset, remove the plot from the list of
+        // change listeners...
+        if (this.dataset != null) {
+            this.dataset.removeChangeListener(this);
+        }
+
+        // set the new dataset, and register the chart as a change listener...
+        this.dataset = dataset;
+        if (dataset != null) {
+            setDatasetGroup(dataset.getGroup());
+            dataset.addChangeListener(this);
+        }
+
+        // send a dataset change event to self to trigger plot change event
+        datasetChanged(new DatasetChangeEvent(this, dataset));
+    }","  public void test06()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      multiplePiePlot0.setDataset(defaultKeyedValues2DDataset0);
+  }","/**
+     * Sets the dataset used by the plot and sends a {@link PlotChangeEvent}
+     * to all registered listeners.
+     *
+     * @param dataset  the dataset (<code>null</code> permitted).
+     */"
+"    public void setPieChart(JFreeChart pieChart) {
+        if (pieChart == null) {
+            throw new IllegalArgumentException(""Null 'pieChart' argument."");
+        }
+        if (!(pieChart.getPlot() instanceof PiePlot)) {
+            throw new IllegalArgumentException(""The 'pieChart' argument must ""
+                    + ""be a chart based on a PiePlot."");
+        }
+        this.pieChart = pieChart;
+        fireChangeEvent();
+    }","  public void test07()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      JFreeChart jFreeChart0 = new JFreeChart(multiplePiePlot0);
+      // Undeclared exception!
+      try { 
+        multiplePiePlot0.setPieChart(jFreeChart0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // The 'pieChart' argument must be a chart based on a PiePlot.
+         //
+         verifyException(""org.jfree.chart.plot.MultiplePiePlot"", e);
+      }
+  }","/**
+     * Sets the chart that is used to draw the individual pie plots.  The
+     * chart's plot must be an instance of {@link PiePlot}.
+     *
+     * @param pieChart  the pie chart (<code>null</code> not permitted).
+     *
+     * @see #getPieChart()
+     */"
+"    public void setPieChart(JFreeChart pieChart) {
+        if (pieChart == null) {
+            throw new IllegalArgumentException(""Null 'pieChart' argument."");
+        }
+        if (!(pieChart.getPlot() instanceof PiePlot)) {
+            throw new IllegalArgumentException(""The 'pieChart' argument must ""
+                    + ""be a chart based on a PiePlot."");
+        }
+        this.pieChart = pieChart;
+        fireChangeEvent();
+    }","  public void test08()  throws Throwable  {
+      DefaultBoxAndWhiskerCategoryDataset defaultBoxAndWhiskerCategoryDataset0 = new DefaultBoxAndWhiskerCategoryDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultBoxAndWhiskerCategoryDataset0);
+      // Undeclared exception!
+      try { 
+        multiplePiePlot0.setPieChart((JFreeChart) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Null 'pieChart' argument.
+         //
+         verifyException(""org.jfree.chart.plot.MultiplePiePlot"", e);
+      }
+  }","/**
+     * Sets the chart that is used to draw the individual pie plots.  The
+     * chart's plot must be an instance of {@link PiePlot}.
+     *
+     * @param pieChart  the pie chart (<code>null</code> not permitted).
+     *
+     * @see #getPieChart()
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test09()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      JFreeChart jFreeChart0 = multiplePiePlot0.getPieChart();
+      multiplePiePlot0.setPieChart(jFreeChart0);
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public void setPieChart(JFreeChart pieChart) {
+        if (pieChart == null) {
+            throw new IllegalArgumentException(""Null 'pieChart' argument."");
+        }
+        if (!(pieChart.getPlot() instanceof PiePlot)) {
+            throw new IllegalArgumentException(""The 'pieChart' argument must ""
+                    + ""be a chart based on a PiePlot."");
+        }
+        this.pieChart = pieChart;
+        fireChangeEvent();
+    }","  public void test09()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      JFreeChart jFreeChart0 = multiplePiePlot0.getPieChart();
+      multiplePiePlot0.setPieChart(jFreeChart0);
+  }","/**
+     * Sets the chart that is used to draw the individual pie plots.  The
+     * chart's plot must be an instance of {@link PiePlot}.
+     *
+     * @param pieChart  the pie chart (<code>null</code> not permitted).
+     *
+     * @see #getPieChart()
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test10()  throws Throwable  {
+      double[][] doubleArray0 = new double[6][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      TableOrder tableOrder0 = TableOrder.BY_ROW;
+      multiplePiePlot0.setDataExtractOrder(tableOrder0);
+      JFreeChart jFreeChart0 = new JFreeChart("""", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 10);
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public void setDataExtractOrder(TableOrder order) {
+        if (order == null) {
+            throw new IllegalArgumentException(""Null 'order' argument"");
+        }
+        this.dataExtractOrder = order;
+        fireChangeEvent();
+    }","  public void test10()  throws Throwable  {
+      double[][] doubleArray0 = new double[6][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      TableOrder tableOrder0 = TableOrder.BY_ROW;
+      multiplePiePlot0.setDataExtractOrder(tableOrder0);
+      JFreeChart jFreeChart0 = new JFreeChart("""", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 10);
+  }","/**
+     * Sets the data extract order (by row or by column) and sends a
+     * {@link PlotChangeEvent} to all registered listeners.
+     *
+     * @param order  the order (<code>null</code> not permitted).
+     */"
+"    public void setDataExtractOrder(TableOrder order) {
+        if (order == null) {
+            throw new IllegalArgumentException(""Null 'order' argument"");
+        }
+        this.dataExtractOrder = order;
+        fireChangeEvent();
+    }","  public void test11()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      // Undeclared exception!
+      try { 
+        multiplePiePlot0.setDataExtractOrder((TableOrder) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Null 'order' argument
+         //
+         verifyException(""org.jfree.chart.plot.MultiplePiePlot"", e);
+      }
+  }","/**
+     * Sets the data extract order (by row or by column) and sends a
+     * {@link PlotChangeEvent} to all registered listeners.
+     *
+     * @param order  the order (<code>null</code> not permitted).
+     */"
+"    public void setAggregatedItemsKey(Comparable key) {
+        if (key == null) {
+            throw new IllegalArgumentException(""Null 'key' argument."");
+        }
+        this.aggregatedItemsKey = key;
+        fireChangeEvent();
+    }","  public void test12()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      // Undeclared exception!
+      try { 
+        multiplePiePlot0.setAggregatedItemsKey((Comparable) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Null 'key' argument.
+         //
+         verifyException(""org.jfree.chart.plot.MultiplePiePlot"", e);
+      }
+  }","/**
+     * Sets the key for aggregated items in the pie plots.  You must ensure
+     * that this doesn't clash with any keys in the dataset.
+     *
+     * @param key  the key (<code>null</code> not permitted).
+     *
+     * @since 1.0.2
+     */"
+"    public void setAggregatedItemsPaint(Paint paint) {
+        if (paint == null) {
+            throw new IllegalArgumentException(""Null 'paint' argument."");
+        }
+        this.aggregatedItemsPaint = paint;
+        fireChangeEvent();
+    }","  public void test13()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      // Undeclared exception!
+      try { 
+        multiplePiePlot0.setAggregatedItemsPaint((Paint) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Null 'paint' argument.
+         //
+         verifyException(""org.jfree.chart.plot.MultiplePiePlot"", e);
+      }
+  }","/**
+     * Sets the paint used to draw the pie section representing the aggregated
+     * items and sends a {@link PlotChangeEvent} to all registered listeners.
+     *
+     * @param paint  the paint (<code>null</code> not permitted).
+     *
+     * @since 1.0.2
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test14()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      JFreeChart jFreeChart0 = new JFreeChart(multiplePiePlot0);
+      ChartRenderingInfo chartRenderingInfo0 = new ChartRenderingInfo();
+      jFreeChart0.createBufferedImage(10, 10, chartRenderingInfo0);
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public MultiplePiePlot() {
+        this(null);
+    }","  public void test14()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      JFreeChart jFreeChart0 = new JFreeChart(multiplePiePlot0);
+      ChartRenderingInfo chartRenderingInfo0 = new ChartRenderingInfo();
+      jFreeChart0.createBufferedImage(10, 10, chartRenderingInfo0);
+  }","/**
+     * Creates a new plot with no data.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test15()  throws Throwable  {
+      double[][] doubleArray0 = new double[1][2];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      JFreeChart jFreeChart0 = new JFreeChart(""Other"", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(7, 2);
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public MultiplePiePlot() {
+        this(null);
+    }","  public void test15()  throws Throwable  {
+      double[][] doubleArray0 = new double[1][2];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      JFreeChart jFreeChart0 = new JFreeChart(""Other"", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(7, 2);
+  }","/**
+     * Creates a new plot with no data.
+     */"
+"    public LegendItemCollection getLegendItems() {
+
+        LegendItemCollection result = new LegendItemCollection();
+
+        if (this.dataset != null) {
+            List keys = null;
+
+            prefetchSectionPaints();
+            if (this.dataExtractOrder == TableOrder.BY_ROW) {
+                keys = this.dataset.getColumnKeys();
+            }
+            else if (this.dataExtractOrder == TableOrder.BY_COLUMN) {
+                keys = this.dataset.getRowKeys();
+            }
+
+            if (keys != null) {
+                int section = 0;
+                Iterator iterator = keys.iterator();
+                while (iterator.hasNext()) {
+                    Comparable key = (Comparable) iterator.next();
+                    String label = key.toString();
+                    String description = label;
+                    Paint paint = (Paint) this.sectionPaints.get(key);
+                    LegendItem item = new LegendItem(label, description,
+                            null, null, Plot.DEFAULT_LEGEND_ITEM_CIRCLE,
+                            paint, Plot.DEFAULT_OUTLINE_STROKE, paint);
+                    item.setDataset(getDataset());
+                    result.add(item);
+                    section++;
+                }
+            }
+            if (this.limit > 0.0) {
+                result.add(new LegendItem(this.aggregatedItemsKey.toString(),
+                        this.aggregatedItemsKey.toString(), null, null,
+                        Plot.DEFAULT_LEGEND_ITEM_CIRCLE,
+                        this.aggregatedItemsPaint,
+                        Plot.DEFAULT_OUTLINE_STROKE,
+                        this.aggregatedItemsPaint));
+            }
+        }
+        return result;
+    }","  public void test16()  throws Throwable  {
+      double[][] doubleArray0 = new double[3][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      TableOrder tableOrder0 = TableOrder.BY_ROW;
+      multiplePiePlot0.setDataExtractOrder(tableOrder0);
+      JFreeChart jFreeChart0 = new JFreeChart("""", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 10);
+      LegendItemCollection legendItemCollection0 = multiplePiePlot0.getLegendItems();
+      assertEquals(4, legendItemCollection0.getItemCount());
+}","/**
+     * Returns a collection of legend items for the pie chart.
+     *
+     * @return The legend items.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test16()  throws Throwable  {
+      double[][] doubleArray0 = new double[3][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      TableOrder tableOrder0 = TableOrder.BY_ROW;
+      multiplePiePlot0.setDataExtractOrder(tableOrder0);
+      JFreeChart jFreeChart0 = new JFreeChart("""", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 10);
+      LegendItemCollection legendItemCollection0 = multiplePiePlot0.getLegendItems();
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public LegendItemCollection getLegendItems() {
+
+        LegendItemCollection result = new LegendItemCollection();
+
+        if (this.dataset != null) {
+            List keys = null;
+
+            prefetchSectionPaints();
+            if (this.dataExtractOrder == TableOrder.BY_ROW) {
+                keys = this.dataset.getColumnKeys();
+            }
+            else if (this.dataExtractOrder == TableOrder.BY_COLUMN) {
+                keys = this.dataset.getRowKeys();
+            }
+
+            if (keys != null) {
+                int section = 0;
+                Iterator iterator = keys.iterator();
+                while (iterator.hasNext()) {
+                    Comparable key = (Comparable) iterator.next();
+                    String label = key.toString();
+                    String description = label;
+                    Paint paint = (Paint) this.sectionPaints.get(key);
+                    LegendItem item = new LegendItem(label, description,
+                            null, null, Plot.DEFAULT_LEGEND_ITEM_CIRCLE,
+                            paint, Plot.DEFAULT_OUTLINE_STROKE, paint);
+                    item.setDataset(getDataset());
+                    result.add(item);
+                    section++;
+                }
+            }
+            if (this.limit > 0.0) {
+                result.add(new LegendItem(this.aggregatedItemsKey.toString(),
+                        this.aggregatedItemsKey.toString(), null, null,
+                        Plot.DEFAULT_LEGEND_ITEM_CIRCLE,
+                        this.aggregatedItemsPaint,
+                        Plot.DEFAULT_OUTLINE_STROKE,
+                        this.aggregatedItemsPaint));
+            }
+        }
+        return result;
+    }","  public void test16()  throws Throwable  {
+      double[][] doubleArray0 = new double[3][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      TableOrder tableOrder0 = TableOrder.BY_ROW;
+      multiplePiePlot0.setDataExtractOrder(tableOrder0);
+      JFreeChart jFreeChart0 = new JFreeChart("""", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 10);
+      LegendItemCollection legendItemCollection0 = multiplePiePlot0.getLegendItems();
+  }","/**
+     * Returns a collection of legend items for the pie chart.
+     *
+     * @return The legend items.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test17()  throws Throwable  {
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      JFreeChart jFreeChart0 = new JFreeChart(""HNFOE29"", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 15);
+      LegendItemCollection legendItemCollection0 = multiplePiePlot0.getLegendItems();
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public LegendItemCollection getLegendItems() {
+
+        LegendItemCollection result = new LegendItemCollection();
+
+        if (this.dataset != null) {
+            List keys = null;
+
+            prefetchSectionPaints();
+            if (this.dataExtractOrder == TableOrder.BY_ROW) {
+                keys = this.dataset.getColumnKeys();
+            }
+            else if (this.dataExtractOrder == TableOrder.BY_COLUMN) {
+                keys = this.dataset.getRowKeys();
+            }
+
+            if (keys != null) {
+                int section = 0;
+                Iterator iterator = keys.iterator();
+                while (iterator.hasNext()) {
+                    Comparable key = (Comparable) iterator.next();
+                    String label = key.toString();
+                    String description = label;
+                    Paint paint = (Paint) this.sectionPaints.get(key);
+                    LegendItem item = new LegendItem(label, description,
+                            null, null, Plot.DEFAULT_LEGEND_ITEM_CIRCLE,
+                            paint, Plot.DEFAULT_OUTLINE_STROKE, paint);
+                    item.setDataset(getDataset());
+                    result.add(item);
+                    section++;
+                }
+            }
+            if (this.limit > 0.0) {
+                result.add(new LegendItem(this.aggregatedItemsKey.toString(),
+                        this.aggregatedItemsKey.toString(), null, null,
+                        Plot.DEFAULT_LEGEND_ITEM_CIRCLE,
+                        this.aggregatedItemsPaint,
+                        Plot.DEFAULT_OUTLINE_STROKE,
+                        this.aggregatedItemsPaint));
+            }
+        }
+        return result;
+    }","  public void test17()  throws Throwable  {
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      JFreeChart jFreeChart0 = new JFreeChart(""HNFOE29"", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 15);
+      LegendItemCollection legendItemCollection0 = multiplePiePlot0.getLegendItems();
+      assertEquals(2, legendItemCollection0.getItemCount());
+}","/**
+     * Returns a collection of legend items for the pie chart.
+     *
+     * @return The legend items.
+     */"
+"    public LegendItemCollection getLegendItems() {
+
+        LegendItemCollection result = new LegendItemCollection();
+
+        if (this.dataset != null) {
+            List keys = null;
+
+            prefetchSectionPaints();
+            if (this.dataExtractOrder == TableOrder.BY_ROW) {
+                keys = this.dataset.getColumnKeys();
+            }
+            else if (this.dataExtractOrder == TableOrder.BY_COLUMN) {
+                keys = this.dataset.getRowKeys();
+            }
+
+            if (keys != null) {
+                int section = 0;
+                Iterator iterator = keys.iterator();
+                while (iterator.hasNext()) {
+                    Comparable key = (Comparable) iterator.next();
+                    String label = key.toString();
+                    String description = label;
+                    Paint paint = (Paint) this.sectionPaints.get(key);
+                    LegendItem item = new LegendItem(label, description,
+                            null, null, Plot.DEFAULT_LEGEND_ITEM_CIRCLE,
+                            paint, Plot.DEFAULT_OUTLINE_STROKE, paint);
+                    item.setDataset(getDataset());
+                    result.add(item);
+                    section++;
+                }
+            }
+            if (this.limit > 0.0) {
+                result.add(new LegendItem(this.aggregatedItemsKey.toString(),
+                        this.aggregatedItemsKey.toString(), null, null,
+                        Plot.DEFAULT_LEGEND_ITEM_CIRCLE,
+                        this.aggregatedItemsPaint,
+                        Plot.DEFAULT_OUTLINE_STROKE,
+                        this.aggregatedItemsPaint));
+            }
+        }
+        return result;
+    }","  public void test17()  throws Throwable  {
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      JFreeChart jFreeChart0 = new JFreeChart(""HNFOE29"", multiplePiePlot0);
+      jFreeChart0.createBufferedImage(10, 15);
+      LegendItemCollection legendItemCollection0 = multiplePiePlot0.getLegendItems();
+  }","/**
+     * Returns a collection of legend items for the pie chart.
+     *
+     * @return The legend items.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test18()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      boolean boolean0 = multiplePiePlot1.equals(multiplePiePlot0);
+      assertTrue(boolean0);
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test18()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      boolean boolean0 = multiplePiePlot1.equals(multiplePiePlot0);
+      assertEquals(0.0, multiplePiePlot1.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test18()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      boolean boolean0 = multiplePiePlot1.equals(multiplePiePlot0);
+  }","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test19()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      boolean boolean0 = multiplePiePlot0.equals(defaultKeyedValues2DDataset0);
+      assertEquals(0.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test19()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      boolean boolean0 = multiplePiePlot0.equals(defaultKeyedValues2DDataset0);
+      assertFalse(boolean0);
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test19()  throws Throwable  {
+      DefaultKeyedValues2DDataset defaultKeyedValues2DDataset0 = new DefaultKeyedValues2DDataset();
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot(defaultKeyedValues2DDataset0);
+      boolean boolean0 = multiplePiePlot0.equals(defaultKeyedValues2DDataset0);
+  }","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test20()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      TableOrder tableOrder0 = TableOrder.BY_ROW;
+      multiplePiePlot0.setDataExtractOrder(tableOrder0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+      assertFalse(boolean0);
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test20()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      TableOrder tableOrder0 = TableOrder.BY_ROW;
+      multiplePiePlot0.setDataExtractOrder(tableOrder0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+      assertEquals(0.0, multiplePiePlot1.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test20()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      TableOrder tableOrder0 = TableOrder.BY_ROW;
+      multiplePiePlot0.setDataExtractOrder(tableOrder0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+  }","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test21()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      multiplePiePlot0.setLimit(10);
+      boolean boolean0 = multiplePiePlot1.equals(multiplePiePlot0);
+      assertEquals(10.0, multiplePiePlot0.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test21()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      multiplePiePlot0.setLimit(10);
+      boolean boolean0 = multiplePiePlot1.equals(multiplePiePlot0);
+      assertFalse(boolean0);
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test21()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      multiplePiePlot0.setLimit(10);
+      boolean boolean0 = multiplePiePlot1.equals(multiplePiePlot0);
+  }","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test22()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      multiplePiePlot0.setAggregatedItemsKey(false);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+      assertFalse(boolean0);
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public double getLimit() {
+        return this.limit;
+    }","  public void test22()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      multiplePiePlot0.setAggregatedItemsKey(false);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+      assertEquals(0.0, multiplePiePlot1.getLimit(), 0.01);
+}","/**
+     * Returns the limit (as a percentage) below which small pie sections are
+     * aggregated.
+     *
+     * @return The limit percentage.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test22()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      multiplePiePlot0.setAggregatedItemsKey(false);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot();
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+  }","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test23()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = (MultiplePiePlot)multiplePiePlot0.clone();
+      assertTrue(multiplePiePlot1.equals((Object)multiplePiePlot0));
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test23()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = (MultiplePiePlot)multiplePiePlot0.clone();
+      multiplePiePlot1.setAggregatedItemsPaint(multiplePiePlot0.DEFAULT_OUTLINE_PAINT);
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+      assertFalse(multiplePiePlot1.equals((Object)multiplePiePlot0));
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test23()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = (MultiplePiePlot)multiplePiePlot0.clone();
+      multiplePiePlot1.setAggregatedItemsPaint(multiplePiePlot0.DEFAULT_OUTLINE_PAINT);
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+      assertFalse(boolean0);
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test23()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = (MultiplePiePlot)multiplePiePlot0.clone();
+      multiplePiePlot1.setAggregatedItemsPaint(multiplePiePlot0.DEFAULT_OUTLINE_PAINT);
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+  }","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test24()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      JFreeChart jFreeChart0 = new JFreeChart(""-@[a( /!,x D<RY]"", multiplePiePlot1);
+      assertTrue(multiplePiePlot1.equals((Object)multiplePiePlot0));
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test24()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      JFreeChart jFreeChart0 = new JFreeChart(""-@[a( /!,x D<RY]"", multiplePiePlot1);
+      ChartRenderingInfo chartRenderingInfo0 = new ChartRenderingInfo();
+      jFreeChart0.createBufferedImage(10, 10, 10, chartRenderingInfo0);
+      boolean boolean0 = multiplePiePlot1.equals(multiplePiePlot0);
+      assertFalse(boolean0);
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test24()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      double[][] doubleArray0 = new double[2][4];
+      DefaultIntervalCategoryDataset defaultIntervalCategoryDataset0 = new DefaultIntervalCategoryDataset(doubleArray0, doubleArray0);
+      MultiplePiePlot multiplePiePlot1 = new MultiplePiePlot(defaultIntervalCategoryDataset0);
+      JFreeChart jFreeChart0 = new JFreeChart(""-@[a( /!,x D<RY]"", multiplePiePlot1);
+      ChartRenderingInfo chartRenderingInfo0 = new ChartRenderingInfo();
+      jFreeChart0.createBufferedImage(10, 10, 10, chartRenderingInfo0);
+      boolean boolean0 = multiplePiePlot1.equals(multiplePiePlot0);
+  }","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test25()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = (MultiplePiePlot)multiplePiePlot0.clone();
+      assertTrue(multiplePiePlot1.equals((Object)multiplePiePlot0));
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test25()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = (MultiplePiePlot)multiplePiePlot0.clone();
+      multiplePiePlot1.setBackgroundPaint(multiplePiePlot0.DEFAULT_OUTLINE_PAINT);
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+      assertFalse(boolean0);
+}","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"
+"    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof MultiplePiePlot)) {
+            return false;
+        }
+        MultiplePiePlot that = (MultiplePiePlot) obj;
+        if (this.dataExtractOrder != that.dataExtractOrder) {
+            return false;
+        }
+        if (this.limit != that.limit) {
+            return false;
+        }
+        if (!this.aggregatedItemsKey.equals(that.aggregatedItemsKey)) {
+            return false;
+        }
+        if (!PaintUtilities.equal(this.aggregatedItemsPaint,
+                that.aggregatedItemsPaint)) {
+            return false;
+        }
+        if (!ObjectUtilities.equal(this.pieChart, that.pieChart)) {
+            return false;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        return true;
+    }","  public void test25()  throws Throwable  {
+      MultiplePiePlot multiplePiePlot0 = new MultiplePiePlot();
+      MultiplePiePlot multiplePiePlot1 = (MultiplePiePlot)multiplePiePlot0.clone();
+      multiplePiePlot1.setBackgroundPaint(multiplePiePlot0.DEFAULT_OUTLINE_PAINT);
+      boolean boolean0 = multiplePiePlot0.equals(multiplePiePlot1);
+  }","/**
+     * Tests this plot for equality with an arbitrary object.  Note that the
+     * plot's dataset is not considered in the equality test.
+     *
+     * @param obj  the object (<code>null</code> permitted).
+     *
+     * @return <code>true</code> if this plot is equal to <code>obj</code>, and
+     *     <code>false</code> otherwise.
+     */"

@@ -204,6 +204,26 @@ The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **
 - **Math-42:** ran out of Java memory on the first try. Rerun with `--retry-oom --xmx 3g` (script `scripts/run_randoop_then_oom_retry.sh`); no memory error the second time, but still missed. The first try's folder is kept in `mtech-tools/randoop_out/Math-42-oom-first-try`.
 - **Not done yet:** focal-class JaCoCo coverage and PIT for Randoop, which need a `randoop_extras` script like `evosuite_extras`.
 
+**TOGA dev40 run (started 20 Nov 2026).** Fixes made along the way:
+
+- **Test counting (restarted twice).** `fix_test_suite.pl` does not delete a failing test. It replaces it with an empty dummy test marked `// Defects4J: flaky method`, and comments out a single failing assertion as `// Defects4J: flaky assertion`.
+  - Kept tests now = `@Test` lines minus the dummies. Commented-out assertions are counted separately.
+  - The fixed suite is saved as `toga_tests_kept.tar.bz2`.
+  - The same fix is in `run_mltests.py`.
+  - Detection results were not affected.
+  - The earlier tries are kept in `mtech-tools/toga_out/*_try_*`.
+- **TOGA crash on Cli-17.** That bug's tests have no assertion candidates, and TOGA's assertion step crashed on the empty input (`ValueError: zero-size array`).
+  - Patched `toga.py` to skip the assertion model when there are no candidates, so no assertions are predicted, the same result TOGA would give.
+  - Also guarded the debug print in `model/{assertions,exceptions}/utils.py`.
+  - The originals are kept as `*.orig`. This is a declared fix; the model itself is unchanged.
+  - Cli-17 is redone after the run by `scripts/run_toga_then_redo_cli17.sh`.
+- **Cli-7:** no EvoSuite tests exist for it, so TOGA has nothing to work with and it counts as missed.
+- **Codec-5 mutation took over 1 hour (20 Nov).**
+  - Major's `run_mutation.pl` ran over its 1-hour limit, and the time-out crashed the whole run. It also left the ant/java processes running.
+  - `standard_metrics._run` now runs each script in its own process group, kills the whole group after the 1-hour limit, and records `"timed_out": [...]`, so that measurement is simply missing.
+  - EvoSuite's Codec-5 measurements are also empty.
+  - The TOGA run was restarted with 28 bugs to go, Cli-17 included.
+
 ## 6c. GitHub
 
 Public repository: https://github.com/BitanuCS/test-case-generation-mtech-research (first push on 17 Nov 2026). Not uploaded: `.env` (API keys), `cache/`, `Research/` PDFs, `old_results_backup.zip` and logs (see `.gitignore`). To update it: `git add -A && git commit -m "..." && git push`.

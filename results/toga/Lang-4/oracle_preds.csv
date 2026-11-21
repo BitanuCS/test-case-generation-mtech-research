@@ -1,0 +1,78 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Lang,4,org.apache.commons.lang3.text.translate.LookupTranslator_ESTest::test0,"  public void test0()  throws Throwable  {
+      LookupTranslator lookupTranslator0 = new LookupTranslator((CharSequence[][]) null);
+  }",0,
+Lang,4,org.apache.commons.lang3.text.translate.LookupTranslator_ESTest::test1,"  public void test1()  throws Throwable  {
+      CharSequence[] charSequenceArray0 = new CharSequence[3];
+      char[] charArray0 = new char[4];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      charSequenceArray0[0] = (CharSequence) charBuffer0;
+      StringWriter stringWriter0 = new StringWriter();
+      CharSequence[][] charSequenceArray1 = new CharSequence[2][9];
+      charSequenceArray1[0] = charSequenceArray0;
+      charSequenceArray1[1] = charSequenceArray0;
+      LookupTranslator lookupTranslator0 = new LookupTranslator(charSequenceArray1);
+      CharBuffer charBuffer1 = CharBuffer.allocate(377);
+      int int0 = lookupTranslator0.translate((CharSequence) charBuffer1, 2, (Writer) stringWriter0);
+      assertEquals(0, int0);
+}",0,
+Lang,4,org.apache.commons.lang3.text.translate.LookupTranslator_ESTest::test1,"  public void test1()  throws Throwable  {
+      CharSequence[] charSequenceArray0 = new CharSequence[3];
+      char[] charArray0 = new char[4];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      charSequenceArray0[0] = (CharSequence) charBuffer0;
+      StringWriter stringWriter0 = new StringWriter();
+      CharSequence[][] charSequenceArray1 = new CharSequence[2][9];
+      charSequenceArray1[0] = charSequenceArray0;
+      charSequenceArray1[1] = charSequenceArray0;
+      LookupTranslator lookupTranslator0 = new LookupTranslator(charSequenceArray1);
+      CharBuffer charBuffer1 = CharBuffer.allocate(377);
+      int int0 = lookupTranslator0.translate((CharSequence) charBuffer1, 2, (Writer) stringWriter0);
+  }",0,
+Lang,4,org.apache.commons.lang3.text.translate.LookupTranslator_ESTest::test2,"  public void test2()  throws Throwable  {
+      CharSequence[] charSequenceArray0 = new CharSequence[3];
+      char[] charArray0 = new char[4];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      charSequenceArray0[0] = (CharSequence) charBuffer0;
+      StringWriter stringWriter0 = new StringWriter();
+      CharSequence[][] charSequenceArray1 = new CharSequence[2][9];
+      charSequenceArray1[0] = charSequenceArray0;
+      charSequenceArray1[1] = charSequenceArray0;
+      LookupTranslator lookupTranslator0 = new LookupTranslator(charSequenceArray1);
+      int int0 = lookupTranslator0.translate((CharSequence) charBuffer0, 377, (Writer) stringWriter0);
+      assertEquals(0, int0);
+}",0,"assertEquals(1, int0)"
+Lang,4,org.apache.commons.lang3.text.translate.LookupTranslator_ESTest::test2,"  public void test2()  throws Throwable  {
+      CharSequence[] charSequenceArray0 = new CharSequence[3];
+      char[] charArray0 = new char[4];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      charSequenceArray0[0] = (CharSequence) charBuffer0;
+      StringWriter stringWriter0 = new StringWriter();
+      CharSequence[][] charSequenceArray1 = new CharSequence[2][9];
+      charSequenceArray1[0] = charSequenceArray0;
+      charSequenceArray1[1] = charSequenceArray0;
+      LookupTranslator lookupTranslator0 = new LookupTranslator(charSequenceArray1);
+      int int0 = lookupTranslator0.translate((CharSequence) charBuffer0, 377, (Writer) stringWriter0);
+  }",0,
+Lang,4,org.apache.commons.lang3.text.translate.LookupTranslator_ESTest::test3,"  public void test3()  throws Throwable  {
+      CharSequence[][] charSequenceArray0 = new CharSequence[1][8];
+      CharSequence[] charSequenceArray1 = new CharSequence[3];
+      char[] charArray0 = new char[4];
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      charSequenceArray1[0] = (CharSequence) charBuffer0;
+      StringWriter stringWriter0 = new StringWriter();
+      StringBuffer stringBuffer0 = stringWriter0.getBuffer();
+      charSequenceArray1[1] = (CharSequence) stringBuffer0;
+      charSequenceArray0[0] = charSequenceArray1;
+      LookupTranslator lookupTranslator0 = new LookupTranslator(charSequenceArray0);
+      // Undeclared exception!
+      try { 
+        lookupTranslator0.translate(charSequenceArray1[0], 0, (Writer) null);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.translate.LookupTranslator"", e);
+      }
+  }",0,

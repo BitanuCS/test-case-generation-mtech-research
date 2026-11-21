@@ -1,0 +1,181 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Chart-12/evo /Users/bitu/mtech-tools/work/Chart-12f/source Chart 12 /Users/bitu/mtech-tools/toga_out/Chart-12
+61 test prefixes, 61 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Chart-12/inputs.csv /Users/bitu/mtech-tools/toga_out/Chart-12/meta.csv
+11/21/2026 03:46:53 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 03:46:54 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 03:46:55 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 03:46:55 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 03:46:55 - INFO - utils -   Writing example 0 of 61
+11/21/2026 03:46:55 - INFO - utils -   *** Example ***
+11/21/2026 03:46:55 - INFO - utils -   guid: test-0
+11/21/2026 03:46:55 - INFO - utils -   tokens: <s> public ĠString Ġget Plot Type () Ġ{ Ġreturn Ġ" Multiple ĠPie ĠPlot "; Ġ// ĠTOD O : Ġneed Ġto Ġfetch Ġthis Ġfrom Ġlocal ised Ġresources Ġ} </s> public Ġvoid Ġtest Get Plot Type () Ġ{ ĠDefault Key ed Values 2 DD at as et Ġdefault Key ed Values 2 DD at as et 0 Ġ= Ġnew ĠDefault Key ed Values 2 DD at as et (); ĠMultiple Pie Plot Ġmultiple Pie Plot 0 Ġ= Ġnew ĠMultiple Pie Plot ( default Key ed Values 2 DD at as et 0 ); Ġmultiple Pie Plot 0 . get Plot Type (); Ġ} </s>
+11/21/2026 03:46:55 - INFO - utils -   input_ids: 0 15110 26602 120 48812 40118 43048 25522 671 22 43253 21198 39154 25718 21277 41694 673 35 240 7 23366 42 31 400 1720 1915 35524 2 15110 13842 1296 14181 48812 40118 43048 25522 35364 28152 196 48738 176 27140 415 281 594 6814 28152 196 48738 176 27140 415 281 594 288 5457 92 35364 28152 196 48738 176 27140 415 281 594 47006 16210 40941 48812 1533 40941 48812 288 5457 92 16210 40941 48812 1640 43234 28152 196 48738 176 27140 415 281 594 288 4397 1533 40941 48812 288 4 6460 48812 40118 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:46:55 - INFO - utils -   *** Example ***
+11/21/2026 03:46:55 - INFO - utils -   guid: test-1
+11/21/2026 03:46:55 - INFO - utils -   tokens: <s> public Ġdouble Ġget Limit () Ġ{ Ġreturn Ġthis . limit ; Ġ} </s> public Ġvoid Ġtest Get Limit () Ġ{ ĠDefault Key ed Values 2 DD at as et Ġdefault Key ed Values 2 DD at as et 0 Ġ= Ġnew ĠDefault Key ed Values 2 DD at as et (); ĠMultiple Pie Plot Ġmultiple Pie Plot 0 Ġ= Ġnew ĠMultiple Pie Plot ( default Key ed Values 2 DD at as et 0 ); Ġmultiple Pie Plot 0 . get Plot Type (); Ġ} </s>
+11/21/2026 03:46:55 - INFO - utils -   input_ids: 0 15110 1457 120 47593 43048 25522 671 42 4 42425 131 35524 2 15110 13842 1296 14181 47593 43048 25522 35364 28152 196 48738 176 27140 415 281 594 6814 28152 196 48738 176 27140 415 281 594 288 5457 92 35364 28152 196 48738 176 27140 415 281 594 47006 16210 40941 48812 1533 40941 48812 288 5457 92 16210 40941 48812 1640 43234 28152 196 48738 176 27140 415 281 594 288 4397 1533 40941 48812 288 4 6460 48812 40118 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:46:55 - INFO - utils -   *** Example ***
+11/21/2026 03:46:55 - INFO - utils -   guid: test-2
+11/21/2026 03:46:55 - INFO - utils -   tokens: <s> public ĠString Ġget Plot Type () Ġ{ Ġreturn Ġ" Multiple ĠPie ĠPlot "; Ġ// ĠTOD O : Ġneed Ġto Ġfetch Ġthis Ġfrom Ġlocal ised Ġresources Ġ} </s> public Ġvoid Ġtest Get Plot Type () Ġ{ ĠDefault Key ed Values 2 DD at as et Ġdefault Key ed Values 2 DD at as et 0 Ġ= Ġnew ĠDefault Key ed Values 2 DD at as et (); ĠMultiple Pie Plot Ġmultiple Pie Plot 0 Ġ= Ġnew ĠMultiple Pie Plot ( default Key ed Values 2 DD at as et 0 ); Ġmultiple Pie Plot 0 . get Plot Type (); Ġ} </s>
+11/21/2026 03:46:55 - INFO - utils -   input_ids: 0 15110 26602 120 48812 40118 43048 25522 671 22 43253 21198 39154 25718 21277 41694 673 35 240 7 23366 42 31 400 1720 1915 35524 2 15110 13842 1296 14181 48812 40118 43048 25522 35364 28152 196 48738 176 27140 415 281 594 6814 28152 196 48738 176 27140 415 281 594 288 5457 92 35364 28152 196 48738 176 27140 415 281 594 47006 16210 40941 48812 1533 40941 48812 288 5457 92 16210 40941 48812 1640 43234 28152 196 48738 176 27140 415 281 594 288 4397 1533 40941 48812 288 4 6460 48812 40118 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:46:55 - INFO - utils -   *** Example ***
+11/21/2026 03:46:55 - INFO - utils -   guid: test-3
+11/21/2026 03:46:55 - INFO - utils -   tokens: <s> public Ġdouble Ġget Limit () Ġ{ Ġreturn Ġthis . limit ; Ġ} </s> public Ġvoid Ġtest Get Limit () Ġ{ ĠDefault Key ed Values 2 DD at as et Ġdefault Key ed Values 2 DD at as et 0 Ġ= Ġnew ĠDefault Key ed Values 2 DD at as et (); ĠMultiple Pie Plot Ġmultiple Pie Plot 0 Ġ= Ġnew ĠMultiple Pie Plot ( default Key ed Values 2 DD at as et 0 ); Ġmultiple Pie Plot 0 . get Agg reg ated Items Key (); Ġ} </s>
+11/21/2026 03:46:55 - INFO - utils -   input_ids: 0 15110 1457 120 47593 43048 25522 671 42 4 42425 131 35524 2 15110 13842 1296 14181 47593 43048 25522 35364 28152 196 48738 176 27140 415 281 594 6814 28152 196 48738 176 27140 415 281 594 288 5457 92 35364 28152 196 48738 176 27140 415 281 594 47006 16210 40941 48812 1533 40941 48812 288 5457 92 16210 40941 48812 1640 43234 28152 196 48738 176 27140 415 281 594 288 4397 1533 40941 48812 288 4 6460 46498 4950 1070 48485 28152 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:46:55 - INFO - utils -   *** Example ***
+11/21/2026 03:46:55 - INFO - utils -   guid: test-4
+11/21/2026 03:46:55 - INFO - utils -   tokens: <s> public ĠCompar able Ġget Agg reg ated Items Key () Ġ{ Ġreturn Ġthis . agg reg ated Items Key ; Ġ} </s> public Ġvoid Ġtest Get Agg reg ated Items Key () Ġ{ ĠDefault Key ed Values 2 DD at as et Ġdefault Key ed Values 2 DD at as et 0 Ġ= Ġnew ĠDefault Key ed Values 2 DD at as et (); ĠMultiple Pie Plot Ġmultiple Pie Plot 0 Ġ= Ġnew ĠMultiple Pie Plot ( default Key ed Values 2 DD at as et 0 ); Ġmultiple Pie Plot 0 . get Agg reg ated Items Key (); Ġ} </s>
+11/21/2026 03:46:55 - INFO - utils -   input_ids: 0 15110 20492 868 120 46498 4950 1070 48485 28152 43048 25522 671 42 4 7165 4950 1070 48485 28152 131 35524 2 15110 13842 1296 14181 46498 4950 1070 48485 28152 43048 25522 35364 28152 196 48738 176 27140 415 281 594 6814 28152 196 48738 176 27140 415 281 594 288 5457 92 35364 28152 196 48738 176 27140 415 281 594 47006 16210 40941 48812 1533 40941 48812 288 5457 92 16210 40941 48812 1640 43234 28152 196 48738 176 27140 415 281 594 288 4397 1533 40941 48812 288 4 6460 46498 4950 1070 48485 28152 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:46:55 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:46:55 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 03:46:55 - INFO - __main__ -     Num examples = 61
+11/21/2026 03:46:55 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 61 total truncations 4, mean_trunc 1.0819672131147542, median 0.0, max = 30
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:03<00:00,  3.86s/it]Evaluating: 100%|██████████| 1/1 [00:03<00:00,  3.86s/it]
+11/21/2026 03:47:03 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 03:47:04 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 03:47:05 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 03:47:05 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 03:47:05 - INFO - utils -   Writing example 0 of 24
+11/21/2026 03:47:05 - INFO - utils -   *** Example ***
+11/21/2026 03:47:05 - INFO - utils -   guid: 0
+11/21/2026 03:47:05 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠDefault Key ed Values 2 DD at as et Ġdefault Key ed Values 2 DD at as et 0 Ġ= Ġnew ĠDefault Key ed Values 2 DD at as et (); ĠMultiple Pie Plot Ġmultiple Pie Plot 0 Ġ= Ġnew ĠMultiple </s> public ĠString Ġget Plot Type () Ġ{ Ġreturn Ġ" Multiple ĠPie ĠPlot "; Ġ// ĠTOD O : Ġneed Ġto Ġfetch Ġthis Ġfrom Ġlocal ised Ġresources Ġ} </s> assert Not Null ( string 0 ) </s>
+11/21/2026 03:47:05 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 35364 28152 196 48738 176 27140 415 281 594 6814 28152 196 48738 176 27140 415 281 594 288 5457 92 35364 28152 196 48738 176 27140 415 281 594 47006 16210 40941 48812 1533 40941 48812 288 5457 92 16210 2 15110 26602 120 48812 40118 43048 25522 671 22 43253 21198 39154 25718 21277 41694 673 35 240 7 23366 42 31 400 1720 1915 35524 2 46346 7199 49302 1640 20951 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:47:05 - INFO - utils -   *** Example ***
+11/21/2026 03:47:05 - INFO - utils -   guid: 4
+11/21/2026 03:47:05 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 01 () Ġthrows ĠThrow able Ġ{ ĠDefault Key ed Values 2 DD at as et Ġdefault Key ed Values 2 DD at as et 0 Ġ= Ġnew ĠDefault Key ed Values 2 DD at as et (); ĠMultiple Pie Plot Ġmultiple Pie Plot 0 Ġ= Ġnew ĠMultiple </s> public ĠCompar able Ġget Agg reg ated Items Key () Ġ{ Ġreturn Ġthis . agg reg ated Items Key ; Ġ} </s> assert Not Null ( com parable 0 ) </s>
+11/21/2026 03:47:05 - INFO - utils -   input_ids: 0 15110 13842 1296 2663 43048 6989 28106 868 25522 35364 28152 196 48738 176 27140 415 281 594 6814 28152 196 48738 176 27140 415 281 594 288 5457 92 35364 28152 196 48738 176 27140 415 281 594 47006 16210 40941 48812 1533 40941 48812 288 5457 92 16210 2 15110 20492 868 120 46498 4950 1070 48485 28152 43048 25522 671 42 4 7165 4950 1070 48485 28152 131 35524 2 46346 7199 49302 1640 175 30788 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:47:05 - INFO - utils -   *** Example ***
+11/21/2026 03:47:05 - INFO - utils -   guid: 13
+11/21/2026 03:47:05 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 05 () Ġthrows ĠThrow able Ġ{ Ġdouble [ ][ ] Ġdouble Array 0 Ġ= Ġnew Ġdouble [ 6 ][ 7 ]; ĠDefault Inter val Category Dat as et Ġdefault Inter val Category Dat as et 0 Ġ= Ġnew ĠDefault Inter val Category Dat as et ( double </s> public ĠPaint Ġget Agg reg ated Items P aint () Ġ{ Ġreturn Ġthis . agg reg ated Items P aint ; Ġ} </s> assert Equ als ( 1 , Ġcolor 0 . get RGB ()) </s>
+11/21/2026 03:47:05 - INFO - utils -   input_ids: 0 15110 13842 1296 2546 43048 6989 28106 868 25522 1457 10975 46386 742 1457 48222 288 5457 92 1457 10975 401 46386 406 44082 35364 26267 6486 46308 43703 281 594 6814 26267 6486 46308 43703 281 594 288 5457 92 35364 26267 6486 46308 43703 281 594 1640 14582 2 15110 28134 120 46498 4950 1070 48485 510 12042 43048 25522 671 42 4 7165 4950 1070 48485 510 12042 131 35524 2 46346 28568 1536 1640 134 6 3195 288 4 6460 46647 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:47:05 - INFO - utils -   *** Example ***
+11/21/2026 03:47:05 - INFO - utils -   guid: 13
+11/21/2026 03:47:05 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 05 () Ġthrows ĠThrow able Ġ{ Ġdouble [ ][ ] Ġdouble Array 0 Ġ= Ġnew Ġdouble [ 6 ][ 7 ]; ĠDefault Inter val Category Dat as et Ġdefault Inter val Category Dat as et 0 Ġ= Ġnew ĠDefault Inter val Category Dat as et ( double </s> public ĠPaint Ġget Agg reg ated Items P aint () Ġ{ Ġreturn Ġthis . agg reg ated Items P aint ; Ġ} </s> assert Equ als ( 0 , Ġcolor 0 . get RGB ()) </s>
+11/21/2026 03:47:05 - INFO - utils -   input_ids: 0 15110 13842 1296 2546 43048 6989 28106 868 25522 1457 10975 46386 742 1457 48222 288 5457 92 1457 10975 401 46386 406 44082 35364 26267 6486 46308 43703 281 594 6814 26267 6486 46308 43703 281 594 288 5457 92 35364 26267 6486 46308 43703 281 594 1640 14582 2 15110 28134 120 46498 4950 1070 48485 510 12042 43048 25522 671 42 4 7165 4950 1070 48485 510 12042 131 35524 2 46346 28568 1536 1640 288 6 3195 288 4 6460 46647 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:47:05 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:47:05 - INFO - utils -   *** Example ***
+11/21/2026 03:47:05 - INFO - utils -   guid: 30
+11/21/2026 03:47:05 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 16 () Ġthrows ĠThrow able Ġ{ Ġdouble [ ][ ] Ġdouble Array 0 Ġ= Ġnew Ġdouble [ 3 ][ 4 ]; ĠDefault Inter val Category Dat as et Ġdefault Inter val Category Dat as et 0 Ġ= Ġnew ĠDefault Inter val Category Dat as et ( double </s> public ĠLegend Item Collection Ġget Legend Items () Ġ{ ĠLegend Item Collection Ġresult Ġ= Ġnew ĠLegend Item Collection (); Ġif Ġ( this . dat as et Ġ!= Ġnull ) Ġ{ ĠList Ġkeys Ġ= Ġnull ; Ġpref etch Section P aints (); Ġif Ġ( this . data Ext ract Order Ġ== ĠTable Order . BY _ R OW ) Ġ{ Ġkeys Ġ= Ġthis . dat as et . get Column Keys (); Ġ} Ġelse Ġif Ġ( this . data Ext ract Order Ġ== ĠTable Order . BY _ COL UM N ) Ġ{ Ġkeys Ġ= Ġthis . dat as et . get Row Keys (); Ġ} Ġif Ġ( keys Ġ!= Ġnull ) Ġ{ Ġint Ġsection Ġ= Ġ0 ; ĠIter ator Ġiterator Ġ= Ġkeys . iterator (); Ġwhile Ġ( iterator . has Next </s> assert Equ als ( 0 , Ġlegend Item Collection 0 . get Item Count ()) </s>
+11/21/2026 03:47:05 - INFO - utils -   input_ids: 0 15110 13842 1296 1549 43048 6989 28106 868 25522 1457 10975 46386 742 1457 48222 288 5457 92 1457 10975 246 46386 306 44082 35364 26267 6486 46308 43703 281 594 6814 26267 6486 46308 43703 281 594 288 5457 92 35364 26267 6486 46308 43703 281 594 1640 14582 2 15110 17364 47599 48426 120 46530 48485 43048 25522 17364 47599 48426 898 5457 92 17364 47599 48426 47006 114 36 9226 4 36146 281 594 49333 23796 43 25522 9527 10654 5457 23796 131 33284 29094 43480 510 24487 47006 114 36 9226 4 23687 40884 15664 45613 45994 9513 45613 4 19058 1215 500 4581 43 25522 10654 5457 42 4 36146 281 594 4 6460 47344 44534 47006 35524 1493 114 36 9226 4 23687 40884 15664 45613 45994 9513 45613 4 19058 1215 18047 5725 487 43 25522 10654 5457 42 4 36146 281 594 4 6460 43277 44534 47006 35524 114 36 18161 49333 23796 43 25522 6979 2810 5457 321 131 47476 2630 49757 5457 10654 4 49861 47006 150 36 49861 4 7333 19192 2 46346 28568 1536 1640 288 6 7875 47599 48426 288 4 6460 47599 23329 49338 2
+11/21/2026 03:47:05 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 03:47:05 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 03:47:05 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:47:05 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 03:47:05 - INFO - __main__ -     Num examples = 24
+11/21/2026 03:47:05 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 24 total truncations 20, mean_trunc 63.166666666666664, median 42.0, max = 211
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.38s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.38s/it]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.2459016393442623
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Chart -d /Users/bitu/mtech-tools/toga_out/Chart-12/suite -v 12f
+Checking out 852 to /tmp/fix_test_suite.pl_2989_1795261627................. --------------------------------------------------------------------------------
+Chart-12f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 852:846............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-12f....................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Chart -d /Users/bitu/mtech-tools/toga_out/Chart-12/suite -o /Users/bitu/mtech-tools/toga_out/Chart-12/detect
+Extract test suite......................................................... Executing test suite: Chart-12f-toga.1.tar.bz2
+OK
+Checking out 852 to /tmp/run_bug_detection.pl_3261_1795261733/V_fixed...... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 852:846............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-12f....................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 852 to /tmp/run_bug_detection.pl_3261_1795261733/V_buggy...... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 852:846............................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-12b....................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

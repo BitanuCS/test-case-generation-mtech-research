@@ -1,0 +1,139 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Chart-10/evo /Users/bitu/mtech-tools/work/Chart-10f/source Chart 10 /Users/bitu/mtech-tools/toga_out/Chart-10
+2 test prefixes, 2 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Chart-10/inputs.csv /Users/bitu/mtech-tools/toga_out/Chart-10/meta.csv
+11/21/2026 03:45:12 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 03:45:13 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 03:45:15 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 03:45:15 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 03:45:15 - INFO - utils -   Writing example 0 of 2
+11/21/2026 03:45:15 - INFO - utils -   *** Example ***
+11/21/2026 03:45:15 - INFO - utils -   guid: test-0
+11/21/2026 03:45:15 - INFO - utils -   tokens: <s> public ĠString Ġgenerate Tool Tip Frag ment ( String Ġtool Tip Text ) Ġ{ Ġreturn Ġ" Ġtitle =\" " Ġ+ ĠImage Map Ut ilities . html E scape ( tool Tip Text ) Ġ+ Ġ" \" Ġalt =\" \" "; Ġ} </s> public Ġvoid Ġtest Gener ate Tool Tip Frag ment () Ġ{ ĠStandard Tool Tip Tag Frag ment Gener ator Ġstandard Tool Tip Tag Frag ment Gener ator 0 Ġ= Ġnew ĠStandard Tool Tip Tag Frag ment Gener ator (); ĠString Ġstring 0 Ġ= Ġstandard Tool Tip Tag Frag ment Gener ator 0 . gener ate Tool Tip Frag ment (" S ĠI 8 A 3 Y n 3 P 6 ^ 9 ; "); Ġ} </s>
+11/21/2026 03:45:15 - INFO - utils -   input_ids: 0 15110 26602 5368 46620 43691 47881 1757 1640 34222 3944 43691 39645 43 25522 671 22 1270 50003 113 2055 2960 41151 41967 42651 4 6660 717 18795 1640 43342 43691 39645 43 2055 22 48110 11838 50003 48110 25718 35524 2 15110 13842 1296 40025 877 46620 43691 47881 1757 43048 25522 5787 46620 43691 45650 47881 1757 40025 2630 2526 46620 43691 45650 47881 1757 40025 2630 288 5457 92 5787 46620 43691 45650 47881 1757 40025 2630 47006 26602 6755 288 5457 2526 46620 43691 45650 47881 1757 40025 2630 288 4 20557 877 46620 43691 47881 1757 46469 104 38 398 250 246 975 282 246 510 401 35227 466 131 45751 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:15 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:15 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:15 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:45:15 - INFO - utils -   *** Example ***
+11/21/2026 03:45:15 - INFO - utils -   guid: test-1
+11/21/2026 03:45:15 - INFO - utils -   tokens: <s> public ĠString Ġgenerate Tool Tip Frag ment ( String Ġtool Tip Text ) Ġ{ Ġreturn Ġ" Ġtitle =\" " Ġ+ ĠImage Map Ut ilities . html E scape ( tool Tip Text ) Ġ+ Ġ" \" Ġalt =\" \" "; Ġ} </s> public Ġvoid Ġtest Gener ate Tool Tip Frag ment () Ġ{ ĠStandard Tool Tip Tag Frag ment Gener ator Ġstandard Tool Tip Tag Frag ment Gener ator 0 Ġ= Ġnew ĠStandard Tool Tip Tag Frag ment Gener ator (); ĠString Ġstring 0 Ġ= Ġstandard Tool Tip Tag Frag ment Gener ator 0 . gener ate Tool Tip Frag ment (" S ĠI 8 A 3 Y n 3 P 6 ^ 9 ; "); Ġ} </s>
+11/21/2026 03:45:15 - INFO - utils -   input_ids: 0 15110 26602 5368 46620 43691 47881 1757 1640 34222 3944 43691 39645 43 25522 671 22 1270 50003 113 2055 2960 41151 41967 42651 4 6660 717 18795 1640 43342 43691 39645 43 2055 22 48110 11838 50003 48110 25718 35524 2 15110 13842 1296 40025 877 46620 43691 47881 1757 43048 25522 5787 46620 43691 45650 47881 1757 40025 2630 2526 46620 43691 45650 47881 1757 40025 2630 288 5457 92 5787 46620 43691 45650 47881 1757 40025 2630 47006 26602 6755 288 5457 2526 46620 43691 45650 47881 1757 40025 2630 288 4 20557 877 46620 43691 47881 1757 46469 104 38 398 250 246 975 282 246 510 401 35227 466 131 45751 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:15 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:15 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:15 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:45:15 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 03:45:15 - INFO - __main__ -     Num examples = 2
+11/21/2026 03:45:15 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 2 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.06it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.05it/s]
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1879: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+11/21/2026 03:45:18 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 03:45:20 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 03:45:21 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 03:45:21 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 03:45:21 - INFO - utils -   Writing example 0 of 1
+11/21/2026 03:45:21 - INFO - utils -   *** Example ***
+11/21/2026 03:45:21 - INFO - utils -   guid: 0
+11/21/2026 03:45:21 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 0 () Ġthrows ĠThrow able Ġ{ ĠStandard Tool Tip Tag Frag ment Gener ator Ġstandard Tool Tip Tag Frag ment Gener ator 0 Ġ= Ġnew ĠStandard Tool Tip Tag Frag ment Gener ator (); ĠString Ġstring 0 Ġ= Ġstandard Tool Tip Tag Frag ment Gener ator 0 </s> public ĠString Ġgenerate Tool Tip Frag ment ( String Ġtool Tip Text ) Ġ{ Ġreturn Ġ" Ġtitle =\" " Ġ+ ĠImage Map Ut ilities . html E scape ( tool Tip Text ) Ġ+ Ġ" \" Ġalt =\" \" "; Ġ} </s> assert Not Null ( string 0 ) </s>
+11/21/2026 03:45:21 - INFO - utils -   input_ids: 0 15110 13842 1296 288 43048 6989 28106 868 25522 5787 46620 43691 45650 47881 1757 40025 2630 2526 46620 43691 45650 47881 1757 40025 2630 288 5457 92 5787 46620 43691 45650 47881 1757 40025 2630 47006 26602 6755 288 5457 2526 46620 43691 45650 47881 1757 40025 2630 288 2 15110 26602 5368 46620 43691 47881 1757 1640 34222 3944 43691 39645 43 25522 671 22 1270 50003 113 2055 2960 41151 41967 42651 4 6660 717 18795 1640 43342 43691 39645 43 2055 22 48110 11838 50003 48110 25718 35524 2 46346 7199 49302 1640 20951 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:21 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:21 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:45:21 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:45:21 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 03:45:21 - INFO - __main__ -     Num examples = 1
+11/21/2026 03:45:21 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 1 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  6.24it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  6.23it/s]
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1879: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.0
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Chart -d /Users/bitu/mtech-tools/toga_out/Chart-10/suite -v 10f
+Checking out 1065 to /tmp/fix_test_suite.pl_2247_1795261522................ --------------------------------------------------------------------------------
+Chart-10f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1065:1064............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-10f....................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Chart -d /Users/bitu/mtech-tools/toga_out/Chart-10/suite -o /Users/bitu/mtech-tools/toga_out/Chart-10/detect
+Extract test suite......................................................... Executing test suite: Chart-10f-toga.1.tar.bz2
+OK
+Checking out 1065 to /tmp/run_bug_detection.pl_2408_1795261546/V_fixed..... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1065:1064............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-10f....................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 1065 to /tmp/run_bug_detection.pl_2408_1795261546/V_buggy..... OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 1065:1064............................................................. OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Chart-10b....................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

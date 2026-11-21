@@ -1,0 +1,236 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test00,"  public void test00()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""!%R3{2,}FMz'"", hashMap0);
+      assertEquals(""!%R3{2}FMz"", extendedMessageFormat0.toPattern());
+}",0,assertNotNull(extendedMessageFormat0.toPattern())
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test00,"  public void test00()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""!%R3{2,}FMz'"", hashMap0);
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test01,"  public void test01()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      // Undeclared exception!
+      try { 
+        extendedMessageFormat0.setFormat(22, extendedMessageFormat0);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",1,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test02,"  public void test02()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""i1d"");
+      // Undeclared exception!
+      try { 
+        extendedMessageFormat0.setFormatsByArgumentIndex((Format[]) null);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",1,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test03,"  public void test03()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      Format[] formatArray0 = new Format[0];
+      // Undeclared exception!
+      try { 
+        extendedMessageFormat0.setFormats(formatArray0);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",1,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test04,"  public void test04()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""4LxOBa]/vCgQX2gQh"");
+      String string0 = extendedMessageFormat0.toPattern();
+      assertEquals(""4LxOBa]/vCgQX2gQh"", string0);
+}",0,assertNotNull(string0)
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test04,"  public void test04()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""4LxOBa]/vCgQX2gQh"");
+      String string0 = extendedMessageFormat0.toPattern();
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test05,"  public void test05()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""%S\""mdymj"");
+      extendedMessageFormat0.hashCode();
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test06,"  public void test06()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      // Undeclared exception!
+      try { 
+        extendedMessageFormat0.setFormatByArgumentIndex(2517, extendedMessageFormat0);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",1,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test07,"  public void test07()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""!>R3{2,{vFu''"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unterminated format element at position 7
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test08,"  public void test08()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""D%Z<Y=W{4 }gku/"", hashMap0);
+      assertEquals(""D%Z<Y=W{4}gku/"", extendedMessageFormat0.toPattern());
+}",0,assertNotNull(extendedMessageFormat0.toPattern())
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test08,"  public void test08()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""D%Z<Y=W{4 }gku/"", hashMap0);
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test09,"  public void test09()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("" has no clone method"");
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat1 = new ExtendedMessageFormat("" has no clone method"", hashMap0);
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat1);
+      assertEquals("" has no clone method"", extendedMessageFormat1.toPattern());
+}",0,assertNotNull(extendedMessageFormat1.toPattern())
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test09,"  public void test09()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("" has no clone method"");
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat1 = new ExtendedMessageFormat("" has no clone method"", hashMap0);
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat1);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test09,"  public void test09()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("" has no clone method"");
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat1 = new ExtendedMessageFormat("" has no clone method"", hashMap0);
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat1);
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test10,"  public void test10()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat0);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test10,"  public void test10()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      boolean boolean0 = extendedMessageFormat0.equals(extendedMessageFormat0);
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test11,"  public void test11()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""Cannot get the toString of a null identWty"", (Map<String, ? extends FormatFactory>) null);
+      boolean boolean0 = extendedMessageFormat0.equals((Object) null);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test11,"  public void test11()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""Cannot get the toString of a null identWty"", (Map<String, ? extends FormatFactory>) null);
+      boolean boolean0 = extendedMessageFormat0.equals((Object) null);
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test12,"  public void test12()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""4LxOBa]/vQXY2gQh"");
+      boolean boolean0 = extendedMessageFormat0.equals(""4LxOBa]/vQXY2gQh"");
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test12,"  public void test12()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""4LxOBa]/vQXY2gQh"");
+      boolean boolean0 = extendedMessageFormat0.equals(""4LxOBa]/vQXY2gQh"");
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test13,"  public void test13()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      Object object0 = extendedMessageFormat0.clone();
+      boolean boolean0 = extendedMessageFormat0.equals(object0);
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test13,"  public void test13()  throws Throwable  {
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat("""");
+      Object object0 = extendedMessageFormat0.clone();
+      boolean boolean0 = extendedMessageFormat0.equals(object0);
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test14,"  public void test14()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      FormatFactory formatFactory0 = mock(FormatFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Format) null).when(formatFactory0).getFormat(anyString() , anyString() , any(java.util.Locale.class));
+      hashMap0.put("""", formatFactory0);
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""!%R3{2,}FMz'"", hashMap0);
+      assertEquals(""!%R3{2}FMz"", extendedMessageFormat0.toPattern());
+}",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test14,"  public void test14()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      FormatFactory formatFactory0 = mock(FormatFactory.class, new ViolatedAssumptionAnswer());
+      doReturn((Format) null).when(formatFactory0).getFormat(anyString() , anyString() , any(java.util.Locale.class));
+      hashMap0.put("""", formatFactory0);
+      ExtendedMessageFormat extendedMessageFormat0 = new ExtendedMessageFormat(""!%R3{2,}FMz'"", hashMap0);
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test15,"  public void test15()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""FD;S/F-a/\""Zf'{}M;"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid format argument index at position 14: }
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test16,"  public void test16()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""D%Z<Y=W{4 ,gru/"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unterminated format element at position 12
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test17,"  public void test17()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""R0%aNZY=Y{4 ^\""PBy/"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid format argument index at position 11: 4 ^
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test18,"  public void test18()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""i1Y=j{4,gJ{u}"", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unterminated format element at position 9
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",0,
+Lang,23,org.apache.commons.lang3.text.ExtendedMessageFormat_ESTest::test19,"  public void test19()  throws Throwable  {
+      HashMap<String, FormatFactory> hashMap0 = new HashMap<String, FormatFactory>();
+      ExtendedMessageFormat extendedMessageFormat0 = null;
+      try {
+        extendedMessageFormat0 = new ExtendedMessageFormat(""H%M$XY{ "", hashMap0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Unterminated format element at position 8
+         //
+         verifyException(""org.apache.commons.lang3.text.ExtendedMessageFormat"", e);
+      }
+  }",0,

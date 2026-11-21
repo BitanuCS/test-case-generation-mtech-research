@@ -1,0 +1,49 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Gson,6,com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory_ESTest::test0,"  public void test0()  throws Throwable  {
+      Gson gson0 = new Gson();
+      Class<Integer> class0 = Integer.TYPE;
+      JsonAdapter jsonAdapter0 = mock(JsonAdapter.class, new ViolatedAssumptionAnswer());
+      doReturn(class0).when(jsonAdapter0).value();
+      TypeToken<Integer> typeToken0 = TypeToken.get(class0);
+      // Undeclared exception!
+      try { 
+        JsonAdapterAnnotationTypeAdapterFactory.getTypeAdapter((ConstructorConstructor) null, gson0, typeToken0, jsonAdapter0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // @JsonAdapter value must be TypeAdapter or TypeAdapterFactory reference.
+         //
+         verifyException(""com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory"", e);
+      }
+  }",0,
+Gson,6,com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory_ESTest::test1,"  public void test1()  throws Throwable  {
+      JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory0 = new JsonAdapterAnnotationTypeAdapterFactory((ConstructorConstructor) null);
+      Class<Integer> class0 = Integer.class;
+      TypeToken<Integer> typeToken0 = TypeToken.get(class0);
+      TypeAdapter<Integer> typeAdapter0 = jsonAdapterAnnotationTypeAdapterFactory0.create((Gson) null, typeToken0);
+      assertNull(typeAdapter0);
+}",0,
+Gson,6,com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory_ESTest::test1,"  public void test1()  throws Throwable  {
+      JsonAdapterAnnotationTypeAdapterFactory jsonAdapterAnnotationTypeAdapterFactory0 = new JsonAdapterAnnotationTypeAdapterFactory((ConstructorConstructor) null);
+      Class<Integer> class0 = Integer.class;
+      TypeToken<Integer> typeToken0 = TypeToken.get(class0);
+      TypeAdapter<Integer> typeAdapter0 = jsonAdapterAnnotationTypeAdapterFactory0.create((Gson) null, typeToken0);
+  }",0,
+Gson,6,com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory_ESTest::test2,"  public void test2()  throws Throwable  {
+      Gson gson0 = new Gson();
+      Class<SqlDateTypeAdapter> class0 = SqlDateTypeAdapter.class;
+      Class<Integer> class1 = Integer.class;
+      TypeToken<Integer> typeToken0 = TypeToken.get(class1);
+      JsonAdapter jsonAdapter0 = mock(JsonAdapter.class, new ViolatedAssumptionAnswer());
+      doReturn(class0).when(jsonAdapter0).value();
+      // Undeclared exception!
+      try { 
+        JsonAdapterAnnotationTypeAdapterFactory.getTypeAdapter((ConstructorConstructor) null, gson0, typeToken0, jsonAdapter0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory"", e);
+      }
+  }",0,

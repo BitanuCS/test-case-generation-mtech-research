@@ -1,0 +1,3642 @@
+focal_method,test_prefix,docstring
+"    public int get(DateTimeFieldType type) {
+        return getValue(indexOfSupported(type));
+    }","  public void test00()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, 987);
+      Partial.Property partial_Property0 = partial0.property(dateTimeFieldType0);
+      partial_Property0.withMinimumValue();
+      assertEquals(987, partial_Property0.get());
+}","/**
+     * Get the value of one of the fields of a datetime.
+     * <p>
+     * The field specified must be one of those that is supported by the partial.
+     *
+     * @param type  a DateTimeFieldType instance that is supported by this partial
+     * @return the value of that field
+     * @throws IllegalArgumentException if the field is null or not supported
+     */"
+"    public Property property(DateTimeFieldType type) {
+        return new Property(this, indexOfSupported(type));
+    }","  public void test00()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, 987);
+      Partial.Property partial_Property0 = partial0.property(dateTimeFieldType0);
+      partial_Property0.withMinimumValue();
+  }","/**
+     * Gets the property object for the specified type, which contains
+     * many useful methods for getting and manipulating the partial.
+     * <p>
+     * See also {@link ReadablePartial#get(DateTimeFieldType)}.
+     *
+     * @param type  the field type to get the property for, not null
+     * @return the property object
+     * @throws IllegalArgumentException if the field is null or unsupported
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test01()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[2];
+      int[] intArray0 = new int[2];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, intArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Types array must not contain null: index 0
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public int size() {
+        return iTypes.length;
+    }","  public void test02()  throws Throwable  {
+      Partial partial0 = new Partial();
+      assertEquals(0, partial0.size());
+}","/**
+     * Gets the number of fields in this partial.
+     * 
+     * @return the field count
+     */"
+"    public Partial minus(ReadablePeriod period) {
+        return withPeriodAdded(period, -1);
+    }","  public void test02()  throws Throwable  {
+      Partial partial0 = new Partial();
+      Minutes minutes0 = Minutes.ZERO;
+      Partial partial1 = partial0.minus(minutes0);
+      assertNotSame(partial1, partial0);
+}","/**
+     * Gets a copy of this instance with the specified period take away.
+     * <p>
+     * If the amount is zero or null, then <code>this</code> is returned.
+     *
+     * @param period  the period to reduce this instant by
+     * @return a copy of this instance with the period taken away
+     * @throws ArithmeticException if the new datetime exceeds the capacity of a long
+     */"
+"    public boolean equals(Object partial) {
+        if (this == partial) {
+            return true;
+        }
+        if (partial instanceof ReadablePartial == false) {
+            return false;
+        }
+        ReadablePartial other = (ReadablePartial) partial;
+        if (size() != other.size()) {
+            return false;
+        }
+        for (int i = 0, isize = size(); i < isize; i++) {
+            if (getValue(i) != other.getValue(i) || getFieldType(i) != other.getFieldType(i)) {
+                return false;
+            }
+        }
+        return FieldUtils.equals(getChronology(), other.getChronology());
+    }","  public void test02()  throws Throwable  {
+      Partial partial0 = new Partial();
+      Minutes minutes0 = Minutes.ZERO;
+      Partial partial1 = partial0.minus(minutes0);
+      assertTrue(partial1.equals((Object)partial0));
+}","/**
+     * Compares this ReadablePartial with another returning true if the chronology,
+     * field types and values are equal.
+     *
+     * @param partial  an object to check against
+     * @return true if fields and values are equal
+     */"
+"    public Partial minus(ReadablePeriod period) {
+        return withPeriodAdded(period, -1);
+    }","  public void test02()  throws Throwable  {
+      Partial partial0 = new Partial();
+      Minutes minutes0 = Minutes.ZERO;
+      Partial partial1 = partial0.minus(minutes0);
+  }","/**
+     * Gets a copy of this instance with the specified period take away.
+     * <p>
+     * If the amount is zero or null, then <code>this</code> is returned.
+     *
+     * @param period  the period to reduce this instant by
+     * @return a copy of this instance with the period taken away
+     * @throws ArithmeticException if the new datetime exceeds the capacity of a long
+     */"
+"    public int size() {
+        return iTypes.length;
+    }","  public void test03()  throws Throwable  {
+      CopticChronology copticChronology0 = CopticChronology.getInstanceUTC();
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.era();
+      Partial partial0 = new Partial(dateTimeFieldType0, 1, copticChronology0);
+      Partial partial1 = partial0.without(dateTimeFieldType0);
+      assertEquals(0, partial1.size());
+}","/**
+     * Gets the number of fields in this partial.
+     * 
+     * @return the field count
+     */"
+"    public Partial without(DateTimeFieldType fieldType) {
+        int index = indexOf(fieldType);
+        if (index != -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[size() - 1];
+            int[] newValues = new int[size() - 1];
+            System.arraycopy(iTypes, 0, newTypes, 0, index);
+            System.arraycopy(iTypes, index + 1, newTypes, index, newTypes.length - index);
+            System.arraycopy(iValues, 0, newValues, 0, index);
+            System.arraycopy(iValues, index + 1, newValues, index, newValues.length - index);
+            Partial newPartial = new Partial(iChronology, newTypes, newValues);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        return this;
+    }","  public void test03()  throws Throwable  {
+      CopticChronology copticChronology0 = CopticChronology.getInstanceUTC();
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.era();
+      Partial partial0 = new Partial(dateTimeFieldType0, 1, copticChronology0);
+      Partial partial1 = partial0.without(dateTimeFieldType0);
+  }","/**
+     * Gets a copy of this date with the specified field removed.
+     * <p>
+     * If this partial did not previously support the field, no error occurs.
+     *
+     * @param fieldType  the field type to remove, may be null
+     * @return a copy of this instance with the field removed
+     */"
+"    public Partial withField(DateTimeFieldType fieldType, int value) {
+        int index = indexOfSupported(fieldType);
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test04()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-557));
+      Partial partial1 = partial0.withField(dateTimeFieldType0, (-557));
+      assertSame(partial1, partial0);
+}","/**
+     * Gets a copy of this Partial with the specified field set to a new value.
+     * <p>
+     * If this partial does not support the field, an exception is thrown.
+     * Contrast this behaviour with {@link #with(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed in the returned instance if supported.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial withField(DateTimeFieldType fieldType, int value) {
+        int index = indexOfSupported(fieldType);
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test04()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-557));
+      Partial partial1 = partial0.withField(dateTimeFieldType0, (-557));
+  }","/**
+     * Gets a copy of this Partial with the specified field set to a new value.
+     * <p>
+     * If this partial does not support the field, an exception is thrown.
+     * Contrast this behaviour with {@link #with(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed in the returned instance if supported.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial plus(ReadablePeriod period) {
+        return withPeriodAdded(period, 1);
+    }","  public void test05()  throws Throwable  {
+      LocalDate localDate0 = LocalDate.now();
+      Partial partial0 = new Partial(localDate0);
+      Minutes minutes0 = Minutes.ZERO;
+      Partial partial1 = partial0.plus(minutes0);
+      assertNotSame(partial1, partial0);
+}","/**
+     * Gets a copy of this instance with the specified period added.
+     * <p>
+     * If the amount is zero or null, then <code>this</code> is returned.
+     *
+     * @param period  the duration to add to this one, null means zero
+     * @return a copy of this instance with the period added
+     * @throws ArithmeticException if the new datetime exceeds the capacity of a long
+     */"
+"    public boolean equals(Object partial) {
+        if (this == partial) {
+            return true;
+        }
+        if (partial instanceof ReadablePartial == false) {
+            return false;
+        }
+        ReadablePartial other = (ReadablePartial) partial;
+        if (size() != other.size()) {
+            return false;
+        }
+        for (int i = 0, isize = size(); i < isize; i++) {
+            if (getValue(i) != other.getValue(i) || getFieldType(i) != other.getFieldType(i)) {
+                return false;
+            }
+        }
+        return FieldUtils.equals(getChronology(), other.getChronology());
+    }","  public void test05()  throws Throwable  {
+      LocalDate localDate0 = LocalDate.now();
+      Partial partial0 = new Partial(localDate0);
+      Minutes minutes0 = Minutes.ZERO;
+      Partial partial1 = partial0.plus(minutes0);
+      assertTrue(partial1.equals((Object)partial0));
+}","/**
+     * Compares this ReadablePartial with another returning true if the chronology,
+     * field types and values are equal.
+     *
+     * @param partial  an object to check against
+     * @return true if fields and values are equal
+     */"
+"    public Partial plus(ReadablePeriod period) {
+        return withPeriodAdded(period, 1);
+    }","  public void test05()  throws Throwable  {
+      LocalDate localDate0 = LocalDate.now();
+      Partial partial0 = new Partial(localDate0);
+      Minutes minutes0 = Minutes.ZERO;
+      Partial partial1 = partial0.plus(minutes0);
+  }","/**
+     * Gets a copy of this instance with the specified period added.
+     * <p>
+     * If the amount is zero or null, then <code>this</code> is returned.
+     *
+     * @param period  the duration to add to this one, null means zero
+     * @return a copy of this instance with the period added
+     * @throws ArithmeticException if the new datetime exceeds the capacity of a long
+     */"
+"    public DateTimeFieldType[] getFieldTypes() {
+        return (DateTimeFieldType[]) iTypes.clone();
+    }","  public void test06()  throws Throwable  {
+      Partial partial0 = new Partial();
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = partial0.getFieldTypes();
+      assertEquals(0, dateTimeFieldTypeArray0.length);
+}","/**
+     * Gets an array of the field type of each of the fields that
+     * this partial supports.
+     * <p>
+     * The fields are returned largest to smallest.
+     *
+     * @return the array of field types (cloned), largest to smallest
+     */"
+"    public DateTimeFieldType[] getFieldTypes() {
+        return (DateTimeFieldType[]) iTypes.clone();
+    }","  public void test06()  throws Throwable  {
+      Partial partial0 = new Partial();
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = partial0.getFieldTypes();
+  }","/**
+     * Gets an array of the field type of each of the fields that
+     * this partial supports.
+     * <p>
+     * The fields are returned largest to smallest.
+     *
+     * @return the array of field types (cloned), largest to smallest
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test07()  throws Throwable  {
+      GregorianChronology gregorianChronology0 = GregorianChronology.getInstance();
+      Partial partial0 = new Partial(gregorianChronology0);
+      Partial.Property partial_Property0 = new Partial.Property(partial0, 122);
+      // Undeclared exception!
+      try { 
+        partial_Property0.setCopy((String) null);
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // Index 122 out of bounds for length 0
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public int get(DateTimeFieldType type) {
+        return getValue(indexOfSupported(type));
+    }","  public void test08()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial.Property partial_Property0 = new Partial.Property(partial0, 0);
+      int int0 = partial_Property0.get();
+      assertEquals(0, int0);
+}","/**
+     * Get the value of one of the fields of a datetime.
+     * <p>
+     * The field specified must be one of those that is supported by the partial.
+     *
+     * @param type  a DateTimeFieldType instance that is supported by this partial
+     * @return the value of that field
+     * @throws IllegalArgumentException if the field is null or not supported
+     */"
+"    public int get(DateTimeFieldType type) {
+        return getValue(indexOfSupported(type));
+    }","  public void test08()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial.Property partial_Property0 = new Partial.Property(partial0, 0);
+      int int0 = partial_Property0.get();
+  }","/**
+     * Get the value of one of the fields of a datetime.
+     * <p>
+     * The field specified must be one of those that is supported by the partial.
+     *
+     * @param type  a DateTimeFieldType instance that is supported by this partial
+     * @return the value of that field
+     * @throws IllegalArgumentException if the field is null or not supported
+     */"
+"    public int size() {
+        return iTypes.length;
+    }","  public void test09()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.weekyearOfCentury();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial.Property partial_Property0 = partial0.property(dateTimeFieldType0);
+      Partial partial1 = partial_Property0.addWrapFieldToCopy((-434));
+      assertEquals(1, partial1.size());
+}","/**
+     * Gets the number of fields in this partial.
+     * 
+     * @return the field count
+     */"
+"    public Property property(DateTimeFieldType type) {
+        return new Property(this, indexOfSupported(type));
+    }","  public void test09()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.weekyearOfCentury();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial.Property partial_Property0 = partial0.property(dateTimeFieldType0);
+      Partial partial1 = partial_Property0.addWrapFieldToCopy((-434));
+  }","/**
+     * Gets the property object for the specified type, which contains
+     * many useful methods for getting and manipulating the partial.
+     * <p>
+     * See also {@link ReadablePartial#get(DateTimeFieldType)}.
+     *
+     * @param type  the field type to get the property for, not null
+     * @return the property object
+     * @throws IllegalArgumentException if the field is null or unsupported
+     */"
+"    public Property property(DateTimeFieldType type) {
+        return new Property(this, indexOfSupported(type));
+    }","  public void test10()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.era();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial.Property partial_Property0 = partial0.property(dateTimeFieldType0);
+      Partial partial1 = partial_Property0.getPartial();
+      assertSame(partial1, partial0);
+}","/**
+     * Gets the property object for the specified type, which contains
+     * many useful methods for getting and manipulating the partial.
+     * <p>
+     * See also {@link ReadablePartial#get(DateTimeFieldType)}.
+     *
+     * @param type  the field type to get the property for, not null
+     * @return the property object
+     * @throws IllegalArgumentException if the field is null or unsupported
+     */"
+"    public Property property(DateTimeFieldType type) {
+        return new Property(this, indexOfSupported(type));
+    }","  public void test10()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.era();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial.Property partial_Property0 = partial0.property(dateTimeFieldType0);
+      Partial partial1 = partial_Property0.getPartial();
+  }","/**
+     * Gets the property object for the specified type, which contains
+     * many useful methods for getting and manipulating the partial.
+     * <p>
+     * See also {@link ReadablePartial#get(DateTimeFieldType)}.
+     *
+     * @param type  the field type to get the property for, not null
+     * @return the property object
+     * @throws IllegalArgumentException if the field is null or unsupported
+     */"
+"    public Property property(DateTimeFieldType type) {
+        return new Property(this, indexOfSupported(type));
+    }","  public void test11()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-546));
+      Partial.Property partial_Property0 = partial0.property(dateTimeFieldType0);
+      Partial partial1 = partial_Property0.addToCopy(5);
+      assertNotSame(partial0, partial1);
+}","/**
+     * Gets the property object for the specified type, which contains
+     * many useful methods for getting and manipulating the partial.
+     * <p>
+     * See also {@link ReadablePartial#get(DateTimeFieldType)}.
+     *
+     * @param type  the field type to get the property for, not null
+     * @return the property object
+     * @throws IllegalArgumentException if the field is null or unsupported
+     */"
+"    public Property property(DateTimeFieldType type) {
+        return new Property(this, indexOfSupported(type));
+    }","  public void test11()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-546));
+      Partial.Property partial_Property0 = partial0.property(dateTimeFieldType0);
+      Partial partial1 = partial_Property0.addToCopy(5);
+  }","/**
+     * Gets the property object for the specified type, which contains
+     * many useful methods for getting and manipulating the partial.
+     * <p>
+     * See also {@link ReadablePartial#get(DateTimeFieldType)}.
+     *
+     * @param type  the field type to get the property for, not null
+     * @return the property object
+     * @throws IllegalArgumentException if the field is null or unsupported
+     */"
+"    public int size() {
+        return iTypes.length;
+    }","  public void test12()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial.Property partial_Property0 = new Partial.Property(partial0, 0);
+      Partial partial1 = partial_Property0.withMaximumValue();
+      assertEquals(1, partial1.size());
+}","/**
+     * Gets the number of fields in this partial.
+     * 
+     * @return the field count
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test12()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial.Property partial_Property0 = new Partial.Property(partial0, 0);
+      Partial partial1 = partial_Property0.withMaximumValue();
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test13()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[3];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0[0], (-1036));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // The field type must not be null
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test14()  throws Throwable  {
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial((DateTimeFieldType[]) null, (int[]) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Types array must not be null
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test15()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[5];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, (int[]) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Values array must not be null
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test16()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[0];
+      int[] intArray0 = new int[1];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, intArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Values array must be the same length as the types array
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public int size() {
+        return iTypes.length;
+    }","  public void test17()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[0];
+      int[] intArray0 = new int[0];
+      Partial partial0 = new Partial(dateTimeFieldTypeArray0, intArray0);
+      assertEquals(0, partial0.size());
+}","/**
+     * Gets the number of fields in this partial.
+     * 
+     * @return the field count
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test17()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[0];
+      int[] intArray0 = new int[0];
+      Partial partial0 = new Partial(dateTimeFieldTypeArray0, intArray0);
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test18()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.weekOfWeekyear();
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[2];
+      dateTimeFieldTypeArray0[0] = dateTimeFieldType0;
+      dateTimeFieldTypeArray0[1] = dateTimeFieldType0;
+      int[] intArray0 = new int[2];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, intArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Types array must not contain duplicate: weekOfWeekyear and weekOfWeekyear
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public int size() {
+        return iTypes.length;
+    }","  public void test19()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.hourOfHalfday();
+      LocalTime localTime0 = new LocalTime(1, 1, 1);
+      Partial partial0 = new Partial(localTime0);
+      Partial partial1 = partial0.with(dateTimeFieldType0, 1);
+      assertEquals(5, partial1.size());
+}","/**
+     * Gets the number of fields in this partial.
+     * 
+     * @return the field count
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test19()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.hourOfHalfday();
+      LocalTime localTime0 = new LocalTime(1, 1, 1);
+      Partial partial0 = new Partial(localTime0);
+      Partial partial1 = partial0.with(dateTimeFieldType0, 1);
+  }","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test20()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.era();
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[2];
+      dateTimeFieldTypeArray0[0] = dateTimeFieldType0;
+      dateTimeFieldTypeArray0[1] = dateTimeFieldType0;
+      int[] intArray0 = new int[2];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, intArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Types array must not contain duplicate unsupported: era and era
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test21()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[8];
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.weekyear();
+      dateTimeFieldTypeArray0[0] = dateTimeFieldType0;
+      DateTimeFieldType dateTimeFieldType1 = DateTimeFieldType.weekyearOfCentury();
+      dateTimeFieldTypeArray0[1] = dateTimeFieldType1;
+      DateTimeFieldType dateTimeFieldType2 = DateTimeFieldType.minuteOfDay();
+      dateTimeFieldTypeArray0[2] = dateTimeFieldType2;
+      DateTimeFieldType dateTimeFieldType3 = DateTimeFieldType.era();
+      dateTimeFieldTypeArray0[3] = dateTimeFieldType3;
+      dateTimeFieldTypeArray0[4] = dateTimeFieldType1;
+      dateTimeFieldTypeArray0[5] = dateTimeFieldType2;
+      dateTimeFieldTypeArray0[6] = dateTimeFieldType2;
+      dateTimeFieldTypeArray0[7] = dateTimeFieldType0;
+      int[] intArray0 = new int[8];
+      JulianChronology julianChronology0 = JulianChronology.getInstanceUTC();
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, intArray0, julianChronology0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Types array must be in order largest-smallest: minuteOfDay < era
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test22()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[2];
+      DateTimeFieldType dateTimeFieldType1 = DateTimeFieldType.monthOfYear();
+      dateTimeFieldTypeArray0[0] = dateTimeFieldType1;
+      dateTimeFieldTypeArray0[1] = dateTimeFieldType0;
+      int[] intArray0 = new int[2];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, intArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Types array must be in order largest-smallest: monthOfYear < year
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test23()  throws Throwable  {
+      LocalDate localDate0 = LocalDate.now();
+      Partial partial0 = new Partial(localDate0);
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.era();
+      // Undeclared exception!
+      try { 
+        partial0.with(dateTimeFieldType0, 6);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Value 6 for era must not be larger than 1
+         //
+         verifyException(""org.joda.time.chrono.BaseChronology"", e);
+      }
+  }","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test24()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.weekyear();
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[2];
+      dateTimeFieldTypeArray0[0] = dateTimeFieldType0;
+      dateTimeFieldTypeArray0[1] = dateTimeFieldType0;
+      int[] intArray0 = new int[2];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, intArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Types array must not contain duplicate: weekyear and weekyear
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test25()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[3];
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.yearOfCentury();
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstanceUTC();
+      dateTimeFieldTypeArray0[0] = dateTimeFieldType0;
+      DateTimeFieldType dateTimeFieldType1 = DateTimeFieldType.year();
+      dateTimeFieldTypeArray0[1] = dateTimeFieldType1;
+      dateTimeFieldTypeArray0[2] = dateTimeFieldType1;
+      int[] intArray0 = new int[3];
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial(dateTimeFieldTypeArray0, intArray0, buddhistChronology0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Types array must be in order largest-smallest: yearOfCentury < year
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial() {
+        this((Chronology) null);
+    }","  public void test26()  throws Throwable  {
+      Partial partial0 = null;
+      try {
+        partial0 = new Partial((ReadablePartial) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // The partial must not be null
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Constructs a Partial with no fields or values, which can be considered
+     * to represent any date.
+     * <p>
+     * This is most useful when constructing partials, for example:
+     * <pre>
+     * Partial p = new Partial()
+     *     .with(DateTimeFieldType.dayOfWeek(), 5)
+     *     .with(DateTimeFieldType.hourOfDay(), 12)
+     *     .with(DateTimeFieldType.minuteOfHour(), 20);
+     * </pre>
+     * Note that, although this is a clean way to write code, it is fairly
+     * inefficient internally.
+     * <p>
+     * The constructor uses the default ISO chronology.
+     */"
+"    public Partial withChronologyRetainFields(Chronology newChronology) {
+        newChronology = DateTimeUtils.getChronology(newChronology);
+        newChronology = newChronology.withUTC();
+        if (newChronology == getChronology()) {
+            return this;
+        } else {
+            Partial newPartial = new Partial(newChronology, iTypes, iValues);
+            newChronology.validate(newPartial, iValues);
+            return newPartial;
+        }
+    }","  public void test27()  throws Throwable  {
+      LocalDate localDate0 = LocalDate.now();
+      Partial partial0 = new Partial(localDate0);
+      GregorianChronology gregorianChronology0 = GregorianChronology.getInstance();
+      Partial partial1 = partial0.withChronologyRetainFields(gregorianChronology0);
+      assertNotSame(partial1, partial0);
+}","/**
+     * Creates a new Partial instance with the specified chronology.
+     * This instance is immutable and unaffected by this method call.
+     * <p>
+     * This method retains the values of the fields, thus the result will
+     * typically refer to a different instant.
+     * <p>
+     * The time zone of the specified chronology is ignored, as Partial
+     * operates without a time zone.
+     *
+     * @param newChronology  the new chronology, null means ISO
+     * @return a copy of this datetime with a different chronology
+     * @throws IllegalArgumentException if the values are invalid for the new chronology
+     */"
+"    public Partial withChronologyRetainFields(Chronology newChronology) {
+        newChronology = DateTimeUtils.getChronology(newChronology);
+        newChronology = newChronology.withUTC();
+        if (newChronology == getChronology()) {
+            return this;
+        } else {
+            Partial newPartial = new Partial(newChronology, iTypes, iValues);
+            newChronology.validate(newPartial, iValues);
+            return newPartial;
+        }
+    }","  public void test27()  throws Throwable  {
+      LocalDate localDate0 = LocalDate.now();
+      Partial partial0 = new Partial(localDate0);
+      GregorianChronology gregorianChronology0 = GregorianChronology.getInstance();
+      Partial partial1 = partial0.withChronologyRetainFields(gregorianChronology0);
+  }","/**
+     * Creates a new Partial instance with the specified chronology.
+     * This instance is immutable and unaffected by this method call.
+     * <p>
+     * This method retains the values of the fields, thus the result will
+     * typically refer to a different instant.
+     * <p>
+     * The time zone of the specified chronology is ignored, as Partial
+     * operates without a time zone.
+     *
+     * @param newChronology  the new chronology, null means ISO
+     * @return a copy of this datetime with a different chronology
+     * @throws IllegalArgumentException if the values are invalid for the new chronology
+     */"
+"    public Partial withChronologyRetainFields(Chronology newChronology) {
+        newChronology = DateTimeUtils.getChronology(newChronology);
+        newChronology = newChronology.withUTC();
+        if (newChronology == getChronology()) {
+            return this;
+        } else {
+            Partial newPartial = new Partial(newChronology, iTypes, iValues);
+            newChronology.validate(newPartial, iValues);
+            return newPartial;
+        }
+    }","  public void test28()  throws Throwable  {
+      Partial partial0 = new Partial();
+      ISOChronology iSOChronology0 = ISOChronology.getInstanceUTC();
+      Partial partial1 = partial0.withChronologyRetainFields(iSOChronology0);
+      assertSame(partial1, partial0);
+}","/**
+     * Creates a new Partial instance with the specified chronology.
+     * This instance is immutable and unaffected by this method call.
+     * <p>
+     * This method retains the values of the fields, thus the result will
+     * typically refer to a different instant.
+     * <p>
+     * The time zone of the specified chronology is ignored, as Partial
+     * operates without a time zone.
+     *
+     * @param newChronology  the new chronology, null means ISO
+     * @return a copy of this datetime with a different chronology
+     * @throws IllegalArgumentException if the values are invalid for the new chronology
+     */"
+"    public Partial withChronologyRetainFields(Chronology newChronology) {
+        newChronology = DateTimeUtils.getChronology(newChronology);
+        newChronology = newChronology.withUTC();
+        if (newChronology == getChronology()) {
+            return this;
+        } else {
+            Partial newPartial = new Partial(newChronology, iTypes, iValues);
+            newChronology.validate(newPartial, iValues);
+            return newPartial;
+        }
+    }","  public void test28()  throws Throwable  {
+      Partial partial0 = new Partial();
+      ISOChronology iSOChronology0 = ISOChronology.getInstanceUTC();
+      Partial partial1 = partial0.withChronologyRetainFields(iSOChronology0);
+  }","/**
+     * Creates a new Partial instance with the specified chronology.
+     * This instance is immutable and unaffected by this method call.
+     * <p>
+     * This method retains the values of the fields, thus the result will
+     * typically refer to a different instant.
+     * <p>
+     * The time zone of the specified chronology is ignored, as Partial
+     * operates without a time zone.
+     *
+     * @param newChronology  the new chronology, null means ISO
+     * @return a copy of this datetime with a different chronology
+     * @throws IllegalArgumentException if the values are invalid for the new chronology
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test29()  throws Throwable  {
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[3];
+      JulianChronology julianChronology0 = JulianChronology.getInstance();
+      Partial partial0 = new Partial(julianChronology0);
+      // Undeclared exception!
+      try { 
+        partial0.with(dateTimeFieldTypeArray0[0], (-375));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // The field type must not be null
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public int size() {
+        return iTypes.length;
+    }","  public void test30()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      Partial partial1 = partial0.with(dateTimeFieldType0, (-562));
+      assertEquals(1, partial1.size());
+}","/**
+     * Gets the number of fields in this partial.
+     * 
+     * @return the field count
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test30()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      Partial partial1 = partial0.with(dateTimeFieldType0, (-562));
+  }","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test31()  throws Throwable  {
+      CopticChronology copticChronology0 = CopticChronology.getInstanceUTC();
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.era();
+      Partial partial0 = new Partial(dateTimeFieldType0, 1, copticChronology0);
+      DateTimeFieldType dateTimeFieldType1 = DateTimeFieldType.dayOfMonth();
+      Partial partial1 = partial0.with(dateTimeFieldType1, 1);
+      assertNotSame(partial0, partial1);
+}","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test31()  throws Throwable  {
+      CopticChronology copticChronology0 = CopticChronology.getInstanceUTC();
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.era();
+      Partial partial0 = new Partial(dateTimeFieldType0, 1, copticChronology0);
+      DateTimeFieldType dateTimeFieldType1 = DateTimeFieldType.dayOfMonth();
+      Partial partial1 = partial0.with(dateTimeFieldType1, 1);
+  }","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test32()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      LocalTime localTime0 = new LocalTime(1, 1, 1);
+      Partial partial0 = new Partial(localTime0);
+      Partial partial1 = partial0.with(dateTimeFieldType0, 1);
+      assertNotSame(partial0, partial1);
+}","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test32()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      LocalTime localTime0 = new LocalTime(1, 1, 1);
+      Partial partial0 = new Partial(localTime0);
+      Partial partial1 = partial0.with(dateTimeFieldType0, 1);
+  }","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public int size() {
+        return iTypes.length;
+    }","  public void test33()  throws Throwable  {
+      LocalDate localDate0 = new LocalDate(0L);
+      Partial partial0 = new Partial(localDate0);
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.weekyear();
+      Partial partial1 = partial0.with(dateTimeFieldType0, 61);
+      assertEquals(4, partial1.size());
+}","/**
+     * Gets the number of fields in this partial.
+     * 
+     * @return the field count
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test33()  throws Throwable  {
+      LocalDate localDate0 = new LocalDate(0L);
+      Partial partial0 = new Partial(localDate0);
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.weekyear();
+      Partial partial1 = partial0.with(dateTimeFieldType0, 61);
+  }","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test34()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAddWrapped(durationFieldType0, (-1));
+      Partial partial2 = partial1.with(dateTimeFieldType0, (-562));
+      assertNotSame(partial2, partial1);
+}","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public boolean equals(Object partial) {
+        if (this == partial) {
+            return true;
+        }
+        if (partial instanceof ReadablePartial == false) {
+            return false;
+        }
+        ReadablePartial other = (ReadablePartial) partial;
+        if (size() != other.size()) {
+            return false;
+        }
+        for (int i = 0, isize = size(); i < isize; i++) {
+            if (getValue(i) != other.getValue(i) || getFieldType(i) != other.getFieldType(i)) {
+                return false;
+            }
+        }
+        return FieldUtils.equals(getChronology(), other.getChronology());
+    }","  public void test34()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAddWrapped(durationFieldType0, (-1));
+      Partial partial2 = partial1.with(dateTimeFieldType0, (-562));
+      assertTrue(partial2.equals((Object)partial0));
+}","/**
+     * Compares this ReadablePartial with another returning true if the chronology,
+     * field types and values are equal.
+     *
+     * @param partial  an object to check against
+     * @return true if fields and values are equal
+     */"
+"    public Partial with(DateTimeFieldType fieldType, int value) {
+        if (fieldType == null) {
+            throw new IllegalArgumentException(""The field type must not be null"");
+        }
+        int index = indexOf(fieldType);
+        if (index == -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[iTypes.length + 1];
+            int[] newValues = new int[newTypes.length];
+            
+            // find correct insertion point to keep largest-smallest order
+            int i = 0;
+            DurationField unitField = fieldType.getDurationType().getField(iChronology);
+            if (unitField.isSupported()) {
+                for (; i < iTypes.length; i++) {
+                    DateTimeFieldType loopType = iTypes[i];
+                    DurationField loopUnitField = loopType.getDurationType().getField(iChronology);
+                    if (loopUnitField.isSupported()) {
+                        int compare = unitField.compareTo(loopUnitField);
+                        if (compare > 0) {
+                            break;
+                        } else if (compare == 0) {
+                            if (fieldType.getRangeDurationType() == null) {
+                                break;
+                            }
+                            DurationField rangeField = fieldType.getRangeDurationType().getField(iChronology);
+                            DurationField loopRangeField = loopType.getRangeDurationType().getField(iChronology);
+                            if (rangeField.compareTo(loopRangeField) > 0) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            System.arraycopy(iTypes, 0, newTypes, 0, i);
+            System.arraycopy(iValues, 0, newValues, 0, i);
+            newTypes[i] = fieldType;
+            newValues[i] = value;
+            System.arraycopy(iTypes, i, newTypes, i + 1, newTypes.length - i - 1);
+            System.arraycopy(iValues, i, newValues, i + 1, newValues.length - i - 1);
+            // use public constructor to ensure full validation
+            // this isn't overly efficient, but is safe
+            Partial newPartial = new Partial(newTypes, newValues, iChronology);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test34()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAddWrapped(durationFieldType0, (-1));
+      Partial partial2 = partial1.with(dateTimeFieldType0, (-562));
+  }","/**
+     * Gets a copy of this date with the specified field set to a new value.
+     * <p>
+     * If this partial did not previously support the field, the new one will.
+     * Contrast this behaviour with {@link #withField(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed/added in the returned instance.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial without(DateTimeFieldType fieldType) {
+        int index = indexOf(fieldType);
+        if (index != -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[size() - 1];
+            int[] newValues = new int[size() - 1];
+            System.arraycopy(iTypes, 0, newTypes, 0, index);
+            System.arraycopy(iTypes, index + 1, newTypes, index, newTypes.length - index);
+            System.arraycopy(iValues, 0, newValues, 0, index);
+            System.arraycopy(iValues, index + 1, newValues, index, newValues.length - index);
+            Partial newPartial = new Partial(iChronology, newTypes, newValues);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        return this;
+    }","  public void test35()  throws Throwable  {
+      LocalDate localDate0 = LocalDate.now();
+      Partial partial0 = new Partial(localDate0);
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.secondOfDay();
+      Partial partial1 = partial0.without(dateTimeFieldType0);
+      assertSame(partial1, partial0);
+}","/**
+     * Gets a copy of this date with the specified field removed.
+     * <p>
+     * If this partial did not previously support the field, no error occurs.
+     *
+     * @param fieldType  the field type to remove, may be null
+     * @return a copy of this instance with the field removed
+     */"
+"    public Partial without(DateTimeFieldType fieldType) {
+        int index = indexOf(fieldType);
+        if (index != -1) {
+            DateTimeFieldType[] newTypes = new DateTimeFieldType[size() - 1];
+            int[] newValues = new int[size() - 1];
+            System.arraycopy(iTypes, 0, newTypes, 0, index);
+            System.arraycopy(iTypes, index + 1, newTypes, index, newTypes.length - index);
+            System.arraycopy(iValues, 0, newValues, 0, index);
+            System.arraycopy(iValues, index + 1, newValues, index, newValues.length - index);
+            Partial newPartial = new Partial(iChronology, newTypes, newValues);
+            iChronology.validate(newPartial, newValues);
+            return newPartial;
+        }
+        return this;
+    }","  public void test35()  throws Throwable  {
+      LocalDate localDate0 = LocalDate.now();
+      Partial partial0 = new Partial(localDate0);
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.secondOfDay();
+      Partial partial1 = partial0.without(dateTimeFieldType0);
+  }","/**
+     * Gets a copy of this date with the specified field removed.
+     * <p>
+     * If this partial did not previously support the field, no error occurs.
+     *
+     * @param fieldType  the field type to remove, may be null
+     * @return a copy of this instance with the field removed
+     */"
+"    public Partial withField(DateTimeFieldType fieldType, int value) {
+        int index = indexOfSupported(fieldType);
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test36()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      Partial partial1 = partial0.withField(dateTimeFieldType0, 874);
+      assertNotSame(partial1, partial0);
+}","/**
+     * Gets a copy of this Partial with the specified field set to a new value.
+     * <p>
+     * If this partial does not support the field, an exception is thrown.
+     * Contrast this behaviour with {@link #with(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed in the returned instance if supported.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial withField(DateTimeFieldType fieldType, int value) {
+        int index = indexOfSupported(fieldType);
+        if (value == getValue(index)) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).set(this, index, newValues, value);
+        return new Partial(this, newValues);
+    }","  public void test36()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      Partial partial1 = partial0.withField(dateTimeFieldType0, 874);
+  }","/**
+     * Gets a copy of this Partial with the specified field set to a new value.
+     * <p>
+     * If this partial does not support the field, an exception is thrown.
+     * Contrast this behaviour with {@link #with(DateTimeFieldType, int)}.
+     * <p>
+     * For example, if the field type is <code>dayOfMonth</code> then the day
+     * would be changed in the returned instance if supported.
+     *
+     * @param fieldType  the field type to set, not null
+     * @param value  the value to set
+     * @return a copy of this instance with the field set
+     * @throws IllegalArgumentException if the value is null or invalid
+     */"
+"    public Partial withFieldAdded(DurationFieldType fieldType, int amount) {
+        int index = indexOfSupported(fieldType);
+        if (amount == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).add(this, index, newValues, amount);
+        return new Partial(this, newValues);
+    }","  public void test37()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAdded(durationFieldType0, (-562));
+      assertNotSame(partial1, partial0);
+}","/**
+     * Gets a copy of this Partial with the value of the specified field increased.
+     * If this partial does not support the field, an exception is thrown.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * The addition will overflow into larger fields (eg. minute to hour).
+     * However, it will not wrap around if the top maximum is reached.
+     *
+     * @param fieldType  the field type to add to, not null
+     * @param amount  the amount to add
+     * @return a copy of this instance with the field updated
+     * @throws IllegalArgumentException if the value is null or invalid
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public boolean equals(Object partial) {
+        if (this == partial) {
+            return true;
+        }
+        if (partial instanceof ReadablePartial == false) {
+            return false;
+        }
+        ReadablePartial other = (ReadablePartial) partial;
+        if (size() != other.size()) {
+            return false;
+        }
+        for (int i = 0, isize = size(); i < isize; i++) {
+            if (getValue(i) != other.getValue(i) || getFieldType(i) != other.getFieldType(i)) {
+                return false;
+            }
+        }
+        return FieldUtils.equals(getChronology(), other.getChronology());
+    }","  public void test37()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAdded(durationFieldType0, (-562));
+      assertFalse(partial1.equals((Object)partial0));
+}","/**
+     * Compares this ReadablePartial with another returning true if the chronology,
+     * field types and values are equal.
+     *
+     * @param partial  an object to check against
+     * @return true if fields and values are equal
+     */"
+"    public Partial withFieldAdded(DurationFieldType fieldType, int amount) {
+        int index = indexOfSupported(fieldType);
+        if (amount == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).add(this, index, newValues, amount);
+        return new Partial(this, newValues);
+    }","  public void test37()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAdded(durationFieldType0, (-562));
+  }","/**
+     * Gets a copy of this Partial with the value of the specified field increased.
+     * If this partial does not support the field, an exception is thrown.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * The addition will overflow into larger fields (eg. minute to hour).
+     * However, it will not wrap around if the top maximum is reached.
+     *
+     * @param fieldType  the field type to add to, not null
+     * @param amount  the amount to add
+     * @return a copy of this instance with the field updated
+     * @throws IllegalArgumentException if the value is null or invalid
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withFieldAdded(DurationFieldType fieldType, int amount) {
+        int index = indexOfSupported(fieldType);
+        if (amount == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).add(this, index, newValues, amount);
+        return new Partial(this, newValues);
+    }","  public void test38()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAdded(durationFieldType0, 0);
+      assertSame(partial1, partial0);
+}","/**
+     * Gets a copy of this Partial with the value of the specified field increased.
+     * If this partial does not support the field, an exception is thrown.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * The addition will overflow into larger fields (eg. minute to hour).
+     * However, it will not wrap around if the top maximum is reached.
+     *
+     * @param fieldType  the field type to add to, not null
+     * @param amount  the amount to add
+     * @return a copy of this instance with the field updated
+     * @throws IllegalArgumentException if the value is null or invalid
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withFieldAdded(DurationFieldType fieldType, int amount) {
+        int index = indexOfSupported(fieldType);
+        if (amount == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).add(this, index, newValues, amount);
+        return new Partial(this, newValues);
+    }","  public void test38()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAdded(durationFieldType0, 0);
+  }","/**
+     * Gets a copy of this Partial with the value of the specified field increased.
+     * If this partial does not support the field, an exception is thrown.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * The addition will overflow into larger fields (eg. minute to hour).
+     * However, it will not wrap around if the top maximum is reached.
+     *
+     * @param fieldType  the field type to add to, not null
+     * @param amount  the amount to add
+     * @return a copy of this instance with the field updated
+     * @throws IllegalArgumentException if the value is null or invalid
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withFieldAddWrapped(DurationFieldType fieldType, int amount) {
+        int index = indexOfSupported(fieldType);
+        if (amount == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).addWrapPartial(this, index, newValues, amount);
+        return new Partial(this, newValues);
+    }","  public void test39()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-557));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAddWrapped(durationFieldType0, 0);
+      assertSame(partial1, partial0);
+}","/**
+     * Gets a copy of this Partial with the value of the specified field increased.
+     * If this partial does not support the field, an exception is thrown.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * The addition will overflow into larger fields (eg. minute to hour).
+     * If the maximum is reached, the addition will wra.
+     *
+     * @param fieldType  the field type to add to, not null
+     * @param amount  the amount to add
+     * @return a copy of this instance with the field updated
+     * @throws IllegalArgumentException if the value is null or invalid
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withFieldAddWrapped(DurationFieldType fieldType, int amount) {
+        int index = indexOfSupported(fieldType);
+        if (amount == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        newValues = getField(index).addWrapPartial(this, index, newValues, amount);
+        return new Partial(this, newValues);
+    }","  public void test39()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-557));
+      DurationFieldType durationFieldType0 = dateTimeFieldType0.getDurationType();
+      Partial partial1 = partial0.withFieldAddWrapped(durationFieldType0, 0);
+  }","/**
+     * Gets a copy of this Partial with the value of the specified field increased.
+     * If this partial does not support the field, an exception is thrown.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * The addition will overflow into larger fields (eg. minute to hour).
+     * If the maximum is reached, the addition will wra.
+     *
+     * @param fieldType  the field type to add to, not null
+     * @param amount  the amount to add
+     * @return a copy of this instance with the field updated
+     * @throws IllegalArgumentException if the value is null or invalid
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withPeriodAdded(ReadablePeriod period, int scalar) {
+        if (period == null || scalar == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        for (int i = 0; i < period.size(); i++) {
+            DurationFieldType fieldType = period.getFieldType(i);
+            int index = indexOf(fieldType);
+            if (index >= 0) {
+                newValues = getField(index).add(this, index, newValues,
+                        FieldUtils.safeMultiply(period.getValue(i), scalar));
+            }
+        }
+        return new Partial(this, newValues);
+    }","  public void test40()  throws Throwable  {
+      Partial partial0 = new Partial();
+      Partial partial1 = partial0.withPeriodAdded((ReadablePeriod) null, 2);
+      assertSame(partial0, partial1);
+}","/**
+     * Gets a copy of this Partial with the specified period added.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * Fields in the period that aren't present in the partial are ignored.
+     * <p>
+     * This method is typically used to add multiple copies of complex
+     * period instances. Adding one field is best achieved using the method
+     * {@link #withFieldAdded(DurationFieldType, int)}.
+     * 
+     * @param period  the period to add to this one, null means zero
+     * @param scalar  the amount of times to add, such as -1 to subtract once
+     * @return a copy of this instance with the period added
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withPeriodAdded(ReadablePeriod period, int scalar) {
+        if (period == null || scalar == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        for (int i = 0; i < period.size(); i++) {
+            DurationFieldType fieldType = period.getFieldType(i);
+            int index = indexOf(fieldType);
+            if (index >= 0) {
+                newValues = getField(index).add(this, index, newValues,
+                        FieldUtils.safeMultiply(period.getValue(i), scalar));
+            }
+        }
+        return new Partial(this, newValues);
+    }","  public void test40()  throws Throwable  {
+      Partial partial0 = new Partial();
+      Partial partial1 = partial0.withPeriodAdded((ReadablePeriod) null, 2);
+  }","/**
+     * Gets a copy of this Partial with the specified period added.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * Fields in the period that aren't present in the partial are ignored.
+     * <p>
+     * This method is typically used to add multiple copies of complex
+     * period instances. Adding one field is best achieved using the method
+     * {@link #withFieldAdded(DurationFieldType, int)}.
+     * 
+     * @param period  the period to add to this one, null means zero
+     * @param scalar  the amount of times to add, such as -1 to subtract once
+     * @return a copy of this instance with the period added
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withPeriodAdded(ReadablePeriod period, int scalar) {
+        if (period == null || scalar == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        for (int i = 0; i < period.size(); i++) {
+            DurationFieldType fieldType = period.getFieldType(i);
+            int index = indexOf(fieldType);
+            if (index >= 0) {
+                newValues = getField(index).add(this, index, newValues,
+                        FieldUtils.safeMultiply(period.getValue(i), scalar));
+            }
+        }
+        return new Partial(this, newValues);
+    }","  public void test41()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      CopticChronology copticChronology0 = CopticChronology.getInstanceUTC();
+      MutableDateTime mutableDateTime0 = new MutableDateTime((Chronology) copticChronology0);
+      Months months0 = Months.monthsBetween((ReadableInstant) mutableDateTime0, (ReadableInstant) mutableDateTime0);
+      Partial partial1 = partial0.withPeriodAdded(months0, 0);
+      assertSame(partial1, partial0);
+}","/**
+     * Gets a copy of this Partial with the specified period added.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * Fields in the period that aren't present in the partial are ignored.
+     * <p>
+     * This method is typically used to add multiple copies of complex
+     * period instances. Adding one field is best achieved using the method
+     * {@link #withFieldAdded(DurationFieldType, int)}.
+     * 
+     * @param period  the period to add to this one, null means zero
+     * @param scalar  the amount of times to add, such as -1 to subtract once
+     * @return a copy of this instance with the period added
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withPeriodAdded(ReadablePeriod period, int scalar) {
+        if (period == null || scalar == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        for (int i = 0; i < period.size(); i++) {
+            DurationFieldType fieldType = period.getFieldType(i);
+            int index = indexOf(fieldType);
+            if (index >= 0) {
+                newValues = getField(index).add(this, index, newValues,
+                        FieldUtils.safeMultiply(period.getValue(i), scalar));
+            }
+        }
+        return new Partial(this, newValues);
+    }","  public void test41()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      CopticChronology copticChronology0 = CopticChronology.getInstanceUTC();
+      MutableDateTime mutableDateTime0 = new MutableDateTime((Chronology) copticChronology0);
+      Months months0 = Months.monthsBetween((ReadableInstant) mutableDateTime0, (ReadableInstant) mutableDateTime0);
+      Partial partial1 = partial0.withPeriodAdded(months0, 0);
+  }","/**
+     * Gets a copy of this Partial with the specified period added.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * Fields in the period that aren't present in the partial are ignored.
+     * <p>
+     * This method is typically used to add multiple copies of complex
+     * period instances. Adding one field is best achieved using the method
+     * {@link #withFieldAdded(DurationFieldType, int)}.
+     * 
+     * @param period  the period to add to this one, null means zero
+     * @param scalar  the amount of times to add, such as -1 to subtract once
+     * @return a copy of this instance with the period added
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public Partial withPeriodAdded(ReadablePeriod period, int scalar) {
+        if (period == null || scalar == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        for (int i = 0; i < period.size(); i++) {
+            DurationFieldType fieldType = period.getFieldType(i);
+            int index = indexOf(fieldType);
+            if (index >= 0) {
+                newValues = getField(index).add(this, index, newValues,
+                        FieldUtils.safeMultiply(period.getValue(i), scalar));
+            }
+        }
+        return new Partial(this, newValues);
+    }","  public void test42()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      Period period0 = Period.ZERO;
+      Partial partial1 = partial0.withPeriodAdded(period0, (-1));
+      assertNotSame(partial1, partial0);
+}","/**
+     * Gets a copy of this Partial with the specified period added.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * Fields in the period that aren't present in the partial are ignored.
+     * <p>
+     * This method is typically used to add multiple copies of complex
+     * period instances. Adding one field is best achieved using the method
+     * {@link #withFieldAdded(DurationFieldType, int)}.
+     * 
+     * @param period  the period to add to this one, null means zero
+     * @param scalar  the amount of times to add, such as -1 to subtract once
+     * @return a copy of this instance with the period added
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public boolean equals(Object partial) {
+        if (this == partial) {
+            return true;
+        }
+        if (partial instanceof ReadablePartial == false) {
+            return false;
+        }
+        ReadablePartial other = (ReadablePartial) partial;
+        if (size() != other.size()) {
+            return false;
+        }
+        for (int i = 0, isize = size(); i < isize; i++) {
+            if (getValue(i) != other.getValue(i) || getFieldType(i) != other.getFieldType(i)) {
+                return false;
+            }
+        }
+        return FieldUtils.equals(getChronology(), other.getChronology());
+    }","  public void test42()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      Period period0 = Period.ZERO;
+      Partial partial1 = partial0.withPeriodAdded(period0, (-1));
+      assertTrue(partial1.equals((Object)partial0));
+}","/**
+     * Compares this ReadablePartial with another returning true if the chronology,
+     * field types and values are equal.
+     *
+     * @param partial  an object to check against
+     * @return true if fields and values are equal
+     */"
+"    public Partial withPeriodAdded(ReadablePeriod period, int scalar) {
+        if (period == null || scalar == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        for (int i = 0; i < period.size(); i++) {
+            DurationFieldType fieldType = period.getFieldType(i);
+            int index = indexOf(fieldType);
+            if (index >= 0) {
+                newValues = getField(index).add(this, index, newValues,
+                        FieldUtils.safeMultiply(period.getValue(i), scalar));
+            }
+        }
+        return new Partial(this, newValues);
+    }","  public void test42()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      Period period0 = Period.ZERO;
+      Partial partial1 = partial0.withPeriodAdded(period0, (-1));
+  }","/**
+     * Gets a copy of this Partial with the specified period added.
+     * <p>
+     * If the addition is zero, then <code>this</code> is returned.
+     * Fields in the period that aren't present in the partial are ignored.
+     * <p>
+     * This method is typically used to add multiple copies of complex
+     * period instances. Adding one field is best achieved using the method
+     * {@link #withFieldAdded(DurationFieldType, int)}.
+     * 
+     * @param period  the period to add to this one, null means zero
+     * @param scalar  the amount of times to add, such as -1 to subtract once
+     * @return a copy of this instance with the period added
+     * @throws ArithmeticException if the new datetime exceeds the capacity
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test43()  throws Throwable  {
+      Partial partial0 = new Partial();
+      CopticChronology copticChronology0 = CopticChronology.getInstanceUTC();
+      MutableDateTime mutableDateTime0 = new MutableDateTime((Chronology) copticChronology0);
+      boolean boolean0 = partial0.isMatch((ReadableInstant) mutableDateTime0);
+      assertTrue(boolean0);
+}","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test43()  throws Throwable  {
+      Partial partial0 = new Partial();
+      CopticChronology copticChronology0 = CopticChronology.getInstanceUTC();
+      MutableDateTime mutableDateTime0 = new MutableDateTime((Chronology) copticChronology0);
+      boolean boolean0 = partial0.isMatch((ReadableInstant) mutableDateTime0);
+  }","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test44()  throws Throwable  {
+      System.setCurrentTimeMillis(918518400000L);
+      LocalDate localDate0 = new LocalDate(918518400000L);
+      Partial partial0 = new Partial(localDate0);
+      ISOChronology iSOChronology0 = ISOChronology.getInstanceUTC();
+      DateTime dateTime0 = DateTime.now((Chronology) iSOChronology0);
+      boolean boolean0 = partial0.isMatch((ReadableInstant) dateTime0);
+      assertFalse(boolean0);
+}","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test44()  throws Throwable  {
+      System.setCurrentTimeMillis(918518400000L);
+      LocalDate localDate0 = new LocalDate(918518400000L);
+      Partial partial0 = new Partial(localDate0);
+      ISOChronology iSOChronology0 = ISOChronology.getInstanceUTC();
+      DateTime dateTime0 = DateTime.now((Chronology) iSOChronology0);
+      boolean boolean0 = partial0.isMatch((ReadableInstant) dateTime0);
+  }","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test45()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 2106);
+      boolean boolean0 = partial0.isMatch((ReadablePartial) partial0);
+      assertTrue(boolean0);
+}","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test45()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 2106);
+      boolean boolean0 = partial0.isMatch((ReadablePartial) partial0);
+  }","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test46()  throws Throwable  {
+      Partial partial0 = new Partial();
+      // Undeclared exception!
+      try { 
+        partial0.isMatch((ReadablePartial) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // The partial must not be null
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test47()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial partial1 = partial0.with(dateTimeFieldType0, 64);
+      boolean boolean0 = partial0.isMatch((ReadablePartial) partial1);
+      assertFalse(boolean0);
+}","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public boolean isMatch(ReadableInstant instant) {
+        long millis = DateTimeUtils.getInstantMillis(instant);
+        Chronology chrono = DateTimeUtils.getInstantChronology(instant);
+        for (int i = 0; i < iTypes.length; i++) {
+            int value = iTypes[i].getField(chrono).get(millis);
+            if (value != iValues[i]) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test47()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      Partial partial1 = partial0.with(dateTimeFieldType0, 64);
+      boolean boolean0 = partial0.isMatch((ReadablePartial) partial1);
+  }","/**
+     * Does this partial match the specified instant.
+     * <p>
+     * A match occurs when all the fields of this partial are the same as the
+     * corresponding fields on the specified instant.
+     *
+     * @param instant  an instant to check against, null means now in default zone
+     * @return true if this partial matches the specified instant
+     */"
+"    public DateTimeFormatter getFormatter() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            if (size() == 0) {
+                return null;
+            }
+            f = new DateTimeFormatter[2];
+            try {
+                List<DateTimeFieldType> list = new ArrayList<DateTimeFieldType>(Arrays.asList(iTypes));
+                f[0] = ISODateTimeFormat.forFields(list, true, false);
+                if (list.size() == 0) {
+                    f[1] = f[0];
+                }
+            } catch (IllegalArgumentException ex) {
+                // ignore
+            }
+            iFormatter = f;
+        }
+        return f[0];
+    }","  public void test48()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-557));
+      partial0.getFormatter();
+      DateTimeFormatter dateTimeFormatter0 = partial0.getFormatter();
+      assertEquals(2000, dateTimeFormatter0.getDefaultYear());
+}","/**
+     * Gets a formatter suitable for the fields in this partial.
+     * <p>
+     * If there is no appropriate ISO format, null is returned.
+     * This method may return a formatter that does not display all the
+     * fields of the partial. This might occur when you have overlapping
+     * fields, such as dayOfWeek and dayOfMonth.
+     *
+     * @return a formatter suitable for the fields in this partial, null
+     *  if none is suitable
+     */"
+"    public DateTimeFormatter getFormatter() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            if (size() == 0) {
+                return null;
+            }
+            f = new DateTimeFormatter[2];
+            try {
+                List<DateTimeFieldType> list = new ArrayList<DateTimeFieldType>(Arrays.asList(iTypes));
+                f[0] = ISODateTimeFormat.forFields(list, true, false);
+                if (list.size() == 0) {
+                    f[1] = f[0];
+                }
+            } catch (IllegalArgumentException ex) {
+                // ignore
+            }
+            iFormatter = f;
+        }
+        return f[0];
+    }","  public void test48()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-557));
+      partial0.getFormatter();
+      DateTimeFormatter dateTimeFormatter0 = partial0.getFormatter();
+  }","/**
+     * Gets a formatter suitable for the fields in this partial.
+     * <p>
+     * If there is no appropriate ISO format, null is returned.
+     * This method may return a formatter that does not display all the
+     * fields of the partial. This might occur when you have overlapping
+     * fields, such as dayOfWeek and dayOfMonth.
+     *
+     * @return a formatter suitable for the fields in this partial, null
+     *  if none is suitable
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test49()  throws Throwable  {
+      Partial partial0 = new Partial();
+      String string0 = partial0.toString();
+      assertEquals(""[]"", string0);
+}","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test49()  throws Throwable  {
+      Partial partial0 = new Partial();
+      String string0 = partial0.toString();
+  }","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test50()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      GregorianChronology gregorianChronology0 = GregorianChronology.getInstanceUTC();
+      DateTimeFieldType[] dateTimeFieldTypeArray0 = new DateTimeFieldType[6];
+      dateTimeFieldTypeArray0[4] = dateTimeFieldType0;
+      Partial partial0 = new Partial(gregorianChronology0, dateTimeFieldTypeArray0, (int[]) null);
+      // Undeclared exception!
+      try { 
+        partial0.toString((String) null);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.joda.time.Partial"", e);
+      }
+  }","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test51()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      partial0.getFormatter();
+      String string0 = partial0.toString();
+      assertEquals(""-0562"", string0);
+}","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test51()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.year();
+      Partial partial0 = new Partial(dateTimeFieldType0, (-562));
+      partial0.getFormatter();
+      String string0 = partial0.toString();
+  }","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public String toStringList() {
+        int size = size();
+        StringBuilder buf = new StringBuilder(20 * size);
+        buf.append('[');
+        for (int i = 0; i < size; i++) {
+            if (i > 0) {
+                buf.append(',').append(' ');
+            }
+            buf.append(iTypes[i].getName());
+            buf.append('=');
+            buf.append(iValues[i]);
+        }
+        buf.append(']');
+        return buf.toString();
+    }","  public void test52()  throws Throwable  {
+      LocalDate localDate0 = new LocalDate(918518400000L);
+      Partial partial0 = new Partial(localDate0);
+      String string0 = partial0.toStringList();
+      assertEquals(""[year=1999, monthOfYear=2, dayOfMonth=8]"", string0);
+}","/**
+     * Gets a string version of the partial that lists all the fields.
+     * <p>
+     * This method exists to provide a better debugging toString than
+     * the standard toString. This method lists all the fields and their
+     * values in a style similar to the collections framework.
+     *
+     * @return a toString format that lists all the fields
+     */"
+"    public String toStringList() {
+        int size = size();
+        StringBuilder buf = new StringBuilder(20 * size);
+        buf.append('[');
+        for (int i = 0; i < size; i++) {
+            if (i > 0) {
+                buf.append(',').append(' ');
+            }
+            buf.append(iTypes[i].getName());
+            buf.append('=');
+            buf.append(iValues[i]);
+        }
+        buf.append(']');
+        return buf.toString();
+    }","  public void test52()  throws Throwable  {
+      LocalDate localDate0 = new LocalDate(918518400000L);
+      Partial partial0 = new Partial(localDate0);
+      String string0 = partial0.toStringList();
+  }","/**
+     * Gets a string version of the partial that lists all the fields.
+     * <p>
+     * This method exists to provide a better debugging toString than
+     * the standard toString. This method lists all the fields and their
+     * values in a style similar to the collections framework.
+     *
+     * @return a toString format that lists all the fields
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test53()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 0);
+      // Undeclared exception!
+      try { 
+        partial0.toString("""");
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Invalid pattern specification
+         //
+         verifyException(""org.joda.time.format.DateTimeFormat"", e);
+      }
+  }","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test54()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 1);
+      Locale locale0 = Locale.ITALY;
+      // Undeclared exception!
+      try { 
+        partial0.toString(""<;I]"", locale0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Illegal pattern component: I
+         //
+         verifyException(""org.joda.time.format.DateTimeFormat"", e);
+      }
+  }","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test55()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 2106);
+      Locale locale0 = Locale.SIMPLIFIED_CHINESE;
+      String string0 = partial0.toString((String) null, locale0);
+      assertEquals(""[millisOfDay=2106]"", string0);
+}","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public String toString() {
+        DateTimeFormatter[] f = iFormatter;
+        if (f == null) {
+            getFormatter();
+            f = iFormatter;
+            if (f == null) {
+                return toStringList();
+            }
+        }
+        DateTimeFormatter f1 = f[1];
+        if (f1 == null) {
+            return toStringList();
+        }
+        return f1.print(this);
+    }","  public void test55()  throws Throwable  {
+      DateTimeFieldType dateTimeFieldType0 = DateTimeFieldType.millisOfDay();
+      Partial partial0 = new Partial(dateTimeFieldType0, 2106);
+      Locale locale0 = Locale.SIMPLIFIED_CHINESE;
+      String string0 = partial0.toString((String) null, locale0);
+  }","/**
+     * Output the date in an appropriate ISO8601 format.
+     * <p>
+     * This method will output the partial in one of two ways.
+     * If {@link #getFormatter()}
+     * <p>
+     * If there is no appropriate ISO format a dump of the fields is output
+     * via {@link #toStringList()}.
+     * 
+     * @return ISO8601 formatted string
+     */"
+"    public static synchronized UnsupportedDurationField getInstance(DurationFieldType type) {
+        UnsupportedDurationField field;
+        if (cCache == null) {
+            cCache = new HashMap<DurationFieldType, UnsupportedDurationField>(7);
+            field = null;
+        } else {
+            field = cCache.get(type);
+        }
+        if (field == null) {
+            field = new UnsupportedDurationField(type);
+            cCache.put(type, field);
+        }
+        return field;
+    }","  public void test00()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      assertNotNull(unsupportedDurationField0);
+}","/**
+     * Gets an instance of UnsupportedDurationField for a specific named field.
+     * The returned instance is cached.
+     * 
+     * @param type  the type to obtain
+     * @return the instance
+     */"
+"    public boolean isSupported() {
+        return false;
+    }","  public void test00()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      boolean boolean0 = unsupportedDurationField0.isSupported();
+      assertFalse(boolean0);
+}","/**
+     * This field is not supported.
+     *
+     * @return false always
+     */"
+"    public boolean isSupported() {
+        return false;
+    }","  public void test00()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      boolean boolean0 = unsupportedDurationField0.isSupported();
+  }","/**
+     * This field is not supported.
+     *
+     * @return false always
+     */"
+"    public long getMillis(int value) {
+        throw unsupported();
+    }","  public void test01()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.getMillis(1196, (long) 1196);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // null field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public long add(long instant, int value) {
+        throw unsupported();
+    }","  public void test02()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.add((long) 1, (long) 1);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // null field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public long add(long instant, int value) {
+        throw unsupported();
+    }","  public void test03()  throws Throwable  {
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstanceUTC();
+      DurationField durationField0 = buddhistChronology0.eras();
+      // Undeclared exception!
+      try { 
+        durationField0.add((long) 1, 1);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // eras field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public long getDifferenceAsLong(long minuendInstant, long subtrahendInstant) {
+        throw unsupported();
+    }","  public void test04()  throws Throwable  {
+      DurationFieldType durationFieldType0 = DurationFieldType.hours();
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance(durationFieldType0);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.getDifferenceAsLong((-1000L), (-1000L));
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // hours field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public int getValue(long duration) {
+        throw unsupported();
+    }","  public void test05()  throws Throwable  {
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstance();
+      DurationField durationField0 = buddhistChronology0.eras();
+      // Undeclared exception!
+      try { 
+        durationField0.getValue((long) 1);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // eras field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public long getValueAsLong(long duration) {
+        throw unsupported();
+    }","  public void test06()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.getValueAsLong(0L);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // null field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public long getMillis(int value) {
+        throw unsupported();
+    }","  public void test07()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.getMillis((-1L), (-1L));
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // null field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public int compareTo(DurationField durationField) {
+        return 0;
+    }","  public void test08()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      int int0 = unsupportedDurationField0.compareTo((DurationField) unsupportedDurationField0);
+      assertEquals(0, int0);
+}","/**
+     * Always returns zero, indicating that sort order is not relevent.
+     *
+     * @return zero always
+     */"
+"    public int compareTo(DurationField durationField) {
+        return 0;
+    }","  public void test08()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      int int0 = unsupportedDurationField0.compareTo((DurationField) unsupportedDurationField0);
+  }","/**
+     * Always returns zero, indicating that sort order is not relevent.
+     *
+     * @return zero always
+     */"
+"    public int hashCode() {
+        return getName().hashCode();
+    }","  public void test09()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.hashCode();
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Gets a suitable hashcode.
+     * 
+     * @return the hashcode
+     */"
+"    public long getUnitMillis() {
+        return 0;
+    }","  public void test10()  throws Throwable  {
+      DurationFieldType durationFieldType0 = DurationFieldType.days();
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance(durationFieldType0);
+      long long0 = unsupportedDurationField0.getUnitMillis();
+      assertEquals(0L, long0);
+}","/**
+     * Always returns zero.
+     *
+     * @return zero always
+     */"
+"    public long getUnitMillis() {
+        return 0;
+    }","  public void test10()  throws Throwable  {
+      DurationFieldType durationFieldType0 = DurationFieldType.days();
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance(durationFieldType0);
+      long long0 = unsupportedDurationField0.getUnitMillis();
+  }","/**
+     * Always returns zero.
+     *
+     * @return zero always
+     */"
+"    public int getDifference(long minuendInstant, long subtrahendInstant) {
+        throw unsupported();
+    }","  public void test11()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.getDifference(3105L, 3105L);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // null field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public String toString() {
+        return ""UnsupportedDurationField["" + getName() + ']';
+    }","  public void test12()  throws Throwable  {
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstanceUTC();
+      DurationField durationField0 = buddhistChronology0.eras();
+      DurationFieldType durationFieldType0 = durationField0.getType();
+      assertEquals(""eras"", durationFieldType0.toString());
+}","/**
+     * Get a suitable debug string.
+     * 
+     * @return debug string
+     */"
+"    public final DurationFieldType getType() {
+        return iType;
+    }","  public void test12()  throws Throwable  {
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstanceUTC();
+      DurationField durationField0 = buddhistChronology0.eras();
+      DurationFieldType durationFieldType0 = durationField0.getType();
+  }",
+"    public int getValue(long duration) {
+        throw unsupported();
+    }","  public void test13()  throws Throwable  {
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstance();
+      DurationField durationField0 = buddhistChronology0.eras();
+      // Undeclared exception!
+      try { 
+        durationField0.getValue((long) 1, (long) 1);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // eras field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public boolean isPrecise() {
+        return true;
+    }","  public void test14()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      boolean boolean0 = unsupportedDurationField0.isPrecise();
+      assertTrue(boolean0);
+}","/**
+     * This field is precise.
+     * 
+     * @return true always
+     */"
+"    public boolean isPrecise() {
+        return true;
+    }","  public void test14()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      boolean boolean0 = unsupportedDurationField0.isPrecise();
+  }","/**
+     * This field is precise.
+     * 
+     * @return true always
+     */"
+"    public long getMillis(int value) {
+        throw unsupported();
+    }","  public void test15()  throws Throwable  {
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstanceUTC();
+      DurationField durationField0 = buddhistChronology0.eras();
+      // Undeclared exception!
+      try { 
+        durationField0.getMillis((long) 1);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // eras field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public long getMillis(int value) {
+        throw unsupported();
+    }","  public void test16()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.getMillis(3461);
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // null field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public long getValueAsLong(long duration) {
+        throw unsupported();
+    }","  public void test17()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.getValueAsLong((-3L), (-3L));
+        fail(""Expecting exception: UnsupportedOperationException"");
+      } catch(UnsupportedOperationException e) {
+         //
+         // null field is unsupported
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Always throws UnsupportedOperationException
+     *
+     * @throws UnsupportedOperationException
+     */"
+"    public String toString() {
+        return ""UnsupportedDurationField["" + getName() + ']';
+    }","  public void test18()  throws Throwable  {
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstance();
+      DurationField durationField0 = buddhistChronology0.eras();
+      String string0 = durationField0.toString();
+      assertEquals(""UnsupportedDurationField[eras]"", string0);
+}","/**
+     * Get a suitable debug string.
+     * 
+     * @return debug string
+     */"
+"    public String toString() {
+        return ""UnsupportedDurationField["" + getName() + ']';
+    }","  public void test18()  throws Throwable  {
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstance();
+      DurationField durationField0 = buddhistChronology0.eras();
+      String string0 = durationField0.toString();
+  }","/**
+     * Get a suitable debug string.
+     * 
+     * @return debug string
+     */"
+"    public boolean isPrecise() {
+        return true;
+    }","  public void test19()  throws Throwable  {
+      UnsupportedDurationField.getInstance((DurationFieldType) null);
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      assertTrue(unsupportedDurationField0.isPrecise());
+}","/**
+     * This field is precise.
+     * 
+     * @return true always
+     */"
+"    public static synchronized UnsupportedDurationField getInstance(DurationFieldType type) {
+        UnsupportedDurationField field;
+        if (cCache == null) {
+            cCache = new HashMap<DurationFieldType, UnsupportedDurationField>(7);
+            field = null;
+        } else {
+            field = cCache.get(type);
+        }
+        if (field == null) {
+            field = new UnsupportedDurationField(type);
+            cCache.put(type, field);
+        }
+        return field;
+    }","  public void test19()  throws Throwable  {
+      UnsupportedDurationField.getInstance((DurationFieldType) null);
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+  }","/**
+     * Gets an instance of UnsupportedDurationField for a specific named field.
+     * The returned instance is cached.
+     * 
+     * @param type  the type to obtain
+     * @return the instance
+     */"
+"    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof UnsupportedDurationField) {
+            UnsupportedDurationField other = (UnsupportedDurationField) obj;
+            if (other.getName() == null) {
+                return (getName() == null);
+            }
+            return (other.getName().equals(getName()));
+        }
+        return false;
+    }","  public void test20()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      BuddhistChronology buddhistChronology0 = BuddhistChronology.getInstanceUTC();
+      DurationField durationField0 = buddhistChronology0.eras();
+      // Undeclared exception!
+      try { 
+        unsupportedDurationField0.equals(durationField0);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException(""org.joda.time.field.UnsupportedDurationField"", e);
+      }
+  }","/**
+     * Compares this duration field to another.
+     * 
+     * @param obj  the object to compare to
+     * @return true if equal
+     */"
+"    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof UnsupportedDurationField) {
+            UnsupportedDurationField other = (UnsupportedDurationField) obj;
+            if (other.getName() == null) {
+                return (getName() == null);
+            }
+            return (other.getName().equals(getName()));
+        }
+        return false;
+    }","  public void test21()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      boolean boolean0 = unsupportedDurationField0.equals(unsupportedDurationField0);
+      assertTrue(boolean0);
+}","/**
+     * Compares this duration field to another.
+     * 
+     * @param obj  the object to compare to
+     * @return true if equal
+     */"
+"    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof UnsupportedDurationField) {
+            UnsupportedDurationField other = (UnsupportedDurationField) obj;
+            if (other.getName() == null) {
+                return (getName() == null);
+            }
+            return (other.getName().equals(getName()));
+        }
+        return false;
+    }","  public void test21()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      boolean boolean0 = unsupportedDurationField0.equals(unsupportedDurationField0);
+  }","/**
+     * Compares this duration field to another.
+     * 
+     * @param obj  the object to compare to
+     * @return true if equal
+     */"
+"    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof UnsupportedDurationField) {
+            UnsupportedDurationField other = (UnsupportedDurationField) obj;
+            if (other.getName() == null) {
+                return (getName() == null);
+            }
+            return (other.getName().equals(getName()));
+        }
+        return false;
+    }","  public void test22()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      boolean boolean0 = unsupportedDurationField0.equals((Object) null);
+      assertFalse(boolean0);
+}","/**
+     * Compares this duration field to another.
+     * 
+     * @param obj  the object to compare to
+     * @return true if equal
+     */"
+"    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        } else if (obj instanceof UnsupportedDurationField) {
+            UnsupportedDurationField other = (UnsupportedDurationField) obj;
+            if (other.getName() == null) {
+                return (getName() == null);
+            }
+            return (other.getName().equals(getName()));
+        }
+        return false;
+    }","  public void test22()  throws Throwable  {
+      UnsupportedDurationField unsupportedDurationField0 = UnsupportedDurationField.getInstance((DurationFieldType) null);
+      boolean boolean0 = unsupportedDurationField0.equals((Object) null);
+  }","/**
+     * Compares this duration field to another.
+     * 
+     * @param obj  the object to compare to
+     * @return true if equal
+     */"

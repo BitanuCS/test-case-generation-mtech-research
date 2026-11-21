@@ -1,0 +1,187 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Lang-13/evo /Users/bitu/mtech-tools/work/Lang-13f/src/main/java Lang 13 /Users/bitu/mtech-tools/toga_out/Lang-13
+12 test prefixes, 12 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Lang-13/inputs.csv /Users/bitu/mtech-tools/toga_out/Lang-13/meta.csv
+11/19/2026 20:20:18 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 20:20:20 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 20:20:21 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 20:20:21 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/19/2026 20:20:21 - INFO - utils -   Writing example 0 of 12
+11/19/2026 20:20:21 - INFO - utils -   *** Example ***
+11/19/2026 20:20:21 - INFO - utils -   guid: test-0
+11/19/2026 20:20:21 - INFO - utils -   tokens: <s> public Ġstatic ĠObject Ġdes erial ize ( Input Stream Ġinput Stream ) Ġ{ Ġif Ġ( input Stream Ġ== Ġnull ) Ġ{ Ġthrow Ġnew ĠIllegal Arg ument Exception (" The ĠInput Stream Ġmust Ġnot Ġbe Ġnull "); Ġ} ĠObject Input Stream Ġin Ġ= Ġnull ; Ġtry Ġ{ Ġ// Ġstream Ġclosed Ġin </s> public Ġvoid Ġtest Des erial ize () Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= ĠSerial ization Ut ils . serial ize (( Serial izable ) Ġ" He ` z = H : em RP 2 g ! AU ! @ "); ĠSerial ization Ut ils . des erial ize ( byte Array 0 ); Ġ} </s>
+11/19/2026 20:20:21 - INFO - utils -   input_ids: 0 15110 25156 35671 2694 48033 2072 1640 48214 36757 8135 36757 43 25522 114 36 46797 36757 45994 23796 43 25522 3211 92 36993 45621 18816 48847 46469 133 41327 36757 531 45 28 23796 45751 35524 35671 48214 36757 11 5457 23796 131 860 25522 21277 4615 1367 11 2 15110 13842 1296 28324 48033 2072 43048 25522 47893 48992 47893 48222 288 5457 42477 1938 41967 5290 4 46456 2072 48461 47070 38142 43 22 894 12905 329 5214 725 35 991 15901 176 571 328 22983 328 1039 45751 42477 1938 41967 5290 4 10067 48033 2072 1640 47692 48222 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:20:21 - INFO - utils -   *** Example ***
+11/19/2026 20:20:21 - INFO - utils -   guid: test-1
+11/19/2026 20:20:21 - INFO - utils -   tokens: <s> public Ġstatic ĠObject Ġdes erial ize ( Input Stream Ġinput Stream ) Ġ{ Ġif Ġ( input Stream Ġ== Ġnull ) Ġ{ Ġthrow Ġnew ĠIllegal Arg ument Exception (" The ĠInput Stream Ġmust Ġnot Ġbe Ġnull "); Ġ} ĠObject Input Stream Ġin Ġ= Ġnull ; Ġtry Ġ{ Ġ// Ġstream Ġclosed Ġin </s> public Ġvoid Ġtest Des erial ize () Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= ĠSerial ization Ut ils . serial ize (( Serial izable ) Ġ" He ` z = H : em RP 2 g ! AU ! @ "); ĠSerial ization Ut ils . des erial ize ( byte Array 0 ); Ġ} </s>
+11/19/2026 20:20:21 - INFO - utils -   input_ids: 0 15110 25156 35671 2694 48033 2072 1640 48214 36757 8135 36757 43 25522 114 36 46797 36757 45994 23796 43 25522 3211 92 36993 45621 18816 48847 46469 133 41327 36757 531 45 28 23796 45751 35524 35671 48214 36757 11 5457 23796 131 860 25522 21277 4615 1367 11 2 15110 13842 1296 28324 48033 2072 43048 25522 47893 48992 47893 48222 288 5457 42477 1938 41967 5290 4 46456 2072 48461 47070 38142 43 22 894 12905 329 5214 725 35 991 15901 176 571 328 22983 328 1039 45751 42477 1938 41967 5290 4 10067 48033 2072 1640 47692 48222 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:20:21 - INFO - utils -   *** Example ***
+11/19/2026 20:20:21 - INFO - utils -   guid: test-2
+11/19/2026 20:20:21 - INFO - utils -   tokens: <s> public ĠSerial ization Ut ils () Ġ{ Ġsuper (); Ġ} </s> public Ġvoid Ġtest Serial ization Ut ils () Ġ{ Ġnew ĠSerial ization Ut ils (); Ġ} </s>
+11/19/2026 20:20:21 - INFO - utils -   input_ids: 0 15110 42477 1938 41967 5290 43048 25522 2422 47006 35524 2 15110 13842 1296 47070 1938 41967 5290 43048 25522 92 42477 1938 41967 5290 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:20:21 - INFO - utils -   *** Example ***
+11/19/2026 20:20:21 - INFO - utils -   guid: test-3
+11/19/2026 20:20:21 - INFO - utils -   tokens: <s> public Ġstatic Ġ< T Ġextends ĠSerial izable > ĠT Ġclone ( T Ġobject ) Ġ{ Ġif Ġ( object Ġ== Ġnull ) Ġ{ Ġreturn Ġnull ; Ġ} Ġbyte [] Ġobject Data Ġ= Ġserial ize ( object ); ĠByte Array Input Stream Ġb ais Ġ= Ġnew ĠByte Array Input Stream ( object </s> public Ġvoid Ġtest Cl one () Ġ{ ĠSerial ization Ut ils . clone (" 2 \\ "); Ġ} </s>
+11/19/2026 20:20:21 - INFO - utils -   input_ids: 0 15110 25156 28696 565 14269 42477 38142 15698 255 39511 1640 565 7626 43 25522 114 36 40412 45994 23796 43 25522 671 23796 131 35524 47893 48992 7626 30383 5457 13603 2072 1640 40412 4397 46594 48222 48214 36757 741 5655 5457 92 46594 48222 48214 36757 1640 40412 2 15110 13842 1296 11428 1264 43048 25522 42477 1938 41967 5290 4 31496 46469 176 48669 45751 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:20:21 - INFO - utils -   *** Example ***
+11/19/2026 20:20:21 - INFO - utils -   guid: test-4
+11/19/2026 20:20:21 - INFO - utils -   tokens: <s> public Ġstatic Ġ< T Ġextends ĠSerial izable > ĠT Ġclone ( T Ġobject ) Ġ{ Ġif Ġ( object Ġ== Ġnull ) Ġ{ Ġreturn Ġnull ; Ġ} Ġbyte [] Ġobject Data Ġ= Ġserial ize ( object ); ĠByte Array Input Stream Ġb ais Ġ= Ġnew ĠByte Array Input Stream ( object </s> public Ġvoid Ġtest Cl one () Ġ{ ĠSerial ization Ut ils . clone (" 2 \\ "); Ġ} </s>
+11/19/2026 20:20:21 - INFO - utils -   input_ids: 0 15110 25156 28696 565 14269 42477 38142 15698 255 39511 1640 565 7626 43 25522 114 36 40412 45994 23796 43 25522 671 23796 131 35524 47893 48992 7626 30383 5457 13603 2072 1640 40412 4397 46594 48222 48214 36757 741 5655 5457 92 46594 48222 48214 36757 1640 40412 2 15110 13842 1296 11428 1264 43048 25522 42477 1938 41967 5290 4 31496 46469 176 48669 45751 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:20:21 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:20:21 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 20:20:21 - INFO - __main__ -     Num examples = 12
+11/19/2026 20:20:21 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 12 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s]
+11/19/2026 20:20:25 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 20:20:27 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 20:20:28 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 20:20:28 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/19/2026 20:20:28 - INFO - utils -   Writing example 0 of 3
+11/19/2026 20:20:28 - INFO - utils -   *** Example ***
+11/19/2026 20:20:28 - INFO - utils -   guid: 0
+11/19/2026 20:20:28 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 0 () Ġthrows ĠThrow able Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= ĠSerial ization Ut ils . serial ize (( Serial izable ) Ġ" He ` z = H : em RP 2 g ! AU ! @ "); ĠObject Ġobject 0 Ġ= ĠSerial ization Ut ils </s> public Ġstatic ĠObject Ġdes erial ize ( Input Stream Ġinput Stream ) Ġ{ Ġif Ġ( input Stream Ġ== Ġnull ) Ġ{ Ġthrow Ġnew ĠIllegal Arg ument Exception (" The ĠInput Stream Ġmust Ġnot Ġbe Ġnull "); Ġ} ĠObject Input Stream Ġin Ġ= Ġnull ; Ġtry Ġ{ Ġ// Ġstream Ġclosed Ġin Ġthe Ġfinally Ġin Ġ= Ġnew ĠObject Input Stream ( input Stream ); Ġreturn Ġin . read Object (); Ġ} Ġcatch Ġ( Class Not Found Exception Ġex ) Ġ{ Ġthrow Ġnew ĠSerial ization Exception ( ex ); Ġ} Ġcatch Ġ( IO Exception Ġex ) Ġ{ Ġthrow Ġnew ĠSerial ization Exception ( ex ); Ġ} Ġfinally Ġ{ Ġtry Ġ{ Ġif Ġ( in Ġ!= Ġnull ) Ġ{ Ġin . close (); Ġ} Ġ} Ġcatch Ġ( IO Exception Ġex ) Ġ{ Ġ// ĠN OP MD Ġ// Ġignore Ġclose Ġexception Ġ} Ġ} Ġ} </s> assert Not Null ( object 0 ) </s>
+11/19/2026 20:20:28 - INFO - utils -   input_ids: 0 15110 13842 1296 288 43048 6989 28106 868 25522 47893 48992 47893 48222 288 5457 42477 1938 41967 5290 4 46456 2072 48461 47070 38142 43 22 894 12905 329 5214 725 35 991 15901 176 571 328 22983 328 1039 45751 35671 7626 288 5457 42477 1938 41967 5290 2 15110 25156 35671 2694 48033 2072 1640 48214 36757 8135 36757 43 25522 114 36 46797 36757 45994 23796 43 25522 3211 92 36993 45621 18816 48847 46469 133 41327 36757 531 45 28 23796 45751 35524 35671 48214 36757 11 5457 23796 131 860 25522 21277 4615 1367 11 5 1747 11 5457 92 35671 48214 36757 1640 46797 36757 4397 671 11 4 12745 46674 47006 35524 2916 36 21527 7199 29991 48847 1931 43 25522 3211 92 42477 1938 48847 1640 3463 4397 35524 2916 36 6454 48847 1931 43 25522 3211 92 42477 1938 48847 1640 3463 4397 35524 1747 25522 860 25522 114 36 179 49333 23796 43 25522 11 4 22641 47006 35524 35524 2916 36 6454 48847 1931 43 25522 21277 234 5733 12550 21277 8861 593 8219 35524 35524 35524 2 46346 7199 49302 1640 40412 288 43 2 0
+11/19/2026 20:20:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+11/19/2026 20:20:28 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0
+11/19/2026 20:20:28 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:20:28 - INFO - utils -   *** Example ***
+11/19/2026 20:20:28 - INFO - utils -   guid: 3
+11/19/2026 20:20:28 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 2 () Ġthrows ĠThrow able Ġ{ ĠString Ġstring 0 Ġ= ĠSerial ization Ut ils . clone (" 2 \\ "); Ġ"< Ass ert Place H older >" Ġ; Ġ} </s> public Ġstatic Ġ< T Ġextends ĠSerial izable > ĠT Ġclone ( T Ġobject ) Ġ{ Ġif Ġ( object Ġ== Ġnull ) Ġ{ Ġreturn Ġnull ; Ġ} Ġbyte [] Ġobject Data Ġ= Ġserial ize ( object ); ĠByte Array Input Stream Ġb ais Ġ= Ġnew ĠByte Array Input Stream ( object Data ); ĠClass Loader A ware Object Input Stream Ġin Ġ= Ġnull ; Ġtry Ġ{ Ġ// Ġstream Ġclosed Ġin Ġthe Ġfinally Ġin Ġ= Ġnew ĠClass Loader A ware Object Input Stream ( ba is , Ġobject . get Class (). get Class Loader ()); Ġ/* Ġ* Ġwhen Ġwe Ġserial ize Ġand Ġdes erial ize Ġan Ġobject , Ġ* Ġit Ġis Ġreasonable Ġto Ġassume Ġthe Ġdes erial ized Ġobject Ġ* Ġis Ġof Ġthe Ġsame Ġtype Ġas Ġthe Ġoriginal Ġserial ized Ġobject Ġ*/ Ġ@ Supp ress W arn ings (" un checked ") Ġ// Ġsee Ġabove ĠT Ġread Object Ġ= Ġ( T ) Ġin . read Object (); Ġreturn </s> assert Not Null ( string 0 ) </s>
+11/19/2026 20:20:28 - INFO - utils -   input_ids: 0 15110 13842 1296 176 43048 6989 28106 868 25522 26602 6755 288 5457 42477 1938 41967 5290 4 31496 46469 176 48669 45751 49900 26039 2399 41863 725 33780 49721 25606 35524 2 15110 25156 28696 565 14269 42477 38142 15698 255 39511 1640 565 7626 43 25522 114 36 40412 45994 23796 43 25522 671 23796 131 35524 47893 48992 7626 30383 5457 13603 2072 1640 40412 4397 46594 48222 48214 36757 741 5655 5457 92 46594 48222 48214 36757 1640 40412 30383 4397 4210 49621 250 10680 46674 48214 36757 11 5457 23796 131 860 25522 21277 4615 1367 11 5 1747 11 5457 92 4210 49621 250 10680 46674 48214 36757 1640 3178 354 6 7626 4 6460 21527 49123 6460 21527 49621 49291 48565 1009 77 52 13603 2072 8 2694 48033 2072 41 7626 6 1009 24 16 5701 7 6876 5 2694 48033 1538 7626 1009 16 9 5 276 1907 25 5 1461 13603 1538 7626 48404 787 33661 5224 771 4422 1033 46469 879 41641 8070 21277 192 1065 255 1166 46674 5457 36 565 43 11 4 12745 46674 47006 671 2 46346 7199 49302 1640 20951 288 43 2
+11/19/2026 20:20:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/19/2026 20:20:28 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+11/19/2026 20:20:28 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:20:28 - INFO - utils -   *** Example ***
+11/19/2026 20:20:28 - INFO - utils -   guid: 5
+11/19/2026 20:20:28 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 3 () Ġthrows ĠThrow able Ġ{ ĠString Ġstring 0 Ġ= ĠSerial ization Ut ils . clone (( String ) Ġnull ); Ġ"< Ass ert Place H older >" Ġ; Ġ} </s> public Ġstatic Ġ< T Ġextends ĠSerial izable > ĠT Ġclone ( T Ġobject ) Ġ{ Ġif Ġ( object Ġ== Ġnull ) Ġ{ Ġreturn Ġnull ; Ġ} Ġbyte [] Ġobject Data Ġ= Ġserial ize ( object ); ĠByte Array Input Stream Ġb ais Ġ= Ġnew ĠByte Array Input Stream ( object Data ); ĠClass Loader A ware Object Input Stream Ġin Ġ= Ġnull ; Ġtry Ġ{ Ġ// Ġstream Ġclosed Ġin Ġthe Ġfinally Ġin Ġ= Ġnew ĠClass Loader A ware Object Input Stream ( ba is , Ġobject . get Class (). get Class Loader ()); Ġ/* Ġ* Ġwhen Ġwe Ġserial ize Ġand Ġdes erial ize Ġan Ġobject , Ġ* Ġit Ġis Ġreasonable Ġto Ġassume Ġthe Ġdes erial ized Ġobject Ġ* Ġis Ġof Ġthe Ġsame Ġtype Ġas Ġthe Ġoriginal Ġserial ized Ġobject Ġ*/ Ġ@ Supp ress W arn ings (" un checked ") Ġ// Ġsee Ġabove ĠT Ġread Object Ġ= Ġ( T ) Ġin . read Object (); </s> assert Not Null ( string 0 ) </s>
+11/19/2026 20:20:28 - INFO - utils -   input_ids: 0 15110 13842 1296 246 43048 6989 28106 868 25522 26602 6755 288 5457 42477 1938 41967 5290 4 31496 48461 34222 43 23796 4397 49900 26039 2399 41863 725 33780 49721 25606 35524 2 15110 25156 28696 565 14269 42477 38142 15698 255 39511 1640 565 7626 43 25522 114 36 40412 45994 23796 43 25522 671 23796 131 35524 47893 48992 7626 30383 5457 13603 2072 1640 40412 4397 46594 48222 48214 36757 741 5655 5457 92 46594 48222 48214 36757 1640 40412 30383 4397 4210 49621 250 10680 46674 48214 36757 11 5457 23796 131 860 25522 21277 4615 1367 11 5 1747 11 5457 92 4210 49621 250 10680 46674 48214 36757 1640 3178 354 6 7626 4 6460 21527 49123 6460 21527 49621 49291 48565 1009 77 52 13603 2072 8 2694 48033 2072 41 7626 6 1009 24 16 5701 7 6876 5 2694 48033 1538 7626 1009 16 9 5 276 1907 25 5 1461 13603 1538 7626 48404 787 33661 5224 771 4422 1033 46469 879 41641 8070 21277 192 1065 255 1166 46674 5457 36 565 43 11 4 12745 46674 47006 2 46346 7199 49302 1640 20951 288 43 2
+11/19/2026 20:20:28 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/19/2026 20:20:28 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1
+11/19/2026 20:20:28 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:20:28 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 20:20:28 - INFO - __main__ -     Num examples = 3
+11/19/2026 20:20:28 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 3 total truncations 2, mean_trunc 69.66666666666667, median 104.0, max = 105
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.41it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.41it/s]
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1879: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.25
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Lang -d /Users/bitu/mtech-tools/toga_out/Lang-13/suite -v 13f
+Checking out e9429c05 to /tmp/fix_test_suite.pl_81075_1795148429........... --------------------------------------------------------------------------------
+Lang-13f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_81075_1795148429/default.prop OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e9429c05:81797ed4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-13f........................................ OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Lang -d /Users/bitu/mtech-tools/toga_out/Lang-13/suite -o /Users/bitu/mtech-tools/toga_out/Lang-13/detect
+Extract test suite......................................................... Executing test suite: Lang-13f-toga.1.tar.bz2
+OK
+Checking out e9429c05 to /tmp/run_bug_detection.pl_81257_1795148453/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_81257_1795148453/V_fixed/d OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e9429c05:81797ed4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-13f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out e9429c05 to /tmp/run_bug_detection.pl_81257_1795148453/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_81257_1795148453/V_buggy/d OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e9429c05:81797ed4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-13b........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

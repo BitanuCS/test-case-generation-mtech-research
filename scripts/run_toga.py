@@ -121,14 +121,22 @@ def write_suite(evo_src, preds, dst_src):
     return n
 
 
+ACTIVE_TEST = re.compile(r"^\s*@Test\b", re.M)
+
+
 def count_tests(arch):
-    n = 0
+    """(tests still real, assertions commented out). fix_test_suite.pl replaces a failing test by an
+    empty dummy marked '// Defects4J: flaky method' and comments a failing assertion out as
+    '// Defects4J: flaky assertion -->'; dummies are not counted as kept tests."""
+    n = flaky_asserts = 0
     with tarfile.open(arch) as t:
         for m in t.getmembers():
             name = Path(m.name).name
             if name.endswith(".java") and not name.startswith("._") and "scaffolding" not in name:
-                n += t.extractfile(m).read().decode(errors="replace").count("@Test")
-    return n
+                text = t.extractfile(m).read().decode(errors="replace")
+                n += len(ACTIVE_TEST.findall(text)) - text.count("// Defects4J: flaky method")
+                flaky_asserts += text.count("// Defects4J: flaky assertion")
+    return n, flaky_asserts
 
 
 def one(bug):
@@ -180,9 +188,12 @@ def one(bug):
     OUT.joinpath(bug).mkdir(parents=True, exist_ok=True)
     shutil.copy(arch, OUT / bug / "toga_tests.tar.bz2")
     sh([BIN.parent / "util" / "fix_test_suite.pl", "-p", project, "-d", suite, "-v", f"{bid}f"], log)
-    kept = count_tests(arch) if arch.exists() else 0
-    report["tests"] = {"written": n_written, "kept_on_fixed": kept, "false_alarms_removed": n_written - kept}
-    if not arch.exists():
+    kept, flaky_asserts = count_tests(arch) if arch.exists() else (0, 0)
+    report["tests"] = {"written": n_written, "kept_on_fixed": kept, "false_alarms_removed": n_written - kept,
+                       "assertions_commented_out": flaky_asserts}
+    if arch.exists():
+        shutil.copy(arch, OUT / bug / "toga_tests_kept.tar.bz2")    # the suite after fix_test_suite
+    if not kept:
         report["error"] = "no TOGA test survived on the fixed version"
         return finish(report, work, log, t)
     sh([BIN / "run_bug_detection.pl", "-p", project, "-d", suite, "-o", work / "detect"], log)

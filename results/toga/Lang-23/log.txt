@@ -1,0 +1,199 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Lang-23/evo /Users/bitu/mtech-tools/work/Lang-23f/src/main/java Lang 23 /Users/bitu/mtech-tools/toga_out/Lang-23
+30 test prefixes, 30 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Lang-23/inputs.csv /Users/bitu/mtech-tools/toga_out/Lang-23/meta.csv
+11/19/2026 20:26:10 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 20:26:11 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 20:26:13 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 20:26:13 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/19/2026 20:26:13 - INFO - utils -   Writing example 0 of 30
+11/19/2026 20:26:13 - INFO - utils -   *** Example ***
+11/19/2026 20:26:13 - INFO - utils -   guid: test-0
+11/19/2026 20:26:13 - INFO - utils -   tokens: <s> public ĠString Ġto Pattern () Ġ{ Ġreturn Ġto Pattern ; Ġ} </s> public Ġvoid Ġtest To Pattern () Ġ{ ĠHash Map < String , ĠFormat Factory > Ġhash Map 0 Ġ= Ġnew ĠHash Map < String , ĠFormat Factory > (); ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" ! % R 3 { 2 , } FM z ' ", Ġhash Map 0 ); Ġ} </s>
+11/19/2026 20:26:13 - INFO - utils -   input_ids: 0 15110 26602 7 48689 43048 25522 671 7 48689 131 35524 2 15110 13842 1296 3972 48689 43048 25522 21653 41151 41552 34222 6 43825 47249 15698 29524 41151 288 5457 92 21653 41151 41552 34222 6 43825 47249 15698 47006 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 328 207 500 246 45152 176 6 24303 16523 329 108 1297 29524 41151 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:26:13 - INFO - utils -   *** Example ***
+11/19/2026 20:26:13 - INFO - utils -   guid: test-1
+11/19/2026 20:26:13 - INFO - utils -   tokens: <s> public ĠExtended Message Format ( String Ġpattern ) Ġ{ Ġthis ( pattern , ĠLoc ale . get Default ()); Ġ} </s> public Ġvoid Ġtest Ext ended Message Format () Ġ{ ĠHash Map < String , ĠFormat Factory > Ġhash Map 0 Ġ= Ġnew ĠHash Map < String , ĠFormat Factory > (); ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" ! % R 3 { 2 , } FM z ' ", Ġhash Map 0 ); Ġ} </s>
+11/19/2026 20:26:13 - INFO - utils -   input_ids: 0 15110 36358 42394 48587 1640 34222 6184 43 25522 42 1640 43106 6 15471 1627 4 6460 48398 49291 35524 2 15110 13842 1296 40884 6228 42394 48587 43048 25522 21653 41151 41552 34222 6 43825 47249 15698 29524 41151 288 5457 92 21653 41151 41552 34222 6 43825 47249 15698 47006 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 328 207 500 246 45152 176 6 24303 16523 329 108 1297 29524 41151 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:26:13 - INFO - utils -   *** Example ***
+11/19/2026 20:26:13 - INFO - utils -   guid: test-2
+11/19/2026 20:26:13 - INFO - utils -   tokens: <s> public Ġvoid Ġset Format ( int Ġformat Element Index , ĠFormat Ġnew Format ) Ġ{ Ġthrow Ġnew ĠUn supported Operation Exception (); Ġ} </s> public Ġvoid Ġtest Set Format () Ġ{ ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" "); Ġextended Message Format 0 . set Format ( 22 , Ġextended Message Format 0 ); Ġ} </s>
+11/19/2026 20:26:13 - INFO - utils -   input_ids: 0 15110 13842 278 48587 1640 2544 7390 46331 45673 6 43825 92 48587 43 25522 3211 92 1890 29799 35360 48847 47006 35524 2 15110 13842 1296 28512 48587 43048 25522 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 45751 3112 42394 48587 288 4 8738 48587 1640 2036 6 3112 42394 48587 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   label: 1 (id = 1)
+11/19/2026 20:26:13 - INFO - utils -   *** Example ***
+11/19/2026 20:26:13 - INFO - utils -   guid: test-3
+11/19/2026 20:26:13 - INFO - utils -   tokens: <s> public Ġvoid Ġset Form ats By Arg ument Index ( Format [] Ġnew Form ats ) Ġ{ Ġthrow Ġnew ĠUn supported Operation Exception (); Ġ} </s> public Ġvoid Ġtest Set Form ats By Arg ument Index () Ġ{ ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" i 1 d "); Ġextended Message Format 0 . set Form ats By Arg ument Index (( Format [ ]) Ġnull ); Ġ} </s>
+11/19/2026 20:26:13 - INFO - utils -   input_ids: 0 15110 13842 278 30039 2923 2765 45621 18816 45673 1640 48587 48992 92 30039 2923 43 25522 3211 92 1890 29799 35360 48847 47006 35524 2 15110 13842 1296 28512 30039 2923 2765 45621 18816 45673 43048 25522 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 118 134 417 45751 3112 42394 48587 288 4 8738 30039 2923 2765 45621 18816 45673 48461 48587 10975 45587 23796 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   label: 1 (id = 1)
+11/19/2026 20:26:13 - INFO - utils -   *** Example ***
+11/19/2026 20:26:13 - INFO - utils -   guid: test-4
+11/19/2026 20:26:13 - INFO - utils -   tokens: <s> public Ġvoid Ġset Form ats ( Format [] Ġnew Form ats ) Ġ{ Ġthrow Ġnew ĠUn supported Operation Exception (); Ġ} </s> public Ġvoid Ġtest Set Form ats () Ġ{ ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" "); ĠFormat [] Ġformat Array 0 Ġ= Ġnew ĠFormat [ 0 ]; Ġextended Message Format 0 . set Form ats ( format Array 0 ); Ġ} </s>
+11/19/2026 20:26:13 - INFO - utils -   input_ids: 0 15110 13842 278 30039 2923 1640 48587 48992 92 30039 2923 43 25522 3211 92 1890 29799 35360 48847 47006 35524 2 15110 13842 1296 28512 30039 2923 43048 25522 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 45751 43825 48992 7390 48222 288 5457 92 43825 10975 288 44082 3112 42394 48587 288 4 8738 30039 2923 1640 34609 48222 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:13 - INFO - utils -   label: 1 (id = 1)
+11/19/2026 20:26:13 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 20:26:13 - INFO - __main__ -     Num examples = 30
+11/19/2026 20:26:13 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 30 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.90s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.90s/it]
+11/19/2026 20:26:18 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 20:26:19 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 20:26:20 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 20:26:20 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/19/2026 20:26:20 - INFO - utils -   Writing example 0 of 15
+11/19/2026 20:26:20 - INFO - utils -   *** Example ***
+11/19/2026 20:26:20 - INFO - utils -   guid: 0
+11/19/2026 20:26:20 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠHash Map < String , ĠFormat Factory > Ġhash Map 0 Ġ= Ġnew ĠHash Map < String , ĠFormat Factory > (); ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" ! % R 3 { 2 </s> public ĠString Ġto Pattern () Ġ{ Ġreturn Ġto Pattern ; Ġ} </s> assert Not Null ( ext ended Message Format 0 . to Pattern ()) </s>
+11/19/2026 20:26:20 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 21653 41151 41552 34222 6 43825 47249 15698 29524 41151 288 5457 92 21653 41151 41552 34222 6 43825 47249 15698 47006 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 328 207 500 246 45152 176 2 15110 26602 7 48689 43048 25522 671 7 48689 131 35524 2 46346 7199 49302 1640 16435 6228 42394 48587 288 4 560 48689 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:26:20 - INFO - utils -   *** Example ***
+11/19/2026 20:26:20 - INFO - utils -   guid: 5
+11/19/2026 20:26:20 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 04 () Ġthrows ĠThrow able Ġ{ ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" 4 L x OB a ] / v C g Q X 2 g Q h "); ĠString Ġstring 0 Ġ= Ġextended Message Format 0 . to Pattern </s> public ĠString Ġto Pattern () Ġ{ Ġreturn Ġto Pattern ; Ġ} </s> assert Not Null ( string 0 ) </s>
+11/19/2026 20:26:20 - INFO - utils -   input_ids: 0 15110 13842 1296 3387 43048 6989 28106 868 25522 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 306 574 1178 7912 102 742 73 705 347 571 1864 1000 176 571 1864 298 45751 26602 6755 288 5457 3112 42394 48587 288 4 560 48689 2 15110 26602 7 48689 43048 25522 671 7 48689 131 35524 2 46346 7199 49302 1640 20951 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:26:20 - INFO - utils -   *** Example ***
+11/19/2026 20:26:20 - INFO - utils -   guid: 10
+11/19/2026 20:26:20 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 08 () Ġthrows ĠThrow able Ġ{ ĠHash Map < String , ĠFormat Factory > Ġhash Map 0 Ġ= Ġnew ĠHash Map < String , ĠFormat Factory > (); ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" D % ġ Z < Y </s> public ĠString Ġto Pattern () Ġ{ Ġreturn Ġto Pattern ; Ġ} </s> assert Not Null ( ext ended Message Format 0 . to Pattern ()) </s>
+11/19/2026 20:26:20 - INFO - utils -   input_ids: 0 15110 13842 1296 3669 43048 6989 28106 868 25522 21653 41151 41552 34222 6 43825 47249 15698 29524 41151 288 5457 92 21653 41151 41552 34222 6 43825 47249 15698 47006 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 495 207 49802 1301 41552 975 2 15110 26602 7 48689 43048 25522 671 7 48689 131 35524 2 46346 7199 49302 1640 16435 6228 42394 48587 288 4 560 48689 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:26:20 - INFO - utils -   *** Example ***
+11/19/2026 20:26:20 - INFO - utils -   guid: 12
+11/19/2026 20:26:20 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 09 () Ġthrows ĠThrow able Ġ{ ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" Ġhas Ġno Ġclone Ġmethod "); ĠHash Map < String , ĠFormat Factory > Ġhash Map 0 Ġ= Ġnew ĠHash Map < String , ĠFormat Factory > (); ĠExtended </s> public ĠString Ġto Pattern () Ġ{ Ġreturn Ġto Pattern ; Ġ} </s> assert Not Null ( ext ended Message Format 1 . to Pattern ()) </s>
+11/19/2026 20:26:20 - INFO - utils -   input_ids: 0 15110 13842 1296 3546 43048 6989 28106 868 25522 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 34 117 39511 5448 45751 21653 41151 41552 34222 6 43825 47249 15698 29524 41151 288 5457 92 21653 41151 41552 34222 6 43825 47249 15698 47006 36358 2 15110 26602 7 48689 43048 25522 671 7 48689 131 35524 2 46346 7199 49302 1640 16435 6228 42394 48587 134 4 560 48689 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:26:20 - INFO - utils -   *** Example ***
+11/19/2026 20:26:20 - INFO - utils -   guid: 13
+11/19/2026 20:26:20 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 09 () Ġthrows ĠThrow able Ġ{ ĠExtended Message Format Ġextended Message Format 0 Ġ= Ġnew ĠExtended Message Format (" Ġhas Ġno Ġclone Ġmethod "); ĠHash Map < String , ĠFormat Factory > Ġhash Map 0 Ġ= Ġnew ĠHash Map < String , ĠFormat Factory > (); ĠExtended </s> public Ġboolean Ġequals ( Object Ġobj ) Ġ{ Ġif Ġ( obj Ġ== Ġthis ) Ġ{ Ġreturn Ġtrue ; Ġ} Ġif Ġ( obj Ġ== Ġnull ) Ġ{ Ġreturn Ġfalse ; Ġ} Ġif Ġ(! super . equ als ( obj )) Ġ{ Ġreturn Ġfalse ; Ġ} Ġif Ġ( Object Ut ils . not E qual ( get Class (), Ġobj . get Class () )) Ġ{ Ġreturn Ġfalse ; Ġ} ĠExtended Message Format Ġrh s Ġ= Ġ( Ext ended Message Format ) obj ; Ġif Ġ( Object Ut ils . not E qual ( to Pattern , Ġrh s . to Pattern )) Ġ{ Ġreturn Ġfalse ; Ġ} Ġif Ġ( Object Ut ils . not E qual ( reg istry , Ġrh s . reg istry )) Ġ{ Ġreturn Ġfalse ; Ġ} Ġreturn Ġtrue ; Ġ} </s> assert True ( bo olean 0 ) </s>
+11/19/2026 20:26:20 - INFO - utils -   input_ids: 0 15110 13842 1296 3546 43048 6989 28106 868 25522 36358 42394 48587 3112 42394 48587 288 5457 92 36358 42394 48587 46469 34 117 39511 5448 45751 21653 41151 41552 34222 6 43825 47249 15698 29524 41151 288 5457 92 21653 41151 41552 34222 6 43825 47249 15698 47006 36358 2 15110 49378 27601 1640 46674 26907 43 25522 114 36 46134 45994 42 43 25522 671 1528 131 35524 114 36 46134 45994 23796 43 25522 671 3950 131 35524 114 48209 16101 4 8198 1536 1640 46134 35122 25522 671 3950 131 35524 114 36 46674 41967 5290 4 3654 717 27702 1640 6460 21527 49196 26907 4 6460 21527 43048 35122 25522 671 3950 131 35524 36358 42394 48587 16448 29 5457 36 40884 6228 42394 48587 43 46134 131 114 36 46674 41967 5290 4 3654 717 27702 1640 560 48689 6 16448 29 4 560 48689 35122 25522 671 3950 131 35524 114 36 46674 41967 5290 4 3654 717 27702 1640 4950 20217 6 16448 29 4 4950 20217 35122 25522 671 3950 131 35524 671 1528 131 35524 2 46346 36948 1640 3983 48547 288 43 2 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0
+11/19/2026 20:26:20 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:26:20 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 20:26:20 - INFO - __main__ -     Num examples = 15
+11/19/2026 20:26:20 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 15 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  1.00it/s]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.3
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Lang -d /Users/bitu/mtech-tools/toga_out/Lang-23/suite -v 23f
+Checking out 249788d7 to /tmp/fix_test_suite.pl_82756_1795148782........... --------------------------------------------------------------------------------
+Lang-23f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_82756_1795148782/maven-build. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 249788d7:66e42dc8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-23f........................................ OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Lang -d /Users/bitu/mtech-tools/toga_out/Lang-23/suite -o /Users/bitu/mtech-tools/toga_out/Lang-23/detect
+Extract test suite......................................................... Executing test suite: Lang-23f-toga.1.tar.bz2
+OK
+Checking out 249788d7 to /tmp/run_bug_detection.pl_82942_1795148811/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_82942_1795148811/V_fixed/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 249788d7:66e42dc8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-23f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 249788d7 to /tmp/run_bug_detection.pl_82942_1795148811/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_82942_1795148811/V_buggy/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 249788d7:66e42dc8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-23b........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

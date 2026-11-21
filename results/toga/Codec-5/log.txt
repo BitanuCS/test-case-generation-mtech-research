@@ -1,0 +1,178 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Codec-5/evo /Users/bitu/mtech-tools/work/Codec-5f/src/java Codec 5 /Users/bitu/mtech-tools/toga_out/Codec-5
+88 test prefixes, 88 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Codec-5/inputs.csv /Users/bitu/mtech-tools/toga_out/Codec-5/meta.csv
+11/19/2026 22:28:41 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 22:28:43 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 22:28:44 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 22:28:44 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/19/2026 22:28:44 - INFO - utils -   Writing example 0 of 88
+11/19/2026 22:28:44 - INFO - utils -   *** Example ***
+11/19/2026 22:28:44 - INFO - utils -   guid: test-0
+11/19/2026 22:28:44 - INFO - utils -   tokens: <s> int Ġread Results ( byte [] Ġb , Ġint Ġb Pos , Ġint Ġb Av ail ) Ġ{ Ġif Ġ( buffer Ġ!= Ġnull ) Ġ{ Ġint Ġlen Ġ= ĠMath . min ( av ail (), Ġb Av ail ); Ġif Ġ( buffer Ġ!= Ġb ) Ġ{ ĠSystem . array copy </s> public Ġvoid Ġtest Read Results () Ġ{ ĠBase 64 Ġbase 64 _ 0 Ġ= Ġnew ĠBase 64 ( true ); Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 4 ]; Ġbase 64 _ 0 . en code To String ( byte Array 0 ); Ġbase 64 _ 0 . read Results ( byte Array 0 , Ġ1 , Ġ1 ); Ġ} </s>
+11/19/2026 22:28:44 - INFO - utils -   input_ids: 0 2544 1166 41981 1640 47692 48992 741 6 6979 741 42848 6 6979 741 23389 3760 43 25522 114 36 47438 49333 23796 43 25522 6979 25528 5457 11945 4 4691 1640 1469 3760 49196 741 23389 3760 4397 114 36 47438 49333 741 43 25522 5149 4 30766 44273 2 15110 13842 1296 25439 41981 43048 25522 11056 4027 1542 4027 1215 288 5457 92 11056 4027 1640 29225 4397 47893 48992 47893 48222 288 5457 92 47893 10975 306 44082 1542 4027 1215 288 4 225 20414 3972 34222 1640 47692 48222 288 4397 1542 4027 1215 288 4 12745 41981 1640 47692 48222 288 6 112 6 112 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:44 - INFO - utils -   *** Example ***
+11/19/2026 22:28:44 - INFO - utils -   guid: test-1
+11/19/2026 22:28:44 - INFO - utils -   tokens: <s> int Ġread Results ( byte [] Ġb , Ġint Ġb Pos , Ġint Ġb Av ail ) Ġ{ Ġif Ġ( buffer Ġ!= Ġnull ) Ġ{ Ġint Ġlen Ġ= ĠMath . min ( av ail (), Ġb Av ail ); Ġif Ġ( buffer Ġ!= Ġb ) Ġ{ ĠSystem . array copy </s> public Ġvoid Ġtest Read Results () Ġ{ ĠBase 64 Ġbase 64 _ 0 Ġ= Ġnew ĠBase 64 ( true ); Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 4 ]; Ġbase 64 _ 0 . en code To String ( byte Array 0 ); Ġbase 64 _ 0 . read Results ( byte Array 0 , Ġ1 , Ġ1 ); Ġ} </s>
+11/19/2026 22:28:44 - INFO - utils -   input_ids: 0 2544 1166 41981 1640 47692 48992 741 6 6979 741 42848 6 6979 741 23389 3760 43 25522 114 36 47438 49333 23796 43 25522 6979 25528 5457 11945 4 4691 1640 1469 3760 49196 741 23389 3760 4397 114 36 47438 49333 741 43 25522 5149 4 30766 44273 2 15110 13842 1296 25439 41981 43048 25522 11056 4027 1542 4027 1215 288 5457 92 11056 4027 1640 29225 4397 47893 48992 47893 48222 288 5457 92 47893 10975 306 44082 1542 4027 1215 288 4 225 20414 3972 34222 1640 47692 48222 288 4397 1542 4027 1215 288 4 12745 41981 1640 47692 48222 288 6 112 6 112 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:44 - INFO - utils -   *** Example ***
+11/19/2026 22:28:44 - INFO - utils -   guid: test-2
+11/19/2026 22:28:44 - INFO - utils -   tokens: <s> int Ġread Results ( byte [] Ġb , Ġint Ġb Pos , Ġint Ġb Av ail ) Ġ{ Ġif Ġ( buffer Ġ!= Ġnull ) Ġ{ Ġint Ġlen Ġ= ĠMath . min ( av ail (), Ġb Av ail ); Ġif Ġ( buffer Ġ!= Ġb ) Ġ{ ĠSystem . array copy </s> public Ġvoid Ġtest Read Results () Ġ{ ĠBase 64 Ġbase 64 _ 0 Ġ= Ġnew ĠBase 64 ( true ); Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 4 ]; Ġbase 64 _ 0 . en code To String ( byte Array 0 ); Ġbase 64 _ 0 . read Results ( byte Array 0 , Ġ1 , Ġ1 ); Ġ} </s>
+11/19/2026 22:28:44 - INFO - utils -   input_ids: 0 2544 1166 41981 1640 47692 48992 741 6 6979 741 42848 6 6979 741 23389 3760 43 25522 114 36 47438 49333 23796 43 25522 6979 25528 5457 11945 4 4691 1640 1469 3760 49196 741 23389 3760 4397 114 36 47438 49333 741 43 25522 5149 4 30766 44273 2 15110 13842 1296 25439 41981 43048 25522 11056 4027 1542 4027 1215 288 5457 92 11056 4027 1640 29225 4397 47893 48992 47893 48222 288 5457 92 47893 10975 306 44082 1542 4027 1215 288 4 225 20414 3972 34222 1640 47692 48222 288 4397 1542 4027 1215 288 4 12745 41981 1640 47692 48222 288 6 112 6 112 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:44 - INFO - utils -   *** Example ***
+11/19/2026 22:28:44 - INFO - utils -   guid: test-3
+11/19/2026 22:28:44 - INFO - utils -   tokens: <s> public Ġstatic ĠString Ġencode Base 64 String ( byte [] Ġbinary Data ) Ġ{ Ġreturn ĠString Ut ils . new String Ut f 8 ( en code Base 64 ( binary Data , Ġtrue )); Ġ} </s> public Ġvoid Ġtest En code Base 64 String () Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 1 ]; ĠBase 64 . en code Base 64 String ( byte Array 0 ); Ġ} </s>
+11/19/2026 22:28:44 - INFO - utils -   input_ids: 0 15110 25156 26602 46855 34164 4027 34222 1640 47692 48992 32771 30383 43 25522 671 26602 41967 5290 4 4651 34222 41967 506 398 1640 225 20414 34164 4027 1640 40155 30383 6 1528 48749 35524 2 15110 13842 1296 16040 20414 34164 4027 34222 43048 25522 47893 48992 47893 48222 288 5457 92 47893 10975 134 44082 11056 4027 4 225 20414 34164 4027 34222 1640 47692 48222 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:44 - INFO - utils -   *** Example ***
+11/19/2026 22:28:44 - INFO - utils -   guid: test-4
+11/19/2026 22:28:44 - INFO - utils -   tokens: <s> public Ġstatic ĠString Ġencode Base 64 String ( byte [] Ġbinary Data ) Ġ{ Ġreturn ĠString Ut ils . new String Ut f 8 ( en code Base 64 ( binary Data , Ġtrue )); Ġ} </s> public Ġvoid Ġtest En code Base 64 String () Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 1 ]; ĠBase 64 . en code Base 64 String ( byte Array 0 ); Ġ} </s>
+11/19/2026 22:28:44 - INFO - utils -   input_ids: 0 15110 25156 26602 46855 34164 4027 34222 1640 47692 48992 32771 30383 43 25522 671 26602 41967 5290 4 4651 34222 41967 506 398 1640 225 20414 34164 4027 1640 40155 30383 6 1528 48749 35524 2 15110 13842 1296 16040 20414 34164 4027 34222 43048 25522 47893 48992 47893 48222 288 5457 92 47893 10975 134 44082 11056 4027 4 225 20414 34164 4027 34222 1640 47692 48222 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:44 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:44 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 22:28:44 - INFO - __main__ -     Num examples = 88
+11/19/2026 22:28:44 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 88 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:05<00:00,  5.80s/it]Evaluating: 100%|██████████| 1/1 [00:05<00:00,  5.81s/it]
+11/19/2026 22:28:53 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 22:28:54 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 22:28:55 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 22:28:55 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/19/2026 22:28:55 - INFO - utils -   Writing example 0 of 50
+11/19/2026 22:28:55 - INFO - utils -   *** Example ***
+11/19/2026 22:28:55 - INFO - utils -   guid: 1
+11/19/2026 22:28:55 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠBase 64 Ġbase 64 _ 0 Ġ= Ġnew ĠBase 64 ( true ); Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 4 ]; Ġbase 64 _ 0 . en code To String ( byte Array 0 ); Ġint Ġint 0 </s> int Ġread Results ( byte [] Ġb , Ġint Ġb Pos , Ġint Ġb Av ail ) Ġ{ Ġif Ġ( buffer Ġ!= Ġnull ) Ġ{ Ġint Ġlen Ġ= ĠMath . min ( av ail (), Ġb Av ail ); Ġif Ġ( buffer Ġ!= Ġb ) Ġ{ ĠSystem . array copy ( buffer , Ġread Pos , Ġb , Ġb Pos , Ġlen ); Ġread Pos Ġ+= Ġlen ; Ġif Ġ( read Pos Ġ>= Ġpos ) Ġ{ Ġbuffer Ġ= Ġnull ; Ġ} Ġ} Ġelse Ġ{ Ġ// ĠRe - using Ġthe Ġoriginal Ġconsumer 's Ġoutput Ġarray Ġis Ġonly Ġ// Ġallowed Ġfor Ġone Ġround . Ġbuffer Ġ= Ġnull ; Ġ} Ġreturn Ġlen ; Ġ} Ġreturn Ġe of Ġ? Ġ- 1 Ġ: Ġ0 ; Ġ} </s> assert Equ als ( 1 , Ġint 0 ) </s>
+11/19/2026 22:28:55 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 11056 4027 1542 4027 1215 288 5457 92 11056 4027 1640 29225 4397 47893 48992 47893 48222 288 5457 92 47893 10975 306 44082 1542 4027 1215 288 4 225 20414 3972 34222 1640 47692 48222 288 4397 6979 6979 288 2 2544 1166 41981 1640 47692 48992 741 6 6979 741 42848 6 6979 741 23389 3760 43 25522 114 36 47438 49333 23796 43 25522 6979 25528 5457 11945 4 4691 1640 1469 3760 49196 741 23389 3760 4397 114 36 47438 49333 741 43 25522 5149 4 30766 44273 1640 47438 6 1166 42848 6 741 6 741 42848 6 25528 4397 1166 42848 49371 25528 131 114 36 12745 42848 49095 8593 43 25522 21944 5457 23796 131 35524 35524 1493 25522 21277 1223 12 10928 5 1461 2267 18 4195 8932 16 129 21277 1220 13 65 1062 4 21944 5457 23796 131 35524 671 25528 131 35524 671 364 1116 17487 111 134 4832 321 131 35524 2 46346 28568 1536 1640 134 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:55 - INFO - utils -   *** Example ***
+11/19/2026 22:28:55 - INFO - utils -   guid: 1
+11/19/2026 22:28:55 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠBase 64 Ġbase 64 _ 0 Ġ= Ġnew ĠBase 64 ( true ); Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 4 ]; Ġbase 64 _ 0 . en code To String ( byte Array 0 ); Ġint Ġint 0 </s> int Ġread Results ( byte [] Ġb , Ġint Ġb Pos , Ġint Ġb Av ail ) Ġ{ Ġif Ġ( buffer Ġ!= Ġnull ) Ġ{ Ġint Ġlen Ġ= ĠMath . min ( av ail (), Ġb Av ail ); Ġif Ġ( buffer Ġ!= Ġb ) Ġ{ ĠSystem . array copy ( buffer , Ġread Pos , Ġb , Ġb Pos , Ġlen ); Ġread Pos Ġ+= Ġlen ; Ġif Ġ( read Pos Ġ>= Ġpos ) Ġ{ Ġbuffer Ġ= Ġnull ; Ġ} Ġ} Ġelse Ġ{ Ġ// ĠRe - using Ġthe Ġoriginal Ġconsumer 's Ġoutput Ġarray Ġis Ġonly Ġ// Ġallowed Ġfor Ġone Ġround . Ġbuffer Ġ= Ġnull ; Ġ} Ġreturn Ġlen ; Ġ} Ġreturn Ġe of Ġ? Ġ- 1 Ġ: Ġ0 ; Ġ} </s> assert Equ als ( 0 , Ġint 0 ) </s>
+11/19/2026 22:28:55 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 11056 4027 1542 4027 1215 288 5457 92 11056 4027 1640 29225 4397 47893 48992 47893 48222 288 5457 92 47893 10975 306 44082 1542 4027 1215 288 4 225 20414 3972 34222 1640 47692 48222 288 4397 6979 6979 288 2 2544 1166 41981 1640 47692 48992 741 6 6979 741 42848 6 6979 741 23389 3760 43 25522 114 36 47438 49333 23796 43 25522 6979 25528 5457 11945 4 4691 1640 1469 3760 49196 741 23389 3760 4397 114 36 47438 49333 741 43 25522 5149 4 30766 44273 1640 47438 6 1166 42848 6 741 6 741 42848 6 25528 4397 1166 42848 49371 25528 131 114 36 12745 42848 49095 8593 43 25522 21944 5457 23796 131 35524 35524 1493 25522 21277 1223 12 10928 5 1461 2267 18 4195 8932 16 129 21277 1220 13 65 1062 4 21944 5457 23796 131 35524 671 25528 131 35524 671 364 1116 17487 111 134 4832 321 131 35524 2 46346 28568 1536 1640 288 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:55 - INFO - utils -   *** Example ***
+11/19/2026 22:28:55 - INFO - utils -   guid: 3
+11/19/2026 22:28:55 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 01 () Ġthrows ĠThrow able Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 1 ]; ĠString Ġstring 0 Ġ= ĠBase 64 . en code Base 64 String ( byte Array 0 ); Ġ"< Ass ert Place H older >" Ġ; Ġ} </s> public Ġstatic ĠString Ġencode Base 64 String ( byte [] Ġbinary Data ) Ġ{ Ġreturn ĠString Ut ils . new String Ut f 8 ( en code Base 64 ( binary Data , Ġtrue )); Ġ} </s> assert Not Null ( string 0 ) </s>
+11/19/2026 22:28:55 - INFO - utils -   input_ids: 0 15110 13842 1296 2663 43048 6989 28106 868 25522 47893 48992 47893 48222 288 5457 92 47893 10975 134 44082 26602 6755 288 5457 11056 4027 4 225 20414 34164 4027 34222 1640 47692 48222 288 4397 49900 26039 2399 41863 725 33780 49721 25606 35524 2 15110 25156 26602 46855 34164 4027 34222 1640 47692 48992 32771 30383 43 25522 671 26602 41967 5290 4 4651 34222 41967 506 398 1640 225 20414 34164 4027 1640 40155 30383 6 1528 48749 35524 2 46346 7199 49302 1640 20951 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:55 - INFO - utils -   *** Example ***
+11/19/2026 22:28:55 - INFO - utils -   guid: 5
+11/19/2026 22:28:55 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= Ġnew Ġbyte [ 9 ]; ĠString Ġstring 0 Ġ= ĠBase 64 . en code Base 64 UR LS afe String ( byte Array 0 ); Ġ"< Ass ert Place H older >" Ġ; Ġ} </s> public Ġstatic ĠString Ġencode Base 64 UR LS afe String ( byte [] Ġbinary Data ) Ġ{ Ġreturn ĠString Ut ils . new String Ut f 8 ( en code Base 64 ( binary Data , Ġfalse , Ġtrue )); Ġ} </s> assert Not Null ( string 0 ) </s>
+11/19/2026 22:28:55 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 47893 48992 47893 48222 288 5457 92 47893 10975 466 44082 26602 6755 288 5457 11056 4027 4 225 20414 34164 4027 2492 10463 20120 34222 1640 47692 48222 288 4397 49900 26039 2399 41863 725 33780 49721 25606 35524 2 15110 25156 26602 46855 34164 4027 2492 10463 20120 34222 1640 47692 48992 32771 30383 43 25522 671 26602 41967 5290 4 4651 34222 41967 506 398 1640 225 20414 34164 4027 1640 40155 30383 6 3950 6 1528 48749 35524 2 46346 7199 49302 1640 20951 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:55 - INFO - utils -   *** Example ***
+11/19/2026 22:28:55 - INFO - utils -   guid: 7
+11/19/2026 22:28:55 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 03 () Ġthrows ĠThrow able Ġ{ Ġbyte [] Ġbyte Array 0 Ġ= ĠBase 64 . CH UN K _ SE PAR ATOR ; ĠBig Integer Ġbig Integer 0 Ġ= ĠBase 64 . dec ode Integer ( byte Array 0 ); Ġ"< Ass ert Place H older >" </s> public Ġstatic ĠBig Integer Ġdecode Integer ( byte [] Ġp Array ) Ġ{ Ġreturn Ġnew ĠBig Integer ( 1 , Ġdecode Base 64 ( p Array )); Ġ} </s> assert Equ als ( big Integer 0 , Ġbig Integer 0 . byte Value ()) </s>
+11/19/2026 22:28:55 - INFO - utils -   input_ids: 0 15110 13842 1296 3933 43048 6989 28106 868 25522 47893 48992 47893 48222 288 5457 11056 4027 4 3764 4154 530 1215 3388 14280 39261 131 1776 49740 380 49740 288 5457 11056 4027 4 11127 4636 49740 1640 47692 48222 288 4397 49900 26039 2399 41863 725 33780 49721 2 15110 25156 1776 49740 45182 49740 1640 47692 48992 181 48222 43 25522 671 92 1776 49740 1640 134 6 45182 34164 4027 1640 642 48222 48749 35524 2 46346 28568 1536 1640 8527 49740 288 6 380 49740 288 4 47692 33977 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 22:28:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 22:28:55 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 22:28:55 - INFO - __main__ -     Num examples = 50
+11/19/2026 22:28:55 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 50 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:02<00:00,  2.95s/it]Evaluating: 100%|██████████| 1/1 [00:02<00:00,  2.95s/it]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.23863636363636365
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Codec -d /Users/bitu/mtech-tools/toga_out/Codec-5/suite -v 5f
+Checking out 800f0531 to /tmp/fix_test_suite.pl_93358_1795156139........... --------------------------------------------------------------------------------
+Codec-5f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 800f0531:4c6eea41..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Codec-5f........................................ OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Codec -d /Users/bitu/mtech-tools/toga_out/Codec-5/suite -o /Users/bitu/mtech-tools/toga_out/Codec-5/detect
+Extract test suite......................................................... Executing test suite: Codec-5f-toga.1.tar.bz2
+OK
+Checking out 800f0531 to /tmp/run_bug_detection.pl_93518_1795156166/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 800f0531:4c6eea41..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Codec-5f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 800f0531 to /tmp/run_bug_detection.pl_93518_1795156166/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 800f0531:4c6eea41..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Codec-5b........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

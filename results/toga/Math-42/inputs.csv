@@ -1,0 +1,1393 @@
+focal_method,test_prefix,docstring
+"    protected void subtractRow(final int minuendRow, final int subtrahendRow,
+                               final double multiple) {
+        tableau.setRowVector(minuendRow, tableau.getRowVector(minuendRow)
+            .subtract(tableau.getRowVector(subtrahendRow).mapMultiply(multiple)));
+    }","  public void test00()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      // Undeclared exception!
+      try { 
+        simplexTableau0.subtractRow(1605, 1605, 1.0E-12);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // row index (1,605)
+         //
+         verifyException(""org.apache.commons.math.linear.MatrixUtils"", e);
+      }
+  }","/**
+     * Subtracts a multiple of one row from another.
+     * <p>
+     * After application of this operation, the following will hold:
+     *   minuendRow = minuendRow - multiple * subtrahendRow
+     * </p>
+     * @param minuendRow row index
+     * @param subtrahendRow row index
+     * @param multiple multiplication factor
+     */"
+"    protected final double[][] getData() {
+        return tableau.getData();
+    }","  public void test01()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 0.0);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 0.0);
+      double[][] doubleArray0 = simplexTableau0.getData();
+      assertEquals(1, doubleArray0.length);
+}","/**
+     * Get the tableau data.
+     * @return tableau data
+     */"
+"    protected final double[][] getData() {
+        return tableau.getData();
+    }","  public void test01()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 0.0);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 0.0);
+      double[][] doubleArray0 = simplexTableau0.getData();
+  }","/**
+     * Get the tableau data.
+     * @return tableau data
+     */"
+"    protected final void setEntry(final int row, final int column,
+                                  final double value) {
+        tableau.setEntry(row, column, value);
+    }","  public void test02()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 88);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 88);
+      // Undeclared exception!
+      try { 
+        simplexTableau0.setEntry(88, 88, 88);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // row index (88)
+         //
+         verifyException(""org.apache.commons.math.linear.MatrixUtils"", e);
+      }
+  }","/** Set an entry of the tableau.
+     * @param row row index
+     * @param column column index
+     * @param value for the entry
+     */"
+"    protected RealPointValuePair getSolution() {
+      int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+      Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+      double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+      Set<Integer> basicRows = new HashSet<Integer>();
+      double[] coefficients = new double[getOriginalNumDecisionVariables()];
+      for (int i = 0; i < coefficients.length; i++) {
+          int colIndex = columnLabels.indexOf(""x"" + i);
+          if (colIndex < 0) {
+            coefficients[i] = 0;
+            continue;
+          }
+          Integer basicRow = getBasicRow(colIndex);
+          if (basicRow != null && basicRow == 0) {
+              // if the basic row is found to be the objective function row
+              // set the coefficient to 0 -> this case handles unconstrained 
+              // variables that are still part of the objective function
+              coefficients[i] = 0;
+          } else if (basicRows.contains(basicRow)) {
+              // if multiple variables can take a given value
+              // then we choose the first and set the rest equal to 0
+              coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+          } else {
+              basicRows.add(basicRow);
+              coefficients[i] =
+                  (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                  (restrictToNonNegative ? 0 : mostNegative);
+          }
+      }
+      return new RealPointValuePair(coefficients, f.getValue(coefficients));
+    }","  public void test03()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(46);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      arrayRealVector0.setEntry(0, 1.0);
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0);
+      RealPointValuePair realPointValuePair0 = simplexTableau0.getSolution();
+      assertEquals(0.0, realPointValuePair0.getValue(), 0.01);
+}","/**
+     * Get the current solution.
+     *
+     * @return current solution
+     */"
+"    protected RealPointValuePair getSolution() {
+      int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+      Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+      double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+      Set<Integer> basicRows = new HashSet<Integer>();
+      double[] coefficients = new double[getOriginalNumDecisionVariables()];
+      for (int i = 0; i < coefficients.length; i++) {
+          int colIndex = columnLabels.indexOf(""x"" + i);
+          if (colIndex < 0) {
+            coefficients[i] = 0;
+            continue;
+          }
+          Integer basicRow = getBasicRow(colIndex);
+          if (basicRow != null && basicRow == 0) {
+              // if the basic row is found to be the objective function row
+              // set the coefficient to 0 -> this case handles unconstrained 
+              // variables that are still part of the objective function
+              coefficients[i] = 0;
+          } else if (basicRows.contains(basicRow)) {
+              // if multiple variables can take a given value
+              // then we choose the first and set the rest equal to 0
+              coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+          } else {
+              basicRows.add(basicRow);
+              coefficients[i] =
+                  (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                  (restrictToNonNegative ? 0 : mostNegative);
+          }
+      }
+      return new RealPointValuePair(coefficients, f.getValue(coefficients));
+    }","  public void test03()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(46);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      arrayRealVector0.setEntry(0, 1.0);
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0);
+      RealPointValuePair realPointValuePair0 = simplexTableau0.getSolution();
+  }","/**
+     * Get the current solution.
+     *
+     * @return current solution
+     */"
+"    protected final int getNumDecisionVariables() {
+        return numDecisionVariables;
+    }","  public void test04()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 0.0);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 0, 0);
+      int int0 = simplexTableau0.getNumDecisionVariables();
+      assertEquals(0, int0);
+}","/**
+     * Get the number of decision variables.
+     * <p>
+     * If variables are not restricted to positive values, this will include 1
+     * extra decision variable to represent the absolute value of the most
+     * negative variable.
+     * </p>
+     * @return number of decision variables
+     * @see #getOriginalNumDecisionVariables()
+     */"
+"    protected final int getNumDecisionVariables() {
+        return numDecisionVariables;
+    }","  public void test04()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 0.0);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 0, 0);
+      int int0 = simplexTableau0.getNumDecisionVariables();
+  }","/**
+     * Get the number of decision variables.
+     * <p>
+     * If variables are not restricted to positive values, this will include 1
+     * extra decision variable to represent the absolute value of the most
+     * negative variable.
+     * </p>
+     * @return number of decision variables
+     * @see #getOriginalNumDecisionVariables()
+     */"
+"    public int hashCode() {
+        return Boolean.valueOf(restrictToNonNegative).hashCode() ^
+               numDecisionVariables ^
+               numSlackVariables ^
+               numArtificialVariables ^
+               Double.valueOf(epsilon).hashCode() ^
+               maxUlps ^
+               f.hashCode() ^
+               constraints.hashCode() ^
+               tableau.hashCode();
+    }","  public void test05()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(doubleArray0, 0.0);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 0.0, 255);
+      simplexTableau0.hashCode();
+  }",/** {@inheritDoc} */
+"    protected void dropPhase1Objective() {
+        if (getNumObjectiveFunctions() == 1) {
+            return;
+        }
+
+        List<Integer> columnsToDrop = new ArrayList<Integer>();
+        columnsToDrop.add(0);
+
+        // positive cost non-artificial variables
+        for (int i = getNumObjectiveFunctions(); i < getArtificialVariableOffset(); i++) {
+            final double entry = tableau.getEntry(0, i);
+            if (Precision.compareTo(entry, 0d, maxUlps) > 0) {
+                columnsToDrop.add(i);
+            }
+        }
+
+        // non-basic artificial variables
+        for (int i = 0; i < getNumArtificialVariables(); i++) {
+          int col = i + getArtificialVariableOffset();
+          if (getBasicRow(col) == null) {
+            columnsToDrop.add(col);
+          }
+        }
+
+        double[][] matrix = new double[getHeight() - 1][getWidth() - columnsToDrop.size()];
+        for (int i = 1; i < getHeight(); i++) {
+          int col = 0;
+          for (int j = 0; j < getWidth(); j++) {
+            if (!columnsToDrop.contains(j)) {
+              matrix[i - 1][col++] = tableau.getEntry(i, j);
+            }
+          }
+        }
+
+        for (int i = columnsToDrop.size() - 1; i >= 0; i--) {
+          columnLabels.remove((int) columnsToDrop.get(i));
+        }
+
+        this.tableau = new Array2DRowRealMatrix(matrix);
+        this.numArtificialVariables = 0;
+    }","  public void test06()  throws Throwable  {
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      Relationship relationship0 = Relationship.EQ;
+      double[] doubleArray0 = new double[6];
+      doubleArray0[4] = 1.0;
+      LinearConstraint linearConstraint0 = new LinearConstraint(doubleArray0, relationship0, 1.0);
+      linkedList0.add(linearConstraint0);
+      double[] doubleArray1 = new double[3];
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(doubleArray1, 0.0);
+      linkedList0.add(linearConstraint0);
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 0.0, 0);
+      simplexTableau0.dropPhase1Objective();
+  }","/**
+     * Removes the phase 1 objective function, positive cost non-artificial variables,
+     * and the non-basic artificial variables from this tableau.
+     */"
+"    protected void dropPhase1Objective() {
+        if (getNumObjectiveFunctions() == 1) {
+            return;
+        }
+
+        List<Integer> columnsToDrop = new ArrayList<Integer>();
+        columnsToDrop.add(0);
+
+        // positive cost non-artificial variables
+        for (int i = getNumObjectiveFunctions(); i < getArtificialVariableOffset(); i++) {
+            final double entry = tableau.getEntry(0, i);
+            if (Precision.compareTo(entry, 0d, maxUlps) > 0) {
+                columnsToDrop.add(i);
+            }
+        }
+
+        // non-basic artificial variables
+        for (int i = 0; i < getNumArtificialVariables(); i++) {
+          int col = i + getArtificialVariableOffset();
+          if (getBasicRow(col) == null) {
+            columnsToDrop.add(col);
+          }
+        }
+
+        double[][] matrix = new double[getHeight() - 1][getWidth() - columnsToDrop.size()];
+        for (int i = 1; i < getHeight(); i++) {
+          int col = 0;
+          for (int j = 0; j < getWidth(); j++) {
+            if (!columnsToDrop.contains(j)) {
+              matrix[i - 1][col++] = tableau.getEntry(i, j);
+            }
+          }
+        }
+
+        for (int i = columnsToDrop.size() - 1; i >= 0; i--) {
+          columnLabels.remove((int) columnsToDrop.get(i));
+        }
+
+        this.tableau = new Array2DRowRealMatrix(matrix);
+        this.numArtificialVariables = 0;
+    }","  public void test07()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      simplexTableau0.dropPhase1Objective();
+  }","/**
+     * Removes the phase 1 objective function, positive cost non-artificial variables,
+     * and the non-basic artificial variables from this tableau.
+     */"
+"    boolean isOptimal() {
+        for (int i = getNumObjectiveFunctions(); i < getWidth() - 1; i++) {
+            final double entry = tableau.getEntry(0, i);
+            if (Precision.compareTo(entry, 0d, epsilon) < 0) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test08()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      boolean boolean0 = simplexTableau0.isOptimal();
+      assertTrue(boolean0);
+}","/**
+     * Returns whether the problem is at an optimal state.
+     * @return whether the model has been solved
+     */"
+"    boolean isOptimal() {
+        for (int i = getNumObjectiveFunctions(); i < getWidth() - 1; i++) {
+            final double entry = tableau.getEntry(0, i);
+            if (Precision.compareTo(entry, 0d, epsilon) < 0) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test08()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      boolean boolean0 = simplexTableau0.isOptimal();
+  }","/**
+     * Returns whether the problem is at an optimal state.
+     * @return whether the model has been solved
+     */"
+"    boolean isOptimal() {
+        for (int i = getNumObjectiveFunctions(); i < getWidth() - 1; i++) {
+            final double entry = tableau.getEntry(0, i);
+            if (Precision.compareTo(entry, 0d, epsilon) < 0) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test09()  throws Throwable  {
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      double[] doubleArray0 = new double[2];
+      doubleArray0[0] = 1.0E-12;
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(doubleArray0, 1.0E-12);
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, (-1.0), (-1645));
+      boolean boolean0 = simplexTableau0.isOptimal();
+      assertFalse(boolean0);
+}","/**
+     * Returns whether the problem is at an optimal state.
+     * @return whether the model has been solved
+     */"
+"    boolean isOptimal() {
+        for (int i = getNumObjectiveFunctions(); i < getWidth() - 1; i++) {
+            final double entry = tableau.getEntry(0, i);
+            if (Precision.compareTo(entry, 0d, epsilon) < 0) {
+                return false;
+            }
+        }
+        return true;
+    }","  public void test09()  throws Throwable  {
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      double[] doubleArray0 = new double[2];
+      doubleArray0[0] = 1.0E-12;
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(doubleArray0, 1.0E-12);
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, (-1.0), (-1645));
+      boolean boolean0 = simplexTableau0.isOptimal();
+  }","/**
+     * Returns whether the problem is at an optimal state.
+     * @return whether the model has been solved
+     */"
+"    protected RealPointValuePair getSolution() {
+      int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+      Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+      double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+      Set<Integer> basicRows = new HashSet<Integer>();
+      double[] coefficients = new double[getOriginalNumDecisionVariables()];
+      for (int i = 0; i < coefficients.length; i++) {
+          int colIndex = columnLabels.indexOf(""x"" + i);
+          if (colIndex < 0) {
+            coefficients[i] = 0;
+            continue;
+          }
+          Integer basicRow = getBasicRow(colIndex);
+          if (basicRow != null && basicRow == 0) {
+              // if the basic row is found to be the objective function row
+              // set the coefficient to 0 -> this case handles unconstrained 
+              // variables that are still part of the objective function
+              coefficients[i] = 0;
+          } else if (basicRows.contains(basicRow)) {
+              // if multiple variables can take a given value
+              // then we choose the first and set the rest equal to 0
+              coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+          } else {
+              basicRows.add(basicRow);
+              coefficients[i] =
+                  (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                  (restrictToNonNegative ? 0 : mostNegative);
+          }
+      }
+      return new RealPointValuePair(coefficients, f.getValue(coefficients));
+    }","  public void test10()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(46);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      double[] doubleArray0 = new double[7];
+      doubleArray0[1] = (-1947.7820886147);
+      Relationship relationship0 = Relationship.EQ;
+      LinearConstraint linearConstraint0 = new LinearConstraint(doubleArray0, relationship0, 46.0);
+      linkedList0.add(linearConstraint0);
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 46);
+      simplexTableau0.dropPhase1Objective();
+      RealPointValuePair realPointValuePair0 = simplexTableau0.getSolution();
+      assertEquals(46.0, realPointValuePair0.getValue(), 0.01);
+}","/**
+     * Get the current solution.
+     *
+     * @return current solution
+     */"
+"    protected RealPointValuePair getSolution() {
+      int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+      Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+      double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+      Set<Integer> basicRows = new HashSet<Integer>();
+      double[] coefficients = new double[getOriginalNumDecisionVariables()];
+      for (int i = 0; i < coefficients.length; i++) {
+          int colIndex = columnLabels.indexOf(""x"" + i);
+          if (colIndex < 0) {
+            coefficients[i] = 0;
+            continue;
+          }
+          Integer basicRow = getBasicRow(colIndex);
+          if (basicRow != null && basicRow == 0) {
+              // if the basic row is found to be the objective function row
+              // set the coefficient to 0 -> this case handles unconstrained 
+              // variables that are still part of the objective function
+              coefficients[i] = 0;
+          } else if (basicRows.contains(basicRow)) {
+              // if multiple variables can take a given value
+              // then we choose the first and set the rest equal to 0
+              coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+          } else {
+              basicRows.add(basicRow);
+              coefficients[i] =
+                  (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                  (restrictToNonNegative ? 0 : mostNegative);
+          }
+      }
+      return new RealPointValuePair(coefficients, f.getValue(coefficients));
+    }","  public void test10()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(46);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      double[] doubleArray0 = new double[7];
+      doubleArray0[1] = (-1947.7820886147);
+      Relationship relationship0 = Relationship.EQ;
+      LinearConstraint linearConstraint0 = new LinearConstraint(doubleArray0, relationship0, 46.0);
+      linkedList0.add(linearConstraint0);
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 46);
+      simplexTableau0.dropPhase1Objective();
+      RealPointValuePair realPointValuePair0 = simplexTableau0.getSolution();
+  }","/**
+     * Get the current solution.
+     *
+     * @return current solution
+     */"
+"    protected RealPointValuePair getSolution() {
+      int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+      Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+      double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+      Set<Integer> basicRows = new HashSet<Integer>();
+      double[] coefficients = new double[getOriginalNumDecisionVariables()];
+      for (int i = 0; i < coefficients.length; i++) {
+          int colIndex = columnLabels.indexOf(""x"" + i);
+          if (colIndex < 0) {
+            coefficients[i] = 0;
+            continue;
+          }
+          Integer basicRow = getBasicRow(colIndex);
+          if (basicRow != null && basicRow == 0) {
+              // if the basic row is found to be the objective function row
+              // set the coefficient to 0 -> this case handles unconstrained 
+              // variables that are still part of the objective function
+              coefficients[i] = 0;
+          } else if (basicRows.contains(basicRow)) {
+              // if multiple variables can take a given value
+              // then we choose the first and set the rest equal to 0
+              coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+          } else {
+              basicRows.add(basicRow);
+              coefficients[i] =
+                  (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                  (restrictToNonNegative ? 0 : mostNegative);
+          }
+      }
+      return new RealPointValuePair(coefficients, f.getValue(coefficients));
+    }","  public void test11()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(77);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 77);
+      double[] doubleArray0 = new double[1];
+      doubleArray0[0] = 1.0;
+      Relationship relationship0 = Relationship.LEQ;
+      LinearConstraint linearConstraint0 = new LinearConstraint(doubleArray0, relationship0, 77);
+      LinearConstraint linearConstraint1 = new LinearConstraint(arrayRealVector0, 1.0, relationship0, arrayRealVector0, (-1.0));
+      List<LinearConstraint> list0 = List.of(linearConstraint0, linearConstraint1);
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, list0, goalType0, false, 1.0);
+      RealPointValuePair realPointValuePair0 = simplexTableau0.getSolution();
+      assertEquals(77.0, realPointValuePair0.getValue(), 0.01);
+}","/**
+     * Get the current solution.
+     *
+     * @return current solution
+     */"
+"    protected RealPointValuePair getSolution() {
+      int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+      Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+      double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+      Set<Integer> basicRows = new HashSet<Integer>();
+      double[] coefficients = new double[getOriginalNumDecisionVariables()];
+      for (int i = 0; i < coefficients.length; i++) {
+          int colIndex = columnLabels.indexOf(""x"" + i);
+          if (colIndex < 0) {
+            coefficients[i] = 0;
+            continue;
+          }
+          Integer basicRow = getBasicRow(colIndex);
+          if (basicRow != null && basicRow == 0) {
+              // if the basic row is found to be the objective function row
+              // set the coefficient to 0 -> this case handles unconstrained 
+              // variables that are still part of the objective function
+              coefficients[i] = 0;
+          } else if (basicRows.contains(basicRow)) {
+              // if multiple variables can take a given value
+              // then we choose the first and set the rest equal to 0
+              coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+          } else {
+              basicRows.add(basicRow);
+              coefficients[i] =
+                  (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                  (restrictToNonNegative ? 0 : mostNegative);
+          }
+      }
+      return new RealPointValuePair(coefficients, f.getValue(coefficients));
+    }","  public void test11()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(77);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 77);
+      double[] doubleArray0 = new double[1];
+      doubleArray0[0] = 1.0;
+      Relationship relationship0 = Relationship.LEQ;
+      LinearConstraint linearConstraint0 = new LinearConstraint(doubleArray0, relationship0, 77);
+      LinearConstraint linearConstraint1 = new LinearConstraint(arrayRealVector0, 1.0, relationship0, arrayRealVector0, (-1.0));
+      List<LinearConstraint> list0 = List.of(linearConstraint0, linearConstraint1);
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, list0, goalType0, false, 1.0);
+      RealPointValuePair realPointValuePair0 = simplexTableau0.getSolution();
+  }","/**
+     * Get the current solution.
+     *
+     * @return current solution
+     */"
+"    protected RealPointValuePair getSolution() {
+      int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+      Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+      double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+      Set<Integer> basicRows = new HashSet<Integer>();
+      double[] coefficients = new double[getOriginalNumDecisionVariables()];
+      for (int i = 0; i < coefficients.length; i++) {
+          int colIndex = columnLabels.indexOf(""x"" + i);
+          if (colIndex < 0) {
+            coefficients[i] = 0;
+            continue;
+          }
+          Integer basicRow = getBasicRow(colIndex);
+          if (basicRow != null && basicRow == 0) {
+              // if the basic row is found to be the objective function row
+              // set the coefficient to 0 -> this case handles unconstrained 
+              // variables that are still part of the objective function
+              coefficients[i] = 0;
+          } else if (basicRows.contains(basicRow)) {
+              // if multiple variables can take a given value
+              // then we choose the first and set the rest equal to 0
+              coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+          } else {
+              basicRows.add(basicRow);
+              coefficients[i] =
+                  (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                  (restrictToNonNegative ? 0 : mostNegative);
+          }
+      }
+      return new RealPointValuePair(coefficients, f.getValue(coefficients));
+    }","  public void test12()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      doubleArray0[1] = 1.0;
+      GoalType goalType0 = GoalType.MINIMIZE;
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(doubleArray0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 46);
+      RealPointValuePair realPointValuePair0 = simplexTableau0.getSolution();
+      assertEquals(46.0, realPointValuePair0.getValue(), 0.01);
+}","/**
+     * Get the current solution.
+     *
+     * @return current solution
+     */"
+"    protected RealPointValuePair getSolution() {
+      int negativeVarColumn = columnLabels.indexOf(NEGATIVE_VAR_COLUMN_LABEL);
+      Integer negativeVarBasicRow = negativeVarColumn > 0 ? getBasicRow(negativeVarColumn) : null;
+      double mostNegative = negativeVarBasicRow == null ? 0 : getEntry(negativeVarBasicRow, getRhsOffset());
+
+      Set<Integer> basicRows = new HashSet<Integer>();
+      double[] coefficients = new double[getOriginalNumDecisionVariables()];
+      for (int i = 0; i < coefficients.length; i++) {
+          int colIndex = columnLabels.indexOf(""x"" + i);
+          if (colIndex < 0) {
+            coefficients[i] = 0;
+            continue;
+          }
+          Integer basicRow = getBasicRow(colIndex);
+          if (basicRow != null && basicRow == 0) {
+              // if the basic row is found to be the objective function row
+              // set the coefficient to 0 -> this case handles unconstrained 
+              // variables that are still part of the objective function
+              coefficients[i] = 0;
+          } else if (basicRows.contains(basicRow)) {
+              // if multiple variables can take a given value
+              // then we choose the first and set the rest equal to 0
+              coefficients[i] = 0 - (restrictToNonNegative ? 0 : mostNegative);
+          } else {
+              basicRows.add(basicRow);
+              coefficients[i] =
+                  (basicRow == null ? 0 : getEntry(basicRow, getRhsOffset())) -
+                  (restrictToNonNegative ? 0 : mostNegative);
+          }
+      }
+      return new RealPointValuePair(coefficients, f.getValue(coefficients));
+    }","  public void test12()  throws Throwable  {
+      double[] doubleArray0 = new double[2];
+      doubleArray0[1] = 1.0;
+      GoalType goalType0 = GoalType.MINIMIZE;
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(doubleArray0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 46);
+      RealPointValuePair realPointValuePair0 = simplexTableau0.getSolution();
+  }","/**
+     * Get the current solution.
+     *
+     * @return current solution
+     */"
+"    protected void divideRow(final int dividendRow, final double divisor) {
+        for (int j = 0; j < getWidth(); j++) {
+            tableau.setEntry(dividendRow, j, tableau.getEntry(dividendRow, j) / divisor);
+        }
+    }","  public void test13()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      simplexTableau0.divideRow(0, 0);
+  }","/**
+     * Subtracts a multiple of one row from another.
+     * <p>
+     * After application of this operation, the following will hold:
+     *   minuendRow = minuendRow - multiple * subtrahendRow
+     * </p>
+     * @param dividendRow index of the row
+     * @param divisor value of the divisor
+     */"
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test14()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(46);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+      assertTrue(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test14()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(46);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test15()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau0);
+      assertTrue(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test15()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau0);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test16()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(46);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0);
+      boolean boolean0 = simplexTableau0.equals(linkedList0);
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test16()  throws Throwable  {
+      ArrayRealVector arrayRealVector0 = new ArrayRealVector(46);
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(arrayRealVector0, 46);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0);
+      boolean boolean0 = simplexTableau0.equals(linkedList0);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test17()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test17()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test18()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      double[] doubleArray0 = new double[1];
+      LinearObjectiveFunction linearObjectiveFunction1 = new LinearObjectiveFunction(doubleArray0, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction1, linkedList0, goalType0, false, 1.0E-12);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test18()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      double[] doubleArray0 = new double[1];
+      LinearObjectiveFunction linearObjectiveFunction1 = new LinearObjectiveFunction(doubleArray0, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction1, linkedList0, goalType0, false, 1.0E-12);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test19()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      Relationship relationship0 = Relationship.GEQ;
+      LinearConstraint linearConstraint0 = new LinearConstraint(openMapRealVector0, relationship0, 1.0E-12);
+      linkedList0.offer(linearConstraint0);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test19()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      Relationship relationship0 = Relationship.GEQ;
+      LinearConstraint linearConstraint0 = new LinearConstraint(openMapRealVector0, relationship0, 1.0E-12);
+      linkedList0.offer(linearConstraint0);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test20()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      Relationship relationship0 = Relationship.EQ;
+      LinearConstraint linearConstraint0 = new LinearConstraint(openMapRealVector0, 1.0E-12, relationship0, openMapRealVector0, 1.0E-12);
+      boolean boolean0 = linkedList0.add(linearConstraint0);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      boolean boolean1 = simplexTableau1.equals(simplexTableau0);
+      assertFalse(boolean1 == boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test20()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      Relationship relationship0 = Relationship.EQ;
+      LinearConstraint linearConstraint0 = new LinearConstraint(openMapRealVector0, 1.0E-12, relationship0, openMapRealVector0, 1.0E-12);
+      boolean boolean0 = linkedList0.add(linearConstraint0);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      boolean boolean1 = simplexTableau1.equals(simplexTableau0);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test21()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 720.31167947196);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+      assertFalse(simplexTableau1.equals((Object)simplexTableau0));
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test21()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 720.31167947196);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test21()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 720.31167947196);
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test22()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12, (-1154));
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test22()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, false, 1.0E-12, (-1154));
+      boolean boolean0 = simplexTableau0.equals(simplexTableau1);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test23()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 0.0);
+      LinearObjectiveFunction linearObjectiveFunction1 = new LinearObjectiveFunction(openMapRealVector0, 0.0);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction1, linkedList0, goalType0, true, 0.0);
+      boolean boolean0 = simplexTableau1.equals(simplexTableau0);
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test23()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      GoalType goalType0 = GoalType.MAXIMIZE;
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 0.0);
+      LinearObjectiveFunction linearObjectiveFunction1 = new LinearObjectiveFunction(openMapRealVector0, 0.0);
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction1, linkedList0, goalType0, true, 0.0);
+      boolean boolean0 = simplexTableau1.equals(simplexTableau0);
+  }",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test24()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      GoalType goalType1 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType1, true, 1.0E-12);
+      boolean boolean0 = simplexTableau1.equals(simplexTableau0);
+      assertFalse(boolean0);
+}",/** {@inheritDoc} */
+"    public boolean equals(Object other) {
+
+      if (this == other) {
+        return true;
+      }
+
+      if (other instanceof SimplexTableau) {
+          SimplexTableau rhs = (SimplexTableau) other;
+          return (restrictToNonNegative  == rhs.restrictToNonNegative) &&
+                 (numDecisionVariables   == rhs.numDecisionVariables) &&
+                 (numSlackVariables      == rhs.numSlackVariables) &&
+                 (numArtificialVariables == rhs.numArtificialVariables) &&
+                 (epsilon                == rhs.epsilon) &&
+                 (maxUlps                == rhs.maxUlps) &&
+                 f.equals(rhs.f) &&
+                 constraints.equals(rhs.constraints) &&
+                 tableau.equals(rhs.tableau);
+      }
+      return false;
+    }","  public void test24()  throws Throwable  {
+      OpenMapRealVector openMapRealVector0 = new OpenMapRealVector();
+      LinearObjectiveFunction linearObjectiveFunction0 = new LinearObjectiveFunction(openMapRealVector0, 1.0E-12);
+      LinkedList<LinearConstraint> linkedList0 = new LinkedList<LinearConstraint>();
+      GoalType goalType0 = GoalType.MINIMIZE;
+      SimplexTableau simplexTableau0 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType0, true, 1.0E-12);
+      GoalType goalType1 = GoalType.MAXIMIZE;
+      SimplexTableau simplexTableau1 = new SimplexTableau(linearObjectiveFunction0, linkedList0, goalType1, true, 1.0E-12);
+      boolean boolean0 = simplexTableau1.equals(simplexTableau0);
+  }",/** {@inheritDoc} */

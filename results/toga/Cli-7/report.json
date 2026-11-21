@@ -1,0 +1,18 @@
+{
+  "bug": "Cli-7",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "error": "no EvoSuite tests for this bug (TOGA needs EvoSuite's test prefixes)",
+  "seconds": 0.0,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

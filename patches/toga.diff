@@ -1,0 +1,46 @@
+--- toga.py.orig	2026-11-20 10:59:55
++++ toga.py	2026-11-20 10:59:55
+@@ -71,13 +71,13 @@
+     assert_inputs_df.to_csv('assert_model_inputs.csv')
+ 
+     # ASSERT MODEL
+-    res = sp.run('bash ./model/assertions/run_eval.sh assert_model_inputs.csv'.split(), env=os.environ.copy())
+-
+     model_preds = []
+-    with open("assertion_preds.csv") as f:
+-        reader = csv.reader(f)
+-        for row in reader:
+-            model_preds += [row]
++    if len(assert_inputs_df):   # (patched: no assertion candidates -> no assertion predictions; the model crashed on empty input)
++        res = sp.run('bash ./model/assertions/run_eval.sh assert_model_inputs.csv'.split(), env=os.environ.copy())
++        with open("assertion_preds.csv") as f:
++            reader = csv.reader(f)
++            for row in reader:
++                model_preds += [row]
+ 
+     assertion_results = ranking.rank_assertions(model_preds[1:], idxs)
+ 
+--- model/assertions/utils.py.orig	2026-11-20 10:59:32
++++ model/assertions/utils.py	2026-11-20 10:59:41
+@@ -361,7 +361,8 @@
+     
+     trunc_a, trunc_b, trunc_c = np.array(trunc_a), np.array(trunc_b), np.array(trunc_c)
+     trunc_both = trunc_a + trunc_b + trunc_c
+-    print(f'total_samples {len(trunc_b)} total truncations {(trunc_both > 0).sum()}, mean_trunc {trunc_both.mean()}, median {np.median(trunc_both)}, max = {trunc_both.max()}')
++    if len(trunc_both):   # (patched: crashed when a bug has no assertion candidates)
++        print(f'total_samples {len(trunc_b)} total truncations {(trunc_both > 0).sum()}, mean_trunc {trunc_both.mean()}, median {np.median(trunc_both)}, max = {trunc_both.max()}')
+     # print('histogram:', np.histogram(trunc_both))
+     return features
+ 
+--- model/exceptions/utils.py.orig	2026-11-20 10:59:47
++++ model/exceptions/utils.py	2026-11-20 10:59:47
+@@ -339,7 +339,8 @@
+     
+     trunc_a, trunc_b = np.array(trunc_a), np.array(trunc_b)
+     trunc_both = trunc_a + trunc_b
+-    print(f'total_samples {len(trunc_b)} total truncations {(trunc_both > 0).sum()}, mean_trunc {trunc_both.mean()}, median {np.median(trunc_both)}, max = {trunc_both.max()}')
++    if len(trunc_both):   # (patched: crash on empty input)
++        print(f'total_samples {len(trunc_b)} total truncations {(trunc_both > 0).sum()}, mean_trunc {trunc_both.mean()}, median {np.median(trunc_both)}, max = {trunc_both.max()}')
+     # print('histogram:', np.histogram(trunc_both))
+     return features
+ 

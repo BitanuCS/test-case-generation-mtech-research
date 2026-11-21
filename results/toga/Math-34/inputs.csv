@@ -1,0 +1,411 @@
+focal_method,test_prefix,docstring
+"    public int getPopulationLimit() {
+        return this.populationLimit;
+    }","  public void test00()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      List<Chromosome> list0 = elitisticListPopulation0.getChromosomes();
+      elitisticListPopulation0.setChromosomes(list0);
+      assertEquals(1, elitisticListPopulation0.getPopulationLimit());
+}","/**
+     * Access the maximum population size.
+     * @return the maximum population size.
+     */"
+"    public void setChromosomes(final List<Chromosome> chromosomes) {
+        if (chromosomes == null) {
+            throw new NullArgumentException();
+        }
+        if (chromosomes.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+        this.chromosomes.clear();
+        this.chromosomes.addAll(chromosomes);
+    }","  public void test00()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      List<Chromosome> list0 = elitisticListPopulation0.getChromosomes();
+      elitisticListPopulation0.setChromosomes(list0);
+  }","/**
+     * Sets the list of chromosomes.
+     * <p>Note: this method removed all existing chromosomes in the population and adds all chromosomes
+     * of the specified list to the population.</p>
+     * @param chromosomes the list of chromosomes
+     * @throws NullArgumentException if the list of chromosomes is {@code null}
+     * @throws NumberIsTooLargeException if the list of chromosomes exceeds the population limit
+     * @deprecated use {@link #addChromosomes(Collection)} instead
+     */"
+"    public int getPopulationLimit() {
+        return this.populationLimit;
+    }","  public void test01()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1929, 0.0);
+      elitisticListPopulation0.toString();
+      assertEquals(1929, elitisticListPopulation0.getPopulationLimit());
+}","/**
+     * Access the maximum population size.
+     * @return the maximum population size.
+     */"
+"    public String toString() {
+        return this.chromosomes.toString();
+    }","  public void test01()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1929, 0.0);
+      elitisticListPopulation0.toString();
+  }","/**
+     * {@inheritDoc}
+     */"
+"    public int getPopulationLimit() {
+        return this.populationLimit;
+    }","  public void test02()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      elitisticListPopulation0.nextGeneration();
+      assertEquals(1, elitisticListPopulation0.getPopulationLimit());
+}","/**
+     * Access the maximum population size.
+     * @return the maximum population size.
+     */"
+,"  public void test02()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      elitisticListPopulation0.nextGeneration();
+  }",
+"    public int getPopulationLimit() {
+        return this.populationLimit;
+    }","  public void test03()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      elitisticListPopulation0.spliterator();
+      assertEquals(1, elitisticListPopulation0.getPopulationLimit());
+}","/**
+     * Access the maximum population size.
+     * @return the maximum population size.
+     */"
+,"  public void test03()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      elitisticListPopulation0.spliterator();
+  }",
+"    public int getPopulationLimit() {
+        return this.populationLimit;
+    }","  public void test04()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1929, 0.0);
+      elitisticListPopulation0.getPopulationSize();
+      assertEquals(1929, elitisticListPopulation0.getPopulationLimit());
+}","/**
+     * Access the maximum population size.
+     * @return the maximum population size.
+     */"
+"    public int getPopulationSize() {
+        return this.chromosomes.size();
+    }","  public void test04()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1929, 0.0);
+      elitisticListPopulation0.getPopulationSize();
+  }","/**
+     * Access the current population size.
+     * @return the current population size.
+     */"
+,"  public void test05()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = null;
+      try {
+        elitisticListPopulation0 = new ElitisticListPopulation((List<Chromosome>) null, 3703, 3703);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // null is not allowed
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }",
+,"  public void test06()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = null;
+      try {
+        elitisticListPopulation0 = new ElitisticListPopulation((-15), (-15));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // population limit has to be positive
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }",
+,"  public void test07()  throws Throwable  {
+      LinkedList<Chromosome> linkedList0 = new LinkedList<Chromosome>();
+      linkedList0.add((Chromosome) null);
+      linkedList0.add((Chromosome) null);
+      ElitisticListPopulation elitisticListPopulation0 = null;
+      try {
+        elitisticListPopulation0 = new ElitisticListPopulation(linkedList0, 1, 1);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // list of chromosomes bigger than maxPopulationSize
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }",
+"    public void setChromosomes(final List<Chromosome> chromosomes) {
+        if (chromosomes == null) {
+            throw new NullArgumentException();
+        }
+        if (chromosomes.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+        this.chromosomes.clear();
+        this.chromosomes.addAll(chromosomes);
+    }","  public void test08()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      // Undeclared exception!
+      try { 
+        elitisticListPopulation0.setChromosomes((List<Chromosome>) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // null is not allowed
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }","/**
+     * Sets the list of chromosomes.
+     * <p>Note: this method removed all existing chromosomes in the population and adds all chromosomes
+     * of the specified list to the population.</p>
+     * @param chromosomes the list of chromosomes
+     * @throws NullArgumentException if the list of chromosomes is {@code null}
+     * @throws NumberIsTooLargeException if the list of chromosomes exceeds the population limit
+     * @deprecated use {@link #addChromosomes(Collection)} instead
+     */"
+"    public void setChromosomes(final List<Chromosome> chromosomes) {
+        if (chromosomes == null) {
+            throw new NullArgumentException();
+        }
+        if (chromosomes.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+        this.chromosomes.clear();
+        this.chromosomes.addAll(chromosomes);
+    }","  public void test09()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      elitisticListPopulation0.addChromosome((Chromosome) null);
+      List<Chromosome> list0 = elitisticListPopulation0.getChromosomes();
+      ElitisticListPopulation elitisticListPopulation1 = new ElitisticListPopulation(list0, 96, 1);
+      elitisticListPopulation1.addChromosome((Chromosome) null);
+      List<Chromosome> list1 = elitisticListPopulation1.getChromosomes();
+      // Undeclared exception!
+      try { 
+        elitisticListPopulation0.setChromosomes(list1);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // list of chromosomes bigger than maxPopulationSize
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }","/**
+     * Sets the list of chromosomes.
+     * <p>Note: this method removed all existing chromosomes in the population and adds all chromosomes
+     * of the specified list to the population.</p>
+     * @param chromosomes the list of chromosomes
+     * @throws NullArgumentException if the list of chromosomes is {@code null}
+     * @throws NumberIsTooLargeException if the list of chromosomes exceeds the population limit
+     * @deprecated use {@link #addChromosomes(Collection)} instead
+     */"
+"    public int getPopulationLimit() {
+        return this.populationLimit;
+    }","  public void test10()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      LinkedList<Chromosome> linkedList0 = new LinkedList<Chromosome>();
+      elitisticListPopulation0.addChromosomes(linkedList0);
+      assertEquals(1, elitisticListPopulation0.getPopulationLimit());
+}","/**
+     * Access the maximum population size.
+     * @return the maximum population size.
+     */"
+"    public void addChromosomes(final Collection<Chromosome> chromosomeColl) {
+        if (chromosomes.size() + chromosomeColl.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+        this.chromosomes.addAll(chromosomeColl);
+    }","  public void test10()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      LinkedList<Chromosome> linkedList0 = new LinkedList<Chromosome>();
+      elitisticListPopulation0.addChromosomes(linkedList0);
+  }","/**
+     * Add a {@link Collection} of chromosomes to this {@link Population}.
+     * @param chromosomeColl a {@link Collection} of chromosomes
+     * @throws NumberIsTooLargeException if the population would exceed the population limit when
+     * adding this chromosome
+     */"
+"    public void addChromosomes(final Collection<Chromosome> chromosomeColl) {
+        if (chromosomes.size() + chromosomeColl.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+        this.chromosomes.addAll(chromosomeColl);
+    }","  public void test11()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      elitisticListPopulation0.addChromosome((Chromosome) null);
+      List<Chromosome> list0 = elitisticListPopulation0.getChromosomeList();
+      // Undeclared exception!
+      try { 
+        elitisticListPopulation0.addChromosomes(list0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // list of chromosomes bigger than maxPopulationSize
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }","/**
+     * Add a {@link Collection} of chromosomes to this {@link Population}.
+     * @param chromosomeColl a {@link Collection} of chromosomes
+     * @throws NumberIsTooLargeException if the population would exceed the population limit when
+     * adding this chromosome
+     */"
+"    public void addChromosome(final Chromosome chromosome) {
+        if (chromosomes.size() >= populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+        this.chromosomes.add(chromosome);
+    }","  public void test12()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      elitisticListPopulation0.addChromosome((Chromosome) null);
+      // Undeclared exception!
+      try { 
+        elitisticListPopulation0.addChromosome((Chromosome) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // list of chromosomes bigger than maxPopulationSize
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }","/**
+     * Add the given chromosome to the population.
+     * @param chromosome the chromosome to add.
+     * @throws NumberIsTooLargeException if the population would exceed the {@code populationLimit} after
+     * adding this chromosome
+     */"
+"    public int getPopulationLimit() {
+        return this.populationLimit;
+    }","  public void test13()  throws Throwable  {
+      Chromosome chromosome0 = mock(Chromosome.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(chromosome0).toString();
+      doReturn(905, 905, 905, 905, 905).when(chromosome0).compareTo(any(org.apache.commons.math3.genetics.Chromosome.class));
+      List<Chromosome> list0 = List.of(chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0);
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(list0, 24, 0.0);
+      elitisticListPopulation0.getFittestChromosome();
+      assertEquals(24, elitisticListPopulation0.getPopulationLimit());
+}","/**
+     * Access the maximum population size.
+     * @return the maximum population size.
+     */"
+"    public Chromosome getFittestChromosome() {
+        // best so far
+        Chromosome bestChromosome = this.chromosomes.get(0);
+        for (Chromosome chromosome : this.chromosomes) {
+            if (chromosome.compareTo(bestChromosome) > 0) {
+                // better chromosome found
+                bestChromosome = chromosome;
+            }
+        }
+        return bestChromosome;
+    }","  public void test13()  throws Throwable  {
+      Chromosome chromosome0 = mock(Chromosome.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(chromosome0).toString();
+      doReturn(905, 905, 905, 905, 905).when(chromosome0).compareTo(any(org.apache.commons.math3.genetics.Chromosome.class));
+      List<Chromosome> list0 = List.of(chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0);
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(list0, 24, 0.0);
+      elitisticListPopulation0.getFittestChromosome();
+  }","/**
+     * Access the fittest chromosome in this population.
+     * @return the fittest chromosome.
+     */"
+"    public int getPopulationLimit() {
+        return this.populationLimit;
+    }","  public void test14()  throws Throwable  {
+      Chromosome chromosome0 = mock(Chromosome.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(chromosome0).toString();
+      doReturn(0, 0, 0, 0, 0).when(chromosome0).compareTo(any(org.apache.commons.math3.genetics.Chromosome.class));
+      List<Chromosome> list0 = List.of(chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0);
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(list0, 24, 0.0);
+      elitisticListPopulation0.getFittestChromosome();
+      assertEquals(24, elitisticListPopulation0.getPopulationLimit());
+}","/**
+     * Access the maximum population size.
+     * @return the maximum population size.
+     */"
+"    public Chromosome getFittestChromosome() {
+        // best so far
+        Chromosome bestChromosome = this.chromosomes.get(0);
+        for (Chromosome chromosome : this.chromosomes) {
+            if (chromosome.compareTo(bestChromosome) > 0) {
+                // better chromosome found
+                bestChromosome = chromosome;
+            }
+        }
+        return bestChromosome;
+    }","  public void test14()  throws Throwable  {
+      Chromosome chromosome0 = mock(Chromosome.class, new ViolatedAssumptionAnswer());
+      doReturn((String) null).when(chromosome0).toString();
+      doReturn(0, 0, 0, 0, 0).when(chromosome0).compareTo(any(org.apache.commons.math3.genetics.Chromosome.class));
+      List<Chromosome> list0 = List.of(chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0, chromosome0);
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(list0, 24, 0.0);
+      elitisticListPopulation0.getFittestChromosome();
+  }","/**
+     * Access the fittest chromosome in this population.
+     * @return the fittest chromosome.
+     */"
+"    public void setPopulationLimit(final int populationLimit) {
+        if (populationLimit <= 0) {
+            throw new NotPositiveException(LocalizedFormats.POPULATION_LIMIT_NOT_POSITIVE, populationLimit);
+        }
+        if (populationLimit < chromosomes.size()) {
+            throw new NumberIsTooSmallException(populationLimit, chromosomes.size(), true);
+        }
+        this.populationLimit = populationLimit;
+    }","  public void test15()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      elitisticListPopulation0.setPopulationLimit(19);
+      elitisticListPopulation0.addChromosome((Chromosome) null);
+      elitisticListPopulation0.addChromosome((Chromosome) null);
+      // Undeclared exception!
+      try { 
+        elitisticListPopulation0.setPopulationLimit(1);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // 1 is smaller than the minimum (2)
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }","/**
+     * Sets the maximal population size.
+     * @param populationLimit maximal population size.
+     * @throws NotPositiveException if the population limit is not a positive number (&lt; 1)
+     * @throws NumberIsTooSmallException if the new population size is smaller than the current number
+     * of chromosomes in the population
+     */"
+"    public void setPopulationLimit(final int populationLimit) {
+        if (populationLimit <= 0) {
+            throw new NotPositiveException(LocalizedFormats.POPULATION_LIMIT_NOT_POSITIVE, populationLimit);
+        }
+        if (populationLimit < chromosomes.size()) {
+            throw new NumberIsTooSmallException(populationLimit, chromosomes.size(), true);
+        }
+        this.populationLimit = populationLimit;
+    }","  public void test16()  throws Throwable  {
+      ElitisticListPopulation elitisticListPopulation0 = new ElitisticListPopulation(1, 1);
+      // Undeclared exception!
+      try { 
+        elitisticListPopulation0.setPopulationLimit(0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // population limit has to be positive
+         //
+         verifyException(""org.apache.commons.math3.genetics.ListPopulation"", e);
+      }
+  }","/**
+     * Sets the maximal population size.
+     * @param populationLimit maximal population size.
+     * @throws NotPositiveException if the population limit is not a positive number (&lt; 1)
+     * @throws NumberIsTooSmallException if the new population size is smaller than the current number
+     * of chromosomes in the population
+     */"

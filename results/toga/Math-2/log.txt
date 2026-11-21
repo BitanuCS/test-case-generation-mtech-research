@@ -1,0 +1,180 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Math-2/evo /Users/bitu/mtech-tools/work/Math-2f/src/main/java Math 2 /Users/bitu/mtech-tools/toga_out/Math-2
+29 test prefixes, 29 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Math-2/inputs.csv /Users/bitu/mtech-tools/toga_out/Math-2/meta.csv
+11/19/2026 20:30:52 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 20:30:53 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 20:30:55 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 20:30:55 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/19/2026 20:30:55 - INFO - utils -   Writing example 0 of 29
+11/19/2026 20:30:55 - INFO - utils -   *** Example ***
+11/19/2026 20:30:55 - INFO - utils -   guid: test-0
+11/19/2026 20:30:55 - INFO - utils -   tokens: <s> public Ġdouble Ġcumulative Pro b ability ( int Ġx ) Ġ{ Ġdouble Ġret ; Ġint [] Ġdomain Ġ= Ġget Domain ( population Size , Ġnumber Of Success es , Ġsample Size ); Ġif Ġ( x Ġ< Ġdomain [ 0 ]) Ġ{ Ġret Ġ= Ġ0 . 0 ; Ġ} Ġelse Ġif </s> public Ġvoid Ġtest C um ulative Pro b ability () Ġ{ ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( 24 43 , Ġ2 , Ġ2 ); Ġhyper ge ometric Dist ribution 0 . cum ulative Pro b ability ( 0 , Ġ2 ); Ġ} </s>
+11/19/2026 20:30:55 - INFO - utils -   input_ids: 0 15110 1457 22367 10653 428 4484 1640 2544 3023 43 25522 1457 5494 131 6979 48992 11170 5457 120 48527 1640 41340 45698 6 346 10643 42697 293 6 7728 45698 4397 114 36 1178 28696 11170 10975 288 45587 25522 5494 5457 321 4 288 131 35524 1493 114 2 15110 13842 1296 347 783 38773 10653 428 4484 43048 25522 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 1978 3897 6 132 6 132 4397 8944 1899 22356 42390 35719 288 4 30639 38773 10653 428 4484 1640 288 6 132 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:30:55 - INFO - utils -   *** Example ***
+11/19/2026 20:30:55 - INFO - utils -   guid: test-1
+11/19/2026 20:30:55 - INFO - utils -   tokens: <s> public Ġdouble Ġcumulative Pro b ability ( int Ġx ) Ġ{ Ġdouble Ġret ; Ġint [] Ġdomain Ġ= Ġget Domain ( population Size , Ġnumber Of Success es , Ġsample Size ); Ġif Ġ( x Ġ< Ġdomain [ 0 ]) Ġ{ Ġret Ġ= Ġ0 . 0 ; Ġ} Ġelse Ġif </s> public Ġvoid Ġtest C um ulative Pro b ability () Ġ{ ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( 24 43 , Ġ2 , Ġ2 ); Ġhyper ge ometric Dist ribution 0 . cum ulative Pro b ability ( 0 , Ġ2 ); Ġ} </s>
+11/19/2026 20:30:55 - INFO - utils -   input_ids: 0 15110 1457 22367 10653 428 4484 1640 2544 3023 43 25522 1457 5494 131 6979 48992 11170 5457 120 48527 1640 41340 45698 6 346 10643 42697 293 6 7728 45698 4397 114 36 1178 28696 11170 10975 288 45587 25522 5494 5457 321 4 288 131 35524 1493 114 2 15110 13842 1296 347 783 38773 10653 428 4484 43048 25522 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 1978 3897 6 132 6 132 4397 8944 1899 22356 42390 35719 288 4 30639 38773 10653 428 4484 1640 288 6 132 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:30:55 - INFO - utils -   *** Example ***
+11/19/2026 20:30:55 - INFO - utils -   guid: test-2
+11/19/2026 20:30:55 - INFO - utils -   tokens: <s> public Ġdouble Ġget N umer ical Me an () Ġ{ Ġreturn Ġget Sample Size () Ġ* Ġ( get Number Of Success es () Ġ/ Ġ( double ) Ġget Population Size ()); Ġ} </s> public Ġvoid Ġtest Get N umer ical Me an () Ġ{ ĠIS A AC Random Ġi SA AC Random 0 Ġ= Ġnew ĠIS A AC Random (( - 1 L )); ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( i SA AC Random 0 , Ġ2 295 , Ġ2 295 , Ġ2 295 ); Ġhyper ge ometric Dist ribution 0 . sample ( 22 95 ); Ġ} </s>
+11/19/2026 20:30:55 - INFO - utils -   input_ids: 0 15110 1457 120 487 26229 3569 5096 260 43048 25522 671 120 47241 45698 43048 1009 36 6460 43623 10643 42697 293 43048 1589 36 14582 43 120 48653 45698 49291 35524 2 15110 13842 1296 14181 487 26229 3569 5096 260 43048 25522 3703 250 2562 45134 939 3603 2562 45134 288 5457 92 3703 250 2562 45134 48461 12 134 574 48749 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 118 3603 2562 45134 288 6 132 27319 6 132 27319 6 132 27319 4397 8944 1899 22356 42390 35719 288 4 14029 1640 2036 4015 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:30:55 - INFO - utils -   *** Example ***
+11/19/2026 20:30:55 - INFO - utils -   guid: test-3
+11/19/2026 20:30:55 - INFO - utils -   tokens: <s> public ĠHyper ge ometric Dist ribution ( int Ġpopulation Size , Ġint Ġnumber Of Success es , Ġint Ġsample Size ) Ġthrows ĠNot Pos itive Exception , ĠNot St rict ly Pos itive Exception , ĠNumber Is Too Large Exception Ġ{ Ġthis ( new ĠWell 199 37 c (), Ġpopulation </s> public Ġvoid Ġtest Hyper ge ometric Dist ribution () Ġ{ ĠIS A AC Random Ġi SA AC Random 0 Ġ= Ġnew ĠIS A AC Random (( - 1 L )); ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( i SA AC Random 0 , Ġ2 295 , Ġ2 295 , Ġ2 295 ); Ġhyper ge ometric Dist ribution 0 . sample ( 22 95 ); Ġ} </s>
+11/19/2026 20:30:55 - INFO - utils -   input_ids: 0 15110 22296 1899 22356 42390 35719 1640 2544 1956 45698 6 6979 346 10643 42697 293 6 6979 7728 45698 43 6989 1491 42848 15589 48847 6 1491 5320 12127 352 42848 15589 48847 6 12270 6209 10365 39012 48847 25522 42 1640 4651 2647 21118 3272 438 49196 1956 2 15110 13842 1296 46572 1899 22356 42390 35719 43048 25522 3703 250 2562 45134 939 3603 2562 45134 288 5457 92 3703 250 2562 45134 48461 12 134 574 48749 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 118 3603 2562 45134 288 6 132 27319 6 132 27319 6 132 27319 4397 8944 1899 22356 42390 35719 288 4 14029 1640 2036 4015 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:30:55 - INFO - utils -   *** Example ***
+11/19/2026 20:30:55 - INFO - utils -   guid: test-4
+11/19/2026 20:30:55 - INFO - utils -   tokens: <s> public Ġboolean Ġis Support Connect ed () Ġ{ Ġreturn Ġtrue ; Ġ} </s> public Ġvoid Ġtest Is Support Connect ed () Ġ{ ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( 24 43 , Ġ2 , Ġ2 ); Ġhyper ge ometric Dist ribution 0 . is Support Connect ed (); Ġ} </s>
+11/19/2026 20:30:55 - INFO - utils -   input_ids: 0 15110 49378 16 38873 31161 196 43048 25522 671 1528 131 35524 2 15110 13842 1296 6209 38873 31161 196 43048 25522 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 1978 3897 6 132 6 132 4397 8944 1899 22356 42390 35719 288 4 354 38873 31161 196 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:30:55 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:30:55 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 20:30:55 - INFO - __main__ -     Num examples = 29
+11/19/2026 20:30:55 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 29 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.80s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.80s/it]
+11/19/2026 20:31:00 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 20:31:01 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 20:31:02 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 20:31:02 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/19/2026 20:31:02 - INFO - utils -   Writing example 0 of 4
+11/19/2026 20:31:02 - INFO - utils -   *** Example ***
+11/19/2026 20:31:02 - INFO - utils -   guid: 4
+11/19/2026 20:31:02 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( 24 43 , Ġ2 , Ġ2 ); Ġboolean Ġboolean 0 Ġ= Ġhyper ge ometric Dist ribution 0 . is Support Connect ed </s> public Ġboolean Ġis Support Connect ed () Ġ{ Ġreturn Ġtrue ; Ġ} </s> assert True ( bo olean 0 ) </s>
+11/19/2026 20:31:02 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 1978 3897 6 132 6 132 4397 49378 49378 288 5457 8944 1899 22356 42390 35719 288 4 354 38873 31161 196 2 15110 49378 16 38873 31161 196 43048 25522 671 1528 131 35524 2 46346 36948 1640 3983 48547 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:31:02 - INFO - utils -   *** Example ***
+11/19/2026 20:31:02 - INFO - utils -   guid: 4
+11/19/2026 20:31:02 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( 24 43 , Ġ2 , Ġ2 ); Ġboolean Ġboolean 0 Ġ= Ġhyper ge ometric Dist ribution 0 . is Support Connect ed </s> public Ġboolean Ġis Support Connect ed () Ġ{ Ġreturn Ġtrue ; Ġ} </s> assert False ( bo olean 0 ) </s>
+11/19/2026 20:31:02 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 1978 3897 6 132 6 132 4397 49378 49378 288 5457 8944 1899 22356 42390 35719 288 4 354 38873 31161 196 2 15110 49378 16 38873 31161 196 43048 25522 671 1528 131 35524 2 46346 46659 1640 3983 48547 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:31:02 - INFO - utils -   *** Example ***
+11/19/2026 20:31:02 - INFO - utils -   guid: 12
+11/19/2026 20:31:02 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 08 () Ġthrows ĠThrow able Ġ{ ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( 26 32 , Ġ26 32 , Ġ26 32 ); Ġint Ġint 0 Ġ= Ġhyper ge ometric Dist ribution 0 . s olve </s> public ĠHyper ge ometric Dist ribution ( int Ġpopulation Size , Ġint Ġnumber Of Success es , Ġint Ġsample Size ) Ġthrows ĠNot Pos itive Exception , ĠNot St rict ly Pos itive Exception , ĠNumber Is Too Large Exception Ġ{ Ġthis ( new ĠWell 199 37 c (), Ġpopulation Size , Ġnumber Of Success es , Ġsample Size ); Ġ} </s> assert Equ als ( 1 , Ġint 0 ) </s>
+11/19/2026 20:31:02 - INFO - utils -   input_ids: 0 15110 13842 1296 3669 43048 6989 28106 868 25522 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 2481 2881 6 973 2881 6 973 2881 4397 6979 6979 288 5457 8944 1899 22356 42390 35719 288 4 29 18224 2 15110 22296 1899 22356 42390 35719 1640 2544 1956 45698 6 6979 346 10643 42697 293 6 6979 7728 45698 43 6989 1491 42848 15589 48847 6 1491 5320 12127 352 42848 15589 48847 6 12270 6209 10365 39012 48847 25522 42 1640 4651 2647 21118 3272 438 49196 1956 45698 6 346 10643 42697 293 6 7728 45698 4397 35524 2 46346 28568 1536 1640 134 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:31:02 - INFO - utils -   *** Example ***
+11/19/2026 20:31:02 - INFO - utils -   guid: 12
+11/19/2026 20:31:02 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 08 () Ġthrows ĠThrow able Ġ{ ĠHyper ge ometric Dist ribution Ġhyper ge ometric Dist ribution 0 Ġ= Ġnew ĠHyper ge ometric Dist ribution ( 26 32 , Ġ26 32 , Ġ26 32 ); Ġint Ġint 0 Ġ= Ġhyper ge ometric Dist ribution 0 . s olve </s> public ĠHyper ge ometric Dist ribution ( int Ġpopulation Size , Ġint Ġnumber Of Success es , Ġint Ġsample Size ) Ġthrows ĠNot Pos itive Exception , ĠNot St rict ly Pos itive Exception , ĠNumber Is Too Large Exception Ġ{ Ġthis ( new ĠWell 199 37 c (), Ġpopulation Size , Ġnumber Of Success es , Ġsample Size ); Ġ} </s> assert Equ als ( 0 , Ġint 0 ) </s>
+11/19/2026 20:31:02 - INFO - utils -   input_ids: 0 15110 13842 1296 3669 43048 6989 28106 868 25522 22296 1899 22356 42390 35719 8944 1899 22356 42390 35719 288 5457 92 22296 1899 22356 42390 35719 1640 2481 2881 6 973 2881 6 973 2881 4397 6979 6979 288 5457 8944 1899 22356 42390 35719 288 4 29 18224 2 15110 22296 1899 22356 42390 35719 1640 2544 1956 45698 6 6979 346 10643 42697 293 6 6979 7728 45698 43 6989 1491 42848 15589 48847 6 1491 5320 12127 352 42848 15589 48847 6 12270 6209 10365 39012 48847 25522 42 1640 4651 2647 21118 3272 438 49196 1956 45698 6 346 10643 42697 293 6 7728 45698 4397 35524 2 46346 28568 1536 1640 288 6 6979 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:31:02 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:31:02 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 20:31:02 - INFO - __main__ -     Num examples = 4
+11/19/2026 20:31:02 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 4 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.22it/s]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.10344827586206896
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Math -d /Users/bitu/mtech-tools/toga_out/Math-2/suite -v 2f
+Checking out f1467e45 to /tmp/fix_test_suite.pl_83670_1795149063........... --------------------------------------------------------------------------------
+Math-2f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f1467e45:6d66a863..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-2f......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Math -d /Users/bitu/mtech-tools/toga_out/Math-2/suite -o /Users/bitu/mtech-tools/toga_out/Math-2/detect
+Extract test suite......................................................... Executing test suite: Math-2f-toga.1.tar.bz2
+OK
+Checking out f1467e45 to /tmp/run_bug_detection.pl_83859_1795149101/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f1467e45:6d66a863..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-2f......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out f1467e45 to /tmp/run_bug_detection.pl_83859_1795149101/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f1467e45:6d66a863..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-2b......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

@@ -1,0 +1,175 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Gson-2/evo /Users/bitu/mtech-tools/work/Gson-2f/gson/src/main/java Gson 2 /Users/bitu/mtech-tools/toga_out/Gson-2
+91 test prefixes, 6 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Gson-2/inputs.csv /Users/bitu/mtech-tools/toga_out/Gson-2/meta.csv
+11/20/2026 11:55:21 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/20/2026 11:55:22 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/20/2026 11:55:24 - INFO - __main__ -   Creating features from dataset file at ./
+11/20/2026 11:55:24 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/20/2026 11:55:24 - INFO - utils -   Writing example 0 of 6
+11/20/2026 11:55:24 - INFO - utils -   *** Example ***
+11/20/2026 11:55:24 - INFO - utils -   guid: test-0
+11/20/2026 11:55:24 - INFO - utils -   tokens: <s> public Ġstatic Ġ< TT > ĠType Adapter Factory Ġnew Factory ( Ġfinal ĠType Token < TT > Ġtype , Ġfinal ĠType Adapter < TT > Ġtype Adapter ) Ġ{ Ġreturn Ġnew ĠType Adapter Factory () Ġ{ Ġ@ Supp ress W arn ings (" un checked ") Ġ// Ġwe Ġuse Ġa </s> public Ġvoid Ġtest New Factory () Ġ{ ĠClass < Boo lean > Ġclass 0 Ġ= ĠBoolean . class ; ĠType Token < Boo lean > Ġtype Token 0 Ġ= ĠType Token . get ( class 0 ); ĠType Adapter < Boo lean > Ġtype Adapter 0 Ġ= ĠType Ad apters . B OO LE AN ; ĠType Ad apters . new Factory ( type Token 0 , Ġtype Adapter 0 ); Ġ} </s>
+11/20/2026 11:55:24 - INFO - utils -   input_ids: 0 15110 25156 28696 14543 15698 7773 49617 47249 92 47249 1640 507 7773 45643 41552 14543 15698 1907 6 507 7773 49617 41552 14543 15698 1907 49617 43 25522 671 92 7773 49617 47249 43048 25522 787 33661 5224 771 4422 1033 46469 879 41641 8070 21277 52 304 10 2 15110 13842 1296 4030 47249 43048 25522 4210 41552 45599 21926 15698 1380 288 5457 49210 4 4684 131 7773 45643 41552 45599 21926 15698 1907 45643 288 5457 7773 45643 4 6460 1640 4684 288 4397 7773 49617 41552 45599 21926 15698 1907 49617 288 5457 7773 9167 48160 4 387 9332 3850 1889 131 7773 9167 48160 4 4651 47249 1640 12528 45643 288 6 1907 49617 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 11:55:24 - INFO - utils -   *** Example ***
+11/20/2026 11:55:24 - INFO - utils -   guid: test-1
+11/20/2026 11:55:24 - INFO - utils -   tokens: <s> public Ġstatic Ġ< TT > ĠType Adapter Factory Ġnew Factory ( Ġfinal ĠType Token < TT > Ġtype , Ġfinal ĠType Adapter < TT > Ġtype Adapter ) Ġ{ Ġreturn Ġnew ĠType Adapter Factory () Ġ{ Ġ@ Supp ress W arn ings (" un checked ") Ġ// Ġwe Ġuse Ġa </s> public Ġvoid Ġtest New Factory () Ġ{ ĠClass < Boo lean > Ġclass 0 Ġ= ĠBoolean . class ; ĠType Token < Boo lean > Ġtype Token 0 Ġ= ĠType Token . get ( class 0 ); ĠType Adapter < Boo lean > Ġtype Adapter 0 Ġ= ĠType Ad apters . B OO LE AN ; ĠType Ad apters . new Factory ( type Token 0 , Ġtype Adapter 0 ); Ġ} </s>
+11/20/2026 11:55:24 - INFO - utils -   input_ids: 0 15110 25156 28696 14543 15698 7773 49617 47249 92 47249 1640 507 7773 45643 41552 14543 15698 1907 6 507 7773 49617 41552 14543 15698 1907 49617 43 25522 671 92 7773 49617 47249 43048 25522 787 33661 5224 771 4422 1033 46469 879 41641 8070 21277 52 304 10 2 15110 13842 1296 4030 47249 43048 25522 4210 41552 45599 21926 15698 1380 288 5457 49210 4 4684 131 7773 45643 41552 45599 21926 15698 1907 45643 288 5457 7773 45643 4 6460 1640 4684 288 4397 7773 49617 41552 45599 21926 15698 1907 49617 288 5457 7773 9167 48160 4 387 9332 3850 1889 131 7773 9167 48160 4 4651 47249 1640 12528 45643 288 6 1907 49617 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 11:55:24 - INFO - utils -   *** Example ***
+11/20/2026 11:55:24 - INFO - utils -   guid: test-2
+11/20/2026 11:55:24 - INFO - utils -   tokens: <s> public Ġstatic Ġ< TT > ĠType Adapter Factory Ġnew Factory For Multiple Types ( final ĠClass < TT > Ġbase , Ġfinal ĠClass <? Ġextends ĠTT > Ġsub , Ġfinal ĠType Adapter <? Ġsuper ĠTT > Ġtype Adapter ) Ġ{ Ġreturn Ġnew ĠType Adapter Factory () Ġ{ Ġ@ Supp ress </s> public Ġvoid Ġtest New Factory For Multiple Types () Ġ{ ĠClass < In et Address > Ġclass 0 Ġ= ĠIn et Address . class ; ĠType Ad apters . new Factory For Multiple Types ( class 0 , Ġ( Class <? Ġextends ĠIn et Address >) Ġclass 0 , Ġ( Type Adapter <? Ġsuper ĠIn et Address >) Ġnull ); Ġ} </s>
+11/20/2026 11:55:24 - INFO - utils -   input_ids: 0 15110 25156 28696 14543 15698 7773 49617 47249 92 47249 2709 43253 48815 1640 6156 4210 41552 14543 15698 1542 6 507 4210 50254 14269 23529 15698 2849 6 507 7773 49617 50254 2422 23529 15698 1907 49617 43 25522 671 92 7773 49617 47249 43048 25522 787 33661 5224 2 15110 13842 1296 4030 47249 2709 43253 48815 43048 25522 4210 41552 1121 594 46486 15698 1380 288 5457 96 594 46486 4 4684 131 7773 9167 48160 4 4651 47249 2709 43253 48815 1640 4684 288 6 36 21527 50254 14269 96 594 46486 49798 1380 288 6 36 40118 49617 50254 2422 96 594 46486 49798 23796 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 11:55:24 - INFO - utils -   *** Example ***
+11/20/2026 11:55:24 - INFO - utils -   guid: test-3
+11/20/2026 11:55:24 - INFO - utils -   tokens: <s> public Ġstatic Ġ< TT > ĠType Adapter Factory Ġnew Factory For Multiple Types ( final ĠClass < TT > Ġbase , Ġfinal ĠClass <? Ġextends ĠTT > Ġsub , Ġfinal ĠType Adapter <? Ġsuper ĠTT > Ġtype Adapter ) Ġ{ Ġreturn Ġnew ĠType Adapter Factory () Ġ{ Ġ@ Supp ress </s> public Ġvoid Ġtest New Factory For Multiple Types () Ġ{ ĠClass < In et Address > Ġclass 0 Ġ= ĠIn et Address . class ; ĠType Ad apters . new Factory For Multiple Types ( class 0 , Ġ( Class <? Ġextends ĠIn et Address >) Ġclass 0 , Ġ( Type Adapter <? Ġsuper ĠIn et Address >) Ġnull ); Ġ} </s>
+11/20/2026 11:55:24 - INFO - utils -   input_ids: 0 15110 25156 28696 14543 15698 7773 49617 47249 92 47249 2709 43253 48815 1640 6156 4210 41552 14543 15698 1542 6 507 4210 50254 14269 23529 15698 2849 6 507 7773 49617 50254 2422 23529 15698 1907 49617 43 25522 671 92 7773 49617 47249 43048 25522 787 33661 5224 2 15110 13842 1296 4030 47249 2709 43253 48815 43048 25522 4210 41552 1121 594 46486 15698 1380 288 5457 96 594 46486 4 4684 131 7773 9167 48160 4 4651 47249 2709 43253 48815 1640 4684 288 6 36 21527 50254 14269 96 594 46486 49798 1380 288 6 36 40118 49617 50254 2422 96 594 46486 49798 23796 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 11:55:24 - INFO - utils -   *** Example ***
+11/20/2026 11:55:24 - INFO - utils -   guid: test-4
+11/20/2026 11:55:24 - INFO - utils -   tokens: <s> public Ġstatic Ġ< T 1 > ĠType Adapter Factory Ġnew Type H ier archy Factory ( Ġfinal ĠClass < T 1 > Ġcl azz , Ġfinal ĠType Adapter < T 1 > Ġtype Adapter ) Ġ{ Ġreturn Ġnew ĠType Adapter Factory () Ġ{ Ġ@ Supp ress W arn ings (" </s> public Ġvoid Ġtest New Type H ier archy Factory () Ġ{ ĠClass < Character > Ġclass 0 Ġ= ĠCharacter . TYPE ; ĠType Adapter < Character > Ġtype Adapter 0 Ġ= ĠType Ad apters . CHAR AC TER ; ĠType Ad apters . new Type H ier archy Factory ( class 0 , Ġtype Adapter 0 ); Ġ} </s>
+11/20/2026 11:55:24 - INFO - utils -   input_ids: 0 15110 25156 28696 565 134 15698 7773 49617 47249 92 40118 725 906 37208 47249 1640 507 4210 41552 565 134 15698 3741 7706 6 507 7773 49617 41552 565 134 15698 1907 49617 43 25522 671 92 7773 49617 47249 43048 25522 787 33661 5224 771 4422 1033 46469 2 15110 13842 1296 4030 40118 725 906 37208 47249 43048 25522 4210 41552 48116 15698 1380 288 5457 35177 4 48710 131 7773 49617 41552 48116 15698 1907 49617 288 5457 7773 9167 48160 4 29146 2562 7831 131 7773 9167 48160 4 4651 40118 725 906 37208 47249 1640 4684 288 6 1907 49617 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:24 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 11:55:24 - INFO - __main__ -   ***** Running evaluation  *****
+11/20/2026 11:55:24 - INFO - __main__ -     Num examples = 6
+11/20/2026 11:55:24 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 6 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  2.25it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  2.25it/s]
+11/20/2026 11:55:28 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/20/2026 11:55:29 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/20/2026 11:55:31 - INFO - __main__ -   Creating features from dataset file at ./
+11/20/2026 11:55:31 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/20/2026 11:55:31 - INFO - utils -   Writing example 0 of 3
+11/20/2026 11:55:31 - INFO - utils -   *** Example ***
+11/20/2026 11:55:31 - INFO - utils -   guid: 0
+11/20/2026 11:55:31 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠClass < Boo lean > Ġclass 0 Ġ= ĠBoolean . class ; ĠType Token < Boo lean > Ġtype Token 0 Ġ= ĠType Token . get ( class 0 ); ĠType Adapter < Boo lean > Ġtype Adapter 0 Ġ= ĠType </s> public Ġstatic Ġ< TT > ĠType Adapter Factory Ġnew Factory ( Ġfinal ĠType Token < TT > Ġtype , Ġfinal ĠType Adapter < TT > Ġtype Adapter ) Ġ{ Ġreturn Ġnew ĠType Adapter Factory () Ġ{ Ġ@ Supp ress W arn ings (" un checked ") Ġ// Ġwe Ġuse Ġa Ġruntime Ġcheck Ġto Ġmake Ġsure Ġthe Ġ' T 's Ġequal Ġpublic Ġ< T > ĠType Adapter < T > Ġcreate ( G son Ġg son , ĠType Token < T > Ġtype Token ) Ġ{ Ġreturn Ġtype Token . equ als ( type ) Ġ? Ġ( Type Adapter < T >) Ġtype Adapter Ġ: Ġnull ; Ġ} Ġ}; Ġ} </s> assert Not Null ( type Adapter Factory 0 ) </s>
+11/20/2026 11:55:31 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 4210 41552 45599 21926 15698 1380 288 5457 49210 4 4684 131 7773 45643 41552 45599 21926 15698 1907 45643 288 5457 7773 45643 4 6460 1640 4684 288 4397 7773 49617 41552 45599 21926 15698 1907 49617 288 5457 7773 2 15110 25156 28696 14543 15698 7773 49617 47249 92 47249 1640 507 7773 45643 41552 14543 15698 1907 6 507 7773 49617 41552 14543 15698 1907 49617 43 25522 671 92 7773 49617 47249 43048 25522 787 33661 5224 771 4422 1033 46469 879 41641 8070 21277 52 304 10 44190 1649 7 146 686 5 128 565 18 3871 285 28696 565 15698 7773 49617 41552 565 15698 1045 1640 534 1478 821 1478 6 7773 45643 41552 565 15698 1907 45643 43 25522 671 1907 45643 4 8198 1536 1640 12528 43 17487 36 40118 49617 41552 565 49798 1907 49617 4832 23796 131 35524 48855 35524 2 46346 7199 49302 1640 12528 49617 47249 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:31 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:31 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 11:55:31 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 11:55:31 - INFO - utils -   *** Example ***
+11/20/2026 11:55:31 - INFO - utils -   guid: 3
+11/20/2026 11:55:31 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠClass < In et Address > Ġclass 0 Ġ= ĠIn et Address . class ; ĠType Adapter Factory Ġtype Adapter Factory 0 Ġ= ĠType Ad apters . new Factory For Multiple Types ( class 0 , Ġ( Class <? Ġextends ĠIn </s> public Ġstatic Ġ< TT > ĠType Adapter Factory Ġnew Factory For Multiple Types ( final ĠClass < TT > Ġbase , Ġfinal ĠClass <? Ġextends ĠTT > Ġsub , Ġfinal ĠType Adapter <? Ġsuper ĠTT > Ġtype Adapter ) Ġ{ Ġreturn Ġnew ĠType Adapter Factory () Ġ{ Ġ@ Supp ress W arn ings (" un checked ") Ġ// Ġwe Ġuse Ġa Ġruntime Ġcheck Ġto Ġmake Ġsure Ġthe Ġ' T 's Ġequal Ġpublic Ġ< T > ĠType Adapter < T > Ġcreate ( G son Ġg son , ĠType Token < T > Ġtype Token ) Ġ{ ĠClass <? Ġsuper ĠT > Ġraw Type Ġ= Ġtype Token . get Raw Type (); Ġreturn Ġ( raw Type Ġ== Ġbase Ġ|| Ġraw Type Ġ== Ġsub ) Ġ? Ġ( Type Adapter < T >) Ġtype Adapter Ġ: Ġnull ; Ġ} Ġ@ </s> assert Not Null ( type Adapter Factory 0 ) </s>
+11/20/2026 11:55:31 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 4210 41552 1121 594 46486 15698 1380 288 5457 96 594 46486 4 4684 131 7773 49617 47249 1907 49617 47249 288 5457 7773 9167 48160 4 4651 47249 2709 43253 48815 1640 4684 288 6 36 21527 50254 14269 96 2 15110 25156 28696 14543 15698 7773 49617 47249 92 47249 2709 43253 48815 1640 6156 4210 41552 14543 15698 1542 6 507 4210 50254 14269 23529 15698 2849 6 507 7773 49617 50254 2422 23529 15698 1907 49617 43 25522 671 92 7773 49617 47249 43048 25522 787 33661 5224 771 4422 1033 46469 879 41641 8070 21277 52 304 10 44190 1649 7 146 686 5 128 565 18 3871 285 28696 565 15698 7773 49617 41552 565 15698 1045 1640 534 1478 821 1478 6 7773 45643 41552 565 15698 1907 45643 43 25522 4210 50254 2422 255 15698 6087 40118 5457 1907 45643 4 6460 40039 40118 47006 671 36 9056 40118 45994 1542 45056 6087 40118 45994 2849 43 17487 36 40118 49617 41552 565 49798 1907 49617 4832 23796 131 35524 787 2 46346 7199 49302 1640 12528 49617 47249 288 43 2
+11/20/2026 11:55:31 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/20/2026 11:55:31 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1
+11/20/2026 11:55:31 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 11:55:31 - INFO - utils -   *** Example ***
+11/20/2026 11:55:31 - INFO - utils -   guid: 5
+11/20/2026 11:55:31 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 03 () Ġthrows ĠThrow able Ġ{ ĠClass < Character > Ġclass 0 Ġ= ĠCharacter . TYPE ; ĠType Adapter < Character > Ġtype Adapter 0 Ġ= ĠType Ad apters . CHAR AC TER ; ĠType Adapter Factory Ġtype Adapter Factory 0 Ġ= ĠType Ad apters . new </s> public Ġstatic Ġ< T 1 > ĠType Adapter Factory Ġnew Type H ier archy Factory ( Ġfinal ĠClass < T 1 > Ġcl azz , Ġfinal ĠType Adapter < T 1 > Ġtype Adapter ) Ġ{ Ġreturn Ġnew ĠType Adapter Factory () Ġ{ Ġ@ Supp ress W arn ings (" un checked ") Ġpublic Ġ< T 2 > ĠType Adapter < T 2 > Ġcreate ( G son Ġg son , ĠType Token < T 2 > Ġtype Token ) Ġ{ Ġfinal ĠClass <? Ġsuper ĠT 2 > Ġrequested Type Ġ= Ġtype Token . get Raw Type (); Ġif Ġ(! cl azz . is Ass ign able From ( request ed Type )) Ġ{ Ġreturn Ġnull ; Ġ} Ġreturn Ġ( Type Adapter < T 2 >) Ġnew ĠType Adapter < T 1 > () Ġ{ Ġ@ Override </s> assert Not Null ( type Adapter Factory 0 ) </s>
+11/20/2026 11:55:31 - INFO - utils -   input_ids: 0 15110 13842 1296 3933 43048 6989 28106 868 25522 4210 41552 48116 15698 1380 288 5457 35177 4 48710 131 7773 49617 41552 48116 15698 1907 49617 288 5457 7773 9167 48160 4 29146 2562 7831 131 7773 49617 47249 1907 49617 47249 288 5457 7773 9167 48160 4 4651 2 15110 25156 28696 565 134 15698 7773 49617 47249 92 40118 725 906 37208 47249 1640 507 4210 41552 565 134 15698 3741 7706 6 507 7773 49617 41552 565 134 15698 1907 49617 43 25522 671 92 7773 49617 47249 43048 25522 787 33661 5224 771 4422 1033 46469 879 41641 8070 285 28696 565 176 15698 7773 49617 41552 565 176 15698 1045 1640 534 1478 821 1478 6 7773 45643 41552 565 176 15698 1907 45643 43 25522 507 4210 50254 2422 255 176 15698 5372 40118 5457 1907 45643 4 6460 40039 40118 47006 114 48209 3998 7706 4 354 26039 4932 868 7605 1640 16604 196 40118 35122 25522 671 23796 131 35524 671 36 40118 49617 41552 565 176 49798 92 7773 49617 41552 565 134 15698 43048 25522 787 49116 2 46346 7199 49302 1640 12528 49617 47249 288 43 2
+11/20/2026 11:55:31 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/20/2026 11:55:31 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1
+11/20/2026 11:55:31 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 11:55:31 - INFO - __main__ -   ***** Running evaluation  *****
+11/20/2026 11:55:31 - INFO - __main__ -     Num examples = 3
+11/20/2026 11:55:31 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 3 total truncations 2, mean_trunc 64.33333333333333, median 43.0, max = 150
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  4.74it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  4.74it/s]
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1879: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.24175824175824176
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Gson -d /Users/bitu/mtech-tools/toga_out/Gson-2/suite -v 2f
+Checking out fe101c10 to /tmp/fix_test_suite.pl_97141_1795204532........... --------------------------------------------------------------------------------
+Gson-2f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_97141_1795204532/pom.xml..... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fe101c10:10714ef0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-2f......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Gson -d /Users/bitu/mtech-tools/toga_out/Gson-2/suite -o /Users/bitu/mtech-tools/toga_out/Gson-2/detect
+Extract test suite......................................................... Executing test suite: Gson-2f-toga.1.tar.bz2
+OK
+Checking out fe101c10 to /tmp/run_bug_detection.pl_97377_1795213597/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_97377_1795213597/V_fixed/p OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fe101c10:10714ef0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-2f......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out fe101c10 to /tmp/run_bug_detection.pl_97377_1795213597/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_97377_1795213597/V_buggy/p OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff fe101c10:10714ef0..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-2b......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

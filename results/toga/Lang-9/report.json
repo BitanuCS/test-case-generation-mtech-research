@@ -1,0 +1,54 @@
+{
+  "bug": "Lang-9",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 58,
+    "exception": 0,
+    "assertion": 13
+  },
+  "tests": {
+    "written": 58,
+    "kept_on_fixed": 29,
+    "false_alarms_removed": 29,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "9f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 275,
+      "lines_covered": 216,
+      "branches_total": 125,
+      "branches_covered": 92,
+      "line": 0.785,
+      "branch": 0.736
+    },
+    "major_mutation": {
+      "generated": 306,
+      "covered": 306,
+      "killed": 169,
+      "score": 0.552
+    }
+  },
+  "seconds": 197.5,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

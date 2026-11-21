@@ -1,0 +1,151 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Gson-6/evo /Users/bitu/mtech-tools/work/Gson-6f/gson/src/main/java Gson 6 /Users/bitu/mtech-tools/toga_out/Gson-6
+4 test prefixes, 4 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Gson-6/inputs.csv /Users/bitu/mtech-tools/toga_out/Gson-6/meta.csv
+11/20/2026 19:25:00 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/20/2026 19:25:02 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/20/2026 19:25:03 - INFO - __main__ -   Creating features from dataset file at ./
+11/20/2026 19:25:03 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/20/2026 19:25:03 - INFO - utils -   Writing example 0 of 4
+11/20/2026 19:25:03 - INFO - utils -   *** Example ***
+11/20/2026 19:25:03 - INFO - utils -   guid: test-0
+11/20/2026 19:25:03 - INFO - utils -   tokens: <s> static ĠType Adapter <? > Ġget Type Adapter ( Construct or Construct or Ġconstructor Construct or , ĠG son Ġg son , ĠType Token <? > Ġfield Type , ĠJ son Adapter Ġannotation ) Ġ{ ĠClass <? > Ġvalue Ġ= Ġannotation . value (); ĠType Adapter <? > Ġtype Adapter </s> public Ġvoid Ġtest Get Type Adapter () Ġ{ ĠG son Ġg son 0 Ġ= Ġnew ĠG son (); ĠClass < Integer > Ġclass 0 Ġ= ĠInteger . TYPE ; ĠJ son Adapter Ġjson Adapter 0 Ġ= Ġmock ( J son Adapter . class , Ġnew ĠViol ated Ass umption Answer ()); Ġdo Return ( class 0 ). when ( json Adapter 0 ). value (); ĠType Token < Integer > Ġtype Token 0 Ġ= ĠType Token . get ( class 0 ); ĠJ son Adapter An notation Type Adapter Factory . get Type Adapter (( Construct or Construct or ) Ġnull , Ġg son 0 , Ġtype Token 0 , Ġjson Adapter 0 ); Ġ} </s>
+11/20/2026 19:25:03 - INFO - utils -   input_ids: 0 42653 7773 49617 50254 15698 120 40118 49617 1640 48402 368 48402 368 47073 48402 368 6 272 1478 821 1478 6 7773 45643 50254 15698 882 40118 6 344 1478 49617 47760 43 25522 4210 50254 15698 923 5457 47760 4 19434 47006 7773 49617 50254 15698 1907 49617 2 15110 13842 1296 14181 40118 49617 43048 25522 272 1478 821 1478 288 5457 92 272 1478 47006 4210 41552 49740 15698 1380 288 5457 47927 4 48710 131 344 1478 49617 49133 49617 288 5457 16177 1640 863 1478 49617 4 4684 6 92 21232 1070 26039 21236 33683 49291 109 42555 1640 4684 288 322 14746 1640 40962 49617 288 322 19434 47006 7773 45643 41552 49740 15698 1907 45643 288 5457 7773 45643 4 6460 1640 4684 288 4397 344 1478 49617 4688 44851 40118 49617 47249 4 6460 40118 49617 48461 48402 368 48402 368 43 23796 6 821 1478 288 6 1907 45643 288 6 49133 49617 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   label: 1 (id = 1)
+11/20/2026 19:25:03 - INFO - utils -   *** Example ***
+11/20/2026 19:25:03 - INFO - utils -   guid: test-1
+11/20/2026 19:25:03 - INFO - utils -   tokens: <s> public Ġ< T > ĠType Adapter < T > Ġcreate ( G son Ġg son , ĠType Token < T > Ġtarget Type ) Ġ{ ĠJ son Adapter Ġannotation Ġ= Ġtarget Type . get Raw Type (). get An notation ( J son Adapter . class ); Ġif Ġ( ann </s> public Ġvoid Ġtest Create () Ġ{ ĠJ son Adapter An notation Type Adapter Factory Ġjson Adapter An notation Type Adapter Factory 0 Ġ= Ġnew ĠJ son Adapter An notation Type Adapter Factory (( Construct or Construct or ) Ġnull ); ĠClass < Integer > Ġclass 0 Ġ= ĠInteger . class ; ĠType Token < Integer > Ġtype Token 0 Ġ= ĠType Token . get ( class 0 ); Ġjson Adapter An notation Type Adapter Factory 0 . create (( G son ) Ġnull , Ġtype Token 0 ); Ġ} </s>
+11/20/2026 19:25:03 - INFO - utils -   input_ids: 0 15110 28696 565 15698 7773 49617 41552 565 15698 1045 1640 534 1478 821 1478 6 7773 45643 41552 565 15698 1002 40118 43 25522 344 1478 49617 47760 5457 1002 40118 4 6460 40039 40118 49123 6460 4688 44851 1640 863 1478 49617 4 4684 4397 114 36 2279 2 15110 13842 1296 44758 43048 25522 344 1478 49617 4688 44851 40118 49617 47249 49133 49617 4688 44851 40118 49617 47249 288 5457 92 344 1478 49617 4688 44851 40118 49617 47249 48461 48402 368 48402 368 43 23796 4397 4210 41552 49740 15698 1380 288 5457 47927 4 4684 131 7773 45643 41552 49740 15698 1907 45643 288 5457 7773 45643 4 6460 1640 4684 288 4397 49133 49617 4688 44851 40118 49617 47249 288 4 32845 48461 534 1478 43 23796 6 1907 45643 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 19:25:03 - INFO - utils -   *** Example ***
+11/20/2026 19:25:03 - INFO - utils -   guid: test-2
+11/20/2026 19:25:03 - INFO - utils -   tokens: <s> public Ġ< T > ĠType Adapter < T > Ġcreate ( G son Ġg son , ĠType Token < T > Ġtarget Type ) Ġ{ ĠJ son Adapter Ġannotation Ġ= Ġtarget Type . get Raw Type (). get An notation ( J son Adapter . class ); Ġif Ġ( ann </s> public Ġvoid Ġtest Create () Ġ{ ĠJ son Adapter An notation Type Adapter Factory Ġjson Adapter An notation Type Adapter Factory 0 Ġ= Ġnew ĠJ son Adapter An notation Type Adapter Factory (( Construct or Construct or ) Ġnull ); ĠClass < Integer > Ġclass 0 Ġ= ĠInteger . class ; ĠType Token < Integer > Ġtype Token 0 Ġ= ĠType Token . get ( class 0 ); Ġjson Adapter An notation Type Adapter Factory 0 . create (( G son ) Ġnull , Ġtype Token 0 ); Ġ} </s>
+11/20/2026 19:25:03 - INFO - utils -   input_ids: 0 15110 28696 565 15698 7773 49617 41552 565 15698 1045 1640 534 1478 821 1478 6 7773 45643 41552 565 15698 1002 40118 43 25522 344 1478 49617 47760 5457 1002 40118 4 6460 40039 40118 49123 6460 4688 44851 1640 863 1478 49617 4 4684 4397 114 36 2279 2 15110 13842 1296 44758 43048 25522 344 1478 49617 4688 44851 40118 49617 47249 49133 49617 4688 44851 40118 49617 47249 288 5457 92 344 1478 49617 4688 44851 40118 49617 47249 48461 48402 368 48402 368 43 23796 4397 4210 41552 49740 15698 1380 288 5457 47927 4 4684 131 7773 45643 41552 49740 15698 1907 45643 288 5457 7773 45643 4 6460 1640 4684 288 4397 49133 49617 4688 44851 40118 49617 47249 288 4 32845 48461 534 1478 43 23796 6 1907 45643 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 19:25:03 - INFO - utils -   *** Example ***
+11/20/2026 19:25:03 - INFO - utils -   guid: test-3
+11/20/2026 19:25:03 - INFO - utils -   tokens: <s> static ĠType Adapter <? > Ġget Type Adapter ( Construct or Construct or Ġconstructor Construct or , ĠG son Ġg son , ĠType Token <? > Ġfield Type , ĠJ son Adapter Ġannotation ) Ġ{ ĠClass <? > Ġvalue Ġ= Ġannotation . value (); ĠType Adapter <? > Ġtype Adapter </s> public Ġvoid Ġtest Get Type Adapter () Ġ{ ĠG son Ġg son 0 Ġ= Ġnew ĠG son (); ĠClass < S ql Date Type Adapter > Ġclass 0 Ġ= ĠS ql Date Type Adapter . class ; ĠClass < Integer > Ġclass 1 Ġ= ĠInteger . class ; ĠType Token < Integer > Ġtype Token 0 Ġ= ĠType Token . get ( class 1 ); ĠJ son Adapter Ġjson Adapter 0 Ġ= Ġmock ( J son Adapter . class , Ġnew ĠViol ated Ass umption Answer ()); Ġdo Return ( class 0 ). when ( json Adapter 0 ). value (); ĠJ son Adapter An notation Type Adapter Factory . get Type Adapter (( Construct or Construct or ) Ġnull , Ġg son 0 , Ġtype Token 0 , Ġjson Adapter 0 ); Ġ} </s>
+11/20/2026 19:25:03 - INFO - utils -   input_ids: 0 42653 7773 49617 50254 15698 120 40118 49617 1640 48402 368 48402 368 47073 48402 368 6 272 1478 821 1478 6 7773 45643 50254 15698 882 40118 6 344 1478 49617 47760 43 25522 4210 50254 15698 923 5457 47760 4 19434 47006 7773 49617 50254 15698 1907 49617 2 15110 13842 1296 14181 40118 49617 43048 25522 272 1478 821 1478 288 5457 92 272 1478 47006 4210 41552 104 44306 39525 40118 49617 15698 1380 288 5457 208 44306 39525 40118 49617 4 4684 131 4210 41552 49740 15698 1380 134 5457 47927 4 4684 131 7773 45643 41552 49740 15698 1907 45643 288 5457 7773 45643 4 6460 1640 4684 134 4397 344 1478 49617 49133 49617 288 5457 16177 1640 863 1478 49617 4 4684 6 92 21232 1070 26039 21236 33683 49291 109 42555 1640 4684 288 322 14746 1640 40962 49617 288 322 19434 47006 344 1478 49617 4688 44851 40118 49617 47249 4 6460 40118 49617 48461 48402 368 48402 368 43 23796 6 821 1478 288 6 1907 45643 288 6 49133 49617 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:03 - INFO - utils -   label: 1 (id = 1)
+11/20/2026 19:25:03 - INFO - __main__ -   ***** Running evaluation  *****
+11/20/2026 19:25:03 - INFO - __main__ -     Num examples = 4
+11/20/2026 19:25:03 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 4 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  3.23it/s]
+11/20/2026 19:25:07 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/20/2026 19:25:09 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/20/2026 19:25:10 - INFO - __main__ -   Creating features from dataset file at ./
+11/20/2026 19:25:10 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/20/2026 19:25:10 - INFO - utils -   Writing example 0 of 1
+11/20/2026 19:25:10 - INFO - utils -   *** Example ***
+11/20/2026 19:25:10 - INFO - utils -   guid: 1
+11/20/2026 19:25:10 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 1 () Ġthrows ĠThrow able Ġ{ ĠJ son Adapter An notation Type Adapter Factory Ġjson Adapter An notation Type Adapter Factory 0 Ġ= Ġnew ĠJ son Adapter An notation Type Adapter Factory (( Construct or Construct or ) Ġnull ); ĠClass < Integer > Ġclass 0 Ġ= </s> public Ġ< T > ĠType Adapter < T > Ġcreate ( G son Ġg son , ĠType Token < T > Ġtarget Type ) Ġ{ ĠJ son Adapter Ġannotation Ġ= Ġtarget Type . get Raw Type (). get An notation ( J son Adapter . class ); Ġif Ġ( ann otation Ġ== Ġnull ) Ġ{ Ġreturn Ġnull ; Ġ} Ġreturn Ġ( Type Adapter < T >) Ġget Type Adapter ( construct or Construct or , Ġg son , Ġtarget Type , Ġannotation ); Ġ} </s> assert Not Null ( type Adapter 0 ) </s>
+11/20/2026 19:25:10 - INFO - utils -   input_ids: 0 15110 13842 1296 134 43048 6989 28106 868 25522 344 1478 49617 4688 44851 40118 49617 47249 49133 49617 4688 44851 40118 49617 47249 288 5457 92 344 1478 49617 4688 44851 40118 49617 47249 48461 48402 368 48402 368 43 23796 4397 4210 41552 49740 15698 1380 288 5457 2 15110 28696 565 15698 7773 49617 41552 565 15698 1045 1640 534 1478 821 1478 6 7773 45643 41552 565 15698 1002 40118 43 25522 344 1478 49617 47760 5457 1002 40118 4 6460 40039 40118 49123 6460 4688 44851 1640 863 1478 49617 4 4684 4397 114 36 2279 35915 45994 23796 43 25522 671 23796 131 35524 671 36 40118 49617 41552 565 49798 120 40118 49617 1640 42843 368 48402 368 6 821 1478 6 1002 40118 6 47760 4397 35524 2 46346 7199 49302 1640 12528 49617 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:10 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:10 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/20/2026 19:25:10 - INFO - utils -   label: 0 (id = 0)
+11/20/2026 19:25:10 - INFO - __main__ -   ***** Running evaluation  *****
+11/20/2026 19:25:10 - INFO - __main__ -     Num examples = 1
+11/20/2026 19:25:10 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 1 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.05it/s]Evaluating: 100%|██████████| 1/1 [00:00<00:00,  5.04it/s]
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:1879: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", result.shape[0])
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.5
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Gson -d /Users/bitu/mtech-tools/toga_out/Gson-6/suite -v 6f
+Checking out dea30550 to /tmp/fix_test_suite.pl_98195_1795231511........... --------------------------------------------------------------------------------
+Gson-6f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dea30550:67bd3a2c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-6f......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Gson -d /Users/bitu/mtech-tools/toga_out/Gson-6/suite -o /Users/bitu/mtech-tools/toga_out/Gson-6/detect
+Extract test suite......................................................... Executing test suite: Gson-6f-toga.1.tar.bz2
+OK
+Checking out dea30550 to /tmp/run_bug_detection.pl_98352_1795231543/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dea30550:67bd3a2c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-6f......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out dea30550 to /tmp/run_bug_detection.pl_98352_1795231543/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff dea30550:67bd3a2c..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Gson-6b......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

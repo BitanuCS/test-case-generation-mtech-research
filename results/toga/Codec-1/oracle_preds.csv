@@ -1,0 +1,575 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Codec,1,org.apache.commons.codec.language.Caverphone_ESTest::test0,"  public void test0()  throws Throwable  {
+      Caverphone caverphone0 = new Caverphone();
+      boolean boolean0 = caverphone0.isCaverphoneEqual("""", """");
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Codec,1,org.apache.commons.codec.language.Caverphone_ESTest::test0,"  public void test0()  throws Throwable  {
+      Caverphone caverphone0 = new Caverphone();
+      boolean boolean0 = caverphone0.isCaverphoneEqual("""", """");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Caverphone_ESTest::test1,"  public void test1()  throws Throwable  {
+      Caverphone caverphone0 = new Caverphone();
+      String string0 = caverphone0.encode((String) null);
+      assertEquals(""1111111111"", string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.Caverphone_ESTest::test1,"  public void test1()  throws Throwable  {
+      Caverphone caverphone0 = new Caverphone();
+      String string0 = caverphone0.encode((String) null);
+  }",0,
+Codec,1,org.apache.commons.codec.language.Caverphone_ESTest::test2,"  public void test2()  throws Throwable  {
+      Caverphone caverphone0 = new Caverphone();
+      Object object0 = caverphone0.encode((Object) ""g>?"");
+      assertEquals(""K111111111"", object0);
+}",0,assertNotNull(object0)
+Codec,1,org.apache.commons.codec.language.Caverphone_ESTest::test2,"  public void test2()  throws Throwable  {
+      Caverphone caverphone0 = new Caverphone();
+      Object object0 = caverphone0.encode((Object) ""g>?"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Caverphone_ESTest::test3,"  public void test3()  throws Throwable  {
+      Caverphone caverphone0 = new Caverphone();
+      Object object0 = new Object();
+      try { 
+        caverphone0.encode(object0);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Parameter supplied to Caverphone encode is not of type java.lang.String
+         //
+         verifyException(""org.apache.commons.codec.language.Caverphone"", e);
+      }
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test00,"  public void test00()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      metaphone0.setMaxCodeLen((-871));
+      assertEquals((-871), metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test00,"  public void test00()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      metaphone0.setMaxCodeLen((-871));
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test01,"  public void test01()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      boolean boolean0 = metaphone0.isMetaphoneEqual(""#qd3Xme"", ""SH"");
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test01,"  public void test01()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      boolean boolean0 = metaphone0.isMetaphoneEqual(""#qd3Xme"", ""SH"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test01,"  public void test01()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      boolean boolean0 = metaphone0.isMetaphoneEqual(""#qd3Xme"", ""SH"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test02,"  public void test02()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""TG"");
+      assertEquals(""TK"", string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test02,"  public void test02()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""TG"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test02,"  public void test02()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""TG"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test03,"  public void test03()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      metaphone0.metaphone((String) null);
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test03,"  public void test03()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      metaphone0.metaphone((String) null);
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test04,"  public void test04()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      metaphone0.metaphone("""");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test04,"  public void test04()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      metaphone0.metaphone("""");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test05,"  public void test05()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""t"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test05,"  public void test05()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""t"");
+      assertEquals(""T"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test05,"  public void test05()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""t"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test06,"  public void test06()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""AEIOU"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test06,"  public void test06()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""AEIOU"");
+      assertEquals(""E"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test06,"  public void test06()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""AEIOU"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test07,"  public void test07()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""K_S"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test07,"  public void test07()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""K_S"");
+      assertEquals(""KS"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test07,"  public void test07()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""K_S"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test08,"  public void test08()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""Parameter supplied to Metaphone encode is not of type java.lang.String"");
+      assertEquals(""PRM0"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test08,"  public void test08()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""Parameter supplied to Metaphone encode is not of type java.lang.String"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test09,"  public void test09()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""wh}M_*S,`m}_6jNb"");
+      assertEquals(""MSMJ"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test09,"  public void test09()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""wh}M_*S,`m}_6jNb"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test10,"  public void test10()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""X_{L6. &l[</kw"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test10,"  public void test10()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""X_{L6. &l[</kw"");
+      assertEquals(""XLLK"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test10,"  public void test10()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""X_{L6. &l[</kw"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test11,"  public void test11()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""GNED"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test11,"  public void test11()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""GNED"");
+      assertEquals(""NT"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test11,"  public void test11()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""GNED"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test12,"  public void test12()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""A%*ld9K\""pB6>B`0Y+}"");
+      assertEquals(""ALTK"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test12,"  public void test12()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""A%*ld9K\""pB6>B`0Y+}"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test13,"  public void test13()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""WRyXlYCh8PTd!Q/4"");
+      assertEquals(""RKSL"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test13,"  public void test13()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""WRyXlYCh8PTd!Q/4"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test14,"  public void test14()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""WTv*;;K0iDz.^D "");
+      assertEquals(""XFKT"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test14,"  public void test14()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""WTv*;;K0iDz.^D "");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test15,"  public void test15()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""CHR"");
+      assertEquals(""XR"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test15,"  public void test15()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""CHR"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test15,"  public void test15()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""CHR"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test16,"  public void test16()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""DQecKbgyBI"");
+      assertEquals(""TKXB"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test16,"  public void test16()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""DQecKbgyBI"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test17,"  public void test17()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""CPF"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test17,"  public void test17()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""CPF"");
+      assertEquals(""XPF"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test17,"  public void test17()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""CPF"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test18,"  public void test18()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""S{GHpmZYd"");
+      assertEquals(""XPMS"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test18,"  public void test18()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""S{GHpmZYd"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test19,"  public void test19()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""TMB"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test19,"  public void test19()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""TMB"");
+      assertEquals(""XM"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test19,"  public void test19()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""TMB"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test20,"  public void test20()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""Mb5@pTENi"");
+      assertEquals(""MBPX"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test20,"  public void test20()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""Mb5@pTENi"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test21,"  public void test21()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""\""wSCMr"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test21,"  public void test21()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""\""wSCMr"");
+      assertEquals(""XKMR"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test21,"  public void test21()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""\""wSCMr"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test22,"  public void test22()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""SC"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test22,"  public void test22()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""SC"");
+      assertEquals(""SK"", string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test22,"  public void test22()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""SC"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test23,"  public void test23()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""@4qzscy0D^"");
+      assertEquals(""KSXT"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test23,"  public void test23()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""@4qzscy0D^"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test23,"  public void test23()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""@4qzscy0D^"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test24,"  public void test24()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""H>@VcvcIl@M@&"");
+      assertEquals(""FKFS"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test24,"  public void test24()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""H>@VcvcIl@M@&"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test25,"  public void test25()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""\""#SChr"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,"assertEquals(0, metaphone0.getMaxCodeLen())"
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test25,"  public void test25()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""\""#SChr"");
+      assertEquals(""SKR"", string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test25,"  public void test25()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""\""#SChr"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test26,"  public void test26()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""org.apache.commns.codc.EncoderException"");
+      assertEquals(""ORPX"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test26,"  public void test26()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""org.apache.commns.codc.EncoderException"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test27,"  public void test27()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""CH"");
+      assertEquals(""X"", string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test27,"  public void test27()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""CH"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test27,"  public void test27()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""CH"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test28,"  public void test28()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""CHE"");
+      assertEquals(""K"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test28,"  public void test28()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""CHE"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test28,"  public void test28()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""CHE"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test29,"  public void test29()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""=AVDG?o_)33aOReYLv"");
+      assertEquals(""FTRL"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test29,"  public void test29()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""=AVDG?o_)33aOReYLv"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test30,"  public void test30()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""+5nY3E)dGyz-;hGB"");
+      assertEquals(""NJSB"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test30,"  public void test30()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""+5nY3E)dGyz-;hGB"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test30,"  public void test30()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""+5nY3E)dGyz-;hGB"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test31,"  public void test31()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      Object object0 = metaphone0.encode((Object) ""U}qGh"");
+      assertEquals(""UK"", object0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test31,"  public void test31()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      Object object0 = metaphone0.encode((Object) ""U}qGh"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test31,"  public void test31()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      Object object0 = metaphone0.encode((Object) ""U}qGh"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test32,"  public void test32()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""bq_!gHU!z3G@#\"""");
+      assertEquals(""BKKS"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test32,"  public void test32()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""bq_!gHU!z3G@#\"""");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test33,"  public void test33()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""ha~>iu.@D96+eeAM52"");
+      assertEquals(""HTM"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test33,"  public void test33()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""ha~>iu.@D96+eeAM52"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test33,"  public void test33()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""ha~>iu.@D96+eeAM52"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test34,"  public void test34()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""HmkGlPh56EI"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test34,"  public void test34()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""HmkGlPh56EI"");
+      assertEquals(""MKLF"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test34,"  public void test34()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""HmkGlPh56EI"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test35,"  public void test35()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""SIA"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test35,"  public void test35()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""SIA"");
+      assertEquals(""X"", string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test35,"  public void test35()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""SIA"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test36,"  public void test36()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""ToH"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test36,"  public void test36()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""ToH"");
+      assertEquals("""", string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test36,"  public void test36()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""ToH"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test37,"  public void test37()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""GY"");
+      assertEquals(""J"", string0);
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test37,"  public void test37()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""GY"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test37,"  public void test37()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.metaphone(""GY"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test38,"  public void test38()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""Ye!-/~U>I*Z"");
+      assertEquals(""YS"", string0);
+}",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test38,"  public void test38()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""Ye!-/~U>I*Z"");
+      assertEquals(4, metaphone0.getMaxCodeLen());
+}",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test38,"  public void test38()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""Ye!-/~U>I*Z"");
+  }",1,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test39,"  public void test39()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""D|YJ6a~'d!_X"");
+      assertEquals(""TJTK"", string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test39,"  public void test39()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      String string0 = metaphone0.encode(""D|YJ6a~'d!_X"");
+  }",0,
+Codec,1,org.apache.commons.codec.language.Metaphone_ESTest::test40,"  public void test40()  throws Throwable  {
+      Metaphone metaphone0 = new Metaphone();
+      try { 
+        metaphone0.encode((Object) null);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Parameter supplied to Metaphone encode is not of type java.lang.String
+         //
+         verifyException(""org.apache.commons.codec.language.Metaphone"", e);
+      }
+  }",1,
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test0,"  public void test0()  throws Throwable  {
+      SoundexUtils soundexUtils0 = new SoundexUtils();
+  }",0,
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test1,"  public void test1()  throws Throwable  {
+      RefinedSoundex refinedSoundex0 = RefinedSoundex.US_ENGLISH;
+      int int0 = SoundexUtils.difference(refinedSoundex0, ""ci"", """");
+      assertEquals(0, int0);
+}",0,"assertEquals(0, int0)"
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test1,"  public void test1()  throws Throwable  {
+      RefinedSoundex refinedSoundex0 = RefinedSoundex.US_ENGLISH;
+      int int0 = SoundexUtils.difference(refinedSoundex0, ""ci"", """");
+  }",0,
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test2,"  public void test2()  throws Throwable  {
+      String string0 = SoundexUtils.clean((String) null);
+      assertNull(string0);
+}",0,assertNotNull(string0)
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test2,"  public void test2()  throws Throwable  {
+      String string0 = SoundexUtils.clean((String) null);
+  }",0,
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test3,"  public void test3()  throws Throwable  {
+      int int0 = SoundexUtils.differenceEncoded((String) null, """");
+      assertEquals(0, int0);
+}",0,"assertEquals(0, int0)"
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test3,"  public void test3()  throws Throwable  {
+      int int0 = SoundexUtils.differenceEncoded((String) null, """");
+  }",0,
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test4,"  public void test4()  throws Throwable  {
+      int int0 = SoundexUtils.differenceEncoded(""U/=`D&`Ft."", (String) null);
+      assertEquals(0, int0);
+}",0,"assertEquals(0, int0)"
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test4,"  public void test4()  throws Throwable  {
+      int int0 = SoundexUtils.differenceEncoded(""U/=`D&`Ft."", (String) null);
+  }",0,
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test5,"  public void test5()  throws Throwable  {
+      RefinedSoundex refinedSoundex0 = RefinedSoundex.US_ENGLISH;
+      int int0 = SoundexUtils.difference(refinedSoundex0, ""dN(iV+=865NQHr"", ""mvw^uTgmO}"");
+      assertEquals(2, int0);
+}",0,"assertEquals(0, int0)"
+Codec,1,org.apache.commons.codec.language.SoundexUtils_ESTest::test5,"  public void test5()  throws Throwable  {
+      RefinedSoundex refinedSoundex0 = RefinedSoundex.US_ENGLISH;
+      int int0 = SoundexUtils.difference(refinedSoundex0, ""dN(iV+=865NQHr"", ""mvw^uTgmO}"");
+  }",0,

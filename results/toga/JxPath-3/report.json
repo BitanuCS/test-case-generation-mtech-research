@@ -1,0 +1,54 @@
+{
+  "bug": "JxPath-3",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 51,
+    "exception": 6,
+    "assertion": 18
+  },
+  "tests": {
+    "written": 51,
+    "kept_on_fixed": 38,
+    "false_alarms_removed": 13,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "JxPath",
+      "version_id": "3f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 83,
+      "lines_covered": 53,
+      "branches_total": 34,
+      "branches_covered": 17,
+      "line": 0.639,
+      "branch": 0.5
+    },
+    "major_mutation": {
+      "generated": 91,
+      "covered": 91,
+      "killed": 33,
+      "score": 0.363
+    }
+  },
+  "seconds": 244.5,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

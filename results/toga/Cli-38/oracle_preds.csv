@@ -1,0 +1,367 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test00,"  public void test00()  throws Throwable  {
+      Options options0 = new Options();
+      DefaultParser defaultParser0 = new DefaultParser();
+      CommandLine commandLine0 = defaultParser0.parse(options0, (String[]) null, false);
+      assertNotNull(commandLine0);
+}",0,assertNotNull(commandLine0)
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test00,"  public void test00()  throws Throwable  {
+      Options options0 = new Options();
+      DefaultParser defaultParser0 = new DefaultParser();
+      CommandLine commandLine0 = defaultParser0.parse(options0, (String[]) null, false);
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test01,"  public void test01()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addRequiredOption("""", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""org.apache.commons.cli.AmbiguousOptionException"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[4];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      stringArray0[1] = ""--b=5FhoIi%9N|,Exvd(O"";
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, true);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Missing argument for option: 
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test02,"  public void test02()  throws Throwable  {
+      Options options0 = new Options();
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+      assertNotNull(commandLine0);
+}",0,assertNotNull(commandLine0)
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test02,"  public void test02()  throws Throwable  {
+      Options options0 = new Options();
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test03,"  public void test03()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      Properties properties0 = new Properties();
+      String[] stringArray0 = new String[0];
+      properties0.put("">,/;!l 5Z>\""yQiK>dDAp"", "">,/;!l 5Z>\""yQiK>dDAp"");
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, true);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Default option wasn't defined
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test04,"  public void test04()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addRequiredOption("""", """", true, """");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[0];
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, true);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Missing required option: 
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test05,"  public void test05()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      options0.addOption("""", ""bAX88#1YpshwW\""v&?k6"", true, """");
+      String[] stringArray0 = new String[0];
+      Properties properties0 = new Properties();
+      defaultParser0.parse(options0, stringArray0, properties0);
+      defaultParser0.handleConcatenatedOptions(""--'X"");
+      defaultParser0.handleConcatenatedOptions(""--'X"");
+  }",1,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test06,"  public void test06()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = ""--"";
+      Properties properties0 = new Properties();
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+      assertNotNull(commandLine0);
+}",0,assertNotNull(commandLine0)
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test06,"  public void test06()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = ""--"";
+      Properties properties0 = new Properties();
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test07,"  public void test07()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addRequiredOption(""true"", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""org.apache.commons.cli.AmbiguousOptionException"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      stringArray0[1] = ""-j"";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+      assertNotNull(commandLine0);
+}",0,assertNotNull(commandLine0)
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test07,"  public void test07()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addRequiredOption(""true"", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""org.apache.commons.cli.AmbiguousOptionException"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      stringArray0[1] = ""-j"";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test08,"  public void test08()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = """";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0);
+      assertNotNull(commandLine0);
+}",0,assertNotNull(commandLine0)
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test08,"  public void test08()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = """";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0);
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test09,"  public void test09()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      Properties properties0 = new Properties();
+      String[] stringArray0 = new String[10];
+      stringArray0[0] = ""-"";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+      assertNotNull(commandLine0);
+}",0,assertNotNull(commandLine0)
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test09,"  public void test09()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      Properties properties0 = new Properties();
+      String[] stringArray0 = new String[10];
+      stringArray0[0] = ""-"";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test10,"  public void test10()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addRequiredOption("""", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""org.apache.commons.cli.AmbiguousOptionException"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[6];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      stringArray0[1] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, true);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Missing argument for option: 
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test11,"  public void test11()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addRequiredOption(""yes"", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""org.apache.commons.cli.AmbiguousOptionException"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[6];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      stringArray0[1] = ""yes"";
+      // Undeclared exception!
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, true);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test12,"  public void test12()  throws Throwable  {
+      Options options0 = new Options();
+      Options options1 = options0.addRequiredOption("""", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""org.apache.commons.cli.AmbiguousOptionException"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[6];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      stringArray0[1] = ""-"";
+      // Undeclared exception!
+      try { 
+        defaultParser0.parse(options1, stringArray0, properties0, true);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test13,"  public void test13()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addOption(""yeCs"", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""yeCs"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[5];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      stringArray0[1] = ""--yeCs"";
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, false);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Unrecognized option: --yeCs
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test14,"  public void test14()  throws Throwable  {
+      Options options0 = new Options();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = ""-o"";
+      try { 
+        defaultParser0.parse(options0, stringArray0, (Properties) null, false);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Unrecognized option: -o
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test15,"  public void test15()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      Properties properties0 = new Properties();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = ""-b=5FhoIi9N|,Exvd(O"";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+      assertNotNull(commandLine0);
+}",1,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test15,"  public void test15()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      Properties properties0 = new Properties();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = ""-b=5FhoIi9N|,Exvd(O"";
+      CommandLine commandLine0 = defaultParser0.parse(options0, stringArray0, properties0, true);
+  }",1,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test16,"  public void test16()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      options0.addRequiredOption((String) null, ""org.apache.commons.cli.AmbiguousOptionException"", true, ""yes"");
+      Properties properties0 = new Properties();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, true);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Missing argument for option: org.apache.commons.cli.AmbiguousOptionException
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test17,"  public void test17()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      Properties properties0 = new Properties();
+      String[] stringArray0 = new String[1];
+      stringArray0[0] = ""-Ib=5FhoIi9N|,Exvd(O"";
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, false);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Unrecognized option: -Ib=5FhoIi9N|,Exvd(O
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",1,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test18,"  public void test18()  throws Throwable  {
+      Options options0 = new Options();
+      Options options1 = options0.addRequiredOption("""", ""org.apache.commons.cli.AmbiguousOptionException"", false, ""org.apache.commons.cli.AmbiguousOptionException"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[6];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      // Undeclared exception!
+      try { 
+        defaultParser0.parse(options1, stringArray0, properties0, false);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test19,"  public void test19()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addOption(""yeCs"", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""yeCs"");
+      Properties properties0 = new Properties();
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[11];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      OptionGroup optionGroup0 = new OptionGroup();
+      Option option0 = new Option(""yeCs"", ""-org.apache.commons.cli.AmbiguousOptionException"");
+      OptionGroup optionGroup1 = optionGroup0.addOption(option0);
+      Options options1 = options0.addOptionGroup(optionGroup1);
+      // Undeclared exception!
+      try { 
+        defaultParser0.parse(options1, stringArray0, properties0, true);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test20,"  public void test20()  throws Throwable  {
+      Options options0 = new Options();
+      options0.addRequiredOption(""i3A"", ""org.apache.commons.cli.AmbiguousOptionException"", true, ""org.apache.commons.cli.AmbiguousOptionException"");
+      Properties properties0 = new Properties();
+      OptionGroup optionGroup0 = new OptionGroup();
+      optionGroup0.setRequired(true);
+      Option option0 = new Option(""i3A"", ""org.apache.commons.cli.UnrecognizedOptionException"");
+      OptionGroup optionGroup1 = optionGroup0.addOption(option0);
+      options0.addOptionGroup(optionGroup1);
+      DefaultParser defaultParser0 = new DefaultParser();
+      String[] stringArray0 = new String[9];
+      stringArray0[0] = ""-org.apache.commons.cli.AmbiguousOptionException"";
+      // Undeclared exception!
+      try { 
+        defaultParser0.parse(options0, stringArray0, properties0, true);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+      }
+  }",0,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test21,"  public void test21()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      options0.addOption("""", ""bAX88#1YpshwW\""v&?k6"", false, """");
+      String[] stringArray0 = new String[0];
+      Properties properties0 = new Properties();
+      defaultParser0.parse(options0, stringArray0, properties0);
+      try { 
+        defaultParser0.handleConcatenatedOptions(""--'X"");
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Unrecognized option: --'X
+         //
+         verifyException(""org.apache.commons.cli.DefaultParser"", e);
+      }
+  }",1,
+Cli,38,org.apache.commons.cli.DefaultParser_ESTest::test22,"  public void test22()  throws Throwable  {
+      DefaultParser defaultParser0 = new DefaultParser();
+      Options options0 = new Options();
+      options0.addOption("""", ""bAX88#1YpshwW\""v&?k6"", true, """");
+      String[] stringArray0 = new String[0];
+      Properties properties0 = new Properties();
+      defaultParser0.parse(options0, stringArray0, properties0);
+      defaultParser0.handleConcatenatedOptions(""--"");
+  }",1,

@@ -1,0 +1,202 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/Lang-9/evo /Users/bitu/mtech-tools/work/Lang-9f/src/main/java Lang 9 /Users/bitu/mtech-tools/toga_out/Lang-9
+58 test prefixes, 58 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/Lang-9/inputs.csv /Users/bitu/mtech-tools/toga_out/Lang-9/meta.csv
+11/19/2026 20:17:01 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 20:17:02 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 20:17:03 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 20:17:03 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/19/2026 20:17:03 - INFO - utils -   Writing example 0 of 58
+11/19/2026 20:17:03 - INFO - utils -   *** Example ***
+11/19/2026 20:17:03 - INFO - utils -   guid: test-0
+11/19/2026 20:17:03 - INFO - utils -   tokens: <s> public ĠString Ġget Pattern () Ġ{ Ġreturn Ġpattern ; Ġ} </s> public Ġvoid Ġtest Get Pattern () Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . CH IN ESE ; Ġnew ĠFast Date Parser (" D + | E + | F + | G + | H + | K + | M + | S + | W + | Z + | a + | d + | h + | k + | m + | s + | w + | y + | z + | '' | ' [ ^ '] +( '' [ ^ ] * + * + ' | [ ^ '- Z a - z ] ++ ", Ġtime Zone 0 , Ġlocale 0 ); Ġ} </s>
+11/19/2026 20:17:03 - INFO - utils -   input_ids: 0 15110 26602 120 48689 43048 25522 671 6184 131 35524 2 15110 13842 1296 14181 48689 43048 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 3764 2444 40262 131 92 9612 39525 49707 46469 495 2744 15483 717 2744 15483 597 2744 15483 534 2744 15483 725 2744 15483 530 2744 15483 448 2744 15483 104 2744 15483 771 2744 15483 1301 2744 15483 102 2744 15483 417 2744 15483 298 2744 15483 330 2744 15483 119 2744 15483 29 2744 15483 605 2744 15483 219 2744 15483 329 2744 15483 17809 15483 108 10975 35227 44403 43988 17809 10975 35227 742 3226 2744 3226 2744 108 15483 10975 35227 32269 1301 102 12 329 742 42964 1297 86 36004 288 6 38879 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:17:03 - INFO - utils -   *** Example ***
+11/19/2026 20:17:03 - INFO - utils -   guid: test-1
+11/19/2026 20:17:03 - INFO - utils -   tokens: <s> protected ĠFast Date Parser ( String Ġpattern , ĠTime Zone Ġtime Zone , ĠLoc ale Ġlocale ) Ġ{ Ġthis . pattern Ġ= Ġpattern ; Ġthis . time Zone Ġ= Ġtime Zone ; Ġthis . loc ale Ġ= Ġlocale ; Ġinit (); Ġ} </s> public Ġvoid Ġtest Fast Date Parser () Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . CH IN ESE ; Ġnew ĠFast Date Parser (" D + | E + | F + | G + | H + | K + | M + | S + | W + | Z + | a + | d + | h + | k + | m + | s + | w + | y + | z + | '' | ' [ ^ '] +( '' [ ^ ] * + * + ' | [ ^ '- Z a - z ] ++ ", Ġtime Zone 0 , Ġlocale 0 ); Ġ} </s>
+11/19/2026 20:17:03 - INFO - utils -   input_ids: 0 37659 9612 39525 49707 1640 34222 6184 6 3421 36004 86 36004 6 15471 1627 38879 43 25522 42 4 43106 5457 6184 131 42 4 958 36004 5457 86 36004 131 42 4 26516 1627 5457 38879 131 45511 47006 35524 2 15110 13842 1296 35515 39525 49707 43048 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 3764 2444 40262 131 92 9612 39525 49707 46469 495 2744 15483 717 2744 15483 597 2744 15483 534 2744 15483 725 2744 15483 530 2744 15483 448 2744 15483 104 2744 15483 771 2744 15483 1301 2744 15483 102 2744 15483 417 2744 15483 298 2744 15483 330 2744 15483 119 2744 15483 29 2744 15483 605 2744 15483 219 2744 15483 329 2744 15483 17809 15483 108 10975 35227 44403 43988 17809 10975 35227 742 3226 2744 3226 2744 108 15483 10975 35227 32269 1301 102 12 329 742 42964 1297 86 36004 288 6 38879 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:17:03 - INFO - utils -   *** Example ***
+11/19/2026 20:17:03 - INFO - utils -   guid: test-2
+11/19/2026 20:17:03 - INFO - utils -   tokens: <s> protected ĠFast Date Parser ( String Ġpattern , ĠTime Zone Ġtime Zone , ĠLoc ale Ġlocale ) Ġ{ Ġthis . pattern Ġ= Ġpattern ; Ġthis . time Zone Ġ= Ġtime Zone ; Ġthis . loc ale Ġ= Ġlocale ; Ġinit (); Ġ} </s> public Ġvoid Ġtest Fast Date Parser () Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . K ORE AN ; ĠFast Date Parser Ġfast Date Parser 0 Ġ= Ġnull ; Ġfast Date Parser 0 Ġ= Ġnew ĠFast Date Parser (" hz c AN R + 6 . T { C X ", Ġtime Zone 0 , Ġlocale 0 ); Ġ} </s>
+11/19/2026 20:17:03 - INFO - utils -   input_ids: 0 37659 9612 39525 49707 1640 34222 6184 6 3421 36004 86 36004 6 15471 1627 38879 43 25522 42 4 43106 5457 6184 131 42 4 958 36004 5457 86 36004 131 42 4 26516 1627 5457 38879 131 45511 47006 35524 2 15110 13842 1296 35515 39525 49707 43048 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 530 7563 1889 131 9612 39525 49707 1769 39525 49707 288 5457 23796 131 1769 39525 49707 288 5457 92 9612 39525 49707 46469 39569 438 1889 500 2744 401 4 565 45152 347 1000 1297 86 36004 288 6 38879 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   label: 1 (id = 1)
+11/19/2026 20:17:03 - INFO - utils -   *** Example ***
+11/19/2026 20:17:03 - INFO - utils -   guid: test-3
+11/19/2026 20:17:03 - INFO - utils -   tokens: <s> protected ĠFast Date Parser ( String Ġpattern , ĠTime Zone Ġtime Zone , ĠLoc ale Ġlocale ) Ġ{ Ġthis . pattern Ġ= Ġpattern ; Ġthis . time Zone Ġ= Ġtime Zone ; Ġthis . loc ale Ġ= Ġlocale ; Ġinit (); Ġ} </s> public Ġvoid Ġtest Fast Date Parser () Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . PR C ; ĠFast Date Parser Ġfast Date Parser 0 Ġ= Ġnull ; Ġfast Date Parser 0 Ġ= Ġnew ĠFast Date Parser (" F ailed Ġto Ġparse Ġ\" ", Ġtime Zone 0 , Ġlocale 0 ); Ġ} </s>
+11/19/2026 20:17:03 - INFO - utils -   input_ids: 0 37659 9612 39525 49707 1640 34222 6184 6 3421 36004 86 36004 6 15471 1627 38879 43 25522 42 4 43106 5457 6184 131 42 4 958 36004 5457 86 36004 131 42 4 26516 1627 5457 38879 131 45511 47006 35524 2 15110 13842 1296 35515 39525 49707 43048 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 4454 347 131 9612 39525 49707 1769 39525 49707 288 5457 23796 131 1769 39525 49707 288 5457 92 9612 39525 49707 46469 597 13355 7 43756 48298 1297 86 36004 288 6 38879 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   label: 1 (id = 1)
+11/19/2026 20:17:03 - INFO - utils -   *** Example ***
+11/19/2026 20:17:03 - INFO - utils -   guid: test-4
+11/19/2026 20:17:03 - INFO - utils -   tokens: <s> public ĠDate Ġparse ( String Ġsource ) Ġthrows ĠPar se Exception Ġ{ ĠDate Ġdate = Ġparse ( source , Ġnew ĠPar se Position ( 0 )); Ġif ( date == null ) Ġ{ Ġ// ĠAdd Ġa Ġnote Ġre Ġsupported Ġdate Ġrange Ġif Ġ( loc ale . equ als ( J </s> public Ġvoid Ġtest Par se () Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠFast Date Parser . J AP AN ESE _ IM PER IAL ; ĠFast Date Parser Ġfast Date Parser 0 Ġ= Ġnew ĠFast Date Parser (" # E @ Sm . 4 < ", Ġtime Zone 0 , Ġlocale 0 ); Ġfast Date Parser 0 . parse (" # E @ Sm . 4 < "); Ġ} </s>
+11/19/2026 20:17:03 - INFO - utils -   input_ids: 0 15110 10566 43756 1640 34222 1300 43 6989 2884 1090 48847 25522 10566 1248 5214 43756 1640 17747 6 92 2884 1090 46884 1640 288 48749 114 1640 10672 43292 15755 43 25522 21277 4287 10 1591 769 2800 1248 1186 114 36 26516 1627 4 8198 1536 1640 863 2 15110 13842 1296 22011 1090 43048 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 9612 39525 49707 4 863 591 1889 40262 1215 3755 21260 11694 131 9612 39525 49707 1769 39525 49707 288 5457 92 9612 39525 49707 46469 10431 717 1039 23996 4 306 41552 1297 86 36004 288 6 38879 288 4397 1769 39525 49707 288 4 48778 46469 10431 717 1039 23996 4 306 41552 45751 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:03 - INFO - utils -   label: 1 (id = 1)
+11/19/2026 20:17:03 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 20:17:03 - INFO - __main__ -     Num examples = 58
+11/19/2026 20:17:03 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 58 total truncations 1, mean_trunc 2.8275862068965516, median 0.0, max = 164
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:04<00:00,  4.00s/it]Evaluating: 100%|██████████| 1/1 [00:04<00:00,  4.00s/it]
+11/19/2026 20:17:10 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/19/2026 20:17:12 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/19/2026 20:17:13 - INFO - __main__ -   Creating features from dataset file at ./
+11/19/2026 20:17:13 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/19/2026 20:17:13 - INFO - utils -   Writing example 0 of 21
+11/19/2026 20:17:13 - INFO - utils -   *** Example ***
+11/19/2026 20:17:13 - INFO - utils -   guid: 0
+11/19/2026 20:17:13 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 00 () Ġthrows ĠThrow able Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . CH IN ESE ; ĠFast Date Parser Ġfast Date Parser 0 Ġ= Ġnew ĠFast Date Parser (" D + | E </s> public ĠString Ġget Pattern () Ġ{ Ġreturn Ġpattern ; Ġ} </s> assert Not Null ( fast Date Parser 0 . get Pattern ()) </s>
+11/19/2026 20:17:13 - INFO - utils -   input_ids: 0 15110 13842 1296 612 43048 6989 28106 868 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 3764 2444 40262 131 9612 39525 49707 1769 39525 49707 288 5457 92 9612 39525 49707 46469 495 2744 15483 717 2 15110 26602 120 48689 43048 25522 671 6184 131 35524 2 46346 7199 49302 1640 16963 39525 49707 288 4 6460 48689 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:17:13 - INFO - utils -   *** Example ***
+11/19/2026 20:17:13 - INFO - utils -   guid: 11
+11/19/2026 20:17:13 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 08 () Ġthrows ĠThrow able Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . SIM PL IFIED _ CH IN ESE ; ĠFast Date Parser Ġfast Date Parser 0 Ġ= Ġnew ĠFast Date Parser (" </s> public ĠLoc ale Ġget Loc ale () Ġ{ Ġreturn Ġlocale ; Ġ} </s> assert Not Null ( loc ale 1 . get Vari ant ()) </s>
+11/19/2026 20:17:13 - INFO - utils -   input_ids: 0 15110 13842 1296 3669 43048 6989 28106 868 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 37266 7205 36482 1215 3764 2444 40262 131 9612 39525 49707 1769 39525 49707 288 5457 92 9612 39525 49707 46469 2 15110 15471 1627 120 45062 1627 43048 25522 671 38879 131 35524 2 46346 7199 49302 1640 26516 1627 134 4 6460 48269 927 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:17:13 - INFO - utils -   *** Example ***
+11/19/2026 20:17:13 - INFO - utils -   guid: 13
+11/19/2026 20:17:13 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 09 () Ġthrows ĠThrow able Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . TR AD ITION AL _ CH IN ESE ; ĠFast Date Parser Ġfast Date Parser 0 Ġ= Ġnew ĠFast Date Parser </s> public ĠString Ġto String () Ġ{ Ġreturn Ġ" Fast Date Parser [" Ġ+ Ġpattern Ġ+ Ġ" ," Ġ+ Ġlocale Ġ+ Ġ" ," Ġ+ Ġtime Zone . get ID () Ġ+ Ġ" ] "; Ġ} </s> assert Not Null ( object 0 . to String ()) </s>
+11/19/2026 20:17:13 - INFO - utils -   input_ids: 0 15110 13842 1296 3546 43048 6989 28106 868 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 6997 2606 25815 2118 1215 3764 2444 40262 131 9612 39525 49707 1769 39525 49707 288 5457 92 9612 39525 49707 2 15110 26602 7 34222 43048 25522 671 22 35515 39525 49707 49329 2055 6184 2055 22 60 2055 38879 2055 22 60 2055 86 36004 4 6460 2688 43048 2055 22 742 25718 35524 2 46346 7199 49302 1640 40412 288 4 560 34222 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:17:13 - INFO - utils -   *** Example ***
+11/19/2026 20:17:13 - INFO - utils -   guid: 17
+11/19/2026 20:17:13 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 11 () Ġthrows ĠThrow able Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . SIM PL IFIED _ CH IN ESE ; ĠFast Date Parser Ġfast Date Parser 0 Ġ= Ġnew ĠFast Date Parser (" </s> Pattern Ġget Par se Pattern () Ġ{ Ġreturn Ġparse Pattern ; Ġ} </s> assert Not Null ( pattern 0 . pattern ()) </s>
+11/19/2026 20:17:13 - INFO - utils -   input_ids: 0 15110 13842 1296 1225 43048 6989 28106 868 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 37266 7205 36482 1215 3764 2444 40262 131 9612 39525 49707 1769 39525 49707 288 5457 92 9612 39525 49707 46469 2 48689 120 22011 1090 48689 43048 25522 671 43756 48689 131 35524 2 46346 7199 49302 1640 43106 288 4 43106 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:17:13 - INFO - utils -   *** Example ***
+11/19/2026 20:17:13 - INFO - utils -   guid: 20
+11/19/2026 20:17:13 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 13 () Ġthrows ĠThrow able Ġ{ ĠTime Zone Ġtime Zone 0 Ġ= ĠTime Zone . get Default (); ĠLoc ale Ġlocale 0 Ġ= ĠLoc ale . PR C ; ĠFast Date Parser Ġfast Date Parser 0 Ġ= Ġnew ĠFast Date Parser (" W & $ h . </s> public ĠString Ġget Pattern () Ġ{ Ġreturn Ġpattern ; Ġ} </s> assert Not Null ( fast Date Parser 0 . get Pattern ()) </s>
+11/19/2026 20:17:13 - INFO - utils -   input_ids: 0 15110 13842 1296 1558 43048 6989 28106 868 25522 3421 36004 86 36004 288 5457 3421 36004 4 6460 48398 47006 15471 1627 38879 288 5457 15471 1627 4 4454 347 131 9612 39525 49707 1769 39525 49707 288 5457 92 9612 39525 49707 46469 771 947 1629 298 4 2 15110 26602 120 48689 43048 25522 671 6184 131 35524 2 46346 7199 49302 1640 16963 39525 49707 288 4 6460 48689 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/19/2026 20:17:13 - INFO - utils -   label: 0 (id = 0)
+11/19/2026 20:17:13 - INFO - __main__ -   ***** Running evaluation  *****
+11/19/2026 20:17:13 - INFO - __main__ -     Num examples = 21
+11/19/2026 20:17:13 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 21 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.28s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.28s/it]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.5
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Lang -d /Users/bitu/mtech-tools/toga_out/Lang-9/suite -v 9f
+Checking out 65a6458e to /tmp/fix_test_suite.pl_80090_1795148235........... --------------------------------------------------------------------------------
+Lang-9f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_80090_1795148235/default.prop OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 65a6458e:ad72b9f2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-9f......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Lang -d /Users/bitu/mtech-tools/toga_out/Lang-9/suite -o /Users/bitu/mtech-tools/toga_out/Lang-9/detect
+Extract test suite......................................................... Executing test suite: Lang-9f-toga.1.tar.bz2
+OK
+Checking out 65a6458e to /tmp/run_bug_detection.pl_80270_1795148264/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_80270_1795148264/V_fixed/d OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 65a6458e:ad72b9f2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-9f......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 65a6458e to /tmp/run_bug_detection.pl_80270_1795148264/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_80270_1795148264/V_buggy/d OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 65a6458e:ad72b9f2..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-9b......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

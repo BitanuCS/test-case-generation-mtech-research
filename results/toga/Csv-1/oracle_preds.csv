@@ -1,0 +1,84 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test0,"  public void test0()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      int int0 = extendedBufferedReader0.getLineNumber();
+      assertEquals(0, int0);
+}",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test0,"  public void test0()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      int int0 = extendedBufferedReader0.getLineNumber();
+  }",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test1,"  public void test1()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      int int0 = extendedBufferedReader0.readAgain();
+      assertEquals((-2), int0);
+}",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test1,"  public void test1()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      int int0 = extendedBufferedReader0.readAgain();
+  }",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test2,"  public void test2()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      ExtendedBufferedReader extendedBufferedReader1 = new ExtendedBufferedReader(extendedBufferedReader0);
+      int int0 = extendedBufferedReader1.read();
+      assertEquals((-1), int0);
+}",0,"assertEquals(0, int0)"
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test2,"  public void test2()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      ExtendedBufferedReader extendedBufferedReader1 = new ExtendedBufferedReader(extendedBufferedReader0);
+      int int0 = extendedBufferedReader1.read();
+  }",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test3,"  public void test3()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      char[] charArray0 = new char[0];
+      int int0 = extendedBufferedReader0.read(charArray0);
+      assertEquals(0, int0);
+}",0,"assertEquals(1, int0)"
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test3,"  public void test3()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      char[] charArray0 = new char[0];
+      int int0 = extendedBufferedReader0.read(charArray0);
+  }",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test4,"  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("" 4(ouiE6"");
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(stringReader0);
+      ExtendedBufferedReader extendedBufferedReader1 = new ExtendedBufferedReader(extendedBufferedReader0);
+      int int0 = extendedBufferedReader1.lookAhead();
+      assertEquals(32, int0);
+}",0,"assertEquals(0, int0)"
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test4,"  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("" 4(ouiE6"");
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(stringReader0);
+      ExtendedBufferedReader extendedBufferedReader1 = new ExtendedBufferedReader(extendedBufferedReader0);
+      int int0 = extendedBufferedReader1.lookAhead();
+  }",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test5,"  public void test5()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      String string0 = extendedBufferedReader0.readLine();
+      assertNull(string0);
+}",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test5,"  public void test5()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      String string0 = extendedBufferedReader0.readLine();
+  }",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test6,"  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(""sJ\""+u"");
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(stringReader0);
+      String string0 = extendedBufferedReader0.readLine();
+      assertEquals(""sJ\""+u"", string0);
+}",0,
+Csv,1,org.apache.commons.csv.ExtendedBufferedReader_ESTest::test6,"  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(""sJ\""+u"");
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(stringReader0);
+      String string0 = extendedBufferedReader0.readLine();
+  }",0,

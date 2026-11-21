@@ -1,0 +1,528 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test00,"  public void test00()  throws Throwable  {
+      Base64 base64_0 = new Base64(true);
+      byte[] byteArray0 = new byte[4];
+      base64_0.encodeToString(byteArray0);
+      int int0 = base64_0.readResults(byteArray0, 1, 1);
+      assertArrayEquals(new byte[] {(byte)0, (byte)65, (byte)0, (byte)0}, byteArray0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test00,"  public void test00()  throws Throwable  {
+      Base64 base64_0 = new Base64(true);
+      byte[] byteArray0 = new byte[4];
+      base64_0.encodeToString(byteArray0);
+      int int0 = base64_0.readResults(byteArray0, 1, 1);
+      assertEquals(1, int0);
+}",0,"assertEquals(0, int0)"
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test00,"  public void test00()  throws Throwable  {
+      Base64 base64_0 = new Base64(true);
+      byte[] byteArray0 = new byte[4];
+      base64_0.encodeToString(byteArray0);
+      int int0 = base64_0.readResults(byteArray0, 1, 1);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test01,"  public void test01()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      String string0 = Base64.encodeBase64String(byteArray0);
+      assertEquals(""AA==\r\n"", string0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test01,"  public void test01()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      String string0 = Base64.encodeBase64String(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test02,"  public void test02()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      String string0 = Base64.encodeBase64URLSafeString(byteArray0);
+      assertEquals(""AAAAAAAAAAAA"", string0);
+}",0,assertNotNull(string0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test02,"  public void test02()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      String string0 = Base64.encodeBase64URLSafeString(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test03,"  public void test03()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      BigInteger bigInteger0 = Base64.decodeInteger(byteArray0);
+      assertEquals((byte)0, bigInteger0.byteValue());
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test03,"  public void test03()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      BigInteger bigInteger0 = Base64.decodeInteger(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test04,"  public void test04()  throws Throwable  {
+      byte[] byteArray0 = Base64.encodeBase64URLSafe((byte[]) null);
+      assertNull(byteArray0);
+}",0,assertNotNull(byteArray0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test04,"  public void test04()  throws Throwable  {
+      byte[] byteArray0 = Base64.encodeBase64URLSafe((byte[]) null);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test05,"  public void test05()  throws Throwable  {
+      byte[] byteArray0 = Base64.encodeBase64((byte[]) null);
+      assertNull(byteArray0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test05,"  public void test05()  throws Throwable  {
+      byte[] byteArray0 = Base64.encodeBase64((byte[]) null);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test06,"  public void test06()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      Base64 base64_0 = new Base64(39, byteArray0);
+      boolean boolean0 = base64_0.hasData();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test06,"  public void test06()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      Base64 base64_0 = new Base64(39, byteArray0);
+      boolean boolean0 = base64_0.hasData();
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertFalse(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test06,"  public void test06()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      Base64 base64_0 = new Base64(39, byteArray0);
+      boolean boolean0 = base64_0.hasData();
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test07,"  public void test07()  throws Throwable  {
+      Base64 base64_0 = new Base64((-1));
+      byte[] byteArray0 = new byte[4];
+      String string0 = base64_0.encodeToString(byteArray0);
+      assertEquals(""AAAAAA=="", string0);
+}",0,assertNotNull(string0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test07,"  public void test07()  throws Throwable  {
+      Base64 base64_0 = new Base64((-1));
+      byte[] byteArray0 = new byte[4];
+      String string0 = base64_0.encodeToString(byteArray0);
+      boolean boolean0 = base64_0.hasData();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test07,"  public void test07()  throws Throwable  {
+      Base64 base64_0 = new Base64((-1));
+      byte[] byteArray0 = new byte[4];
+      String string0 = base64_0.encodeToString(byteArray0);
+      boolean boolean0 = base64_0.hasData();
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertTrue(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test07,"  public void test07()  throws Throwable  {
+      Base64 base64_0 = new Base64((-1));
+      byte[] byteArray0 = new byte[4];
+      String string0 = base64_0.encodeToString(byteArray0);
+      boolean boolean0 = base64_0.hasData();
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test08,"  public void test08()  throws Throwable  {
+      Base64 base64_0 = new Base64();
+      int int0 = base64_0.avail();
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertFalse(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test08,"  public void test08()  throws Throwable  {
+      Base64 base64_0 = new Base64();
+      int int0 = base64_0.avail();
+      assertEquals(0, int0);
+}",0,"assertEquals(0, int0)"
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test08,"  public void test08()  throws Throwable  {
+      Base64 base64_0 = new Base64();
+      int int0 = base64_0.avail();
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test09,"  public void test09()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      Base64 base64_0 = new Base64();
+      // Undeclared exception!
+      try { 
+        base64_0.encode(byteArray0, 64, 64);
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // Index 64 out of bounds for length 2
+         //
+         verifyException(""org.apache.commons.codec.binary.Base64"", e);
+      }
+  }",1,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test10,"  public void test10()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.TEN;
+      byte[] byteArray0 = Base64.toIntegerBytes(bigInteger0);
+      Base64 base64_0 = new Base64(53, byteArray0);
+      base64_0.readResults(byteArray0, 59, 64);
+      assertEquals(1, byteArray0.length);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test10,"  public void test10()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.TEN;
+      byte[] byteArray0 = Base64.toIntegerBytes(bigInteger0);
+      Base64 base64_0 = new Base64(53, byteArray0);
+      base64_0.readResults(byteArray0, 59, 64);
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertTrue(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test10,"  public void test10()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.TEN;
+      byte[] byteArray0 = Base64.toIntegerBytes(bigInteger0);
+      Base64 base64_0 = new Base64(53, byteArray0);
+      base64_0.readResults(byteArray0, 59, 64);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test11,"  public void test11()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.TEN;
+      byte[] byteArray0 = Base64.toIntegerBytes(bigInteger0);
+      Base64 base64_0 = new Base64(53, byteArray0);
+      byte[] byteArray1 = base64_0.encode(byteArray0);
+      int int0 = base64_0.readResults(byteArray1, 59, 64);
+      assertEquals(5, int0);
+}",0,"assertEquals(1, int0)"
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test11,"  public void test11()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.TEN;
+      byte[] byteArray0 = Base64.toIntegerBytes(bigInteger0);
+      Base64 base64_0 = new Base64(53, byteArray0);
+      byte[] byteArray1 = base64_0.encode(byteArray0);
+      int int0 = base64_0.readResults(byteArray1, 59, 64);
+      assertEquals(5, byteArray1.length);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test11,"  public void test11()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.TEN;
+      byte[] byteArray0 = Base64.toIntegerBytes(bigInteger0);
+      Base64 base64_0 = new Base64(53, byteArray0);
+      byte[] byteArray1 = base64_0.encode(byteArray0);
+      int int0 = base64_0.readResults(byteArray1, 59, 64);
+      assertArrayEquals(new byte[] {(byte)67, (byte)103, (byte)61, (byte)61, (byte)10}, byteArray1);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test11,"  public void test11()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.TEN;
+      byte[] byteArray0 = Base64.toIntegerBytes(bigInteger0);
+      Base64 base64_0 = new Base64(53, byteArray0);
+      byte[] byteArray1 = base64_0.encode(byteArray0);
+      int int0 = base64_0.readResults(byteArray1, 59, 64);
+      int int1 = base64_0.readResults(byteArray0, 2805, 1938);
+      assertEquals((-1), int1);
+}",0,"assertEquals(0, int1)"
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test11,"  public void test11()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.TEN;
+      byte[] byteArray0 = Base64.toIntegerBytes(bigInteger0);
+      Base64 base64_0 = new Base64(53, byteArray0);
+      byte[] byteArray1 = base64_0.encode(byteArray0);
+      int int0 = base64_0.readResults(byteArray1, 59, 64);
+      int int1 = base64_0.readResults(byteArray0, 2805, 1938);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test12,"  public void test12()  throws Throwable  {
+      Base64 base64_0 = new Base64(1497, (byte[]) null);
+      base64_0.setInitialBuffer((byte[]) null, (-3475), 64);
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertTrue(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test12,"  public void test12()  throws Throwable  {
+      Base64 base64_0 = new Base64(1497, (byte[]) null);
+      base64_0.setInitialBuffer((byte[]) null, (-3475), 64);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test13,"  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      Base64 base64_0 = new Base64();
+      base64_0.setInitialBuffer(byteArray0, (-3456), (byte)34);
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertFalse(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test13,"  public void test13()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      Base64 base64_0 = new Base64();
+      base64_0.setInitialBuffer(byteArray0, (-3456), (byte)34);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test14,"  public void test14()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      Base64 base64_0 = new Base64();
+      byte[] byteArray1 = base64_0.decode(byteArray0);
+      assertEquals(0, byteArray1.length);
+}",1,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test14,"  public void test14()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      Base64 base64_0 = new Base64();
+      byte[] byteArray1 = base64_0.decode(byteArray0);
+      base64_0.encode(byteArray0, 103, 103);
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertTrue(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test14,"  public void test14()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      Base64 base64_0 = new Base64();
+      byte[] byteArray1 = base64_0.decode(byteArray0);
+      base64_0.encode(byteArray0, 103, 103);
+  }",1,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test15,"  public void test15()  throws Throwable  {
+      Base64 base64_0 = new Base64(false);
+      byte[] byteArray0 = new byte[1];
+      base64_0.encode(byteArray0, (int) (byte) (-18), (int) (byte) (-18));
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertFalse(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test15,"  public void test15()  throws Throwable  {
+      Base64 base64_0 = new Base64(false);
+      byte[] byteArray0 = new byte[1];
+      base64_0.encode(byteArray0, (int) (byte) (-18), (int) (byte) (-18));
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test16,"  public void test16()  throws Throwable  {
+      Base64 base64_0 = new Base64(33);
+      Object object0 = base64_0.decode((Object) ""c<aV"");
+      Object object1 = base64_0.encode(object0);
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertTrue(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test16,"  public void test16()  throws Throwable  {
+      Base64 base64_0 = new Base64(33);
+      Object object0 = base64_0.decode((Object) ""c<aV"");
+      Object object1 = base64_0.encode(object0);
+      assertNotSame(object1, object0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test16,"  public void test16()  throws Throwable  {
+      Base64 base64_0 = new Base64(33);
+      Object object0 = base64_0.decode((Object) ""c<aV"");
+      Object object1 = base64_0.encode(object0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test17,"  public void test17()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      String string0 = Base64.encodeBase64URLSafeString(byteArray0);
+      assertEquals(""DQo"", string0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test17,"  public void test17()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      String string0 = Base64.encodeBase64URLSafeString(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test18,"  public void test18()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      Base64 base64_0 = new Base64(1);
+      String string0 = base64_0.encodeToString(byteArray0);
+      assertEquals(""DQo="", string0);
+}",0,assertNotNull(string0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test18,"  public void test18()  throws Throwable  {
+      byte[] byteArray0 = Base64.CHUNK_SEPARATOR;
+      Base64 base64_0 = new Base64(1);
+      String string0 = base64_0.encodeToString(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test19,"  public void test19()  throws Throwable  {
+      byte[] byteArray0 = new byte[10];
+      Base64 base64_0 = new Base64((byte)10);
+      String string0 = base64_0.encodeToString(byteArray0);
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertTrue(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test19,"  public void test19()  throws Throwable  {
+      byte[] byteArray0 = new byte[10];
+      Base64 base64_0 = new Base64((byte)10);
+      String string0 = base64_0.encodeToString(byteArray0);
+      assertEquals(""AAAAAAAA\r\nAAAAAA==\r\n"", string0);
+}",0,assertNotNull(string0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test19,"  public void test19()  throws Throwable  {
+      byte[] byteArray0 = new byte[10];
+      Base64 base64_0 = new Base64((byte)10);
+      String string0 = base64_0.encodeToString(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test20,"  public void test20()  throws Throwable  {
+      byte[] byteArray0 = Base64.decodeBase64(""NsHaN)={p}(jzx2w5"");
+      assertArrayEquals(new byte[] {(byte)54, (byte) (-63), (byte) (-38)}, byteArray0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test20,"  public void test20()  throws Throwable  {
+      byte[] byteArray0 = Base64.decodeBase64(""NsHaN)={p}(jzx2w5"");
+      assertEquals(3, byteArray0.length);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test20,"  public void test20()  throws Throwable  {
+      byte[] byteArray0 = Base64.decodeBase64(""NsHaN)={p}(jzx2w5"");
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test21,"  public void test21()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      Base64 base64_0 = new Base64(true);
+      // Undeclared exception!
+      try { 
+        base64_0.decode(byteArray0, 64, 64);
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(ArrayIndexOutOfBoundsException e) {
+         //
+         // Index 64 out of bounds for length 1
+         //
+         verifyException(""org.apache.commons.codec.binary.Base64"", e);
+      }
+  }",1,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test22,"  public void test22()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte) (-104);
+      byte[] byteArray1 = Base64.decodeBase64(byteArray0);
+      assertEquals(0, byteArray1.length);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test22,"  public void test22()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      byteArray0[0] = (byte) (-104);
+      byte[] byteArray1 = Base64.decodeBase64(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test23,"  public void test23()  throws Throwable  {
+      byte[] byteArray0 = Base64.decodeBase64(""S51}9D4"");
+      assertArrayEquals(new byte[] {(byte)75, (byte) (-99), (byte)125, (byte)15}, byteArray0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test23,"  public void test23()  throws Throwable  {
+      byte[] byteArray0 = Base64.decodeBase64(""S51}9D4"");
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test24,"  public void test24()  throws Throwable  {
+      Base64.decodeBase64(""9"");
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test25,"  public void test25()  throws Throwable  {
+      byte[] byteArray0 = new byte[5];
+      byte[] byteArray1 = Base64.encodeBase64Chunked(byteArray0);
+      Base64.isArrayByteBase64(byteArray1);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test26,"  public void test26()  throws Throwable  {
+      byte[] byteArray0 = Base64.decodeBase64("") than the specified maxium size of "");
+      Base64 base64_0 = null;
+      try {
+        base64_0 = new Base64(270, byteArray0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // lineSeperator must not contain base64 characters: [\uFFFD\u0016\uFFFD\uFFFD\u0017\uFFFD\uFFFD\uFFFD\""~'\uFFFD\uFFFD\uFFFDb\uFFFDk\""\uFFFD\uFFFD\u001F]
+         //
+         verifyException(""org.apache.commons.codec.binary.Base64"", e);
+      }
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test27,"  public void test27()  throws Throwable  {
+      Base64 base64_0 = new Base64(false);
+      Object object0 = base64_0.decode((Object) """");
+      base64_0.decode(object0);
+  }",1,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test28,"  public void test28()  throws Throwable  {
+      Base64 base64_0 = new Base64(true);
+      try { 
+        base64_0.decode((Object) base64_0);
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Parameter supplied to Base64 decode is not a byte[] or a String
+         //
+         verifyException(""org.apache.commons.codec.binary.Base64"", e);
+      }
+  }",1,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test29,"  public void test29()  throws Throwable  {
+      Base64.decodeBase64((byte[]) null);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test30,"  public void test30()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.ZERO;
+      byte[] byteArray0 = Base64.encodeInteger(bigInteger0);
+      assertEquals(0, byteArray0.length);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test30,"  public void test30()  throws Throwable  {
+      BigInteger bigInteger0 = BigInteger.ZERO;
+      byte[] byteArray0 = Base64.encodeInteger(bigInteger0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test31,"  public void test31()  throws Throwable  {
+      byte[] byteArray0 = new byte[1];
+      // Undeclared exception!
+      try { 
+        Base64.encodeBase64(byteArray0, false, false, (int) (byte)1);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Input array too big, the output array would be bigger (6) than the specified maxium size of 1
+         //
+         verifyException(""org.apache.commons.codec.binary.Base64"", e);
+      }
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test32,"  public void test32()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[3] = (byte)9;
+      byte[] byteArray1 = Base64.discardWhitespace(byteArray0);
+      assertEquals(3, byteArray1.length);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test32,"  public void test32()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[3] = (byte)9;
+      byte[] byteArray1 = Base64.discardWhitespace(byteArray0);
+      assertArrayEquals(new byte[] {(byte)0, (byte)0, (byte)0}, byteArray1);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test32,"  public void test32()  throws Throwable  {
+      byte[] byteArray0 = new byte[4];
+      byteArray0[3] = (byte)9;
+      byte[] byteArray1 = Base64.discardWhitespace(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test33,"  public void test33()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byte[] byteArray1 = Base64.encodeBase64Chunked(byteArray0);
+      byte[] byteArray2 = Base64.discardWhitespace(byteArray1);
+      assertArrayEquals(new byte[] {(byte)65, (byte)65, (byte)65, (byte)65, (byte)0, (byte)0}, byteArray2);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test33,"  public void test33()  throws Throwable  {
+      byte[] byteArray0 = new byte[3];
+      byte[] byteArray1 = Base64.encodeBase64Chunked(byteArray0);
+      byte[] byteArray2 = Base64.discardWhitespace(byteArray1);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test34,"  public void test34()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)32;
+      byte[] byteArray1 = Base64.discardWhitespace(byteArray0);
+      assertEquals(1, byteArray1.length);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test34,"  public void test34()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)32;
+      byte[] byteArray1 = Base64.discardWhitespace(byteArray0);
+      assertArrayEquals(new byte[] {(byte)32, (byte)0}, byteArray0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test34,"  public void test34()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)32;
+      byte[] byteArray1 = Base64.discardWhitespace(byteArray0);
+      assertArrayEquals(new byte[] {(byte)0}, byteArray1);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test34,"  public void test34()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      byteArray0[0] = (byte)32;
+      byte[] byteArray1 = Base64.discardWhitespace(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test35,"  public void test35()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)9;
+      boolean boolean0 = Base64.isArrayByteBase64(byteArray0);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test35,"  public void test35()  throws Throwable  {
+      byte[] byteArray0 = new byte[7];
+      byteArray0[0] = (byte)9;
+      boolean boolean0 = Base64.isArrayByteBase64(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test36,"  public void test36()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte)32;
+      boolean boolean0 = Base64.isArrayByteBase64(byteArray0);
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test36,"  public void test36()  throws Throwable  {
+      byte[] byteArray0 = new byte[9];
+      byteArray0[0] = (byte)32;
+      boolean boolean0 = Base64.isArrayByteBase64(byteArray0);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test37,"  public void test37()  throws Throwable  {
+      Base64 base64_0 = new Base64();
+      try { 
+        base64_0.encode((Object) """");
+        fail(""Expecting exception: Exception"");
+      } catch(Exception e) {
+         //
+         // Parameter supplied to Base64 encode is not a byte[]
+         //
+         verifyException(""org.apache.commons.codec.binary.Base64"", e);
+      }
+  }",1,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test38,"  public void test38()  throws Throwable  {
+      Base64 base64_0 = new Base64(1717986918, (byte[]) null);
+      String string0 = base64_0.encodeToString((byte[]) null);
+      assertNull(string0);
+}",0,assertNotNull(string0)
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test38,"  public void test38()  throws Throwable  {
+      Base64 base64_0 = new Base64(1717986918, (byte[]) null);
+      String string0 = base64_0.encodeToString((byte[]) null);
+      assertFalse(base64_0.isUrlSafe());
+}",0,assertTrue(base64_0.isUrlSafe())
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test38,"  public void test38()  throws Throwable  {
+      Base64 base64_0 = new Base64(1717986918, (byte[]) null);
+      String string0 = base64_0.encodeToString((byte[]) null);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test39,"  public void test39()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      byte[] byteArray1 = Base64.decodeBase64(byteArray0);
+      Base64 base64_0 = new Base64();
+      String string0 = base64_0.encodeToString(byteArray1);
+      assertEquals("""", string0);
+}",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test39,"  public void test39()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      byte[] byteArray1 = Base64.decodeBase64(byteArray0);
+      Base64 base64_0 = new Base64();
+      String string0 = base64_0.encodeToString(byteArray1);
+  }",0,
+Codec,5,org.apache.commons.codec.binary.Base64_ESTest::test40,"  public void test40()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Base64.encodeInteger((BigInteger) null);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // encodeInteger called with null parameter
+         //
+         verifyException(""org.apache.commons.codec.binary.Base64"", e);
+      }
+  }",0,

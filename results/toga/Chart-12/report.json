@@ -1,0 +1,54 @@
+{
+  "bug": "Chart-12",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 61,
+    "exception": 8,
+    "assertion": 11
+  },
+  "tests": {
+    "written": 61,
+    "kept_on_fixed": 46,
+    "false_alarms_removed": 15,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Chart",
+      "version_id": "12f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 190,
+      "lines_covered": 180,
+      "branches_total": 84,
+      "branches_covered": 79,
+      "line": 0.947,
+      "branch": 0.94
+    },
+    "major_mutation": {
+      "generated": 238,
+      "covered": 238,
+      "killed": 123,
+      "score": 0.517
+    }
+  },
+  "seconds": 2649.5,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

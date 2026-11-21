@@ -1,0 +1,10 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Chart,10,org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator_ESTest::test0,"  public void test0()  throws Throwable  {
+      StandardToolTipTagFragmentGenerator standardToolTipTagFragmentGenerator0 = new StandardToolTipTagFragmentGenerator();
+      String string0 = standardToolTipTagFragmentGenerator0.generateToolTipFragment(""S I8A3Yn3P6^9;"");
+      assertEquals("" title=\""S I8A3Yn3P6^9;\"" alt=\""\"""", string0);
+}",0,
+Chart,10,org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator_ESTest::test0,"  public void test0()  throws Throwable  {
+      StandardToolTipTagFragmentGenerator standardToolTipTagFragmentGenerator0 = new StandardToolTipTagFragmentGenerator();
+      String string0 = standardToolTipTagFragmentGenerator0.generateToolTipFragment(""S I8A3Yn3P6^9;"");
+  }",0,

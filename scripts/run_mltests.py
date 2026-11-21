@@ -20,6 +20,7 @@ Results: results/<tool>/<bug>/report.json (+ <tool>_tests.tar.bz2). Finished bug
 import argparse
 import csv
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -108,9 +109,15 @@ def sh(cmd, log, cwd=None, timeout=7200):
 
 
 def count_tests(arch):
+    """(tests still real, assertions commented out); see run_toga.count_tests."""
+    n = flaky = 0
     with tarfile.open(arch) as t:
-        return sum(t.extractfile(m).read().decode(errors="replace").count("@Test")
-                   for m in t.getmembers() if m.name.endswith(".java") and not Path(m.name).name.startswith("._"))
+        for m in t.getmembers():
+            if m.name.endswith(".java") and not Path(m.name).name.startswith("._"):
+                text = t.extractfile(m).read().decode(errors="replace")
+                n += len(re.findall(r"^\s*@Test\b", text, re.M)) - text.count("// Defects4J: flaky method")
+                flaky += text.count("// Defects4J: flaky assertion")
+    return n, flaky
 
 
 def one(bug, tool):
@@ -181,8 +188,10 @@ def one(bug, tool):
             tar.add(p, arcname=p.name)
     shutil.copy(arch, out / f"{tool}_tests.tar.bz2")
     sh([BIN.parent / "util" / "fix_test_suite.pl", "-p", project, "-d", suite, "-v", f"{bid}f"], log)
-    kept = count_tests(arch) if arch.exists() else 0
-    report["tests"].update(kept_on_fixed=kept, removed_on_fixed=written - kept)
+    kept, flaky = count_tests(arch) if arch.exists() else (0, 0)
+    report["tests"].update(kept_on_fixed=kept, removed_on_fixed=written - kept, assertions_commented_out=flaky)
+    if arch.exists():
+        shutil.copy(arch, out / f"{tool}_tests_kept.tar.bz2")    # the suite after fix_test_suite
     if not kept:
         report["error"] = "no generated test compiles and passes on the fixed version"
         return finish(report, out, work, log, t)

@@ -1,0 +1,54 @@
+{
+  "bug": "Gson-2",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 91,
+    "exception": 2,
+    "assertion": 0
+  },
+  "tests": {
+    "written": 91,
+    "kept_on_fixed": 69,
+    "false_alarms_removed": 22,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Gson",
+      "version_id": "2f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 454,
+      "lines_covered": 238,
+      "branches_total": 192,
+      "branches_covered": 70,
+      "line": 0.524,
+      "branch": 0.365
+    },
+    "major_mutation": {
+      "generated": 266,
+      "covered": 266,
+      "killed": 201,
+      "score": 0.756
+    }
+  },
+  "seconds": 26298.9,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

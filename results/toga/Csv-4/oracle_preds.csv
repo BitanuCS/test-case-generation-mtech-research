@@ -1,0 +1,210 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test00,"  public void test00()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      CSVParser cSVParser0 = CSVParser.parse(""UiAJ&i=S(X'7"", cSVFormat0);
+      Consumer<Object> consumer0 = (Consumer<Object>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      cSVParser0.forEach(consumer0);
+      assertEquals(1L, cSVParser0.getRecordNumber());
+}",0,"assertEquals(0, cSVParser0.getRecordNumber())"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test00,"  public void test00()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      CSVParser cSVParser0 = CSVParser.parse(""UiAJ&i=S(X'7"", cSVFormat0);
+      Consumer<Object> consumer0 = (Consumer<Object>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      cSVParser0.forEach(consumer0);
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test01,"  public void test01()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      // Undeclared exception!
+      try { 
+        CSVParser.parse((File) null, cSVFormat0);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // Parameter 'file' must not be null!
+         //
+         verifyException(""org.apache.commons.csv.Assertions"", e);
+      }
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test02,"  public void test02()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      CSVParser cSVParser0 = CSVParser.parse(""parameter '"", cSVFormat0);
+      long long0 = cSVParser0.getCurrentLineNumber();
+      assertEquals(0L, long0);
+}",0,"assertEquals(1, long0)"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test02,"  public void test02()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      CSVParser cSVParser0 = CSVParser.parse(""parameter '"", cSVFormat0);
+      long long0 = cSVParser0.getCurrentLineNumber();
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test03,"  public void test03()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      CSVParser cSVParser0 = CSVParser.parse(""r'gk6d\"""", cSVFormat0);
+      long long0 = cSVParser0.getRecordNumber();
+      assertEquals(0L, long0);
+}",0,"assertEquals(1, long0)"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test03,"  public void test03()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      CSVParser cSVParser0 = CSVParser.parse(""r'gk6d\"""", cSVFormat0);
+      long long0 = cSVParser0.getRecordNumber();
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test04,"  public void test04()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.TDF;
+      EvoSuiteURL evoSuiteURL0 = new EvoSuiteURL(""http://www.someFakeButWellFormedURL.org/fooExample"");
+      NetworkHandling.createRemoteTextFile(evoSuiteURL0, ""o%jue;="");
+      URL uRL0 = MockURL.getHttpExample();
+      Charset charset0 = Charset.defaultCharset();
+      CSVParser cSVParser0 = CSVParser.parse(uRL0, charset0, cSVFormat0);
+      assertEquals(0L, cSVParser0.getRecordNumber());
+}",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test04,"  public void test04()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.TDF;
+      EvoSuiteURL evoSuiteURL0 = new EvoSuiteURL(""http://www.someFakeButWellFormedURL.org/fooExample"");
+      NetworkHandling.createRemoteTextFile(evoSuiteURL0, ""o%jue;="");
+      URL uRL0 = MockURL.getHttpExample();
+      Charset charset0 = Charset.defaultCharset();
+      CSVParser cSVParser0 = CSVParser.parse(uRL0, charset0, cSVFormat0);
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test05,"  public void test05()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      CSVFormat cSVFormat1 = cSVFormat0.withNullString(""BeN~7Q6O)YYt=}Ql!,"");
+      CSVParser cSVParser0 = CSVParser.parse(""BeN~7Q6O)YYt=}Ql!,"", cSVFormat1);
+      CSVRecord cSVRecord0 = cSVParser0.nextRecord();
+      assertEquals(""[BeN~7Q6O)YYt=}Ql!, ]"", cSVRecord0.toString());
+}",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test05,"  public void test05()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      CSVFormat cSVFormat1 = cSVFormat0.withNullString(""BeN~7Q6O)YYt=}Ql!,"");
+      CSVParser cSVParser0 = CSVParser.parse(""BeN~7Q6O)YYt=}Ql!,"", cSVFormat1);
+      CSVRecord cSVRecord0 = cSVParser0.nextRecord();
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test06,"  public void test06()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.MYSQL;
+      CSVFormat cSVFormat1 = cSVFormat0.withNullString(""v`A;|45\"""");
+      CSVParser cSVParser0 = CSVParser.parse(""v`A;|45\"""", cSVFormat1);
+      cSVParser0.getRecords();
+      assertEquals(1L, cSVParser0.getRecordNumber());
+}",0,"assertEquals(0, cSVParser0.getRecordNumber())"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test06,"  public void test06()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.MYSQL;
+      CSVFormat cSVFormat1 = cSVFormat0.withNullString(""v`A;|45\"""");
+      CSVParser cSVParser0 = CSVParser.parse(""v`A;|45\"""", cSVFormat1);
+      cSVParser0.getRecords();
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test07,"  public void test07()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.MYSQL;
+      Reader reader0 = Reader.nullReader();
+      CSVParser cSVParser0 = cSVFormat0.parse(reader0);
+      cSVParser0.close();
+      Consumer<Object> consumer0 = (Consumer<Object>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      cSVParser0.forEach(consumer0);
+      assertEquals(0L, cSVParser0.getRecordNumber());
+}",0,"assertEquals(0, cSVParser0.getRecordNumber())"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test07,"  public void test07()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.MYSQL;
+      Reader reader0 = Reader.nullReader();
+      CSVParser cSVParser0 = cSVFormat0.parse(reader0);
+      cSVParser0.close();
+      Consumer<Object> consumer0 = (Consumer<Object>) mock(Consumer.class, new ViolatedAssumptionAnswer());
+      cSVParser0.forEach(consumer0);
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test08,"  public void test08()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      String[] stringArray0 = new String[0];
+      CSVFormat cSVFormat1 = cSVFormat0.withHeader(stringArray0);
+      CSVParser cSVParser0 = CSVParser.parse(""org.apache.commons.csv.CSVParser"", cSVFormat1);
+      Map<String, Integer> map0 = cSVParser0.getHeaderMap();
+      assertNotNull(map0);
+}",0,assertNotNull(map0)
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test08,"  public void test08()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      String[] stringArray0 = new String[0];
+      CSVFormat cSVFormat1 = cSVFormat0.withHeader(stringArray0);
+      CSVParser cSVParser0 = CSVParser.parse(""org.apache.commons.csv.CSVParser"", cSVFormat1);
+      Map<String, Integer> map0 = cSVParser0.getHeaderMap();
+      assertEquals(1, map0.size());
+}",0,"assertEquals(0, map0.size())"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test08,"  public void test08()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.RFC4180;
+      String[] stringArray0 = new String[0];
+      CSVFormat cSVFormat1 = cSVFormat0.withHeader(stringArray0);
+      CSVParser cSVParser0 = CSVParser.parse(""org.apache.commons.csv.CSVParser"", cSVFormat1);
+      Map<String, Integer> map0 = cSVParser0.getHeaderMap();
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test09,"  public void test09()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.EXCEL;
+      CSVParser cSVParser0 = CSVParser.parse(""U.AJ&if=S(X7"", cSVFormat0);
+      Map<String, Integer> map0 = cSVParser0.getHeaderMap();
+      assertNull(map0);
+}",0,assertNotNull(map0)
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test09,"  public void test09()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.EXCEL;
+      CSVParser cSVParser0 = CSVParser.parse(""U.AJ&if=S(X7"", cSVFormat0);
+      Map<String, Integer> map0 = cSVParser0.getHeaderMap();
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test10,"  public void test10()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.DEFAULT;
+      String[] stringArray0 = new String[1];
+      CSVFormat cSVFormat1 = cSVFormat0.withHeader(stringArray0);
+      CSVParser cSVParser0 = CSVParser.parse(""'gq"", cSVFormat1);
+      assertEquals(0L, cSVParser0.getRecordNumber());
+}",0,"assertEquals(0, cSVParser0.getRecordNumber())"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test10,"  public void test10()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.DEFAULT;
+      String[] stringArray0 = new String[1];
+      CSVFormat cSVFormat1 = cSVFormat0.withHeader(stringArray0);
+      CSVParser cSVParser0 = CSVParser.parse(""'gq"", cSVFormat1);
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test11,"  public void test11()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.DEFAULT;
+      Reader reader0 = Reader.nullReader();
+      String[] stringArray0 = new String[0];
+      CSVFormat cSVFormat1 = cSVFormat0.withHeader(stringArray0);
+      CSVParser cSVParser0 = new CSVParser(reader0, cSVFormat1);
+      assertEquals(0L, cSVParser0.getRecordNumber());
+}",0,"assertEquals(0, cSVParser0.getRecordNumber())"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test11,"  public void test11()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.DEFAULT;
+      Reader reader0 = Reader.nullReader();
+      String[] stringArray0 = new String[0];
+      CSVFormat cSVFormat1 = cSVFormat0.withHeader(stringArray0);
+      CSVParser cSVParser0 = new CSVParser(reader0, cSVFormat1);
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test12,"  public void test12()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.DEFAULT;
+      CSVFormat cSVFormat1 = cSVFormat0.withSkipHeaderRecord(true);
+      String[] stringArray0 = new String[1];
+      CSVFormat cSVFormat2 = cSVFormat1.withHeader(stringArray0);
+      CSVParser cSVParser0 = CSVParser.parse(""'gq"", cSVFormat2);
+      assertEquals(1L, cSVParser0.getRecordNumber());
+}",0,"assertEquals(1, cSVParser0.getRecordNumber())"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test12,"  public void test12()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.DEFAULT;
+      CSVFormat cSVFormat1 = cSVFormat0.withSkipHeaderRecord(true);
+      String[] stringArray0 = new String[1];
+      CSVFormat cSVFormat2 = cSVFormat1.withHeader(stringArray0);
+      CSVParser cSVParser0 = CSVParser.parse(""'gq"", cSVFormat2);
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test13,"  public void test13()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.newFormat('q');
+      CSVParser cSVParser0 = CSVParser.parse(""\r\n"", cSVFormat0);
+      List<CSVRecord> list0 = cSVParser0.getRecords();
+      assertEquals(1, list0.size());
+}",0,"assertEquals(0, list0.size())"
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test13,"  public void test13()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.newFormat('q');
+      CSVParser cSVParser0 = CSVParser.parse(""\r\n"", cSVFormat0);
+      List<CSVRecord> list0 = cSVParser0.getRecords();
+  }",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test14,"  public void test14()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.TDF;
+      CSVFormat cSVFormat1 = cSVFormat0.withCommentStart('B');
+      CSVParser cSVParser0 = CSVParser.parse(""BeN~7Q6O)YYt=}Ql!,"", cSVFormat1);
+      CSVRecord cSVRecord0 = cSVParser0.nextRecord();
+      assertNull(cSVRecord0);
+}",0,
+Csv,4,org.apache.commons.csv.CSVParser_ESTest::test14,"  public void test14()  throws Throwable  {
+      CSVFormat cSVFormat0 = CSVFormat.TDF;
+      CSVFormat cSVFormat1 = cSVFormat0.withCommentStart('B');
+      CSVParser cSVParser0 = CSVParser.parse(""BeN~7Q6O)YYt=}Ql!,"", cSVFormat1);
+      CSVRecord cSVRecord0 = cSVParser0.nextRecord();
+  }",0,

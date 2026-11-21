@@ -1,0 +1,54 @@
+{
+  "bug": "Time-1",
+  "setting": "toga",
+  "detected": true,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 132,
+    "exception": 15,
+    "assertion": 17
+  },
+  "tests": {
+    "written": 132,
+    "kept_on_fixed": 103,
+    "false_alarms_removed": 29,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Time",
+      "version_id": "1f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Fail",
+      "num_trigger": "1"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 305,
+      "lines_covered": 266,
+      "branches_total": 122,
+      "branches_covered": 95,
+      "line": 0.872,
+      "branch": 0.779
+    },
+    "major_mutation": {
+      "generated": 407,
+      "covered": 407,
+      "killed": 229,
+      "score": 0.563
+    }
+  },
+  "seconds": 1548.7,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": true
+    }
+  ]
+}

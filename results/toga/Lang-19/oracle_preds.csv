@@ -1,0 +1,216 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test00,"  public void test00()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[8];
+      charArray0[2] = '&';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""\u0000\u0000&\u0000\u0000\u0000\u0000\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test00,"  public void test00()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[8];
+      charArray0[2] = '&';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test01,"  public void test01()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[8];
+      charArray0[6] = '&';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""\u0000\u0000\u0000\u0000\u0000\u0000&\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test01,"  public void test01()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[8];
+      charArray0[6] = '&';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test02,"  public void test02()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[7];
+      charArray0[0] = '&';
+      charArray0[1] = '#';
+      charArray0[2] = 'x';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""&#x\u0000\u0000\u0000\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test02,"  public void test02()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[7];
+      charArray0[0] = '&';
+      charArray0[1] = '#';
+      charArray0[2] = 'x';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test03,"  public void test03()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[8];
+      charArray0[5] = '&';
+      charArray0[6] = '#';
+      charArray0[7] = 'X';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""\u0000\u0000\u0000\u0000\u0000&#X"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test03,"  public void test03()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[8];
+      charArray0[5] = '&';
+      charArray0[6] = '#';
+      charArray0[7] = 'X';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test04,"  public void test04()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[4];
+      charArray0[1] = '&';
+      charArray0[2] = '#';
+      charArray0[3] = '8';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""\u0000\b"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test04,"  public void test04()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[4];
+      charArray0[1] = '&';
+      charArray0[2] = '#';
+      charArray0[3] = '8';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test05,"  public void test05()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[9];
+      charArray0[1] = '&';
+      charArray0[2] = '#';
+      charArray0[3] = '8';
+      charArray0[4] = '8';
+      charArray0[5] = ';';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""\u0000X\u0000\u0000\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test05,"  public void test05()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[9];
+      charArray0[1] = '&';
+      charArray0[2] = '#';
+      charArray0[3] = '8';
+      charArray0[4] = '8';
+      charArray0[5] = ';';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test06,"  public void test06()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[9];
+      charArray0[0] = '&';
+      charArray0[1] = '#';
+      charArray0[2] = 't';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""&#t\u0000\u0000\u0000\u0000\u0000\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test06,"  public void test06()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[9];
+      charArray0[0] = '&';
+      charArray0[1] = '#';
+      charArray0[2] = 't';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test07,"  public void test07()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[9];
+      charArray0[0] = '&';
+      charArray0[1] = '#';
+      charArray0[2] = 'f';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""&#f\u0000\u0000\u0000\u0000\u0000\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test07,"  public void test07()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[9];
+      charArray0[0] = '&';
+      charArray0[1] = '#';
+      charArray0[2] = 'f';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test08,"  public void test08()  throws Throwable  {
+      char[] charArray0 = new char[5];
+      charArray0[1] = '&';
+      charArray0[2] = '#';
+      charArray0[3] = 'F';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""\u0000&#F\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test08,"  public void test08()  throws Throwable  {
+      char[] charArray0 = new char[5];
+      charArray0[1] = '&';
+      charArray0[2] = '#';
+      charArray0[3] = 'F';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test09,"  public void test09()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[9];
+      charArray0[1] = '&';
+      charArray0[2] = '#';
+      charArray0[3] = '8';
+      charArray0[4] = '8';
+      charArray0[5] = '8';
+      charArray0[6] = '8';
+      charArray0[7] = '8';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""\u0000\uD816\uDF38\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test09,"  public void test09()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[9];
+      charArray0[1] = '&';
+      charArray0[2] = '#';
+      charArray0[3] = '8';
+      charArray0[4] = '8';
+      charArray0[5] = '8';
+      charArray0[6] = '8';
+      charArray0[7] = '8';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test10,"  public void test10()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[8];
+      charArray0[2] = '&';
+      charArray0[3] = '#';
+      charArray0[4] = 'X';
+      charArray0[5] = '3';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+      assertEquals(""\u0000\u0000\u0003\u0000\u0000"", string0);
+}",0,
+Lang,19,org.apache.commons.lang3.text.translate.NumericEntityUnescaper_ESTest::test10,"  public void test10()  throws Throwable  {
+      NumericEntityUnescaper numericEntityUnescaper0 = new NumericEntityUnescaper();
+      char[] charArray0 = new char[8];
+      charArray0[2] = '&';
+      charArray0[3] = '#';
+      charArray0[4] = 'X';
+      charArray0[5] = '3';
+      CharBuffer charBuffer0 = CharBuffer.wrap(charArray0);
+      String string0 = numericEntityUnescaper0.translate((CharSequence) charBuffer0);
+  }",0,

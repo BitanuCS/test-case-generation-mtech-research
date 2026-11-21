@@ -11,7 +11,9 @@ Works from a test-suite archive in Defects4J's format:
   <dir>/<Project>-<id><b|f>-<tool>.1.tar.bz2   (Java test files under their package folders)
 """
 import csv
+import os
 import shutil
+import signal
 import subprocess
 import tarfile
 from pathlib import Path
@@ -23,11 +25,23 @@ from .config import WORK_DIR
 BIN = d4j.D4J_BIN.parent
 
 
+TIMEOUT = 3600          # seconds per Defects4J measurement script
+
+
 def _run(script, project, suite_dir, out_dir, tmp_dir, log, bin_dir=None):
+    """Returns False if the script ran over TIMEOUT (the measurement is then missing, not a crash)."""
     with open(log, "a") as f:
-        subprocess.run([str((bin_dir or BIN) / script), "-p", project, "-d", str(suite_dir), "-o", str(out_dir),
-                        "-t", str(tmp_dir)], env=d4j._env(), stdout=f, stderr=subprocess.STDOUT,
-                       timeout=3600)
+        proc = subprocess.Popen([str((bin_dir or BIN) / script), "-p", project, "-d", str(suite_dir),
+                                 "-o", str(out_dir), "-t", str(tmp_dir)], env=d4j._env(), stdout=f,
+                                stderr=subprocess.STDOUT, start_new_session=True)
+        try:
+            proc.wait(timeout=TIMEOUT)
+            return True
+        except subprocess.TimeoutExpired:
+            os.killpg(proc.pid, signal.SIGKILL)     # also stops the ant/java children
+            proc.wait()
+            f.write(f"\nTIMEOUT: {script} ran over {TIMEOUT}s\n")
+            return False
 
 
 def _read(path):
@@ -50,10 +64,10 @@ def measure_archive(project, suite_dir, work, bin_dir=None):
     tmp = work / "tmp"
     tmp.mkdir(exist_ok=True)
     log = work / "log.txt"
-    _run("run_coverage.pl", project, suite_dir, work / "cov", tmp, log, bin_dir)
-    _run("run_mutation.pl", project, suite_dir, work / "mut", tmp, log, bin_dir)
+    timed_out = [s for s, o in (("run_coverage.pl", "cov"), ("run_mutation.pl", "mut"))
+                 if not _run(s, project, suite_dir, work / o, tmp, log, bin_dir)]
     cov, mut = _read(work / "cov" / "coverage"), _read(work / "mut" / "mutation")
-    out = {}
+    out = {"timed_out": timed_out} if timed_out else {}
     if cov:
         lt, lc = _num(cov.get("lines_total")), _num(cov.get("lines_covered"))
         bt, bc = _num(cov.get("branches_total")), _num(cov.get("branches_covered"))

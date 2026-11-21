@@ -1,0 +1,163 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test00,"  public void test00()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[5];
+      stringArray0[0] = ""-"";
+      // Undeclared exception!
+      try { 
+        posixParser0.flatten(options0, stringArray0, true);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test01,"  public void test01()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      String[] stringArray0 = Locale.getISOLanguages();
+      String[] stringArray1 = posixParser0.flatten((Options) null, stringArray0, true);
+      String[] stringArray2 = posixParser0.flatten((Options) null, stringArray1, true);
+      assertEquals(190, stringArray2.length);
+}",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test01,"  public void test01()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      String[] stringArray0 = Locale.getISOLanguages();
+      String[] stringArray1 = posixParser0.flatten((Options) null, stringArray0, true);
+      String[] stringArray2 = posixParser0.flatten((Options) null, stringArray1, true);
+      assertEquals(189, stringArray1.length);
+}",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test01,"  public void test01()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      String[] stringArray0 = Locale.getISOLanguages();
+      String[] stringArray1 = posixParser0.flatten((Options) null, stringArray0, true);
+      String[] stringArray2 = posixParser0.flatten((Options) null, stringArray1, true);
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test02,"  public void test02()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[8];
+      stringArray0[0] = ""--=(."";
+      // Undeclared exception!
+      try { 
+        posixParser0.parse(options0, stringArray0, true);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test03,"  public void test03()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[3];
+      stringArray0[0] = ""-.mkzFo"";
+      String[] stringArray1 = posixParser0.flatten(options0, stringArray0, true);
+      assertEquals(4, stringArray1.length);
+}",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test03,"  public void test03()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[3];
+      stringArray0[0] = ""-.mkzFo"";
+      String[] stringArray1 = posixParser0.flatten(options0, stringArray0, true);
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test04,"  public void test04()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[5];
+      stringArray0[0] = ""-G"";
+      String[] stringArray1 = posixParser0.flatten(options0, stringArray0, true);
+      assertEquals(4, stringArray1.length);
+}",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test04,"  public void test04()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[5];
+      stringArray0[0] = ""-G"";
+      String[] stringArray1 = posixParser0.flatten(options0, stringArray0, true);
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test05,"  public void test05()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = ""Fw"";
+      stringArray0[1] = ""-Fw"";
+      Options options1 = options0.addOption(""Fw"", false, ""Fw"");
+      String[] stringArray1 = posixParser0.flatten(options1, stringArray0, false);
+      assertNotSame(stringArray0, stringArray1);
+}",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test05,"  public void test05()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[2];
+      stringArray0[0] = ""Fw"";
+      stringArray0[1] = ""-Fw"";
+      Options options1 = options0.addOption(""Fw"", false, ""Fw"");
+      String[] stringArray1 = posixParser0.flatten(options1, stringArray0, false);
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test06,"  public void test06()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = Locale.getISOLanguages();
+      options0.addOption("""", true, """");
+      posixParser0.flatten(options0, stringArray0, true);
+      posixParser0.burstToken(""---.mkzFo"", true);
+      posixParser0.burstToken("".m"", true);
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test07,"  public void test07()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = Locale.getISOLanguages();
+      options0.addOption("""", false, """");
+      posixParser0.flatten(options0, stringArray0, true);
+      posixParser0.burstToken(""---.mkzFo"", true);
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test08,"  public void test08()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[5];
+      stringArray0[0] = ""-G"";
+      options0.addOption(""G"", true, stringArray0[2]);
+      // Undeclared exception!
+      try { 
+        posixParser0.flatten(options0, stringArray0, true);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test09,"  public void test09()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = new String[5];
+      stringArray0[0] = ""-G"";
+      // Undeclared exception!
+      try { 
+        posixParser0.flatten(options0, stringArray0, false);
+        fail(""Expecting exception: NullPointerException"");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+      }
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test10,"  public void test10()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = Locale.getISOLanguages();
+      options0.addOption("""", """", true, """");
+      posixParser0.flatten(options0, stringArray0, true);
+      posixParser0.burstToken(""--"", true);
+  }",0,
+Cli,17,org.apache.commons.cli.PosixParser_ESTest::test11,"  public void test11()  throws Throwable  {
+      PosixParser posixParser0 = new PosixParser();
+      Options options0 = new Options();
+      String[] stringArray0 = Locale.getISOCountries();
+      posixParser0.flatten(options0, stringArray0, false);
+      posixParser0.burstToken(""--wa"", false);
+  }",0,

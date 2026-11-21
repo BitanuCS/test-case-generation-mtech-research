@@ -1,0 +1,112 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test0,"  public void test0()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((int[]) null);
+      long long0 = iSAACRandom0.nextLong();
+      assertEquals((-7623937731512766048L), long0);
+}",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test0,"  public void test0()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((int[]) null);
+      long long0 = iSAACRandom0.nextLong();
+  }",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test1,"  public void test1()  throws Throwable  {
+      MersenneTwister mersenneTwister0 = new MersenneTwister(0);
+      int int0 = mersenneTwister0.nextInt();
+      assertEquals((-1937831252), int0);
+}",0,"assertEquals(1, int0)"
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test1,"  public void test1()  throws Throwable  {
+      MersenneTwister mersenneTwister0 = new MersenneTwister(0);
+      int int0 = mersenneTwister0.nextInt();
+  }",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test2,"  public void test2()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((int[]) null);
+      iSAACRandom0.setSeed((-267));
+      boolean boolean0 = iSAACRandom0.nextBoolean();
+      assertFalse(boolean0);
+}",0,assertTrue(boolean0)
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test2,"  public void test2()  throws Throwable  {
+      ISAACRandom iSAACRandom0 = new ISAACRandom((int[]) null);
+      iSAACRandom0.setSeed((-267));
+      boolean boolean0 = iSAACRandom0.nextBoolean();
+  }",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test3,"  public void test3()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 1324;
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      boolean boolean0 = well44497a0.nextBoolean();
+      assertTrue(boolean0);
+}",0,assertTrue(boolean0)
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test3,"  public void test3()  throws Throwable  {
+      int[] intArray0 = new int[2];
+      intArray0[0] = 1324;
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      boolean boolean0 = well44497a0.nextBoolean();
+  }",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test4,"  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      int[] intArray0 = new int[0];
+      ISAACRandom iSAACRandom0 = new ISAACRandom(intArray0);
+      iSAACRandom0.nextBytes(byteArray0);
+      assertArrayEquals(new byte[] {(byte)18, (byte) (-58), (byte)79, (byte) (-56), (byte)123, (byte)52}, byteArray0);
+}",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test4,"  public void test4()  throws Throwable  {
+      byte[] byteArray0 = new byte[6];
+      int[] intArray0 = new int[0];
+      ISAACRandom iSAACRandom0 = new ISAACRandom(intArray0);
+      iSAACRandom0.nextBytes(byteArray0);
+  }",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test5,"  public void test5()  throws Throwable  {
+      Well512a well512a0 = new Well512a();
+      double double0 = well512a0.nextGaussian();
+      assertEquals((-0.6744452302231269), double0, 0.01);
+}",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test5,"  public void test5()  throws Throwable  {
+      Well512a well512a0 = new Well512a();
+      double double0 = well512a0.nextGaussian();
+      double double1 = well512a0.nextGaussian();
+      assertEquals((-0.2083723974303613), double1, 0.01);
+}",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test5,"  public void test5()  throws Throwable  {
+      Well512a well512a0 = new Well512a();
+      double double0 = well512a0.nextGaussian();
+      double double1 = well512a0.nextGaussian();
+  }",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test6,"  public void test6()  throws Throwable  {
+      Well1024a well1024a0 = new Well1024a(2348L);
+      try { 
+        well1024a0.nextInt((-427));
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // -427 is smaller than, or equal to, the minimum (0)
+         //
+         verifyException(""org.apache.commons.math3.random.BitsStreamGenerator"", e);
+      }
+  }",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test7,"  public void test7()  throws Throwable  {
+      MersenneTwister mersenneTwister0 = new MersenneTwister(4294967295L);
+      int int0 = mersenneTwister0.nextInt(1);
+      assertEquals(0, int0);
+}",0,"assertEquals(0, int0)"
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test7,"  public void test7()  throws Throwable  {
+      MersenneTwister mersenneTwister0 = new MersenneTwister(4294967295L);
+      int int0 = mersenneTwister0.nextInt(1);
+  }",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test8,"  public void test8()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      float float0 = well44497a0.nextFloat();
+      assertEquals(0.24836719F, float0, 0.01F);
+}",0,
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test8,"  public void test8()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      float float0 = well44497a0.nextFloat();
+      int int0 = well44497a0.nextInt(1287627871);
+      assertEquals(652368931, int0);
+}",0,"assertEquals(1, int0)"
+Math,12,org.apache.commons.math3.random.BitsStreamGenerator_ESTest::test8,"  public void test8()  throws Throwable  {
+      int[] intArray0 = new int[5];
+      Well44497a well44497a0 = new Well44497a(intArray0);
+      float float0 = well44497a0.nextFloat();
+      int int0 = well44497a0.nextInt(1287627871);
+  }",0,

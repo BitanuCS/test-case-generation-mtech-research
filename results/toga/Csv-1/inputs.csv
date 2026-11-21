@@ -1,0 +1,268 @@
+focal_method,test_prefix,docstring
+"    int getLineNumber() {
+        return lineCounter;
+    }","  public void test0()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      int int0 = extendedBufferedReader0.getLineNumber();
+      assertEquals(0, int0);
+}","/**
+     * Returns the nof line read
+     *
+     * @return the current-line-number (or -1)
+     */"
+"    int getLineNumber() {
+        return lineCounter;
+    }","  public void test0()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      int int0 = extendedBufferedReader0.getLineNumber();
+  }","/**
+     * Returns the nof line read
+     *
+     * @return the current-line-number (or -1)
+     */"
+"    int readAgain() {
+        return lastChar;
+    }","  public void test1()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      int int0 = extendedBufferedReader0.readAgain();
+      assertEquals((-2), int0);
+}","/**
+     * Returns the last character that was read as an integer (0 to 65535). This
+     * will be the last character returned by any of the read methods. This will
+     * not include a character read using the {@link #peek()} method. If no
+     * character has been read then this will return {@link #UNDEFINED}. If the
+     * end of the stream was reached on the last read then this will return
+     * {@link #END_OF_STREAM}.
+     * 
+     * @return the last character that was read
+     */"
+"    int readAgain() {
+        return lastChar;
+    }","  public void test1()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      int int0 = extendedBufferedReader0.readAgain();
+  }","/**
+     * Returns the last character that was read as an integer (0 to 65535). This
+     * will be the last character returned by any of the read methods. This will
+     * not include a character read using the {@link #peek()} method. If no
+     * character has been read then this will return {@link #UNDEFINED}. If the
+     * end of the stream was reached on the last read then this will return
+     * {@link #END_OF_STREAM}.
+     * 
+     * @return the last character that was read
+     */"
+"    public int read() throws IOException {
+        int current = super.read();
+        if (current == '\r' || (current == '\n' && lastChar != '\r')) {
+            lineCounter++;
+        }
+        lastChar = current;
+        return lastChar;
+    }","  public void test2()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      ExtendedBufferedReader extendedBufferedReader1 = new ExtendedBufferedReader(extendedBufferedReader0);
+      int int0 = extendedBufferedReader1.read();
+      assertEquals((-1), int0);
+}",
+"    public int read() throws IOException {
+        int current = super.read();
+        if (current == '\r' || (current == '\n' && lastChar != '\r')) {
+            lineCounter++;
+        }
+        lastChar = current;
+        return lastChar;
+    }","  public void test2()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      ExtendedBufferedReader extendedBufferedReader1 = new ExtendedBufferedReader(extendedBufferedReader0);
+      int int0 = extendedBufferedReader1.read();
+  }",
+"    public int read() throws IOException {
+        int current = super.read();
+        if (current == '\r' || (current == '\n' && lastChar != '\r')) {
+            lineCounter++;
+        }
+        lastChar = current;
+        return lastChar;
+    }","  public void test3()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      char[] charArray0 = new char[0];
+      int int0 = extendedBufferedReader0.read(charArray0);
+      assertEquals(0, int0);
+}",
+"    public int read() throws IOException {
+        int current = super.read();
+        if (current == '\r' || (current == '\n' && lastChar != '\r')) {
+            lineCounter++;
+        }
+        lastChar = current;
+        return lastChar;
+    }","  public void test3()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      char[] charArray0 = new char[0];
+      int int0 = extendedBufferedReader0.read(charArray0);
+  }",
+"    int lookAhead() throws IOException {
+        super.mark(1);
+        int c = super.read();
+        super.reset();
+
+        return c;
+    }","  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("" 4(ouiE6"");
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(stringReader0);
+      ExtendedBufferedReader extendedBufferedReader1 = new ExtendedBufferedReader(extendedBufferedReader0);
+      int int0 = extendedBufferedReader1.lookAhead();
+      assertEquals(32, int0);
+}","/**
+     * Returns the next character in the current reader without consuming it. So
+     * the next call to {@link #read()} will still return this value.
+     * 
+     * @return the next character
+     * 
+     * @throws IOException if there is an error in reading
+     */"
+"    int lookAhead() throws IOException {
+        super.mark(1);
+        int c = super.read();
+        super.reset();
+
+        return c;
+    }","  public void test4()  throws Throwable  {
+      StringReader stringReader0 = new StringReader("" 4(ouiE6"");
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(stringReader0);
+      ExtendedBufferedReader extendedBufferedReader1 = new ExtendedBufferedReader(extendedBufferedReader0);
+      int int0 = extendedBufferedReader1.lookAhead();
+  }","/**
+     * Returns the next character in the current reader without consuming it. So
+     * the next call to {@link #read()} will still return this value.
+     * 
+     * @return the next character
+     * 
+     * @throws IOException if there is an error in reading
+     */"
+"    public String readLine() throws IOException {
+        String line = super.readLine();
+
+        if (line != null) {
+            if (line.length() > 0) {
+                lastChar = line.charAt(line.length() - 1);
+            }
+            lineCounter++;
+        } else {
+            lastChar = END_OF_STREAM;
+        }
+
+        return line;
+    }","  public void test5()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      String string0 = extendedBufferedReader0.readLine();
+      assertNull(string0);
+}","/**
+     * Calls {@link BufferedReader#readLine()} which drops the line terminator(s).
+     * This method should only be called when processing a comment, otherwise
+     * information can be lost.
+     * <p>
+     * Increments  {@link #lineCounter}
+     * <p>
+     * Sets {@link #lastChar} to {@link #END_OF_STREAM} at EOF, 
+     * otherwise to last character on the line (won't be CR or LF) 
+     * 
+     * @return the line that was read, or null if reached EOF.
+     */"
+"    public String readLine() throws IOException {
+        String line = super.readLine();
+
+        if (line != null) {
+            if (line.length() > 0) {
+                lastChar = line.charAt(line.length() - 1);
+            }
+            lineCounter++;
+        } else {
+            lastChar = END_OF_STREAM;
+        }
+
+        return line;
+    }","  public void test5()  throws Throwable  {
+      Reader reader0 = Reader.nullReader();
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(reader0);
+      String string0 = extendedBufferedReader0.readLine();
+  }","/**
+     * Calls {@link BufferedReader#readLine()} which drops the line terminator(s).
+     * This method should only be called when processing a comment, otherwise
+     * information can be lost.
+     * <p>
+     * Increments  {@link #lineCounter}
+     * <p>
+     * Sets {@link #lastChar} to {@link #END_OF_STREAM} at EOF, 
+     * otherwise to last character on the line (won't be CR or LF) 
+     * 
+     * @return the line that was read, or null if reached EOF.
+     */"
+"    public String readLine() throws IOException {
+        String line = super.readLine();
+
+        if (line != null) {
+            if (line.length() > 0) {
+                lastChar = line.charAt(line.length() - 1);
+            }
+            lineCounter++;
+        } else {
+            lastChar = END_OF_STREAM;
+        }
+
+        return line;
+    }","  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(""sJ\""+u"");
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(stringReader0);
+      String string0 = extendedBufferedReader0.readLine();
+      assertEquals(""sJ\""+u"", string0);
+}","/**
+     * Calls {@link BufferedReader#readLine()} which drops the line terminator(s).
+     * This method should only be called when processing a comment, otherwise
+     * information can be lost.
+     * <p>
+     * Increments  {@link #lineCounter}
+     * <p>
+     * Sets {@link #lastChar} to {@link #END_OF_STREAM} at EOF, 
+     * otherwise to last character on the line (won't be CR or LF) 
+     * 
+     * @return the line that was read, or null if reached EOF.
+     */"
+"    public String readLine() throws IOException {
+        String line = super.readLine();
+
+        if (line != null) {
+            if (line.length() > 0) {
+                lastChar = line.charAt(line.length() - 1);
+            }
+            lineCounter++;
+        } else {
+            lastChar = END_OF_STREAM;
+        }
+
+        return line;
+    }","  public void test6()  throws Throwable  {
+      StringReader stringReader0 = new StringReader(""sJ\""+u"");
+      ExtendedBufferedReader extendedBufferedReader0 = new ExtendedBufferedReader(stringReader0);
+      String string0 = extendedBufferedReader0.readLine();
+  }","/**
+     * Calls {@link BufferedReader#readLine()} which drops the line terminator(s).
+     * This method should only be called when processing a comment, otherwise
+     * information can be lost.
+     * <p>
+     * Increments  {@link #lineCounter}
+     * <p>
+     * Sets {@link #lastChar} to {@link #END_OF_STREAM} at EOF, 
+     * otherwise to last character on the line (won't be CR or LF) 
+     * 
+     * @return the line that was read, or null if reached EOF.
+     */"

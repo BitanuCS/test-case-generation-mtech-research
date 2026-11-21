@@ -1,0 +1,54 @@
+{
+  "bug": "Math-12",
+  "setting": "toga",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "input_tests": "EvoSuite tests of results/evosuite (same suite as the EvoSuite baseline)",
+  "oracles": {
+    "prefixes": 19,
+    "exception": 0,
+    "assertion": 5
+  },
+  "tests": {
+    "written": 19,
+    "kept_on_fixed": 15,
+    "false_alarms_removed": 4,
+    "assertions_commented_out": 0
+  },
+  "detection_rows": [
+    {
+      "project_id": "Math",
+      "version_id": "12f",
+      "test_suite_source": "toga",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 48,
+      "lines_covered": 47,
+      "branches_total": 14,
+      "branches_covered": 13,
+      "line": 0.979,
+      "branch": 0.929
+    },
+    "major_mutation": {
+      "generated": 204,
+      "covered": 204,
+      "killed": 21,
+      "score": 0.103
+    }
+  },
+  "seconds": 185.8,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/toga_prepare.py /Users/bitu/mtech-tools/toga_out/JxPath-3/evo /Users/bitu/mtech-tools/work/JxPath-3f/src/java JxPath 3 /Users/bitu/mtech-tools/toga_out/JxPath-3
+51 test prefixes, 51 with a focal method
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python toga.py /Users/bitu/mtech-tools/toga_out/JxPath-3/inputs.csv /Users/bitu/mtech-tools/toga_out/JxPath-3/meta.csv
+11/21/2026 03:41:07 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 03:41:08 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='exception_classifier', output_dir='./model/exception_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='except_model_inputs.csv', pred_model_dir='model/exceptions/pretrained', test_result_dir='test_results.csv', print_results=False, n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 03:41:09 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 03:41:09 - INFO - utils -   LOOKING AT ./except_model_inputs.csv
+11/21/2026 03:41:09 - INFO - utils -   Writing example 0 of 51
+11/21/2026 03:41:09 - INFO - utils -   *** Example ***
+11/21/2026 03:41:09 - INFO - utils -   guid: test-0
+11/21/2026 03:41:09 - INFO - utils -   tokens: <s> public Ġvoid Ġset Value ( Object Ġvalue ) Ġ{ Ġif Ġ( parent Ġ== Ġnull Ġ|| Ġparent . is Container ()) Ġ{ Ġthrow Ġnew ĠJ X Path Invalid Access Exception ( Ġ" C annot Ġset Ġproperty Ġ" Ġ+ Ġas Path () Ġ+ Ġ", Ġthe Ġtarget Ġobject Ġis Ġnull "); Ġ} Ġelse </s> public Ġvoid Ġtest Set Value () Ġ{ ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter (( Node Po inter ) Ġnull ); ĠNull Property Po inter Ġnull Property Po inter 1 Ġ= Ġnew ĠNull Property Po inter ( null Property Po inter 0 ); Ġnull Property Po inter 1 . set Value ( null Property Po inter 0 ); Ġ} </s>
+11/21/2026 03:41:09 - INFO - utils -   input_ids: 0 15110 13842 278 33977 1640 46674 923 43 25522 114 36 20985 45994 23796 45056 4095 4 354 48557 49338 25522 3211 92 344 1000 42119 49695 35505 48847 1640 22 347 37250 278 1038 22 2055 25 42119 43048 2055 46481 5 1002 7626 16 23796 45751 35524 1493 2 15110 13842 1296 28512 33977 43048 25522 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 48461 48271 26170 8007 43 23796 4397 44840 44720 26170 8007 23796 44720 26170 8007 134 5457 92 44840 44720 26170 8007 1640 15755 44720 26170 8007 288 4397 23796 44720 26170 8007 134 4 8738 33977 1640 15755 44720 26170 8007 288 4397 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 03:41:09 - INFO - utils -   *** Example ***
+11/21/2026 03:41:09 - INFO - utils -   guid: test-1
+11/21/2026 03:41:09 - INFO - utils -   tokens: <s> public ĠNode Po inter Ġcreate Path ( J X Path Context Ġcontext ) Ġ{ ĠNode Po inter Ġnew Parent Ġ= Ġparent . create Path ( context ); Ġif Ġ( is Attribute ()) Ġ{ Ġreturn Ġnew Parent . create Attribute ( context , Ġget Name ()); Ġ} Ġelse Ġ{ Ġif Ġ( </s> public Ġvoid Ġtest Create Path () Ġ{ ĠQ Name Ġq Name 0 Ġ= Ġnew ĠQ Name (" p q . V v 1 "); ĠBasic Vari ables Ġbasic Vari ables 0 Ġ= Ġnew ĠBasic Vari ables (); ĠVariable Po inter Ġvariable Po inter 0 Ġ= Ġnew ĠVariable Po inter ( basic Vari ables 0 , Ġq Name 0 ); ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter ( variable Po inter 0 ); ĠJ X Path Context Ġj X Path Context 0 Ġ= ĠJ X Path Context . new Context (( Object ) Ġnull ); ĠNull Po inter Ġnull Po inter 0 Ġ= Ġnew ĠNull Po inter ( variable Po inter 0 , Ġq Name 0 ); Ġnull Po inter 0 . set Value (( Object ) Ġnull ); ĠNull Property Po inter Ġnull Property Po inter 1 Ġ= Ġnew </s>
+11/21/2026 03:41:09 - INFO - utils -   input_ids: 0 15110 44058 26170 8007 1045 42119 1640 863 1000 42119 48522 5377 43 25522 44058 26170 8007 92 46102 5457 4095 4 32845 42119 1640 46796 4397 114 36 354 49385 49338 25522 671 92 46102 4 32845 49385 1640 46796 6 120 31723 49291 35524 1493 25522 114 36 2 15110 13842 1296 44758 42119 43048 25522 1209 31723 2231 31723 288 5457 92 1209 31723 46469 642 1343 4 846 705 134 45751 17255 48269 6058 3280 48269 6058 288 5457 92 17255 48269 6058 47006 44560 26170 8007 15594 26170 8007 288 5457 92 44560 26170 8007 1640 42607 48269 6058 288 6 2231 31723 288 4397 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 1640 48123 26170 8007 288 4397 344 1000 42119 48522 1236 1000 42119 48522 288 5457 344 1000 42119 48522 4 4651 48522 48461 46674 43 23796 4397 44840 26170 8007 23796 26170 8007 288 5457 92 44840 26170 8007 1640 48123 26170 8007 288 6 2231 31723 288 4397 23796 26170 8007 288 4 8738 33977 48461 46674 43 23796 4397 44840 44720 26170 8007 23796 44720 26170 8007 134 5457 92 2
+11/21/2026 03:41:09 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 03:41:09 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+11/21/2026 03:41:09 - INFO - utils -   label: 1 (id = 1)
+11/21/2026 03:41:09 - INFO - utils -   *** Example ***
+11/21/2026 03:41:09 - INFO - utils -   guid: test-2
+11/21/2026 03:41:09 - INFO - utils -   tokens: <s> public ĠString Ġget Property Name () Ġ{ Ġreturn Ġproperty Name ; Ġ} </s> public Ġvoid Ġtest Get Property Name () Ġ{ ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter (( Node Po inter ) Ġnull ); Ġnull Property Po inter 0 . is Le af (); Ġ} </s>
+11/21/2026 03:41:09 - INFO - utils -   input_ids: 0 15110 26602 120 44720 31723 43048 25522 671 1038 31723 131 35524 2 15110 13842 1296 14181 44720 31723 43048 25522 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 48461 48271 26170 8007 43 23796 4397 23796 44720 26170 8007 288 4 354 10350 2001 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:41:09 - INFO - utils -   *** Example ***
+11/21/2026 03:41:09 - INFO - utils -   guid: test-3
+11/21/2026 03:41:09 - INFO - utils -   tokens: <s> public Ġboolean Ġis Le af () Ġ{ Ġreturn Ġtrue ; Ġ} </s> public Ġvoid Ġtest Is Le af () Ġ{ ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter (( Node Po inter ) Ġnull ); Ġnull Property Po inter 0 . is Le af (); Ġ} </s>
+11/21/2026 03:41:09 - INFO - utils -   input_ids: 0 15110 49378 16 10350 2001 43048 25522 671 1528 131 35524 2 15110 13842 1296 6209 10350 2001 43048 25522 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 48461 48271 26170 8007 43 23796 4397 23796 44720 26170 8007 288 4 354 10350 2001 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:41:09 - INFO - utils -   *** Example ***
+11/21/2026 03:41:09 - INFO - utils -   guid: test-4
+11/21/2026 03:41:09 - INFO - utils -   tokens: <s> public Ġboolean Ġis Le af () Ġ{ Ġreturn Ġtrue ; Ġ} </s> public Ġvoid Ġtest Is Le af () Ġ{ ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter (( Node Po inter ) Ġnull ); Ġnull Property Po inter 0 . is Le af (); Ġ} </s>
+11/21/2026 03:41:09 - INFO - utils -   input_ids: 0 15110 49378 16 10350 2001 43048 25522 671 1528 131 35524 2 15110 13842 1296 6209 10350 2001 43048 25522 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 48461 48271 26170 8007 43 23796 4397 23796 44720 26170 8007 288 4 354 10350 2001 47006 35524 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   segment_ids: 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:09 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:41:09 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 03:41:09 - INFO - __main__ -     Num examples = 51
+11/21/2026 03:41:09 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 51 total truncations 6, mean_trunc 5.862745098039215, median 0.0, max = 94
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:03<00:00,  3.46s/it]Evaluating: 100%|██████████| 1/1 [00:03<00:00,  3.46s/it]
+11/21/2026 03:41:16 - WARNING - __main__ -   Process rank: -1, device: cpu, n_gpu: 0, distributed training: False, 16-bits training: False
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/huggingface_hub/file_download.py:949: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/bitu/mtech-tools/toga/.venv/lib/python3.11/site-packages/transformers/optimization.py:457: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+11/21/2026 03:41:17 - INFO - __main__ -   Training/evaluation parameters Namespace(data_dir='./', model_type='roberta', model_name_or_path='microsoft/codebert-base', task_name='assertion_classifier', output_dir='./models/assertion_classifier', config_name='', tokenizer_name='', cache_dir='', max_seq_length=200, do_train=False, do_eval=False, do_predict=True, evaluate_during_training=False, do_lower_case=False, per_gpu_train_batch_size=32, per_gpu_eval_batch_size=256, gradient_accumulation_steps=1, learning_rate=1e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, num_train_epochs=8.0, max_steps=-1, warmup_steps=0, logging_steps=50, save_steps=50, eval_all_checkpoints=True, no_cuda=False, overwrite_output_dir=True, overwrite_cache=False, seed=42, fp16=False, fp16_opt_level='O1', local_rank=-1, server_ip='', server_port='', train_file='train.txt', dev_file='valid.txt', test_file='assert_model_inputs.csv', pred_model_dir='model/assertions/pretrained/', test_result_dir='test_results.tsv', n_gpu=0, device=device(type='cpu'), output_mode='classification', start_epoch=0, start_step=0)
+11/21/2026 03:41:18 - INFO - __main__ -   Creating features from dataset file at ./
+11/21/2026 03:41:18 - INFO - utils -   LOOKING AT ./assert_model_inputs.csv
+11/21/2026 03:41:18 - INFO - utils -   Writing example 0 of 31
+11/21/2026 03:41:18 - INFO - utils -   *** Example ***
+11/21/2026 03:41:18 - INFO - utils -   guid: 2
+11/21/2026 03:41:18 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter (( Node Po inter ) Ġnull ); Ġboolean Ġboolean 0 Ġ= Ġnull Property Po inter 0 . is Le af (); Ġ"< Ass ert Place H </s> public ĠString Ġget Property Name () Ġ{ Ġreturn Ġproperty Name ; Ġ} </s> assert Not Null ( null Property Po inter 0 . get Property Name ()) </s>
+11/21/2026 03:41:18 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 48461 48271 26170 8007 43 23796 4397 49378 49378 288 5457 23796 44720 26170 8007 288 4 354 10350 2001 47006 49900 26039 2399 41863 725 2 15110 26602 120 44720 31723 43048 25522 671 1038 31723 131 35524 2 46346 7199 49302 1640 15755 44720 26170 8007 288 4 6460 44720 31723 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:41:18 - INFO - utils -   *** Example ***
+11/21/2026 03:41:18 - INFO - utils -   guid: 3
+11/21/2026 03:41:18 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter (( Node Po inter ) Ġnull ); Ġboolean Ġboolean 0 Ġ= Ġnull Property Po inter 0 . is Le af (); Ġ"< Ass ert Place H </s> public Ġboolean Ġis Le af () Ġ{ Ġreturn Ġtrue ; Ġ} </s> assert False ( bo olean 0 ) </s>
+11/21/2026 03:41:18 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 48461 48271 26170 8007 43 23796 4397 49378 49378 288 5457 23796 44720 26170 8007 288 4 354 10350 2001 47006 49900 26039 2399 41863 725 2 15110 49378 16 10350 2001 43048 25522 671 1528 131 35524 2 46346 46659 1640 3983 48547 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:41:18 - INFO - utils -   *** Example ***
+11/21/2026 03:41:18 - INFO - utils -   guid: 3
+11/21/2026 03:41:18 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 02 () Ġthrows ĠThrow able Ġ{ ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter (( Node Po inter ) Ġnull ); Ġboolean Ġboolean 0 Ġ= Ġnull Property Po inter 0 . is Le af (); Ġ"< Ass ert Place H </s> public Ġboolean Ġis Le af () Ġ{ Ġreturn Ġtrue ; Ġ} </s> assert True ( bo olean 0 ) </s>
+11/21/2026 03:41:18 - INFO - utils -   input_ids: 0 15110 13842 1296 4197 43048 6989 28106 868 25522 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 48461 48271 26170 8007 43 23796 4397 49378 49378 288 5457 23796 44720 26170 8007 288 4 354 10350 2001 47006 49900 26039 2399 41863 725 2 15110 49378 16 10350 2001 43048 25522 671 1528 131 35524 2 46346 36948 1640 3983 48547 288 43 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:41:18 - INFO - utils -   *** Example ***
+11/21/2026 03:41:18 - INFO - utils -   guid: 5
+11/21/2026 03:41:18 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 03 () Ġthrows ĠThrow able Ġ{ ĠQ Name Ġq Name 0 Ġ= Ġnew ĠQ Name (" p q . V v 1 "); ĠBasic Vari ables Ġbasic Vari ables 0 Ġ= Ġnew ĠBasic Vari ables (); ĠVariable Po inter Ġvariable Po inter 0 Ġ= Ġnew ĠVariable Po </s> public ĠString Ġget Property Name () Ġ{ Ġreturn Ġproperty Name ; Ġ} </s> assert Not Null ( null Property Po inter 0 . get Property Name ()) </s>
+11/21/2026 03:41:18 - INFO - utils -   input_ids: 0 15110 13842 1296 3933 43048 6989 28106 868 25522 1209 31723 2231 31723 288 5457 92 1209 31723 46469 642 1343 4 846 705 134 45751 17255 48269 6058 3280 48269 6058 288 5457 92 17255 48269 6058 47006 44560 26170 8007 15594 26170 8007 288 5457 92 44560 26170 2 15110 26602 120 44720 31723 43048 25522 671 1038 31723 131 35524 2 46346 7199 49302 1640 15755 44720 26170 8007 288 4 6460 44720 31723 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:41:18 - INFO - utils -   *** Example ***
+11/21/2026 03:41:18 - INFO - utils -   guid: 8
+11/21/2026 03:41:18 - INFO - utils -   tokens: <s> public Ġvoid Ġtest 05 () Ġthrows ĠThrow able Ġ{ ĠNull Property Po inter Ġnull Property Po inter 0 Ġ= Ġnew ĠNull Property Po inter (( Node Po inter ) Ġnull ); Ġnull Property Po inter 0 . set Property Name (" << unknown Ġnamespace >> "); Ġ"< Ass ert Place </s> public Ġboolean Ġis Act ual () Ġ{ Ġreturn Ġfalse ; Ġ} </s> assert True ( null Property Po inter 0 . is Act ual ()) </s>
+11/21/2026 03:41:18 - INFO - utils -   input_ids: 0 15110 13842 1296 2546 43048 6989 28106 868 25522 44840 44720 26170 8007 23796 44720 26170 8007 288 5457 92 44840 44720 26170 8007 48461 48271 26170 8007 43 23796 4397 23796 44720 26170 8007 288 4 8738 44720 31723 46469 48203 42230 49010 44226 45751 49900 26039 2399 41863 2 15110 49378 16 26880 5564 43048 25522 671 3950 131 35524 2 46346 36948 1640 15755 44720 26170 8007 288 4 354 26880 5564 49338 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+11/21/2026 03:41:18 - INFO - utils -   label: 0 (id = 0)
+11/21/2026 03:41:18 - INFO - __main__ -   ***** Running evaluation  *****
+11/21/2026 03:41:18 - INFO - __main__ -     Num examples = 31
+11/21/2026 03:41:18 - INFO - __main__ -     Batch size = 256
+testing
+total_samples 31 total truncations 0, mean_trunc 0.0, median 0.0, max = 0
+Evaluating:   0%|          | 0/1 [00:00<?, ?it/s]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.87s/it]Evaluating: 100%|██████████| 1/1 [00:01<00:00,  1.87s/it]
+preparing exception model inputs
+preparing assertion model inputs
+wrote oracle predictions to oracle_preds.csv
+Bugs found with exception oracles: 0
+Bugs found with assertion oracles: 0
+Total bugs found (Note: some bugs may be detected by both exception and asssertion oracles): 0
+Estimated FP rate (Note: run 5 project sample or entire benchmark for accurate FP rate): 0.2549019607843137
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p JxPath -d /Users/bitu/mtech-tools/toga_out/JxPath-3/suite -v 3f
+Checking out 984778f3 to /tmp/fix_test_suite.pl_1339_1795261281............ --------------------------------------------------------------------------------
+JxPath-3f-toga.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 984778f3:34e73b64..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-3f....................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p JxPath -d /Users/bitu/mtech-tools/toga_out/JxPath-3/suite -o /Users/bitu/mtech-tools/toga_out/JxPath-3/detect
+Extract test suite......................................................... Executing test suite: JxPath-3f-toga.1.tar.bz2
+OK
+Checking out 984778f3 to /tmp/run_bug_detection.pl_1509_1795261327/V_fixed. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 984778f3:34e73b64..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-3f....................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 984778f3 to /tmp/run_bug_detection.pl_1509_1795261327/V_buggy. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 984778f3:34e73b64..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JxPath-3b....................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

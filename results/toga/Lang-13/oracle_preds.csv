@@ -1,0 +1,91 @@
+project,bug_num,test_name,test_prefix,except_pred,assert_pred
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test0,"  public void test0()  throws Throwable  {
+      byte[] byteArray0 = SerializationUtils.serialize((Serializable) ""He`z=H:emRP2g!AU!@"");
+      Object object0 = SerializationUtils.deserialize(byteArray0);
+      assertEquals(""He`z=H:emRP2g!AU!@"", object0);
+}",0,assertNotNull(object0)
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test0,"  public void test0()  throws Throwable  {
+      byte[] byteArray0 = SerializationUtils.serialize((Serializable) ""He`z=H:emRP2g!AU!@"");
+      Object object0 = SerializationUtils.deserialize(byteArray0);
+  }",0,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test1,"  public void test1()  throws Throwable  {
+      SerializationUtils serializationUtils0 = new SerializationUtils();
+  }",0,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test2,"  public void test2()  throws Throwable  {
+      String string0 = SerializationUtils.clone(""2\\"");
+      assertEquals(""2\\"", string0);
+}",0,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test2,"  public void test2()  throws Throwable  {
+      String string0 = SerializationUtils.clone(""2\\"");
+  }",0,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test3,"  public void test3()  throws Throwable  {
+      String string0 = SerializationUtils.clone((String) null);
+      assertNull(string0);
+}",0,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test3,"  public void test3()  throws Throwable  {
+      String string0 = SerializationUtils.clone((String) null);
+  }",0,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test4,"  public void test4()  throws Throwable  {
+      Locale locale0 = Locale.JAPANESE;
+      // Undeclared exception!
+      try { 
+        SerializationUtils.serialize((Serializable) locale0, (OutputStream) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // The OutputStream must not be null
+         //
+         verifyException(""org.apache.commons.lang3.SerializationUtils"", e);
+      }
+  }",1,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test5,"  public void test5()  throws Throwable  {
+      PipedOutputStream pipedOutputStream0 = new PipedOutputStream();
+      Locale.IsoCountryCode[] locale_IsoCountryCodeArray0 = Locale.IsoCountryCode.values();
+      // Undeclared exception!
+      try { 
+        SerializationUtils.serialize((Serializable) locale_IsoCountryCodeArray0, (OutputStream) pipedOutputStream0);
+        fail(""Expecting exception: RuntimeException"");
+      } catch(RuntimeException e) {
+         //
+         // java.io.IOException: Pipe not connected
+         //
+         verifyException(""org.apache.commons.lang3.SerializationUtils"", e);
+      }
+  }",0,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test6,"  public void test6()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        SerializationUtils.deserialize((InputStream) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // The InputStream must not be null
+         //
+         verifyException(""org.apache.commons.lang3.SerializationUtils"", e);
+      }
+  }",0,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test7,"  public void test7()  throws Throwable  {
+      byte[] byteArray0 = new byte[2];
+      // Undeclared exception!
+      try { 
+        SerializationUtils.deserialize(byteArray0);
+        fail(""Expecting exception: RuntimeException"");
+      } catch(RuntimeException e) {
+         //
+         // java.io.EOFException
+         //
+         verifyException(""org.apache.commons.lang3.SerializationUtils"", e);
+      }
+  }",1,
+Lang,13,org.apache.commons.lang3.SerializationUtils_ESTest::test8,"  public void test8()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        SerializationUtils.deserialize((byte[]) null);
+        fail(""Expecting exception: IllegalArgumentException"");
+      } catch(IllegalArgumentException e) {
+         //
+         // The byte[] must not be null
+         //
+         verifyException(""org.apache.commons.lang3.SerializationUtils"", e);
+      }
+  }",0,
