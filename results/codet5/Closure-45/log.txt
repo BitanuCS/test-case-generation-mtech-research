@@ -1,0 +1,4 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/Closure-45/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/Closure-45/outputs.jsonl
+com.google.javascript.jscomp.RemoveUnusedVars#interpretAssigns#0: 1.6s, 284 chars
+com.google.javascript.jscomp.RemoveUnusedVars#Assign#1: 4.8s, 2019 chars

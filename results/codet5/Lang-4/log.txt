@@ -1,0 +1,4 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/Lang-4/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/Lang-4/outputs.jsonl
+org.apache.commons.lang3.text.translate.LookupTranslator#LookupTranslator#0: 6.4s, 1775 chars
+org.apache.commons.lang3.text.translate.LookupTranslator#translate#1: 0.7s, 219 chars

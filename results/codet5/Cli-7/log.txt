@@ -1,0 +1,68 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/Cli-7/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/Cli-7/outputs.jsonl
+org.apache.commons.cli2.builder.PatternBuilder#create#0: 1.5s, 243 chars
+org.apache.commons.cli2.builder.PatternBuilder#reset#1: 0.5s, 202 chars
+org.apache.commons.cli2.builder.PatternBuilder#createOption#2: 5.4s, 1712 chars
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Cli -d /Users/bitu/mtech-tools/codet5_out/Cli-7/suite -v 7f
+Checking out 4ee0d6c4 to /tmp/fix_test_suite.pl_70001_1795346433........... --------------------------------------------------------------------------------
+Cli-7f-codet5.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ee0d6c4:73276486..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-7f.......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Use of uninitialized value $num_uncompilable_test_classes in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 477.
+Use of uninitialized value $num_uncompilable_test_classes in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 477.
+Use of uninitialized value $num_uncompilable_tests in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 479.
+Use of uninitialized value $num_uncompilable_tests in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 479.
+Use of uninitialized value $num_failing_tests in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 481.
+Use of uninitialized value $num_failing_tests in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 481.
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Cli -d /Users/bitu/mtech-tools/codet5_out/Cli-7/suite -o /Users/bitu/mtech-tools/codet5_out/Cli-7/detect
+Extract test suite......................................................... Executing test suite: Cli-7f-codet5.1.tar.bz2
+OK
+Checking out 4ee0d6c4 to /tmp/run_bug_detection.pl_70099_1795346437/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ee0d6c4:73276486..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-7f.......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 4ee0d6c4 to /tmp/run_bug_detection.pl_70099_1795346437/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 4ee0d6c4:73276486..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-7b.......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

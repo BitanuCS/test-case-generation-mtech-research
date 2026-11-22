@@ -1,0 +1,75 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/JacksonCore-2/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/JacksonCore-2/outputs.jsonl
+com.fasterxml.jackson.core.json.ReaderBasedJsonParser#_parseNumber#0: 7.5s, 827 chars
+com.fasterxml.jackson.core.json.ReaderBasedJsonParser#_parseNumber2#1: 0.6s, 176 chars
+com.fasterxml.jackson.core.json.ReaderBasedJsonParser#_verifyRootSpace#2: 1.0s, 285 chars
+com.fasterxml.jackson.core.json.UTF8StreamJsonParser#_parseNumber#0: 6.9s, 1852 chars
+com.fasterxml.jackson.core.json.UTF8StreamJsonParser#_parserNumber2#1: 6.5s, 1628 chars
+com.fasterxml.jackson.core.json.UTF8StreamJsonParser#_parseFloat#2: 6.8s, 1839 chars
+com.fasterxml.jackson.core.json.UTF8StreamJsonParser#_verifyRootSpace#3: 5.8s, 909 chars
+com.fasterxml.jackson.core.json.UTF8StreamJsonParser#_skipWSOrEnd#4: 5.8s, 896 chars
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p JacksonCore -d /Users/bitu/mtech-tools/codet5_out/JacksonCore-2/suite -v 2f
+Checking out 38d6e35d to /tmp/fix_test_suite.pl_72000_1795346710........... --------------------------------------------------------------------------------
+JacksonCore-2f-codet5.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_72000_1795346710/maven-build. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38d6e35d:098ece85..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-2f.................................. OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p JacksonCore -d /Users/bitu/mtech-tools/codet5_out/JacksonCore-2/suite -o /Users/bitu/mtech-tools/codet5_out/JacksonCore-2/detect
+Extract test suite......................................................... Executing test suite: JacksonCore-2f-codet5.1.tar.bz2
+OK
+Checking out 38d6e35d to /tmp/run_bug_detection.pl_72135_1795346722/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_72135_1795346722/V_fixed/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38d6e35d:098ece85..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-2f.................................. OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 38d6e35d to /tmp/run_bug_detection.pl_72135_1795346722/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_72135_1795346722/V_buggy/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 38d6e35d:098ece85..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: JacksonCore-2b.................................. OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

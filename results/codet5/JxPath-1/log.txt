@@ -1,0 +1,4 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/JxPath-1/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/JxPath-1/outputs.jsonl
+org.apache.commons.jxpath.ri.model.dom.DOMNodePointer#testNode#0: 5.8s, 1625 chars
+org.apache.commons.jxpath.ri.model.jdom.JDOMNodePointer#testNode#0: 5.3s, 1392 chars

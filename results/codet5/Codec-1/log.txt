@@ -1,0 +1,36 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/Codec-1/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/Codec-1/outputs.jsonl
+org.apache.commons.codec.language.Caverphone#caverphone#0: 6.2s, 1671 chars
+org.apache.commons.codec.language.Metaphone#metaphone#0: 0.4s, 122 chars
+org.apache.commons.codec.language.SoundexUtils#clean#0: 0.4s, 147 chars
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Codec -d /Users/bitu/mtech-tools/codet5_out/Codec-1/suite -v 1f
+Checking out 52d82d1d to /tmp/fix_test_suite.pl_70799_1795346496........... --------------------------------------------------------------------------------
+Codec-1f-codet5.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_70799_1795346496/project.prop OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 52d82d1d:9c0cabea..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Codec-1f........................................ OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

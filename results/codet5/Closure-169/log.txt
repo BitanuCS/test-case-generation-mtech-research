@@ -1,0 +1,16 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/Closure-169/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/Closure-169/outputs.jsonl
+com.google.javascript.rhino.jstype.ArrowType#hasEqualParameters#0: 1.5s, 301 chars
+com.google.javascript.rhino.jstype.ArrowType#checkArrowEquivalenceHelper#1: 0.7s, 312 chars
+com.google.javascript.rhino.jstype.FunctionType#tryMergeFunctionPiecewise#0: 5.0s, 2124 chars
+com.google.javascript.rhino.jstype.FunctionType#checkFunctionEquivalenceHelper#1: 5.1s, 2172 chars
+com.google.javascript.rhino.jstype.FunctionType#hasEqualCallType#2: 0.6s, 235 chars
+com.google.javascript.rhino.jstype.JSType#isEquivalentTo#0: 5.5s, 2269 chars
+com.google.javascript.rhino.jstype.JSType#isInvariant#1: 5.2s, 1471 chars
+com.google.javascript.rhino.jstype.JSType#differsFrom#2: 4.6s, 1320 chars
+com.google.javascript.rhino.jstype.JSType#checkEquivalenceHelper#3: 5.2s, 2019 chars
+com.google.javascript.rhino.jstype.RecordType#checkRecordEquivalenceHelper#0: 5.1s, 2023 chars
+com.google.javascript.rhino.jstype.RecordType#getGreatestSubtypeHelper#1: 0.6s, 203 chars
+com.google.javascript.rhino.jstype.RecordType#isSubtype#2: 5.2s, 1840 chars
+com.google.javascript.rhino.jstype.UnionType#checkUnionEquivalenceHelper#0: 5.0s, 2224 chars
+com.google.javascript.rhino.jstype.UnionType#hasAlternate#1: 4.8s, 1866 chars

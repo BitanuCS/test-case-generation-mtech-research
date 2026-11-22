@@ -1,0 +1,38 @@
+{
+  "bug": "Math-12",
+  "setting": "codet5",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.apache.commons.math3.random.BitsStreamGenerator",
+      "focal_methods": [
+        "BitsStreamGenerator",
+        "setSeed",
+        "setSeed",
+        "setSeed",
+        "next",
+        "nextBoolean"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 6,
+    "written": 3,
+    "precompile_dropped": 3,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 3
+  },
+  "gen_seconds": 27.0,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 34.1,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

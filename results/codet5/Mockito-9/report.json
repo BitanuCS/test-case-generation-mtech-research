@@ -1,0 +1,33 @@
+{
+  "bug": "Mockito-9",
+  "setting": "codet5",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.mockito.internal.stubbing.answers.CallsRealMethods",
+      "focal_methods": [
+        "answer"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 1,
+    "written": 1,
+    "precompile_dropped": 1,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 1
+  },
+  "gen_seconds": 1.5,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 13.6,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

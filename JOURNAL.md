@@ -246,6 +246,11 @@ The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **
 - 58 tests do not compile alone (checked by hand on a sample: invented fields like `this.parser`, AssertJ/Mockito style calls the project lacks, `'foo'` char literals); 4 more removed by `fix_test_suite.pl`. 3 bugs: the model wrote junk with no `void` method (e.g. Lang-9 `Assert.assertEquals( ( ( ( ...`).
 - Matches the A3Test paper's setting: trained on single methods (Methods2Test), it has no project context, so project-level tests mostly do not compile.
 - dev40 so far: our framework 20, EvoSuite 13, Randoop 8, TOGA 5, A3Test 0.
+
+**CodeT5 dev40 result (finished 22 Nov 2026, same script and fixes as A3Test): 0/40 detected.**
+- 81 focal methods → 59 tests after post-processing → **3 compile and pass on the fixed version** (Lang-23, Cli-7, JacksonCore-2); all 3 also pass on the buggy version.
+- 54 do not compile alone, 2 more removed by `fix_test_suite.pl`; 9 bugs: no usable test method in the model output.
+- dev40: our framework 20, EvoSuite 13, Randoop 8, TOGA 5, A3Test 0, CodeT5 0.
   - Restarted on 22 Nov ~13:00 IST with 34 bugs to go (the 6 finished bugs are unaffected).
 
 ## 6c. GitHub

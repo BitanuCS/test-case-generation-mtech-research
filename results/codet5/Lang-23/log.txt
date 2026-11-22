@@ -1,0 +1,84 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/Lang-23/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/Lang-23/outputs.jsonl
+org.apache.commons.lang3.text.ExtendedMessageFormat#equals#0: 6.6s, 1909 chars
+org.apache.commons.lang3.text.ExtendedMessageFormat#hashCode#1: 5.6s, 1759 chars
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Lang -d /Users/bitu/mtech-tools/codet5_out/Lang-23/suite -v 23f
+Checking out 249788d7 to /tmp/fix_test_suite.pl_68730_1795346289........... --------------------------------------------------------------------------------
+Lang-23f-codet5.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_68730_1795346289/maven-build. OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 249788d7:66e42dc8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-23f........................................ OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Lang -d /Users/bitu/mtech-tools/codet5_out/Lang-23/suite -o /Users/bitu/mtech-tools/codet5_out/Lang-23/detect
+Extract test suite......................................................... Executing test suite: Lang-23f-codet5.1.tar.bz2
+OK
+Checking out 249788d7 to /tmp/run_bug_detection.pl_68880_1795346302/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_68880_1795346302/V_fixed/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 249788d7:66e42dc8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-23f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 249788d7 to /tmp/run_bug_detection.pl_68880_1795346302/V_buggy OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Copy generated Ant build file.............................................. OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_68880_1795346302/V_buggy/m OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 249788d7:66e42dc8..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-23b........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

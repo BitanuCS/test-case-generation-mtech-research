@@ -1,0 +1,33 @@
+{
+  "bug": "Gson-6",
+  "setting": "codet5",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory",
+      "focal_methods": [
+        "getTypeAdapter"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 1,
+    "written": 1,
+    "precompile_dropped": 1,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 1
+  },
+  "gen_seconds": 1.4,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 6.4,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

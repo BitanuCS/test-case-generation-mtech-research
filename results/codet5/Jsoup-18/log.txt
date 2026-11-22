@@ -1,0 +1,4 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/Jsoup-18/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/Jsoup-18/outputs.jsonl
+org.jsoup.parser.CharacterReader#CharacterReader#0: 5.8s, 573 chars
+org.jsoup.parser.CharacterReader#consumeToEnd#1: 4.8s, 2088 chars

@@ -1,0 +1,37 @@
+{
+  "bug": "Time-1",
+  "setting": "codet5",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.joda.time.field.UnsupportedDurationField",
+      "focal_methods": [
+        "compareTo"
+      ]
+    },
+    {
+      "class": "org.joda.time.Partial",
+      "focal_methods": [
+        "Partial"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 2,
+    "written": 0,
+    "precompile_dropped": 0
+  },
+  "gen_seconds": 11.7,
+  "error": "no generated test survived post-processing",
+  "seconds": 16.4,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

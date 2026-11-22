@@ -1,0 +1,33 @@
+{
+  "bug": "Lang-9",
+  "setting": "codet5",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.apache.commons.lang3.time.FastDateParser",
+      "focal_methods": [
+        "init"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 1,
+    "written": 1,
+    "precompile_dropped": 1,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 1
+  },
+  "gen_seconds": 1.3,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 6.8,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

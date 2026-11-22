@@ -1,0 +1,60 @@
+{
+  "bug": "Lang-23",
+  "setting": "codet5",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.apache.commons.lang3.text.ExtendedMessageFormat",
+      "focal_methods": [
+        "equals",
+        "hashCode"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 2,
+    "written": 2,
+    "precompile_dropped": 1,
+    "kept_on_fixed": 1,
+    "removed_on_fixed": 1,
+    "assertions_commented_out": 0
+  },
+  "gen_seconds": 12.2,
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "23f",
+      "test_suite_source": "codet5",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 185,
+      "lines_covered": 19,
+      "branches_total": 111,
+      "branches_covered": 7,
+      "line": 0.103,
+      "branch": 0.063
+    },
+    "major_mutation": {
+      "generated": 266,
+      "covered": 266,
+      "killed": 256,
+      "score": 0.962
+    }
+  },
+  "seconds": 70.5,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py codet5 /Users/bitu/mtech-tools/codet5_out/Math-12/inputs.jsonl /Users/bitu/mtech-tools/codet5_out/Math-12/outputs.jsonl
+org.apache.commons.math3.random.BitsStreamGenerator#BitsStreamGenerator#0: 5.7s, 1722 chars
+org.apache.commons.math3.random.BitsStreamGenerator#setSeed#1: 5.4s, 1034 chars
+org.apache.commons.math3.random.BitsStreamGenerator#setSeed#2: 5.1s, 1034 chars
+org.apache.commons.math3.random.BitsStreamGenerator#setSeed#3: 5.2s, 2001 chars
+org.apache.commons.math3.random.BitsStreamGenerator#next#4: 5.2s, 1032 chars
+org.apache.commons.math3.random.BitsStreamGenerator#nextBoolean#5: 0.4s, 182 chars

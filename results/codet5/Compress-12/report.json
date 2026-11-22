@@ -1,0 +1,31 @@
+{
+  "bug": "Compress-12",
+  "setting": "codet5",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.apache.commons.compress.archivers.tar.TarArchiveInputStream",
+      "focal_methods": [
+        "getNextTarEntry"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 1,
+    "written": 0,
+    "precompile_dropped": 0
+  },
+  "gen_seconds": 8.3,
+  "error": "no generated test survived post-processing",
+  "seconds": 14.4,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}
