@@ -1,0 +1,34 @@
+{
+  "bug": "Jsoup-7",
+  "setting": "a3test",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.jsoup.nodes.Document",
+      "focal_methods": [
+        "normalise",
+        "normaliseStructure"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 2,
+    "written": 2,
+    "precompile_dropped": 2,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 2
+  },
+  "gen_seconds": 6.1,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 13.0,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py a3test /Users/bitu/mtech-tools/a3test_out/Math-2/inputs.jsonl /Users/bitu/mtech-tools/a3test_out/Math-2/outputs.jsonl
+org.apache.commons.math3.distribution.HypergeometricDistribution#getNumericalMean#0: 2.0s, 308 chars
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Math -d /Users/bitu/mtech-tools/a3test_out/Math-2/suite -v 2f
+Checking out f1467e45 to /tmp/fix_test_suite.pl_29358_1795325243........... --------------------------------------------------------------------------------
+Math-2f-a3test.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f1467e45:6d66a863..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-2f......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/fix_test_suite.pl_29358_1795325243 && ant -f /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/Users/bitu/mtech-tools/defects4j -Dd4j.dir.projects=/Users/bitu/mtech-tools/defects4j/framework/projects -Dbasedir=/tmp/fix_test_suite.pl_29358_1795325243 -Dd4j.test.dir=/tmp/fix_test_suite.pl_29358_1795325243/a3test compile.gen.tests 2>&1
+Buildfile: /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml
+[hastarget] Warning: Nashorn engine is planned to be removed from a future JDK release
+
+init:
+     [echo] -------- Commons MATH 3.1-SNAPSHOT --------
+    [mkdir] Created dir: /tmp/fix_test_suite.pl_29358_1795325243/target
+    [mkdir] Created dir: /tmp/fix_test_suite.pl_29358_1795325243/target/classes
+    [mkdir] Created dir: /tmp/fix_test_suite.pl_29358_1795325243/target/test-classes
+     [copy] Copying 2 files to /tmp/fix_test_suite.pl_29358_1795325243/target/classes
+
+compile:
+    [javac] Compiling 808 source files to /tmp/fix_test_suite.pl_29358_1795325243/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] Note: Some input files use or override a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+    [javac] Note: /tmp/fix_test_suite.pl_29358_1795325243/src/main/java/org/apache/commons/math3/optim/AbstractOptimizer.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 4 warnings
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optim/nonlinear/scalar/gradient/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optimization/univariate/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/regression/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/geometry/euclidean/oned/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optimization/linear/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/exception/util/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/util/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/analysis/integration/gauss/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/ml/clustering/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/descriptive/moment/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/analysis/function/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/dfp/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/descriptive/rank/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/fitting/leastsquares/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/ode/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/transform/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/analysis/interpolation/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/analysis/integration/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/geometry/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optim/linear/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optimization/fitting/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/ode/nonstiff/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/linear/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/filter/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/correlation/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optimization/direct/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/distribution/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/special/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/clustering/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/inference/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/fitting/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/ml/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optimization/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/ranking/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/descriptive/summary/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/analysis/polynomials/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/fraction/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/genetics/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/geometry/euclidean/threed/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/primes/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/geometry/partitioning/utilities/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/exception/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optim/nonlinear/vector/jacobian/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/distribution/fitting/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/complex/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/random/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/analysis/differentiation/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/analysis/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optim/nonlinear/scalar/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/geometry/partitioning/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/ode/sampling/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/geometry/euclidean/twod/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/stat/descriptive/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optimization/general/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optim/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/analysis/solvers/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optim/nonlinear/vector/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/ml/distance/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/optim/univariate/package-info.class
+    [javac] Creating empty /tmp/fix_test_suite.pl_29358_1795325243/target/classes/org/apache/commons/math3/ode/events/package-info.class
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target
+    [mkdir] Created dir: /tmp/fix_test_suite.pl_29358_1795325243/.classes_testgen
+    [javac] /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/fix_test_suite.pl_29358_1795325243/.classes_testgen
+    [javac] /tmp/fix_test_suite.pl_29358_1795325243/a3test/org/apache/commons/math3/distribution/HypergeometricDistribution_A30_Test.java:16: error: cannot find symbol
+    [javac] @Test public void testMean() throws Exception { Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); }
+    [javac]                                                 ^
+    [javac]   symbol:   variable Assert
+    [javac]   location: class HypergeometricDistribution_A30_Test
+    [javac] 1 error
+
+BUILD FAILED
+/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 3 seconds
+Remove uncompilable test method(s)......................................... Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/^([^/]*)public.+testMean() throws Exception { <-- HERE  Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean\(\)/ at /Users/bitu/mtech-tools/defects4j/framework/util/rm_broken_tests.pl line 225.
+Unmatched ( in regex; marked by <-- HERE in m/^([^/]*)public.+testMean() throws Exception { Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals( <-- HERE 1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean\(\)/ at /Users/bitu/mtech-tools/defects4j/framework/util/rm_broken_tests.pl line 225.
+FAIL
+Executed command: export D4J_RM_ASSERTS=0 && /Users/bitu/mtech-tools/defects4j/framework/util/rm_broken_tests.pl /tmp/fix_test_suite.pl_29358_1795325243/uncompilable-test-cases.txt /tmp/fix_test_suite.pl_29358_1795325243/a3test
+Cannot remove uncompilable test method(s) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 463.
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Math -d /Users/bitu/mtech-tools/a3test_out/Math-2/suite -o /Users/bitu/mtech-tools/a3test_out/Math-2/detect
+Extract test suite......................................................... Executing test suite: Math-2f-a3test.1.tar.bz2
+OK
+Checking out f1467e45 to /tmp/run_bug_detection.pl_29455_1795325251/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff f1467e45:6d66a863..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Math-2f......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/run_bug_detection.pl_29455_1795325251/V_fixed && ant -f /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/Users/bitu/mtech-tools/defects4j -Dd4j.dir.projects=/Users/bitu/mtech-tools/defects4j/framework/projects -Dbasedir=/tmp/run_bug_detection.pl_29455_1795325251/V_fixed -Dd4j.test.dir=/tmp/run_bug_detection.pl_29455_1795325251/a3test compile.gen.tests 2>&1
+Buildfile: /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml
+[hastarget] Warning: Nashorn engine is planned to be removed from a future JDK release
+
+init:
+     [echo] -------- Commons MATH 3.1-SNAPSHOT --------
+
+compile:
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target
+    [mkdir] Created dir: /tmp/run_bug_detection.pl_29455_1795325251/V_fixed/.classes_testgen
+    [javac] /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /tmp/run_bug_detection.pl_29455_1795325251/V_fixed/.classes_testgen
+    [javac] /tmp/run_bug_detection.pl_29455_1795325251/a3test/org/apache/commons/math3/distribution/HypergeometricDistribution_A30_Test.java:16: error: cannot find symbol
+    [javac] @Test public void testMean() throws Exception { Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); }
+    [javac]                                                 ^
+    [javac]   symbol:   variable Assert
+    [javac]   location: class HypergeometricDistribution_A30_Test
+    [javac] 1 error
+
+BUILD FAILED
+/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds

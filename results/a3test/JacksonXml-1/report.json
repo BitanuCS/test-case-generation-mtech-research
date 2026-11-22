@@ -1,0 +1,31 @@
+{
+  "bug": "JacksonXml-1",
+  "setting": "a3test",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "com.fasterxml.jackson.dataformat.xml.deser.FromXmlParser",
+      "focal_methods": [
+        "nextToken"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 1,
+    "written": 0,
+    "precompile_dropped": 0
+  },
+  "gen_seconds": 5.0,
+  "error": "no generated test survived post-processing",
+  "seconds": 9.6,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

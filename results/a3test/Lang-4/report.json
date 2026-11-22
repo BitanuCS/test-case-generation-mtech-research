@@ -1,0 +1,46 @@
+{
+  "bug": "Lang-4",
+  "setting": "a3test",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.apache.commons.lang3.text.translate.LookupTranslator",
+      "focal_methods": [
+        "LookupTranslator",
+        "translate"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 2,
+    "written": 2,
+    "kept_on_fixed": 2,
+    "removed_on_fixed": 0,
+    "assertions_commented_out": 0
+  },
+  "gen_seconds": 9.0,
+  "detection_rows": [
+    {
+      "project_id": "Lang",
+      "version_id": "4f",
+      "test_suite_source": "a3test",
+      "test_id": "1",
+      "test_classification": "Broken",
+      "num_trigger": "-"
+    }
+  ],
+  "standard_metrics": {
+    "error": "ows Exception { final LookupTranslator translator = new LookupTranslator(new CharSequence[] { \"a\", \"b\", \"c\" }, new CharSequence[] { \"a\", \"b\", \"c\" }); Assert.assertEquals(lookup(\"a\", \"b\", \"c\"), translator.translate(\"a\", 2, new StringWriter())); Assert.assertEquals(lookup(\"a\", \"b\", \"c\"), translator.translate(\"a\", 2, new StringWriter())); Assert.assertEquals(lookup(\"a\", \"b\", \"c\"), translator.translate(\"a\", 2, new StringWriter())); Assert.assertEquals(lookup(\"a\", \"b\", \"c\"), translator.translate(\"a\", 2, new StringWriter())); Assert.assertEquals(lookup(\"a\", \"b\", \"c\"), translator.translate(\"a\", 2, new StringWriter())); Assert.assertEquals(lookup(\"a\", \"b\", \"c\"), translator.translate(\"a\", 2, new StringWriter())); Assert.assertEquals(lookup(\"a\", \"b\", \"c\"), translator.translate(\"a\", 2, new StringWriter())); Assert.assertEquals(lookup(\"a\", \"b\", \"c\"), translator.translate(\"a\", 2, new StringWriter())); }\n    [javac]                                                                                                                                                                                                   ^\n    [javac]   symbol:   variable Assert\n    [javac]   location: class LookupTranslator_A30_Test\n    [javac] 1 error\n\nBUILD FAILED\n/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.\n\nTotal time: 1 second\nTests do not compile! at /Users/bitu/mtech-tools/defects4j/framework/bin/run_mutation.pl line 326.\n"
+  },
+  "seconds": 47.5,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

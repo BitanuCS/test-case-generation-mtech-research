@@ -1,0 +1,45 @@
+{
+  "bug": "Math-2",
+  "setting": "a3test",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+      "focal_methods": [
+        "getNumericalMean"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 1,
+    "written": 1,
+    "kept_on_fixed": 1,
+    "removed_on_fixed": 0,
+    "assertions_commented_out": 0
+  },
+  "gen_seconds": 2.0,
+  "detection_rows": [
+    {
+      "project_id": "Math",
+      "version_id": "2f",
+      "test_suite_source": "a3test",
+      "test_id": "1",
+      "test_classification": "Broken",
+      "num_trigger": "-"
+    }
+  ],
+  "standard_metrics": {
+    "error": ".home: target\n    [mkdir] Created dir: /Users/bitu/mtech-tools/a3test_out/Math-2/std/tmp/run_mutation.pl_29676_1795325269/2f/.classes_testgen\n    [javac] /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds\n    [javac] Compiling 1 source file to /Users/bitu/mtech-tools/a3test_out/Math-2/std/tmp/run_mutation.pl_29676_1795325269/2f/.classes_testgen\n    [javac] /Users/bitu/mtech-tools/a3test_out/Math-2/std/tmp/run_mutation.pl_29676_1795325269/a3test/org/apache/commons/math3/distribution/HypergeometricDistribution_A30_Test.java:16: error: cannot find symbol\n    [javac] @Test public void testMean() throws Exception { Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); Assert.assertEquals(1.5, new HypergeometricDistribution(1, 2, 1).getNumericalMean(), 1e-6); }\n    [javac]                                                 ^\n    [javac]   symbol:   variable Assert\n    [javac]   location: class HypergeometricDistribution_A30_Test\n    [javac] 1 error\n\nBUILD FAILED\n/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.\n\nTotal time: 3 seconds\nTests do not compile! at /Users/bitu/mtech-tools/defects4j/framework/bin/run_mutation.pl line 326.\n"
+  },
+  "seconds": 61.5,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

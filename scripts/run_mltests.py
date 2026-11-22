@@ -20,8 +20,10 @@ Results: results/<tool>/<bug>/report.json (+ <tool>_tests.tar.bz2). Finished bug
 import argparse
 import csv
 import json
+import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import tarfile
@@ -31,7 +33,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from our_framework import context, d4j, standard_metrics  # noqa: E402
+from our_framework import context, d4j, runner, standard_metrics  # noqa: E402
 from our_framework import java_parse as jp  # noqa: E402
 from our_framework.config import TOOLS_DIR  # noqa: E402
 from our_framework.pipeline import RESULTS_DIR  # noqa: E402
@@ -87,6 +89,16 @@ def post_process(gen):
     return " ".join(words)
 
 
+def compiles_alone(bug, package, name, body):
+    """Each test is its own class, so a test that does not compile alone is exactly what
+    fix_test_suite.pl would remove. We check it up front (javac 11, the fixed version's
+    test classpath, as our framework) because the models write each test on ONE line and
+    Defects4J's rm_broken_tests.pl cannot cut a broken one-line method out: it loops forever
+    (seen on Math-12: 'void test BitsStreamGenerator()', 'i *= *= *='). Dropped tests are
+    counted as removed on the fixed version (same outcome)."""
+    return runner.compile_test(bug, "f", package, name, body, tag="mlpre").ok
+
+
 def add_throws(test):
     head, brace, rest = test.partition("{")
     if "throws" not in head:
@@ -101,9 +113,12 @@ def sh(cmd, log, cwd=None, timeout=7200):
         try:
             env = d4j._env()
             env.update(HF_HUB_OFFLINE="1", HF_HUB_DISABLE_IMPLICIT_TOKEN="1")   # models are local; no login
-            return subprocess.run(list(map(str, cmd)), cwd=cwd, env=env, stdout=f,
-                                  stderr=subprocess.STDOUT, timeout=timeout).returncode
+            proc = subprocess.Popen(list(map(str, cmd)), cwd=cwd, env=env, stdout=f,
+                                    stderr=subprocess.STDOUT, start_new_session=True)
+            return proc.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
+            os.killpg(proc.pid, signal.SIGKILL)      # kill the whole tree (perl -> ant -> java)
+            proc.wait()
             f.write(f"\nTIMEOUT after {timeout}s\n")
             return -1
 
@@ -133,7 +148,7 @@ def one(bug, tool):
     b.checkout("f")
     b.checkout("b")
     inputs, classes = [], []
-    for fqn in [c for c in b.export("classes.modified").split(";") if c]:
+    for fqn in [c for c in re.split(r"[;\n]", b.export("classes.modified")) if c.strip()]:
         ctx = context.build(b, fqn, "f")
         entry = {"class": fqn, "focal_methods": [m.name for m in ctx.focal_methods]}
         if ctx.skip_reason or not ctx.focal_methods:
@@ -158,7 +173,7 @@ def one(bug, tool):
         return finish(report, out, work, log, t)
     gens = [json.loads(line) for line in open(work / "outputs.jsonl")]
     src = work / "src"
-    written = 0
+    written = bad_name = 0
     for k, g in enumerate(gens):
         test = post_process(g["generated"])
         g["test"] = test
@@ -169,16 +184,24 @@ def one(bug, tool):
                           "import org.junit.Test;", "import static org.junit.Assert.*;",
                           "import static org.hamcrest.CoreMatchers.*;", "",   # the models also write assertThat(x, is(..))
                           f"public class {name} {{", "", add_throws(test), "}", ""])
+        if not compiles_alone(b, g["package"], name, body):
+            g["dropped"] = "does not compile on the fixed version"
+            bad_name += 1
+            continue
         p = src / Path(*g["package"].split(".")) / f"{name}.java"
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(body)
         written += 1
     out.mkdir(parents=True, exist_ok=True)
     (out / "generated.jsonl").write_text("".join(json.dumps(g) + "\n" for g in gens))
-    report["tests"] = {"focal_methods": len(inputs), "written": written}
+    report["tests"] = {"focal_methods": len(inputs), "written": written + bad_name,
+                       "precompile_dropped": bad_name}
     report["gen_seconds"] = round(sum(g.get("gen_seconds", 0) for g in gens), 1)
     if not written:
-        report["error"] = "no generated test survived post-processing"
+        report["error"] = ("no generated test survived post-processing" if not bad_name
+                           else "no generated test compiles and passes on the fixed version")
+        if bad_name:
+            report["tests"].update(kept_on_fixed=0, removed_on_fixed=bad_name)
         return finish(report, out, work, log, t)
     suite = work / "suite"
     suite.mkdir()
@@ -187,9 +210,14 @@ def one(bug, tool):
         for p in src.iterdir():
             tar.add(p, arcname=p.name)
     shutil.copy(arch, out / f"{tool}_tests.tar.bz2")
-    sh([BIN.parent / "util" / "fix_test_suite.pl", "-p", project, "-d", suite, "-v", f"{bid}f"], log)
+    sh_rc = sh([BIN.parent / "util" / "fix_test_suite.pl", "-p", project, "-d", suite, "-v", f"{bid}f"],
+               log, timeout=3600)
     kept, flaky = count_tests(arch) if arch.exists() else (0, 0)
-    report["tests"].update(kept_on_fixed=kept, removed_on_fixed=written - kept, assertions_commented_out=flaky)
+    if sh_rc == -1:
+        report["error"] = "fix_test_suite.pl timed out"
+        return finish(report, out, work, log, t)
+    report["tests"].update(kept_on_fixed=kept, removed_on_fixed=written + bad_name - kept,
+                           assertions_commented_out=flaky)
     if arch.exists():
         shutil.copy(arch, out / f"{tool}_tests_kept.tar.bz2")    # the suite after fix_test_suite
     if not kept:

@@ -1,0 +1,45 @@
+{
+  "bug": "JacksonCore-2",
+  "setting": "a3test",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser",
+      "focal_methods": [
+        "_parseNumber",
+        "_parseNumber2",
+        "_verifyRootSpace"
+      ]
+    },
+    {
+      "class": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser",
+      "focal_methods": [
+        "_parseNumber",
+        "_parserNumber2",
+        "_parseFloat",
+        "_verifyRootSpace",
+        "_skipWSOrEnd"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 8,
+    "written": 8,
+    "precompile_dropped": 8,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 8
+  },
+  "gen_seconds": 22.0,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 31.7,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "bug": "Gson-2",
+  "setting": "a3test",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "com.google.gson.internal.bind.TypeAdapters",
+      "focal_methods": [
+        "newTypeHierarchyFactory"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 1,
+    "written": 1,
+    "precompile_dropped": 1,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 1
+  },
+  "gen_seconds": 2.5,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 7.8,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

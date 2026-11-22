@@ -232,6 +232,22 @@ The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **
 - Many tests removed as false alarms on the fixed version (e.g. JacksonCore-2: 650 of 2078; Closure-169: 222 of 787).
 - dev40 so far: our framework 20, EvoSuite 13, Randoop 8, TOGA 5.
 
+**A3Test dev40 run (started 22 Nov 2026, ~00:00 IST).**
+- Lang-9: the model wrote junk (`Assert.assertEquals( ( ( ( ...`) for the long private `init`, so no test. Model limitation, counted as missed.
+- **Math-12 hung ~2 h (awake time; the laptop also slept most of the night).** The model wrote `void test BitsStreamGenerator()` (space in the name). That can never compile, and Defects4J's `rm_broken_tests.pl` cannot match it, so `fix_test_suite.pl` looped forever.
+  - A second broken test (`i *= *= *=`) looped the same way. Cause: the models write each test on ONE line, and `rm_broken_tests.pl` cannot cut a broken one-line method out.
+  - Fix in `run_mltests.py`: each test is its own class, so each one is compiled alone first (javac 11, the fixed version's `cp.test`, same as our framework). Tests that do not compile are dropped and counted as removed on the fixed version (`precompile_dropped`) — exactly what `fix_test_suite.pl` would do if it could.
+  - `sh()` now runs each command in its own process group and kills the whole tree on time-out; `fix_test_suite.pl` has a 1 h limit (recorded as an error if hit).
+  - Math-12 after the fix: 5 of 5 tests do not compile, missed (15.7 s).
+- **Harness bug found (22 Nov):** `run_mltests.py` split `classes.modified` on `;`, but Defects4J prints one class per line. 5 bugs with several modified classes (Codec-1, JxPath-1, Time-1, JacksonCore-2, Closure-169) got no input ("no focal method"). Fixed (split on `;` or newline) and those 5 redone; first tries kept in `mtech-tools/a3test_out/_split_bug_first_try`. CodeT5 uses the same script, so it is fixed too. Same bug fixed in `advertest_extras.py`; it did not affect AdverTest so far (only Lang-4/9/13 run, one class each).
+
+**A3Test dev40 result (finished 22 Nov 2026, 16:44 IST): 0/40 detected.**
+- 81 focal methods → 68 tests after A3Test's post-processing → **6 compile and pass on the fixed version** (Lang-4, Lang-13, Math-2, Chart-13); all 6 also pass on the buggy version.
+- 58 tests do not compile alone (checked by hand on a sample: invented fields like `this.parser`, AssertJ/Mockito style calls the project lacks, `'foo'` char literals); 4 more removed by `fix_test_suite.pl`. 3 bugs: the model wrote junk with no `void` method (e.g. Lang-9 `Assert.assertEquals( ( ( ( ...`).
+- Matches the A3Test paper's setting: trained on single methods (Methods2Test), it has no project context, so project-level tests mostly do not compile.
+- dev40 so far: our framework 20, EvoSuite 13, Randoop 8, TOGA 5, A3Test 0.
+  - Restarted on 22 Nov ~13:00 IST with 34 bugs to go (the 6 finished bugs are unaffected).
+
 ## 6c. GitHub
 
 Public repository: https://github.com/BitanuCS/test-case-generation-mtech-research (first push on 17 Nov 2026). Not uploaded: `.env` (API keys), `cache/`, `Research/` PDFs, `old_results_backup.zip` and logs (see `.gitignore`). To update it: `git add -A && git commit -m "..." && git push`.

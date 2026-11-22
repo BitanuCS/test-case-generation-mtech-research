@@ -1,0 +1,34 @@
+{
+  "bug": "Chart-10",
+  "setting": "a3test",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.jfree.chart.imagemap.StandardToolTipTagFragmentGenerator",
+      "focal_methods": [
+        "generateToolTipFragment"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 1,
+    "written": 1,
+    "precompile_dropped": 0,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 1,
+    "assertions_commented_out": 0
+  },
+  "gen_seconds": 1.3,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 26.3,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

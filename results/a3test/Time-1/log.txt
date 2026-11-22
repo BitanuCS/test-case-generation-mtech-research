@@ -1,0 +1,4 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py a3test /Users/bitu/mtech-tools/a3test_out/Time-1/inputs.jsonl /Users/bitu/mtech-tools/a3test_out/Time-1/outputs.jsonl
+org.joda.time.field.UnsupportedDurationField#compareTo#0: 4.9s, 1364 chars
+org.joda.time.Partial#Partial#0: 4.3s, 997 chars

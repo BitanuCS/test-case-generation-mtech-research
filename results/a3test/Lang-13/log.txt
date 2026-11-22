@@ -1,0 +1,128 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py a3test /Users/bitu/mtech-tools/a3test_out/Lang-13/inputs.jsonl /Users/bitu/mtech-tools/a3test_out/Lang-13/outputs.jsonl
+org.apache.commons.lang3.SerializationUtils#ClassLoaderAwareObjectInputStream#0: 1.7s, 367 chars
+org.apache.commons.lang3.SerializationUtils#resolveClass#1: 0.8s, 262 chars
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Lang -d /Users/bitu/mtech-tools/a3test_out/Lang-13/suite -v 13f
+Checking out e9429c05 to /tmp/fix_test_suite.pl_28402_1795325153........... --------------------------------------------------------------------------------
+Lang-13f-a3test.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_28402_1795325153/default.prop OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e9429c05:81797ed4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-13f........................................ OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/fix_test_suite.pl_28402_1795325153 && ant -f /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/Users/bitu/mtech-tools/defects4j -Dd4j.dir.projects=/Users/bitu/mtech-tools/defects4j/framework/projects -Dbasedir=/tmp/fix_test_suite.pl_28402_1795325153 -Dd4j.test.dir=/tmp/fix_test_suite.pl_28402_1795325153/a3test compile.gen.tests 2>&1
+Buildfile: /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-lang3 3.2-SNAPSHOT --------
+    [mkdir] Created dir: /tmp/fix_test_suite.pl_28402_1795325153/target
+
+compile:
+    [mkdir] Created dir: /tmp/fix_test_suite.pl_28402_1795325153/target/classes
+    [javac] Compiling 106 source files to /tmp/fix_test_suite.pl_28402_1795325153/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 6
+    [javac] warning: [options] source value 6 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.6 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] /tmp/fix_test_suite.pl_28402_1795325153/src/main/java/org/apache/commons/lang3/reflect/FieldUtils.java:305: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (forceAccess && !field.isAccessible()) {
+    [javac]                                  ^
+    [javac] /tmp/fix_test_suite.pl_28402_1795325153/src/main/java/org/apache/commons/lang3/reflect/FieldUtils.java:514: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (forceAccess && !field.isAccessible()) {
+    [javac]                                  ^
+    [javac] /tmp/fix_test_suite.pl_28402_1795325153/src/main/java/org/apache/commons/lang3/reflect/MemberUtils.java:55: warning: [deprecation] isAccessible() in AccessibleObject has been deprecated
+    [javac]         if (o == null || o.isAccessible()) {
+    [javac]                           ^
+    [javac] 7 warnings
+     [copy] Copying 1 file to /tmp/fix_test_suite.pl_28402_1795325153/target/classes
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target
+    [mkdir] Created dir: /tmp/fix_test_suite.pl_28402_1795325153/.classes_testgen
+    [javac] /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 2 source files to /tmp/fix_test_suite.pl_28402_1795325153/.classes_testgen
+    [javac] /tmp/fix_test_suite.pl_28402_1795325153/a3test/org/apache/commons/lang3/SerializationUtils_A30_Test.java:20: error: cannot find symbol
+    [javac] @Test public void testClassLoaderAwareObjectInputStream() throws IOException { ClassLoaderAwareObjectInputStream classLoaderAwareObjectInputStream = new ClassLoaderAwareObjectInputStream(getClass().getResourceAsStream("/test.class"), getClass().getClassLoader()); assertEquals(classLoaderAwareObjectInputStream.getClass(), classLoaderAwareObjectInputStream.getClass()); }
+    [javac]                                                                                ^
+    [javac]   symbol:   class ClassLoaderAwareObjectInputStream
+    [javac]   location: class SerializationUtils_A30_Test
+    [javac] Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+    [javac] 1 error
+
+BUILD FAILED
+/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 1 second
+Remove uncompilable test method(s)......................................... Unescaped left brace in regex is passed through in regex; marked by <-- HERE in m/^([^/]*)public.+testClassLoaderAwareObjectInputStream() throws IOException { <-- HERE  ClassLoaderAwareObjectInputStream classLoaderAwareObjectInputStream = new ClassLoaderAwareObjectInputStream(getClass().getResourceAsStream("/test.class"), getClass().getClassLoader()); assertEquals(classLoaderAwareObjectInputStream.getClass(), classLoaderAwareObjectInputStream.getClass\(\)/ at /Users/bitu/mtech-tools/defects4j/framework/util/rm_broken_tests.pl line 225.
+Unmatched ( in regex; marked by <-- HERE in m/^([^/]*)public.+testClassLoaderAwareObjectInputStream() throws IOException { ClassLoaderAwareObjectInputStream classLoaderAwareObjectInputStream = new ClassLoaderAwareObjectInputStream(getClass().getResourceAsStream("/test.class"), getClass().getClassLoader()); assertEquals( <-- HERE classLoaderAwareObjectInputStream.getClass(), classLoaderAwareObjectInputStream.getClass\(\)/ at /Users/bitu/mtech-tools/defects4j/framework/util/rm_broken_tests.pl line 225.
+FAIL
+Executed command: export D4J_RM_ASSERTS=0 && /Users/bitu/mtech-tools/defects4j/framework/util/rm_broken_tests.pl /tmp/fix_test_suite.pl_28402_1795325153/uncompilable-test-cases.txt /tmp/fix_test_suite.pl_28402_1795325153/a3test
+Cannot remove uncompilable test method(s) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 463.
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Lang -d /Users/bitu/mtech-tools/a3test_out/Lang-13/suite -o /Users/bitu/mtech-tools/a3test_out/Lang-13/detect
+Extract test suite......................................................... Executing test suite: Lang-13f-a3test.1.tar.bz2
+OK
+Checking out e9429c05 to /tmp/run_bug_detection.pl_28506_1795325159/V_fixed OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Apply patch................................................................ OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Backing up build file: /tmp/run_bug_detection.pl_28506_1795325159/V_fixed/d OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff e9429c05:81797ed4..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Lang-13f........................................ OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ FAIL
+Executed command:  cd /tmp/run_bug_detection.pl_28506_1795325159/V_fixed && ant -f /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml -Dd4j.home=/Users/bitu/mtech-tools/defects4j -Dd4j.dir.projects=/Users/bitu/mtech-tools/defects4j/framework/projects -Dbasedir=/tmp/run_bug_detection.pl_28506_1795325159/V_fixed -Dd4j.test.dir=/tmp/run_bug_detection.pl_28506_1795325159/a3test compile.gen.tests 2>&1
+Buildfile: /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml
+
+init:
+     [echo] -------- commons-lang3 3.2-SNAPSHOT --------
+
+compile:
+
+compile.gen.tests:
+     [echo] classes.dir: target/classes
+     [echo] build.home: target
+    [mkdir] Created dir: /tmp/run_bug_detection.pl_28506_1795325159/V_fixed/.classes_testgen
+    [javac] /Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 2 source files to /tmp/run_bug_detection.pl_28506_1795325159/V_fixed/.classes_testgen
+    [javac] /tmp/run_bug_detection.pl_28506_1795325159/a3test/org/apache/commons/lang3/SerializationUtils_A30_Test.java:20: error: cannot find symbol
+    [javac] @Test public void testClassLoaderAwareObjectInputStream() throws IOException { ClassLoaderAwareObjectInputStream classLoaderAwareObjectInputStream = new ClassLoaderAwareObjectInputStream(getClass().getResourceAsStream("/test.class"), getClass().getClassLoader()); assertEquals(classLoaderAwareObjectInputStream.getClass(), classLoaderAwareObjectInputStream.getClass()); }
+    [javac]                                                                                ^
+    [javac]   symbol:   class ClassLoaderAwareObjectInputStream
+    [javac]   location: class SerializationUtils_A30_Test
+    [javac] Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+    [javac] 1 error
+
+BUILD FAILED
+/Users/bitu/mtech-tools/defects4j/framework/projects/defects4j.build.xml:268: Compile failed; see the compiler error output for details.
+
+Total time: 0 seconds

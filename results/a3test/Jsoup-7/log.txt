@@ -1,0 +1,4 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py a3test /Users/bitu/mtech-tools/a3test_out/Jsoup-7/inputs.jsonl /Users/bitu/mtech-tools/a3test_out/Jsoup-7/outputs.jsonl
+org.jsoup.nodes.Document#normalise#0: 1.9s, 175 chars
+org.jsoup.nodes.Document#normaliseStructure#1: 4.2s, 486 chars

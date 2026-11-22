@@ -1,0 +1,4 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py a3test /Users/bitu/mtech-tools/a3test_out/Collections-1/inputs.jsonl /Users/bitu/mtech-tools/a3test_out/Collections-1/outputs.jsonl
+org.apache.commons.collections.map.Flat3Map#setValue#0: 5.0s, 877 chars
+org.apache.commons.collections.map.Flat3Map#setValue#1: 4.2s, 877 chars

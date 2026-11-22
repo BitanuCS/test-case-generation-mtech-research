@@ -1,0 +1,5 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py a3test /Users/bitu/mtech-tools/a3test_out/Codec-1/inputs.jsonl /Users/bitu/mtech-tools/a3test_out/Codec-1/outputs.jsonl
+org.apache.commons.codec.language.Caverphone#caverphone#0: 1.7s, 90 chars
+org.apache.commons.codec.language.Metaphone#metaphone#0: 4.9s, 919 chars
+org.apache.commons.codec.language.SoundexUtils#clean#0: 4.8s, 923 chars

@@ -1,0 +1,4 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py a3test /Users/bitu/mtech-tools/a3test_out/Mockito-2/inputs.jsonl /Users/bitu/mtech-tools/a3test_out/Mockito-2/outputs.jsonl
+org.mockito.internal.util.Timer#Timer#0: 4.2s, 759 chars
+org.mockito.internal.util.Timer#validateInput#1: 1.0s, 225 chars

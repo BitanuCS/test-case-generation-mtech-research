@@ -1,0 +1,3 @@
+
+$ /Users/bitu/mtech-tools/toga/.venv/bin/python /Users/bitu/Documents/DTU/Mtech Research project/scripts/ml_testgen.py a3test /Users/bitu/mtech-tools/a3test_out/Gson-6/inputs.jsonl /Users/bitu/mtech-tools/a3test_out/Gson-6/outputs.jsonl
+com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory#getTypeAdapter#0: 2.3s, 337 chars

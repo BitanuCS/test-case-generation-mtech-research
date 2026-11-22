@@ -1,0 +1,34 @@
+{
+  "bug": "Jsoup-18",
+  "setting": "a3test",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "classes_info": [
+    {
+      "class": "org.jsoup.parser.CharacterReader",
+      "focal_methods": [
+        "CharacterReader",
+        "consumeToEnd"
+      ]
+    }
+  ],
+  "tests": {
+    "focal_methods": 2,
+    "written": 1,
+    "precompile_dropped": 1,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 1
+  },
+  "gen_seconds": 23.2,
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 29.6,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

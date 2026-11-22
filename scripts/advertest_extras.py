@@ -75,7 +75,7 @@ def measure(bug_name):
     proc = subprocess.run([runner.JAVAC, "-nowarn", "-encoding", "UTF-8", "-proc:none", "-cp", cp,
                            "-d", str(out / "classes"), *map(str, files)],
                           capture_output=True, text=True, timeout=900)
-    modified = bug.export("classes.modified").split(";")
+    modified = [c.strip() for c in re.split(r"[;\n]", bug.export("classes.modified")) if c.strip()]
     classes = []
     for test_file in files:
         code = test_file.read_text(errors="replace")
