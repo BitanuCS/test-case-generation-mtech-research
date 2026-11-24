@@ -251,6 +251,14 @@ The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **
 - 81 focal methods → 59 tests after post-processing → **3 compile and pass on the fixed version** (Lang-23, Cli-7, JacksonCore-2); all 3 also pass on the buggy version.
 - 54 do not compile alone, 2 more removed by `fix_test_suite.pl`; 9 bugs: no usable test method in the model output.
 - dev40: our framework 20, EvoSuite 13, Randoop 8, TOGA 5, A3Test 0, CodeT5 0.
+
+**AsserT5 setup (24 Nov 2026; not run on bugs yet).** AsserT5 (Primbs, Fein, Fraser, AST 2025, arXiv 2502.02708) = CodeT5-large fine-tuned to write ONE assertion for a test with a masked assertion. Their own Defects4J study found 33 of 138 bugs (raw model) with developer tests.
+- Files: replication package zenodo 14703162 (`tools.zip`, `models.zip`) in `mtech-tools/assert5`; checkpoint `1/raw/model-best.pt` from huggingface `se2p/AsserT5` (8.85 GB, includes optimizer state), converted once to `assert5-1-raw.safetensors` (3.1 GB, weights only). Checked: converted and original give identical outputs on toy tests.
+- Variant `1/raw`: at most 1 assertion per training test (we add exactly one), raw tokens (found the most D4J bugs in their paper: 33 vs 20 for abstract).
+- Input format copied from their source (`AssertionExtractor/.../AsserT5Subcommand.java`): `TEST_METHOD: <test tokens> <ASSERTION> ; } FOCAL_METHOD: <focal method tokens>`, Java tokens joined by spaces. Their preprocessing `.jar` was not run (blocked as untrusted downloaded code); re-implemented with javalang's tokenizer (same tokens). Decoding as their `server.py`: 386 input tokens, 64 new tokens, greedy (1 beam).
+- `scripts/assert5_predict.py` (model, TOGA's venv) + `scripts/run_assert5.py` (harness). Uses **exactly TOGA's inputs** (same EvoSuite tests, same prefixes and focal methods from `toga_prepare.py`), so TOGA vs AsserT5 differs only in the oracle model. One test per class, then the usual protocol.
+- **Declared difference from the paper:** they put the mask where EvoSuite's assertion failed on the BUGGY version (only bug-revealing tests). We do not look at the buggy version, as for every tool. AsserT5 cannot predict expected exceptions (their runner skips such tests); here it writes an assertion for those prefixes too.
+- About 1.5 s per prefix on CPU; JacksonCore-2 (about 2000 prefixes) will take about 1 h.
   - Restarted on 22 Nov ~13:00 IST with 34 bugs to go (the 6 finished bugs are unaffected).
 
 ## 6c. GitHub
