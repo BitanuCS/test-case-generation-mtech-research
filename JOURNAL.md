@@ -259,6 +259,15 @@ The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **
 - `scripts/assert5_predict.py` (model, TOGA's venv) + `scripts/run_assert5.py` (harness). Uses **exactly TOGA's inputs** (same EvoSuite tests, same prefixes and focal methods from `toga_prepare.py`), so TOGA vs AsserT5 differs only in the oracle model. One test per class, then the usual protocol.
 - **Declared difference from the paper:** they put the mask where EvoSuite's assertion failed on the BUGGY version (only bug-revealing tests). We do not look at the buggy version, as for every tool. AsserT5 cannot predict expected exceptions (their runner skips such tests); here it writes an assertion for those prefixes too.
 - About 1.5 s per prefix on CPU; JacksonCore-2 (about 2000 prefixes) will take about 1 h.
+
+**CAT-LM setup (24 Nov 2026; not run yet).** CAT-LM (Rao et al., ASE 2023, arXiv 2310.01602): 2.7B GPT-NeoX pretrained on aligned code + test files (`nikitharao/catlm`, 7.8 GB fp16). Too big for this Mac (8 GB RAM), so **generation runs on Google Colab (free T4 GPU)** and everything else on the Mac.
+- `scripts/run_catlm.py prepare bugs/dev40.txt` → `results/catlm/prompts.jsonl` (49 prompts: one per modified class; Closure-169 `EquivalenceMethod` skipped, not in the buggy version).
+- `colab/catlm_generate.ipynb` (user runs it: upload prompts, run all, download `generations.jsonl`; resumable).
+- `scripts/run_catlm.py evaluate bugs/dev40.txt` → per-bug reports, usual protocol.
+- Prompt = training layout, the paper's "first test" setting: class file (fixed version) + `<|codetestpair|>` + a test-file start (package, JUnit 4 + the class's imports, `public class XTest {`, `@Test public void test`). If the file is over the 8192-token window: class head + fields + the focal methods (same focal methods as our framework / A3Test); if still too long, the last 7680 tokens. No developer tests shown.
+- Settings from the paper + authors' `main_sample.py`: 10 samples per prompt, temperature 0.2, top_k 50, top_p 0.95, max 512 new tokens, trailing `</s>` removed, fixed seed per prompt. Each sample cut at the end of its first method (generation stops there too, only to save time).
+- Each distinct test in its own class; tests that do not compile alone dropped up front (as A3Test/CodeT5), then `fix_test_suite.pl`, bug detection, coverage + Major.
+- The authors' 32 GB artifact zip was not downloaded; their GitHub has only the sampling example.
   - Restarted on 22 Nov ~13:00 IST with 34 bugs to go (the 6 finished bugs are unaffected).
 
 ## 6c. GitHub
