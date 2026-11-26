@@ -1,0 +1,64 @@
+{
+  "bug": "Time-5",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.joda.time.Period",
+      "focal_methods": [
+        "normalizedStandard"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 4,
+    "distinct": 5,
+    "precompile_dropped": 4,
+    "written": 5,
+    "kept_on_fixed": 1,
+    "removed_on_fixed": 4,
+    "assertions_commented_out": 0
+  },
+  "prompt_used": [
+    "short"
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Time",
+      "version_id": "5f",
+      "test_suite_source": "catlm",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 288,
+      "lines_covered": 13,
+      "branches_total": 64,
+      "branches_covered": 0,
+      "line": 0.045,
+      "branch": 0.0
+    },
+    "major_mutation": {
+      "generated": 550,
+      "covered": 550,
+      "killed": 548,
+      "score": 0.996
+    }
+  },
+  "seconds": 74.4,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

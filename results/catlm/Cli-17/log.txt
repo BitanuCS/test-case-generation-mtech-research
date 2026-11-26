@@ -1,0 +1,63 @@
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Cli -d /Users/bitu/mtech-tools/catlm_out/Cli-17/suite -v 17f
+Checking out 9c5ce350 to /tmp/fix_test_suite.pl_4009_1795670519............ --------------------------------------------------------------------------------
+Cli-17f-catlm.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9c5ce350:cfbb46ad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-17f......................................... OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Use of uninitialized value $num_uncompilable_test_classes in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 477.
+Use of uninitialized value $num_uncompilable_test_classes in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 477.
+Use of uninitialized value $num_uncompilable_tests in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 479.
+Use of uninitialized value $num_uncompilable_tests in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 479.
+Use of uninitialized value $num_failing_tests in concatenation (.) or string at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 481.
+Use of uninitialized value $num_failing_tests in numeric gt (>) at /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl line 481.
+
+$ /Users/bitu/mtech-tools/defects4j/framework/bin/run_bug_detection.pl -p Cli -d /Users/bitu/mtech-tools/catlm_out/Cli-17/suite -o /Users/bitu/mtech-tools/catlm_out/Cli-17/detect
+Extract test suite......................................................... Executing test suite: Cli-17f-catlm.1.tar.bz2
+OK
+Checking out 9c5ce350 to /tmp/run_bug_detection.pl_4111_1795670524/V_fixed. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9c5ce350:cfbb46ad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-17f......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Checking out 9c5ce350 to /tmp/run_bug_detection.pl_4111_1795670524/V_buggy. OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Excluding broken/flaky tests............................................... OK
+Excluding broken/flaky tests............................................... OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 9c5ce350:cfbb46ad..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Cli-17b......................................... OK
+Running ant (compile)...................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

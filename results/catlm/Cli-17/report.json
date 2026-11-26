@@ -1,0 +1,64 @@
+{
+  "bug": "Cli-17",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.apache.commons.cli.PosixParser",
+      "focal_methods": [
+        "burstToken"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 6,
+    "distinct": 4,
+    "precompile_dropped": 0,
+    "written": 4,
+    "kept_on_fixed": 4,
+    "removed_on_fixed": 0,
+    "assertions_commented_out": 0
+  },
+  "prompt_used": [
+    "full"
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Cli",
+      "version_id": "17f",
+      "test_suite_source": "catlm",
+      "test_id": "1",
+      "test_classification": "Broken",
+      "num_trigger": "-"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": null,
+      "lines_covered": null,
+      "branches_total": null,
+      "branches_covered": null,
+      "line": null,
+      "branch": null
+    },
+    "major_mutation": {
+      "generated": null,
+      "covered": null,
+      "killed": null,
+      "score": null
+    }
+  },
+  "seconds": 34.1,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

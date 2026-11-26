@@ -1,0 +1,50 @@
+{
+  "bug": "JacksonCore-2",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "com.fasterxml.jackson.core.json.ReaderBasedJsonParser",
+      "focal_methods": [
+        "_parseNumber",
+        "_parseNumber2",
+        "_verifyRootSpace"
+      ]
+    },
+    {
+      "class": "com.fasterxml.jackson.core.json.UTF8StreamJsonParser",
+      "focal_methods": [
+        "_parseNumber",
+        "_parserNumber2",
+        "_parseFloat",
+        "_verifyRootSpace",
+        "_skipWSOrEnd"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 20,
+    "unclosed": 3,
+    "distinct": 9,
+    "precompile_dropped": 9,
+    "written": 9,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 9
+  },
+  "prompt_used": [
+    "short"
+  ],
+  "error": "no generated test compiles on the fixed version",
+  "seconds": 4.1,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

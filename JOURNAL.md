@@ -268,6 +268,16 @@ The supervisor asked for comparisons with non-LLM and ML-based tools. Chosen: **
 - Settings from the paper + authors' `main_sample.py`: 10 samples per prompt, temperature 0.2, top_k 50, top_p 0.95, max 512 new tokens, trailing `</s>` removed, fixed seed per prompt. Each sample cut at the end of its first method (generation stops there too, only to save time).
 - Each distinct test in its own class; tests that do not compile alone dropped up front (as A3Test/CodeT5), then `fix_test_suite.pl`, bug detection, coverage + Major.
 - The authors' 32 GB artifact zip was not downloaded; their GitHub has only the sampling example.
+- 25 Nov: first Colab try failed at install: pinned `transformers==4.44.2` needs an old `tokenizers` with no ready wheel for Colab's Python, so pip tried to build it from source and failed. Fix: no pin, use Colab's own transformers (GPT-NeoX + the slow sentencepiece tokenizer work there). Model settings unchanged.
+- 25 Nov, second try: Colab has Python 3.13 + transformers 5, where the model card's `T5Tokenizer` wrapper does not load (`add_special_tokens conflicts with the method`). Fix: use CAT-LM's `spiece.model` directly with the `sentencepiece` library. Checked on the Mac against the original slow tokenizer (transformers 4.39): same token ids on all 98 prompts (minus its trailing `</s>`, which we removed anyway). Generated text is decoded together with the last 32 prompt tokens so the spacing right after `public void test` is exact (the slow tokenizer would have dropped a leading space). Stops at `<|endoftext|>` (id 1), padding id 2.
+- 25 Nov, third try: "Torch not compiled with CUDA enabled" = the Colab session had no GPU (re-uploaded notebook opened on CPU). Notebook now asks for a T4 in its settings and stops in the first cell with a clear message if no GPU. Also `use_safetensors=False` so Colab does not download the 7.8 GB weights a second time.
+
+**CAT-LM result (dev40, 26 Nov 2026): 0/40 detected.** Colab generation 98 min (49 prompts: 33 full, 16 short, none truncated). Evaluation on the Mac (`results/catlm_run.log`) took about 25 min.
+- 490 samples → 257 never closed a method within 512 tokens → 233 closed → 184 distinct.
+- 130 of 184 did not compile (invented APIs, e.g. `FastDateParser.getInstance(Locale)`, `StringBuilderWriter`; checked by hand), 39 compiled but failed on the fixed version (e.g. `assertThat(clone, is(not(map)))` and `is(map)` in one test), **15 kept** in 7 bugs (Cli-17, Codec-5, JxPath-3, Time-1, Time-5, Mockito-2, Mockito-9). None fails on the buggy version.
+- 6 bugs had no closed sample at all (Csv-1, Gson-2, Compress-5, JacksonCore-8, Jsoup-7, Closure-58: 10/10 unclosed).
+- Cli-17 coverage/mutation = None, as for every other tool on Cli-17 (Defects4J side, not CAT-LM).
+- Same picture as A3Test (6/68 kept) and CodeT5 (3/59 kept): small models trained on file pairs write plausible Java but rarely code that compiles against a real project's API.
   - Restarted on 22 Nov ~13:00 IST with 34 bugs to go (the 6 finished bugs are unaffected).
 
 ## 6c. GitHub

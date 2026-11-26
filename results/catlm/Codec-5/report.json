@@ -1,0 +1,64 @@
+{
+  "bug": "Codec-5",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.apache.commons.codec.binary.Base64",
+      "focal_methods": [
+        "decode"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 4,
+    "distinct": 6,
+    "precompile_dropped": 1,
+    "written": 6,
+    "kept_on_fixed": 3,
+    "removed_on_fixed": 3,
+    "assertions_commented_out": 0
+  },
+  "prompt_used": [
+    "short"
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Codec",
+      "version_id": "5f",
+      "test_suite_source": "catlm",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 233,
+      "lines_covered": 153,
+      "branches_total": 162,
+      "branches_covered": 80,
+      "line": 0.657,
+      "branch": 0.494
+    },
+    "major_mutation": {
+      "generated": 990,
+      "covered": 990,
+      "killed": 552,
+      "score": 0.558
+    }
+  },
+  "seconds": 43.6,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "bug": "JacksonDatabind-8",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "com.fasterxml.jackson.databind.deser.impl.CreatorCollector",
+      "focal_methods": [
+        "verifyNonDup"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 1,
+    "distinct": 5,
+    "precompile_dropped": 5,
+    "written": 5,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 5
+  },
+  "prompt_used": [
+    "full"
+  ],
+  "error": "no generated test compiles on the fixed version",
+  "seconds": 3.6,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

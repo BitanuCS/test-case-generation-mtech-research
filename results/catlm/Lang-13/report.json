@@ -1,0 +1,40 @@
+{
+  "bug": "Lang-13",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.apache.commons.lang3.SerializationUtils",
+      "focal_methods": [
+        "ClassLoaderAwareObjectInputStream",
+        "resolveClass"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 0,
+    "distinct": 7,
+    "precompile_dropped": 5,
+    "written": 7,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 7,
+    "assertions_commented_out": 0
+  },
+  "prompt_used": [
+    "full"
+  ],
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 20.4,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

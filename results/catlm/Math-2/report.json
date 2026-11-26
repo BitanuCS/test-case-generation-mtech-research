@@ -1,0 +1,38 @@
+{
+  "bug": "Math-2",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.apache.commons.math3.distribution.HypergeometricDistribution",
+      "focal_methods": [
+        "getNumericalMean"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 3,
+    "distinct": 6,
+    "precompile_dropped": 6,
+    "written": 6,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 6
+  },
+  "prompt_used": [
+    "full"
+  ],
+  "error": "no generated test compiles on the fixed version",
+  "seconds": 3.8,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "bug": "Csv-4",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.apache.commons.csv.CSVParser",
+      "focal_methods": [
+        "getHeaderMap"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 1,
+    "distinct": 6,
+    "precompile_dropped": 0,
+    "written": 6,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 6,
+    "assertions_commented_out": 0
+  },
+  "prompt_used": [
+    "full"
+  ],
+  "error": "no generated test compiles and passes on the fixed version",
+  "seconds": 19.1,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

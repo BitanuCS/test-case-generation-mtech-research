@@ -1,0 +1,65 @@
+{
+  "bug": "Mockito-2",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.mockito.internal.util.Timer",
+      "focal_methods": [
+        "Timer",
+        "validateInput"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 7,
+    "distinct": 2,
+    "precompile_dropped": 0,
+    "written": 2,
+    "kept_on_fixed": 1,
+    "removed_on_fixed": 1,
+    "assertions_commented_out": 0
+  },
+  "prompt_used": [
+    "full"
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Mockito",
+      "version_id": "2f",
+      "test_suite_source": "catlm",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 13,
+      "lines_covered": 10,
+      "branches_total": 8,
+      "branches_covered": 3,
+      "line": 0.769,
+      "branch": 0.375
+    },
+    "major_mutation": {
+      "generated": 22,
+      "covered": 22,
+      "killed": 12,
+      "score": 0.545
+    }
+  },
+  "seconds": 307.2,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

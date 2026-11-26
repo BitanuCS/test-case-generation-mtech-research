@@ -1,0 +1,38 @@
+{
+  "bug": "JacksonDatabind-24",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "com.fasterxml.jackson.databind.cfg.BaseSettings",
+      "focal_methods": [
+        "withDateFormat"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 8,
+    "distinct": 2,
+    "precompile_dropped": 2,
+    "written": 2,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 2
+  },
+  "prompt_used": [
+    "full"
+  ],
+  "error": "no generated test compiles on the fixed version",
+  "seconds": 2.2,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

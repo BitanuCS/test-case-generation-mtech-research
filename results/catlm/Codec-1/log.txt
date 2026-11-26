@@ -1,0 +1,31 @@
+
+$ /Users/bitu/mtech-tools/defects4j/framework/util/fix_test_suite.pl -p Codec -d /Users/bitu/mtech-tools/catlm_out/Codec-1/suite -v 1f
+Checking out 52d82d1d to /tmp/fix_test_suite.pl_4639_1795670558............ --------------------------------------------------------------------------------
+Codec-1f-catlm.1.tar.bz2
+--------------------------------------------------------------------------------
+OK
+Init local repository...................................................... OK
+Tag post-fix revision...................................................... OK
+Run post-checkout hook..................................................... OK
+Backing up build file: /tmp/fix_test_suite.pl_4639_1795670558/project.prope OK
+Initialize fixed program version........................................... OK
+Apply patch................................................................ OK
+Initialize buggy program version........................................... OK
+Diff 52d82d1d:9c0cabea..................................................... OK
+Apply patch................................................................ OK
+Tag pre-fix revision....................................................... OK
+Check out program version: Codec-1f........................................ OK
+Extract test suite......................................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Remove broken test method(s)............................................... OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK
+Running ant (compile.gen.tests)............................................ OK
+Running ant (run.gen.tests)................................................ OK

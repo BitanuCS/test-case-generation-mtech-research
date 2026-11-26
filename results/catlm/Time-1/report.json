@@ -1,0 +1,71 @@
+{
+  "bug": "Time-1",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.joda.time.field.UnsupportedDurationField",
+      "focal_methods": [
+        "compareTo"
+      ]
+    },
+    {
+      "class": "org.joda.time.Partial",
+      "focal_methods": [
+        "Partial"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 20,
+    "unclosed": 5,
+    "distinct": 14,
+    "precompile_dropped": 8,
+    "written": 14,
+    "kept_on_fixed": 3,
+    "removed_on_fixed": 11,
+    "assertions_commented_out": 0
+  },
+  "prompt_used": [
+    "full",
+    "short"
+  ],
+  "detection_rows": [
+    {
+      "project_id": "Time",
+      "version_id": "1f",
+      "test_suite_source": "catlm",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 305,
+      "lines_covered": 29,
+      "branches_total": 122,
+      "branches_covered": 5,
+      "line": 0.095,
+      "branch": 0.041
+    },
+    "major_mutation": {
+      "generated": 407,
+      "covered": 407,
+      "killed": 400,
+      "score": 0.983
+    }
+  },
+  "seconds": 83.1,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}

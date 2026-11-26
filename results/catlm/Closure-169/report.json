@@ -1,0 +1,76 @@
+{
+  "bug": "Closure-169",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "com.google.javascript.rhino.jstype.ArrowType",
+      "focal_methods": [
+        "hasEqualParameters",
+        "checkArrowEquivalenceHelper"
+      ]
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.EquivalenceMethod",
+      "skip_reason": "class does not exist in the buggy version"
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.FunctionType",
+      "focal_methods": [
+        "tryMergeFunctionPiecewise",
+        "checkFunctionEquivalenceHelper",
+        "hasEqualCallType"
+      ]
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.JSType",
+      "focal_methods": [
+        "isEquivalentTo",
+        "isInvariant",
+        "differsFrom",
+        "checkEquivalenceHelper"
+      ]
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.RecordType",
+      "focal_methods": [
+        "checkRecordEquivalenceHelper",
+        "getGreatestSubtypeHelper",
+        "isSubtype"
+      ]
+    },
+    {
+      "class": "com.google.javascript.rhino.jstype.UnionType",
+      "focal_methods": [
+        "checkUnionEquivalenceHelper",
+        "hasAlternate"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 50,
+    "unclosed": 40,
+    "distinct": 10,
+    "precompile_dropped": 10,
+    "written": 10,
+    "kept_on_fixed": 0,
+    "removed_on_fixed": 10
+  },
+  "prompt_used": [
+    "full",
+    "short"
+  ],
+  "error": "no generated test compiles on the fixed version",
+  "seconds": 6.4,
+  "classes": [
+    {
+      "status": "error",
+      "detected": false
+    }
+  ]
+}

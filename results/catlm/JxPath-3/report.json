@@ -1,0 +1,66 @@
+{
+  "bug": "JxPath-3",
+  "setting": "catlm",
+  "detected": false,
+  "llm_calls": {
+    "fresh": 0,
+    "cached": 0
+  },
+  "model": "nikitharao/catlm (2.7B), Colab T4, 10 samples, T=0.2",
+  "classes_info": [
+    {
+      "class": "org.apache.commons.jxpath.ri.model.beans.NullPropertyPointer",
+      "focal_methods": [
+        "createPath",
+        "createPath",
+        "createBadFactoryException"
+      ]
+    }
+  ],
+  "tests": {
+    "samples": 10,
+    "unclosed": 2,
+    "distinct": 7,
+    "precompile_dropped": 2,
+    "written": 7,
+    "kept_on_fixed": 1,
+    "removed_on_fixed": 6,
+    "assertions_commented_out": 0
+  },
+  "prompt_used": [
+    "full"
+  ],
+  "detection_rows": [
+    {
+      "project_id": "JxPath",
+      "version_id": "3f",
+      "test_suite_source": "catlm",
+      "test_id": "1",
+      "test_classification": "Pass",
+      "num_trigger": "0"
+    }
+  ],
+  "standard_metrics": {
+    "coverage": {
+      "lines_total": 83,
+      "lines_covered": 11,
+      "branches_total": 34,
+      "branches_covered": 3,
+      "line": 0.133,
+      "branch": 0.088
+    },
+    "major_mutation": {
+      "generated": 91,
+      "covered": 91,
+      "killed": 84,
+      "score": 0.923
+    }
+  },
+  "seconds": 40.3,
+  "classes": [
+    {
+      "status": "ok",
+      "detected": false
+    }
+  ]
+}
